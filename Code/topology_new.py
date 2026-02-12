@@ -1,8 +1,24 @@
 from mininet.net import Mininet 
-from mininet.node import Controller, OVSSwitch
+from mininet.node import Controller, OVSSwitch, Node
 from mininet.cli import CLI 
 from mininet.link import TCLink
 from mininet.log import setLogLevel
+
+def L3_Core_Switch(net, switch_name, subnets):
+    core = net.get(switch_name)
+    
+    # Create L3 interfaces for each subnet (simulate VLAN routing)
+    for idx, (zone, (ip, mask)) in enumerate(subnets.items()):
+        iface = f'{core.name}-eth{idx}'
+        core.cmd(f'ifconfig {iface} {ip}/{mask} up')
+    core.cmd('sysctl -w net.ipv4.ip_forward=1')
+    return core
+    
+def addRouter(net, name):
+    """Add a router host with IP forwarding enabled"""
+    r = net.addHost(name, cls=Node)
+    r.cmd('sysctl -w net.ipv4.ip_forward=1')
+    return r
 
 def CPS_topology():
     net = Mininet(controller=Controller, link=TCLink, switch=OVSSwitch)
@@ -22,7 +38,7 @@ def CPS_topology():
     switch_control = net.addSwitch('s2')
     switch_it = net.addSwitch('s3')
     core_switch = net.addSwitch('s4')
-
+    
     print("Creating links")
     # Field Zone
     net.addLink(h1, switch_field)
@@ -40,7 +56,15 @@ def CPS_topology():
 
     print("Starting network")
     net.start()
-
+    
+    print("Configuring L3 Core Switch")
+    subnets = {
+        'field': ('10.0.1.1', 24),
+        'control': ('10.0.2.1', 24),
+        'IT': ('10.0.3.1', 24)
+    }
+    L3_Core_Switch(net, 's4', subnets)
+    
     print("Running CLI")
     CLI(net)
 
