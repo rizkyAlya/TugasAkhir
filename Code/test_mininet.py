@@ -8,8 +8,8 @@ from pymodbus.client.sync import ModbusTcpClient
 # =========================
 # KONFIGURASI
 # =========================
-OPCUA_ENDPOINT = "opc.tcp://localhost:4840/mininet/"
-MODBUS_HOST = "127.0.0.1"      # Modbus server ada di h1 sendiri
+OPCUA_ENDPOINT = "opc.tcp://10.0.0.103:4840/mininet/"
+MODBUS_HOST = "0.0.0.0"      # Modbus server ada di h1 sendiri
 MODBUS_PORT = 5020
 
 # Mapping register Modbus

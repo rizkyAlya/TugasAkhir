@@ -1,9 +1,9 @@
-from pymodbus.client.sync import ModbusTcpClient
+from pymodbus.client import ModbusTcpClient
 import time
 import csv
 from datetime import datetime
 
-H1_IP = "10.0.0.1"  # IP h1 mininet
+H1_IP = "10.0.0.101"  # IP h1 mininet
 MODBUS_PORT = 5020
 
 V_BASE_ADDR = 0

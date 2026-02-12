@@ -2,7 +2,7 @@ from opcua import Server
 import time
 
 server = Server()
-server.set_endpoint("opc.tcp://0.0.0.0:4840/mininet/")
+server.set_endpoint("opc.tcp://10.0.0.103:4840/mininet/")
 
 uri = "mininet-opcua"
 idx = server.register_namespace(uri)

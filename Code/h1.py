@@ -1,19 +1,15 @@
 from opcua import Client as OPCUAClient
 import time
+from datetime import datetime
 import random
-import logging
 from threading import Thread
 
 from pymodbus.server import StartTcpServer
 from pymodbus.datastore import ModbusSlaveContext, ModbusServerContext
 from pymodbus.datastore import ModbusSequentialDataBlock
 
-# =========================
-# LOGGING
-# =========================
-logging.basicConfig()
-log = logging.getLogger()
-log.setLevel(logging.INFO)
+# Format timestamp
+now = datetime.now()
 
 # =========================
 # KONFIGURASI
@@ -83,6 +79,7 @@ def main_loop():
 
     try:
         while True:
+            print("\n", now)
             for bus in range(1, NUM_BUS + 1):
 
                 # ----- 1) Generate data dummy -----
@@ -93,6 +90,7 @@ def main_loop():
                 try:
                     tegangan_nodes[bus].set_value(v)
                     arus_nodes[bus].set_value(i)
+                    print("Berhasil kirim data ke OPC UA Server")
                 except Exception as e:
                     print("Error OPC UA:", e)
 

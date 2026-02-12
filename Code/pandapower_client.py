@@ -2,11 +2,15 @@ from opcua import Client
 import pandapower.networks as pn
 import pandapower as pp
 import time
+from datetime import datetime
+
+# Format timestamp
+now = datetime.now()
 
 # Menggunakan Panda Power IEEE 39 Bus
 net = pn.case39()
 
-client = Client("opc.tcp://localhost:4840/mininet/")
+client = Client("opc.tcp://10.0.0.103:4840/mininet/")
 client.connect()
 
 # Namespace index server
@@ -31,7 +35,8 @@ bus_map = {i+1: i for i in range(5)}
 
 # Mapping dan status untuk bus line (untuk simulasi breaker nanti)
 bus_line = {i+1: i for i in range(len(net.line))}
-line_status = {idx: True for idx in range(len(net.line))} # True: tutup; False: buka
+line_status = 
+{idx: True for idx in range(len(net.line))} # True: tutup; False: buka
 
 while True:
     # Baca semua sensor dari mininet yang disimpan di OPC UA server
@@ -53,6 +58,7 @@ while True:
     # Run load flow (perhitungan ulang distribusi di 39 bus)
     try:
         pp.runpp(net)
+        print("\n", now)
         print("Load flow sukses. Voltage snapshot:", net.res_bus.vm_pu.values[:5])
     except:
         print("Load flow gagal")
