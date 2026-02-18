@@ -31,13 +31,14 @@ for bus in range(1, 6):
     command_nodes[bus] = command_folder.add_variable(idx, f"CMD_bus_{bus}", 0)
     command_nodes[bus].set_writable()
 
-    last_breaker[bus] = 0  # default: breaker terbuka
+    last_breaker[bus] = 1  # default: breaker tertutup
 
 print("Memulai Server OPC UA")
 server.start()
 
 try:
     while True:
+        print("\n")
         ts = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
         for bus in range(1, 6):
@@ -55,7 +56,7 @@ try:
                 print(f"[{ts}] [Bus {bus}] Status breaker diperbarui ke: {'CLOSE' if cmd==1 else 'OPEN'}")
                 last_breaker[bus] = cmd
 
-        time.sleep(1)
+        time.sleep(4)
 
 except KeyboardInterrupt:
     print("Server dihentikan oleh user")

@@ -28,7 +28,7 @@ arus_nodes = {bus: root.get_child(["0:Objects", f"{idx}:SENSORS", f"{idx}:I_bus_
 command_nodes = {bus: root.get_child(["0:Objects", f"{idx}:COMMANDS", f"{idx}:CMD_bus_{bus}"]) for bus in range(1, NUM_BUS+1)}
 
 # Status breaker (lokal)
-breaker_status = {bus: 0 for bus in range(1, NUM_BUS+1)}  # 0=OPEN, 1=CLOSE
+breaker_status = {bus: 1 for bus in range(1, NUM_BUS+1)}  # 0=OPEN, 1=CLOSE
 
 # Main function
 def read_modbus_bus(bus):
@@ -96,7 +96,7 @@ with open(csv_file, "a", newline="") as f:
                 writer.writerow([ts, bus, v, i, breaker_status[bus]])
 
             f.flush()
-            time.sleep(5)
+            time.sleep(4)
 
     except KeyboardInterrupt:
         print("RTU/IED dihentikan")

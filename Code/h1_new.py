@@ -15,7 +15,7 @@ NUM_BUS = 5
 
 # Mapping register Modbus
 V_BASE_ADDR = 0         # HR 0-4
-I_BASE_ADDR = 10        # HR 10 -14
+I_BASE_ADDR = 10        # HR 10-14
 BREAKER_BASE_ADDR = 0   # Coil 0-4
 
 # Datastore modbus
@@ -27,8 +27,8 @@ store = ModbusSlaveContext(
 )
 context = ModbusServerContext(slaves=store, single=True)
 
-# Breaker status (kondisi awal: terbuka, selanjutnya menyesuaikan dengan nilai dari Digital Twin)
-breaker_status = {bus: 0 for bus in range(1, NUM_BUS+1)}
+# Breaker status (kondisi awal: tertutup, selanjutnya menyesuaikan dengan nilai dari Digital Twin)
+breaker_status = {bus: 1 for bus in range(1, NUM_BUS+1)}
 
 # Fungsi update status breaker 
 def update_breaker(bus, status):
