@@ -31,13 +31,6 @@ tegangan_nodes = {bus: root.get_child(["0:Objects", f"{idx}:SENSORS", f"{idx}:V_
 arus_nodes = {bus: root.get_child(["0:Objects", f"{idx}:SENSORS", f"{idx}:I_bus_{bus}"]) for bus in range(1, NUM_BUS+1)}
 command_nodes = {bus: root.get_child(["0:Objects", f"{idx}:COMMANDS", f"{idx}:CMD_bus_{bus}"]) for bus in range(1, NUM_BUS+1)}
 
-# ----------------------------
-# LOG FILE
-# ----------------------------
-csv_file = "log_modbus_h2.csv"
-with open(csv_file, "a", newline="") as f:
-    writer = csv.writer(f)
-    writer.writerow(["timestamp", "bus", "V(pu)", "I(pu)", "breaker_status"])
 
 # ----------------------------
 # STATUS BREAKER LOKAL
@@ -72,7 +65,6 @@ def send_opcua_bus(bus, v, i, breaker):
     try:
         tegangan_nodes[bus].set_value(v)
         arus_nodes[bus].set_value(i)
-        # Kirim status breaker juga ke OPC UA
         command_nodes[bus].set_value(breaker)
     except Exception as e:
         print(f"Error kirim ke OPC UA bus {bus}: {e}")
@@ -80,40 +72,46 @@ def send_opcua_bus(bus, v, i, breaker):
 # ----------------------------
 # LOOP UTAMA
 # ----------------------------
-try:
-    while True:
-        ts = datetime.now().isoformat()
+csv_file = "log_modbus.csv"
+with open(csv_file, "a", newline="") as f:
+    writer = csv.writer(f)
+    writer.writerow(["timestamp", "bus", "V(pu)", "I(pu)", "breaker_status"])
+    
+    try:
+        while True:
+            print("\n")
+            ts = datetime.now().isoformat()
 
-        for bus in range(1, NUM_BUS+1):
-            v, i = read_modbus_bus(bus)
-            if v is None or i is None:
-                print(f"Error baca Modbus bus {bus}")
-                continue
+            for bus in range(1, NUM_BUS+1):
+                v, i = read_modbus_bus(bus)
+                if v is None or i is None:
+                    print(f"Error baca Modbus bus {bus}")
+                    continue
 
-            # 1) Terima perintah breaker dari H3
-            try:
-                cmd = command_nodes[bus].get_value()
-                if cmd in [0, 1]:
-                    breaker_status[bus] = cmd
-            except Exception as e:
-                print(f"Error baca command OPC UA bus {bus}: {e}")
+                # 1) Terima perintah breaker dari H3
+                try:
+                    cmd = command_nodes[bus].get_value()
+                    if cmd in [0, 1]:
+                        breaker_status[bus] = cmd
+                except Exception as e:
+                    print(f"Error baca command OPC UA bus {bus}: {e}")
 
-            # 2) Update coil di H1
-            update_breaker_h1(bus, breaker_status[bus])
+                # 2) Update coil di H1
+                update_breaker_h1(bus, breaker_status[bus])
 
-            # 3) Kirim data dan status breaker ke H3
-            send_opcua_bus(bus, v, i, breaker_status[bus])
+                # 3) Kirim data dan status breaker ke H3
+                send_opcua_bus(bus, v, i, breaker_status[bus])
 
-            # 4) Log
-            print(f"[{ts}] Bus {bus}: V={v:.3f} pu, I={i:.3f}, Breaker={'CLOSE' if breaker_status[bus]==1 else 'OPEN'}")
-            writer.writerow([ts, bus, v, i, breaker_status[bus]])
+                # 4) Log
+                print(f"[{ts}] Bus {bus}: V={v:.3f} pu, I={i:.3f}, Breaker={'CLOSE' if breaker_status[bus]==1 else 'OPEN'}")
+                writer.writerow([ts, bus, v, i, breaker_status[bus]])
 
-        f.flush()
-        time.sleep(5)
+            f.flush()
+            time.sleep(5)
 
-except KeyboardInterrupt:
-    print("RTU/IED dihentikan")
+    except KeyboardInterrupt:
+        print("RTU/IED dihentikan")
 
-finally:
-    modbus_client.close()
-    opc_client.disconnect()
+    finally:
+        modbus_client.close()
+        opc_client.disconnect()
