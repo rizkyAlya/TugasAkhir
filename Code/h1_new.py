@@ -7,8 +7,6 @@ from pymodbus.server import StartTcpServer
 from pymodbus.datastore import ModbusSlaveContext, ModbusServerContext
 from pymodbus.datastore import ModbusSequentialDataBlock
 
-now = datetime.now()
-
 # Konfigurasi Modbus
 MODBUS_LISTEN_IP = "0.0.0.0"
 MODBUS_PORT = 5020
@@ -50,7 +48,7 @@ def main_loop():
 
     try:
         while True:
-            print("\n", now)
+            print("\n", datetime.now)
             for bus in range(1, NUM_BUS + 1):
                 # Generate data dummy
                 v = 1.0 + random.uniform(-0.05, 0.05)    # per unit
@@ -79,8 +77,6 @@ def main_loop():
     except KeyboardInterrupt:
         print("Stopped by User")
 
-    finally:
-        client_ua.disconnect()
 
 # Entry point
 if __name__ == "__main__":

@@ -1,114 +1,91 @@
-from opcua import Client as OPCUAClient
-import time
-import random
+from mininet.net import Mininet
+from mininet.node import Controller, OVSSwitch, Node
+from mininet.cli import CLI
+from mininet.link import TCLink
+from mininet.log import setLogLevel
 
-# --- Modbus client ---
-from pymodbus.client.sync import ModbusTcpClient
+def addRouter(net, name):
+    r = net.addHost(name, cls=Node)
+    r.cmd('sysctl -w net.ipv4.ip_forward=1')
+    return r
 
-# =========================
-# KONFIGURASI
-# =========================
-OPCUA_ENDPOINT = "opc.tcp://10.0.0.103:4840/mininet/"
-MODBUS_HOST = "0.0.0.0"      # Modbus server ada di h1 sendiri
-MODBUS_PORT = 5020
+def CPS_topology_vlan():
+    net = Mininet(controller=Controller, link=TCLink, switch=OVSSwitch)
 
-# Mapping register Modbus
-# Misal:
-#   - V_bus_1..5 disimpan di Holding Register 0..4
-#   - I_bus_1..5 disimpan di Holding Register 10..14
-V_BASE_ADDR = 0
-I_BASE_ADDR = 10
+    print("Adding controller")
+    net.addController('c0')
 
-# =========================
-# OPC UA SETUP
-# =========================
-client_ua = OPCUAClient(OPCUA_ENDPOINT)
-client_ua.connect()
+    print("Adding hosts")
+    # Field Zone
+    h1 = net.addHost('h1', ip='10.0.1.2/24')  # Field Device
+    h2 = net.addHost('h2', ip='10.0.1.3/24')  # RTU
+    # Control Zone
+    h3 = net.addHost('h3', ip='10.0.2.2/24')  # SCADA Gateway
+    # IT Zone
+    h4 = net.addHost('h4', ip='10.0.3.2/24')  # Digital Twin
+    h5 = net.addHost('h5', ip='10.0.3.3/24')  # Attacker
 
-idx = client_ua.get_namespace_index("mininet-opcua")
-print("Namespace index:", idx)
+    print("Adding switches")
+    switch_field = net.addSwitch('s1')
+    switch_control = net.addSwitch('s2')
+    switch_it = net.addSwitch('s3')
+    core_switch = net.addSwitch('s4')
 
-root = client_ua.get_root_node()
+    print("Adding router")
+    r0 = addRouter(net, 'r0')
 
-tegangan_nodes = {}
-arus_nodes = {}
-command_nodes = {}
+    print("Creating links")
+    # Field Zone
+    net.addLink(h1, switch_field)
+    net.addLink(h2, switch_field)
+    net.addLink(switch_field, core_switch)
 
-for bus in range(1, 6):
-    tegangan_nodes[bus] = root.get_child([
-        "0:Objects", f"{idx}:SENSORS", f"{idx}:V_bus_{bus}"
-    ])
-    arus_nodes[bus] = root.get_child([
-        "0:Objects", f"{idx}:SENSORS", f"{idx}:I_bus_{bus}"
-    ])
-    command_nodes[bus] = root.get_child([
-        "0:Objects", f"{idx}:COMMANDS", f"{idx}:CMD_bus_{bus}"
-    ])
+    # Control Zone
+    net.addLink(h3, switch_control)
+    net.addLink(switch_control, core_switch)
 
-# =========================
-# MODBUS CLIENT SETUP
-# =========================
-client_mb = ModbusTcpClient(MODBUS_HOST, port=MODBUS_PORT)
-if not client_mb.connect():
-    print("Gagal koneksi ke Modbus server, cek IP/port!")
-    exit(1)
+    # IT Zone
+    net.addLink(h4, switch_it)
+    net.addLink(h5, switch_it)
+    net.addLink(switch_it, core_switch)
 
-print("Terhubung ke Modbus server di", MODBUS_HOST, MODBUS_PORT)
+    # r0 - Core Switch
+    net.addLink(r0, core_switch)
 
-# =========================
-# LOOP UTAMA
-# =========================
-try:
-    while True:
-        for bus in range(1, 6):
+    print("Starting network")
+    net.start()
 
-            # ----- 1) Generate data dummy -----
-            v = 1.0 + random.uniform(-0.05, 0.05)    # per unit
-            i = random.uniform(0.1, 2.0)             # misal arus dalam pu atau kA
+    print("Configuring core switch")
+    core_switch.cmd('ovs-vsctl set port s4-eth1 tag=10')
+    core_switch.cmd('ovs-vsctl set port s4-eth2 tag=20')
+    core_switch.cmd('ovs-vsctl set port s4-eth3 tag=30')
+    
+    print("Configuring router VLAN subinterfaces")
+    # Subinterfaces di router untuk tiap VLAN
+    r0.cmd('ip link add link r0-eth0 name r0-eth0.10 type vlan id 10')
+    r0.cmd('ip link add link r0-eth0 name r0-eth0.20 type vlan id 20')
+    r0.cmd('ip link add link r0-eth0 name r0-eth0.30 type vlan id 30')
 
-            # ----- 2) Kirim ke OPC UA -----
-            try:
-                tegangan_nodes[bus].set_value(v)
-                arus_nodes[bus].set_value(i)
-            except Exception as e:
-                print("Error OPC UA:", e)
+    r0.cmd('ifconfig r0-eth0.10 10.0.1.1/24 up')  # Field Zone
+    r0.cmd('ifconfig r0-eth0.20 10.0.2.1/24 up')  # Control Zone
+    r0.cmd('ifconfig r0-eth0.30 10.0.3.1/24 up')  # IT Zone
 
-            # ----- 3) Simpan ke Modbus Holding Register -----
-            # Karena Modbus cuma dukung 16-bit register,
-            v_scaled = int(v * 1000)
-            i_scaled = int(i * 1000)
+    print("Setting default routes on hosts")
+    # Field Zone
+    h1.cmd('ip route add default via 10.0.1.1')
+    h2.cmd('ip route add default via 10.0.1.1')
+    # Control Zone
+    h3.cmd('ip route add default via 10.0.2.1')
+    # IT Zone
+    h4.cmd('ip route add default via 10.0.3.1')
+    h5.cmd('ip route add default via 10.0.3.1')
 
-            addr_v = V_BASE_ADDR + (bus - 1)   # HR untuk V_bus_n
-            addr_i = I_BASE_ADDR + (bus - 1)   # HR untuk I_bus_n
+    print("Network ready")
+    CLI(net)
 
-            try:
-                # function code 0x06: write single holding register
-                rr_v = client_mb.write_register(addr_v, v_scaled, unit=1)
-                rr_i = client_mb.write_register(addr_i, i_scaled, unit=1)
+    print("Stopping network")
+    net.stop()
 
-                if rr_v.isError() or rr_i.isError():
-                    print(f"Error write Modbus bus {bus}")
-            except Exception as e:
-                print("Error Modbus:", e)
-
-            # ----- 4) Ambil command dari PandaPower via OPC UA -----
-            try:
-                cmd = command_nodes[bus].get_value()
-                if cmd == 1:
-                    print(f"Bus {bus}: command = breaker OPEN")
-                elif cmd == 2:
-                    print(f"Bus {bus}: command = breaker CLOSE")
-                else:
-                    print(f"Bus {bus}: command = NORMAL")
-            except Exception as e:
-                print("Error baca command:", e)
-
-        # jeda antar siklus
-        time.sleep(5)
-
-except KeyboardInterrupt:
-    print("Dihentikan oleh user.")
-
-finally:
-    client_ua.disconnect()
-    client_mb.close()
+if __name__ == '__main__':
+    setLogLevel('info')
+    CPS_topology_vlan()
