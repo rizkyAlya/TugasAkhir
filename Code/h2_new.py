@@ -5,9 +5,7 @@ from datetime import datetime
 import csv
 import random
 
-# ----------------------------
-# KONFIGURASI
-# ----------------------------
+# Konfigurasi awal
 H1_IP = "10.0.1.2"
 MODBUS_PORT = 5020
 OPCUA_ENDPOINT = "opc.tcp://10.0.2.2:4840/mininet/"  # H3 OPC UA server
@@ -17,15 +15,11 @@ I_BASE_ADDR = 10
 BREAKER_BASE_ADDR = 0
 NUM_BUS = 5
 
-# ----------------------------
-# MODBUS CLIENT (H1)
-# ----------------------------
+# Modbus (H1)
 modbus_client = ModbusTcpClient(H1_IP, port=MODBUS_PORT)
 modbus_client.connect()
 
-# ----------------------------
-# OPC UA CLIENT (H3)
-# ----------------------------
+# OPC UA (H3)
 opc_client = OPCUAClient(OPCUA_ENDPOINT)
 opc_client.connect()
 idx = opc_client.get_namespace_index("mininet-opcua")
@@ -36,22 +30,16 @@ tegangan_nodes = {bus: root.get_child(["0:Objects", f"{idx}:SENSORS", f"{idx}:V_
 arus_nodes = {bus: root.get_child(["0:Objects", f"{idx}:SENSORS", f"{idx}:I_bus_{bus}"]) for bus in range(1, NUM_BUS+1)}
 command_nodes = {bus: root.get_child(["0:Objects", f"{idx}:COMMANDS", f"{idx}:CMD_bus_{bus}"]) for bus in range(1, NUM_BUS+1)}
 
-# ----------------------------
-# LOG FILE
-# ----------------------------
+# Log file
 csv_file = "log_modbus_h2.csv"
 with open(csv_file, "a", newline="") as f:
     writer = csv.writer(f)
     writer.writerow(["timestamp", "bus", "V(pu)", "I(pu)", "breaker_status"])
 
-# ----------------------------
-# STATUS BREAKER LOKAL
-# ----------------------------
+# Status breaker (lokal)
 breaker_status = {bus: 0 for bus in range(1, NUM_BUS+1)}  # 0=OPEN, 1=CLOSE
 
-# ----------------------------
-# LOOP UTAMA
-# ----------------------------
+# Loop utama
 try:
     while True:
         ts = datetime.now().isoformat()
