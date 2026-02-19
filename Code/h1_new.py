@@ -30,7 +30,7 @@ context = ModbusServerContext(slaves=store, single=True)
 # Breaker status (kondisi awal: tertutup, selanjutnya menyesuaikan dengan nilai dari Digital Twin)
 breaker_status = {bus: 1 for bus in range(1, NUM_BUS+1)}
 
-# Fungsi update status breaker 
+# Fungsi update status breaker (manual)
 def update_breaker(bus, status):
     breaker_status[bus] = status
     context[0x00].setValues(1, BREAKER_BASE_ADDR + (bus-1), [status])
@@ -68,9 +68,11 @@ def main_loop():
                     context[slave_id].setValues(fx_co, addr_breaker, [breaker_status[bus]])
                     
                     print(f"Bus {bus} | V = {v_scaled} | I = {i_scaled} | Breaker = {'OPEN' if breaker_status[bus]==0 else 'CLOSE'}")
-                    #print(f"Update HR[{addr_v}]={v_scaled}, HR[{addr_i}]={i_scaled}, CO[{addr_breaker}]={breaker_status}")
                 except Exception as e:
                     print("Error update Modbus datastore:", e)
+
+                current_breaker = context[slave_id].getValues(fx_co, addr_breaker, count=1)[0]
+                breaker_status[bus] = current_breaker
 
             time.sleep(5)
 

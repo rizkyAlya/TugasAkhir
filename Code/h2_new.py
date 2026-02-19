@@ -47,7 +47,7 @@ def read_modbus_bus(bus):
 def update_breaker_h1(bus, status):
     addr_brk = BREAKER_BASE_ADDR + (bus - 1)
     try:
-        modbus_client.write_coil(addr_brk, status, unit=1)
+        modbus_client.write_coil(addr_brk, status, unit=0)
     except Exception as e:
         print(f"Error update breaker H1 bus {bus}: {e}")
 
