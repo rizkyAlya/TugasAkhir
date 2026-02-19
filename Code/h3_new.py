@@ -19,7 +19,7 @@ tegangan_nodes = {}
 arus_nodes = {}
 command_nodes = {}
 
-last_breaker = {}     # Simpan nilai terkahir breaker untuk track update
+last_breaker = {}     # Simpan nilai terakhir breaker untuk track update
 
 for bus in range(1, 6):  
     tegangan_nodes[bus] = sensor_folder.add_variable(idx, f"V_bus_{bus}", 0.0)
@@ -28,7 +28,7 @@ for bus in range(1, 6):
     arus_nodes[bus] = sensor_folder.add_variable(idx, f"I_bus_{bus}", 0.0)
     arus_nodes[bus].set_writable()
 
-    command_nodes[bus] = command_folder.add_variable(idx, f"CMD_bus_{bus}", 0)
+    command_nodes[bus] = command_folder.add_variable(idx, f"CMD_bus_{bus}", 1)
     command_nodes[bus].set_writable()
 
     last_breaker[bus] = 1  # default: breaker tertutup
