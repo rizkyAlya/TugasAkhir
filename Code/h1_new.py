@@ -30,6 +30,11 @@ context = ModbusServerContext(slaves=store, single=True)
 # Breaker status (kondisi awal: tertutup, selanjutnya menyesuaikan dengan nilai dari Digital Twin)
 breaker_status = {bus: 1 for bus in range(1, NUM_BUS+1)}
 
+# Sinkronisasi awal 
+for bus in range (1, NUM_BUS+1):
+    addr_breaker = BREAKER_BASE_ADDR + (bus-1)
+    context[0x00].setValues(1, addr_breaker, [breaker_status[bus]])
+
 # Fungsi update status breaker (manual)
 def update_breaker(bus, status):
     breaker_status[bus] = status
@@ -48,7 +53,7 @@ def main_loop():
 
     try:
         while True:
-            print("\n", datetime.now())
+            print("\n", datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
             for bus in range(1, NUM_BUS + 1):
                 addr_v = V_BASE_ADDR + (bus - 1)
                 addr_i = I_BASE_ADDR + (bus - 1)

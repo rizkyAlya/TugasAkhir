@@ -69,7 +69,7 @@ with open(csv_file, "a", newline="") as f:
     try:
         while True:
             print("\n")
-            ts = datetime.now().isoformat()
+            ts = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
             for bus in range(1, NUM_BUS+1):
                 v, i = read_modbus_bus(bus)

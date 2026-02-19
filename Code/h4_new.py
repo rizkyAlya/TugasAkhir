@@ -54,7 +54,7 @@ while True:
     # Run load flow (perhitungan ulang distribusi di 39 bus)
     try:
         pp.runpp(net)
-        print("\n", datetime.now().isoformat())
+        print("\n", datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
         print("Load flow sukses. Voltage snapshot:", net.res_bus.vm_pu.values[:5])
     except:
         print("Load flow gagal")
