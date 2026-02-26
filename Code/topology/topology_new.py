@@ -10,7 +10,7 @@ import sys
 
 base_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 sys.path.append(base_dir)
-from data.baseline import collect_data
+from logger.baseline import collect_data
 
 def addRouter(net, name):
     r = net.addHost(name, cls=Node)
