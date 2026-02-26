@@ -6,6 +6,11 @@ from mininet.log import setLogLevel
 
 import time
 import os
+import sys
+
+base_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+sys.path.append(base_dir)
+from data.baseline import collect_data
 
 def addRouter(net, name):
     r = net.addHost(name, cls=Node)
@@ -39,21 +44,21 @@ def CPS_topology():
 
     print("Creating links")
     # Field Zone
-    net.addLink(h1, switch_field)
-    net.addLink(h2, switch_field)
-    net.addLink(switch_field, core_switch)
-    net.addLink(r0, switch_field)  # connect router to Field Zone
+    net.addLink(h1, switch_field, bw=10)
+    net.addLink(h2, switch_field, bw=10)
+    net.addLink(switch_field, core_switch, bw=100)
+    net.addLink(r0, switch_field, bw=100)  # connect router to Field Zone
 
     # Control Zone
-    net.addLink(h3, switch_control)
-    net.addLink(switch_control, core_switch)
-    net.addLink(r0, switch_control)  # connect router to Control Zone
+    net.addLink(h3, switch_control, bw=10)
+    net.addLink(switch_control, core_switch, bw=100)
+    net.addLink(r0, switch_control, bw=100)  # connect router to Control Zone
 
     # IT Zone
-    net.addLink(h4, switch_it)
-    net.addLink(h5, switch_it)
-    net.addLink(switch_it, core_switch)
-    net.addLink(r0, switch_it)  # connect router to IT Zone
+    net.addLink(h4, switch_it, bw=10)
+    net.addLink(h5, switch_it, bw=10)
+    net.addLink(switch_it, core_switch, bw=100)
+    net.addLink(r0, switch_it, bw=100)  # connect router to IT Zone
 
     print("Starting network")
     net.start()
@@ -83,14 +88,19 @@ def CPS_topology():
     
     base_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 
-    h1.cmd(f'python3 -u {base_dir}/apps/h1_field.py > {base_dir}/logs/h1.log 2>&1 &')
-    h3.cmd(f'python3 -u {base_dir}/apps/h3_gateway.py > {base_dir}/logs/h3.log 2>&1 &')
+    h1.cmd(f'python3 -u {base_dir}/apps/h1_field.py > {base_dir}/logs/host/h1.log 2>&1 &')
+    h3.cmd(f'python3 -u {base_dir}/apps/h3_gateway.py > {base_dir}/logs/host/h3.log 2>&1 &')
     time.sleep(2)
-    h2.cmd(f'python3 -u {base_dir}/apps/h2_rtu.py > {base_dir}/logs/h2.log 2>&1 &')
-    h4.cmd(f'python3 -u {base_dir}/apps/h4_twin.py > {base_dir}/logs/h4.log 2>&1 &')
+    h2.cmd(f'python3 -u {base_dir}/apps/h2_rtu.py > {base_dir}/logs/host/h2.log 2>&1 &')
+    h4.cmd(f'python3 -u {base_dir}/apps/h4_twin.py > {base_dir}/logs/host/h4.log 2>&1 &')
 
     print("All applications started.")
     
+    time.sleep(60)
+
+    print("\nStarting baseline measurement...")
+    collect_data(net)
+
     CLI(net)
 
     print("Stopping network")
