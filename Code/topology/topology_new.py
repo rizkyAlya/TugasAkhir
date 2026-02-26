@@ -3,6 +3,7 @@ from mininet.node import Controller, OVSSwitch, Node
 from mininet.cli import CLI
 from mininet.link import TCLink
 from mininet.log import setLogLevel
+
 import time
 import os
 
@@ -57,7 +58,7 @@ def CPS_topology():
     print("Starting network")
     net.start()
 
-    print("Configuring router interfaces")
+    print("\nConfiguring router interfaces")
     # Assign router IPs per subnet
     r0.cmd('ifconfig r0-eth0 10.0.1.1/24 up')  # Field Zone
     r0.cmd('ifconfig r0-eth1 10.0.2.1/24 up')  # Control Zone
@@ -73,7 +74,7 @@ def CPS_topology():
     h4.cmd('ip route add default via 10.0.3.1')
     h5.cmd('ip route add default via 10.0.3.1')
 
-    print("Waiting for network stabilization...")
+    print("\nWaiting for network stabilization...")
     time.sleep(5)
     print("Network ready")
 
@@ -82,10 +83,13 @@ def CPS_topology():
     
     base_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 
-    h1.cmd(f'python3 {base_dir}/apps/h1_new.py &')
-    h2.cmd(f'python3 {base_dir}/apps/h2_new.py &')
-    h3.cmd(f'python3 {base_dir}/apps/h3_new.py &')
-    h4.cmd(f'python3 {base_dir}/apps/h4_new.py &')
+    try:
+        h1.cmd(f'python3 {base_dir}/apps/h1_field.py &')
+        h2.cmd(f'python3 {base_dir}/apps/h2_rtu.py &')
+        h3.cmd(f'python3 {base_dir}/apps/h3_gateway.py &')
+        h4.cmd(f'python3 {base_dir}/apps/h4_twin.py &')
+    except Exception as e:
+        print("Error loading application", e)
 
     print("All applications started.")
     
