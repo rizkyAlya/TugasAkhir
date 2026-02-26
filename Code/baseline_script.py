@@ -1,14 +1,14 @@
 import re
 import csv
 import datetime
+import time
 
 links = [
-    ("field", "h1", "10.0.1.3"),
-    ("gateway", "h2", "10.0.2.2"),
-    ("system", "h3", "10.0.3.2"),
+    ("field", "h2", "10.0.2.2"),   # h2 → h3
+    ("system", "h3", "10.0.3.2"),  # h3 → h4
 ]
 
-# RTT and Packet Loss
+# RTT & Packet Loss
 with open("rtt.csv", "w", newline="") as rtt_file, \
      open("packet_loss.csv", "w", newline="") as loss_file:
 
@@ -23,7 +23,7 @@ with open("rtt.csv", "w", newline="") as rtt_file, \
 
         output = net.get(host).cmd(f"ping -c 20 {dest_ip}")
 
-        # RTT parsing
+        # RTT parsing (per packet)
         for line in output.split("\n"):
             if "time=" in line:
                 latency = re.search(r'time=(\d+\.?\d*)', line)
@@ -36,7 +36,7 @@ with open("rtt.csv", "w", newline="") as rtt_file, \
                         latency.group(1)
                     ])
 
-        # Packet loss parsing
+        # Packet loss parsing (summary)
         for line in output.split("\n"):
             if "packet loss" in line:
                 loss = re.search(r'(\d+)% packet loss', line)
@@ -56,23 +56,21 @@ with open("throughput.csv", "w", newline="") as th_file:
     th_writer.writerow(["timestamp","layer","source","destination","throughput_Mbps"])
 
     for layer, host, dest_ip in links:
+
         print(f"Testing throughput {layer}...")
 
-        # start iperf server
-        server_host = None
         if layer == "field":
-            server_host = "h2"
-        elif layer == "gateway":
             server_host = "h3"
         elif layer == "system":
             server_host = "h4"
 
         net.get(server_host).cmd("iperf -s -p 5001 &")
+        time.sleep(1)
 
         output = net.get(host).cmd(f"iperf -c {dest_ip} -t 5")
 
         for line in output.split("\n"):
-            if "Mbits/sec" in line:
+            if "Mbits/sec" in line and "sec" in line:
                 parts = line.split()
                 throughput = parts[-2]
                 th_writer.writerow([
@@ -82,5 +80,7 @@ with open("throughput.csv", "w", newline="") as th_file:
                     dest_ip,
                     throughput
                 ])
+
+        net.get(server_host).cmd("kill %iperf")
 
 print("Baseline data collection complete.")
