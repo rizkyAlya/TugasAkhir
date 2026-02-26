@@ -73,6 +73,9 @@ def collect_data(net):
             elif layer == "system":
                 server_host = "h4"
 
+            # Kill all iperf processes, mencegah ada yang masih jalan
+            net.get(server_host).cmd("killall -9 iperf")
+        
             net.get(server_host).cmd("iperf -s -p 5001 &")
             time.sleep(1)
 
@@ -80,7 +83,7 @@ def collect_data(net):
             print(f"raw output:", output)
             
             for line in output.split("\n"):
-                if "Mbits/sec" in line and "sec" in line:
+                if "0.0- 5.0 sec" in line and "Mbits/sec" in line:
                     parts = line.split()
                     throughput = parts[-2]
                     th_writer.writerow([
@@ -91,6 +94,6 @@ def collect_data(net):
                         throughput
                     ])
 
-            net.get(server_host).cmd("kill %iperf")
+            net.get(server_host).cmd("killall -9 iperf")
 
     print("Baseline data collection complete.")
