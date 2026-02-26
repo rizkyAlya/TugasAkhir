@@ -83,14 +83,12 @@ def CPS_topology():
     
     base_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 
-    try:
-        h1.cmd(f'python3 {base_dir}/apps/h1_field.py &')
-        h2.cmd(f'python3 {base_dir}/apps/h2_rtu.py &')
-        h3.cmd(f'python3 {base_dir}/apps/h3_gateway.py &')
-        h4.cmd(f'python3 {base_dir}/apps/h4_twin.py &')
-    except Exception as e:
-        print("Error loading application", e)
+    output1 = h1.cmd(f'python3 {base_dir}/apps/h1_field.py &')
+    output2 = h2.cmd(f'python3 {base_dir}/apps/h2_rtu.py &')
+    output3 = h3.cmd(f'python3 {base_dir}/apps/h3_gateway.py &')
+    output4 = h4.cmd(f'python3 {base_dir}/apps/h4_twin.py &')
 
+    print(f"output1: {output1} | output2: {output2} | output3: {output3} | output4: {output4}")
     print("All applications started.")
     
     CLI(net)
