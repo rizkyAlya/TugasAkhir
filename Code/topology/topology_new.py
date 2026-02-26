@@ -3,6 +3,8 @@ from mininet.node import Controller, OVSSwitch, Node
 from mininet.cli import CLI
 from mininet.link import TCLink
 from mininet.log import setLogLevel
+import time
+import os
 
 def addRouter(net, name):
     r = net.addHost(name, cls=Node)
@@ -71,7 +73,22 @@ def CPS_topology():
     h4.cmd('ip route add default via 10.0.3.1')
     h5.cmd('ip route add default via 10.0.3.1')
 
+    print("Waiting for network stabilization...")
+    time.sleep(5)
     print("Network ready")
+
+    # Running host application
+    print("\nStarting host applications...")
+    
+    base_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+
+    h1.cmd(f'python3 {base_dir}/apps/h1_new.py &')
+    h2.cmd(f'python3 {base_dir}/apps/h2_new.py &')
+    h3.cmd(f'python3 {base_dir}/apps/h3_new.py &')
+    h4.cmd(f'python3 {base_dir}/apps/h4_new.py &')
+
+    print("All applications started.")
+    
     CLI(net)
 
     print("Stopping network")
