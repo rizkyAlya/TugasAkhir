@@ -14,7 +14,6 @@ links = [
 
 base_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 log_dir = os.path.join(base_dir, 'logs', 'baseline')
-os.makedirs(log_dir, exist_ok=True)
 
 rtt_path = os.path.join(log_dir, "rtt.csv")
 loss_path = os.path.join(log_dir, "packet_loss.csv")
@@ -40,7 +39,7 @@ def collect_data(net):
             loss_summary[(layer, host, dest_host)] = []
 
             for run in range(NUM_RUNS):
-                print(f"[{datetime.datetime.now()}] Testing RTT: {layer} (Run {run+1})")
+                print(f"[{datetime.datetime.now()}] Testing RTT & Packet Loss: {layer} (Run {run+1})")
                 output = net.get(host).cmd(f"ping -c 20 {dest_ip}")
 
                 # RTT per packet
@@ -97,7 +96,7 @@ def collect_data(net):
 
                 output = net.get(host).cmd(f"iperf -c {dest_ip} -t 5")
                 for line in output.split("\n"):
-                    if "0.0- 5.0 sec" in line and "Mbits/sec" in line:
+                    if "Mbits/sec" in line and "sec" in line:
                         parts = line.split()
                         throughput = float(parts[-2])
                         th_writer.writerow([

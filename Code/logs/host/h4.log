@@ -4,8 +4,8 @@ Probably the execution is slow.
 Please install numba to gain a massive speedup.
 (or if you prefer slow execution, set the flag numba=False to avoid this warning!)
 
- 2026-02-26 17:03:33
-Load flow sukses. Voltage snapshot: [1.03891122 1.0498439  1.03419487 1.00782927 1.00980674]
+ 2026-02-26 18:08:28
+Load flow sukses. Voltage snapshot: [1.03891201 1.04984704 1.03420269 1.00783313 1.00980938]
 Bus 1: breaker OPEN (line 0)
 Bus 2: breaker OPEN (line 1)
 Bus 3: breaker OPEN (line 2)
@@ -16,8 +16,8 @@ Probably the execution is slow.
 Please install numba to gain a massive speedup.
 (or if you prefer slow execution, set the flag numba=False to avoid this warning!)
 
- 2026-02-26 17:03:37
-Load flow sukses. Voltage snapshot: [       nan 1.06396737 0.99387688 0.984113   0.99349484]
+ 2026-02-26 18:08:32
+Load flow sukses. Voltage snapshot: [       nan 1.06396749 0.99387975 0.98411427 0.99349559]
 Bus 1: breaker CLOSE (line 0)
 Bus 2: breaker OPEN (line 1)
 Bus 3: breaker CLOSE (line 2)
@@ -28,8 +28,8 @@ Probably the execution is slow.
 Please install numba to gain a massive speedup.
 (or if you prefer slow execution, set the flag numba=False to avoid this warning!)
 
- 2026-02-26 17:03:42
-Load flow sukses. Voltage snapshot: [1.04412433 1.0504979  1.03286879 1.00566981 1.00738503]
+ 2026-02-26 18:08:36
+Load flow sukses. Voltage snapshot: [1.04412042 1.05049414 1.03286068 1.00566635 1.00738282]
 Bus 1: breaker OPEN (line 0)
 Bus 2: breaker OPEN (line 1)
 Bus 3: breaker OPEN (line 2)
@@ -40,8 +40,8 @@ Probably the execution is slow.
 Please install numba to gain a massive speedup.
 (or if you prefer slow execution, set the flag numba=False to avoid this warning!)
 
- 2026-02-26 17:03:46
-Load flow sukses. Voltage snapshot: [       nan 1.06396804 0.99389296 0.98412009 0.99349906]
+ 2026-02-26 18:08:41
+Load flow sukses. Voltage snapshot: [       nan 1.06396742 0.99387813 0.98411355 0.99349516]
 Bus 1: breaker CLOSE (line 0)
 Bus 2: breaker OPEN (line 1)
 Bus 3: breaker CLOSE (line 2)
@@ -52,8 +52,8 @@ Probably the execution is slow.
 Please install numba to gain a massive speedup.
 (or if you prefer slow execution, set the flag numba=False to avoid this warning!)
 
- 2026-02-26 17:03:50
-Load flow sukses. Voltage snapshot: [1.0441205  1.05049421 1.03286085 1.00566642 1.00738286]
+ 2026-02-26 18:08:45
+Load flow sukses. Voltage snapshot: [1.04412456 1.05049813 1.03286927 1.00567001 1.00738516]
 Bus 1: breaker OPEN (line 0)
 Bus 2: breaker OPEN (line 1)
 Bus 3: breaker OPEN (line 2)
@@ -64,8 +64,8 @@ Probably the execution is slow.
 Please install numba to gain a massive speedup.
 (or if you prefer slow execution, set the flag numba=False to avoid this warning!)
 
- 2026-02-26 17:03:54
-Load flow sukses. Voltage snapshot: [       nan 1.06396808 0.99389387 0.98412048 0.9934993 ]
+ 2026-02-26 18:08:49
+Load flow sukses. Voltage snapshot: [       nan 1.06396819 0.99389639 0.9841216  0.99349996]
 Bus 1: breaker CLOSE (line 0)
 Bus 2: breaker OPEN (line 1)
 Bus 3: breaker CLOSE (line 2)
@@ -76,8 +76,8 @@ Probably the execution is slow.
 Please install numba to gain a massive speedup.
 (or if you prefer slow execution, set the flag numba=False to avoid this warning!)
 
- 2026-02-26 17:03:58
-Load flow sukses. Voltage snapshot: [1.0441224  1.05049605 1.0328648  1.0056681  1.00738394]
+ 2026-02-26 18:08:53
+Load flow sukses. Voltage snapshot: [1.04412213 1.05049578 1.03286422 1.00566786 1.00738378]
 Bus 1: breaker OPEN (line 0)
 Bus 2: breaker OPEN (line 1)
 Bus 3: breaker OPEN (line 2)
@@ -88,8 +88,8 @@ Probably the execution is slow.
 Please install numba to gain a massive speedup.
 (or if you prefer slow execution, set the flag numba=False to avoid this warning!)
 
- 2026-02-26 17:04:02
-Load flow sukses. Voltage snapshot: [       nan 1.06396768 0.99388437 0.9841163  0.9934968 ]
+ 2026-02-26 18:08:57
+Load flow sukses. Voltage snapshot: [       nan 1.06396748 0.99387947 0.98411415 0.99349552]
 Bus 1: breaker CLOSE (line 0)
 Bus 2: breaker OPEN (line 1)
 Bus 3: breaker CLOSE (line 2)
@@ -100,8 +100,8 @@ Probably the execution is slow.
 Please install numba to gain a massive speedup.
 (or if you prefer slow execution, set the flag numba=False to avoid this warning!)
 
- 2026-02-26 17:04:06
-Load flow sukses. Voltage snapshot: [1.04412206 1.05049572 1.03286409 1.0056678  1.00738375]
+ 2026-02-26 18:09:01
+Load flow sukses. Voltage snapshot: [1.04412077 1.05049448 1.03286142 1.00566666 1.00738302]
 Bus 1: breaker OPEN (line 0)
 Bus 2: breaker OPEN (line 1)
 Bus 3: breaker OPEN (line 2)
@@ -112,8 +112,8 @@ Probably the execution is slow.
 Please install numba to gain a massive speedup.
 (or if you prefer slow execution, set the flag numba=False to avoid this warning!)
 
- 2026-02-26 17:04:10
-Load flow sukses. Voltage snapshot: [       nan 1.06396787 0.99388892 0.98411831 0.993498  ]
+ 2026-02-26 18:09:06
+Load flow sukses. Voltage snapshot: [       nan 1.06396805 0.99389313 0.98412016 0.99349911]
 Bus 1: breaker CLOSE (line 0)
 Bus 2: breaker OPEN (line 1)
 Bus 3: breaker CLOSE (line 2)
@@ -124,8 +124,8 @@ Probably the execution is slow.
 Please install numba to gain a massive speedup.
 (or if you prefer slow execution, set the flag numba=False to avoid this warning!)
 
- 2026-02-26 17:04:14
-Load flow sukses. Voltage snapshot: [1.04412434 1.05049791 1.03286881 1.00566982 1.00738504]
+ 2026-02-26 18:09:10
+Load flow sukses. Voltage snapshot: [1.04412079 1.05049449 1.03286144 1.00566667 1.00738303]
 Bus 1: breaker OPEN (line 0)
 Bus 2: breaker OPEN (line 1)
 Bus 3: breaker OPEN (line 2)
@@ -136,8 +136,8 @@ Probably the execution is slow.
 Please install numba to gain a massive speedup.
 (or if you prefer slow execution, set the flag numba=False to avoid this warning!)
 
- 2026-02-26 17:04:18
-Load flow sukses. Voltage snapshot: [       nan 1.06396776 0.99388619 0.9841171  0.99349728]
+ 2026-02-26 18:09:14
+Load flow sukses. Voltage snapshot: [       nan 1.06396756 0.99388156 0.98411507 0.99349607]
 Bus 1: breaker CLOSE (line 0)
 Bus 2: breaker OPEN (line 1)
 Bus 3: breaker CLOSE (line 2)
@@ -148,8 +148,8 @@ Probably the execution is slow.
 Please install numba to gain a massive speedup.
 (or if you prefer slow execution, set the flag numba=False to avoid this warning!)
 
- 2026-02-26 17:04:22
-Load flow sukses. Voltage snapshot: [1.04412165 1.05049532 1.03286323 1.00566743 1.00738351]
+ 2026-02-26 18:09:18
+Load flow sukses. Voltage snapshot: [1.04412242 1.05049607 1.03286484 1.00566812 1.00738395]
 Bus 1: breaker OPEN (line 0)
 Bus 2: breaker OPEN (line 1)
 Bus 3: breaker OPEN (line 2)
@@ -160,8 +160,8 @@ Probably the execution is slow.
 Please install numba to gain a massive speedup.
 (or if you prefer slow execution, set the flag numba=False to avoid this warning!)
 
- 2026-02-26 17:04:26
-Load flow sukses. Voltage snapshot: [       nan 1.06396761 0.99388279 0.98411561 0.99349639]
+ 2026-02-26 18:09:22
+Load flow sukses. Voltage snapshot: [       nan 1.06396774 0.99388573 0.9841169  0.99349716]
 Bus 1: breaker CLOSE (line 0)
 Bus 2: breaker OPEN (line 1)
 Bus 3: breaker CLOSE (line 2)
@@ -172,8 +172,8 @@ Probably the execution is slow.
 Please install numba to gain a massive speedup.
 (or if you prefer slow execution, set the flag numba=False to avoid this warning!)
 
- 2026-02-26 17:04:30
-Load flow sukses. Voltage snapshot: [1.04412118 1.05049487 1.03286226 1.00566702 1.00738325]
+ 2026-02-26 18:09:26
+Load flow sukses. Voltage snapshot: [1.04412321 1.05049682 1.03286647 1.00566882 1.0073844 ]
 Bus 1: breaker OPEN (line 0)
 Bus 2: breaker OPEN (line 1)
 Bus 3: breaker OPEN (line 2)
@@ -184,8 +184,8 @@ Probably the execution is slow.
 Please install numba to gain a massive speedup.
 (or if you prefer slow execution, set the flag numba=False to avoid this warning!)
 
- 2026-02-26 17:04:34
-Load flow sukses. Voltage snapshot: [       nan 1.0639679  0.99388963 0.98411862 0.99349819]
+ 2026-02-26 18:09:31
+Load flow sukses. Voltage snapshot: [       nan 1.06396821 0.99389703 0.98412188 0.99350013]
 Bus 1: breaker CLOSE (line 0)
 Bus 2: breaker OPEN (line 1)
 Bus 3: breaker CLOSE (line 2)
@@ -196,8 +196,8 @@ Probably the execution is slow.
 Please install numba to gain a massive speedup.
 (or if you prefer slow execution, set the flag numba=False to avoid this warning!)
 
- 2026-02-26 17:04:38
-Load flow sukses. Voltage snapshot: [1.04412311 1.05049673 1.03286627 1.00566873 1.00738434]
+ 2026-02-26 18:09:35
+Load flow sukses. Voltage snapshot: [1.04412046 1.05049417 1.03286077 1.00566638 1.00738284]
 Bus 1: breaker OPEN (line 0)
 Bus 2: breaker OPEN (line 1)
 Bus 3: breaker OPEN (line 2)
@@ -208,8 +208,8 @@ Probably the execution is slow.
 Please install numba to gain a massive speedup.
 (or if you prefer slow execution, set the flag numba=False to avoid this warning!)
 
- 2026-02-26 17:04:42
-Load flow sukses. Voltage snapshot: [       nan 1.06396803 0.99389269 0.98411997 0.99349899]
+ 2026-02-26 18:09:39
+Load flow sukses. Voltage snapshot: [       nan 1.06396821 0.99389697 0.98412185 0.99350011]
 Bus 1: breaker CLOSE (line 0)
 Bus 2: breaker OPEN (line 1)
 Bus 3: breaker CLOSE (line 2)
@@ -220,8 +220,8 @@ Probably the execution is slow.
 Please install numba to gain a massive speedup.
 (or if you prefer slow execution, set the flag numba=False to avoid this warning!)
 
- 2026-02-26 17:04:47
-Load flow sukses. Voltage snapshot: [1.04412426 1.05049783 1.03286864 1.00566974 1.00738499]
+ 2026-02-26 18:09:44
+Load flow sukses. Voltage snapshot: [1.04412538 1.05049892 1.03287098 1.00567074 1.00738563]
 Bus 1: breaker OPEN (line 0)
 Bus 2: breaker OPEN (line 1)
 Bus 3: breaker OPEN (line 2)
@@ -232,8 +232,8 @@ Probably the execution is slow.
 Please install numba to gain a massive speedup.
 (or if you prefer slow execution, set the flag numba=False to avoid this warning!)
 
- 2026-02-26 17:04:51
-Load flow sukses. Voltage snapshot: [       nan 1.06396812 0.99389488 0.98412093 0.99349956]
+ 2026-02-26 18:09:48
+Load flow sukses. Voltage snapshot: [       nan 1.06396786 0.99388871 0.98411822 0.99349794]
 Bus 1: breaker CLOSE (line 0)
 Bus 2: breaker OPEN (line 1)
 Bus 3: breaker CLOSE (line 2)
@@ -244,8 +244,8 @@ Probably the execution is slow.
 Please install numba to gain a massive speedup.
 (or if you prefer slow execution, set the flag numba=False to avoid this warning!)
 
- 2026-02-26 17:04:55
-Load flow sukses. Voltage snapshot: [1.04412383 1.05049742 1.03286776 1.00566937 1.00738475]
+ 2026-02-26 18:09:52
+Load flow sukses. Voltage snapshot: [1.04412011 1.05049384 1.03286005 1.00566608 1.00738265]
 Bus 1: breaker OPEN (line 0)
 Bus 2: breaker OPEN (line 1)
 Bus 3: breaker OPEN (line 2)
@@ -256,8 +256,8 @@ Probably the execution is slow.
 Please install numba to gain a massive speedup.
 (or if you prefer slow execution, set the flag numba=False to avoid this warning!)
 
- 2026-02-26 17:04:59
-Load flow sukses. Voltage snapshot: [       nan 1.06396796 0.99389106 0.98411925 0.99349856]
+ 2026-02-26 18:09:56
+Load flow sukses. Voltage snapshot: [       nan 1.06396779 0.99388693 0.98411743 0.99349748]
 Bus 1: breaker CLOSE (line 0)
 Bus 2: breaker OPEN (line 1)
 Bus 3: breaker CLOSE (line 2)
@@ -268,8 +268,8 @@ Probably the execution is slow.
 Please install numba to gain a massive speedup.
 (or if you prefer slow execution, set the flag numba=False to avoid this warning!)
 
- 2026-02-26 17:05:03
-Load flow sukses. Voltage snapshot: [1.04412192 1.05049558 1.03286379 1.00566767 1.00738367]
+ 2026-02-26 18:10:00
+Load flow sukses. Voltage snapshot: [1.0441232  1.05049682 1.03286645 1.00566881 1.00738439]
 Bus 1: breaker OPEN (line 0)
 Bus 2: breaker OPEN (line 1)
 Bus 3: breaker OPEN (line 2)
@@ -280,8 +280,8 @@ Probably the execution is slow.
 Please install numba to gain a massive speedup.
 (or if you prefer slow execution, set the flag numba=False to avoid this warning!)
 
- 2026-02-26 17:05:07
-Load flow sukses. Voltage snapshot: [       nan 1.06396766 0.99388381 0.98411606 0.99349666]
+ 2026-02-26 18:10:04
+Load flow sukses. Voltage snapshot: [       nan 1.06396757 0.99388182 0.98411518 0.99349613]
 Bus 1: breaker CLOSE (line 0)
 Bus 2: breaker OPEN (line 1)
 Bus 3: breaker CLOSE (line 2)
@@ -292,8 +292,8 @@ Probably the execution is slow.
 Please install numba to gain a massive speedup.
 (or if you prefer slow execution, set the flag numba=False to avoid this warning!)
 
- 2026-02-26 17:05:11
-Load flow sukses. Voltage snapshot: [1.04412316 1.05049678 1.03286637 1.00566877 1.00738437]
+ 2026-02-26 18:10:08
+Load flow sukses. Voltage snapshot: [1.04412139 1.05049507 1.0328627  1.00566721 1.00738337]
 Bus 1: breaker OPEN (line 0)
 Bus 2: breaker OPEN (line 1)
 Bus 3: breaker OPEN (line 2)
@@ -304,8 +304,8 @@ Probably the execution is slow.
 Please install numba to gain a massive speedup.
 (or if you prefer slow execution, set the flag numba=False to avoid this warning!)
 
- 2026-02-26 17:05:15
-Load flow sukses. Voltage snapshot: [       nan 1.06396803 0.99389273 0.98411998 0.993499  ]
+ 2026-02-26 18:10:13
+Load flow sukses. Voltage snapshot: [       nan 1.06396772 0.99388525 0.98411669 0.99349703]
 Bus 1: breaker CLOSE (line 0)
 Bus 2: breaker OPEN (line 1)
 Bus 3: breaker CLOSE (line 2)
@@ -316,8 +316,8 @@ Probably the execution is slow.
 Please install numba to gain a massive speedup.
 (or if you prefer slow execution, set the flag numba=False to avoid this warning!)
 
- 2026-02-26 17:05:19
-Load flow sukses. Voltage snapshot: [1.04412063 1.05049434 1.03286112 1.00566653 1.00738294]
+ 2026-02-26 18:10:17
+Load flow sukses. Voltage snapshot: [1.0441239  1.05049749 1.03286789 1.00566942 1.00738479]
 Bus 1: breaker OPEN (line 0)
 Bus 2: breaker OPEN (line 1)
 Bus 3: breaker OPEN (line 2)
@@ -328,8 +328,8 @@ Probably the execution is slow.
 Please install numba to gain a massive speedup.
 (or if you prefer slow execution, set the flag numba=False to avoid this warning!)
 
- 2026-02-26 17:05:24
-Load flow sukses. Voltage snapshot: [       nan 1.06396752 0.9938806  0.98411464 0.99349581]
+ 2026-02-26 18:10:21
+Load flow sukses. Voltage snapshot: [       nan 1.06396752 0.99388053 0.98411461 0.99349579]
 Bus 1: breaker CLOSE (line 0)
 Bus 2: breaker OPEN (line 1)
 Bus 3: breaker CLOSE (line 2)
@@ -340,8 +340,8 @@ Probably the execution is slow.
 Please install numba to gain a massive speedup.
 (or if you prefer slow execution, set the flag numba=False to avoid this warning!)
 
- 2026-02-26 17:06:01
-Load flow sukses. Voltage snapshot: [1.04412107 1.05049476 1.03286203 1.00566692 1.00738319]
+ 2026-02-26 18:10:25
+Load flow sukses. Voltage snapshot: [1.04412506 1.05049861 1.03287031 1.00567046 1.00738545]
 Bus 1: breaker OPEN (line 0)
 Bus 2: breaker OPEN (line 1)
 Bus 3: breaker OPEN (line 2)
@@ -352,8 +352,8 @@ Probably the execution is slow.
 Please install numba to gain a massive speedup.
 (or if you prefer slow execution, set the flag numba=False to avoid this warning!)
 
- 2026-02-26 17:06:05
-Load flow sukses. Voltage snapshot: [       nan 1.06396764 0.9938833  0.98411583 0.99349652]
+ 2026-02-26 18:10:29
+Load flow sukses. Voltage snapshot: [       nan 1.06396748 0.99387954 0.98411417 0.99349553]
 Bus 1: breaker CLOSE (line 0)
 Bus 2: breaker OPEN (line 1)
 Bus 3: breaker CLOSE (line 2)
@@ -364,8 +364,8 @@ Probably the execution is slow.
 Please install numba to gain a massive speedup.
 (or if you prefer slow execution, set the flag numba=False to avoid this warning!)
 
- 2026-02-26 17:06:09
-Load flow sukses. Voltage snapshot: [1.04412498 1.05049854 1.03287015 1.00567039 1.0073854 ]
+ 2026-02-26 18:10:33
+Load flow sukses. Voltage snapshot: [1.04412342 1.05049703 1.03286691 1.00566901 1.00738452]
 Bus 1: breaker OPEN (line 0)
 Bus 2: breaker OPEN (line 1)
 Bus 3: breaker OPEN (line 2)
@@ -376,8 +376,8 @@ Probably the execution is slow.
 Please install numba to gain a massive speedup.
 (or if you prefer slow execution, set the flag numba=False to avoid this warning!)
 
- 2026-02-26 17:06:13
-Load flow sukses. Voltage snapshot: [       nan 1.06396736 0.99387665 0.98411291 0.99349478]
+ 2026-02-26 18:10:37
+Load flow sukses. Voltage snapshot: [       nan 1.06396782 0.99388761 0.98411773 0.99349765]
 Bus 1: breaker CLOSE (line 0)
 Bus 2: breaker OPEN (line 1)
 Bus 3: breaker CLOSE (line 2)
@@ -388,8 +388,8 @@ Probably the execution is slow.
 Please install numba to gain a massive speedup.
 (or if you prefer slow execution, set the flag numba=False to avoid this warning!)
 
- 2026-02-26 17:06:17
-Load flow sukses. Voltage snapshot: [1.04412322 1.05049683 1.03286649 1.00566883 1.0073844 ]
+ 2026-02-26 18:10:41
+Load flow sukses. Voltage snapshot: [1.04412451 1.05049808 1.03286916 1.00566997 1.00738513]
 Bus 1: breaker OPEN (line 0)
 Bus 2: breaker OPEN (line 1)
 Bus 3: breaker OPEN (line 2)
@@ -400,8 +400,8 @@ Probably the execution is slow.
 Please install numba to gain a massive speedup.
 (or if you prefer slow execution, set the flag numba=False to avoid this warning!)
 
- 2026-02-26 17:06:21
-Load flow sukses. Voltage snapshot: [       nan 1.0639681  0.99389426 0.98412066 0.9934994 ]
+ 2026-02-26 18:10:45
+Load flow sukses. Voltage snapshot: [       nan 1.06396807 0.99389365 0.98412039 0.99349924]
 Bus 1: breaker CLOSE (line 0)
 Bus 2: breaker OPEN (line 1)
 Bus 3: breaker CLOSE (line 2)
@@ -412,8 +412,8 @@ Probably the execution is slow.
 Please install numba to gain a massive speedup.
 (or if you prefer slow execution, set the flag numba=False to avoid this warning!)
 
- 2026-02-26 17:06:25
-Load flow sukses. Voltage snapshot: [1.04412467 1.05049823 1.0328695  1.00567011 1.00738522]
+ 2026-02-26 18:10:49
+Load flow sukses. Voltage snapshot: [1.04412451 1.05049808 1.03286916 1.00566997 1.00738513]
 Bus 1: breaker OPEN (line 0)
 Bus 2: breaker OPEN (line 1)
 Bus 3: breaker OPEN (line 2)
@@ -424,10 +424,1486 @@ Probably the execution is slow.
 Please install numba to gain a massive speedup.
 (or if you prefer slow execution, set the flag numba=False to avoid this warning!)
 
- 2026-02-26 17:06:29
-Load flow sukses. Voltage snapshot: [       nan 1.06396749 0.99387978 0.98411428 0.9934956 ]
+ 2026-02-26 18:10:53
+Load flow sukses. Voltage snapshot: [       nan 1.06396803 0.99389274 0.98411999 0.993499  ]
 Bus 1: breaker CLOSE (line 0)
 Bus 2: breaker OPEN (line 1)
 Bus 3: breaker CLOSE (line 2)
+Bus 4: breaker CLOSE (line 3)
+Bus 5: breaker CLOSE (line 4)
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-02-26 18:10:57
+Load flow sukses. Voltage snapshot: [1.04412075 1.05049446 1.03286137 1.00566664 1.00738301]
+Bus 1: breaker OPEN (line 0)
+Bus 2: breaker OPEN (line 1)
+Bus 3: breaker OPEN (line 2)
+Bus 4: breaker CLOSE (line 3)
+Bus 5: breaker CLOSE (line 4)
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-02-26 18:11:01
+Load flow sukses. Voltage snapshot: [       nan 1.06396737 0.99387692 0.98411302 0.99349485]
+Bus 1: breaker CLOSE (line 0)
+Bus 2: breaker OPEN (line 1)
+Bus 3: breaker CLOSE (line 2)
+Bus 4: breaker CLOSE (line 3)
+Bus 5: breaker CLOSE (line 4)
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-02-26 18:11:05
+Load flow sukses. Voltage snapshot: [1.04412319 1.05049681 1.03286643 1.0056688  1.00738439]
+Bus 1: breaker OPEN (line 0)
+Bus 2: breaker OPEN (line 1)
+Bus 3: breaker OPEN (line 2)
+Bus 4: breaker CLOSE (line 3)
+Bus 5: breaker CLOSE (line 4)
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-02-26 18:11:09
+Load flow sukses. Voltage snapshot: [       nan 1.06396786 0.99388865 0.98411819 0.99349793]
+Bus 1: breaker CLOSE (line 0)
+Bus 2: breaker OPEN (line 1)
+Bus 3: breaker CLOSE (line 2)
+Bus 4: breaker CLOSE (line 3)
+Bus 5: breaker CLOSE (line 4)
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-02-26 18:11:14
+Load flow sukses. Voltage snapshot: [1.04412341 1.05049702 1.03286689 1.005669   1.00738451]
+Bus 1: breaker OPEN (line 0)
+Bus 2: breaker OPEN (line 1)
+Bus 3: breaker OPEN (line 2)
+Bus 4: breaker CLOSE (line 3)
+Bus 5: breaker CLOSE (line 4)
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-02-26 18:11:18
+Load flow sukses. Voltage snapshot: [       nan 1.06396739 0.99387741 0.98411324 0.99349497]
+Bus 1: breaker CLOSE (line 0)
+Bus 2: breaker OPEN (line 1)
+Bus 3: breaker CLOSE (line 2)
+Bus 4: breaker CLOSE (line 3)
+Bus 5: breaker CLOSE (line 4)
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-02-26 18:11:22
+Load flow sukses. Voltage snapshot: [1.0441239  1.05049749 1.0328679  1.00566943 1.00738479]
+Bus 1: breaker OPEN (line 0)
+Bus 2: breaker OPEN (line 1)
+Bus 3: breaker OPEN (line 2)
+Bus 4: breaker CLOSE (line 3)
+Bus 5: breaker CLOSE (line 4)
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-02-26 18:11:26
+Load flow sukses. Voltage snapshot: [       nan 1.06396797 0.99389134 0.98411937 0.99349863]
+Bus 1: breaker CLOSE (line 0)
+Bus 2: breaker OPEN (line 1)
+Bus 3: breaker CLOSE (line 2)
+Bus 4: breaker CLOSE (line 3)
+Bus 5: breaker CLOSE (line 4)
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-02-26 18:11:30
+Load flow sukses. Voltage snapshot: [1.04412126 1.05049495 1.03286243 1.00566709 1.00738329]
+Bus 1: breaker OPEN (line 0)
+Bus 2: breaker OPEN (line 1)
+Bus 3: breaker OPEN (line 2)
+Bus 4: breaker CLOSE (line 3)
+Bus 5: breaker CLOSE (line 4)
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-02-26 18:11:34
+Load flow sukses. Voltage snapshot: [       nan 1.06396749 0.99387983 0.9841143  0.99349561]
+Bus 1: breaker CLOSE (line 0)
+Bus 2: breaker OPEN (line 1)
+Bus 3: breaker CLOSE (line 2)
+Bus 4: breaker CLOSE (line 3)
+Bus 5: breaker CLOSE (line 4)
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-02-26 18:11:38
+Load flow sukses. Voltage snapshot: [1.04412087 1.05049457 1.03286161 1.00566674 1.00738307]
+Bus 1: breaker OPEN (line 0)
+Bus 2: breaker OPEN (line 1)
+Bus 3: breaker OPEN (line 2)
+Bus 4: breaker CLOSE (line 3)
+Bus 5: breaker CLOSE (line 4)
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-02-26 18:11:42
+Load flow sukses. Voltage snapshot: [       nan 1.06396769 0.99388452 0.98411637 0.99349684]
+Bus 1: breaker CLOSE (line 0)
+Bus 2: breaker OPEN (line 1)
+Bus 3: breaker CLOSE (line 2)
+Bus 4: breaker CLOSE (line 3)
+Bus 5: breaker CLOSE (line 4)
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-02-26 18:11:46
+Load flow sukses. Voltage snapshot: [1.04412375 1.05049735 1.03286759 1.00566929 1.0073847 ]
+Bus 1: breaker OPEN (line 0)
+Bus 2: breaker OPEN (line 1)
+Bus 3: breaker OPEN (line 2)
+Bus 4: breaker CLOSE (line 3)
+Bus 5: breaker CLOSE (line 4)
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-02-26 18:11:51
+Load flow sukses. Voltage snapshot: [       nan 1.06396795 0.99389077 0.98411912 0.99349848]
+Bus 1: breaker CLOSE (line 0)
+Bus 2: breaker OPEN (line 1)
+Bus 3: breaker CLOSE (line 2)
+Bus 4: breaker CLOSE (line 3)
+Bus 5: breaker CLOSE (line 4)
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-02-26 18:11:55
+Load flow sukses. Voltage snapshot: [1.0441213  1.05049499 1.03286252 1.00566713 1.00738332]
+Bus 1: breaker OPEN (line 0)
+Bus 2: breaker OPEN (line 1)
+Bus 3: breaker OPEN (line 2)
+Bus 4: breaker CLOSE (line 3)
+Bus 5: breaker CLOSE (line 4)
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-02-26 18:12:00
+Load flow sukses. Voltage snapshot: [       nan 1.06396773 0.99388554 0.98411682 0.99349711]
+Bus 1: breaker CLOSE (line 0)
+Bus 2: breaker OPEN (line 1)
+Bus 3: breaker CLOSE (line 2)
+Bus 4: breaker CLOSE (line 3)
+Bus 5: breaker CLOSE (line 4)
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-02-26 18:12:04
+Load flow sukses. Voltage snapshot: [1.0441218  1.05049547 1.03286355 1.00566757 1.0073836 ]
+Bus 1: breaker OPEN (line 0)
+Bus 2: breaker OPEN (line 1)
+Bus 3: breaker OPEN (line 2)
+Bus 4: breaker CLOSE (line 3)
+Bus 5: breaker CLOSE (line 4)
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-02-26 18:12:08
+Load flow sukses. Voltage snapshot: [       nan 1.06396783 0.99388803 0.98411791 0.99349776]
+Bus 1: breaker CLOSE (line 0)
+Bus 2: breaker OPEN (line 1)
+Bus 3: breaker CLOSE (line 2)
+Bus 4: breaker CLOSE (line 3)
+Bus 5: breaker CLOSE (line 4)
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-02-26 18:12:12
+Load flow sukses. Voltage snapshot: [1.04412303 1.05049665 1.03286609 1.00566865 1.00738429]
+Bus 1: breaker OPEN (line 0)
+Bus 2: breaker OPEN (line 1)
+Bus 3: breaker OPEN (line 2)
+Bus 4: breaker CLOSE (line 3)
+Bus 5: breaker CLOSE (line 4)
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-02-26 18:12:16
+Load flow sukses. Voltage snapshot: [       nan 1.06396742 0.99387816 0.98411357 0.99349517]
+Bus 1: breaker CLOSE (line 0)
+Bus 2: breaker OPEN (line 1)
+Bus 3: breaker CLOSE (line 2)
+Bus 4: breaker CLOSE (line 3)
+Bus 5: breaker CLOSE (line 4)
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-02-26 18:12:20
+Load flow sukses. Voltage snapshot: [1.04412199 1.05049565 1.03286393 1.00566773 1.00738371]
+Bus 1: breaker OPEN (line 0)
+Bus 2: breaker OPEN (line 1)
+Bus 3: breaker OPEN (line 2)
+Bus 4: breaker CLOSE (line 3)
+Bus 5: breaker CLOSE (line 4)
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-02-26 18:12:25
+Load flow sukses. Voltage snapshot: [       nan 1.06396783 0.99388793 0.98411787 0.99349774]
+Bus 1: breaker CLOSE (line 0)
+Bus 2: breaker OPEN (line 1)
+Bus 3: breaker CLOSE (line 2)
+Bus 4: breaker CLOSE (line 3)
+Bus 5: breaker CLOSE (line 4)
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-02-26 18:12:29
+Load flow sukses. Voltage snapshot: [1.04412118 1.05049487 1.03286225 1.00566702 1.00738325]
+Bus 1: breaker OPEN (line 0)
+Bus 2: breaker OPEN (line 1)
+Bus 3: breaker OPEN (line 2)
+Bus 4: breaker CLOSE (line 3)
+Bus 5: breaker CLOSE (line 4)
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-02-26 18:12:33
+Load flow sukses. Voltage snapshot: [       nan 1.06396756 0.99388151 0.98411504 0.99349605]
+Bus 1: breaker CLOSE (line 0)
+Bus 2: breaker OPEN (line 1)
+Bus 3: breaker CLOSE (line 2)
+Bus 4: breaker CLOSE (line 3)
+Bus 5: breaker CLOSE (line 4)
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-02-26 18:12:37
+Load flow sukses. Voltage snapshot: [1.04412131 1.05049499 1.03286253 1.00566713 1.00738332]
+Bus 1: breaker OPEN (line 0)
+Bus 2: breaker OPEN (line 1)
+Bus 3: breaker OPEN (line 2)
+Bus 4: breaker CLOSE (line 3)
+Bus 5: breaker CLOSE (line 4)
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-02-26 18:12:41
+Load flow sukses. Voltage snapshot: [       nan 1.06396805 0.99389311 0.98412015 0.9934991 ]
+Bus 1: breaker CLOSE (line 0)
+Bus 2: breaker OPEN (line 1)
+Bus 3: breaker CLOSE (line 2)
+Bus 4: breaker CLOSE (line 3)
+Bus 5: breaker CLOSE (line 4)
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-02-26 18:12:45
+Load flow sukses. Voltage snapshot: [1.04412283 1.05049646 1.03286567 1.00566848 1.00738418]
+Bus 1: breaker OPEN (line 0)
+Bus 2: breaker OPEN (line 1)
+Bus 3: breaker OPEN (line 2)
+Bus 4: breaker CLOSE (line 3)
+Bus 5: breaker CLOSE (line 4)
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-02-26 18:12:49
+Load flow sukses. Voltage snapshot: [       nan 1.06396749 0.9938798  0.98411429 0.9934956 ]
+Bus 1: breaker CLOSE (line 0)
+Bus 2: breaker OPEN (line 1)
+Bus 3: breaker CLOSE (line 2)
+Bus 4: breaker CLOSE (line 3)
+Bus 5: breaker CLOSE (line 4)
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-02-26 18:12:53
+Load flow sukses. Voltage snapshot: [1.04412007 1.0504938  1.03285995 1.00566604 1.00738262]
+Bus 1: breaker OPEN (line 0)
+Bus 2: breaker OPEN (line 1)
+Bus 3: breaker OPEN (line 2)
+Bus 4: breaker CLOSE (line 3)
+Bus 5: breaker CLOSE (line 4)
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-02-26 18:12:57
+Load flow sukses. Voltage snapshot: [       nan 1.06396736 0.99387679 0.98411297 0.99349481]
+Bus 1: breaker CLOSE (line 0)
+Bus 2: breaker OPEN (line 1)
+Bus 3: breaker CLOSE (line 2)
+Bus 4: breaker CLOSE (line 3)
+Bus 5: breaker CLOSE (line 4)
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-02-26 18:13:02
+Load flow sukses. Voltage snapshot: [1.04412109 1.05049478 1.03286207 1.00566694 1.0073832 ]
+Bus 1: breaker OPEN (line 0)
+Bus 2: breaker OPEN (line 1)
+Bus 3: breaker OPEN (line 2)
+Bus 4: breaker CLOSE (line 3)
+Bus 5: breaker CLOSE (line 4)
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-02-26 18:13:06
+Load flow sukses. Voltage snapshot: [       nan 1.06396808 0.993894   0.98412054 0.99349933]
+Bus 1: breaker CLOSE (line 0)
+Bus 2: breaker OPEN (line 1)
+Bus 3: breaker CLOSE (line 2)
+Bus 4: breaker CLOSE (line 3)
+Bus 5: breaker CLOSE (line 4)
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-02-26 18:13:10
+Load flow sukses. Voltage snapshot: [1.04412026 1.05049399 1.03286036 1.00566621 1.00738273]
+Bus 1: breaker OPEN (line 0)
+Bus 2: breaker OPEN (line 1)
+Bus 3: breaker OPEN (line 2)
+Bus 4: breaker CLOSE (line 3)
+Bus 5: breaker CLOSE (line 4)
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-02-26 18:13:14
+Load flow sukses. Voltage snapshot: [       nan 1.0639682  0.99389676 0.98412176 0.99350006]
+Bus 1: breaker CLOSE (line 0)
+Bus 2: breaker OPEN (line 1)
+Bus 3: breaker CLOSE (line 2)
+Bus 4: breaker CLOSE (line 3)
+Bus 5: breaker CLOSE (line 4)
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-02-26 18:13:18
+Load flow sukses. Voltage snapshot: [1.04412266 1.0504963  1.03286534 1.00566833 1.00738409]
+Bus 1: breaker OPEN (line 0)
+Bus 2: breaker OPEN (line 1)
+Bus 3: breaker OPEN (line 2)
+Bus 4: breaker CLOSE (line 3)
+Bus 5: breaker CLOSE (line 4)
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-02-26 18:13:22
+Load flow sukses. Voltage snapshot: [       nan 1.06396783 0.99388801 0.98411791 0.99349776]
+Bus 1: breaker CLOSE (line 0)
+Bus 2: breaker OPEN (line 1)
+Bus 3: breaker CLOSE (line 2)
+Bus 4: breaker CLOSE (line 3)
+Bus 5: breaker CLOSE (line 4)
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-02-26 18:13:27
+Load flow sukses. Voltage snapshot: [1.04412302 1.05049665 1.03286608 1.00566865 1.00738429]
+Bus 1: breaker OPEN (line 0)
+Bus 2: breaker OPEN (line 1)
+Bus 3: breaker OPEN (line 2)
+Bus 4: breaker CLOSE (line 3)
+Bus 5: breaker CLOSE (line 4)
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-02-26 18:13:31
+Load flow sukses. Voltage snapshot: [       nan 1.06396783 0.99388801 0.98411791 0.99349776]
+Bus 1: breaker CLOSE (line 0)
+Bus 2: breaker OPEN (line 1)
+Bus 3: breaker CLOSE (line 2)
+Bus 4: breaker CLOSE (line 3)
+Bus 5: breaker CLOSE (line 4)
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-02-26 18:13:35
+Load flow sukses. Voltage snapshot: [1.04412243 1.05049607 1.03286484 1.00566812 1.00738395]
+Bus 1: breaker OPEN (line 0)
+Bus 2: breaker OPEN (line 1)
+Bus 3: breaker OPEN (line 2)
+Bus 4: breaker CLOSE (line 3)
+Bus 5: breaker CLOSE (line 4)
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-02-26 18:13:39
+Load flow sukses. Voltage snapshot: [       nan 1.06396781 0.99388751 0.98411768 0.99349763]
+Bus 1: breaker CLOSE (line 0)
+Bus 2: breaker OPEN (line 1)
+Bus 3: breaker CLOSE (line 2)
+Bus 4: breaker CLOSE (line 3)
+Bus 5: breaker CLOSE (line 4)
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-02-26 18:13:43
+Load flow sukses. Voltage snapshot: [1.04412535 1.05049889 1.03287091 1.00567071 1.00738561]
+Bus 1: breaker OPEN (line 0)
+Bus 2: breaker OPEN (line 1)
+Bus 3: breaker OPEN (line 2)
+Bus 4: breaker CLOSE (line 3)
+Bus 5: breaker CLOSE (line 4)
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-02-26 18:13:47
+Load flow sukses. Voltage snapshot: [       nan 1.06396794 0.99389062 0.98411905 0.99349844]
+Bus 1: breaker CLOSE (line 0)
+Bus 2: breaker OPEN (line 1)
+Bus 3: breaker CLOSE (line 2)
+Bus 4: breaker CLOSE (line 3)
+Bus 5: breaker CLOSE (line 4)
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-02-26 18:13:52
+Load flow sukses. Voltage snapshot: [1.04412094 1.05049463 1.03286175 1.0056668  1.00738311]
+Bus 1: breaker OPEN (line 0)
+Bus 2: breaker OPEN (line 1)
+Bus 3: breaker OPEN (line 2)
+Bus 4: breaker CLOSE (line 3)
+Bus 5: breaker CLOSE (line 4)
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-02-26 18:13:56
+Load flow sukses. Voltage snapshot: [       nan 1.06396798 0.99389158 0.98411947 0.9934987 ]
+Bus 1: breaker CLOSE (line 0)
+Bus 2: breaker OPEN (line 1)
+Bus 3: breaker CLOSE (line 2)
+Bus 4: breaker CLOSE (line 3)
+Bus 5: breaker CLOSE (line 4)
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-02-26 18:14:00
+Load flow sukses. Voltage snapshot: [1.04412315 1.05049677 1.03286634 1.00566876 1.00738436]
+Bus 1: breaker OPEN (line 0)
+Bus 2: breaker OPEN (line 1)
+Bus 3: breaker OPEN (line 2)
+Bus 4: breaker CLOSE (line 3)
+Bus 5: breaker CLOSE (line 4)
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-02-26 18:14:05
+Load flow sukses. Voltage snapshot: [       nan 1.0639681  0.99389427 0.98412066 0.99349941]
+Bus 1: breaker CLOSE (line 0)
+Bus 2: breaker OPEN (line 1)
+Bus 3: breaker CLOSE (line 2)
+Bus 4: breaker CLOSE (line 3)
+Bus 5: breaker CLOSE (line 4)
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-02-26 18:14:09
+Load flow sukses. Voltage snapshot: [1.04412466 1.05049822 1.03286947 1.0056701  1.00738522]
+Bus 1: breaker OPEN (line 0)
+Bus 2: breaker OPEN (line 1)
+Bus 3: breaker OPEN (line 2)
+Bus 4: breaker CLOSE (line 3)
+Bus 5: breaker CLOSE (line 4)
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-02-26 18:14:13
+Load flow sukses. Voltage snapshot: [       nan 1.0639676  0.99388235 0.98411541 0.99349627]
+Bus 1: breaker CLOSE (line 0)
+Bus 2: breaker OPEN (line 1)
+Bus 3: breaker CLOSE (line 2)
+Bus 4: breaker CLOSE (line 3)
+Bus 5: breaker CLOSE (line 4)
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-02-26 18:14:17
+Load flow sukses. Voltage snapshot: [1.04412153 1.05049521 1.03286299 1.00566733 1.00738345]
+Bus 1: breaker OPEN (line 0)
+Bus 2: breaker OPEN (line 1)
+Bus 3: breaker OPEN (line 2)
+Bus 4: breaker CLOSE (line 3)
+Bus 5: breaker CLOSE (line 4)
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-02-26 18:14:21
+Load flow sukses. Voltage snapshot: [       nan 1.06396769 0.99388467 0.98411643 0.99349688]
+Bus 1: breaker CLOSE (line 0)
+Bus 2: breaker OPEN (line 1)
+Bus 3: breaker CLOSE (line 2)
+Bus 4: breaker CLOSE (line 3)
+Bus 5: breaker CLOSE (line 4)
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-02-26 18:14:25
+Load flow sukses. Voltage snapshot: [1.04412301 1.05049664 1.03286606 1.00566864 1.00738429]
+Bus 1: breaker OPEN (line 0)
+Bus 2: breaker OPEN (line 1)
+Bus 3: breaker OPEN (line 2)
+Bus 4: breaker CLOSE (line 3)
+Bus 5: breaker CLOSE (line 4)
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-02-26 18:14:29
+Load flow sukses. Voltage snapshot: [       nan 1.06396779 0.99388694 0.98411743 0.99349748]
+Bus 1: breaker CLOSE (line 0)
+Bus 2: breaker OPEN (line 1)
+Bus 3: breaker CLOSE (line 2)
+Bus 4: breaker CLOSE (line 3)
+Bus 5: breaker CLOSE (line 4)
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-02-26 18:14:33
+Load flow sukses. Voltage snapshot: [1.04412266 1.05049629 1.03286532 1.00566833 1.00738408]
+Bus 1: breaker OPEN (line 0)
+Bus 2: breaker OPEN (line 1)
+Bus 3: breaker OPEN (line 2)
+Bus 4: breaker CLOSE (line 3)
+Bus 5: breaker CLOSE (line 4)
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-02-26 18:14:37
+Load flow sukses. Voltage snapshot: [       nan 1.06396778 0.99388662 0.98411729 0.99349739]
+Bus 1: breaker CLOSE (line 0)
+Bus 2: breaker OPEN (line 1)
+Bus 3: breaker CLOSE (line 2)
+Bus 4: breaker CLOSE (line 3)
+Bus 5: breaker CLOSE (line 4)
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-02-26 18:14:41
+Load flow sukses. Voltage snapshot: [1.04412472 1.05049828 1.0328696  1.00567015 1.00738525]
+Bus 1: breaker OPEN (line 0)
+Bus 2: breaker OPEN (line 1)
+Bus 3: breaker OPEN (line 2)
+Bus 4: breaker CLOSE (line 3)
+Bus 5: breaker CLOSE (line 4)
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-02-26 18:14:45
+Load flow sukses. Voltage snapshot: [       nan 1.06396788 0.993889   0.98411834 0.99349802]
+Bus 1: breaker CLOSE (line 0)
+Bus 2: breaker OPEN (line 1)
+Bus 3: breaker CLOSE (line 2)
+Bus 4: breaker CLOSE (line 3)
+Bus 5: breaker CLOSE (line 4)
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-02-26 18:14:49
+Load flow sukses. Voltage snapshot: [1.04412174 1.05049541 1.03286343 1.00566752 1.00738357]
+Bus 1: breaker OPEN (line 0)
+Bus 2: breaker OPEN (line 1)
+Bus 3: breaker OPEN (line 2)
+Bus 4: breaker CLOSE (line 3)
+Bus 5: breaker CLOSE (line 4)
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-02-26 18:14:53
+Load flow sukses. Voltage snapshot: [       nan 1.06396748 0.99387965 0.98411422 0.99349556]
+Bus 1: breaker CLOSE (line 0)
+Bus 2: breaker OPEN (line 1)
+Bus 3: breaker CLOSE (line 2)
+Bus 4: breaker CLOSE (line 3)
+Bus 5: breaker CLOSE (line 4)
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-02-26 18:14:58
+Load flow sukses. Voltage snapshot: [1.04412082 1.05049452 1.03286151 1.0056667  1.00738304]
+Bus 1: breaker OPEN (line 0)
+Bus 2: breaker OPEN (line 1)
+Bus 3: breaker OPEN (line 2)
+Bus 4: breaker CLOSE (line 3)
+Bus 5: breaker CLOSE (line 4)
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-02-26 18:15:02
+Load flow sukses. Voltage snapshot: [       nan 1.06396798 0.99389146 0.98411942 0.99349867]
+Bus 1: breaker CLOSE (line 0)
+Bus 2: breaker OPEN (line 1)
+Bus 3: breaker CLOSE (line 2)
+Bus 4: breaker CLOSE (line 3)
+Bus 5: breaker CLOSE (line 4)
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-02-26 18:15:06
+Load flow sukses. Voltage snapshot: [1.04412188 1.05049555 1.03286372 1.00566764 1.00738365]
+Bus 1: breaker OPEN (line 0)
+Bus 2: breaker OPEN (line 1)
+Bus 3: breaker OPEN (line 2)
+Bus 4: breaker CLOSE (line 3)
+Bus 5: breaker CLOSE (line 4)
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-02-26 18:15:10
+Load flow sukses. Voltage snapshot: [       nan 1.06396737 0.99387701 0.98411306 0.99349487]
+Bus 1: breaker CLOSE (line 0)
+Bus 2: breaker OPEN (line 1)
+Bus 3: breaker CLOSE (line 2)
+Bus 4: breaker CLOSE (line 3)
+Bus 5: breaker CLOSE (line 4)
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-02-26 18:15:14
+Load flow sukses. Voltage snapshot: [1.04412327 1.05049689 1.0328666  1.00566887 1.00738443]
+Bus 1: breaker OPEN (line 0)
+Bus 2: breaker OPEN (line 1)
+Bus 3: breaker OPEN (line 2)
+Bus 4: breaker CLOSE (line 3)
+Bus 5: breaker CLOSE (line 4)
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-02-26 18:15:18
+Load flow sukses. Voltage snapshot: [       nan 1.06396787 0.99388896 0.98411832 0.99349801]
+Bus 1: breaker CLOSE (line 0)
+Bus 2: breaker OPEN (line 1)
+Bus 3: breaker CLOSE (line 2)
+Bus 4: breaker CLOSE (line 3)
+Bus 5: breaker CLOSE (line 4)
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-02-26 18:15:22
+Load flow sukses. Voltage snapshot: [1.04412311 1.05049673 1.03286625 1.00566873 1.00738434]
+Bus 1: breaker OPEN (line 0)
+Bus 2: breaker OPEN (line 1)
+Bus 3: breaker OPEN (line 2)
+Bus 4: breaker CLOSE (line 3)
+Bus 5: breaker CLOSE (line 4)
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-02-26 18:15:26
+Load flow sukses. Voltage snapshot: [       nan 1.06396776 0.99388617 0.9841171  0.99349728]
+Bus 1: breaker CLOSE (line 0)
+Bus 2: breaker OPEN (line 1)
+Bus 3: breaker CLOSE (line 2)
+Bus 4: breaker CLOSE (line 3)
+Bus 5: breaker CLOSE (line 4)
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-02-26 18:15:31
+Load flow sukses. Voltage snapshot: [1.04412093 1.05049463 1.03286175 1.0056668  1.00738311]
+Bus 1: breaker OPEN (line 0)
+Bus 2: breaker OPEN (line 1)
+Bus 3: breaker OPEN (line 2)
+Bus 4: breaker CLOSE (line 3)
+Bus 5: breaker CLOSE (line 4)
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-02-26 18:15:35
+Load flow sukses. Voltage snapshot: [       nan 1.06396766 0.99388387 0.98411608 0.99349667]
+Bus 1: breaker CLOSE (line 0)
+Bus 2: breaker OPEN (line 1)
+Bus 3: breaker CLOSE (line 2)
+Bus 4: breaker CLOSE (line 3)
+Bus 5: breaker CLOSE (line 4)
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-02-26 18:15:39
+Load flow sukses. Voltage snapshot: [1.04412193 1.05049559 1.03286382 1.00566769 1.00738367]
+Bus 1: breaker OPEN (line 0)
+Bus 2: breaker OPEN (line 1)
+Bus 3: breaker OPEN (line 2)
+Bus 4: breaker CLOSE (line 3)
+Bus 5: breaker CLOSE (line 4)
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-02-26 18:15:43
+Load flow sukses. Voltage snapshot: [       nan 1.06396811 0.99389449 0.98412076 0.99349946]
+Bus 1: breaker CLOSE (line 0)
+Bus 2: breaker OPEN (line 1)
+Bus 3: breaker CLOSE (line 2)
+Bus 4: breaker CLOSE (line 3)
+Bus 5: breaker CLOSE (line 4)
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-02-26 18:15:47
+Load flow sukses. Voltage snapshot: [1.04412078 1.05049448 1.03286143 1.00566667 1.00738302]
+Bus 1: breaker OPEN (line 0)
+Bus 2: breaker OPEN (line 1)
+Bus 3: breaker OPEN (line 2)
+Bus 4: breaker CLOSE (line 3)
+Bus 5: breaker CLOSE (line 4)
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-02-26 18:15:51
+Load flow sukses. Voltage snapshot: [       nan 1.06396754 0.99388112 0.98411487 0.99349595]
+Bus 1: breaker CLOSE (line 0)
+Bus 2: breaker OPEN (line 1)
+Bus 3: breaker CLOSE (line 2)
+Bus 4: breaker CLOSE (line 3)
+Bus 5: breaker CLOSE (line 4)
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-02-26 18:15:55
+Load flow sukses. Voltage snapshot: [1.04412062 1.05049433 1.03286109 1.00566652 1.00738293]
+Bus 1: breaker OPEN (line 0)
+Bus 2: breaker OPEN (line 1)
+Bus 3: breaker OPEN (line 2)
+Bus 4: breaker CLOSE (line 3)
+Bus 5: breaker CLOSE (line 4)
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-02-26 18:15:59
+Load flow sukses. Voltage snapshot: [       nan 1.06396745 0.99387888 0.98411389 0.99349536]
+Bus 1: breaker CLOSE (line 0)
+Bus 2: breaker OPEN (line 1)
+Bus 3: breaker CLOSE (line 2)
+Bus 4: breaker CLOSE (line 3)
+Bus 5: breaker CLOSE (line 4)
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-02-26 18:16:03
+Load flow sukses. Voltage snapshot: [1.04412004 1.05049377 1.0328599  1.00566601 1.00738261]
+Bus 1: breaker OPEN (line 0)
+Bus 2: breaker OPEN (line 1)
+Bus 3: breaker OPEN (line 2)
+Bus 4: breaker CLOSE (line 3)
+Bus 5: breaker CLOSE (line 4)
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-02-26 18:16:08
+Load flow sukses. Voltage snapshot: [       nan 1.06396775 0.99388595 0.984117   0.99349722]
+Bus 1: breaker CLOSE (line 0)
+Bus 2: breaker OPEN (line 1)
+Bus 3: breaker CLOSE (line 2)
+Bus 4: breaker CLOSE (line 3)
+Bus 5: breaker CLOSE (line 4)
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-02-26 18:16:12
+Load flow sukses. Voltage snapshot: [1.04412154 1.05049522 1.03286301 1.00566734 1.00738345]
+Bus 1: breaker OPEN (line 0)
+Bus 2: breaker OPEN (line 1)
+Bus 3: breaker OPEN (line 2)
+Bus 4: breaker CLOSE (line 3)
+Bus 5: breaker CLOSE (line 4)
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-02-26 18:16:16
+Load flow sukses. Voltage snapshot: [       nan 1.06396805 0.99389324 0.98412021 0.99349913]
+Bus 1: breaker CLOSE (line 0)
+Bus 2: breaker OPEN (line 1)
+Bus 3: breaker CLOSE (line 2)
+Bus 4: breaker CLOSE (line 3)
+Bus 5: breaker CLOSE (line 4)
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-02-26 18:16:20
+Load flow sukses. Voltage snapshot: [1.0441243  1.05049788 1.03286873 1.00566978 1.00738501]
+Bus 1: breaker OPEN (line 0)
+Bus 2: breaker OPEN (line 1)
+Bus 3: breaker OPEN (line 2)
+Bus 4: breaker CLOSE (line 3)
+Bus 5: breaker CLOSE (line 4)
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-02-26 18:16:24
+Load flow sukses. Voltage snapshot: [       nan 1.06396804 0.99389286 0.98412004 0.99349903]
+Bus 1: breaker CLOSE (line 0)
+Bus 2: breaker OPEN (line 1)
+Bus 3: breaker CLOSE (line 2)
+Bus 4: breaker CLOSE (line 3)
+Bus 5: breaker CLOSE (line 4)
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-02-26 18:16:28
+Load flow sukses. Voltage snapshot: [1.04412487 1.05049842 1.03286991 1.00567029 1.00738533]
+Bus 1: breaker OPEN (line 0)
+Bus 2: breaker OPEN (line 1)
+Bus 3: breaker OPEN (line 2)
+Bus 4: breaker CLOSE (line 3)
+Bus 5: breaker CLOSE (line 4)
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-02-26 18:16:33
+Load flow sukses. Voltage snapshot: [       nan 1.06396801 0.99389226 0.98411978 0.99349888]
+Bus 1: breaker CLOSE (line 0)
+Bus 2: breaker OPEN (line 1)
+Bus 3: breaker CLOSE (line 2)
+Bus 4: breaker CLOSE (line 3)
+Bus 5: breaker CLOSE (line 4)
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-02-26 18:16:37
+Load flow sukses. Voltage snapshot: [1.04412417 1.05049775 1.03286845 1.00566966 1.00738494]
+Bus 1: breaker OPEN (line 0)
+Bus 2: breaker OPEN (line 1)
+Bus 3: breaker OPEN (line 2)
+Bus 4: breaker CLOSE (line 3)
+Bus 5: breaker CLOSE (line 4)
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-02-26 18:16:41
+Load flow sukses. Voltage snapshot: [       nan 1.06396758 0.99388193 0.98411523 0.99349616]
+Bus 1: breaker CLOSE (line 0)
+Bus 2: breaker OPEN (line 1)
+Bus 3: breaker CLOSE (line 2)
+Bus 4: breaker CLOSE (line 3)
+Bus 5: breaker CLOSE (line 4)
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-02-26 18:16:45
+Load flow sukses. Voltage snapshot: [1.04412035 1.05049407 1.03286054 1.00566629 1.00738278]
+Bus 1: breaker OPEN (line 0)
+Bus 2: breaker OPEN (line 1)
+Bus 3: breaker OPEN (line 2)
+Bus 4: breaker CLOSE (line 3)
+Bus 5: breaker CLOSE (line 4)
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-02-26 18:16:50
+Load flow sukses. Voltage snapshot: [       nan 1.06396741 0.99387787 0.98411344 0.9934951 ]
+Bus 1: breaker CLOSE (line 0)
+Bus 2: breaker OPEN (line 1)
+Bus 3: breaker CLOSE (line 2)
+Bus 4: breaker CLOSE (line 3)
+Bus 5: breaker CLOSE (line 4)
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-02-26 18:16:54
+Load flow sukses. Voltage snapshot: [1.04412377 1.05049736 1.03286763 1.00566931 1.00738471]
+Bus 1: breaker OPEN (line 0)
+Bus 2: breaker OPEN (line 1)
+Bus 3: breaker OPEN (line 2)
+Bus 4: breaker CLOSE (line 3)
+Bus 5: breaker CLOSE (line 4)
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-02-26 18:16:58
+Load flow sukses. Voltage snapshot: [       nan 1.06396796 0.99389104 0.98411924 0.99349856]
+Bus 1: breaker CLOSE (line 0)
+Bus 2: breaker OPEN (line 1)
+Bus 3: breaker CLOSE (line 2)
+Bus 4: breaker CLOSE (line 3)
+Bus 5: breaker CLOSE (line 4)
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-02-26 18:17:02
+Load flow sukses. Voltage snapshot: [1.04412277 1.05049641 1.03286557 1.00566843 1.00738415]
+Bus 1: breaker OPEN (line 0)
+Bus 2: breaker OPEN (line 1)
+Bus 3: breaker OPEN (line 2)
+Bus 4: breaker CLOSE (line 3)
+Bus 5: breaker CLOSE (line 4)
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-02-26 18:17:06
+Load flow sukses. Voltage snapshot: [       nan 1.06396804 0.9938929  0.98412006 0.99349904]
+Bus 1: breaker CLOSE (line 0)
+Bus 2: breaker OPEN (line 1)
+Bus 3: breaker CLOSE (line 2)
+Bus 4: breaker CLOSE (line 3)
+Bus 5: breaker CLOSE (line 4)
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-02-26 18:17:10
+Load flow sukses. Voltage snapshot: [1.04412431 1.05049789 1.03286875 1.00566979 1.00738502]
+Bus 1: breaker OPEN (line 0)
+Bus 2: breaker OPEN (line 1)
+Bus 3: breaker OPEN (line 2)
+Bus 4: breaker CLOSE (line 3)
+Bus 5: breaker CLOSE (line 4)
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-02-26 18:17:14
+Load flow sukses. Voltage snapshot: [       nan 1.06396794 0.99389062 0.98411905 0.99349844]
+Bus 1: breaker CLOSE (line 0)
+Bus 2: breaker OPEN (line 1)
+Bus 3: breaker CLOSE (line 2)
+Bus 4: breaker CLOSE (line 3)
+Bus 5: breaker CLOSE (line 4)
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-02-26 18:17:18
+Load flow sukses. Voltage snapshot: [1.04412197 1.05049563 1.0328639  1.00566772 1.0073837 ]
+Bus 1: breaker OPEN (line 0)
+Bus 2: breaker OPEN (line 1)
+Bus 3: breaker OPEN (line 2)
+Bus 4: breaker CLOSE (line 3)
+Bus 5: breaker CLOSE (line 4)
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-02-26 18:17:22
+Load flow sukses. Voltage snapshot: [       nan 1.0639679  0.99388969 0.98411865 0.9934982 ]
+Bus 1: breaker CLOSE (line 0)
+Bus 2: breaker OPEN (line 1)
+Bus 3: breaker CLOSE (line 2)
+Bus 4: breaker CLOSE (line 3)
+Bus 5: breaker CLOSE (line 4)
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-02-26 18:17:26
+Load flow sukses. Voltage snapshot: [1.04412376 1.05049735 1.03286761 1.0056693  1.00738471]
+Bus 1: breaker OPEN (line 0)
+Bus 2: breaker OPEN (line 1)
+Bus 3: breaker OPEN (line 2)
+Bus 4: breaker CLOSE (line 3)
+Bus 5: breaker CLOSE (line 4)
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-02-26 18:17:30
+Load flow sukses. Voltage snapshot: [       nan 1.06396795 0.9938908  0.98411913 0.99349849]
+Bus 1: breaker CLOSE (line 0)
+Bus 2: breaker OPEN (line 1)
+Bus 3: breaker CLOSE (line 2)
+Bus 4: breaker CLOSE (line 3)
+Bus 5: breaker CLOSE (line 4)
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-02-26 18:17:34
+Load flow sukses. Voltage snapshot: [1.04412318 1.0504968  1.03286641 1.00566879 1.00738438]
+Bus 1: breaker OPEN (line 0)
+Bus 2: breaker OPEN (line 1)
+Bus 3: breaker OPEN (line 2)
+Bus 4: breaker CLOSE (line 3)
+Bus 5: breaker CLOSE (line 4)
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-02-26 18:17:38
+Load flow sukses. Voltage snapshot: [       nan 1.06396811 0.99389461 0.98412081 0.99349949]
+Bus 1: breaker CLOSE (line 0)
+Bus 2: breaker OPEN (line 1)
+Bus 3: breaker CLOSE (line 2)
+Bus 4: breaker CLOSE (line 3)
+Bus 5: breaker CLOSE (line 4)
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-02-26 18:17:42
+Load flow sukses. Voltage snapshot: [1.04412268 1.05049631 1.03286536 1.00566834 1.00738409]
+Bus 1: breaker OPEN (line 0)
+Bus 2: breaker OPEN (line 1)
+Bus 3: breaker OPEN (line 2)
+Bus 4: breaker CLOSE (line 3)
+Bus 5: breaker CLOSE (line 4)
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-02-26 18:17:46
+Load flow sukses. Voltage snapshot: [       nan 1.06396764 0.99388347 0.98411591 0.99349657]
+Bus 1: breaker CLOSE (line 0)
+Bus 2: breaker OPEN (line 1)
+Bus 3: breaker CLOSE (line 2)
+Bus 4: breaker CLOSE (line 3)
+Bus 5: breaker CLOSE (line 4)
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-02-26 18:17:51
+Load flow sukses. Voltage snapshot: [1.04412183 1.05049549 1.0328636  1.00566759 1.00738362]
+Bus 1: breaker OPEN (line 0)
+Bus 2: breaker OPEN (line 1)
+Bus 3: breaker OPEN (line 2)
+Bus 4: breaker CLOSE (line 3)
+Bus 5: breaker CLOSE (line 4)
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-02-26 18:17:55
+Load flow sukses. Voltage snapshot: [       nan 1.06396777 0.9938864  0.9841172  0.99349734]
+Bus 1: breaker CLOSE (line 0)
+Bus 2: breaker OPEN (line 1)
+Bus 3: breaker CLOSE (line 2)
+Bus 4: breaker CLOSE (line 3)
+Bus 5: breaker CLOSE (line 4)
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-02-26 18:17:59
+Load flow sukses. Voltage snapshot: [1.04412438 1.05049795 1.03286889 1.00566985 1.00738506]
+Bus 1: breaker OPEN (line 0)
+Bus 2: breaker OPEN (line 1)
+Bus 3: breaker OPEN (line 2)
+Bus 4: breaker CLOSE (line 3)
+Bus 5: breaker CLOSE (line 4)
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-02-26 18:18:03
+Load flow sukses. Voltage snapshot: [       nan 1.06396755 0.99388118 0.9841149  0.99349597]
+Bus 1: breaker CLOSE (line 0)
+Bus 2: breaker OPEN (line 1)
+Bus 3: breaker CLOSE (line 2)
+Bus 4: breaker CLOSE (line 3)
+Bus 5: breaker CLOSE (line 4)
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-02-26 18:18:07
+Load flow sukses. Voltage snapshot: [1.04412149 1.05049517 1.0328629  1.0056673  1.00738342]
+Bus 1: breaker OPEN (line 0)
+Bus 2: breaker OPEN (line 1)
+Bus 3: breaker OPEN (line 2)
+Bus 4: breaker CLOSE (line 3)
+Bus 5: breaker CLOSE (line 4)
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-02-26 18:18:11
+Load flow sukses. Voltage snapshot: [       nan 1.06396763 0.99388315 0.98411577 0.99349648]
+Bus 1: breaker CLOSE (line 0)
+Bus 2: breaker OPEN (line 1)
+Bus 3: breaker CLOSE (line 2)
+Bus 4: breaker CLOSE (line 3)
+Bus 5: breaker CLOSE (line 4)
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-02-26 18:18:15
+Load flow sukses. Voltage snapshot: [1.04412174 1.05049541 1.03286343 1.00566752 1.00738357]
+Bus 1: breaker OPEN (line 0)
+Bus 2: breaker OPEN (line 1)
+Bus 3: breaker OPEN (line 2)
+Bus 4: breaker CLOSE (line 3)
+Bus 5: breaker CLOSE (line 4)
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-02-26 18:18:19
+Load flow sukses. Voltage snapshot: [       nan 1.06396757 0.99388183 0.98411518 0.99349614]
+Bus 1: breaker CLOSE (line 0)
+Bus 2: breaker OPEN (line 1)
+Bus 3: breaker CLOSE (line 2)
+Bus 4: breaker CLOSE (line 3)
+Bus 5: breaker CLOSE (line 4)
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-02-26 18:18:23
+Load flow sukses. Voltage snapshot: [1.04412291 1.05049654 1.03286585 1.00566855 1.00738423]
+Bus 1: breaker OPEN (line 0)
+Bus 2: breaker OPEN (line 1)
+Bus 3: breaker OPEN (line 2)
+Bus 4: breaker CLOSE (line 3)
+Bus 5: breaker CLOSE (line 4)
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-02-26 18:18:27
+Load flow sukses. Voltage snapshot: [       nan 1.06396794 0.99389049 0.984119   0.99349841]
+Bus 1: breaker CLOSE (line 0)
+Bus 2: breaker OPEN (line 1)
+Bus 3: breaker CLOSE (line 2)
+Bus 4: breaker CLOSE (line 3)
+Bus 5: breaker CLOSE (line 4)
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-02-26 18:18:31
+Load flow sukses. Voltage snapshot: [1.04412492 1.05049848 1.03287003 1.00567034 1.00738537]
+Bus 1: breaker OPEN (line 0)
+Bus 2: breaker OPEN (line 1)
+Bus 3: breaker OPEN (line 2)
+Bus 4: breaker CLOSE (line 3)
+Bus 5: breaker CLOSE (line 4)
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-02-26 18:18:35
+Load flow sukses. Voltage snapshot: [       nan 1.06396767 0.99388401 0.98411615 0.99349671]
+Bus 1: breaker CLOSE (line 0)
+Bus 2: breaker OPEN (line 1)
+Bus 3: breaker CLOSE (line 2)
+Bus 4: breaker CLOSE (line 3)
+Bus 5: breaker CLOSE (line 4)
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-02-26 18:18:39
+Load flow sukses. Voltage snapshot: [1.04412197 1.05049563 1.0328639  1.00566772 1.0073837 ]
+Bus 1: breaker OPEN (line 0)
+Bus 2: breaker OPEN (line 1)
+Bus 3: breaker OPEN (line 2)
+Bus 4: breaker CLOSE (line 3)
+Bus 5: breaker CLOSE (line 4)
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-02-26 18:18:43
+Load flow sukses. Voltage snapshot: [       nan 1.06396815 0.99389553 0.98412122 0.99349974]
+Bus 1: breaker CLOSE (line 0)
+Bus 2: breaker OPEN (line 1)
+Bus 3: breaker CLOSE (line 2)
+Bus 4: breaker CLOSE (line 3)
+Bus 5: breaker CLOSE (line 4)
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-02-26 18:18:47
+Load flow sukses. Voltage snapshot: [1.04412114 1.05049483 1.03286218 1.00566698 1.00738323]
+Bus 1: breaker OPEN (line 0)
+Bus 2: breaker OPEN (line 1)
+Bus 3: breaker OPEN (line 2)
+Bus 4: breaker CLOSE (line 3)
+Bus 5: breaker CLOSE (line 4)
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-02-26 18:18:51
+Load flow sukses. Voltage snapshot: [       nan 1.06396813 0.99389503 0.984121   0.9934996 ]
+Bus 1: breaker CLOSE (line 0)
+Bus 2: breaker OPEN (line 1)
+Bus 3: breaker CLOSE (line 2)
+Bus 4: breaker CLOSE (line 3)
+Bus 5: breaker CLOSE (line 4)
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-02-26 18:18:56
+Load flow sukses. Voltage snapshot: [1.04412198 1.05049564 1.03286392 1.00566773 1.0073837 ]
+Bus 1: breaker OPEN (line 0)
+Bus 2: breaker OPEN (line 1)
+Bus 3: breaker OPEN (line 2)
+Bus 4: breaker CLOSE (line 3)
+Bus 5: breaker CLOSE (line 4)
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-02-26 18:19:00
+Load flow sukses. Voltage snapshot: [       nan 1.06396767 0.99388406 0.98411616 0.99349672]
+Bus 1: breaker CLOSE (line 0)
+Bus 2: breaker OPEN (line 1)
+Bus 3: breaker CLOSE (line 2)
+Bus 4: breaker CLOSE (line 3)
+Bus 5: breaker CLOSE (line 4)
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-02-26 18:19:04
+Load flow sukses. Voltage snapshot: [1.04412511 1.05049866 1.03287042 1.0056705  1.00738547]
+Bus 1: breaker OPEN (line 0)
+Bus 2: breaker OPEN (line 1)
+Bus 3: breaker OPEN (line 2)
+Bus 4: breaker CLOSE (line 3)
+Bus 5: breaker CLOSE (line 4)
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-02-26 18:19:08
+Load flow sukses. Voltage snapshot: [       nan 1.06396805 0.99389319 0.98412019 0.99349912]
+Bus 1: breaker CLOSE (line 0)
+Bus 2: breaker OPEN (line 1)
+Bus 3: breaker CLOSE (line 2)
+Bus 4: breaker CLOSE (line 3)
+Bus 5: breaker CLOSE (line 4)
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-02-26 18:19:12
+Load flow sukses. Voltage snapshot: [1.0441219  1.05049556 1.03286374 1.00566765 1.00738365]
+Bus 1: breaker OPEN (line 0)
+Bus 2: breaker OPEN (line 1)
+Bus 3: breaker OPEN (line 2)
+Bus 4: breaker CLOSE (line 3)
+Bus 5: breaker CLOSE (line 4)
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-02-26 18:19:16
+Load flow sukses. Voltage snapshot: [       nan 1.06396785 0.99388848 0.98411811 0.99349788]
+Bus 1: breaker CLOSE (line 0)
+Bus 2: breaker OPEN (line 1)
+Bus 3: breaker CLOSE (line 2)
+Bus 4: breaker CLOSE (line 3)
+Bus 5: breaker CLOSE (line 4)
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-02-26 18:19:20
+Load flow sukses. Voltage snapshot: [1.04412315 1.05049676 1.03286634 1.00566876 1.00738436]
+Bus 1: breaker OPEN (line 0)
+Bus 2: breaker OPEN (line 1)
+Bus 3: breaker OPEN (line 2)
 Bus 4: breaker CLOSE (line 3)
 Bus 5: breaker CLOSE (line 4)
