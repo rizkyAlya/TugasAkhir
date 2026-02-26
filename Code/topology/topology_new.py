@@ -83,10 +83,11 @@ def CPS_topology():
     
     base_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 
-    h1.cmd(f'python3 {base_dir}/apps/h1_field.py > {base_dir}/logs/h1.log 2>&1 &')
-    h2.cmd(f'python3 {base_dir}/apps/h2_rtu.py > {base_dir}/logs/h2.log 2>&1 &')
-    h3.cmd(f'python3 {base_dir}/apps/h3_gateway.py > {base_dir}/logs/h3.log 2>&1 &')
-    h4.cmd(f'python3 {base_dir}/apps/h4_twin.py > {base_dir}/logs/h4.log 2>&1 &')
+    h1.cmd(f'python3 -u {base_dir}/apps/h1_field.py > {base_dir}/logs/h1.log 2>&1 &')
+    h3.cmd(f'python3 -u {base_dir}/apps/h3_gateway.py > {base_dir}/logs/h3.log 2>&1 &')
+    time.sleep(2)
+    h2.cmd(f'python3 -u {base_dir}/apps/h2_rtu.py > {base_dir}/logs/h2.log 2>&1 &')
+    h4.cmd(f'python3 -u {base_dir}/apps/h4_twin.py > {base_dir}/logs/h4.log 2>&1 &')
 
     print("All applications started.")
     
