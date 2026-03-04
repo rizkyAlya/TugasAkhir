@@ -11,6 +11,8 @@ import sys
 base_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 sys.path.append(base_dir)
 from logger.baseline import collect_data
+from logger.dos import collect_data_dos
+from apps.h5 import run_dos_attack
 
 def addRouter(net, name):
     r = net.addHost(name, cls=Node)
@@ -101,6 +103,18 @@ def CPS_topology():
     print("\nStarting baseline measurement...")
     collect_data(net)
 
+    print("\nStarting DoS: mode light")
+    run_dos_attack(net, mode="light")
+    time.sleep(5)
+    print("Starting DoS (light) measurement...")
+    collect_data_dos(net, mode="light")
+    
+    print("\nStarting DoS: mode heavy")
+    run_dos_attack(net, mode="heavy")
+    time.sleep(5)
+    print("Starting DoS (heavy) measurement...")
+    collect_data_dos(net, mode="heavy")
+    
     CLI(net)
 
     print("Stopping network")
