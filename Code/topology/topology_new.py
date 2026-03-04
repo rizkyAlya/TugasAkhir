@@ -12,7 +12,7 @@ base_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 sys.path.append(base_dir)
 from logger.baseline import collect_data
 from logger.dos import collect_data_dos
-from apps.h5 import run_dos_attack
+from apps.h5_attacker import run_dos_attack
 
 def addRouter(net, name):
     r = net.addHost(name, cls=Node)
