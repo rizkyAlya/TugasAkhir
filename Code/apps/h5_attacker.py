@@ -51,7 +51,7 @@ def run_dos_attack(net, mode="light"):
 
         # Kirim 1000 paket per detik (masih terkontrol)
         h5.cmd(
-            f"hping3 --udp -p {target_port} -i u1000 {target_ip} "
+            f"hping3 --udp -p {target_port} -i u100 {target_ip} "
             f">> logs/host/h5.log 2>&1 &"
         )
 
