@@ -11,8 +11,6 @@ import sys
 base_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 sys.path.append(base_dir)
 from logger.collector import collect_data
-#from logger.baseline import collect_data
-#from logger.dos import collect_data_dos
 from apps.h5_attacker import run_dos_attack
 
 def addRouter(net, name):
@@ -47,21 +45,21 @@ def CPS_topology():
 
     print("Creating links")
     # Field Zone
-    net.addLink(h1, switch_field, bw=10)
-    net.addLink(h2, switch_field, bw=10)
-    net.addLink(switch_field, core_switch, bw=100)
-    net.addLink(r0, switch_field, bw=100)  # connect router to Field Zone
+    net.addLink(h1, switch_field, bw=5)
+    net.addLink(h2, switch_field, bw=5)
+    net.addLink(switch_field, core_switch, bw=5)
+    net.addLink(r0, switch_field, bw=5)  # connect router to Field Zone
 
     # Control Zone
-    net.addLink(h3, switch_control, bw=10)
-    net.addLink(switch_control, core_switch, bw=100)
-    net.addLink(r0, switch_control, bw=100)  # connect router to Control Zone
+    net.addLink(h3, switch_control, bw=5)
+    net.addLink(switch_control, core_switch, bw=5)
+    net.addLink(r0, switch_control, bw=5)  # connect router to Control Zone
 
     # IT Zone
-    net.addLink(h4, switch_it, bw=10)
-    net.addLink(h5, switch_it, bw=10)
-    net.addLink(switch_it, core_switch, bw=100)
-    net.addLink(r0, switch_it, bw=100)  # connect router to IT Zone
+    net.addLink(h4, switch_it, bw=5)
+    net.addLink(h5, switch_it, bw=5)
+    net.addLink(switch_it, core_switch, bw=5)
+    net.addLink(r0, switch_it, bw=5)  # connect router to IT Zone
 
     print("Starting network")
     net.start()
@@ -101,20 +99,17 @@ def CPS_topology():
     
     time.sleep(60)
 
-    print("\nStarting baseline measurement...")
     collect_data(net, mode="baseline")
 
     print("\nStarting DoS: mode light")
     run_dos_attack(net, mode="light")
-    time.sleep(5)
-    print("Starting DoS (light) measurement...")
-    collect_data_dos(net, mode="light")
+    time.sleep(2)
+    collect_data(net, mode="light")
     
     print("\nStarting DoS: mode heavy")
     run_dos_attack(net, mode="heavy")
-    time.sleep(5)
-    print("Starting DoS (heavy) measurement...")
-    collect_data_dos(net, mode="heavy")
+    time.sleep(2)
+    collect_data(net, mode="heavy")
     
     CLI(net)
 

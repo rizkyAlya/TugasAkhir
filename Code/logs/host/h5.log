@@ -1,0 +1,86 @@
+
+===== DoS LIGHT 2026-03-05 07:12:36 =====
+------------------------------------------------------------
+Client connecting to 10.0.2.2, UDP port 5001
+Sending 1470 byte datagrams, IPG target: 1121.52 us (kalman adjust)
+UDP buffer size:  208 KByte (default)
+------------------------------------------------------------
+[  3] local 10.0.3.3 port 44682 connected with 10.0.2.2 port 5001
+
+===== DoS LIGHT 2026-03-05 07:20:29 =====
+------------------------------------------------------------
+Client connecting to 10.0.2.2, UDP port 5001
+Sending 1470 byte datagrams, IPG target: 1121.52 us (kalman adjust)
+UDP buffer size:  208 KByte (default)
+------------------------------------------------------------
+[  3] local 10.0.3.3 port 48892 connected with 10.0.2.2 port 5001
+read failed: Connection refused
+[  3] WARNING: did not receive ack of last datagram after 5 tries.
+[ ID] Interval       Transfer     Bandwidth
+[  3]  0.0-30.0 sec  31.1 MBytes  8.69 Mbits/sec
+[  3] Sent 22187 datagrams
+
+===== DoS HEAVY 2026-03-05 07:25:10 =====
+------------------------------------------------------------
+Client connecting to 10.0.2.2, UDP port 5001
+Sending 1470 byte datagrams, IPG target: 112.15 us (kalman adjust)
+UDP buffer size:  208 KByte (default)
+------------------------------------------------------------
+[  3] local 10.0.3.3 port 38201 connected with 10.0.2.2 port 5001
+read failed: Connection refused
+[  3] WARNING: did not receive ack of last datagram after 5 tries.
+[ ID] Interval       Transfer     Bandwidth
+[  3]  0.0-30.0 sec  29.6 MBytes  8.27 Mbits/sec
+[  3] Sent 21113 datagrams
+
+===== DoS LIGHT 2026-03-05 07:41:40 =====
+------------------------------------------------------------
+Client connecting to 10.0.2.2, UDP port 5001
+Sending 1470 byte datagrams, IPG target: 1121.52 us (kalman adjust)
+UDP buffer size:  208 KByte (default)
+------------------------------------------------------------
+[  3] local 10.0.3.3 port 40253 connected with 10.0.2.2 port 5001
+read failed: Connection refused
+[  3] WARNING: did not receive ack of last datagram after 5 tries.
+[ ID] Interval       Transfer     Bandwidth
+[  3]  0.0-30.0 sec  16.2 MBytes  4.54 Mbits/sec
+[  3] Sent 11577 datagrams
+
+===== DoS HEAVY 2026-03-05 07:46:23 =====
+------------------------------------------------------------
+Client connecting to 10.0.2.2, UDP port 5001
+Sending 1470 byte datagrams, IPG target: 112.15 us (kalman adjust)
+UDP buffer size:  208 KByte (default)
+------------------------------------------------------------
+[  3] local 10.0.3.3 port 32958 connected with 10.0.2.2 port 5001
+read failed: Connection refused
+[  3] WARNING: did not receive ack of last datagram after 5 tries.
+[ ID] Interval       Transfer     Bandwidth
+[  3]  0.0-30.0 sec  16.8 MBytes  4.70 Mbits/sec
+[  3] Sent 12010 datagrams
+
+===== DoS LIGHT 2026-03-05 08:08:11 =====
+------------------------------------------------------------
+Client connecting to 10.0.2.2, UDP port 5001
+Sending 1470 byte datagrams, IPG target: 224.30 us (kalman adjust)
+UDP buffer size:  208 KByte (default)
+------------------------------------------------------------
+[  3] local 10.0.3.3 port 58287 connected with 10.0.2.2 port 5001
+read failed: Connection refused
+[  3] WARNING: did not receive ack of last datagram after 5 tries.
+[ ID] Interval       Transfer     Bandwidth
+[  3]  0.0-30.0 sec  17.0 MBytes  4.74 Mbits/sec
+[  3] Sent 12100 datagrams
+
+===== DoS HEAVY 2026-03-05 08:12:51 =====
+------------------------------------------------------------
+Client connecting to 10.0.2.2, UDP port 5001
+Sending 1470 byte datagrams, IPG target: 56.08 us (kalman adjust)
+UDP buffer size:  208 KByte (default)
+------------------------------------------------------------
+[  3] local 10.0.3.3 port 55411 connected with 10.0.2.2 port 5001
+read failed: Connection refused
+[  3] WARNING: did not receive ack of last datagram after 5 tries.
+[ ID] Interval       Transfer     Bandwidth
+[  3]  0.0-30.0 sec  16.9 MBytes  4.73 Mbits/sec
+[  3] Sent 12069 datagrams

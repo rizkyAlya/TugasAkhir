@@ -16,7 +16,7 @@ def run_dos_attack(net, mode="light"):
         print("Running LIGHT DoS (10 Mbps UDP flood)")
         h5.cmd(f"echo '\n===== DoS LIGHT {timestamp} =====' >> logs/host/h5.log")
         h5.cmd(
-            f"iperf -c {target_ip} -u -b 10M -t 30 "
+            f"iperf -c {target_ip} -u -b 50M -t 30 "
             f">> logs/host/h5.log 2>&1 &"
         )
 
@@ -24,6 +24,6 @@ def run_dos_attack(net, mode="light"):
         print("Running HEAVY DoS (100 Mbps UDP flood)")
         h5.cmd(f"echo '\n===== DoS HEAVY {timestamp} =====' >> logs/host/h5.log")
         h5.cmd(
-            f"iperf -c {target_ip} -u -b 100M -t 30 "
+            f"iperf -c {target_ip} -u -b 200M -t 30 "
             f">> logs/host/h5.log 2>&1 &"
         )
