@@ -49,9 +49,9 @@ def run_dos_attack(net, mode="light"):
         print("Running LIGHT DoS (Controlled UDP flood)")
         h5.cmd(f"echo '\n===== DoS LIGHT {timestamp} =====' >> logs/host/h5.log")
 
-        # Kirim 1000 paket per detik (masih terkontrol)
+        # Kirim 20,000 paket per detik (masih terkontrol)
         h5.cmd(
-            f"hping3 --udp -p {target_port} -i u100 {target_ip} "
+            f"hping3 --udp -p {target_port} -i u50 {target_ip} "
             f">> logs/host/h5.log 2>&1 &"
         )
 
