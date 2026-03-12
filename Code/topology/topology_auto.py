@@ -75,18 +75,13 @@ def load_config_from_file(path):
     return config
 
 
-def get_topology_timestamp():
-    """Return a timestamp string for this topology run (for logging)."""
-    return datetime.now().strftime("%Y-%m-%d_%H%M%S")
-
-
 def write_topology_log(config, config_path=None, timestamp_str=None):
     """
     Write a log entry for this topology creation under logs/topology/.
     Creates logs/topology/topology_<timestamp>.log with timestamp and config.
     """
     if timestamp_str is None:
-        timestamp_str = get_topology_timestamp()
+        timestamp_str = datetime.now().strftime("%Y-%m-%d_%H%M%S")
     log_dir = os.path.join(base_dir, "logs", "topology")
     os.makedirs(log_dir, exist_ok=True)
     log_file = os.path.join(log_dir, f"topology_{timestamp_str}.log")
@@ -257,8 +252,9 @@ def start_apps(net, host_names_by_zone, config):
     print("All applications started.")
 
 
-def run_experiment(net, host_names_by_zone, config):
-    """Run baseline and DoS data collection. Requires at least 2 field hosts."""
+def run_experiment(net, host_names_by_zone, config, logs_path=None):
+    """Run baseline and DoS data collection. Requires at least 2 field hosts.
+    Saves under logs/[timestamp]/baseline and logs/[timestamp]/dos/ when logs_path is set."""
     field = host_names_by_zone["field"]
     control = host_names_by_zone["control"]
     it = host_names_by_zone["it"]
@@ -268,17 +264,17 @@ def run_experiment(net, host_names_by_zone, config):
         return
 
     time.sleep(60)
-    collect_data(net, mode="baseline")
+    collect_data(net, mode="baseline", logs_path=logs_path)
 
     print("\nStarting DoS: mode light")
     run_dos_attack(net, mode="light")
     time.sleep(2)
-    collect_data(net, mode="light")
+    collect_data(net, mode="light", logs_path=logs_path)
 
     print("\nStarting DoS: mode heavy")
     run_dos_attack(net, mode="heavy")
     time.sleep(2)
-    collect_data(net, mode="heavy")
+    collect_data(net, mode="heavy", logs_path=logs_path)
 
 
 def main():
@@ -333,12 +329,21 @@ def main():
         config["bandwidth"] = max(1, config["bandwidth"])
 
     # Timestamp and log this topology creation
-    topology_timestamp = get_topology_timestamp()
-    log_file = write_topology_log(config, config_path=config_path, timestamp_str=topology_timestamp)
-    print(f"\nTopology timestamp: {topology_timestamp}")
+    timestamp = datetime.now().strftime("%Y-%m-%d_%H%M%S")
+    log_file = write_topology_log(config, config_path=config_path, timestamp_str=timestamp)
+    print(f"\nTopology timestamp: {timestamp}")
     print(f"Topology log: {log_file}")
 
     print(f"\nTopology: Field={config['n_field']} (scalable), Control=1, IT=2, BW={config['bandwidth']} Mbps")
+
+    # Logs for this run go under logs/[timestamp]/(baseline or dos)
+    logs_path = None
+    if not args.no_apps:
+        logs_path = os.path.join(base_dir, "logs", timestamp)
+        os.makedirs(os.path.join(logs_path, "baseline"), exist_ok=True)
+        os.makedirs(os.path.join(logs_path, "dos", "light"), exist_ok=True)
+        os.makedirs(os.path.join(logs_path, "dos", "heavy"), exist_ok=True)
+        print(f"Run results will be saved under: logs/{timestamp}/")
 
     net, host_names_by_zone, _ = build_topology(config)
 
@@ -348,7 +353,7 @@ def main():
 
     if not args.no_apps:
         start_apps(net, host_names_by_zone, config)
-        run_experiment(net, host_names_by_zone, config)
+        run_experiment(net, host_names_by_zone, config, logs_path=logs_path)
 
     if not args.no_cli:
         CLI(net)

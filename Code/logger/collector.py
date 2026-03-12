@@ -14,13 +14,23 @@ links = [
 
 base_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 
-def collect_data(net, mode="baseline"):
-
-    # Tentukan folder berdasarkan mode
-    if mode == "baseline":
-        log_dir = os.path.join(base_dir, 'logs', 'baseline')
+def collect_data(net, mode="baseline", logs_path=None):
+    """
+    Collect RTT, packet loss, and throughput data.
+    Saves under logs/[timestamp]/baseline or logs/[timestamp]/dos/<mode> when
+    logs_path is set (path to logs/[timestamp], from datetime). Otherwise uses
+    logs/baseline or logs/dos/<mode> (legacy).
+    """
+    if logs_path:
+        if mode == "baseline":
+            log_dir = os.path.join(logs_path, "baseline")
+        else:
+            log_dir = os.path.join(logs_path, "dos", mode)
     else:
-        log_dir = os.path.join(base_dir, 'logs', 'dos', mode)
+        if mode == "baseline":
+            log_dir = os.path.join(base_dir, 'logs', 'baseline')
+        else:
+            log_dir = os.path.join(base_dir, 'logs', 'dos', mode)
 
     os.makedirs(log_dir, exist_ok=True)
 
