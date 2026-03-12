@@ -720,3 +720,13 @@ round-trip min/avg/max = 3.5/42.7/549.8 ms
 hping in flood mode, no replies will be shown
                name=UNKNOWN
 status=0 port=18744 seq=1129880
+
+===== DoS LIGHT 2026-03-12 08:06:40 =====
+
+===== DoS HEAVY 2026-03-12 08:10:27 =====
+
+--- 10.0.2.2 hping statistic ---
+288696 packets transmitted, 0 packets received, 100% packet loss
+round-trip min/avg/max = 0.0/0.0/0.0 ms
+HPING 10.0.2.2 (h5-eth0 10.0.2.2): udp mode set, 28 headers + 0 data bytes
+hping in flood mode, no replies will be shown
