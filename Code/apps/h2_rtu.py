@@ -2,7 +2,6 @@ from pymodbus.client import ModbusTcpClient
 from opcua import Client as OPCUAClient
 import time
 from datetime import datetime
-import csv
 
 H1_IP = "10.0.1.2"
 MODBUS_PORT = 5020
@@ -61,47 +60,40 @@ def send_opcua_bus(bus, v, i, breaker):
         print(f"Error kirim ke OPC UA bus {bus}: {e}")
 
 # Main loop
-csv_file = "log_modbus.csv"    # File untuk menyimpan log data
-with open(csv_file, "a", newline="") as f:
-    writer = csv.writer(f)
-    writer.writerow(["timestamp", "bus", "V(pu)", "I(pu)", "breaker_status"])
-    
-    try:
-        while True:
-            print("\n")
-            ts = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+try:
+    while True:
+        print("\n")
+        ts = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
-            for bus in range(1, NUM_BUS+1):
-                v, i = read_modbus_bus(bus)
-                if v is None or i is None:
-                    print(f"Error baca Modbus bus {bus}")
-                    continue
+        for bus in range(1, NUM_BUS+1):
+            v, i = read_modbus_bus(bus)
+            if v is None or i is None:
+                print(f"Error baca Modbus bus {bus}")
+                continue
 
-                # 1) Terima perintah breaker dari h3
-                try:
-                    cmd = command_nodes[bus].get_value()
-                    if cmd in [0, 1]:
-                        breaker_status[bus] = cmd
-                except Exception as e:
-                    print(f"Error baca command OPC UA bus {bus}: {e}")
+            # 1) Terima perintah breaker dari h3
+            try:
+                cmd = command_nodes[bus].get_value()
+                if cmd in [0, 1]:
+                    breaker_status[bus] = cmd
+            except Exception as e:
+                print(f"Error baca command OPC UA bus {bus}: {e}")
 
-                # 2) Update coil di h1
-                update_breaker_h1(bus, breaker_status[bus])
+            # 2) Update coil di h1
+            update_breaker_h1(bus, breaker_status[bus])
 
-                # 3) Kirim data dan status breaker ke h3
-                send_opcua_bus(bus, v, i, breaker_status[bus])
+            # 3) Kirim data dan status breaker ke h3
+            send_opcua_bus(bus, v, i, breaker_status[bus])
 
-                # 4) Perbarui log
-                print(f"[{ts}] Bus {bus}: V={v:.3f} pu, I={i:.3f}, Breaker={'CLOSE' if breaker_status[bus]==1 else 'OPEN'}")
-                writer.writerow([ts, bus, v, i, breaker_status[bus]])
+            # 4) Perbarui log (ke console)
+            print(f"[{ts}] Bus {bus}: V={v:.3f} pu, I={i:.3f}, Breaker={'CLOSE' if breaker_status[bus]==1 else 'OPEN'}")
 
-            f.flush()
-            time.sleep(4)
+        time.sleep(4)
 
-    except KeyboardInterrupt:
-        print("RTU/IED dihentikan")
+except KeyboardInterrupt:
+    print("RTU/IED dihentikan")
 
-    finally:
-        modbus_client.close()
-        opc_client.disconnect()
+finally:
+    modbus_client.close()
+    opc_client.disconnect()
 

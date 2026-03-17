@@ -27,12 +27,10 @@ try:
 except ImportError:
     yaml = None
 
-
 # Subnet base for each zone: 10.0.{zone}.0/24
 FIELD_SUBNET = (10, 0, 1)
 CONTROL_SUBNET = (10, 0, 2)
 IT_SUBNET = (10, 0, 3)
-
 
 def load_config_from_file(path):
     """
@@ -74,7 +72,6 @@ def load_config_from_file(path):
     config["bandwidth"] = max(1, config["bandwidth"])
     return config
 
-
 def write_topology_log(config, config_path=None, timestamp_str=None):
     """
     Write a log entry for this topology creation under logs/topology/.
@@ -96,17 +93,14 @@ def write_topology_log(config, config_path=None, timestamp_str=None):
         f.write(f"bandwidth={config['bandwidth']}\n")
     return log_file
 
-
 def add_router(net, name):
     r = net.addHost(name, cls=Node)
     r.cmd('sysctl -w net.ipv4.ip_forward=1')
     return r
 
-
 def ip_for_zone(zone_base, host_index):
     """Host index 0 -> .2, 1 -> .3, etc. (router uses .1)."""
     return f"{zone_base[0]}.{zone_base[1]}.{zone_base[2]}.{host_index + 2}/24"
-
 
 def get_user_input():
     """Get topology parameters via interactive prompts. Only Field zone is scalable."""
@@ -352,8 +346,8 @@ def main():
     print("Network ready.")
 
     if not args.no_apps:
-        start_apps(net, host_names_by_zone, config)
-        run_experiment(net, host_names_by_zone, config, logs_path=logs_path)
+       start_apps(net, host_names_by_zone, config)
+       # run_experiment(net, host_names_by_zone, config, logs_path=logs_path)
 
     if not args.no_cli:
         CLI(net)
