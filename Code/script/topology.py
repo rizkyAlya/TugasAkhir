@@ -18,11 +18,17 @@ def create_network():
     net.addController('c0')
 
     print("Adding hosts")
+
     h1 = net.addHost('h1', ip='10.0.1.2/24')
+
     h2 = net.addHost('h2', ip='10.0.1.3/24')
+
     h3 = net.addHost('h3', ip='10.0.2.2/24')
+
     h4 = net.addHost('h4', ip='10.0.3.2/24')
+
     h5 = net.addHost('h5', ip='10.0.3.3/24')
+
 
     print("Adding switches")
     switch_field = net.addSwitch('s1')
@@ -34,16 +40,22 @@ def create_network():
     r0 = addRouter(net, 'r0')
 
     print("Creating links")
+
     net.addLink(h1, switch_field, bw=5)
+
     net.addLink(h2, switch_field, bw=5)
+
+
     net.addLink(h3, switch_control, bw=5)
+
+
     net.addLink(h4, switch_it, bw=5)
+
     net.addLink(h5, switch_it, bw=5)
-    
+
     net.addLink(switch_field, core_switch, bw=5)
     net.addLink(switch_control, core_switch, bw=5)
     net.addLink(switch_it, core_switch, bw=5)
-    
     net.addLink(r0, switch_field, bw=5)
     net.addLink(r0, switch_control, bw=5)
     net.addLink(r0, switch_it, bw=5)
@@ -57,17 +69,39 @@ def post_start_setup(net):
     r0.cmd('ifconfig r0-eth1 10.0.2.1/24 up')  # Control Zone
     r0.cmd('ifconfig r0-eth2 10.0.3.1/24 up')  # IT Zone
 
+    print("Applying inter-zone segmentation on r0")
+    # Default-deny forwarding with explicit allows:
+    # - Field <-> Control allowed
+    # - IT <-> Control allowed
+    # - Field <-> IT blocked
+    r0.cmd('iptables -F FORWARD')
+    r0.cmd('iptables -P FORWARD DROP')
+    r0.cmd('iptables -A FORWARD -m conntrack --ctstate ESTABLISHED,RELATED -j ACCEPT')
+    r0.cmd('iptables -A FORWARD -i r0-eth0 -o r0-eth1 -j ACCEPT')  # Field -> Control
+    r0.cmd('iptables -A FORWARD -i r0-eth1 -o r0-eth0 -j ACCEPT')  # Control -> Field
+    r0.cmd('iptables -A FORWARD -i r0-eth2 -o r0-eth1 -j ACCEPT')  # IT -> Control
+    r0.cmd('iptables -A FORWARD -i r0-eth1 -o r0-eth2 -j ACCEPT')  # Control -> IT
+    r0.cmd('iptables -A FORWARD -i r0-eth0 -o r0-eth2 -j DROP')    # Field -> IT
+    r0.cmd('iptables -A FORWARD -i r0-eth2 -o r0-eth0 -j DROP')    # IT -> Field
+
     print("Setting default routes on hosts")
+
     net.get('h1').cmd('ip route add default via 10.0.1.1')
+
     net.get('h2').cmd('ip route add default via 10.0.1.1')
+
+
     net.get('h3').cmd('ip route add default via 10.0.2.1')
+
+
     net.get('h4').cmd('ip route add default via 10.0.3.1')
+
     net.get('h5').cmd('ip route add default via 10.0.3.1')
+
 
     print("\nWaiting for network stabilization...")
     time.sleep(5)
     print("Network ready")
-
 
 def CPS_topology():
     net = create_network()

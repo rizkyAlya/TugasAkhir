@@ -35,11 +35,9 @@ for bus in range(1, NUM_BUS+1):
     addr_breaker = BREAKER_BASE_ADDR + (bus-1)
     context[0x00].setValues(1, addr_breaker, [breaker_status[bus]])
 
-
 def start_modbus_server():
     print(f"Starting Modbus TCP server on {MODBUS_LISTEN_IP}:{MODBUS_PORT}")
     StartTcpServer(context=context, identity=None, address=(MODBUS_LISTEN_IP, MODBUS_PORT))
-
 
 def main_loop():
     slave_id = 0x00   # karena single=True
@@ -76,7 +74,6 @@ def main_loop():
 
     except KeyboardInterrupt:
         print("Stopped by User")
-
 
 if __name__ == "__main__":
     t = Thread(target=start_modbus_server, daemon=True)

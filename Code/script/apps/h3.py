@@ -47,11 +47,9 @@ store = ModbusSlaveContext(
 )
 context = ModbusServerContext(slaves=store, single=True)
 
-
 def start_modbus_server():
     print(f"Memulai Modbus Gateway di {MODBUS_LISTEN_IP}:{MODBUS_PORT}")
     StartTcpServer(context=context, identity=None, address=(MODBUS_LISTEN_IP, MODBUS_PORT))
-
 
 for bus in range(1, 6):
     tegangan_nodes[bus] = sensor_folder.add_variable(idx, f"V_bus_{bus}", 0.0)
@@ -81,18 +79,20 @@ try:
                 # 1) Ambil data dari RTU melalui Modbus
                 addr_v = V_BASE_ADDR + (bus - 1)
                 addr_i = I_BASE_ADDR + (bus - 1)
-                _addr_b = BREAKER_FB_BASE_ADDR + (bus - 1)
+                addr_b = BREAKER_FB_BASE_ADDR + (bus - 1)
                 v_raw = context[0x00].getValues(3, addr_v, count=1)[0]
                 i_raw = context[0x00].getValues(3, addr_i, count=1)[0]
+                b_raw = context[0x00].getValues(3, addr_b, count=1)[0]
 
                 v = float(v_raw) / 1000.0
                 i = float(i_raw) / 1000.0
+                breaker_fb = 1 if int(b_raw) == 1 else 0
 
                 # 2) Publish ke OPC UA untuk pandapower (V/I)
                 tegangan_nodes[bus].set_value(v)
                 arus_nodes[bus].set_value(i)
 
-                # 3) Ambil command (status breaker) dari OPC UA lalu tulis ke Modbus coil untuk RTU
+                # 3) Ambil command dari OPC UA lalu tulis ke Modbus coil untuk RTU
                 cmd = command_nodes[bus].get_value()
                 cmd_val = 1 if int(cmd) == 1 else 0
                 context[0x00].setValues(1, BREAKER_CMD_BASE_ADDR + (bus - 1), [cmd_val])

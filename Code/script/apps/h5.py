@@ -1,6 +1,5 @@
 import os
 from datetime import datetime
-
 def run_mitm_attack(net, rtu_name="h2", gateway_name="h3", attacker_name="h5"):
     print("Running MITM with dual-homed attacker...")
     """
