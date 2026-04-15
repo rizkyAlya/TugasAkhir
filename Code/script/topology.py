@@ -20,10 +20,15 @@ def create_network():
     print("Adding hosts")
 
     h1 = net.addHost('h1', ip='10.0.1.2/24')
+
     h2 = net.addHost('h2', ip='10.0.1.3/24')
+
     h3 = net.addHost('h3', ip='10.0.2.2/24')
+
     h4 = net.addHost('h4', ip='10.0.3.2/24')
+
     h5 = net.addHost('h5', ip='10.0.3.3/24')
+
 
     print("Adding switches")
     switch_field = net.addSwitch('s1')
@@ -37,20 +42,26 @@ def create_network():
     print("Creating links")
 
     net.addLink(h1, switch_field, bw=5)
+
     net.addLink(h2, switch_field, bw=5)
+
+
     net.addLink(h3, switch_control, bw=5)
+
+
     net.addLink(h4, switch_it, bw=5)
+
     net.addLink(h5, switch_it, bw=5)
 
     net.addLink(switch_field, core_switch, bw=5)
     net.addLink(switch_control, core_switch, bw=5)
     net.addLink(switch_it, core_switch, bw=5)
-    
     net.addLink(r0, switch_field, bw=5)
     net.addLink(r0, switch_control, bw=5)
     net.addLink(r0, switch_it, bw=5)
 
     return net
+
 
 def post_start_setup(net):
     r0 = net.get('r0')
@@ -62,14 +73,22 @@ def post_start_setup(net):
     print("Setting default routes on hosts")
 
     net.get('h1').cmd('ip route add default via 10.0.1.1')
+
     net.get('h2').cmd('ip route add default via 10.0.1.1')
+
+
     net.get('h3').cmd('ip route add default via 10.0.2.1')
+
+
     net.get('h4').cmd('ip route add default via 10.0.3.1')
+
     net.get('h5').cmd('ip route add default via 10.0.3.1')
+
 
     print("\nWaiting for network stabilization...")
     time.sleep(5)
     print("Network ready")
+
 
 def CPS_topology():
     net = create_network()
