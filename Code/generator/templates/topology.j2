@@ -1,0 +1,82 @@
+from mininet.net import Mininet
+from mininet.node import Controller, OVSSwitch, Node
+from mininet.cli import CLI
+from mininet.link import TCLink
+from mininet.log import setLogLevel
+
+import time
+
+def addRouter(net, name):
+    r = net.addHost(name, cls=Node)
+    r.cmd('sysctl -w net.ipv4.ip_forward=1')
+    return r
+
+def CPS_topology():
+    net = Mininet(controller=Controller, link=TCLink, switch=OVSSwitch)
+
+    print("Adding controller")
+    net.addController('c0')
+
+    print("Adding hosts")
+{% for h in hosts %}
+    {{ h.name }} = net.addHost('{{ h.name }}', ip='{{ h.ip }}/24')
+{% endfor %}
+
+    print("Adding switches")
+    switch_field = net.addSwitch('s1')
+    switch_control = net.addSwitch('s2')
+    switch_it = net.addSwitch('s3')
+    core_switch = net.addSwitch('s4')
+
+    print("Adding router")
+    r0 = addRouter(net, 'r0')
+
+    print("Creating links")
+{% for h in zones.get('field', []) %}
+    net.addLink({{ h.name }}, switch_field, bw={{ bandwidth }})
+{% endfor %}
+{% for h in zones.get('control', []) %}
+    net.addLink({{ h.name }}, switch_control, bw={{ bandwidth }})
+{% endfor %}
+{% for h in zones.get('it', []) %}
+    net.addLink({{ h.name }}, switch_it, bw={{ bandwidth }})
+{% endfor %}
+    net.addLink(switch_field, core_switch, bw={{ bandwidth }})
+    net.addLink(switch_control, core_switch, bw={{ bandwidth }})
+    net.addLink(switch_it, core_switch, bw={{ bandwidth }})
+    net.addLink(r0, switch_field, bw={{ bandwidth }})
+    net.addLink(r0, switch_control, bw={{ bandwidth }})
+    net.addLink(r0, switch_it, bw={{ bandwidth }})
+
+    print("Starting network")
+    net.start()
+
+    print("\nConfiguring router interfaces")
+    r0.cmd('ifconfig r0-eth0 10.0.1.1/24 up')  # Field Zone
+    r0.cmd('ifconfig r0-eth1 10.0.2.1/24 up')  # Control Zone
+    r0.cmd('ifconfig r0-eth2 10.0.3.1/24 up')  # IT Zone
+
+    print("Setting default routes on hosts")
+{% for h in zones.get('field', []) %}
+    {{ h.name }}.cmd('ip route add default via 10.0.1.1')
+{% endfor %}
+{% for h in zones.get('control', []) %}
+    {{ h.name }}.cmd('ip route add default via 10.0.2.1')
+{% endfor %}
+{% for h in zones.get('it', []) %}
+    {{ h.name }}.cmd('ip route add default via 10.0.3.1')
+{% endfor %}
+
+    print("\nWaiting for network stabilization...")
+    time.sleep(5)
+    print("Network ready")
+
+    CLI(net)
+
+    print("Stopping network")
+    net.stop()
+
+if __name__ == '__main__':
+    setLogLevel('info')
+    CPS_topology()
+

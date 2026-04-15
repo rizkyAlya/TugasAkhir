@@ -26,9 +26,12 @@ def load_config(path):
 def parse_topology(config):
     zones = config["topology"]["zones"]
     bandwidth = config.get("network", {}).get("bandwidth", 5)
+    links = config.get("topology", {}).get("links", [])
 
     all_hosts = []
     zone_map = {}
+    hosts_by_name = {}
+    hosts_by_role = {}
 
     for zone_name, zone in zones.items():
         subnet_base = zone["subnet"].split("/")[0].rsplit(".", 1)[0]
@@ -44,10 +47,12 @@ def parse_topology(config):
             }
             all_hosts.append(host_data)
             zone_hosts.append(host_data)
+            hosts_by_name[host_data["name"]] = host_data
+            hosts_by_role.setdefault(host_data["role"], []).append(host_data)
 
         zone_map[zone_name] = zone_hosts
 
-    return all_hosts, zone_map, bandwidth
+    return all_hosts, zone_map, links, bandwidth, hosts_by_name, hosts_by_role
 
 # GENERATE APPS
 def generate_apps(hosts):
@@ -59,17 +64,25 @@ def generate_apps(hosts):
         template_name = ROLE_TEMPLATE[role]
         template = env.get_template(template_name)
 
-        output = template.render(host=host)
+        # Keep templates simple: pass host plus computed role/name maps.
+        # Templates may use these to reference other hosts' IPs/endpoints.
+        output = template.render(
+            host=host,
+            all_hosts=hosts,
+            hosts_by_name=generate_apps.hosts_by_name,
+            hosts_by_role=generate_apps.hosts_by_role,
+        )
 
         with open(os.path.join(app_dir, f"{host['name']}.py"), "w") as f:
             f.write(output)
 
 # GENERATE TOPOLOGY FILE
-def generate_topology(hosts, links, bandwidth):
+def generate_topology(hosts, zone_map, links, bandwidth):
     template = env.get_template("topology.j2")
 
     output = template.render(
         hosts=hosts,
+        zones=zone_map,
         links=links,
         bandwidth=bandwidth
     )
@@ -87,10 +100,12 @@ def main():
 
     config = load_config(args.config)
 
-    hosts, links, bandwidth = parse_topology(config)
+    hosts, zone_map, links, bandwidth, hosts_by_name, hosts_by_role = parse_topology(config)
+    generate_apps.hosts_by_name = hosts_by_name
+    generate_apps.hosts_by_role = hosts_by_role
 
     generate_apps(hosts)
-    generate_topology(hosts, links, bandwidth)
+    generate_topology(hosts, zone_map, links, bandwidth)
 
     print("Generation complete!")
     print(f"Output directory: {OUTPUT_DIR}")
