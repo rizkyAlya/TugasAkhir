@@ -3,6 +3,7 @@ import sys
 import time
 import argparse
 import importlib.util
+from datetime import datetime
 
 from mininet.cli import CLI
 from mininet.log import setLogLevel
@@ -100,19 +101,21 @@ def setup_mitm(net):
         print(f"MITM setup failed: {e}")
 
 # UTIL: RUN DOS
-def run_dos(net):
-    print("Starting DoS attack...")
+def run_dos(net, mode):
+    print(f"Starting DoS attack ({mode})...")
     run_dos_attack = load_generated_attacker_function()
 
     if run_dos_attack is None:
         print("DoS function not found (script/apps/h5.py)")
-        return
+        return False
 
     try:
-        run_dos_attack(net, mode="light")
-        print("DoS running\n")
+        run_dos_attack(net, mode=mode)
+        print(f"DoS {mode} running\n")
+        return True
     except Exception as e:
         print(f"DoS failed: {e}")
+        return False
 
 # MAIN
 def main():
@@ -140,6 +143,10 @@ def main():
     )
 
     args = parser.parse_args()
+    run_timestamp = datetime.now().strftime("%Y-%m-%d_%H%M%S")
+    run_logs_path = os.path.join(BASE_DIR, "logs", run_timestamp)
+    os.makedirs(run_logs_path, exist_ok=True)
+    print(f"Run logs path: {run_logs_path}")
 
     print("\n==============================")
     print("MODE: ORCHESTRATOR")
@@ -164,15 +171,29 @@ def main():
         setup_mitm(net)
 
     if args.dos:
-        run_dos(net)
+        # Always run both scenarios in one DoS run.
+        for dos_mode in ("light", "heavy"):
+            ok = run_dos(net, dos_mode)
+            if ok:
+                print(f"Collecting DoS ({dos_mode}) metrics...")
+                collect_data(net, mode=dos_mode, logs_path=run_logs_path)
+                print(f"DoS ({dos_mode}) collection complete.\n")
 
     # In normal mode, wait a bit then collect baseline logs.
     if not args.mitm and not args.dos:
         delay = max(0, args.collect_delay)
         print(f"Normal mode detected: collecting baseline in {delay}s...")
         time.sleep(delay)
-        collect_data(net, mode="baseline")
+        collect_data(net, mode="baseline", logs_path=run_logs_path)
         print("Baseline collection complete.\n")
+
+    # In MITM mode (without DoS), still collect baseline metrics in per-run folder.
+    if args.mitm and not args.dos:
+        delay = max(0, args.collect_delay)
+        print(f"MITM mode detected: collecting baseline in {delay}s...")
+        time.sleep(delay)
+        collect_data(net, mode="baseline", logs_path=run_logs_path)
+        print("MITM baseline collection complete.\n")
 
     print("System ready\n")
 
