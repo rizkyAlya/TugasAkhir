@@ -1,72 +1,90 @@
-from opcua import Client
-import pandapower.networks as pn
-import pandapower as pp
+from pymodbus.client import ModbusTcpClient
 import time
 from datetime import datetime
 
-# Menggunakan Panda Power IEEE 39 Bus
-net = pn.case39()
+FIELD_IP = "10.0.1.2"
+GATEWAY_IP = "10.0.2.2"
+MODBUS_PORT = 5020
 
-client = Client("opc.tcp://10.0.2.2:4840/mininet/")
-client.connect()
+V_BASE_ADDR = 0
+I_BASE_ADDR = 10
+BREAKER_BASE_ADDR = 0
+BREAKER_FB_BASE_ADDR = 20
+NUM_BUS = 5
 
-idx = client.get_namespace_index("mininet-opcua")
-print("Namespace index:", idx)
+# Modbus clients
+field_client = ModbusTcpClient(FIELD_IP, port=MODBUS_PORT)
+gateway_client = ModbusTcpClient(GATEWAY_IP, port=MODBUS_PORT)
+field_client.connect()
+gateway_client.connect()
 
-root = client.get_root_node()
+breaker_cmd = {bus: 1 for bus in range(1, NUM_BUS+1)}  # 0=OPEN, 1=CLOSE
 
-tegangan_nodes = {}
-arus_nodes = {}
-command_nodes = {}
+def read_modbus_bus(bus):
+    addr_v = V_BASE_ADDR + (bus - 1)
+    addr_i = I_BASE_ADDR + (bus - 1)
+    rr_v = field_client.read_holding_registers(addr_v, 1, unit=1)
+    rr_i = field_client.read_holding_registers(addr_i, 1, unit=1)
+    if rr_v.isError() or rr_i.isError():
+        return None, None
+    v = rr_v.registers[0] / 1000.0
+    i = rr_i.registers[0] / 1000.0
+    return v, i
 
-for bus in range(1, 6):
-    tegangan_nodes[bus] = root.get_child(["0:Objects", f"{idx}:SENSORS", f"{idx}:V_bus_{bus}"])
-    arus_nodes[bus] = root.get_child(["0:Objects", f"{idx}:SENSORS", f"{idx}:I_bus_{bus}"])
-    command_nodes[bus] = root.get_child(["0:Objects", f"{idx}:COMMANDS", f"{idx}:CMD_bus_{bus}"])
+def read_breaker_command(bus):
+    addr_cmd = BREAKER_BASE_ADDR + (bus - 1)
+    rr_cmd = gateway_client.read_coils(addr_cmd, 1, unit=1)
+    if rr_cmd.isError() or not rr_cmd.bits:
+        return None
+    return 1 if rr_cmd.bits[0] else 0
 
-bus_map = {i+1: i for i in range(5)}
-bus_line = {i+1: i for i in range(len(net.line))}
-line_status = {idx: True for idx in range(len(net.line))}
-
-while True:
-    for bus in range(1, 6):
-        v = tegangan_nodes[bus].get_value()
-        i = arus_nodes[bus].get_value()
-
-        idx_pp = bus_map[bus]
-        net.bus.loc[idx_pp, "vm_pu"] = v
-
-        if bus in net.load.bus.values:
-            load_idx = net.load[net.load.bus == idx_pp].index
-            if len(load_idx):
-                net.load.loc[load_idx, "p_mw"] = float(i) * 0.1
-                net.load.loc[load_idx, "q_mvar"] = float(i) * 0.05
-
+def update_breaker_field(bus, status):
+    addr_brk = BREAKER_BASE_ADDR + (bus - 1)
     try:
-        pp.runpp(net)
-        print("\n", datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
-        print("Load flow sukses. Voltage snapshot:", net.res_bus.vm_pu.values[:5])
-    except Exception:
-        print("Load flow gagal")
+        field_client.write_coil(addr_brk, status, unit=0)
+    except Exception as e:
+        print(f"Error update breaker FIELD bus {bus}: {e}")
 
-    for bus in range(1, 6):
-        idx_pp = bus_map[bus]
-        v = net.res_bus.vm_pu.loc[idx_pp]
-        line_idx = bus_line.get(bus, None)
+def send_to_gateway_modbus(bus, v, i, breaker):
+    addr_v = V_BASE_ADDR + (bus - 1)
+    addr_i = I_BASE_ADDR + (bus - 1)
+    addr_b = BREAKER_FB_BASE_ADDR + (bus - 1)
+    try:
+        gateway_client.write_register(addr_v, int(v * 1000), unit=1)
+        gateway_client.write_register(addr_i, int(i * 1000), unit=1)
+        gateway_client.write_register(addr_b, int(breaker), unit=1)
+    except Exception as e:
+        print(f"Error kirim ke gateway Modbus bus {bus}: {e}")
 
-        if line_idx is None:
-            continue
+try:
+    while True:
+        print("\n")
+        ts = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
-        cmd = 0 if v > 1.02 else 1
-        command_nodes[bus].set_value(cmd)
+        for bus in range(1, NUM_BUS+1):
+            v, i = read_modbus_bus(bus)
+            if v is None or i is None:
+                print(f"Error baca Modbus bus {bus}")
+                continue
 
-        if cmd == 0:
-            net.line.loc[line_idx, "in_service"] = False
-            line_status[line_idx] = False
-            print(f"Bus {bus}: breaker OPEN (line {line_idx})")
-        elif cmd == 1:
-            net.line.loc[line_idx, "in_service"] = True
-            line_status[line_idx] = True
-            print(f"Bus {bus}: breaker CLOSE (line {line_idx})")
+            # 1) Terima perintah breaker dari gateway via Modbus
+            cmd = read_breaker_command(bus)
+            if cmd in [0, 1]:
+                breaker_cmd[bus] = cmd
 
-    time.sleep(4)
+            # 2) Update coil di field device
+            update_breaker_field(bus, breaker_cmd[bus])
+
+            # 3) Kirim data dan status breaker ke gateway via Modbus
+            send_to_gateway_modbus(bus, v, i, breaker_cmd[bus])
+
+            print(f"[{ts}] Bus {bus}: V={v:.3f} pu, I={i:.3f}, Breaker={'CLOSE' if breaker_cmd[bus]==1 else 'OPEN'}")
+
+        time.sleep(4)
+
+except KeyboardInterrupt:
+    print("RTU/IED dihentikan")
+
+finally:
+    field_client.close()
+    gateway_client.close()
