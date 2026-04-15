@@ -5,7 +5,7 @@ from jinja2 import Environment, FileSystemLoader
 
 BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 TEMPLATE_DIR = os.path.join(BASE_DIR, "generator", "templates")
-OUTPUT_DIR = os.path.join(BASE_DIR, "output")
+OUTPUT_DIR = os.path.join(BASE_DIR, "script")
 
 env = Environment(loader=FileSystemLoader(TEMPLATE_DIR))
 
