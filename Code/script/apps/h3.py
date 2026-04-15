@@ -1,90 +1,112 @@
-from pymodbus.client import ModbusTcpClient
+from threading import Thread
+from opcua import Server
+from pymodbus.server import StartTcpServer
+from pymodbus.datastore import ModbusSlaveContext, ModbusServerContext
+from pymodbus.datastore import ModbusSequentialDataBlock
 import time
 from datetime import datetime
 
-FIELD_IP = "10.0.1.2"
-GATEWAY_IP = "10.0.2.2"
-MODBUS_PORT = 5020
+# Konfigurasi server OPC UA
+server = Server()
+server.set_endpoint("opc.tcp://10.0.2.2:4840/mininet/")
 
+uri = "mininet-opcua"
+idx = server.register_namespace(uri)
+
+objects = server.get_objects_node()
+
+sensor_folder = objects.add_folder(idx, "SENSORS")
+command_folder = objects.add_folder(idx, "COMMANDS")
+
+tegangan_nodes = {}
+arus_nodes = {}
+command_nodes = {}
+
+last_breaker = {}
+
+# Modbus gateway datastore:
+# - Holding registers:
+#   0-4   : V bus
+#   10-14 : I bus
+#   20-24 : breaker feedback dari RTU
+# - Coils:
+#   0-4   : breaker command ke RTU
+MODBUS_LISTEN_IP = "0.0.0.0"
+MODBUS_PORT = 5020
 V_BASE_ADDR = 0
 I_BASE_ADDR = 10
-BREAKER_BASE_ADDR = 0
 BREAKER_FB_BASE_ADDR = 20
+BREAKER_CMD_BASE_ADDR = 0
 NUM_BUS = 5
 
-# Modbus clients
-field_client = ModbusTcpClient(FIELD_IP, port=MODBUS_PORT)
-gateway_client = ModbusTcpClient(GATEWAY_IP, port=MODBUS_PORT)
-field_client.connect()
-gateway_client.connect()
+store = ModbusSlaveContext(
+    di=ModbusSequentialDataBlock(0, [0] * 100),
+    co=ModbusSequentialDataBlock(0, [1] * 100),
+    hr=ModbusSequentialDataBlock(0, [0] * 100),
+    ir=ModbusSequentialDataBlock(0, [0] * 100),
+)
+context = ModbusServerContext(slaves=store, single=True)
 
-breaker_cmd = {bus: 1 for bus in range(1, NUM_BUS+1)}  # 0=OPEN, 1=CLOSE
+def start_modbus_server():
+    print(f"Memulai Modbus Gateway di {MODBUS_LISTEN_IP}:{MODBUS_PORT}")
+    StartTcpServer(context=context, identity=None, address=(MODBUS_LISTEN_IP, MODBUS_PORT))
 
-def read_modbus_bus(bus):
-    addr_v = V_BASE_ADDR + (bus - 1)
-    addr_i = I_BASE_ADDR + (bus - 1)
-    rr_v = field_client.read_holding_registers(addr_v, 1, unit=1)
-    rr_i = field_client.read_holding_registers(addr_i, 1, unit=1)
-    if rr_v.isError() or rr_i.isError():
-        return None, None
-    v = rr_v.registers[0] / 1000.0
-    i = rr_i.registers[0] / 1000.0
-    return v, i
+for bus in range(1, 6):
+    tegangan_nodes[bus] = sensor_folder.add_variable(idx, f"V_bus_{bus}", 0.0)
+    tegangan_nodes[bus].set_writable()
 
-def read_breaker_command(bus):
-    addr_cmd = BREAKER_BASE_ADDR + (bus - 1)
-    rr_cmd = gateway_client.read_coils(addr_cmd, 1, unit=1)
-    if rr_cmd.isError() or not rr_cmd.bits:
-        return None
-    return 1 if rr_cmd.bits[0] else 0
+    arus_nodes[bus] = sensor_folder.add_variable(idx, f"I_bus_{bus}", 0.0)
+    arus_nodes[bus].set_writable()
 
-def update_breaker_field(bus, status):
-    addr_brk = BREAKER_BASE_ADDR + (bus - 1)
-    try:
-        field_client.write_coil(addr_brk, status, unit=0)
-    except Exception as e:
-        print(f"Error update breaker FIELD bus {bus}: {e}")
+    command_nodes[bus] = command_folder.add_variable(idx, f"CMD_bus_{bus}", 1)
+    command_nodes[bus].set_writable()
 
-def send_to_gateway_modbus(bus, v, i, breaker):
-    addr_v = V_BASE_ADDR + (bus - 1)
-    addr_i = I_BASE_ADDR + (bus - 1)
-    addr_b = BREAKER_FB_BASE_ADDR + (bus - 1)
-    try:
-        gateway_client.write_register(addr_v, int(v * 1000), unit=1)
-        gateway_client.write_register(addr_i, int(i * 1000), unit=1)
-        gateway_client.write_register(addr_b, int(breaker), unit=1)
-    except Exception as e:
-        print(f"Error kirim ke gateway Modbus bus {bus}: {e}")
+    last_breaker[bus] = 1
+
+print("Memulai Server OPC UA")
+server.start()
+t = Thread(target=start_modbus_server, daemon=True)
+t.start()
 
 try:
     while True:
         print("\n")
         ts = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
-        for bus in range(1, NUM_BUS+1):
-            v, i = read_modbus_bus(bus)
-            if v is None or i is None:
-                print(f"Error baca Modbus bus {bus}")
-                continue
+        for bus in range(1, NUM_BUS + 1):
+            cmd_val = last_breaker[bus]
+            try:
+                # 1) Ambil data dari RTU melalui Modbus
+                addr_v = V_BASE_ADDR + (bus - 1)
+                addr_i = I_BASE_ADDR + (bus - 1)
+                addr_b = BREAKER_FB_BASE_ADDR + (bus - 1)
+                v_raw = context[0x00].getValues(3, addr_v, count=1)[0]
+                i_raw = context[0x00].getValues(3, addr_i, count=1)[0]
+                b_raw = context[0x00].getValues(3, addr_b, count=1)[0]
 
-            # 1) Terima perintah breaker dari gateway via Modbus
-            cmd = read_breaker_command(bus)
-            if cmd in [0, 1]:
-                breaker_cmd[bus] = cmd
+                v = float(v_raw) / 1000.0
+                i = float(i_raw) / 1000.0
+                breaker_fb = 1 if int(b_raw) == 1 else 0
 
-            # 2) Update coil di field device
-            update_breaker_field(bus, breaker_cmd[bus])
+                # 2) Publish ke OPC UA untuk pandapower (V/I)
+                tegangan_nodes[bus].set_value(v)
+                arus_nodes[bus].set_value(i)
 
-            # 3) Kirim data dan status breaker ke gateway via Modbus
-            send_to_gateway_modbus(bus, v, i, breaker_cmd[bus])
+                # 3) Ambil command dari OPC UA lalu tulis ke Modbus coil untuk RTU
+                cmd = command_nodes[bus].get_value()
+                cmd_val = 1 if int(cmd) == 1 else 0
+                context[0x00].setValues(1, BREAKER_CMD_BASE_ADDR + (bus - 1), [cmd_val])
 
-            print(f"[{ts}] Bus {bus}: V={v:.3f} pu, I={i:.3f}, Breaker={'CLOSE' if breaker_cmd[bus]==1 else 'OPEN'}")
+                print(f"[{ts}] [Bus {bus}] Data V/I/CMD berhasil update")
+            except Exception as e:
+                print(f"[{ts}] [Bus {bus}] Gagal update: {e}")
+
+            if cmd_val != last_breaker[bus]:
+                print(f"[{ts}] [Bus {bus}] Command breaker ke RTU: {'CLOSE' if cmd_val==1 else 'OPEN'}")
+                last_breaker[bus] = cmd_val
 
         time.sleep(4)
 
 except KeyboardInterrupt:
-    print("RTU/IED dihentikan")
-
-finally:
-    field_client.close()
-    gateway_client.close()
+    print("Server dihentikan oleh user")
+    server.stop()

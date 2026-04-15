@@ -23,15 +23,11 @@ def create_network():
 
     h2 = net.addHost('h2', ip='10.0.1.3/24')
 
-    h3 = net.addHost('h3', ip='10.0.1.4/24')
+    h3 = net.addHost('h3', ip='10.0.2.2/24')
 
-    h4 = net.addHost('h4', ip='10.0.1.5/24')
+    h4 = net.addHost('h4', ip='10.0.3.2/24')
 
-    h5 = net.addHost('h5', ip='10.0.2.2/24')
-
-    h6 = net.addHost('h6', ip='10.0.3.2/24')
-
-    h7 = net.addHost('h7', ip='10.0.3.3/24')
+    h5 = net.addHost('h5', ip='10.0.3.3/24')
 
 
     print("Adding switches")
@@ -49,20 +45,16 @@ def create_network():
 
     net.addLink(h2, switch_field, bw=5)
 
-    net.addLink(h3, switch_field, bw=5)
 
-    net.addLink(h4, switch_field, bw=5)
-
-
-    net.addLink(h5, switch_control, bw=5)
+    net.addLink(h3, switch_control, bw=5)
 
 
-    net.addLink(h6, switch_it, bw=5)
+    net.addLink(h4, switch_it, bw=5)
 
-    net.addLink(h7, switch_it, bw=5)
+    net.addLink(h5, switch_it, bw=5)
 
     # Dual-homed attacker: add second interface to Control zone
-    net.addLink(h7, switch_control, bw=5)
+    net.addLink(h5, switch_control, bw=5)
     net.addLink(switch_field, core_switch, bw=5)
     net.addLink(switch_control, core_switch, bw=5)
     net.addLink(switch_it, core_switch, bw=5)
@@ -97,8 +89,8 @@ def post_start_setup(net):
     print("Configuring attacker dual-homed interface")
     # Assumption: attacker gets second link to switch_control as eth1
     # Primary IT address stays on eth0 from Mininet host definition.
-    net.get('h7').cmd('ip addr add 10.0.2.100/24 dev h7-eth1')
-    net.get('h7').cmd('ip link set h7-eth1 up')
+    net.get('h5').cmd('ip addr add 10.0.2.100/24 dev h5-eth1')
+    net.get('h5').cmd('ip link set h5-eth1 up')
 
     print("Setting default routes on hosts")
 
@@ -106,17 +98,13 @@ def post_start_setup(net):
 
     net.get('h2').cmd('ip route add default via 10.0.1.1')
 
-    net.get('h3').cmd('ip route add default via 10.0.1.1')
 
-    net.get('h4').cmd('ip route add default via 10.0.1.1')
-
-
-    net.get('h5').cmd('ip route add default via 10.0.2.1')
+    net.get('h3').cmd('ip route add default via 10.0.2.1')
 
 
-    net.get('h6').cmd('ip route add default via 10.0.3.1')
+    net.get('h4').cmd('ip route add default via 10.0.3.1')
 
-    net.get('h7').cmd('ip route add default via 10.0.3.1')
+    net.get('h5').cmd('ip route add default via 10.0.3.1')
 
 
     print("\nWaiting for network stabilization...")

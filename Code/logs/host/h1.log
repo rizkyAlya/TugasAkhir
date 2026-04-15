@@ -1,575 +1,106 @@
-
- 2026-04-15 14:57:47
-Bus 1 | V=958 | I=1471 | Breaker=CLOSE
-Bus 2 | V=1022 | I=1542 | Breaker=CLOSE
-Bus 3 | V=1004 | I=967 | Breaker=CLOSE
-Bus 4 | V=1046 | I=1653 | Breaker=CLOSE
-Bus 5 | V=965 | I=854 | Breaker=CLOSE
 Starting Modbus TCP server on 0.0.0.0:5020
 
- 2026-04-15 14:57:52
-Bus 1 | V=997 | I=1457 | Breaker=CLOSE
-Bus 2 | V=1035 | I=627 | Breaker=CLOSE
-Bus 3 | V=951 | I=1543 | Breaker=CLOSE
-Bus 4 | V=995 | I=1708 | Breaker=CLOSE
-Bus 5 | V=964 | I=1836 | Breaker=CLOSE
-
- 2026-04-15 14:57:57
-Bus 1 | V=1014 | I=862 | Breaker=CLOSE
-Bus 2 | V=1022 | I=1176 | Breaker=CLOSE
-Bus 3 | V=988 | I=1371 | Breaker=CLOSE
-Bus 4 | V=961 | I=1109 | Breaker=CLOSE
-Bus 5 | V=967 | I=353 | Breaker=CLOSE
-
- 2026-04-15 14:58:02
-Bus 1 | V=950 | I=645 | Breaker=CLOSE
-Bus 2 | V=1024 | I=1705 | Breaker=CLOSE
-Bus 3 | V=1031 | I=402 | Breaker=CLOSE
-Bus 4 | V=1035 | I=538 | Breaker=CLOSE
-Bus 5 | V=975 | I=1607 | Breaker=CLOSE
-
- 2026-04-15 14:58:07
-Bus 1 | V=966 | I=824 | Breaker=CLOSE
-Bus 2 | V=1025 | I=892 | Breaker=CLOSE
-Bus 3 | V=962 | I=1601 | Breaker=CLOSE
-Bus 4 | V=967 | I=468 | Breaker=CLOSE
-Bus 5 | V=963 | I=1870 | Breaker=CLOSE
-
- 2026-04-15 14:58:12
-Bus 1 | V=989 | I=1429 | Breaker=CLOSE
-Bus 2 | V=1044 | I=296 | Breaker=CLOSE
-Bus 3 | V=991 | I=224 | Breaker=CLOSE
-Bus 4 | V=1019 | I=1683 | Breaker=CLOSE
-Bus 5 | V=962 | I=949 | Breaker=CLOSE
-
- 2026-04-15 14:58:17
-Bus 1 | V=988 | I=1192 | Breaker=CLOSE
-Bus 2 | V=1031 | I=1301 | Breaker=CLOSE
-Bus 3 | V=950 | I=1861 | Breaker=CLOSE
-Bus 4 | V=1035 | I=1428 | Breaker=CLOSE
-Bus 5 | V=1038 | I=1619 | Breaker=CLOSE
-
- 2026-04-15 14:58:22
-Bus 1 | V=963 | I=195 | Breaker=CLOSE
-Bus 2 | V=996 | I=864 | Breaker=CLOSE
-Bus 3 | V=967 | I=993 | Breaker=CLOSE
-Bus 4 | V=1039 | I=1385 | Breaker=CLOSE
-Bus 5 | V=968 | I=163 | Breaker=CLOSE
-
- 2026-04-15 14:58:27
-Bus 1 | V=1049 | I=1346 | Breaker=CLOSE
-Bus 2 | V=967 | I=1268 | Breaker=CLOSE
-Bus 3 | V=957 | I=982 | Breaker=CLOSE
-Bus 4 | V=1007 | I=489 | Breaker=CLOSE
-Bus 5 | V=974 | I=835 | Breaker=CLOSE
-
- 2026-04-15 14:58:32
-Bus 1 | V=1040 | I=590 | Breaker=CLOSE
-Bus 2 | V=978 | I=1155 | Breaker=CLOSE
-Bus 3 | V=1006 | I=228 | Breaker=CLOSE
-Bus 4 | V=994 | I=723 | Breaker=CLOSE
-Bus 5 | V=1046 | I=1939 | Breaker=CLOSE
-
- 2026-04-15 14:58:37
-Bus 1 | V=1035 | I=562 | Breaker=CLOSE
-Bus 2 | V=1012 | I=129 | Breaker=CLOSE
-Bus 3 | V=1042 | I=784 | Breaker=CLOSE
-Bus 4 | V=967 | I=881 | Breaker=CLOSE
-Bus 5 | V=1001 | I=1752 | Breaker=CLOSE
-
- 2026-04-15 14:58:42
-Bus 1 | V=964 | I=1017 | Breaker=CLOSE
-Bus 2 | V=1027 | I=1452 | Breaker=CLOSE
-Bus 3 | V=987 | I=702 | Breaker=CLOSE
-Bus 4 | V=1011 | I=1366 | Breaker=CLOSE
-Bus 5 | V=1013 | I=1247 | Breaker=CLOSE
-
- 2026-04-15 14:58:47
-Bus 1 | V=1011 | I=951 | Breaker=CLOSE
-Bus 2 | V=1001 | I=1937 | Breaker=CLOSE
-Bus 3 | V=962 | I=1691 | Breaker=CLOSE
-Bus 4 | V=974 | I=1235 | Breaker=CLOSE
-Bus 5 | V=1000 | I=1455 | Breaker=CLOSE
-
- 2026-04-15 14:58:52
-Bus 1 | V=1044 | I=1073 | Breaker=CLOSE
-Bus 2 | V=994 | I=1228 | Breaker=CLOSE
-Bus 3 | V=1032 | I=209 | Breaker=CLOSE
-Bus 4 | V=1011 | I=1501 | Breaker=CLOSE
-Bus 5 | V=1041 | I=1994 | Breaker=CLOSE
-
- 2026-04-15 14:58:57
-Bus 1 | V=973 | I=1819 | Breaker=CLOSE
-Bus 2 | V=1049 | I=977 | Breaker=CLOSE
-Bus 3 | V=1023 | I=905 | Breaker=CLOSE
-Bus 4 | V=978 | I=1160 | Breaker=CLOSE
-Bus 5 | V=978 | I=1685 | Breaker=CLOSE
-
- 2026-04-15 14:59:02
-Bus 1 | V=981 | I=1991 | Breaker=CLOSE
-Bus 2 | V=975 | I=1885 | Breaker=CLOSE
-Bus 3 | V=976 | I=1679 | Breaker=CLOSE
-Bus 4 | V=995 | I=336 | Breaker=CLOSE
-Bus 5 | V=950 | I=1563 | Breaker=CLOSE
-
- 2026-04-15 14:59:07
-Bus 1 | V=1036 | I=923 | Breaker=CLOSE
-Bus 2 | V=961 | I=498 | Breaker=CLOSE
-Bus 3 | V=1014 | I=1593 | Breaker=CLOSE
-Bus 4 | V=979 | I=782 | Breaker=CLOSE
-Bus 5 | V=1044 | I=658 | Breaker=CLOSE
-
- 2026-04-15 14:59:12
-Bus 1 | V=982 | I=818 | Breaker=CLOSE
-Bus 2 | V=992 | I=1746 | Breaker=CLOSE
-Bus 3 | V=1016 | I=131 | Breaker=CLOSE
-Bus 4 | V=976 | I=294 | Breaker=CLOSE
-Bus 5 | V=1027 | I=1060 | Breaker=CLOSE
-
- 2026-04-15 14:59:17
-Bus 1 | V=973 | I=1433 | Breaker=CLOSE
-Bus 2 | V=1037 | I=136 | Breaker=CLOSE
-Bus 3 | V=1030 | I=1812 | Breaker=CLOSE
-Bus 4 | V=1008 | I=367 | Breaker=CLOSE
-Bus 5 | V=992 | I=793 | Breaker=CLOSE
-
- 2026-04-15 14:59:22
-Bus 1 | V=1008 | I=642 | Breaker=CLOSE
-Bus 2 | V=976 | I=1384 | Breaker=CLOSE
-Bus 3 | V=1012 | I=1611 | Breaker=CLOSE
-Bus 4 | V=1033 | I=433 | Breaker=CLOSE
-Bus 5 | V=1043 | I=469 | Breaker=CLOSE
-
- 2026-04-15 14:59:27
-Bus 1 | V=1027 | I=1382 | Breaker=CLOSE
-Bus 2 | V=1023 | I=1904 | Breaker=CLOSE
-Bus 3 | V=993 | I=221 | Breaker=CLOSE
-Bus 4 | V=1005 | I=292 | Breaker=CLOSE
-Bus 5 | V=1047 | I=1683 | Breaker=CLOSE
-
- 2026-04-15 14:59:32
-Bus 1 | V=1036 | I=341 | Breaker=CLOSE
-Bus 2 | V=981 | I=742 | Breaker=CLOSE
-Bus 3 | V=977 | I=282 | Breaker=CLOSE
-Bus 4 | V=1026 | I=1711 | Breaker=CLOSE
-Bus 5 | V=997 | I=1982 | Breaker=CLOSE
-
- 2026-04-15 14:59:37
-Bus 1 | V=975 | I=296 | Breaker=CLOSE
-Bus 2 | V=984 | I=755 | Breaker=CLOSE
-Bus 3 | V=1028 | I=1949 | Breaker=CLOSE
-Bus 4 | V=978 | I=221 | Breaker=CLOSE
-Bus 5 | V=1041 | I=603 | Breaker=CLOSE
-
- 2026-04-15 14:59:42
-Bus 1 | V=1018 | I=860 | Breaker=CLOSE
-Bus 2 | V=967 | I=1010 | Breaker=CLOSE
-Bus 3 | V=1009 | I=262 | Breaker=CLOSE
-Bus 4 | V=1006 | I=1588 | Breaker=CLOSE
-Bus 5 | V=1045 | I=743 | Breaker=CLOSE
-
- 2026-04-15 14:59:47
-Bus 1 | V=995 | I=795 | Breaker=CLOSE
-Bus 2 | V=981 | I=1049 | Breaker=CLOSE
-Bus 3 | V=1010 | I=957 | Breaker=CLOSE
-Bus 4 | V=987 | I=1412 | Breaker=CLOSE
-Bus 5 | V=952 | I=1180 | Breaker=CLOSE
-
- 2026-04-15 14:59:52
-Bus 1 | V=1027 | I=1022 | Breaker=CLOSE
-Bus 2 | V=980 | I=955 | Breaker=CLOSE
-Bus 3 | V=1025 | I=1232 | Breaker=CLOSE
-Bus 4 | V=977 | I=1029 | Breaker=CLOSE
-Bus 5 | V=965 | I=266 | Breaker=CLOSE
-
- 2026-04-15 14:59:57
-Bus 1 | V=969 | I=199 | Breaker=CLOSE
-Bus 2 | V=1033 | I=758 | Breaker=CLOSE
-Bus 3 | V=1033 | I=1066 | Breaker=CLOSE
-Bus 4 | V=1018 | I=847 | Breaker=CLOSE
-Bus 5 | V=959 | I=884 | Breaker=CLOSE
-
- 2026-04-15 15:00:02
-Bus 1 | V=953 | I=443 | Breaker=CLOSE
-Bus 2 | V=988 | I=1108 | Breaker=CLOSE
-Bus 3 | V=953 | I=299 | Breaker=CLOSE
-Bus 4 | V=1039 | I=1632 | Breaker=CLOSE
-Bus 5 | V=1033 | I=1472 | Breaker=CLOSE
-
- 2026-04-15 15:00:07
-Bus 1 | V=979 | I=1671 | Breaker=CLOSE
-Bus 2 | V=1025 | I=928 | Breaker=CLOSE
-Bus 3 | V=1002 | I=1474 | Breaker=CLOSE
-Bus 4 | V=1023 | I=1241 | Breaker=CLOSE
-Bus 5 | V=997 | I=1391 | Breaker=CLOSE
-
- 2026-04-15 15:00:12
-Bus 1 | V=1039 | I=430 | Breaker=CLOSE
-Bus 2 | V=993 | I=1147 | Breaker=CLOSE
-Bus 3 | V=974 | I=644 | Breaker=CLOSE
-Bus 4 | V=1036 | I=1311 | Breaker=CLOSE
-Bus 5 | V=984 | I=1265 | Breaker=CLOSE
-
- 2026-04-15 15:00:17
-Bus 1 | V=960 | I=300 | Breaker=CLOSE
-Bus 2 | V=978 | I=282 | Breaker=CLOSE
-Bus 3 | V=1031 | I=1969 | Breaker=CLOSE
-Bus 4 | V=1010 | I=417 | Breaker=CLOSE
-Bus 5 | V=1002 | I=892 | Breaker=CLOSE
-
- 2026-04-15 15:00:22
-Bus 1 | V=1045 | I=1948 | Breaker=CLOSE
-Bus 2 | V=991 | I=1399 | Breaker=CLOSE
-Bus 3 | V=1038 | I=1021 | Breaker=CLOSE
-Bus 4 | V=1011 | I=585 | Breaker=CLOSE
-Bus 5 | V=1021 | I=1760 | Breaker=CLOSE
-
- 2026-04-15 15:00:28
-Bus 1 | V=1035 | I=1873 | Breaker=CLOSE
-Bus 2 | V=961 | I=614 | Breaker=CLOSE
-Bus 3 | V=992 | I=1576 | Breaker=CLOSE
-Bus 4 | V=977 | I=961 | Breaker=CLOSE
-Bus 5 | V=1035 | I=1253 | Breaker=CLOSE
-
- 2026-04-15 15:00:33
-Bus 1 | V=1017 | I=799 | Breaker=CLOSE
-Bus 2 | V=971 | I=1001 | Breaker=CLOSE
-Bus 3 | V=1010 | I=1249 | Breaker=CLOSE
-Bus 4 | V=1045 | I=1810 | Breaker=CLOSE
-Bus 5 | V=994 | I=1725 | Breaker=CLOSE
-
- 2026-04-15 15:00:38
-Bus 1 | V=971 | I=960 | Breaker=CLOSE
-Bus 2 | V=985 | I=1422 | Breaker=CLOSE
-Bus 3 | V=1022 | I=1870 | Breaker=CLOSE
-Bus 4 | V=983 | I=1211 | Breaker=CLOSE
-Bus 5 | V=952 | I=1840 | Breaker=CLOSE
-
- 2026-04-15 15:00:43
-Bus 1 | V=980 | I=668 | Breaker=CLOSE
-Bus 2 | V=993 | I=1998 | Breaker=CLOSE
-Bus 3 | V=968 | I=617 | Breaker=CLOSE
-Bus 4 | V=1002 | I=1652 | Breaker=CLOSE
-Bus 5 | V=972 | I=1270 | Breaker=CLOSE
-
- 2026-04-15 15:00:48
-Bus 1 | V=1024 | I=634 | Breaker=CLOSE
-Bus 2 | V=1017 | I=505 | Breaker=CLOSE
-Bus 3 | V=1041 | I=679 | Breaker=CLOSE
-Bus 4 | V=957 | I=1983 | Breaker=CLOSE
-Bus 5 | V=967 | I=231 | Breaker=CLOSE
-
- 2026-04-15 15:00:53
-Bus 1 | V=973 | I=1787 | Breaker=CLOSE
-Bus 2 | V=966 | I=894 | Breaker=CLOSE
-Bus 3 | V=1014 | I=1232 | Breaker=CLOSE
-Bus 4 | V=1032 | I=1553 | Breaker=CLOSE
-Bus 5 | V=954 | I=309 | Breaker=CLOSE
-
- 2026-04-15 15:00:58
-Bus 1 | V=987 | I=836 | Breaker=CLOSE
-Bus 2 | V=988 | I=1053 | Breaker=CLOSE
-Bus 3 | V=980 | I=1326 | Breaker=CLOSE
-Bus 4 | V=987 | I=684 | Breaker=CLOSE
-Bus 5 | V=996 | I=1625 | Breaker=CLOSE
-
- 2026-04-15 15:01:03
-Bus 1 | V=1007 | I=489 | Breaker=CLOSE
-Bus 2 | V=994 | I=1269 | Breaker=CLOSE
-Bus 3 | V=993 | I=1429 | Breaker=CLOSE
-Bus 4 | V=997 | I=1827 | Breaker=CLOSE
-Bus 5 | V=976 | I=181 | Breaker=CLOSE
-
- 2026-04-15 15:01:08
-Bus 1 | V=957 | I=1321 | Breaker=CLOSE
-Bus 2 | V=1006 | I=443 | Breaker=CLOSE
-Bus 3 | V=997 | I=1875 | Breaker=CLOSE
-Bus 4 | V=1013 | I=1426 | Breaker=CLOSE
-Bus 5 | V=1026 | I=1726 | Breaker=CLOSE
-
- 2026-04-15 15:01:13
-Bus 1 | V=974 | I=482 | Breaker=CLOSE
-Bus 2 | V=1002 | I=719 | Breaker=CLOSE
-Bus 3 | V=1005 | I=1925 | Breaker=CLOSE
-Bus 4 | V=965 | I=1897 | Breaker=CLOSE
-Bus 5 | V=963 | I=1244 | Breaker=CLOSE
-
- 2026-04-15 15:01:18
-Bus 1 | V=1029 | I=1586 | Breaker=CLOSE
-Bus 2 | V=1026 | I=796 | Breaker=CLOSE
-Bus 3 | V=960 | I=365 | Breaker=CLOSE
-Bus 4 | V=1016 | I=1612 | Breaker=CLOSE
-Bus 5 | V=1024 | I=149 | Breaker=CLOSE
-
- 2026-04-15 15:01:23
-Bus 1 | V=982 | I=715 | Breaker=CLOSE
-Bus 2 | V=1040 | I=1669 | Breaker=CLOSE
-Bus 3 | V=1031 | I=1311 | Breaker=CLOSE
-Bus 4 | V=978 | I=692 | Breaker=CLOSE
-Bus 5 | V=967 | I=763 | Breaker=CLOSE
-
- 2026-04-15 15:01:28
-Bus 1 | V=1007 | I=690 | Breaker=CLOSE
-Bus 2 | V=989 | I=341 | Breaker=CLOSE
-Bus 3 | V=1023 | I=1684 | Breaker=CLOSE
-Bus 4 | V=1021 | I=243 | Breaker=CLOSE
-Bus 5 | V=979 | I=767 | Breaker=CLOSE
-
- 2026-04-15 15:01:33
-Bus 1 | V=981 | I=1384 | Breaker=CLOSE
-Bus 2 | V=1019 | I=951 | Breaker=CLOSE
-Bus 3 | V=1026 | I=1113 | Breaker=CLOSE
-Bus 4 | V=963 | I=1383 | Breaker=CLOSE
-Bus 5 | V=1013 | I=783 | Breaker=CLOSE
-
- 2026-04-15 15:01:38
-Bus 1 | V=1032 | I=1610 | Breaker=CLOSE
-Bus 2 | V=966 | I=1611 | Breaker=CLOSE
-Bus 3 | V=971 | I=259 | Breaker=CLOSE
-Bus 4 | V=962 | I=1399 | Breaker=CLOSE
-Bus 5 | V=991 | I=1304 | Breaker=CLOSE
-
- 2026-04-15 15:01:43
-Bus 1 | V=1023 | I=1325 | Breaker=CLOSE
-Bus 2 | V=963 | I=749 | Breaker=CLOSE
-Bus 3 | V=1035 | I=301 | Breaker=CLOSE
-Bus 4 | V=1032 | I=262 | Breaker=CLOSE
-Bus 5 | V=992 | I=1562 | Breaker=CLOSE
-
- 2026-04-15 15:01:48
-Bus 1 | V=1000 | I=1888 | Breaker=CLOSE
-Bus 2 | V=974 | I=897 | Breaker=CLOSE
-Bus 3 | V=1018 | I=1190 | Breaker=CLOSE
-Bus 4 | V=1040 | I=891 | Breaker=CLOSE
-Bus 5 | V=999 | I=946 | Breaker=CLOSE
-
- 2026-04-15 15:01:53
-Bus 1 | V=962 | I=181 | Breaker=CLOSE
-Bus 2 | V=968 | I=522 | Breaker=CLOSE
-Bus 3 | V=952 | I=1277 | Breaker=CLOSE
-Bus 4 | V=1002 | I=1923 | Breaker=CLOSE
-Bus 5 | V=1022 | I=1449 | Breaker=CLOSE
-
- 2026-04-15 15:01:58
-Bus 1 | V=980 | I=603 | Breaker=CLOSE
-Bus 2 | V=1016 | I=1703 | Breaker=CLOSE
-Bus 3 | V=1045 | I=1256 | Breaker=CLOSE
-Bus 4 | V=961 | I=435 | Breaker=CLOSE
-Bus 5 | V=1007 | I=1321 | Breaker=CLOSE
-
- 2026-04-15 15:02:03
-Bus 1 | V=1035 | I=1150 | Breaker=CLOSE
-Bus 2 | V=1033 | I=1305 | Breaker=CLOSE
-Bus 3 | V=1049 | I=615 | Breaker=CLOSE
-Bus 4 | V=973 | I=427 | Breaker=CLOSE
-Bus 5 | V=979 | I=566 | Breaker=CLOSE
-
- 2026-04-15 15:02:08
-Bus 1 | V=991 | I=811 | Breaker=CLOSE
-Bus 2 | V=1028 | I=953 | Breaker=CLOSE
-Bus 3 | V=992 | I=942 | Breaker=CLOSE
-Bus 4 | V=981 | I=1326 | Breaker=CLOSE
-Bus 5 | V=1024 | I=1503 | Breaker=CLOSE
-
- 2026-04-15 15:02:13
-Bus 1 | V=974 | I=1246 | Breaker=CLOSE
-Bus 2 | V=1000 | I=983 | Breaker=CLOSE
-Bus 3 | V=1046 | I=119 | Breaker=CLOSE
-Bus 4 | V=1038 | I=922 | Breaker=CLOSE
-Bus 5 | V=1014 | I=166 | Breaker=CLOSE
-
- 2026-04-15 15:02:18
-Bus 1 | V=1012 | I=1261 | Breaker=CLOSE
-Bus 2 | V=1034 | I=1424 | Breaker=CLOSE
-Bus 3 | V=1000 | I=615 | Breaker=CLOSE
-Bus 4 | V=986 | I=513 | Breaker=CLOSE
-Bus 5 | V=1027 | I=1032 | Breaker=CLOSE
-
- 2026-04-15 15:02:23
-Bus 1 | V=1023 | I=287 | Breaker=CLOSE
-Bus 2 | V=1012 | I=1529 | Breaker=CLOSE
-Bus 3 | V=1025 | I=1453 | Breaker=CLOSE
-Bus 4 | V=986 | I=1509 | Breaker=CLOSE
-Bus 5 | V=1021 | I=434 | Breaker=CLOSE
-
- 2026-04-15 15:02:28
-Bus 1 | V=1034 | I=1996 | Breaker=CLOSE
-Bus 2 | V=1029 | I=1947 | Breaker=CLOSE
-Bus 3 | V=952 | I=1462 | Breaker=CLOSE
-Bus 4 | V=1049 | I=274 | Breaker=CLOSE
-Bus 5 | V=1030 | I=1922 | Breaker=CLOSE
-
- 2026-04-15 15:02:33
-Bus 1 | V=975 | I=1780 | Breaker=CLOSE
-Bus 2 | V=982 | I=200 | Breaker=CLOSE
-Bus 3 | V=1011 | I=1002 | Breaker=CLOSE
-Bus 4 | V=1001 | I=122 | Breaker=CLOSE
-Bus 5 | V=996 | I=382 | Breaker=CLOSE
-
- 2026-04-15 15:02:38
-Bus 1 | V=956 | I=578 | Breaker=CLOSE
-Bus 2 | V=994 | I=237 | Breaker=CLOSE
-Bus 3 | V=952 | I=1967 | Breaker=CLOSE
-Bus 4 | V=1043 | I=954 | Breaker=CLOSE
-Bus 5 | V=955 | I=715 | Breaker=CLOSE
-
- 2026-04-15 15:02:43
-Bus 1 | V=962 | I=440 | Breaker=CLOSE
-Bus 2 | V=953 | I=1097 | Breaker=CLOSE
-Bus 3 | V=969 | I=820 | Breaker=CLOSE
-Bus 4 | V=996 | I=1993 | Breaker=CLOSE
-Bus 5 | V=976 | I=1604 | Breaker=CLOSE
-
- 2026-04-15 15:02:48
-Bus 1 | V=954 | I=107 | Breaker=CLOSE
-Bus 2 | V=964 | I=1704 | Breaker=CLOSE
-Bus 3 | V=989 | I=203 | Breaker=CLOSE
-Bus 4 | V=991 | I=1924 | Breaker=CLOSE
-Bus 5 | V=1018 | I=1586 | Breaker=CLOSE
-
- 2026-04-15 15:02:53
-Bus 1 | V=969 | I=1350 | Breaker=CLOSE
-Bus 2 | V=999 | I=1113 | Breaker=CLOSE
-Bus 3 | V=954 | I=822 | Breaker=CLOSE
-Bus 4 | V=994 | I=702 | Breaker=CLOSE
-Bus 5 | V=959 | I=654 | Breaker=CLOSE
-
- 2026-04-15 15:02:58
-Bus 1 | V=1004 | I=468 | Breaker=CLOSE
-Bus 2 | V=1024 | I=1846 | Breaker=CLOSE
-Bus 3 | V=1017 | I=1180 | Breaker=CLOSE
-Bus 4 | V=974 | I=788 | Breaker=CLOSE
-Bus 5 | V=1003 | I=1170 | Breaker=CLOSE
-
- 2026-04-15 15:03:03
-Bus 1 | V=1042 | I=328 | Breaker=CLOSE
-Bus 2 | V=1003 | I=731 | Breaker=CLOSE
-Bus 3 | V=1045 | I=340 | Breaker=CLOSE
-Bus 4 | V=986 | I=1532 | Breaker=CLOSE
-Bus 5 | V=1048 | I=489 | Breaker=CLOSE
-
- 2026-04-15 15:03:08
-Bus 1 | V=1036 | I=1328 | Breaker=CLOSE
-Bus 2 | V=995 | I=1230 | Breaker=CLOSE
-Bus 3 | V=1017 | I=594 | Breaker=CLOSE
-Bus 4 | V=964 | I=1809 | Breaker=CLOSE
-Bus 5 | V=1018 | I=1867 | Breaker=CLOSE
-
- 2026-04-15 15:03:13
-Bus 1 | V=972 | I=1370 | Breaker=CLOSE
-Bus 2 | V=952 | I=108 | Breaker=CLOSE
-Bus 3 | V=1005 | I=1015 | Breaker=CLOSE
-Bus 4 | V=985 | I=1136 | Breaker=CLOSE
-Bus 5 | V=990 | I=591 | Breaker=CLOSE
-
- 2026-04-15 15:03:18
-Bus 1 | V=985 | I=1258 | Breaker=CLOSE
-Bus 2 | V=954 | I=224 | Breaker=CLOSE
-Bus 3 | V=1012 | I=133 | Breaker=CLOSE
-Bus 4 | V=1003 | I=1709 | Breaker=CLOSE
-Bus 5 | V=984 | I=1754 | Breaker=CLOSE
-
- 2026-04-15 15:03:23
-Bus 1 | V=962 | I=110 | Breaker=CLOSE
-Bus 2 | V=1042 | I=1529 | Breaker=CLOSE
-Bus 3 | V=1007 | I=144 | Breaker=CLOSE
-Bus 4 | V=1009 | I=1582 | Breaker=CLOSE
-Bus 5 | V=990 | I=1176 | Breaker=CLOSE
-
- 2026-04-15 15:03:28
-Bus 1 | V=1018 | I=1699 | Breaker=CLOSE
-Bus 2 | V=964 | I=1655 | Breaker=CLOSE
-Bus 3 | V=951 | I=1811 | Breaker=CLOSE
-Bus 4 | V=996 | I=1292 | Breaker=CLOSE
-Bus 5 | V=1024 | I=1254 | Breaker=CLOSE
-
- 2026-04-15 15:03:33
-Bus 1 | V=1012 | I=1569 | Breaker=CLOSE
-Bus 2 | V=988 | I=1390 | Breaker=CLOSE
-Bus 3 | V=983 | I=1156 | Breaker=CLOSE
-Bus 4 | V=1002 | I=1563 | Breaker=CLOSE
-Bus 5 | V=1029 | I=887 | Breaker=CLOSE
-
- 2026-04-15 15:03:38
-Bus 1 | V=1001 | I=1506 | Breaker=CLOSE
-Bus 2 | V=953 | I=1688 | Breaker=CLOSE
-Bus 3 | V=979 | I=800 | Breaker=CLOSE
-Bus 4 | V=1008 | I=1788 | Breaker=CLOSE
-Bus 5 | V=1045 | I=1980 | Breaker=CLOSE
-
- 2026-04-15 15:03:43
-Bus 1 | V=1045 | I=765 | Breaker=CLOSE
-Bus 2 | V=998 | I=1388 | Breaker=CLOSE
-Bus 3 | V=1016 | I=1067 | Breaker=CLOSE
-Bus 4 | V=1016 | I=1312 | Breaker=CLOSE
-Bus 5 | V=1049 | I=1752 | Breaker=CLOSE
-
- 2026-04-15 15:03:48
-Bus 1 | V=1017 | I=1893 | Breaker=CLOSE
-Bus 2 | V=985 | I=327 | Breaker=CLOSE
-Bus 3 | V=994 | I=1843 | Breaker=CLOSE
-Bus 4 | V=1004 | I=1698 | Breaker=CLOSE
-Bus 5 | V=968 | I=255 | Breaker=CLOSE
-
- 2026-04-15 15:03:53
-Bus 1 | V=1037 | I=261 | Breaker=CLOSE
-Bus 2 | V=961 | I=1206 | Breaker=CLOSE
-Bus 3 | V=968 | I=1323 | Breaker=CLOSE
-Bus 4 | V=1048 | I=1365 | Breaker=CLOSE
-Bus 5 | V=1042 | I=462 | Breaker=CLOSE
-
- 2026-04-15 15:03:58
-Bus 1 | V=990 | I=266 | Breaker=CLOSE
-Bus 2 | V=1036 | I=1372 | Breaker=CLOSE
-Bus 3 | V=987 | I=470 | Breaker=CLOSE
-Bus 4 | V=1029 | I=671 | Breaker=CLOSE
-Bus 5 | V=1032 | I=282 | Breaker=CLOSE
-
- 2026-04-15 15:04:03
-Bus 1 | V=990 | I=425 | Breaker=CLOSE
-Bus 2 | V=988 | I=1980 | Breaker=CLOSE
-Bus 3 | V=1013 | I=1212 | Breaker=CLOSE
-Bus 4 | V=958 | I=545 | Breaker=CLOSE
-Bus 5 | V=982 | I=1004 | Breaker=CLOSE
-
- 2026-04-15 15:04:08
-Bus 1 | V=1039 | I=561 | Breaker=CLOSE
-Bus 2 | V=975 | I=835 | Breaker=CLOSE
-Bus 3 | V=974 | I=851 | Breaker=CLOSE
-Bus 4 | V=986 | I=149 | Breaker=CLOSE
-Bus 5 | V=1037 | I=1873 | Breaker=CLOSE
-
- 2026-04-15 15:04:13
-Bus 1 | V=967 | I=1903 | Breaker=CLOSE
-Bus 2 | V=970 | I=979 | Breaker=CLOSE
-Bus 3 | V=1025 | I=1857 | Breaker=CLOSE
-Bus 4 | V=1042 | I=952 | Breaker=CLOSE
-Bus 5 | V=975 | I=1236 | Breaker=CLOSE
-
- 2026-04-15 15:04:18
-Bus 1 | V=1004 | I=1939 | Breaker=CLOSE
-Bus 2 | V=1007 | I=1668 | Breaker=CLOSE
-Bus 3 | V=985 | I=1933 | Breaker=CLOSE
-Bus 4 | V=1047 | I=1523 | Breaker=CLOSE
-Bus 5 | V=1015 | I=301 | Breaker=CLOSE
-
- 2026-04-15 15:04:23
-Bus 1 | V=966 | I=1865 | Breaker=CLOSE
-Bus 2 | V=987 | I=451 | Breaker=CLOSE
-Bus 3 | V=998 | I=1401 | Breaker=CLOSE
-Bus 4 | V=1018 | I=1961 | Breaker=CLOSE
-Bus 5 | V=969 | I=1618 | Breaker=CLOSE
-
- 2026-04-15 15:04:28
-Bus 1 | V=1034 | I=1504 | Breaker=CLOSE
-Bus 2 | V=1028 | I=1306 | Breaker=CLOSE
-Bus 3 | V=998 | I=716 | Breaker=CLOSE
-Bus 4 | V=1000 | I=188 | Breaker=CLOSE
-Bus 5 | V=970 | I=592 | Breaker=CLOSE
-
- 2026-04-15 15:04:33
-Bus 1 | V=1042 | I=234 | Breaker=CLOSE
-Bus 2 | V=1048 | I=1696 | Breaker=CLOSE
-Bus 3 | V=993 | I=970 | Breaker=CLOSE
-Bus 4 | V=1036 | I=1912 | Breaker=CLOSE
-Bus 5 | V=973 | I=778 | Breaker=CLOSE
+ 2026-04-15 15:20:58
+Bus 1 | V=972 | I=1082 | Breaker=CLOSE
+Bus 2 | V=975 | I=1709 | Breaker=CLOSE
+Bus 3 | V=993 | I=1306 | Breaker=CLOSE
+Bus 4 | V=1038 | I=1179 | Breaker=CLOSE
+Bus 5 | V=973 | I=604 | Breaker=CLOSE
+
+ 2026-04-15 15:21:03
+Bus 1 | V=1015 | I=350 | Breaker=CLOSE
+Bus 2 | V=994 | I=401 | Breaker=CLOSE
+Bus 3 | V=1003 | I=1833 | Breaker=CLOSE
+Bus 4 | V=995 | I=1436 | Breaker=CLOSE
+Bus 5 | V=956 | I=1544 | Breaker=CLOSE
+
+ 2026-04-15 15:21:08
+Bus 1 | V=1048 | I=1164 | Breaker=CLOSE
+Bus 2 | V=1040 | I=1179 | Breaker=CLOSE
+Bus 3 | V=1019 | I=1764 | Breaker=CLOSE
+Bus 4 | V=987 | I=1623 | Breaker=CLOSE
+Bus 5 | V=1016 | I=1963 | Breaker=CLOSE
+
+ 2026-04-15 15:21:13
+Bus 1 | V=1037 | I=1689 | Breaker=CLOSE
+Bus 2 | V=1036 | I=212 | Breaker=CLOSE
+Bus 3 | V=1013 | I=1466 | Breaker=CLOSE
+Bus 4 | V=1015 | I=1659 | Breaker=CLOSE
+Bus 5 | V=1037 | I=648 | Breaker=CLOSE
+
+ 2026-04-15 15:21:18
+Bus 1 | V=958 | I=1451 | Breaker=CLOSE
+Bus 2 | V=1018 | I=1301 | Breaker=CLOSE
+Bus 3 | V=986 | I=1352 | Breaker=CLOSE
+Bus 4 | V=990 | I=976 | Breaker=CLOSE
+Bus 5 | V=984 | I=930 | Breaker=CLOSE
+
+ 2026-04-15 15:21:23
+Bus 1 | V=977 | I=1296 | Breaker=CLOSE
+Bus 2 | V=1004 | I=1539 | Breaker=CLOSE
+Bus 3 | V=994 | I=237 | Breaker=CLOSE
+Bus 4 | V=999 | I=1083 | Breaker=CLOSE
+Bus 5 | V=982 | I=781 | Breaker=CLOSE
+
+ 2026-04-15 15:21:28
+Bus 1 | V=958 | I=1418 | Breaker=CLOSE
+Bus 2 | V=1027 | I=738 | Breaker=CLOSE
+Bus 3 | V=960 | I=101 | Breaker=CLOSE
+Bus 4 | V=951 | I=1294 | Breaker=CLOSE
+Bus 5 | V=1044 | I=1573 | Breaker=CLOSE
+
+ 2026-04-15 15:21:33
+Bus 1 | V=951 | I=1535 | Breaker=CLOSE
+Bus 2 | V=990 | I=1660 | Breaker=CLOSE
+Bus 3 | V=980 | I=515 | Breaker=CLOSE
+Bus 4 | V=1030 | I=1833 | Breaker=CLOSE
+Bus 5 | V=976 | I=497 | Breaker=CLOSE
+
+ 2026-04-15 15:21:38
+Bus 1 | V=1030 | I=717 | Breaker=CLOSE
+Bus 2 | V=994 | I=352 | Breaker=CLOSE
+Bus 3 | V=1013 | I=1405 | Breaker=CLOSE
+Bus 4 | V=1031 | I=532 | Breaker=CLOSE
+Bus 5 | V=967 | I=1078 | Breaker=CLOSE
+
+ 2026-04-15 15:21:43
+Bus 1 | V=1025 | I=1746 | Breaker=CLOSE
+Bus 2 | V=960 | I=251 | Breaker=CLOSE
+Bus 3 | V=1026 | I=869 | Breaker=CLOSE
+Bus 4 | V=980 | I=1759 | Breaker=CLOSE
+Bus 5 | V=970 | I=927 | Breaker=CLOSE
+
+ 2026-04-15 15:21:48
+Bus 1 | V=1034 | I=330 | Breaker=CLOSE
+Bus 2 | V=1008 | I=582 | Breaker=CLOSE
+Bus 3 | V=963 | I=756 | Breaker=CLOSE
+Bus 4 | V=957 | I=1030 | Breaker=CLOSE
+Bus 5 | V=1012 | I=1614 | Breaker=CLOSE
+
+ 2026-04-15 15:21:53
+Bus 1 | V=960 | I=160 | Breaker=CLOSE
+Bus 2 | V=963 | I=148 | Breaker=CLOSE
+Bus 3 | V=1014 | I=1407 | Breaker=CLOSE
+Bus 4 | V=979 | I=1644 | Breaker=CLOSE
+Bus 5 | V=968 | I=896 | Breaker=CLOSE
+
+ 2026-04-15 15:21:58
+Bus 1 | V=954 | I=536 | Breaker=CLOSE
+Bus 2 | V=1025 | I=207 | Breaker=CLOSE
+Bus 3 | V=1043 | I=1625 | Breaker=CLOSE
+Bus 4 | V=1021 | I=1212 | Breaker=CLOSE
+Bus 5 | V=1032 | I=210 | Breaker=CLOSE
+
+ 2026-04-15 15:22:03
+Bus 1 | V=961 | I=1656 | Breaker=CLOSE
+Bus 2 | V=981 | I=773 | Breaker=CLOSE
+Bus 3 | V=1014 | I=1212 | Breaker=CLOSE
+Bus 4 | V=1035 | I=338 | Breaker=CLOSE
+Bus 5 | V=1031 | I=561 | Breaker=CLOSE
+
+ 2026-04-15 15:22:08
+Bus 1 | V=1036 | I=116 | Breaker=CLOSE
+Bus 2 | V=1035 | I=1320 | Breaker=CLOSE
+Bus 3 | V=1026 | I=1867 | Breaker=CLOSE
+Bus 4 | V=983 | I=1335 | Breaker=CLOSE
+Bus 5 | V=1003 | I=677 | Breaker=CLOSE
