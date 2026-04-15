@@ -1,81 +1,90 @@
+from pymodbus.client import ModbusTcpClient
 import time
 from datetime import datetime
-import random
-from threading import Thread
 
-from pymodbus.server import StartTcpServer
-from pymodbus.datastore import ModbusSlaveContext, ModbusServerContext
-from pymodbus.datastore import ModbusSequentialDataBlock
-
-# Konfigurasi Modbus
-MODBUS_LISTEN_IP = "0.0.0.0"
+FIELD_IP = "10.0.1.2"
+GATEWAY_IP = "10.0.2.2"
 MODBUS_PORT = 5020
 
+V_BASE_ADDR = 0
+I_BASE_ADDR = 10
+BREAKER_BASE_ADDR = 0
+BREAKER_FB_BASE_ADDR = 20
 NUM_BUS = 5
 
-# Mapping register Modbus
-V_BASE_ADDR = 0         # HR 0-4
-I_BASE_ADDR = 10        # HR 10-14
-BREAKER_BASE_ADDR = 0   # Coil 0-4
+# Modbus clients
+field_client = ModbusTcpClient(FIELD_IP, port=MODBUS_PORT)
+gateway_client = ModbusTcpClient(GATEWAY_IP, port=MODBUS_PORT)
+field_client.connect()
+gateway_client.connect()
 
-# Datastore modbus
-store = ModbusSlaveContext(
-    di=ModbusSequentialDataBlock(0, [0] * 100),     # Discrete Inputs
-    co=ModbusSequentialDataBlock(0, [0] * 100),     # Coils
-    hr=ModbusSequentialDataBlock(0, [0] * 100),     # Holding Registers
-    ir=ModbusSequentialDataBlock(0, [0] * 100),     # Input Registers
-)
-context = ModbusServerContext(slaves=store, single=True)
+breaker_cmd = {bus: 1 for bus in range(1, NUM_BUS+1)}  # 0=OPEN, 1=CLOSE
 
-# Breaker status (kondisi awal: tertutup, selanjutnya menyesuaikan dengan nilai dari Digital Twin)
-breaker_status = {bus: 1 for bus in range(1, NUM_BUS+1)}
+def read_modbus_bus(bus):
+    addr_v = V_BASE_ADDR + (bus - 1)
+    addr_i = I_BASE_ADDR + (bus - 1)
+    rr_v = field_client.read_holding_registers(addr_v, 1, unit=1)
+    rr_i = field_client.read_holding_registers(addr_i, 1, unit=1)
+    if rr_v.isError() or rr_i.isError():
+        return None, None
+    v = rr_v.registers[0] / 1000.0
+    i = rr_i.registers[0] / 1000.0
+    return v, i
 
-# Sinkronisasi awal
-for bus in range(1, NUM_BUS+1):
-    addr_breaker = BREAKER_BASE_ADDR + (bus-1)
-    context[0x00].setValues(1, addr_breaker, [breaker_status[bus]])
+def read_breaker_command(bus):
+    addr_cmd = BREAKER_BASE_ADDR + (bus - 1)
+    rr_cmd = gateway_client.read_coils(addr_cmd, 1, unit=1)
+    if rr_cmd.isError() or not rr_cmd.bits:
+        return None
+    return 1 if rr_cmd.bits[0] else 0
 
-def start_modbus_server():
-    print(f"Starting Modbus TCP server on {MODBUS_LISTEN_IP}:{MODBUS_PORT}")
-    StartTcpServer(context=context, identity=None, address=(MODBUS_LISTEN_IP, MODBUS_PORT))
-
-def main_loop():
-    slave_id = 0x00   # karena single=True
-    fx_hr = 3         # 3 = Holding Register
-    fx_co = 1         # 1 = Coils
-
+def update_breaker_field(bus, status):
+    addr_brk = BREAKER_BASE_ADDR + (bus - 1)
     try:
-        while True:
-            print("\n", datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
-            for bus in range(1, NUM_BUS + 1):
-                addr_v = V_BASE_ADDR + (bus - 1)
-                addr_i = I_BASE_ADDR + (bus - 1)
-                addr_breaker = BREAKER_BASE_ADDR + (bus - 1)
+        field_client.write_coil(addr_brk, status, unit=0)
+    except Exception as e:
+        print(f"Error update breaker FIELD bus {bus}: {e}")
 
-                # 1) Baca status breaker terbaru dari coil Modbus (update dari RTU)
-                current_breaker = context[slave_id].getValues(fx_co, addr_breaker, count=1)[0]
-                breaker_status[bus] = current_breaker
+def send_to_gateway_modbus(bus, v, i, breaker):
+    addr_v = V_BASE_ADDR + (bus - 1)
+    addr_i = I_BASE_ADDR + (bus - 1)
+    addr_b = BREAKER_FB_BASE_ADDR + (bus - 1)
+    try:
+        gateway_client.write_register(addr_v, int(v * 1000), unit=1)
+        gateway_client.write_register(addr_i, int(i * 1000), unit=1)
+        gateway_client.write_register(addr_b, int(breaker), unit=1)
+    except Exception as e:
+        print(f"Error kirim ke gateway Modbus bus {bus}: {e}")
 
-                # 2) Generate data dummy
-                v = 1.0 + random.uniform(-0.05, 0.05)
-                i = random.uniform(0.1, 2.0)
-                v_scaled = int(v * 1000)
-                i_scaled = int(i * 1000)
+try:
+    while True:
+        print("\n")
+        ts = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
-                # 3) Tulis V/I ke Holding Register
-                try:
-                    context[slave_id].setValues(fx_hr, addr_v, [v_scaled])
-                    context[slave_id].setValues(fx_hr, addr_i, [i_scaled])
-                    print(f"Bus {bus} | V={v_scaled} | I={i_scaled} | Breaker={'OPEN' if breaker_status[bus]==0 else 'CLOSE'}")
-                except Exception as e:
-                    print("Error update Modbus datastore:", e)
+        for bus in range(1, NUM_BUS+1):
+            v, i = read_modbus_bus(bus)
+            if v is None or i is None:
+                print(f"Error baca Modbus bus {bus}")
+                continue
 
-            time.sleep(5)
+            # 1) Terima perintah breaker dari gateway via Modbus
+            cmd = read_breaker_command(bus)
+            if cmd in [0, 1]:
+                breaker_cmd[bus] = cmd
 
-    except KeyboardInterrupt:
-        print("Stopped by User")
+            # 2) Update coil di field device
+            update_breaker_field(bus, breaker_cmd[bus])
 
-if __name__ == "__main__":
-    t = Thread(target=start_modbus_server, daemon=True)
-    t.start()
-    main_loop()
+            # 3) Kirim data dan status breaker ke gateway via Modbus
+            send_to_gateway_modbus(bus, v, i, breaker_cmd[bus])
+
+            print(f"[{ts}] Bus {bus}: V={v:.3f} pu, I={i:.3f}, Breaker={'CLOSE' if breaker_cmd[bus]==1 else 'OPEN'}")
+
+        time.sleep(4)
+
+except KeyboardInterrupt:
+    print("RTU/IED dihentikan")
+
+finally:
+    field_client.close()
+    gateway_client.close()

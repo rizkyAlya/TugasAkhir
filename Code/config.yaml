@@ -6,32 +6,27 @@ topology:
         - name: h1
           role: field
         - name: h2
-          role: field
-        - name: h3
-          role: rtu
-        - name: h4
           role: rtu
 
     control:
       subnet: 10.0.2.0/24
       hosts:
-        - name: h5
+        - name: h3
           role: gateway
 
     it:
       subnet: 10.0.3.0/24
       hosts:
-        - name: h6
+        - name: h4
           role: pandapower
-        - name: h7
+        - name: h5
           role: attacker
 
   links:
-    - [h1, h3]
+    - [h1, h2]
     - [h2, h3]
-    - [h3, h5]
-    - [h5, h6]
-    - [h6, h7]
+    - [h3, h4]
+    - [h4, h5]
 
 network:
   bandwidth: 5

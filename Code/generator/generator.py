@@ -56,7 +56,7 @@ def parse_topology(config):
     return all_hosts, zone_map, links, bandwidth, hosts_by_name, hosts_by_role
 
 # GENERATE APPS
-def generate_apps(hosts, app_name_mode="host"):
+def generate_apps(hosts, app_mode="host"):
     app_dir = os.path.join(OUTPUT_DIR, "apps")
     os.makedirs(app_dir, exist_ok=True)
     app_map = {}
@@ -76,7 +76,7 @@ def generate_apps(hosts, app_name_mode="host"):
             hosts_by_role=generate_apps.hosts_by_role,
         )
 
-        if app_name_mode == "role":
+        if app_mode == "role":
             role_counts[role] = role_counts.get(role, 0) + 1
             idx = role_counts[role]
             script_name = f"{role}.py" if idx == 1 else f"{role}_{idx}.py"
