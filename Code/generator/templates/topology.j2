@@ -11,7 +11,7 @@ def addRouter(net, name):
     r.cmd('sysctl -w net.ipv4.ip_forward=1')
     return r
 
-def CPS_topology():
+def create_network():
     net = Mininet(controller=Controller, link=TCLink, switch=OVSSwitch)
 
     print("Adding controller")
@@ -48,9 +48,11 @@ def CPS_topology():
     net.addLink(r0, switch_control, bw={{ bandwidth }})
     net.addLink(r0, switch_it, bw={{ bandwidth }})
 
-    print("Starting network")
-    net.start()
+    return net
 
+
+def post_start_setup(net):
+    r0 = net.get('r0')
     print("\nConfiguring router interfaces")
     r0.cmd('ifconfig r0-eth0 10.0.1.1/24 up')  # Field Zone
     r0.cmd('ifconfig r0-eth1 10.0.2.1/24 up')  # Control Zone
@@ -58,19 +60,25 @@ def CPS_topology():
 
     print("Setting default routes on hosts")
 {% for h in zones.get('field', []) %}
-    {{ h.name }}.cmd('ip route add default via 10.0.1.1')
+    net.get('{{ h.name }}').cmd('ip route add default via 10.0.1.1')
 {% endfor %}
 {% for h in zones.get('control', []) %}
-    {{ h.name }}.cmd('ip route add default via 10.0.2.1')
+    net.get('{{ h.name }}').cmd('ip route add default via 10.0.2.1')
 {% endfor %}
 {% for h in zones.get('it', []) %}
-    {{ h.name }}.cmd('ip route add default via 10.0.3.1')
+    net.get('{{ h.name }}').cmd('ip route add default via 10.0.3.1')
 {% endfor %}
 
     print("\nWaiting for network stabilization...")
     time.sleep(5)
     print("Network ready")
 
+
+def CPS_topology():
+    net = create_network()
+    print("Starting network")
+    net.start()
+    post_start_setup(net)
     CLI(net)
 
     print("Stopping network")

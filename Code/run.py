@@ -2,38 +2,73 @@ import os
 import sys
 import time
 import argparse
+import importlib.util
 
 from mininet.cli import CLI
+from mininet.log import setLogLevel
 
 # PATH SETUP
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 OUTPUT_DIR = os.path.join(BASE_DIR, "script")
 APPS_DIR = os.path.join(OUTPUT_DIR, "apps")
+HOST_LOG_DIR = os.path.join(BASE_DIR, "logs", "host")
+TOPOLOGY_PATH = os.path.join(OUTPUT_DIR, "topology.py")
 
 sys.path.append(OUTPUT_DIR)
+sys.path.append(BASE_DIR)
 
-# import topology hasil generator
-from topology import create_network
+from logger.collector import collect_data
 
-# optional DoS (kalau ada)
-try:
-    from apps.h5_attacker import run_dos_attack
-except:
-    run_dos_attack = None
+def load_topology_module():
+    if not os.path.exists(TOPOLOGY_PATH):
+        raise FileNotFoundError(f"Generated topology not found: {TOPOLOGY_PATH}")
+
+    spec = importlib.util.spec_from_file_location("generated_topology", TOPOLOGY_PATH)
+    topology_mod = importlib.util.module_from_spec(spec)
+    assert spec.loader is not None
+    spec.loader.exec_module(topology_mod)
+    return topology_mod
+
+def create_network_from_generated_topology():
+    """
+    Use generated topology output directly (do not rebuild from config).
+    Expected API in script/topology.py: create_network()
+    """
+    topology_mod = load_topology_module()
+    if not hasattr(topology_mod, "create_network"):
+        raise AttributeError(
+            "script/topology.py does not expose create_network(). "
+            "Update topology template to provide create_network() that returns a Mininet object."
+        )
+    return topology_mod.create_network(), topology_mod
+
+def load_generated_attacker_function():
+    attacker_path = os.path.join(APPS_DIR, "h5.py")
+    if not os.path.exists(attacker_path):
+        return None
+
+    spec = importlib.util.spec_from_file_location("generated_h5", attacker_path)
+    module = importlib.util.module_from_spec(spec)
+    assert spec.loader is not None
+    spec.loader.exec_module(module)
+    return getattr(module, "run_dos_attack", None)
 
 # UTIL: START APPS
 def start_apps(net):
     print("Starting apps...")
-
-    log_dir = os.path.join(BASE_DIR, "logs")
-    os.makedirs(log_dir, exist_ok=True)
+    os.makedirs(HOST_LOG_DIR, exist_ok=True)
 
     for host in net.hosts:
         name = host.name
         app_path = os.path.join(APPS_DIR, f"{name}.py")
 
         if os.path.exists(app_path):
-            log_file = os.path.join(log_dir, f"{name}.log")
+            # h5.py is attack helper (function-based), not a long-running host app.
+            if name == "h5":
+                print(" h5 skipped (attack helper)")
+                continue
+
+            log_file = os.path.join(HOST_LOG_DIR, f"{name}.log")
             host.cmd(f"python3 -u {app_path} > {log_file} 2>&1 &")
             print(f" {name} started")
 
@@ -67,9 +102,10 @@ def setup_mitm(net):
 # UTIL: RUN DOS
 def run_dos(net):
     print("Starting DoS attack...")
+    run_dos_attack = load_generated_attacker_function()
 
     if run_dos_attack is None:
-        print("DoS function not found (apps/h5_attacker.py)")
+        print("DoS function not found (script/apps/h5.py)")
         return
 
     try:
@@ -82,27 +118,41 @@ def run_dos(net):
 def main():
     parser = argparse.ArgumentParser(description="Cyber Range Orchestrator")
     parser.add_argument(
-        "--mode",
-        choices=["normal", "dos", "mitm"],
-        default="normal",
-        help="Run mode"
+        "--dos",
+        action="store_true",
+        help="Run DoS scenario after apps started (requires script/apps/h5.py)"
+    )
+    parser.add_argument(
+        "--mitm",
+        action="store_true",
+        help="Apply MITM route setup (h2 -> h3 via h5) if hosts exist"
     )
     parser.add_argument(
         "--no-cli",
         action="store_true",
         help="Run without Mininet CLI"
     )
+    parser.add_argument(
+        "--collect-delay",
+        type=int,
+        default=10,
+        help="Seconds to wait before baseline collection in normal mode"
+    )
 
     args = parser.parse_args()
 
     print("\n==============================")
-    print(f"MODE: {args.mode.upper()}")
+    print("MODE: ORCHESTRATOR")
+    print(f"MITM: {'ON' if args.mitm else 'OFF'}")
+    print(f"DoS : {'ON' if args.dos else 'OFF'}")
     print("==============================\n")
 
-    # START NETWORK
-    print("Starting network...")
-    net = create_network()
+    # START NETWORK FROM GENERATED TOPOLOGY
+    print("Starting generated topology...")
+    net, topology_mod = create_network_from_generated_topology()
     net.start()
+    if hasattr(topology_mod, "post_start_setup"):
+        topology_mod.post_start_setup(net)
 
     print("Waiting for stabilization...")
     time.sleep(3)
@@ -110,15 +160,19 @@ def main():
     # START APPS
     start_apps(net)
 
-    # MODE CONTROL
-    if args.mode == "dos":
-        run_dos(net)
-
-    elif args.mode == "mitm":
+    if args.mitm:
         setup_mitm(net)
 
-    else:
-        print("Running in NORMAL mode\n")
+    if args.dos:
+        run_dos(net)
+
+    # In normal mode, wait a bit then collect baseline logs.
+    if not args.mitm and not args.dos:
+        delay = max(0, args.collect_delay)
+        print(f"Normal mode detected: collecting baseline in {delay}s...")
+        time.sleep(delay)
+        collect_data(net, mode="baseline")
+        print("Baseline collection complete.\n")
 
     print("System ready\n")
 
@@ -127,9 +181,10 @@ def main():
         CLI(net)
 
     # STOP NETWORK
-    print("🛑 Stopping network...")
+    print("Stopping network...")
     net.stop()
 
 # ENTRY POINT
 if __name__ == "__main__":
+    setLogLevel("info")
     main()

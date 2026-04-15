@@ -11,7 +11,7 @@ def addRouter(net, name):
     r.cmd('sysctl -w net.ipv4.ip_forward=1')
     return r
 
-def CPS_topology():
+def create_network():
     net = Mininet(controller=Controller, link=TCLink, switch=OVSSwitch)
 
     print("Adding controller")
@@ -20,15 +20,10 @@ def CPS_topology():
     print("Adding hosts")
 
     h1 = net.addHost('h1', ip='10.0.1.2/24')
-
     h2 = net.addHost('h2', ip='10.0.1.3/24')
-
     h3 = net.addHost('h3', ip='10.0.2.2/24')
-
     h4 = net.addHost('h4', ip='10.0.3.2/24')
-
     h5 = net.addHost('h5', ip='10.0.3.3/24')
-
 
     print("Adding switches")
     switch_field = net.addSwitch('s1')
@@ -42,27 +37,23 @@ def CPS_topology():
     print("Creating links")
 
     net.addLink(h1, switch_field, bw=5)
-
     net.addLink(h2, switch_field, bw=5)
-
-
     net.addLink(h3, switch_control, bw=5)
-
-
     net.addLink(h4, switch_it, bw=5)
-
     net.addLink(h5, switch_it, bw=5)
 
     net.addLink(switch_field, core_switch, bw=5)
     net.addLink(switch_control, core_switch, bw=5)
     net.addLink(switch_it, core_switch, bw=5)
+    
     net.addLink(r0, switch_field, bw=5)
     net.addLink(r0, switch_control, bw=5)
     net.addLink(r0, switch_it, bw=5)
 
-    print("Starting network")
-    net.start()
+    return net
 
+def post_start_setup(net):
+    r0 = net.get('r0')
     print("\nConfiguring router interfaces")
     r0.cmd('ifconfig r0-eth0 10.0.1.1/24 up')  # Field Zone
     r0.cmd('ifconfig r0-eth1 10.0.2.1/24 up')  # Control Zone
@@ -70,23 +61,21 @@ def CPS_topology():
 
     print("Setting default routes on hosts")
 
-    h1.cmd('ip route add default via 10.0.1.1')
-
-    h2.cmd('ip route add default via 10.0.1.1')
-
-
-    h3.cmd('ip route add default via 10.0.2.1')
-
-
-    h4.cmd('ip route add default via 10.0.3.1')
-
-    h5.cmd('ip route add default via 10.0.3.1')
-
+    net.get('h1').cmd('ip route add default via 10.0.1.1')
+    net.get('h2').cmd('ip route add default via 10.0.1.1')
+    net.get('h3').cmd('ip route add default via 10.0.2.1')
+    net.get('h4').cmd('ip route add default via 10.0.3.1')
+    net.get('h5').cmd('ip route add default via 10.0.3.1')
 
     print("\nWaiting for network stabilization...")
     time.sleep(5)
     print("Network ready")
 
+def CPS_topology():
+    net = create_network()
+    print("Starting network")
+    net.start()
+    post_start_setup(net)
     CLI(net)
 
     print("Stopping network")
