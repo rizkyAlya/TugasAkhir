@@ -1,6 +1,7 @@
 import os
 import yaml
 import argparse
+import json
 from jinja2 import Environment, FileSystemLoader
 
 BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
@@ -55,9 +56,11 @@ def parse_topology(config):
     return all_hosts, zone_map, links, bandwidth, hosts_by_name, hosts_by_role
 
 # GENERATE APPS
-def generate_apps(hosts):
+def generate_apps(hosts, app_name_mode="host"):
     app_dir = os.path.join(OUTPUT_DIR, "apps")
     os.makedirs(app_dir, exist_ok=True)
+    app_map = {}
+    role_counts = {}
 
     for host in hosts:
         role = host["role"]
@@ -73,8 +76,21 @@ def generate_apps(hosts):
             hosts_by_role=generate_apps.hosts_by_role,
         )
 
-        with open(os.path.join(app_dir, f"{host['name']}.py"), "w") as f:
+        if app_name_mode == "role":
+            role_counts[role] = role_counts.get(role, 0) + 1
+            idx = role_counts[role]
+            script_name = f"{role}.py" if idx == 1 else f"{role}_{idx}.py"
+        else:
+            script_name = f"{host['name']}.py"
+
+        app_map[host["name"]] = script_name
+        with open(os.path.join(app_dir, script_name), "w") as f:
             f.write(output)
+
+    # Save host -> script mapping so run.py can resolve generated filenames.
+    with open(os.path.join(app_dir, "app_map.json"), "w", encoding="utf-8") as f:
+        json.dump(app_map, f, indent=2)
+    return app_map
 
 # GENERATE TOPOLOGY FILE
 def generate_topology(hosts, zone_map, links, bandwidth, hosts_by_role):
@@ -101,6 +117,12 @@ def generate_topology(hosts, zone_map, links, bandwidth, hosts_by_role):
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("-C", "--config", required=True)
+    parser.add_argument(
+        "--app-name-mode",
+        choices=["host", "role"],
+        default="host",
+        help="Generated app filename mode: host (h1.py) or role (field.py, field_2.py, ...)",
+    )
     args = parser.parse_args()
 
     config = load_config(args.config)
@@ -109,11 +131,13 @@ def main():
     generate_apps.hosts_by_name = hosts_by_name
     generate_apps.hosts_by_role = hosts_by_role
 
-    generate_apps(hosts)
+    app_map = generate_apps(hosts, app_name_mode=args.app_name_mode)
     generate_topology(hosts, zone_map, links, bandwidth, hosts_by_role)
 
     print("Generation complete!")
     print(f"Output directory: {OUTPUT_DIR}")
+    print(f"App filename mode: {args.app_name_mode}")
+    print(f"App mapping file: {os.path.join(OUTPUT_DIR, 'apps', 'app_map.json')}")
 
 
 if __name__ == "__main__":

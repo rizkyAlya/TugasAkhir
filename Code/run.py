@@ -3,6 +3,7 @@ import sys
 import time
 import argparse
 import importlib.util
+import json
 from datetime import datetime
 
 from mininet.cli import CLI
@@ -19,6 +20,16 @@ sys.path.append(OUTPUT_DIR)
 sys.path.append(BASE_DIR)
 
 from logger.collector import collect_data
+
+def load_app_map():
+    app_map_path = os.path.join(APPS_DIR, "app_map.json")
+    if not os.path.exists(app_map_path):
+        return {}
+    try:
+        with open(app_map_path, "r", encoding="utf-8") as f:
+            return json.load(f)
+    except Exception:
+        return {}
 
 def load_topology_module():
     if not os.path.exists(TOPOLOGY_PATH):
@@ -44,8 +55,19 @@ def create_network_from_generated_topology():
     return topology_mod.create_network(), topology_mod
 
 def load_generated_attacker_module():
-    attacker_path = os.path.join(APPS_DIR, "h5.py")
-    if not os.path.exists(attacker_path):
+    app_map = load_app_map()
+    attacker_filename_candidates = []
+    if "h5" in app_map:
+        attacker_filename_candidates.append(app_map["h5"])
+    attacker_filename_candidates.extend(["h5.py", "attacker.py", "attacker_1.py"])
+
+    attacker_path = None
+    for filename in attacker_filename_candidates:
+        path = os.path.join(APPS_DIR, filename)
+        if os.path.exists(path):
+            attacker_path = path
+            break
+    if attacker_path is None:
         return None
 
     spec = importlib.util.spec_from_file_location("generated_h5", attacker_path)
@@ -58,10 +80,12 @@ def load_generated_attacker_module():
 def start_apps(net):
     print("Starting apps...")
     os.makedirs(HOST_LOG_DIR, exist_ok=True)
+    app_map = load_app_map()
 
     for host in net.hosts:
         name = host.name
-        app_path = os.path.join(APPS_DIR, f"{name}.py")
+        app_filename = app_map.get(name, f"{name}.py")
+        app_path = os.path.join(APPS_DIR, app_filename)
 
         if os.path.exists(app_path):
             # h5.py is attack helper (function-based), not a long-running host app.
@@ -71,7 +95,7 @@ def start_apps(net):
 
             log_file = os.path.join(HOST_LOG_DIR, f"{name}.log")
             host.cmd(f"python3 -u {app_path} > {log_file} 2>&1 &")
-            print(f" {name} started")
+            print(f" {name} started ({app_filename})")
 
     print("All apps started\n")
 
