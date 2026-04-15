@@ -1,97 +1,14 @@
-Namespace index: 2
-numba cannot be imported and numba functions are disabled.
-Probably the execution is slow.
-Please install numba to gain a massive speedup.
-(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+Connection to (10.0.2.2, 5020) failed: [Errno 111] Connection refused
 
- 2026-04-15 14:41:43
-Load flow sukses. Voltage snapshot: [1.03891244 1.0498487  1.03420684 1.00783518 1.00981078]
-Bus 1: breaker OPEN (line 0)
-Bus 2: breaker OPEN (line 1)
-Bus 3: breaker OPEN (line 2)
-Bus 4: breaker CLOSE (line 3)
-Bus 5: breaker CLOSE (line 4)
-numba cannot be imported and numba functions are disabled.
-Probably the execution is slow.
-Please install numba to gain a massive speedup.
-(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
 
- 2026-04-15 14:41:47
-Load flow sukses. Voltage snapshot: [       nan 1.06396826 0.99389813 0.98412236 0.99350042]
-Bus 1: breaker CLOSE (line 0)
-Bus 2: breaker OPEN (line 1)
-Bus 3: breaker CLOSE (line 2)
-Bus 4: breaker CLOSE (line 3)
-Bus 5: breaker CLOSE (line 4)
-numba cannot be imported and numba functions are disabled.
-Probably the execution is slow.
-Please install numba to gain a massive speedup.
-(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
-
- 2026-04-15 14:41:52
-Load flow sukses. Voltage snapshot: [1.04412569 1.05049921 1.03287161 1.00567101 1.0073858 ]
-Bus 1: breaker OPEN (line 0)
-Bus 2: breaker OPEN (line 1)
-Bus 3: breaker OPEN (line 2)
-Bus 4: breaker CLOSE (line 3)
-Bus 5: breaker CLOSE (line 4)
-numba cannot be imported and numba functions are disabled.
-Probably the execution is slow.
-Please install numba to gain a massive speedup.
-(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
-
- 2026-04-15 14:41:56
-Load flow sukses. Voltage snapshot: [       nan 1.06396826 0.99389813 0.98412236 0.99350042]
-Bus 1: breaker CLOSE (line 0)
-Bus 2: breaker OPEN (line 1)
-Bus 3: breaker CLOSE (line 2)
-Bus 4: breaker CLOSE (line 3)
-Bus 5: breaker CLOSE (line 4)
-numba cannot be imported and numba functions are disabled.
-Probably the execution is slow.
-Please install numba to gain a massive speedup.
-(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
-
- 2026-04-15 14:42:00
-Load flow sukses. Voltage snapshot: [1.04412569 1.05049921 1.03287161 1.00567101 1.0073858 ]
-Bus 1: breaker OPEN (line 0)
-Bus 2: breaker OPEN (line 1)
-Bus 3: breaker OPEN (line 2)
-Bus 4: breaker CLOSE (line 3)
-Bus 5: breaker CLOSE (line 4)
-numba cannot be imported and numba functions are disabled.
-Probably the execution is slow.
-Please install numba to gain a massive speedup.
-(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
-
- 2026-04-15 14:42:04
-Load flow sukses. Voltage snapshot: [       nan 1.06396826 0.99389813 0.98412236 0.99350042]
-Bus 1: breaker CLOSE (line 0)
-Bus 2: breaker OPEN (line 1)
-Bus 3: breaker CLOSE (line 2)
-Bus 4: breaker CLOSE (line 3)
-Bus 5: breaker CLOSE (line 4)
-numba cannot be imported and numba functions are disabled.
-Probably the execution is slow.
-Please install numba to gain a massive speedup.
-(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
-
- 2026-04-15 14:42:08
-Load flow sukses. Voltage snapshot: [1.04412569 1.05049921 1.03287161 1.00567101 1.0073858 ]
-Bus 1: breaker OPEN (line 0)
-Bus 2: breaker OPEN (line 1)
-Bus 3: breaker OPEN (line 2)
-Bus 4: breaker CLOSE (line 3)
-Bus 5: breaker CLOSE (line 4)
-numba cannot be imported and numba functions are disabled.
-Probably the execution is slow.
-Please install numba to gain a massive speedup.
-(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
-
- 2026-04-15 14:42:12
-Load flow sukses. Voltage snapshot: [       nan 1.06396826 0.99389813 0.98412236 0.99350042]
-Bus 1: breaker CLOSE (line 0)
-Bus 2: breaker OPEN (line 1)
-Bus 3: breaker CLOSE (line 2)
-Bus 4: breaker CLOSE (line 3)
-Bus 5: breaker CLOSE (line 4)
+Connection to (10.0.2.2, 5020) failed: [Errno 111] Connection refused
+Traceback (most recent call last):
+  File "/home/aliyah/TugasAkhir/Code/script/apps/h4.py", line 71, in <module>
+    cmd = read_breaker_command(bus)
+  File "/home/aliyah/TugasAkhir/Code/script/apps/h4.py", line 36, in read_breaker_command
+    rr_cmd = gateway_client.read_coils(addr_cmd, 1, unit=1)
+  File "/usr/local/lib/python3.8/dist-packages/pymodbus/client/mixin.py", line 77, in read_coils
+    return self.execute(
+  File "/usr/local/lib/python3.8/dist-packages/pymodbus/client/base.py", line 395, in execute
+    raise ConnectionException(f"Failed to connect[{self!s}]")
+pymodbus.exceptions.ConnectionException: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 10.0.2.2:5020]
