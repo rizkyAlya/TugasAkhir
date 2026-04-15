@@ -192,8 +192,18 @@ def main():
     # START APPS
     start_apps(net)
 
+    # Always collect baseline first in every mode.
+    delay = max(0, args.collect_delay)
+    print(f"Collecting baseline in {delay}s...")
+    time.sleep(delay)
+    collect_data(net, mode="baseline", logs_path=run_logs_path)
+    print("Baseline collection complete.\n")
+
     if args.mitm:
         run_mitm(net)
+        print("Collecting MITM metrics...")
+        collect_data(net, mode="mitm", logs_path=run_logs_path)
+        print("MITM collection complete.\n")
 
     if args.dos:
         # Always run both scenarios in one DoS run.
@@ -203,22 +213,6 @@ def main():
                 print(f"Collecting DoS ({dos_mode}) metrics...")
                 collect_data(net, mode=dos_mode, logs_path=run_logs_path)
                 print(f"DoS ({dos_mode}) collection complete.\n")
-
-    # In normal mode, wait a bit then collect baseline logs.
-    if not args.mitm and not args.dos:
-        delay = max(0, args.collect_delay)
-        print(f"Normal mode detected: collecting baseline in {delay}s...")
-        time.sleep(delay)
-        collect_data(net, mode="baseline", logs_path=run_logs_path)
-        print("Baseline collection complete.\n")
-
-    # In MITM mode (without DoS), still collect baseline metrics in per-run folder.
-    if args.mitm and not args.dos:
-        delay = max(0, args.collect_delay)
-        print(f"MITM mode detected: collecting baseline in {delay}s...")
-        time.sleep(delay)
-        collect_data(net, mode="baseline", logs_path=run_logs_path)
-        print("MITM baseline collection complete.\n")
 
     print("System ready\n")
 

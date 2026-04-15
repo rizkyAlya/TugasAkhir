@@ -63,8 +63,10 @@ def collect_data(net, mode="baseline", logs_path=None, config_path=None):
     if logs_path:
         if mode == "baseline":
             log_dir = os.path.join(logs_path, "baseline")
-        else:
+        elif mode in ("light", "heavy"):
             log_dir = os.path.join(logs_path, "dos", mode)
+        else:
+            log_dir = os.path.join(logs_path, mode)
     else:
         if mode == "baseline":
             log_dir = os.path.join(base_dir, 'logs', 'baseline')
