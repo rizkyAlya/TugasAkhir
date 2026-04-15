@@ -77,14 +77,19 @@ def generate_apps(hosts):
             f.write(output)
 
 # GENERATE TOPOLOGY FILE
-def generate_topology(hosts, zone_map, links, bandwidth):
+def generate_topology(hosts, zone_map, links, bandwidth, hosts_by_role):
     template = env.get_template("topology.j2")
+    attacker_hosts = hosts_by_role.get("attacker", [])
+    if not attacker_hosts:
+        raise ValueError("Topology requires at least one host with role 'attacker' for dual-homed setup.")
+    attacker_name = attacker_hosts[0]["name"]
 
     output = template.render(
         hosts=hosts,
         zones=zone_map,
         links=links,
-        bandwidth=bandwidth
+        bandwidth=bandwidth,
+        attacker_name=attacker_name,
     )
 
     os.makedirs(OUTPUT_DIR, exist_ok=True)
@@ -105,7 +110,7 @@ def main():
     generate_apps.hosts_by_role = hosts_by_role
 
     generate_apps(hosts)
-    generate_topology(hosts, zone_map, links, bandwidth)
+    generate_topology(hosts, zone_map, links, bandwidth, hosts_by_role)
 
     print("Generation complete!")
     print(f"Output directory: {OUTPUT_DIR}")

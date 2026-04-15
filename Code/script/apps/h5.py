@@ -1,5 +1,26 @@
 import os
 from datetime import datetime
+def run_mitm_attack(net, rtu_name="h2", gateway_name="h3", attacker_name="h5"):
+    print("Running MITM with dual-homed attacker...")
+    """
+    Full MITM routing:
+    - RTU -> Gateway through attacker
+    - Gateway -> RTU through attacker
+    """
+    attacker = net.get(attacker_name)
+    rtu = net.get(rtu_name)
+    gateway = net.get(gateway_name)
+
+    attacker_ip = attacker.IP()
+    rtu_ip = rtu.IP()
+    gateway_ip = gateway.IP()
+
+    attacker.cmd("sysctl -w net.ipv4.ip_forward=1")
+    rtu.cmd(f"ip route replace {gateway_ip} via {attacker_ip}")
+    gateway.cmd(f"ip route replace {rtu_ip} via {attacker_ip}")
+
+    print(f"MITM active: {rtu_name} <-> {gateway_name} via {attacker_name} ({attacker_ip})")
+
 
 def run_dos_attack(net, mode="light"):
     h5 = net.get('h5')

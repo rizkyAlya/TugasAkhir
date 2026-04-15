@@ -41,6 +41,8 @@ def create_network():
 {% for h in zones.get('it', []) %}
     net.addLink({{ h.name }}, switch_it, bw={{ bandwidth }})
 {% endfor %}
+    # Dual-homed attacker: add second interface to Control zone
+    net.addLink({{ attacker_name }}, switch_control, bw={{ bandwidth }})
     net.addLink(switch_field, core_switch, bw={{ bandwidth }})
     net.addLink(switch_control, core_switch, bw={{ bandwidth }})
     net.addLink(switch_it, core_switch, bw={{ bandwidth }})
@@ -71,6 +73,12 @@ def post_start_setup(net):
     r0.cmd('iptables -A FORWARD -i r0-eth1 -o r0-eth2 -j ACCEPT')  # Control -> IT
     r0.cmd('iptables -A FORWARD -i r0-eth0 -o r0-eth2 -j DROP')    # Field -> IT
     r0.cmd('iptables -A FORWARD -i r0-eth2 -o r0-eth0 -j DROP')    # IT -> Field
+
+    print("Configuring attacker dual-homed interface")
+    # Assumption: attacker gets second link to switch_control as eth1
+    # Primary IT address stays on eth0 from Mininet host definition.
+    net.get('{{ attacker_name }}').cmd('ip addr add 10.0.2.100/24 dev {{ attacker_name }}-eth1')
+    net.get('{{ attacker_name }}').cmd('ip link set {{ attacker_name }}-eth1 up')
 
     print("Setting default routes on hosts")
 {% for h in zones.get('field', []) %}
