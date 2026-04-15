@@ -43,7 +43,7 @@ def create_network_from_generated_topology():
         )
     return topology_mod.create_network(), topology_mod
 
-def load_generated_attacker_function():
+def load_generated_attacker_module():
     attacker_path = os.path.join(APPS_DIR, "h5.py")
     if not os.path.exists(attacker_path):
         return None
@@ -52,7 +52,7 @@ def load_generated_attacker_function():
     module = importlib.util.module_from_spec(spec)
     assert spec.loader is not None
     spec.loader.exec_module(module)
-    return getattr(module, "run_dos_attack", None)
+    return module
 
 # UTIL: START APPS
 def start_apps(net):
@@ -75,38 +75,39 @@ def start_apps(net):
 
     print("All apps started\n")
 
-# UTIL: SETUP MITM
-def setup_mitm(net):
-    print("Setting up MITM...")
+def run_mitm(net):
+    print("Starting MITM attack...")
+    attacker_module = load_generated_attacker_module()
+
+    if attacker_module is None:
+        print("Attacker module not found (script/apps/h5.py)")
+        return False
+
+    run_mitm_attack = getattr(attacker_module, "run_mitm_attack", None)
+    if run_mitm_attack is None:
+        print("MITM function not found (script/apps/h5.py::run_mitm_attack)")
+        return False
 
     try:
-        h2 = net.get("h2")  # RTU
-        h3 = net.get("h3")  # gateway
-        h5 = net.get("h5")  # attacker
-
-        # enable forwarding
-        h5.cmd("sysctl -w net.ipv4.ip_forward=1")
-
-        # NOTE: sesuaikan IP kalau berubah dari generator
-        h3_ip = h3.IP()
-        h5_ip = h5.IP()
-
-        # redirect traffic dari h2 ke h3 lewat h5
-        h2.cmd(f"ip route replace {h3_ip} via {h5_ip}")
-
-        print(f" h2 → {h3_ip} via {h5_ip}")
-        print("MITM configured\n")
-
+        run_mitm_attack(net)
+        print("MITM running\n")
+        return True
     except Exception as e:
-        print(f"MITM setup failed: {e}")
+        print(f"MITM failed: {e}")
+        return False
 
 # UTIL: RUN DOS
 def run_dos(net, mode):
     print(f"Starting DoS attack ({mode})...")
-    run_dos_attack = load_generated_attacker_function()
+    attacker_module = load_generated_attacker_module()
 
+    if attacker_module is None:
+        print("Attacker module not found (script/apps/h5.py)")
+        return False
+
+    run_dos_attack = getattr(attacker_module, "run_dos_attack", None)
     if run_dos_attack is None:
-        print("DoS function not found (script/apps/h5.py)")
+        print("DoS function not found (script/apps/h5.py::run_dos_attack)")
         return False
 
     try:
@@ -168,7 +169,7 @@ def main():
     start_apps(net)
 
     if args.mitm:
-        setup_mitm(net)
+        run_mitm(net)
 
     if args.dos:
         # Always run both scenarios in one DoS run.
