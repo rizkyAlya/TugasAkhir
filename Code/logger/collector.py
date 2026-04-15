@@ -4,17 +4,56 @@ import datetime
 import time
 import os
 import statistics
+import yaml
 
 NUM_RUNS = 5
 
-links = [
-    ("field", "h2", "10.0.2.2", "h3"),
-    ("system", "h3", "10.0.3.2", "h4"),
-]
-
 base_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+DEFAULT_CONFIG_PATH = os.path.join(base_dir, "config.yaml")
 
-def collect_data(net, mode="baseline", logs_path=None):
+
+def _resolve_links_from_config(config_path):
+    """
+    Resolve measurement links using first host for each role from config.yaml:
+    - field link: rtu[0] -> gateway[0]
+    - system link: gateway[0] -> pandapower[0]
+    Returns list of tuples: (layer, source_host, destination_ip, destination_host)
+    """
+    with open(config_path, "r", encoding="utf-8") as f:
+        config = yaml.safe_load(f) or {}
+
+    zones = config.get("topology", {}).get("zones", {})
+    hosts_by_role = {}
+    ip_by_host = {}
+
+    for zone in zones.values():
+        subnet = zone.get("subnet", "")
+        subnet_base = subnet.split("/")[0].rsplit(".", 1)[0] if subnet else ""
+        for i, host in enumerate(zone.get("hosts", [])):
+            name = host.get("name")
+            role = host.get("role")
+            if not name or not role:
+                continue
+            hosts_by_role.setdefault(role, []).append(name)
+            if subnet_base:
+                ip_by_host[name] = f"{subnet_base}.{i + 2}"
+
+    required_roles = ("rtu", "gateway", "pandapower")
+    missing = [r for r in required_roles if r not in hosts_by_role or not hosts_by_role[r]]
+    if missing:
+        raise ValueError(f"Missing required role(s) in config: {', '.join(missing)}")
+
+    rtu = hosts_by_role["rtu"][0]
+    gateway = hosts_by_role["gateway"][0]
+    pandapower = hosts_by_role["pandapower"][0]
+
+    return [
+        ("field", rtu, ip_by_host[gateway], gateway),
+        ("system", gateway, ip_by_host[pandapower], pandapower),
+    ]
+
+
+def collect_data(net, mode="baseline", logs_path=None, config_path=None):
     """
     Collect RTT, packet loss, and throughput data.
     Saves under logs/[timestamp]/baseline or logs/[timestamp]/dos/<mode> when
@@ -31,6 +70,18 @@ def collect_data(net, mode="baseline", logs_path=None):
             log_dir = os.path.join(base_dir, 'logs', 'baseline')
         else:
             log_dir = os.path.join(base_dir, 'logs', 'dos', mode)
+
+    if config_path is None:
+        config_path = DEFAULT_CONFIG_PATH
+
+    try:
+        links = _resolve_links_from_config(config_path)
+    except Exception as e:
+        print(f"Warning: using fallback links, failed to parse config ({e})")
+        links = [
+            ("field", "h2", "10.0.2.2", "h3"),
+            ("system", "h3", "10.0.3.2", "h4"),
+        ]
 
     os.makedirs(log_dir, exist_ok=True)
 
@@ -113,8 +164,7 @@ def collect_data(net, mode="baseline", logs_path=None):
             for run in range(NUM_RUNS):
 
                 print(f"[{datetime.datetime.now()}] {mode.upper()} - Throughput: {layer} (Run {run+1})")
-
-                server_host = "h3" if layer == "field" else "h4"
+                server_host = dest_host
 
                 net.get(server_host).cmd("killall -9 iperf")
                 net.get(server_host).cmd("iperf -s -p 5001 &")

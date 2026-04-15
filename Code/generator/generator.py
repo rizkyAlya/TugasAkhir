@@ -118,7 +118,7 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("-C", "--config", required=True)
     parser.add_argument(
-        "--app-name-mode",
+        "--app-mode",
         choices=["host", "role"],
         default="host",
         help="Generated app filename mode: host (h1.py) or role (field.py, field_2.py, ...)",
@@ -131,12 +131,12 @@ def main():
     generate_apps.hosts_by_name = hosts_by_name
     generate_apps.hosts_by_role = hosts_by_role
 
-    app_map = generate_apps(hosts, app_name_mode=args.app_name_mode)
+    app_map = generate_apps(hosts, app_mode=args.app_mode)
     generate_topology(hosts, zone_map, links, bandwidth, hosts_by_role)
 
     print("Generation complete!")
     print(f"Output directory: {OUTPUT_DIR}")
-    print(f"App filename mode: {args.app_name_mode}")
+    print(f"App filename mode: {args.app_mode}")
     print(f"App mapping file: {os.path.join(OUTPUT_DIR, 'apps', 'app_map.json')}")
 
 
