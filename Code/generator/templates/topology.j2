@@ -50,13 +50,27 @@ def create_network():
 
     return net
 
-
 def post_start_setup(net):
     r0 = net.get('r0')
     print("\nConfiguring router interfaces")
     r0.cmd('ifconfig r0-eth0 10.0.1.1/24 up')  # Field Zone
     r0.cmd('ifconfig r0-eth1 10.0.2.1/24 up')  # Control Zone
     r0.cmd('ifconfig r0-eth2 10.0.3.1/24 up')  # IT Zone
+
+    print("Applying inter-zone segmentation on r0")
+    # Default-deny forwarding with explicit allows:
+    # - Field <-> Control allowed
+    # - IT <-> Control allowed
+    # - Field <-> IT blocked
+    r0.cmd('iptables -F FORWARD')
+    r0.cmd('iptables -P FORWARD DROP')
+    r0.cmd('iptables -A FORWARD -m conntrack --ctstate ESTABLISHED,RELATED -j ACCEPT')
+    r0.cmd('iptables -A FORWARD -i r0-eth0 -o r0-eth1 -j ACCEPT')  # Field -> Control
+    r0.cmd('iptables -A FORWARD -i r0-eth1 -o r0-eth0 -j ACCEPT')  # Control -> Field
+    r0.cmd('iptables -A FORWARD -i r0-eth2 -o r0-eth1 -j ACCEPT')  # IT -> Control
+    r0.cmd('iptables -A FORWARD -i r0-eth1 -o r0-eth2 -j ACCEPT')  # Control -> IT
+    r0.cmd('iptables -A FORWARD -i r0-eth0 -o r0-eth2 -j DROP')    # Field -> IT
+    r0.cmd('iptables -A FORWARD -i r0-eth2 -o r0-eth0 -j DROP')    # IT -> Field
 
     print("Setting default routes on hosts")
 {% for h in zones.get('field', []) %}
@@ -72,7 +86,6 @@ def post_start_setup(net):
     print("\nWaiting for network stabilization...")
     time.sleep(5)
     print("Network ready")
-
 
 def CPS_topology():
     net = create_network()

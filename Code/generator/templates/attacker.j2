@@ -1,7 +1,6 @@
 import os
 from datetime import datetime
 
-
 def run_dos_attack(net, mode="light"):
     h5 = net.get('{{ host.name }}')
     target_ip = "{{ hosts_by_role['gateway'][0].ip }}"  # gateway
