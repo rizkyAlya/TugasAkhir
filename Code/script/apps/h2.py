@@ -18,8 +18,7 @@ gateway_client = ModbusTcpClient(GATEWAY_IP, port=MODBUS_PORT)
 field_client.connect()
 gateway_client.connect()
 
-breaker_cmd = {bus: 1 for bus in range(1, NUM_BUS + 1)}  # 0=OPEN, 1=CLOSE
-
+breaker_cmd = {bus: 1 for bus in range(1, NUM_BUS+1)}  # 0=OPEN, 1=CLOSE
 
 def read_modbus_bus(bus):
     addr_v = V_BASE_ADDR + (bus - 1)
@@ -32,7 +31,6 @@ def read_modbus_bus(bus):
     i = rr_i.registers[0] / 1000.0
     return v, i
 
-
 def read_breaker_command(bus):
     addr_cmd = BREAKER_BASE_ADDR + (bus - 1)
     rr_cmd = gateway_client.read_coils(addr_cmd, 1, unit=1)
@@ -40,14 +38,12 @@ def read_breaker_command(bus):
         return None
     return 1 if rr_cmd.bits[0] else 0
 
-
 def update_breaker_field(bus, status):
     addr_brk = BREAKER_BASE_ADDR + (bus - 1)
     try:
         field_client.write_coil(addr_brk, status, unit=0)
     except Exception as e:
         print(f"Error update breaker FIELD bus {bus}: {e}")
-
 
 def send_to_gateway_modbus(bus, v, i, breaker):
     addr_v = V_BASE_ADDR + (bus - 1)
@@ -60,13 +56,12 @@ def send_to_gateway_modbus(bus, v, i, breaker):
     except Exception as e:
         print(f"Error kirim ke gateway Modbus bus {bus}: {e}")
 
-
 try:
     while True:
         print("\n")
         ts = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
-        for bus in range(1, NUM_BUS + 1):
+        for bus in range(1, NUM_BUS+1):
             v, i = read_modbus_bus(bus)
             if v is None or i is None:
                 print(f"Error baca Modbus bus {bus}")

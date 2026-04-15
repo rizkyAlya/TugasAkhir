@@ -1,7 +1,6 @@
 import os
 from datetime import datetime
 
-
 def run_dos_attack(net, mode="light"):
     h5 = net.get('h5')
     target_ip = "10.0.2.2"  # gateway
