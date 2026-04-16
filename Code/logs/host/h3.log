@@ -1,93 +1,323 @@
 Memulai Server OPC UA
 Endpoints other than open requested but private key and certificate are not set.
 Listening on 10.0.2.2:4840
+
+
+[2026-04-17 00:52:11] [Bus 1] Data V/I/CMD berhasil update
+[2026-04-17 00:52:11] [Bus 2] Data V/I/CMD berhasil update
+[2026-04-17 00:52:11] [Bus 3] Data V/I/CMD berhasil update
+[2026-04-17 00:52:11] [Bus 4] Data V/I/CMD berhasil update
+[2026-04-17 00:52:11] [Bus 5] Data V/I/CMD berhasil update
 Memulai Modbus Gateway di 0.0.0.0:5020
 
 
-[2026-04-17 00:04:45] [Bus 1] Data V/I/CMD berhasil update
-[2026-04-17 00:04:45] [Bus 2] Data V/I/CMD berhasil update
-[2026-04-17 00:04:45] [Bus 3] Data V/I/CMD berhasil update
-[2026-04-17 00:04:45] [Bus 4] Data V/I/CMD berhasil update
-[2026-04-17 00:04:45] [Bus 5] Data V/I/CMD berhasil update
+[2026-04-17 00:52:15] [Bus 1] Data V/I/CMD berhasil update
+[2026-04-17 00:52:15] [Bus 2] Data V/I/CMD berhasil update
+[2026-04-17 00:52:15] [Bus 3] Data V/I/CMD berhasil update
+[2026-04-17 00:52:15] [Bus 4] Data V/I/CMD berhasil update
+[2026-04-17 00:52:15] [Bus 5] Data V/I/CMD berhasil update
 
 
-[2026-04-17 00:04:49] [Bus 1] Data V/I/CMD berhasil update
-[2026-04-17 00:04:49] [Bus 1] Command breaker ke RTU: OPEN
-[2026-04-17 00:04:49] [Bus 2] Data V/I/CMD berhasil update
-[2026-04-17 00:04:49] [Bus 2] Command breaker ke RTU: OPEN
-[2026-04-17 00:04:49] [Bus 3] Data V/I/CMD berhasil update
-[2026-04-17 00:04:49] [Bus 3] Command breaker ke RTU: OPEN
-[2026-04-17 00:04:49] [Bus 4] Data V/I/CMD berhasil update
-[2026-04-17 00:04:49] [Bus 5] Data V/I/CMD berhasil update
+[2026-04-17 00:52:19] [Bus 1] Data V/I/CMD berhasil update
+[2026-04-17 00:52:19] [Bus 1] Command breaker ke RTU: OPEN
+[2026-04-17 00:52:19] [Bus 2] Data V/I/CMD berhasil update
+[2026-04-17 00:52:19] [Bus 2] Command breaker ke RTU: OPEN
+[2026-04-17 00:52:19] [Bus 3] Data V/I/CMD berhasil update
+[2026-04-17 00:52:19] [Bus 3] Command breaker ke RTU: OPEN
+[2026-04-17 00:52:19] [Bus 4] Data V/I/CMD berhasil update
+[2026-04-17 00:52:19] [Bus 5] Data V/I/CMD berhasil update
 
 
-[2026-04-17 00:04:53] [Bus 1] Data V/I/CMD berhasil update
-[2026-04-17 00:04:53] [Bus 1] Command breaker ke RTU: CLOSE
-[2026-04-17 00:04:53] [Bus 2] Data V/I/CMD berhasil update
-[2026-04-17 00:04:53] [Bus 3] Data V/I/CMD berhasil update
-[2026-04-17 00:04:53] [Bus 3] Command breaker ke RTU: CLOSE
-[2026-04-17 00:04:53] [Bus 4] Data V/I/CMD berhasil update
-[2026-04-17 00:04:53] [Bus 5] Data V/I/CMD berhasil update
+[2026-04-17 00:52:23] [Bus 1] Data V/I/CMD berhasil update
+[2026-04-17 00:52:23] [Bus 1] Command breaker ke RTU: CLOSE
+[2026-04-17 00:52:23] [Bus 2] Data V/I/CMD berhasil update
+[2026-04-17 00:52:23] [Bus 3] Data V/I/CMD berhasil update
+[2026-04-17 00:52:23] [Bus 3] Command breaker ke RTU: CLOSE
+[2026-04-17 00:52:23] [Bus 4] Data V/I/CMD berhasil update
+[2026-04-17 00:52:23] [Bus 5] Data V/I/CMD berhasil update
 
 
-[2026-04-17 00:04:57] [Bus 1] Data V/I/CMD berhasil update
-[2026-04-17 00:04:57] [Bus 1] Command breaker ke RTU: OPEN
-[2026-04-17 00:04:57] [Bus 2] Data V/I/CMD berhasil update
-[2026-04-17 00:04:57] [Bus 3] Data V/I/CMD berhasil update
-[2026-04-17 00:04:57] [Bus 3] Command breaker ke RTU: OPEN
-[2026-04-17 00:04:57] [Bus 4] Data V/I/CMD berhasil update
-[2026-04-17 00:04:57] [Bus 5] Data V/I/CMD berhasil update
+[2026-04-17 00:52:27] [Bus 1] Data V/I/CMD berhasil update
+[2026-04-17 00:52:27] [Bus 1] Command breaker ke RTU: OPEN
+[2026-04-17 00:52:27] [Bus 2] Data V/I/CMD berhasil update
+[2026-04-17 00:52:27] [Bus 3] Data V/I/CMD berhasil update
+[2026-04-17 00:52:27] [Bus 3] Command breaker ke RTU: OPEN
+[2026-04-17 00:52:27] [Bus 4] Data V/I/CMD berhasil update
+[2026-04-17 00:52:27] [Bus 5] Data V/I/CMD berhasil update
 
 
-[2026-04-17 00:05:01] [Bus 1] Data V/I/CMD berhasil update
-[2026-04-17 00:05:01] [Bus 1] Command breaker ke RTU: CLOSE
-[2026-04-17 00:05:01] [Bus 2] Data V/I/CMD berhasil update
-[2026-04-17 00:05:01] [Bus 3] Data V/I/CMD berhasil update
-[2026-04-17 00:05:01] [Bus 3] Command breaker ke RTU: CLOSE
-[2026-04-17 00:05:01] [Bus 4] Data V/I/CMD berhasil update
-[2026-04-17 00:05:01] [Bus 5] Data V/I/CMD berhasil update
+[2026-04-17 00:52:31] [Bus 1] Data V/I/CMD berhasil update
+[2026-04-17 00:52:31] [Bus 1] Command breaker ke RTU: CLOSE
+[2026-04-17 00:52:31] [Bus 2] Data V/I/CMD berhasil update
+[2026-04-17 00:52:31] [Bus 3] Data V/I/CMD berhasil update
+[2026-04-17 00:52:31] [Bus 3] Command breaker ke RTU: CLOSE
+[2026-04-17 00:52:31] [Bus 4] Data V/I/CMD berhasil update
+[2026-04-17 00:52:31] [Bus 5] Data V/I/CMD berhasil update
 
 
-[2026-04-17 00:05:05] [Bus 1] Data V/I/CMD berhasil update
-[2026-04-17 00:05:05] [Bus 1] Command breaker ke RTU: OPEN
-[2026-04-17 00:05:05] [Bus 2] Data V/I/CMD berhasil update
-[2026-04-17 00:05:05] [Bus 3] Data V/I/CMD berhasil update
-[2026-04-17 00:05:05] [Bus 3] Command breaker ke RTU: OPEN
-[2026-04-17 00:05:05] [Bus 4] Data V/I/CMD berhasil update
-[2026-04-17 00:05:05] [Bus 5] Data V/I/CMD berhasil update
+[2026-04-17 00:52:35] [Bus 1] Data V/I/CMD berhasil update
+[2026-04-17 00:52:35] [Bus 1] Command breaker ke RTU: OPEN
+[2026-04-17 00:52:35] [Bus 2] Data V/I/CMD berhasil update
+[2026-04-17 00:52:35] [Bus 3] Data V/I/CMD berhasil update
+[2026-04-17 00:52:35] [Bus 3] Command breaker ke RTU: OPEN
+[2026-04-17 00:52:35] [Bus 4] Data V/I/CMD berhasil update
+[2026-04-17 00:52:35] [Bus 5] Data V/I/CMD berhasil update
 
 
-[2026-04-17 00:05:09] [Bus 1] Data V/I/CMD berhasil update
-[2026-04-17 00:05:09] [Bus 1] Command breaker ke RTU: CLOSE
-[2026-04-17 00:05:09] [Bus 2] Data V/I/CMD berhasil update
-[2026-04-17 00:05:09] [Bus 3] Data V/I/CMD berhasil update
-[2026-04-17 00:05:09] [Bus 3] Command breaker ke RTU: CLOSE
-[2026-04-17 00:05:09] [Bus 4] Data V/I/CMD berhasil update
-[2026-04-17 00:05:09] [Bus 5] Data V/I/CMD berhasil update
+[2026-04-17 00:52:39] [Bus 1] Data V/I/CMD berhasil update
+[2026-04-17 00:52:39] [Bus 1] Command breaker ke RTU: CLOSE
+[2026-04-17 00:52:39] [Bus 2] Data V/I/CMD berhasil update
+[2026-04-17 00:52:39] [Bus 3] Data V/I/CMD berhasil update
+[2026-04-17 00:52:39] [Bus 3] Command breaker ke RTU: CLOSE
+[2026-04-17 00:52:39] [Bus 4] Data V/I/CMD berhasil update
+[2026-04-17 00:52:39] [Bus 5] Data V/I/CMD berhasil update
 
 
-[2026-04-17 00:05:13] [Bus 1] Data V/I/CMD berhasil update
-[2026-04-17 00:05:13] [Bus 1] Command breaker ke RTU: OPEN
-[2026-04-17 00:05:13] [Bus 2] Data V/I/CMD berhasil update
-[2026-04-17 00:05:13] [Bus 3] Data V/I/CMD berhasil update
-[2026-04-17 00:05:13] [Bus 3] Command breaker ke RTU: OPEN
-[2026-04-17 00:05:13] [Bus 4] Data V/I/CMD berhasil update
-[2026-04-17 00:05:13] [Bus 5] Data V/I/CMD berhasil update
+[2026-04-17 00:52:43] [Bus 1] Data V/I/CMD berhasil update
+[2026-04-17 00:52:43] [Bus 1] Command breaker ke RTU: OPEN
+[2026-04-17 00:52:43] [Bus 2] Data V/I/CMD berhasil update
+[2026-04-17 00:52:43] [Bus 3] Data V/I/CMD berhasil update
+[2026-04-17 00:52:43] [Bus 3] Command breaker ke RTU: OPEN
+[2026-04-17 00:52:43] [Bus 4] Data V/I/CMD berhasil update
+[2026-04-17 00:52:43] [Bus 5] Data V/I/CMD berhasil update
 
 
-[2026-04-17 00:05:17] [Bus 1] Data V/I/CMD berhasil update
-[2026-04-17 00:05:17] [Bus 1] Command breaker ke RTU: CLOSE
-[2026-04-17 00:05:17] [Bus 2] Data V/I/CMD berhasil update
-[2026-04-17 00:05:17] [Bus 3] Data V/I/CMD berhasil update
-[2026-04-17 00:05:17] [Bus 3] Command breaker ke RTU: CLOSE
-[2026-04-17 00:05:17] [Bus 4] Data V/I/CMD berhasil update
-[2026-04-17 00:05:17] [Bus 5] Data V/I/CMD berhasil update
+[2026-04-17 00:52:47] [Bus 1] Data V/I/CMD berhasil update
+[2026-04-17 00:52:47] [Bus 1] Command breaker ke RTU: CLOSE
+[2026-04-17 00:52:47] [Bus 2] Data V/I/CMD berhasil update
+[2026-04-17 00:52:47] [Bus 3] Data V/I/CMD berhasil update
+[2026-04-17 00:52:47] [Bus 3] Command breaker ke RTU: CLOSE
+[2026-04-17 00:52:47] [Bus 4] Data V/I/CMD berhasil update
+[2026-04-17 00:52:47] [Bus 5] Data V/I/CMD berhasil update
 
 
-[2026-04-17 00:05:21] [Bus 1] Data V/I/CMD berhasil update
-[2026-04-17 00:05:21] [Bus 1] Command breaker ke RTU: OPEN
-[2026-04-17 00:05:21] [Bus 2] Data V/I/CMD berhasil update
-[2026-04-17 00:05:21] [Bus 3] Data V/I/CMD berhasil update
-[2026-04-17 00:05:21] [Bus 3] Command breaker ke RTU: OPEN
-[2026-04-17 00:05:21] [Bus 4] Data V/I/CMD berhasil update
-[2026-04-17 00:05:21] [Bus 5] Data V/I/CMD berhasil update
+[2026-04-17 00:52:51] [Bus 1] Data V/I/CMD berhasil update
+[2026-04-17 00:52:51] [Bus 1] Command breaker ke RTU: OPEN
+[2026-04-17 00:52:51] [Bus 2] Data V/I/CMD berhasil update
+[2026-04-17 00:52:51] [Bus 3] Data V/I/CMD berhasil update
+[2026-04-17 00:52:51] [Bus 3] Command breaker ke RTU: OPEN
+[2026-04-17 00:52:51] [Bus 4] Data V/I/CMD berhasil update
+[2026-04-17 00:52:51] [Bus 5] Data V/I/CMD berhasil update
+
+
+[2026-04-17 00:52:55] [Bus 1] Data V/I/CMD berhasil update
+[2026-04-17 00:52:55] [Bus 1] Command breaker ke RTU: CLOSE
+[2026-04-17 00:52:55] [Bus 2] Data V/I/CMD berhasil update
+[2026-04-17 00:52:55] [Bus 3] Data V/I/CMD berhasil update
+[2026-04-17 00:52:55] [Bus 3] Command breaker ke RTU: CLOSE
+[2026-04-17 00:52:55] [Bus 4] Data V/I/CMD berhasil update
+[2026-04-17 00:52:55] [Bus 5] Data V/I/CMD berhasil update
+
+
+[2026-04-17 00:52:59] [Bus 1] Data V/I/CMD berhasil update
+[2026-04-17 00:52:59] [Bus 1] Command breaker ke RTU: OPEN
+[2026-04-17 00:52:59] [Bus 2] Data V/I/CMD berhasil update
+[2026-04-17 00:52:59] [Bus 3] Data V/I/CMD berhasil update
+[2026-04-17 00:52:59] [Bus 3] Command breaker ke RTU: OPEN
+[2026-04-17 00:52:59] [Bus 4] Data V/I/CMD berhasil update
+[2026-04-17 00:52:59] [Bus 5] Data V/I/CMD berhasil update
+
+
+[2026-04-17 00:53:03] [Bus 1] Data V/I/CMD berhasil update
+[2026-04-17 00:53:03] [Bus 1] Command breaker ke RTU: CLOSE
+[2026-04-17 00:53:03] [Bus 2] Data V/I/CMD berhasil update
+[2026-04-17 00:53:03] [Bus 3] Data V/I/CMD berhasil update
+[2026-04-17 00:53:03] [Bus 3] Command breaker ke RTU: CLOSE
+[2026-04-17 00:53:03] [Bus 4] Data V/I/CMD berhasil update
+[2026-04-17 00:53:03] [Bus 5] Data V/I/CMD berhasil update
+
+
+[2026-04-17 00:53:07] [Bus 1] Data V/I/CMD berhasil update
+[2026-04-17 00:53:07] [Bus 1] Command breaker ke RTU: OPEN
+[2026-04-17 00:53:07] [Bus 2] Data V/I/CMD berhasil update
+[2026-04-17 00:53:07] [Bus 3] Data V/I/CMD berhasil update
+[2026-04-17 00:53:07] [Bus 3] Command breaker ke RTU: OPEN
+[2026-04-17 00:53:07] [Bus 4] Data V/I/CMD berhasil update
+[2026-04-17 00:53:07] [Bus 5] Data V/I/CMD berhasil update
+
+
+[2026-04-17 00:53:11] [Bus 1] Data V/I/CMD berhasil update
+[2026-04-17 00:53:11] [Bus 2] Data V/I/CMD berhasil update
+[2026-04-17 00:53:11] [Bus 3] Data V/I/CMD berhasil update
+[2026-04-17 00:53:11] [Bus 4] Data V/I/CMD berhasil update
+[2026-04-17 00:53:11] [Bus 5] Data V/I/CMD berhasil update
+
+
+[2026-04-17 00:53:15] [Bus 1] Data V/I/CMD berhasil update
+[2026-04-17 00:53:15] [Bus 1] Command breaker ke RTU: CLOSE
+[2026-04-17 00:53:15] [Bus 2] Data V/I/CMD berhasil update
+[2026-04-17 00:53:15] [Bus 3] Data V/I/CMD berhasil update
+[2026-04-17 00:53:15] [Bus 3] Command breaker ke RTU: CLOSE
+[2026-04-17 00:53:15] [Bus 4] Data V/I/CMD berhasil update
+[2026-04-17 00:53:15] [Bus 5] Data V/I/CMD berhasil update
+
+
+[2026-04-17 00:53:19] [Bus 1] Data V/I/CMD berhasil update
+[2026-04-17 00:53:19] [Bus 1] Command breaker ke RTU: OPEN
+[2026-04-17 00:53:19] [Bus 2] Data V/I/CMD berhasil update
+[2026-04-17 00:53:19] [Bus 3] Data V/I/CMD berhasil update
+[2026-04-17 00:53:19] [Bus 3] Command breaker ke RTU: OPEN
+[2026-04-17 00:53:19] [Bus 4] Data V/I/CMD berhasil update
+[2026-04-17 00:53:19] [Bus 5] Data V/I/CMD berhasil update
+
+
+[2026-04-17 00:53:23] [Bus 1] Data V/I/CMD berhasil update
+[2026-04-17 00:53:23] [Bus 1] Command breaker ke RTU: CLOSE
+[2026-04-17 00:53:23] [Bus 2] Data V/I/CMD berhasil update
+[2026-04-17 00:53:23] [Bus 3] Data V/I/CMD berhasil update
+[2026-04-17 00:53:23] [Bus 3] Command breaker ke RTU: CLOSE
+[2026-04-17 00:53:23] [Bus 4] Data V/I/CMD berhasil update
+[2026-04-17 00:53:23] [Bus 5] Data V/I/CMD berhasil update
+
+
+[2026-04-17 00:53:28] [Bus 1] Data V/I/CMD berhasil update
+[2026-04-17 00:53:28] [Bus 1] Command breaker ke RTU: OPEN
+[2026-04-17 00:53:28] [Bus 2] Data V/I/CMD berhasil update
+[2026-04-17 00:53:28] [Bus 3] Data V/I/CMD berhasil update
+[2026-04-17 00:53:28] [Bus 3] Command breaker ke RTU: OPEN
+[2026-04-17 00:53:28] [Bus 4] Data V/I/CMD berhasil update
+[2026-04-17 00:53:28] [Bus 5] Data V/I/CMD berhasil update
+
+
+[2026-04-17 00:53:32] [Bus 1] Data V/I/CMD berhasil update
+[2026-04-17 00:53:32] [Bus 1] Command breaker ke RTU: CLOSE
+[2026-04-17 00:53:32] [Bus 2] Data V/I/CMD berhasil update
+[2026-04-17 00:53:32] [Bus 3] Data V/I/CMD berhasil update
+[2026-04-17 00:53:32] [Bus 3] Command breaker ke RTU: CLOSE
+[2026-04-17 00:53:32] [Bus 4] Data V/I/CMD berhasil update
+[2026-04-17 00:53:32] [Bus 5] Data V/I/CMD berhasil update
+
+
+[2026-04-17 00:53:36] [Bus 1] Data V/I/CMD berhasil update
+[2026-04-17 00:53:36] [Bus 1] Command breaker ke RTU: OPEN
+[2026-04-17 00:53:36] [Bus 2] Data V/I/CMD berhasil update
+[2026-04-17 00:53:36] [Bus 3] Data V/I/CMD berhasil update
+[2026-04-17 00:53:36] [Bus 3] Command breaker ke RTU: OPEN
+[2026-04-17 00:53:36] [Bus 4] Data V/I/CMD berhasil update
+[2026-04-17 00:53:36] [Bus 5] Data V/I/CMD berhasil update
+
+
+[2026-04-17 00:53:40] [Bus 1] Data V/I/CMD berhasil update
+[2026-04-17 00:53:40] [Bus 1] Command breaker ke RTU: CLOSE
+[2026-04-17 00:53:40] [Bus 2] Data V/I/CMD berhasil update
+[2026-04-17 00:53:40] [Bus 3] Data V/I/CMD berhasil update
+[2026-04-17 00:53:40] [Bus 3] Command breaker ke RTU: CLOSE
+[2026-04-17 00:53:40] [Bus 4] Data V/I/CMD berhasil update
+[2026-04-17 00:53:40] [Bus 5] Data V/I/CMD berhasil update
+
+
+[2026-04-17 00:53:44] [Bus 1] Data V/I/CMD berhasil update
+[2026-04-17 00:53:44] [Bus 1] Command breaker ke RTU: OPEN
+[2026-04-17 00:53:44] [Bus 2] Data V/I/CMD berhasil update
+[2026-04-17 00:53:44] [Bus 3] Data V/I/CMD berhasil update
+[2026-04-17 00:53:44] [Bus 3] Command breaker ke RTU: OPEN
+[2026-04-17 00:53:44] [Bus 4] Data V/I/CMD berhasil update
+[2026-04-17 00:53:44] [Bus 5] Data V/I/CMD berhasil update
+
+
+[2026-04-17 00:53:48] [Bus 1] Data V/I/CMD berhasil update
+[2026-04-17 00:53:48] [Bus 1] Command breaker ke RTU: CLOSE
+[2026-04-17 00:53:48] [Bus 2] Data V/I/CMD berhasil update
+[2026-04-17 00:53:48] [Bus 3] Data V/I/CMD berhasil update
+[2026-04-17 00:53:48] [Bus 3] Command breaker ke RTU: CLOSE
+[2026-04-17 00:53:48] [Bus 4] Data V/I/CMD berhasil update
+[2026-04-17 00:53:48] [Bus 5] Data V/I/CMD berhasil update
+
+
+[2026-04-17 00:53:52] [Bus 1] Data V/I/CMD berhasil update
+[2026-04-17 00:53:52] [Bus 1] Command breaker ke RTU: OPEN
+[2026-04-17 00:53:52] [Bus 2] Data V/I/CMD berhasil update
+[2026-04-17 00:53:52] [Bus 3] Data V/I/CMD berhasil update
+[2026-04-17 00:53:52] [Bus 3] Command breaker ke RTU: OPEN
+[2026-04-17 00:53:52] [Bus 4] Data V/I/CMD berhasil update
+[2026-04-17 00:53:52] [Bus 5] Data V/I/CMD berhasil update
+
+
+[2026-04-17 00:53:56] [Bus 1] Data V/I/CMD berhasil update
+[2026-04-17 00:53:56] [Bus 1] Command breaker ke RTU: CLOSE
+[2026-04-17 00:53:56] [Bus 2] Data V/I/CMD berhasil update
+[2026-04-17 00:53:56] [Bus 3] Data V/I/CMD berhasil update
+[2026-04-17 00:53:56] [Bus 3] Command breaker ke RTU: CLOSE
+[2026-04-17 00:53:56] [Bus 4] Data V/I/CMD berhasil update
+[2026-04-17 00:53:56] [Bus 5] Data V/I/CMD berhasil update
+
+
+[2026-04-17 00:54:00] [Bus 1] Data V/I/CMD berhasil update
+[2026-04-17 00:54:00] [Bus 1] Command breaker ke RTU: OPEN
+[2026-04-17 00:54:00] [Bus 2] Data V/I/CMD berhasil update
+[2026-04-17 00:54:00] [Bus 3] Data V/I/CMD berhasil update
+[2026-04-17 00:54:00] [Bus 3] Command breaker ke RTU: OPEN
+[2026-04-17 00:54:00] [Bus 4] Data V/I/CMD berhasil update
+[2026-04-17 00:54:00] [Bus 5] Data V/I/CMD berhasil update
+
+
+[2026-04-17 00:54:04] [Bus 1] Data V/I/CMD berhasil update
+[2026-04-17 00:54:04] [Bus 1] Command breaker ke RTU: CLOSE
+[2026-04-17 00:54:04] [Bus 2] Data V/I/CMD berhasil update
+[2026-04-17 00:54:04] [Bus 3] Data V/I/CMD berhasil update
+[2026-04-17 00:54:04] [Bus 3] Command breaker ke RTU: CLOSE
+[2026-04-17 00:54:04] [Bus 4] Data V/I/CMD berhasil update
+[2026-04-17 00:54:04] [Bus 5] Data V/I/CMD berhasil update
+
+
+[2026-04-17 00:54:08] [Bus 1] Data V/I/CMD berhasil update
+[2026-04-17 00:54:08] [Bus 1] Command breaker ke RTU: OPEN
+[2026-04-17 00:54:08] [Bus 2] Data V/I/CMD berhasil update
+[2026-04-17 00:54:08] [Bus 3] Data V/I/CMD berhasil update
+[2026-04-17 00:54:08] [Bus 3] Command breaker ke RTU: OPEN
+[2026-04-17 00:54:08] [Bus 4] Data V/I/CMD berhasil update
+[2026-04-17 00:54:08] [Bus 5] Data V/I/CMD berhasil update
+
+
+[2026-04-17 00:54:12] [Bus 1] Data V/I/CMD berhasil update
+[2026-04-17 00:54:12] [Bus 1] Command breaker ke RTU: CLOSE
+[2026-04-17 00:54:12] [Bus 2] Data V/I/CMD berhasil update
+[2026-04-17 00:54:12] [Bus 3] Data V/I/CMD berhasil update
+[2026-04-17 00:54:12] [Bus 3] Command breaker ke RTU: CLOSE
+[2026-04-17 00:54:12] [Bus 4] Data V/I/CMD berhasil update
+[2026-04-17 00:54:12] [Bus 5] Data V/I/CMD berhasil update
+
+
+[2026-04-17 00:54:16] [Bus 1] Data V/I/CMD berhasil update
+[2026-04-17 00:54:16] [Bus 1] Command breaker ke RTU: OPEN
+[2026-04-17 00:54:16] [Bus 2] Data V/I/CMD berhasil update
+[2026-04-17 00:54:16] [Bus 3] Data V/I/CMD berhasil update
+[2026-04-17 00:54:16] [Bus 3] Command breaker ke RTU: OPEN
+[2026-04-17 00:54:16] [Bus 4] Data V/I/CMD berhasil update
+[2026-04-17 00:54:16] [Bus 5] Data V/I/CMD berhasil update
+
+
+[2026-04-17 00:54:20] [Bus 1] Data V/I/CMD berhasil update
+[2026-04-17 00:54:20] [Bus 1] Command breaker ke RTU: CLOSE
+[2026-04-17 00:54:20] [Bus 2] Data V/I/CMD berhasil update
+[2026-04-17 00:54:20] [Bus 3] Data V/I/CMD berhasil update
+[2026-04-17 00:54:20] [Bus 3] Command breaker ke RTU: CLOSE
+[2026-04-17 00:54:20] [Bus 4] Data V/I/CMD berhasil update
+[2026-04-17 00:54:20] [Bus 5] Data V/I/CMD berhasil update
+
+
+[2026-04-17 00:54:24] [Bus 1] Data V/I/CMD berhasil update
+[2026-04-17 00:54:24] [Bus 1] Command breaker ke RTU: OPEN
+[2026-04-17 00:54:24] [Bus 2] Data V/I/CMD berhasil update
+[2026-04-17 00:54:24] [Bus 3] Data V/I/CMD berhasil update
+[2026-04-17 00:54:24] [Bus 3] Command breaker ke RTU: OPEN
+[2026-04-17 00:54:24] [Bus 4] Data V/I/CMD berhasil update
+[2026-04-17 00:54:24] [Bus 5] Data V/I/CMD berhasil update
+
+
+[2026-04-17 00:54:28] [Bus 1] Data V/I/CMD berhasil update
+[2026-04-17 00:54:28] [Bus 1] Command breaker ke RTU: CLOSE
+[2026-04-17 00:54:28] [Bus 2] Data V/I/CMD berhasil update
+[2026-04-17 00:54:28] [Bus 3] Data V/I/CMD berhasil update
+[2026-04-17 00:54:28] [Bus 3] Command breaker ke RTU: CLOSE
+[2026-04-17 00:54:28] [Bus 4] Data V/I/CMD berhasil update
+[2026-04-17 00:54:28] [Bus 5] Data V/I/CMD berhasil update
+
+
+[2026-04-17 00:54:32] [Bus 1] Data V/I/CMD berhasil update
+[2026-04-17 00:54:32] [Bus 1] Command breaker ke RTU: OPEN
+[2026-04-17 00:54:32] [Bus 2] Data V/I/CMD berhasil update
+[2026-04-17 00:54:32] [Bus 3] Data V/I/CMD berhasil update
+[2026-04-17 00:54:32] [Bus 3] Command breaker ke RTU: OPEN
+[2026-04-17 00:54:32] [Bus 4] Data V/I/CMD berhasil update
+[2026-04-17 00:54:32] [Bus 5] Data V/I/CMD berhasil update
