@@ -27,6 +27,7 @@ def run_mitm_attack(net, rtu_name=DEFAULT_RTU_NAME, gateway_name=DEFAULT_GATEWAY
         f"url='http://{gateway_ip}:8088/inject'; "
         f"token='lab-sim-token'; "
         f"print('starting injector to', url); "
+        {% raw %}
         f"\\nwhile True:\\n"
         f"  \\n  for bus in range(1,6):\\n"
         f"    payload={{'token':token,'bus':bus,'v':round(random.uniform(0.72,0.86),3),'i':round(random.uniform(2.4,4.2),3),'ttl':8}}\\n"
@@ -37,6 +38,7 @@ def run_mitm_attack(net, rtu_name=DEFAULT_RTU_NAME, gateway_name=DEFAULT_GATEWAY
         f"    except Exception as e:\\n"
         f"      print('inject failed:', e)\\n"
         f"  time.sleep(4)\" >> logs/host/{{ host.name }}.log 2>&1 & echo $! > /tmp/h5_http_inject.pid"
+        {% endraw %}
     )
 
     print(f"Compromise simulation active: {attacker_name} -> {gateway_name} inject API (http://{gateway_ip}:8088/inject)")
