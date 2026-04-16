@@ -6,26 +6,40 @@ DEFAULT_GATEWAY_NAME = "{{ hosts_by_role['gateway'][0].name }}"
 DEFAULT_ATTACKER_NAME = "{{ host.name }}"
 
 def run_mitm_attack(net, rtu_name=DEFAULT_RTU_NAME, gateway_name=DEFAULT_GATEWAY_NAME, attacker_name=DEFAULT_ATTACKER_NAME):
-    print("Running MITM with dual-homed attacker...")
+    print("Running gateway compromise simulation over HTTP...")
     """
-    Full MITM routing:
-    - RTU -> Gateway through attacker
-    - Gateway -> RTU through attacker
+    Compromise simulation flow:
+    - Enable HTTP inject API on gateway (h3)
+    - Attacker (h5) sends simulated sensor values periodically
+    - Gateway forwards overridden values to OPC UA (for h4)
     """
     attacker = net.get(attacker_name)
-    rtu = net.get(rtu_name)
     gateway = net.get(gateway_name)
-
-    # Assumption: attacker second interface in control subnet is configured as 10.0.2.100/24
-    attacker_ctrl_ip = "10.0.2.100"
-    rtu_ip = rtu.IP()
     gateway_ip = gateway.IP()
 
-    attacker.cmd("sysctl -w net.ipv4.ip_forward=1")
-    rtu.cmd(f"ip route replace {gateway_ip} via {attacker_ctrl_ip}")
-    gateway.cmd(f"ip route replace {rtu_ip} via {attacker_ctrl_ip}")
+    # Enable API on gateway only when --mitm triggers this function.
+    gateway.cmd("touch /tmp/h3_http_inject_enabled")
+    attacker.cmd("mkdir -p logs/host")
+    attacker.cmd("if [ -f /tmp/h5_http_inject.pid ]; then kill $(cat /tmp/h5_http_inject.pid) 2>/dev/null; rm -f /tmp/h5_http_inject.pid; fi")
+    attacker.cmd(
+        f"python3 -c \""
+        f"import json,time,random,urllib.request; "
+        f"url='http://{gateway_ip}:8088/inject'; "
+        f"token='lab-sim-token'; "
+        f"print('starting injector to', url); "
+        f"\\nwhile True:\\n"
+        f"  \\n  for bus in range(1,6):\\n"
+        f"    payload={{'token':token,'bus':bus,'v':round(random.uniform(0.72,0.86),3),'i':round(random.uniform(2.4,4.2),3),'ttl':8}}\\n"
+        f"    data=json.dumps(payload).encode('utf-8')\\n"
+        f"    req=urllib.request.Request(url,data=data,headers={{'Content-Type':'application/json'}},method='POST')\\n"
+        f"    \\n    try:\\n"
+        f"      urllib.request.urlopen(req, timeout=2).read()\\n"
+        f"    except Exception as e:\\n"
+        f"      print('inject failed:', e)\\n"
+        f"  time.sleep(4)\" >> logs/host/{{ host.name }}.log 2>&1 & echo $! > /tmp/h5_http_inject.pid"
+    )
 
-    print(f"MITM active: {rtu_name} <-> {gateway_name} via {attacker_name} ({attacker_ctrl_ip})")
+    print(f"Compromise simulation active: {attacker_name} -> {gateway_name} inject API (http://{gateway_ip}:8088/inject)")
 
 
 def run_dos_attack(net, mode="light"):
