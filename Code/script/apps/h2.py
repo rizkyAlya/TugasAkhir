@@ -1,4 +1,5 @@
 from pymodbus.client import ModbusTcpClient
+from pymodbus.exceptions import ConnectionException
 import time
 from datetime import datetime
 
@@ -15,8 +16,32 @@ NUM_BUS = 5
 # Modbus clients
 field_client = ModbusTcpClient(FIELD_IP, port=MODBUS_PORT)
 gateway_client = ModbusTcpClient(GATEWAY_IP, port=MODBUS_PORT)
-field_client.connect()
-gateway_client.connect()
+
+def _connect_with_retry(client: ModbusTcpClient, label: str, retry_delay_s: float = 1.0) -> None:
+    while True:
+        try:
+            ok = client.connect()
+            if ok:
+                return
+            print(f"Connection to {label} failed (connect() returned False). Retrying in {retry_delay_s}s...")
+        except Exception as e:
+            print(f"Connection to {label} failed: {e}. Retrying in {retry_delay_s}s...")
+        time.sleep(retry_delay_s)
+
+def _is_connected(client: ModbusTcpClient) -> bool:
+    val = getattr(client, "connected", None)
+    if val is None:
+        return False
+    try:
+        return bool(val)
+    except Exception:
+        return False
+
+def ensure_connections() -> None:
+    if not _is_connected(field_client):
+        _connect_with_retry(field_client, f"FIELD ({FIELD_IP}:{MODBUS_PORT})")
+    if not _is_connected(gateway_client):
+        _connect_with_retry(gateway_client, f"GATEWAY ({GATEWAY_IP}:{MODBUS_PORT})")
 
 breaker_cmd = {bus: 1 for bus in range(1, NUM_BUS+1)}  # 0=OPEN, 1=CLOSE
 
@@ -57,28 +82,44 @@ def send_to_gateway_modbus(bus, v, i, breaker):
         print(f"Error kirim ke gateway Modbus bus {bus}: {e}")
 
 try:
+    # Block until both servers are reachable.
+    ensure_connections()
     while True:
         print("\n")
         ts = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
-        for bus in range(1, NUM_BUS+1):
-            v, i = read_modbus_bus(bus)
-            if v is None or i is None:
-                print(f"Error baca Modbus bus {bus}")
-                continue
+        try:
+            ensure_connections()
 
-            # 1) Terima perintah breaker dari gateway via Modbus
-            cmd = read_breaker_command(bus)
-            if cmd in [0, 1]:
-                breaker_cmd[bus] = cmd
+            for bus in range(1, NUM_BUS+1):
+                v, i = read_modbus_bus(bus)
+                if v is None or i is None:
+                    print(f"Error baca Modbus bus {bus}")
+                    continue
 
-            # 2) Update coil di field device
-            update_breaker_field(bus, breaker_cmd[bus])
+                # 1) Terima perintah breaker dari gateway via Modbus
+                cmd = read_breaker_command(bus)
+                if cmd in [0, 1]:
+                    breaker_cmd[bus] = cmd
 
-            # 3) Kirim data dan status breaker ke gateway via Modbus
-            send_to_gateway_modbus(bus, v, i, breaker_cmd[bus])
+                # 2) Update coil di field device
+                update_breaker_field(bus, breaker_cmd[bus])
 
-            print(f"[{ts}] Bus {bus}: V={v:.3f} pu, I={i:.3f}, Breaker={'CLOSE' if breaker_cmd[bus]==1 else 'OPEN'}")
+                # 3) Kirim data dan status breaker ke gateway via Modbus
+                send_to_gateway_modbus(bus, v, i, breaker_cmd[bus])
+
+                print(f"[{ts}] Bus {bus}: V={v:.3f} pu, I={i:.3f}, Breaker={'CLOSE' if breaker_cmd[bus]==1 else 'OPEN'}")
+        except ConnectionException as e:
+            print(f"[{ts}] Koneksi Modbus terputus: {e}. Reconnecting...")
+            try:
+                field_client.close()
+            except Exception:
+                pass
+            try:
+                gateway_client.close()
+            except Exception:
+                pass
+            time.sleep(1)
 
         time.sleep(4)
 
