@@ -2598,3 +2598,7 @@ status=0 port=49264 seq=1292605
 hping in flood mode, no replies will be shown
 [send_ip] sendto: Network is unreachable
 HPING 10.0.2.2 (h5-eth1 10.0.2.2): udp mode set, 28 headers + 0 data bytes
+  File "<string>", line 1
+    import json,time,random,urllib.request; url='http://10.0.2.2:8088/inject'; token='lab-sim-token'; print('starting injector to', url); \nwhile True:\n  for bus in range(1,6):\n    payload={'token':token,'bus':bus,'v':round(random.uniform(0.72,0.86),3),'i':round(random.uniform(2.4,4.2),3),'ttl':8}\n    data=json.dumps(payload).encode('utf-8')\n    req=urllib.request.Request(url,data=data,headers={'Content-Type':'application/json'},method='POST')\n    try:\n      urllib.request.urlopen(req, timeout=2).read()\n    except Exception as e:\n      print('inject failed:', e)\n  time.sleep(4)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                ^
+SyntaxError: unexpected character after line continuation character
