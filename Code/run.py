@@ -82,20 +82,46 @@ def start_apps(net):
     os.makedirs(HOST_LOG_DIR, exist_ok=True)
     app_map = load_app_map()
 
-    for host in net.hosts:
+    def _start_host_app(host):
         name = host.name
+        # h5.py is attack helper (function-based), not a long-running host app.
+        if name == "h5":
+            print(" h5 skipped (attack helper)")
+            return
+
         app_filename = app_map.get(name, f"{name}.py")
         app_path = os.path.join(APPS_DIR, app_filename)
+        if not os.path.exists(app_path):
+            return
 
-        if os.path.exists(app_path):
-            # h5.py is attack helper (function-based), not a long-running host app.
-            if name == "h5":
-                print(" h5 skipped (attack helper)")
-                continue
+        log_file = os.path.join(HOST_LOG_DIR, f"{name}.log")
+        host.cmd(f"python3 -u {app_path} > {log_file} 2>&1 &")
+        print(f" {name} started ({app_filename})")
 
-            log_file = os.path.join(HOST_LOG_DIR, f"{name}.log")
-            host.cmd(f"python3 -u {app_path} > {log_file} 2>&1 &")
-            print(f" {name} started ({app_filename})")
+    # Ensure critical app order:
+    # - start h1 and h3 first
+    # - then h2
+    # - then h4
+    # This improves chance that h2 can establish connections to both sides.
+    order = ["h1", "h3", "h2", "h4"]
+    started = set()
+
+    for name in order:
+        if name in started:
+            continue
+        try:
+            host = net.get(name)
+        except KeyError:
+            continue
+        _start_host_app(host)
+        started.add(name)
+        time.sleep(0.5)
+
+    # Start remaining host apps (stable deterministic order).
+    for host in sorted(net.hosts, key=lambda h: h.name):
+        if host.name in started:
+            continue
+        _start_host_app(host)
 
     print("All apps started\n")
 
