@@ -146,6 +146,11 @@ def run_dos(net, mode):
 def main():
     parser = argparse.ArgumentParser(description="Cyber Range Orchestrator")
     parser.add_argument(
+        "--baseline",
+        action="store_true",
+        help="Collect baseline metrics after apps started"
+    )
+    parser.add_argument(
         "--dos",
         action="store_true",
         help="Run DoS scenario after apps started (requires script/apps/h5.py)"
@@ -164,17 +169,21 @@ def main():
         "--collect-delay",
         type=int,
         default=10,
-        help="Seconds to wait before baseline collection in normal mode"
+        help="Seconds to wait before baseline collection (when enabled)"
     )
 
     args = parser.parse_args()
-    run_timestamp = datetime.now().strftime("%Y-%m-%d_%H%M%S")
-    run_logs_path = os.path.join(BASE_DIR, "logs", run_timestamp)
-    os.makedirs(run_logs_path, exist_ok=True)
-    print(f"Run logs path: {run_logs_path}")
+    should_collect_baseline = bool(args.baseline or args.mitm or args.dos)
+    run_logs_path = None
+    if should_collect_baseline:
+        run_timestamp = datetime.now().strftime("%Y-%m-%d_%H%M%S")
+        run_logs_path = os.path.join(BASE_DIR, "logs", run_timestamp)
+        os.makedirs(run_logs_path, exist_ok=True)
+        print(f"Run logs path: {run_logs_path}")
 
     print("\n==============================")
     print("MODE: ORCHESTRATOR")
+    print(f"Baseline: {'ON' if should_collect_baseline else 'OFF'}")
     print(f"MITM: {'ON' if args.mitm else 'OFF'}")
     print(f"DoS : {'ON' if args.dos else 'OFF'}")
     print("==============================\n")
@@ -192,12 +201,13 @@ def main():
     # START APPS
     start_apps(net)
 
-    # Always collect baseline first in every mode.
-    delay = max(0, args.collect_delay)
-    print(f"Collecting baseline in {delay}s...")
-    time.sleep(delay)
-    collect_data(net, mode="baseline", logs_path=run_logs_path)
-    print("Baseline collection complete.\n")
+    # Collect baseline only when enabled (explicitly or as part of a scenario).
+    if should_collect_baseline:
+        delay = max(0, args.collect_delay)
+        print(f"Collecting baseline in {delay}s...")
+        time.sleep(delay)
+        collect_data(net, mode="baseline", logs_path=run_logs_path)
+        print("Baseline collection complete.\n")
 
     if args.mitm:
         run_mitm(net)
