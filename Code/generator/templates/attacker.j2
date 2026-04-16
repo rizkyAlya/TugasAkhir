@@ -112,24 +112,29 @@ def run_mitm_attack(net, rtu_name=DEFAULT_RTU_NAME, gateway_name=DEFAULT_GATEWAY
     _append_trace(run_id, "flags_enabled", f"{H3_INJECT_ENABLE_FLAG},{ATTACK_ACTIVE_FLAG}")
 
     attacker.cmd("mkdir -p logs/host")
+    attacker.cmd(
+        f"bash -lc \"echo '['$(date '+%Y-%m-%d %H:%M:%S')'] [h5] run_mitm_attack: begin run_id='$(cat /tmp/mitm_run_id 2>/dev/null)' gateway_ip={gateway_ip} >> logs/host/{attacker_name}.log\""
+    )
     attacker.cmd("if [ -f /tmp/h5_http_inject.pid ]; then kill $(cat /tmp/h5_http_inject.pid) 2>/dev/null; rm -f /tmp/h5_http_inject.pid; fi")
     attacker.cmd(
-        f"python3 -c \""
-        f"import json,time,random,urllib.request; "
+        f"python3 -u -c \""
+        f"import json,time,random,urllib.request,datetime; "
         f"url='http://{gateway_ip}:8088/inject'; "
         f"token='lab-sim-token'; "
-        f"print('starting injector to', url); "
+        f"log=lambda m: print('['+datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')+'] [injector] '+str(m), flush=True); "
+        f"log('starting injector to '+url); "
         {% raw %}
-        f"\\nwhile True:\\n"
-        f"  for bus in range(1,6):\\n"
-        f"    payload={{'token':token,'bus':bus,'v':round(random.uniform(0.72,0.86),3),'i':round(random.uniform(2.4,4.2),3),'ttl':8}}\\n"
-        f"    data=json.dumps(payload).encode('utf-8')\\n"
-        f"    req=urllib.request.Request(url,data=data,headers={{'Content-Type':'application/json'}},method='POST')\\n"
-        f"    try:\\n"
-        f"      urllib.request.urlopen(req, timeout=2).read()\\n"
-        f"    except Exception as e:\\n"
-        f"      print('inject failed:', e)\\n"
-        f"  time.sleep(4)\" >> logs/host/{attacker_name}.log 2>&1 & echo $! > /tmp/h5_http_inject.pid"
+        "while True: "
+        "  for bus in range(1,6): "
+        "    payload={'token':token,'bus':bus,'v':round(random.uniform(0.72,0.86),3),'i':round(random.uniform(2.4,4.2),3),'ttl':8}; "
+        "    data=json.dumps(payload).encode('utf-8'); "
+        "    req=urllib.request.Request(url,data=data,headers={'Content-Type':'application/json'},method='POST'); "
+        "    try: "
+        "      resp=urllib.request.urlopen(req, timeout=3).read().decode('utf-8','ignore'); "
+        "      log('OK bus='+str(bus)+' payload='+json.dumps(payload)+' resp='+resp[:200]); "
+        "    except Exception as e: "
+        "      log('FAIL bus='+str(bus)+' err='+repr(e)); "
+        "  time.sleep(4)\" >> logs/host/{attacker_name}.log 2>&1 & echo $! > /tmp/h5_http_inject.pid"
         {% endraw %}
     )
     _append_trace(run_id, "injector_started", f"http://{gateway_ip}:8088/inject")
