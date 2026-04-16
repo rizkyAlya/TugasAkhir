@@ -237,9 +237,9 @@ def main():
 
     if args.mitm:
         run_mitm(net)
-        print("Collecting MITM metrics...")
-        collect_data(net, mode="mitm", logs_path=run_logs_path)
-        print("MITM collection complete.\n")
+        #print("Collecting MITM metrics...")
+        #collect_data(net, mode="mitm", logs_path=run_logs_path)
+        #print("MITM collection complete.\n")
 
     if args.dos:
         # Always run both scenarios in one DoS run.

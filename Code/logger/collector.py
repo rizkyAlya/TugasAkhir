@@ -6,7 +6,7 @@ import os
 import statistics
 import yaml
 
-NUM_RUNS = 5
+NUM_RUNS = 1
 
 base_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 DEFAULT_CONFIG_PATH = os.path.join(base_dir, "config.yaml")

