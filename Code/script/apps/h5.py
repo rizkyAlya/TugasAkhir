@@ -123,6 +123,7 @@ def run_mitm_attack(net, rtu_name=DEFAULT_RTU_NAME, gateway_name=DEFAULT_GATEWAY
         f"token='lab-sim-token'; "
         f"log=lambda m: print('['+datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')+'] [injector] '+str(m), flush=True); "
         f"log('starting injector to '+url); "
+        
         "while True: "
         "  for bus in range(1,6): "
         "    payload={'token':token,'bus':bus,'v':round(random.uniform(0.72,0.86),3),'i':round(random.uniform(2.4,4.2),3),'ttl':8}; "
@@ -133,7 +134,8 @@ def run_mitm_attack(net, rtu_name=DEFAULT_RTU_NAME, gateway_name=DEFAULT_GATEWAY
         "      log('OK bus='+str(bus)+' payload='+json.dumps(payload)+' resp='+resp[:200]); "
         "    except Exception as e: "
         "      log('FAIL bus='+str(bus)+' err='+repr(e)); "
-        f"  time.sleep(4)\" >> logs/host/{attacker_name}.log 2>&1 & echo $! > /tmp/h5_http_inject.pid"
+        "  time.sleep(4)\" >> logs/host/{attacker_name}.log 2>&1 & echo $! > /tmp/h5_http_inject.pid"
+        
     )
     _append_trace(run_id, "injector_started", f"http://{gateway_ip}:8088/inject")
     time.sleep(1)
