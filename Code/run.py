@@ -15,11 +15,22 @@ OUTPUT_DIR = os.path.join(BASE_DIR, "script")
 APPS_DIR = os.path.join(OUTPUT_DIR, "apps")
 HOST_LOG_DIR = os.path.join(BASE_DIR, "logs", "host")
 TOPOLOGY_PATH = os.path.join(OUTPUT_DIR, "topology.py")
+ATTACK_ACTIVE_FLAG = "/tmp/mitm_attack_active"
+H3_INJECT_ENABLE_FLAG = "/tmp/h3_http_inject_enabled"
 
 sys.path.append(OUTPUT_DIR)
 sys.path.append(BASE_DIR)
 
 from logger.collector import collect_data
+
+
+def reset_attack_flags():
+    for flag_path in (ATTACK_ACTIVE_FLAG, H3_INJECT_ENABLE_FLAG):
+        try:
+            if os.path.exists(flag_path):
+                os.remove(flag_path)
+        except Exception as e:
+            print(f"Warning: failed to remove {flag_path}: {e}")
 
 def load_app_map():
     app_map_path = os.path.join(APPS_DIR, "app_map.json")
@@ -214,6 +225,9 @@ def main():
     print(f"DoS : {'ON' if args.dos else 'OFF'}")
     print("==============================\n")
 
+    # Ensure phase markers do not leak from previous runs.
+    reset_attack_flags()
+
     # START NETWORK FROM GENERATED TOPOLOGY
     print("Starting generated topology...")
     net, topology_mod = create_network_from_generated_topology()
@@ -237,9 +251,9 @@ def main():
 
     if args.mitm:
         run_mitm(net)
-        #print("Collecting MITM metrics...")
-        #collect_data(net, mode="mitm", logs_path=run_logs_path)
-        #print("MITM collection complete.\n")
+        print("Collecting MITM metrics...")
+        collect_data(net, mode="mitm", logs_path=run_logs_path)
+        print("MITM collection complete.\n")
 
     if args.dos:
         # Always run both scenarios in one DoS run.

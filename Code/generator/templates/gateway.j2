@@ -1,6 +1,7 @@
 import json
 import os
 import time
+import csv
 from datetime import datetime
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from threading import Lock, Thread
@@ -47,6 +48,11 @@ INJECT_API_IP = "0.0.0.0"
 INJECT_API_PORT = 8088
 INJECT_API_TOKEN = "lab-sim-token"
 MAX_TTL_SECONDS = 30
+ATTACK_FLAG = "/tmp/mitm_attack_active"
+RUN_ID_FILE = "/tmp/mitm_run_id"
+BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
+MITM_LOG_DIR = os.path.join(BASE_DIR, "logs", "mitm")
+MITM_TRACE_CSV = os.path.join(MITM_LOG_DIR, "mitm_trace.csv")
 
 store = ModbusSlaveContext(
     di=ModbusSequentialDataBlock(0, [0] * 100),
@@ -58,6 +64,46 @@ context = ModbusServerContext(slaves=store, single=True)
 override_lock = Lock()
 overrides = {}
 inject_api_started = False
+
+os.makedirs(MITM_LOG_DIR, exist_ok=True)
+if not os.path.exists(MITM_TRACE_CSV):
+    with open(MITM_TRACE_CSV, "w", newline="", encoding="utf-8") as f:
+        writer = csv.writer(f)
+        writer.writerow([
+            "timestamp",
+            "run_id",
+            "phase",
+            "source",
+            "event",
+            "bus",
+            "v_raw",
+            "i_raw",
+            "v_final",
+            "i_final",
+            "breaker_cmd",
+            "breaker_fb",
+            "ttl",
+            "client",
+            "detail",
+        ])
+
+def _run_id():
+    try:
+        if os.path.exists(RUN_ID_FILE):
+            with open(RUN_ID_FILE, "r", encoding="utf-8") as f:
+                value = f.read().strip()
+                if value:
+                    return value
+    except Exception:
+        pass
+    return "no_attack"
+
+
+def _trace_write(row):
+    with open(MITM_TRACE_CSV, "a", newline="", encoding="utf-8") as f:
+        writer = csv.writer(f)
+        writer.writerow(row)
+
 
 def start_modbus_server():
     print(f"Memulai Modbus Gateway di {MODBUS_LISTEN_IP}:{MODBUS_PORT}")
@@ -91,6 +137,51 @@ def _clear_override(bus=None):
             overrides.clear()
         else:
             overrides.pop(bus, None)
+
+
+def _phase_label():
+    return "post_attack" if os.path.exists(ATTACK_FLAG) else "pre_attack"
+
+
+def log_h5_change(event, bus, v, i, ttl, client):
+    ts = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    _trace_write([
+        ts,
+        _run_id(),
+        _phase_label(),
+        "h5",
+        event,
+        bus,
+        "",
+        "",
+        v,
+        i,
+        "",
+        "",
+        ttl,
+        client,
+        "",
+    ])
+
+
+def log_h3_final(ts, bus, v_raw, i_raw, v_final, i_final, source, breaker_fb, breaker_cmd):
+    _trace_write([
+        ts,
+        _run_id(),
+        _phase_label(),
+        "h3",
+        "final_forward",
+        bus,
+        f"{v_raw:.6f}",
+        f"{i_raw:.6f}",
+        f"{v_final:.6f}",
+        f"{i_final:.6f}",
+        breaker_cmd,
+        breaker_fb,
+        "",
+        "",
+        source,
+    ])
 
 
 class InjectHandler(BaseHTTPRequestHandler):
@@ -132,6 +223,14 @@ class InjectHandler(BaseHTTPRequestHandler):
                     "i": i,
                     "expires_at": time.time() + ttl,
                 }
+            log_h5_change(
+                event="inject",
+                bus=bus,
+                v=f"{v:.6f}",
+                i=f"{i:.6f}",
+                ttl=ttl,
+                client=getattr(self, "client_address", ("", ""))[0],
+            )
             _json_response(self, 200, {"ok": True, "bus": bus, "ttl": ttl})
             return
 
@@ -139,9 +238,11 @@ class InjectHandler(BaseHTTPRequestHandler):
             bus = payload.get("bus")
             if bus is None:
                 _clear_override()
+                log_h5_change("clear_all", "all", "", "", "", getattr(self, "client_address", ("", ""))[0])
             else:
                 try:
                     _clear_override(int(bus))
+                    log_h5_change("clear_bus", int(bus), "", "", "", getattr(self, "client_address", ("", ""))[0])
                 except Exception:
                     _json_response(self, 400, {"ok": False, "error": "invalid bus"})
                     return
@@ -203,22 +304,25 @@ try:
                 v = float(v_raw) / 1000.0
                 i = float(i_raw) / 1000.0
                 breaker_fb = 1 if int(b_raw) == 1 else 0
+                v_final = v
+                i_final = i
                 source = "RTU"
 
                 override = _get_active_override(bus)
                 if override is not None:
-                    v = float(override["v"])
-                    i = float(override["i"])
+                    v_final = float(override["v"])
+                    i_final = float(override["i"])
                     source = "SIMULATED"
 
                 # 2) Publish ke OPC UA untuk pandapower (V/I)
-                tegangan_nodes[bus].set_value(v)
-                arus_nodes[bus].set_value(i)
+                tegangan_nodes[bus].set_value(v_final)
+                arus_nodes[bus].set_value(i_final)
 
                 # 3) Ambil command dari OPC UA lalu tulis ke Modbus coil untuk RTU
                 cmd = command_nodes[bus].get_value()
                 cmd_val = 1 if int(cmd) == 1 else 0
                 context[0x00].setValues(1, BREAKER_CMD_BASE_ADDR + (bus - 1), [cmd_val])
+                log_h3_final(ts, bus, v, i, v_final, i_final, source, breaker_fb, cmd_val)
 
                 print(f"[{ts}] [Bus {bus}] Data V/I/CMD update ({source})")
             except Exception as e:
