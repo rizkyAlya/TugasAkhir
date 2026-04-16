@@ -102,6 +102,7 @@ def run_mitm_attack(net, rtu_name=DEFAULT_RTU_NAME, gateway_name=DEFAULT_GATEWAY
     rtu = net.get(rtu_name)
     gateway = net.get(gateway_name)
     gateway_ip = gateway.IP()
+    host_log = os.path.join(BASE_DIR, "logs", "host", f"{attacker_name}.log")
 
     _append_trace(run_id, "mitm_requested", f"{attacker_name}->{gateway_name}")
     _append_route_snapshot(run_id, "before_attack", rtu, gateway, attacker)
@@ -111,31 +112,31 @@ def run_mitm_attack(net, rtu_name=DEFAULT_RTU_NAME, gateway_name=DEFAULT_GATEWAY
     attacker.cmd(f"touch {ATTACK_ACTIVE_FLAG}")
     _append_trace(run_id, "flags_enabled", f"{H3_INJECT_ENABLE_FLAG},{ATTACK_ACTIVE_FLAG}")
 
-    attacker.cmd("mkdir -p logs/host")
+    attacker.cmd(f"mkdir -p {os.path.join(BASE_DIR, 'logs', 'host')}")
     attacker.cmd(
-        f"bash -lc \"echo '['$(date '+%Y-%m-%d %H:%M:%S')'] [h5] run_mitm_attack: begin run_id='$(cat /tmp/mitm_run_id 2>/dev/null)' gateway_ip={gateway_ip} >> logs/host/{attacker_name}.log\""
+        f"bash -lc \"echo '['$(date '+%Y-%m-%d %H:%M:%S')'] [h5] run_mitm_attack: begin run_id='$(cat /tmp/mitm_run_id 2>/dev/null)' gateway_ip={gateway_ip} >> {host_log}\""
     )
     attacker.cmd("if [ -f /tmp/h5_http_inject.pid ]; then kill $(cat /tmp/h5_http_inject.pid) 2>/dev/null; rm -f /tmp/h5_http_inject.pid; fi")
     attacker.cmd(
-        f"python3 -u -c \""
-        f"import json,time,random,urllib.request,datetime; "
-        f"url='http://{gateway_ip}:8088/inject'; "
-        f"token='lab-sim-token'; "
-        f"log=lambda m: print('['+datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')+'] [injector] '+str(m), flush=True); "
-        f"log('starting injector to '+url); "
-        
-        "while True: "
-        "  for bus in range(1,6): "
-        "    payload={'token':token,'bus':bus,'v':round(random.uniform(0.72,0.86),3),'i':round(random.uniform(2.4,4.2),3),'ttl':8}; "
-        "    data=json.dumps(payload).encode('utf-8'); "
-        "    req=urllib.request.Request(url,data=data,headers={'Content-Type':'application/json'},method='POST'); "
-        "    try: "
-        "      resp=urllib.request.urlopen(req, timeout=3).read().decode('utf-8','ignore'); "
-        "      log('OK bus='+str(bus)+' payload='+json.dumps(payload)+' resp='+resp[:200]); "
-        "    except Exception as e: "
-        "      log('FAIL bus='+str(bus)+' err='+repr(e)); "
-        "  time.sleep(4)\" >> logs/host/{attacker_name}.log 2>&1 & echo $! > /tmp/h5_http_inject.pid"
-        
+        "bash -lc '"
+        f"LOG=\"{host_log}\"; "
+        f"URL=\"http://{gateway_ip}:8088/inject\"; "
+        "echo \"[\"$(date \"+%Y-%m-%d %H:%M:%S\")\"] [h5] injector: starting url=$URL\"; "
+        "while true; do "
+        "  for b in 1 2 3 4 5; do "
+        "    v=$(python3 -c \"import random; print(round(random.uniform(0.72,0.86),3))\"); "
+        "    i=$(python3 -c \"import random; print(round(random.uniform(2.4,4.2),3))\"); "
+        "    body=$(python3 -c \"import json,sys; b=int(sys.argv[1]); v=float(sys.argv[2]); i=float(sys.argv[3]); print(json.dumps({\\\"token\\\":\\\"lab-sim-token\\\",\\\"bus\\\":b,\\\"v\\\":v,\\\"i\\\":i,\\\"ttl\\\":8}))\" \"$b\" \"$v\" \"$i\"); "
+        "    echo \"[\"$(date \"+%Y-%m-%d %H:%M:%S\")\"] [h5] injector: try bus=$b v=$v i=$i\"; "
+        "    if out=$(curl -sS -m 3 -X POST -H \"Content-Type: application/json\" -d \"$body\" \"$URL\"); then "
+        "      echo \"[\"$(date \"+%Y-%m-%d %H:%M:%S\")\"] [h5] injector: OK bus=$b resp=$out\"; "
+        "    else "
+        "      echo \"[\"$(date \"+%Y-%m-%d %H:%M:%S\")\"] [h5] injector: FAIL bus=$b curl_exit=$?\"; "
+        "    fi; "
+        "  done; "
+        "  sleep 4; "
+        "done' "
+        f">> {host_log} 2>&1 & echo $! > /tmp/h5_http_inject.pid"
     )
     _append_trace(run_id, "injector_started", f"http://{gateway_ip}:8088/inject")
     time.sleep(1)
