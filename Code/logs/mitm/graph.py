@@ -3,9 +3,7 @@ import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
 import os
 
-# =========================
 # 1. LOAD DATA
-# =========================
 file_path = "data1.csv"
 df = pd.read_csv(file_path, delimiter=';')
 
@@ -31,20 +29,16 @@ def format_time_axis(rotation=45):
     """
     ax = plt.gca()
     if has_datetime_timestamp:
-        ax.xaxis.set_major_formatter(mdates.DateFormatter("%d-%m-%Y %H:%M:%S"))
+        ax.xaxis.set_major_formatter(mdates.DateFormatter("%H:%M:%S"))
     plt.xticks(rotation=rotation, ha="right")
     plt.tight_layout()
 
-# =========================
 # 2. HITUNG DRIFT
-# =========================
 # Drift = selisih absolut antara nilai real dan digital twin
 df["drift_V"] = abs(df["v_raw"] - df["v_final"])
 df["drift_I"] = abs(df["i_raw"] - df["i_final"])
 
-# =========================
 # 3. MAE (RINGKASAN ERROR)
-# =========================
 # Esensi: MAE menunjukkan rata-rata kesalahan → seberapa besar DT menyimpang dari kondisi nyata
 mae_per_bus = df.groupby("bus")[["drift_V", "drift_I"]].mean()
 print("\nMAE per Bus:")
@@ -56,18 +50,14 @@ mae_phase = df.groupby(["bus", "phase"])[["drift_V", "drift_I"]].mean()
 print("\nMAE per Bus (Pre vs Post Attack):")
 print(mae_phase)
 
-# =========================
 # 4. VISUALISASI PER BUS
-# =========================
 for b in df["bus"].unique():
     subset = df[df["bus"] == b]
 
     pre = subset[subset["phase"] == "pre_attack"]
     post = subset[subset["phase"] == "post_attack"]
 
-    # -------------------------
     # (A) Voltage: Real vs DT
-    # -------------------------
     # Esensi: Menunjukkan apakah digital twin mengikuti kondisi nyata atau menyimpang
     plt.figure()
     plt.plot(subset["timestamp"], subset["v_raw"], label="Real")
@@ -81,9 +71,7 @@ for b in df["bus"].unique():
     plt.savefig(os.path.join(output_dir, f"voltage_bus_{b}.png"))
     plt.close()
 
-    # -------------------------
     # (B) Voltage Drift
-    # -------------------------
     # Esensi: Fokus langsung ke error → memudahkan melihat kapan drift terjadi dan seberapa besar
     plt.figure()
     plt.plot(subset["timestamp"], subset["drift_V"], label="Drift Voltage")
@@ -96,9 +84,7 @@ for b in df["bus"].unique():
     plt.savefig(os.path.join(output_dir, f"drift_voltage_bus_{b}.png"))
     plt.close()
 
-    # -------------------------
     # (C) Voltage Pre vs Post
-    # -------------------------
     # Esensi: Membuktikan dampak serangan dengan membandingkan kondisi sebelum dan sesudah
     plt.figure()
     plt.plot(pre["timestamp"], pre["drift_V"], label="Pre Attack")
@@ -112,9 +98,7 @@ for b in df["bus"].unique():
     plt.savefig(os.path.join(output_dir, f"drift_voltage_compare_bus_{b}.png"))
     plt.close()
 
-    # -------------------------
     # (D) Current: Real vs DT
-    # -------------------------
     # Esensi: Menunjukkan apakah perubahan beban (arus) juga mempengaruhi DT
     plt.figure()
     plt.plot(subset["timestamp"], subset["i_raw"], label="Real")
@@ -128,9 +112,7 @@ for b in df["bus"].unique():
     plt.savefig(os.path.join(output_dir, f"current_bus_{b}.png"))
     plt.close()
 
-    # -------------------------
     # (E) Current Drift
-    # -------------------------
     # Esensi: Mengungkap error pada parameter beban → sering lebih sensitif dari tegangan
     plt.figure()
     plt.plot(subset["timestamp"], subset["drift_I"], label="Drift Current")
@@ -143,9 +125,7 @@ for b in df["bus"].unique():
     plt.savefig(os.path.join(output_dir, f"drift_current_bus_{b}.png"))
     plt.close()
 
-    # -------------------------
     # (F) Current Pre vs Post
-    # -------------------------
     # Esensi: Membandingkan dampak serangan terhadap arus (beban sistem)
     plt.figure()
     plt.plot(pre["timestamp"], pre["drift_I"], label="Pre Attack")
@@ -159,9 +139,7 @@ for b in df["bus"].unique():
     plt.savefig(os.path.join(output_dir, f"drift_current_compare_bus_{b}.png"))
     plt.close()
 
-# =========================
 # 5. OVERVIEW SEMUA BUS
-# =========================
 # Esensi: Melihat apakah dampak serangan lokal atau menyebar ke seluruh sistem
 
 # Voltage drift semua bus
@@ -194,9 +172,7 @@ format_time_axis(rotation=90)
 plt.savefig(os.path.join(output_dir, "drift_current_all_bus.png"))
 plt.close()
 
-# =========================
 # 6. SIMPAN DATA HASIL
-# =========================
 df.to_csv(os.path.join(output_dir, "hasil_drift.csv"), sep=';', index=False)
 
 print(f"\nSemua proses selesai. Grafik dan hasil sudah disimpan ke folder '{output_dir}'.")
