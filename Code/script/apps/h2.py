@@ -13,6 +13,8 @@ V_BASE_ADDR = 0
 I_BASE_ADDR = 10
 BREAKER_BASE_ADDR = 0
 BREAKER_FB_BASE_ADDR = 20
+V_SCALE = 1000
+I_SCALE = 10
 NUM_BUS = 5
 ATTACK_FLAG = "/tmp/mitm_attack_active"
 RUN_ID_FILE = "/tmp/mitm_run_id"
@@ -119,8 +121,8 @@ def read_modbus_bus(bus):
     rr_i = field_client.read_holding_registers(addr_i, 1, unit=1)
     if rr_v.isError() or rr_i.isError():
         return None, None
-    v = rr_v.registers[0] / 1000.0
-    i = rr_i.registers[0] / 1000.0
+    v = rr_v.registers[0] / V_SCALE
+    i = rr_i.registers[0] / I_SCALE
     return v, i
 
 def read_breaker_command(bus):
@@ -142,8 +144,8 @@ def send_to_gateway_modbus(bus, v, i, breaker):
     addr_i = I_BASE_ADDR + (bus - 1)
     addr_b = BREAKER_FB_BASE_ADDR + (bus - 1)
     try:
-        gateway_client.write_register(addr_v, int(v * 1000), unit=1)
-        gateway_client.write_register(addr_i, int(i * 1000), unit=1)
+        gateway_client.write_register(addr_v, int(v * V_SCALE), unit=1)
+        gateway_client.write_register(addr_i, int(i * I_SCALE), unit=1)
         gateway_client.write_register(addr_b, int(breaker), unit=1)
     except Exception as e:
         print(f"Error kirim ke gateway Modbus bus {bus}: {e}")

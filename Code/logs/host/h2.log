@@ -1,41 +1,151 @@
 Connection to (10.0.2.2, 5020) failed: [Errno 111] Connection refused
 Connection to GATEWAY (10.0.2.2:5020) failed (connect() returned False). Retrying in 1.0s...
+Connection to (10.0.2.2, 5020) failed: [Errno 111] Connection refused
+Connection to GATEWAY (10.0.2.2:5020) failed (connect() returned False). Retrying in 1.0s...
 
 
-Error baca Modbus bus 1
-Error baca Modbus bus 2
-Error baca Modbus bus 3
-Error baca Modbus bus 4
-Error baca Modbus bus 5
+[2026-04-28 22:16:11] Bus 1: V=1.013 pu, I=301.500, Breaker=CLOSE
+[2026-04-28 22:16:11] Bus 2: V=0.977 pu, I=588.200, Breaker=CLOSE
+[2026-04-28 22:16:11] Bus 3: V=1.023 pu, I=1163.600, Breaker=CLOSE
+[2026-04-28 22:16:11] Bus 4: V=1.039 pu, I=375.100, Breaker=CLOSE
+[2026-04-28 22:16:11] Bus 5: V=0.992 pu, I=314.600, Breaker=CLOSE
 
 
-Error baca Modbus bus 1
-Error baca Modbus bus 2
-Error baca Modbus bus 3
-Error baca Modbus bus 4
-Error baca Modbus bus 5
+[2026-04-28 22:16:15] Bus 1: V=0.971 pu, I=986.100, Breaker=OPEN
+[2026-04-28 22:16:15] Bus 2: V=0.952 pu, I=568.800, Breaker=OPEN
+[2026-04-28 22:16:15] Bus 3: V=1.014 pu, I=997.200, Breaker=OPEN
+[2026-04-28 22:16:15] Bus 4: V=0.972 pu, I=1103.200, Breaker=CLOSE
+[2026-04-28 22:16:15] Bus 5: V=1.030 pu, I=272.100, Breaker=CLOSE
 
 
-Error baca Modbus bus 1
-Error baca Modbus bus 2
-Error baca Modbus bus 3
-Error baca Modbus bus 4
-Error baca Modbus bus 5
+[2026-04-28 22:16:19] Bus 1: V=1.030 pu, I=1184.000, Breaker=CLOSE
+[2026-04-28 22:16:19] Bus 2: V=0.984 pu, I=490.800, Breaker=OPEN
+[2026-04-28 22:16:19] Bus 3: V=1.045 pu, I=697.100, Breaker=CLOSE
+[2026-04-28 22:16:19] Bus 4: V=0.959 pu, I=420.200, Breaker=CLOSE
+[2026-04-28 22:16:19] Bus 5: V=1.034 pu, I=1055.300, Breaker=CLOSE
 
 
-Error baca Modbus bus 1
-Error baca Modbus bus 2
-Error baca Modbus bus 3
-Error baca Modbus bus 4
-Error baca Modbus bus 5
+[2026-04-28 22:16:24] Bus 1: V=1.030 pu, I=1225.500, Breaker=OPEN
+[2026-04-28 22:16:24] Bus 2: V=1.003 pu, I=1588.100, Breaker=OPEN
+[2026-04-28 22:16:24] Bus 3: V=0.987 pu, I=1034.300, Breaker=CLOSE
+[2026-04-28 22:16:24] Bus 4: V=1.032 pu, I=1076.600, Breaker=CLOSE
+[2026-04-28 22:16:24] Bus 5: V=1.036 pu, I=1019.300, Breaker=CLOSE
 
 
-Error baca Modbus bus 1
-Error baca Modbus bus 2
-Error baca Modbus bus 3
-Error baca Modbus bus 4
-Error baca Modbus bus 5
+[2026-04-28 22:16:28] Bus 1: V=1.030 pu, I=1225.500, Breaker=CLOSE
+[2026-04-28 22:16:28] Bus 2: V=1.003 pu, I=1588.100, Breaker=OPEN
+[2026-04-28 22:16:28] Bus 3: V=0.987 pu, I=1034.300, Breaker=CLOSE
+[2026-04-28 22:16:28] Bus 4: V=1.032 pu, I=1076.600, Breaker=CLOSE
+[2026-04-28 22:16:28] Bus 5: V=1.036 pu, I=1019.300, Breaker=CLOSE
 
 
-Error baca Modbus bus 1
-Error baca Modbus bus 2
+[2026-04-28 22:16:32] Bus 1: V=1.020 pu, I=327.300, Breaker=OPEN
+[2026-04-28 22:16:32] Bus 2: V=0.972 pu, I=683.500, Breaker=OPEN
+[2026-04-28 22:16:32] Bus 3: V=0.957 pu, I=613.800, Breaker=CLOSE
+[2026-04-28 22:16:32] Bus 4: V=0.960 pu, I=676.400, Breaker=CLOSE
+[2026-04-28 22:16:32] Bus 5: V=1.013 pu, I=757.100, Breaker=CLOSE
+
+
+[2026-04-28 22:16:36] Bus 1: V=0.987 pu, I=563.700, Breaker=CLOSE
+[2026-04-28 22:16:36] Bus 2: V=0.976 pu, I=1581.200, Breaker=OPEN
+[2026-04-28 22:16:36] Bus 3: V=1.014 pu, I=1083.300, Breaker=CLOSE
+[2026-04-28 22:16:36] Bus 4: V=0.967 pu, I=1305.300, Breaker=CLOSE
+[2026-04-28 22:16:36] Bus 5: V=0.966 pu, I=814.700, Breaker=CLOSE
+
+
+[2026-04-28 22:16:40] Bus 1: V=1.048 pu, I=1088.000, Breaker=OPEN
+[2026-04-28 22:16:40] Bus 2: V=1.005 pu, I=1195.100, Breaker=OPEN
+[2026-04-28 22:16:40] Bus 3: V=1.034 pu, I=1282.100, Breaker=OPEN
+[2026-04-28 22:16:40] Bus 4: V=0.972 pu, I=324.100, Breaker=CLOSE
+[2026-04-28 22:16:40] Bus 5: V=0.981 pu, I=647.400, Breaker=CLOSE
+
+
+[2026-04-28 22:16:44] Bus 1: V=0.971 pu, I=1599.000, Breaker=CLOSE
+[2026-04-28 22:16:44] Bus 2: V=1.037 pu, I=673.900, Breaker=OPEN
+[2026-04-28 22:16:44] Bus 3: V=1.015 pu, I=796.800, Breaker=CLOSE
+[2026-04-28 22:16:44] Bus 4: V=1.041 pu, I=859.500, Breaker=CLOSE
+[2026-04-28 22:16:44] Bus 5: V=0.976 pu, I=621.400, Breaker=CLOSE
+
+
+[2026-04-28 22:16:48] Bus 1: V=0.971 pu, I=1599.000, Breaker=OPEN
+[2026-04-28 22:16:48] Bus 2: V=1.037 pu, I=673.900, Breaker=OPEN
+[2026-04-28 22:16:48] Bus 3: V=1.015 pu, I=796.800, Breaker=CLOSE
+[2026-04-28 22:16:48] Bus 4: V=1.041 pu, I=859.500, Breaker=CLOSE
+[2026-04-28 22:16:48] Bus 5: V=0.976 pu, I=621.400, Breaker=CLOSE
+
+
+[2026-04-28 22:16:52] Bus 1: V=1.006 pu, I=624.800, Breaker=CLOSE
+[2026-04-28 22:16:52] Bus 2: V=1.008 pu, I=1479.000, Breaker=OPEN
+[2026-04-28 22:16:52] Bus 3: V=0.989 pu, I=575.500, Breaker=CLOSE
+[2026-04-28 22:16:52] Bus 4: V=1.049 pu, I=918.300, Breaker=CLOSE
+[2026-04-28 22:16:52] Bus 5: V=0.959 pu, I=350.000, Breaker=CLOSE
+
+
+[2026-04-28 22:16:56] Bus 1: V=0.960 pu, I=1169.900, Breaker=OPEN
+[2026-04-28 22:16:56] Bus 2: V=1.029 pu, I=821.300, Breaker=OPEN
+[2026-04-28 22:16:56] Bus 3: V=0.956 pu, I=826.300, Breaker=CLOSE
+[2026-04-28 22:16:56] Bus 4: V=1.049 pu, I=943.800, Breaker=CLOSE
+[2026-04-28 22:16:56] Bus 5: V=1.047 pu, I=1376.400, Breaker=CLOSE
+
+
+[2026-04-28 22:17:00] Bus 1: V=0.951 pu, I=1315.200, Breaker=CLOSE
+[2026-04-28 22:17:00] Bus 2: V=1.018 pu, I=983.400, Breaker=OPEN
+[2026-04-28 22:17:00] Bus 3: V=0.976 pu, I=1169.800, Breaker=OPEN
+[2026-04-28 22:17:00] Bus 4: V=0.961 pu, I=897.300, Breaker=CLOSE
+[2026-04-28 22:17:00] Bus 5: V=0.995 pu, I=1574.900, Breaker=CLOSE
+
+
+[2026-04-28 22:17:04] Bus 1: V=1.037 pu, I=606.700, Breaker=OPEN
+[2026-04-28 22:17:04] Bus 2: V=1.000 pu, I=514.400, Breaker=OPEN
+[2026-04-28 22:17:04] Bus 3: V=1.041 pu, I=1396.800, Breaker=CLOSE
+[2026-04-28 22:17:04] Bus 4: V=0.979 pu, I=1163.300, Breaker=CLOSE
+[2026-04-28 22:17:04] Bus 5: V=1.010 pu, I=474.200, Breaker=CLOSE
+
+
+[2026-04-28 22:17:09] Bus 1: V=1.026 pu, I=978.800, Breaker=CLOSE
+[2026-04-28 22:17:09] Bus 2: V=1.027 pu, I=965.400, Breaker=OPEN
+[2026-04-28 22:17:09] Bus 3: V=0.950 pu, I=749.600, Breaker=CLOSE
+[2026-04-28 22:17:09] Bus 4: V=0.951 pu, I=1611.500, Breaker=CLOSE
+[2026-04-28 22:17:09] Bus 5: V=1.037 pu, I=1350.500, Breaker=CLOSE
+
+
+[2026-04-28 22:17:13] Bus 1: V=1.026 pu, I=978.800, Breaker=CLOSE
+[2026-04-28 22:17:13] Bus 2: V=1.027 pu, I=965.400, Breaker=OPEN
+[2026-04-28 22:17:13] Bus 3: V=0.950 pu, I=749.600, Breaker=CLOSE
+[2026-04-28 22:17:13] Bus 4: V=0.951 pu, I=1611.500, Breaker=CLOSE
+[2026-04-28 22:17:13] Bus 5: V=1.037 pu, I=1350.500, Breaker=CLOSE
+
+
+[2026-04-28 22:17:17] Bus 1: V=0.980 pu, I=357.300, Breaker=OPEN
+[2026-04-28 22:17:17] Bus 2: V=1.037 pu, I=1501.500, Breaker=OPEN
+[2026-04-28 22:17:17] Bus 3: V=0.958 pu, I=972.300, Breaker=CLOSE
+[2026-04-28 22:17:17] Bus 4: V=0.956 pu, I=1363.900, Breaker=CLOSE
+[2026-04-28 22:17:17] Bus 5: V=1.026 pu, I=434.600, Breaker=CLOSE
+
+
+[2026-04-28 22:17:21] Bus 1: V=0.997 pu, I=1021.200, Breaker=CLOSE
+[2026-04-28 22:17:21] Bus 2: V=0.976 pu, I=1492.100, Breaker=OPEN
+[2026-04-28 22:17:21] Bus 3: V=0.992 pu, I=563.800, Breaker=CLOSE
+[2026-04-28 22:17:21] Bus 4: V=1.003 pu, I=1258.500, Breaker=CLOSE
+[2026-04-28 22:17:21] Bus 5: V=0.970 pu, I=716.600, Breaker=CLOSE
+
+
+[2026-04-28 22:17:25] Bus 1: V=1.049 pu, I=1100.200, Breaker=OPEN
+[2026-04-28 22:17:25] Bus 2: V=0.993 pu, I=981.000, Breaker=OPEN
+[2026-04-28 22:17:25] Bus 3: V=0.962 pu, I=599.700, Breaker=CLOSE
+[2026-04-28 22:17:25] Bus 4: V=0.983 pu, I=1088.600, Breaker=CLOSE
+[2026-04-28 22:17:25] Bus 5: V=0.973 pu, I=586.700, Breaker=CLOSE
+
+
+[2026-04-28 22:17:29] Bus 1: V=0.957 pu, I=1179.800, Breaker=CLOSE
+[2026-04-28 22:17:29] Bus 2: V=0.972 pu, I=1543.700, Breaker=OPEN
+[2026-04-28 22:17:29] Bus 3: V=1.035 pu, I=355.200, Breaker=OPEN
+[2026-04-28 22:17:29] Bus 4: V=0.973 pu, I=1212.400, Breaker=CLOSE
+[2026-04-28 22:17:29] Bus 5: V=0.971 pu, I=464.700, Breaker=CLOSE
+
+
+[2026-04-28 22:17:33] Bus 1: V=0.957 pu, I=1179.800, Breaker=OPEN
+[2026-04-28 22:17:33] Bus 2: V=0.972 pu, I=1543.700, Breaker=OPEN
+[2026-04-28 22:17:33] Bus 3: V=1.035 pu, I=355.200, Breaker=CLOSE
+[2026-04-28 22:17:33] Bus 4: V=0.973 pu, I=1212.400, Breaker=CLOSE
+[2026-04-28 22:17:33] Bus 5: V=0.971 pu, I=464.700, Breaker=CLOSE
