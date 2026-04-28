@@ -25,8 +25,16 @@ for bus in range(1, 6):
     command_nodes[bus] = root.get_child(["0:Objects", f"{idx}:COMMANDS", f"{idx}:CMD_bus_{bus}"])
 
 bus_map = {i+1: i for i in range(5)}
-bus_line = {i+1: i for i in range(len(net.line))}
+
+# Mapping breaker per bus berdasarkan line yang benar-benar terhubung
+bus_line = {}
+for bus, idx_pp in bus_map.items():
+    connected_lines = net.line[(net.line.from_bus == idx_pp) | (net.line.to_bus == idx_pp)].index.tolist()
+    bus_line[bus] = connected_lines[0] if connected_lines else None
+
 line_status = {idx: True for idx in range(len(net.line))}
+open_factor = 1.00   # Open jika I_line > max_i_ka * open_factor
+close_factor = 0.95  # Close jika I_line < max_i_ka * close_factor
 
 while True:
     for bus in range(1, 6):
@@ -50,23 +58,36 @@ while True:
 
     for bus in range(1, 6):
         idx_pp = bus_map[bus]
-        v = net.res_bus.vm_pu.loc[idx_pp]
         line_idx = bus_line.get(bus, None)
 
         if line_idx is None:
+            print(f"Bus {bus}: tidak ada line terhubung untuk kontrol breaker")
             continue
 
-        cmd = 0 if v > 1.02 else 1
+        i_from_ka = abs(float(net.res_line.i_from_ka.loc[line_idx]))
+        i_to_ka = abs(float(net.res_line.i_to_ka.loc[line_idx]))
+        i_line_ka = max(i_from_ka, i_to_ka)
+        i_open_ka = float(net.line.max_i_ka.loc[line_idx]) * open_factor
+        i_close_ka = float(net.line.max_i_ka.loc[line_idx]) * close_factor
+        line_is_closed = bool(line_status.get(line_idx, True))
+
+        # Hysteresis:
+        # - Jika line sedang CLOSE, hanya OPEN saat melebihi batas open
+        # - Jika line sedang OPEN, hanya CLOSE saat turun di bawah batas close
+        if line_is_closed:
+            cmd = 0 if i_line_ka > i_open_ka else 1
+        else:
+            cmd = 1 if i_line_ka < i_close_ka else 0
         command_nodes[bus].set_value(cmd)
 
         if cmd == 0:
             net.line.loc[line_idx, "in_service"] = False
             line_status[line_idx] = False
-            print(f"Bus {bus}: breaker OPEN (line {line_idx})")
+            print(f"Bus {bus}: breaker OPEN (line {line_idx}) | I_line={i_line_ka:.4f} kA, I_open={i_open_ka:.4f} kA")
         elif cmd == 1:
             net.line.loc[line_idx, "in_service"] = True
             line_status[line_idx] = True
-            print(f"Bus {bus}: breaker CLOSE (line {line_idx})")
+            print(f"Bus {bus}: breaker CLOSE (line {line_idx}) | I_line={i_line_ka:.4f} kA, I_close={i_close_ka:.4f} kA")
 
     time.sleep(4)
 
