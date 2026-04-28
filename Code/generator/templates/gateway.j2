@@ -2,6 +2,7 @@ import json
 import os
 import time
 import csv
+import math
 from datetime import datetime
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from threading import Lock, Thread
@@ -23,8 +24,8 @@ objects = server.get_objects_node()
 sensor_folder = objects.add_folder(idx, "SENSORS")
 command_folder = objects.add_folder(idx, "COMMANDS")
 
-tegangan_nodes = {}
-arus_nodes = {}
+p_nodes = {}
+q_nodes = {}
 command_nodes = {}
 
 last_breaker = {}
@@ -268,11 +269,11 @@ def maybe_start_inject_api():
         inject_api_started = True
 
 for bus in range(1, 6):
-    tegangan_nodes[bus] = sensor_folder.add_variable(idx, f"V_bus_{bus}", 0.0)
-    tegangan_nodes[bus].set_writable()
+    p_nodes[bus] = sensor_folder.add_variable(idx, f"P_bus_{bus}", 0.0)   # MW
+    p_nodes[bus].set_writable()
 
-    arus_nodes[bus] = sensor_folder.add_variable(idx, f"I_bus_{bus}", 0.0)
-    arus_nodes[bus].set_writable()
+    q_nodes[bus] = sensor_folder.add_variable(idx, f"Q_bus_{bus}", 0.0)   # MVar
+    q_nodes[bus].set_writable()
 
     command_nodes[bus] = command_folder.add_variable(idx, f"CMD_bus_{bus}", 1)
     command_nodes[bus].set_writable()
@@ -301,12 +302,10 @@ try:
                 i_raw = context[0x00].getValues(3, addr_i, count=1)[0]
                 b_raw = context[0x00].getValues(3, addr_b, count=1)[0]
 
-                v = float(v_raw) / 1000.0
-                i = float(i_raw) / 1000.0
                 breaker_fb = 1 if int(b_raw) == 1 else 0
-                v_final = v
-                i_final = i
                 source = "RTU"
+                v_final = float(v_raw)
+                i_final = float(i_raw)
 
                 override = _get_active_override(bus)
                 if override is not None:
@@ -314,17 +313,28 @@ try:
                     i_final = float(override["i"])
                     source = "SIMULATED"
 
-                # 2) Publish ke OPC UA untuk pandapower (V/I)
-                tegangan_nodes[bus].set_value(v_final)
-                arus_nodes[bus].set_value(i_final)
+                # 2) Konversi V/I -> P/Q lalu publish ke OPC UA untuk pandapower
+                # Asumsi:
+                # - v_final dari RTU dalam satuan pu
+                # - i_final dalam ampere
+                # - faktor daya konstan 0.8 (lagging)
+                V_base = 230e3
+                pf = 0.8
+                v_real = v_final * V_base
+                s_va = v_real * i_final
+                p_mw = (s_va * pf) / 1e6
+                q_mvar = (s_va * math.sqrt(1 - pf**2)) / 1e6
+
+                p_nodes[bus].set_value(p_mw)
+                q_nodes[bus].set_value(q_mvar)
 
                 # 3) Ambil command dari OPC UA lalu tulis ke Modbus coil untuk RTU
                 cmd = command_nodes[bus].get_value()
                 cmd_val = 1 if int(cmd) == 1 else 0
                 context[0x00].setValues(1, BREAKER_CMD_BASE_ADDR + (bus - 1), [cmd_val])
-                log_h3_final(ts, bus, v, i, v_final, i_final, source, breaker_fb, cmd_val)
+                log_h3_final(ts, bus, float(v_raw), float(i_raw), v_final, i_final, source, breaker_fb, cmd_val)
 
-                print(f"[{ts}] [Bus {bus}] Data V/I/CMD update ({source})")
+                print(f"[{ts}] [Bus {bus}] Data P/Q/CMD update ({source}) -> P={p_mw:.4f} MW, Q={q_mvar:.4f} MVar")
             except Exception as e:
                 print(f"[{ts}] [Bus {bus}] Gagal update: {e}")
 
