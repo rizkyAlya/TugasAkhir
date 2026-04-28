@@ -1,7 +1,7 @@
 import json
 import os
+import sys
 import time
-import csv
 import math
 from datetime import datetime
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
@@ -80,6 +80,8 @@ RUN_ID_FILE = "/tmp/mitm_run_id"
 BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
 MITM_LOG_DIR = os.path.join(BASE_DIR, "logs", "mitm")
 MITM_TRACE_CSV = os.path.join(MITM_LOG_DIR, "mitm_trace.csv")
+sys.path.append(BASE_DIR)
+from logger.mitm_trace_logger import ensure_trace_csv, get_run_id, get_phase_label, append_trace_row, now_ts
 
 store = ModbusSlaveContext(
     di=ModbusSequentialDataBlock(0, [0] * 100),
@@ -92,45 +94,7 @@ override_lock = Lock()
 overrides = {}
 inject_api_started = False
 
-os.makedirs(MITM_LOG_DIR, exist_ok=True)
-if not os.path.exists(MITM_TRACE_CSV):
-    with open(MITM_TRACE_CSV, "w", newline="", encoding="utf-8") as f:
-        writer = csv.writer(f)
-        writer.writerow([
-            "timestamp",
-            "run_id",
-            "phase",
-            "source",
-            "event",
-            "bus",
-            "v_raw",
-            "i_raw",
-            "v_final",
-            "i_final",
-            "breaker_cmd",
-            "breaker_fb",
-            "ttl",
-            "client",
-            "detail",
-        ])
-
-def _run_id():
-    try:
-        if os.path.exists(RUN_ID_FILE):
-            with open(RUN_ID_FILE, "r", encoding="utf-8") as f:
-                value = f.read().strip()
-                if value:
-                    return value
-    except Exception:
-        pass
-    return "no_attack"
-
-
-def _trace_write(row):
-    with open(MITM_TRACE_CSV, "a", newline="", encoding="utf-8") as f:
-        writer = csv.writer(f)
-        writer.writerow(row)
-
+ensure_trace_csv(MITM_TRACE_CSV)
 
 def start_modbus_server():
     print(f"Memulai Modbus Gateway di {MODBUS_LISTEN_IP}:{MODBUS_PORT}")
@@ -166,16 +130,12 @@ def _clear_override(bus=None):
             overrides.pop(bus, None)
 
 
-def _phase_label():
-    return "post_attack" if os.path.exists(ATTACK_FLAG) else "pre_attack"
-
-
 def log_h5_change(event, bus, v, i, ttl, client):
-    ts = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-    _trace_write([
+    ts = now_ts()
+    append_trace_row(MITM_TRACE_CSV, [
         ts,
-        _run_id(),
-        _phase_label(),
+        get_run_id(),
+        get_phase_label(),
         "h5",
         event,
         bus,
@@ -192,10 +152,10 @@ def log_h5_change(event, bus, v, i, ttl, client):
 
 
 def log_h3_final(ts, bus, v_raw, i_raw, v_final, i_final, source, breaker_fb, breaker_cmd):
-    _trace_write([
+    append_trace_row(MITM_TRACE_CSV, [
         ts,
-        _run_id(),
-        _phase_label(),
+        get_run_id(),
+        get_phase_label(),
         "h3",
         "final_forward",
         bus,
@@ -232,8 +192,12 @@ class InjectHandler(BaseHTTPRequestHandler):
         if self.path == "/inject":
             try:
                 bus = int(payload["bus"])
-                v = float(payload["v"])
-                i = float(payload["i"])
+                has_v = "v" in payload and payload["v"] is not None
+                has_i = "i" in payload and payload["i"] is not None
+                if not has_v and not has_i:
+                    raise ValueError("missing v/i")
+                v = float(payload["v"]) if has_v else None
+                i = float(payload["i"]) if has_i else None
                 ttl = int(payload.get("ttl", 8))
             except Exception:
                 _json_response(self, 400, {"ok": False, "error": "invalid payload"})
@@ -244,17 +208,18 @@ class InjectHandler(BaseHTTPRequestHandler):
                 return
 
             ttl = max(1, min(ttl, MAX_TTL_SECONDS))
+            override_item = {"expires_at": time.time() + ttl}
+            if has_v:
+                override_item["v"] = v
+            if has_i:
+                override_item["i"] = i
             with override_lock:
-                overrides[bus] = {
-                    "v": v,
-                    "i": i,
-                    "expires_at": time.time() + ttl,
-                }
+                overrides[bus] = override_item
             log_h5_change(
                 event="inject",
                 bus=bus,
-                v=f"{v:.6f}",
-                i=f"{i:.6f}",
+                v=f"{v:.6f}" if v is not None else "",
+                i=f"{i:.6f}" if i is not None else "",
                 ttl=ttl,
                 client=getattr(self, "client_address", ("", ""))[0],
             )
@@ -337,8 +302,10 @@ try:
 
                 override = _get_active_override(bus)
                 if override is not None:
-                    v_final = float(override["v"])
-                    i_final = float(override["i"])
+                    if "v" in override:
+                        v_final = float(override["v"])
+                    if "i" in override:
+                        i_final = float(override["i"])
                     source = "SIMULATED"
 
                 # 2) Konversi V/I -> P/Q lalu publish ke OPC UA untuk pandapower

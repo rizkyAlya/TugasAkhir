@@ -1,5 +1,5 @@
-import csv
 import os
+import sys
 from pymodbus.client import ModbusTcpClient
 from pymodbus.exceptions import ConnectionException
 import time
@@ -21,28 +21,10 @@ RUN_ID_FILE = "/tmp/mitm_run_id"
 BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
 MITM_LOG_DIR = os.path.join(BASE_DIR, "logs", "mitm")
 MITM_TRACE_CSV = os.path.join(MITM_LOG_DIR, "mitm_trace.csv")
+sys.path.append(BASE_DIR)
+from logger.mitm_trace_logger import ensure_trace_csv, get_run_id, get_phase_label, append_trace_row
 
-os.makedirs(MITM_LOG_DIR, exist_ok=True)
-if not os.path.exists(MITM_TRACE_CSV):
-    with open(MITM_TRACE_CSV, "w", newline="", encoding="utf-8") as f:
-        writer = csv.writer(f)
-        writer.writerow([
-            "timestamp",
-            "run_id",
-            "phase",
-            "source",
-            "event",
-            "bus",
-            "v_raw",
-            "i_raw",
-            "v_final",
-            "i_final",
-            "breaker_cmd",
-            "breaker_fb",
-            "ttl",
-            "client",
-            "detail",
-        ])
+ensure_trace_csv(MITM_TRACE_CSV)
 
 # Modbus clients
 field_client = ModbusTcpClient(FIELD_IP, port=MODBUS_PORT)
@@ -75,42 +57,24 @@ def ensure_connections() -> None:
         _connect_with_retry(gateway_client, f"GATEWAY ({GATEWAY_IP}:{MODBUS_PORT})")
 
 
-def _phase_label() -> str:
-    return "post_attack" if os.path.exists(ATTACK_FLAG) else "pre_attack"
-
-
-def _run_id() -> str:
-    try:
-        if os.path.exists(RUN_ID_FILE):
-            with open(RUN_ID_FILE, "r", encoding="utf-8") as f:
-                value = f.read().strip()
-                if value:
-                    return value
-    except Exception:
-        pass
-    return "no_attack"
-
-
 def log_h2_original(ts: str, bus: int, v: float, i: float, breaker_cmd_val: int) -> None:
-    with open(MITM_TRACE_CSV, "a", newline="", encoding="utf-8") as f:
-        writer = csv.writer(f)
-        writer.writerow([
-            ts,
-            _run_id(),
-            _phase_label(),
-            "h2",
-            "original_sample",
-            bus,
-            f"{v:.6f}",
-            f"{i:.6f}",
-            f"{v:.6f}",
-            f"{i:.6f}",
-            breaker_cmd_val,
-            "",
-            "",
-            "",
-            "",
-        ])
+    append_trace_row(MITM_TRACE_CSV, [
+        ts,
+        get_run_id(),
+        get_phase_label(),
+        "h2",
+        "original_sample",
+        bus,
+        f"{v:.6f}",
+        f"{i:.6f}",
+        f"{v:.6f}",
+        f"{i:.6f}",
+        breaker_cmd_val,
+        "",
+        "",
+        "",
+        "",
+    ])
 
 breaker_cmd = {bus: 1 for bus in range(1, NUM_BUS+1)}  # 0=OPEN, 1=CLOSE
 
