@@ -28,9 +28,18 @@ bus_map = {i+1: i for i in range(5)}
 
 # Mapping breaker per bus berdasarkan line yang benar-benar terhubung
 bus_line = {}
+used_lines = set()
 for bus, idx_pp in bus_map.items():
     connected_lines = net.line[(net.line.from_bus == idx_pp) | (net.line.to_bus == idx_pp)].index.tolist()
-    bus_line[bus] = connected_lines[0] if connected_lines else None
+    selected_line = None
+    for line_idx in connected_lines:
+        if line_idx not in used_lines:
+            selected_line = line_idx
+            used_lines.add(line_idx)
+            break
+    bus_line[bus] = selected_line
+
+print("Unique bus->line mapping:", bus_line)
 
 line_status = {idx: True for idx in range(len(net.line))}
 open_factor = 1.00   # Open jika I_line > max_i_ka * open_factor
