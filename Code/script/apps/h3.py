@@ -44,8 +44,16 @@ I_BASE_ADDR = 10
 BREAKER_FB_BASE_ADDR = 20
 BREAKER_CMD_BASE_ADDR = 0
 V_SCALE = 1000
-I_SCALE = 10
+I_SCALE = 50
 NUM_BUS = 5
+V_BASE = 345e3
+PF_BY_BUS = {
+    1: 0.96,
+    2: 0.95,
+    3: 0.97,
+    4: 0.94,
+    5: 0.96,
+}
 INJECT_ENABLE_FLAG = "/tmp/h3_http_inject_enabled"
 INJECT_API_IP = "0.0.0.0"
 INJECT_API_PORT = 8088
@@ -321,10 +329,9 @@ try:
                 # Asumsi:
                 # - v_final dari RTU dalam satuan pu
                 # - i_final dalam ampere
-                # - faktor daya konstan 0.8 (lagging)
-                V_base = 230e3
-                pf = 0.8
-                v_real = v_final * V_base
+                # - faktor daya per-bus (lagging)
+                pf = PF_BY_BUS.get(bus, 0.95)
+                v_real = v_final * V_BASE
                 s_va = v_real * i_final
                 p_mw = (s_va * pf) / 1e6
                 q_mvar = (s_va * math.sqrt(1 - pf**2)) / 1e6
@@ -338,7 +345,11 @@ try:
                 context[0x00].setValues(1, BREAKER_CMD_BASE_ADDR + (bus - 1), [cmd_val])
                 log_h3_final(ts, bus, float(v_raw), float(i_raw), v_final, i_final, source, breaker_fb, cmd_val)
 
-                print(f"[{ts}] [Bus {bus}] Data P/Q/CMD update ({source}) -> P={p_mw:.4f} MW, Q={q_mvar:.4f} MVar")
+                print(
+                    f"[{ts}] [Bus {bus}] Data P/Q/CMD update ({source}) -> "
+                    f"V={v_final:.4f} pu, I={i_final:.4f} A, "
+                    f"P={p_mw:.4f} MW, Q={q_mvar:.4f} MVar"
+                )
             except Exception as e:
                 print(f"[{ts}] [Bus {bus}] Gagal update: {e}")
 

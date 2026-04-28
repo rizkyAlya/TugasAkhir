@@ -16,7 +16,15 @@ NUM_BUS = 5
 FIELD_RANDOM_SEED = int(os.environ.get("FIELD_RANDOM_SEED", "42"))
 random.seed(FIELD_RANDOM_SEED)
 V_SCALE = 1000
-I_SCALE = 10
+I_SCALE = 50
+V_BASE = 345e3
+PF_BY_BUS = {
+    1: 0.96,
+    2: 0.95,
+    3: 0.97,
+    4: 0.94,
+    5: 0.96,
+}
 
 # Mapping register Modbus
 V_BASE_ADDR = 0         # HR 0-4
@@ -64,11 +72,10 @@ def main_loop():
 
                 # 2) Generate data dummy
                 v_pu = 1.0 + random.uniform(-0.05, 0.05) # Tegangan (pu)
-                V_base = 230e3                           # Base voltage (Volt)
-                V_real = v_pu * V_base                   # Tegangan aktual (Volt)
+                V_real = v_pu * V_BASE                   # Tegangan aktual (Volt)
 
                 P = random.uniform(50e6, 300e6)          # 50–300 MW
-                pf = 0.8                                 # Power factor
+                pf = PF_BY_BUS.get(bus, 0.95)            # Power factor per bus
                 S = P / pf                               # Apparent power
 
                 I = S / V_real                           # Arus (Ampere)
@@ -80,7 +87,12 @@ def main_loop():
                 try:
                     context[slave_id].setValues(fx_hr, addr_v, [v_scaled])
                     context[slave_id].setValues(fx_hr, addr_i, [i_scaled])
-                    print(f"Bus {bus} | V={v_scaled} | I={i_scaled} | Breaker={'OPEN' if breaker_status[bus]==0 else 'CLOSE'}")
+                    print(
+                        f"Bus {bus} | "
+                        f"V={v_pu:.3f} pu ({v_scaled} reg @x{V_SCALE}) | "
+                        f"I={I:.3f} A ({i_scaled} reg @x{I_SCALE}) | "
+                        f"Breaker={'OPEN' if breaker_status[bus]==0 else 'CLOSE'}"
+                    )
                 except Exception as e:
                     print("Error update Modbus datastore:", e)
 

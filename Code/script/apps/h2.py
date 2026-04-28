@@ -14,7 +14,7 @@ I_BASE_ADDR = 10
 BREAKER_BASE_ADDR = 0
 BREAKER_FB_BASE_ADDR = 20
 V_SCALE = 1000
-I_SCALE = 10
+I_SCALE = 50
 NUM_BUS = 5
 ATTACK_FLAG = "/tmp/mitm_attack_active"
 RUN_ID_FILE = "/tmp/mitm_run_id"
@@ -178,7 +178,12 @@ try:
                 send_to_gateway_modbus(bus, v, i, breaker_cmd[bus])
                 log_h2_original(ts, bus, v, i, breaker_cmd[bus])
 
-                print(f"[{ts}] Bus {bus}: V={v:.3f} pu, I={i:.3f}, Breaker={'CLOSE' if breaker_cmd[bus]==1 else 'OPEN'}")
+                print(
+                    f"[{ts}] Bus {bus}: "
+                    f"V={v:.3f} pu, "
+                    f"I={i:.3f} A, "
+                    f"Breaker={'CLOSE' if breaker_cmd[bus]==1 else 'OPEN'}"
+                )
         except ConnectionException as e:
             print(f"[{ts}] Koneksi Modbus terputus: {e}. Reconnecting...")
             try:

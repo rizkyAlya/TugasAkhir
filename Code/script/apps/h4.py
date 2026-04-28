@@ -25,6 +25,7 @@ for bus in range(1, 6):
     command_nodes[bus] = root.get_child(["0:Objects", f"{idx}:COMMANDS", f"{idx}:CMD_bus_{bus}"])
 
 bus_map = {i+1: i for i in range(5)}
+print("Field bus -> Pandapower bus mapping:", bus_map)
 
 # Mapping breaker per bus berdasarkan line yang benar-benar terhubung
 bus_line = {}
@@ -52,7 +53,8 @@ while True:
 
         idx_pp = bus_map[bus]
 
-        if bus in net.load.bus.values:
+        # Gunakan idx_pp agar mapping bus ekuivalen konsisten.
+        if idx_pp in net.load.bus.values:
             load_idx = net.load[net.load.bus == idx_pp].index
             if len(load_idx):
                 net.load.loc[load_idx, "p_mw"] = float(p_mw)
@@ -61,7 +63,7 @@ while True:
     try:
         pp.runpp(net)
         print("\n", datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
-        print("Load flow sukses. Voltage snapshot:", net.res_bus.vm_pu.values[:5])
+        print("Load flow sukses. Voltage snapshot (pu):", net.res_bus.vm_pu.values[:5])
     except Exception:
         print("Load flow gagal")
 
