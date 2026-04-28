@@ -15,13 +15,13 @@ print("Namespace index:", idx)
 
 root = client.get_root_node()
 
-tegangan_nodes = {}
-arus_nodes = {}
+p_nodes = {}
+q_nodes = {}
 command_nodes = {}
 
 for bus in range(1, 6):
-    tegangan_nodes[bus] = root.get_child(["0:Objects", f"{idx}:SENSORS", f"{idx}:V_bus_{bus}"])
-    arus_nodes[bus] = root.get_child(["0:Objects", f"{idx}:SENSORS", f"{idx}:I_bus_{bus}"])
+    p_nodes[bus] = root.get_child(["0:Objects", f"{idx}:SENSORS", f"{idx}:P_bus_{bus}"])
+    q_nodes[bus] = root.get_child(["0:Objects", f"{idx}:SENSORS", f"{idx}:Q_bus_{bus}"])
     command_nodes[bus] = root.get_child(["0:Objects", f"{idx}:COMMANDS", f"{idx}:CMD_bus_{bus}"])
 
 bus_map = {i+1: i for i in range(5)}
@@ -30,17 +30,16 @@ line_status = {idx: True for idx in range(len(net.line))}
 
 while True:
     for bus in range(1, 6):
-        v = tegangan_nodes[bus].get_value()
-        i = arus_nodes[bus].get_value()
+        p_mw = p_nodes[bus].get_value()
+        q_mvar = q_nodes[bus].get_value()
 
         idx_pp = bus_map[bus]
-        net.bus.loc[idx_pp, "vm_pu"] = v
 
         if bus in net.load.bus.values:
             load_idx = net.load[net.load.bus == idx_pp].index
             if len(load_idx):
-                net.load.loc[load_idx, "p_mw"] = float(i) * 0.1
-                net.load.loc[load_idx, "q_mvar"] = float(i) * 0.05
+                net.load.loc[load_idx, "p_mw"] = float(p_mw)
+                net.load.loc[load_idx, "q_mvar"] = float(q_mvar)
 
     try:
         pp.runpp(net)

@@ -57,10 +57,18 @@ def main_loop():
                 breaker_status[bus] = current_breaker
 
                 # 2) Generate data dummy
-                v = 1.0 + random.uniform(-0.05, 0.05)
-                i = random.uniform(0.1, 2.0)
-                v_scaled = int(v * 1000)
-                i_scaled = int(i * 1000)
+                v_pu = 1.0 + random.uniform(-0.05, 0.05) # Tegangan (pu)
+                V_base = 230e3                           # Base voltage (Volt)
+                V_real = v_pu * V_base                   # Tegangan aktual (Volt)
+
+                P = random.uniform(50e6, 300e6)          # 50–300 MW
+                pf = 0.8                                 # Power factor
+                S = P / pf                               # Apparent power
+
+                I = S / V_real                           # Arus (Ampere)
+
+                v_scaled = int(v_pu * 1000)              # Tegangan (integer scaling)
+                i_scaled = int(I * 1000)                 # Arus (integer scaling)
 
                 # 3) Tulis V/I ke Holding Register
                 try:
