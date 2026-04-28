@@ -24,7 +24,15 @@ for bus in range(1, 6):
     q_nodes[bus] = root.get_child(["0:Objects", f"{idx}:SENSORS", f"{idx}:Q_bus_{bus}"])
     command_nodes[bus] = root.get_child(["0:Objects", f"{idx}:COMMANDS", f"{idx}:CMD_bus_{bus}"])
 
-bus_map = {i+1: i for i in range(5)}
+# Map field bus -> pandapower bus yang memiliki elemen load
+# (dipilih dari set load_buses case39 agar update p_mw/q_mvar selalu masuk)
+bus_map = {
+    1: 0,
+    2: 2,
+    3: 3,
+    4: 6,
+    5: 7,
+}
 print("Field bus -> Pandapower bus mapping:", bus_map)
 
 # Mapping breaker per bus berdasarkan line yang benar-benar terhubung

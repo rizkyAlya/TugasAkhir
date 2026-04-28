@@ -1,292 +1,938 @@
 Namespace index: 2
-Field bus -> Pandapower bus mapping: {1: 0, 2: 1, 3: 2, 4: 3, 5: 4}
-Unique bus->line mapping: {1: 0, 2: 2, 3: 4, 4: 6, 5: 8}
+Field bus -> Pandapower bus mapping: {1: 0, 2: 2, 3: 3, 4: 6, 5: 7}
+Unique bus->line mapping: {1: 0, 2: 2, 3: 4, 4: 10, 5: 9}
 bus=1, idx_pp=0, in_load=True, load_idx=[0], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
-bus=2, idx_pp=1, in_load=False, load_idx=[], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
-bus=3, idx_pp=2, in_load=True, load_idx=[1], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
-bus=4, idx_pp=3, in_load=True, load_idx=[2], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
-bus=5, idx_pp=4, in_load=False, load_idx=[], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=2, idx_pp=2, in_load=True, load_idx=[1], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=3, idx_pp=3, in_load=True, load_idx=[2], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=4, idx_pp=6, in_load=True, load_idx=[3], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=5, idx_pp=7, in_load=True, load_idx=[4], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
 numba cannot be imported and numba functions are disabled.
 Probably the execution is slow.
 Please install numba to gain a massive speedup.
 (or if you prefer slow execution, set the flag numba=False to avoid this warning!)
 
- 2026-04-28 23:49:45
-Load flow sukses. Voltage snapshot (pu): [1.04869473 1.05591429 1.04577023 1.03140619 1.02174975]
-Bus 1: breaker CLOSE (line 0) | I_line=0.3108 kA, I_close=0.9539 kA
-Bus 2: breaker CLOSE (line 2) | I_line=0.4591 kA, I_close=0.7949 kA
-Bus 3: breaker CLOSE (line 4) | I_line=0.3938 kA, I_close=0.7949 kA
-Bus 4: breaker CLOSE (line 6) | I_line=0.5856 kA, I_close=0.9539 kA
-Bus 5: breaker CLOSE (line 8) | I_line=0.0370 kA, I_close=1.9078 kA
+ 2026-04-29 00:00:24
+Load flow sukses. Voltage snapshot (pu): [1.05004136 1.05788632 1.04999957 1.0405164  1.03555679]
+Bus 1: breaker CLOSE (line 0) | I_line=0.2726 kA, I_close=0.9539 kA
+Bus 2: breaker CLOSE (line 2) | I_line=0.4843 kA, I_close=0.7949 kA
+Bus 3: breaker CLOSE (line 4) | I_line=0.4068 kA, I_close=0.7949 kA
+Bus 4: breaker CLOSE (line 10) | I_line=0.1303 kA, I_close=1.4308 kA
+Bus 5: breaker CLOSE (line 9) | I_line=0.0745 kA, I_close=1.4308 kA
 bus=1, idx_pp=0, in_load=True, load_idx=[0], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
-bus=2, idx_pp=1, in_load=False, load_idx=[], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
-bus=3, idx_pp=2, in_load=True, load_idx=[1], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
-bus=4, idx_pp=3, in_load=True, load_idx=[2], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
-bus=5, idx_pp=4, in_load=False, load_idx=[], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=2, idx_pp=2, in_load=True, load_idx=[1], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=3, idx_pp=3, in_load=True, load_idx=[2], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=4, idx_pp=6, in_load=True, load_idx=[3], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=5, idx_pp=7, in_load=True, load_idx=[4], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
 numba cannot be imported and numba functions are disabled.
 Probably the execution is slow.
 Please install numba to gain a massive speedup.
 (or if you prefer slow execution, set the flag numba=False to avoid this warning!)
 
- 2026-04-28 23:49:49
-Load flow sukses. Voltage snapshot (pu): [1.04489138 1.05231393 1.03821579 1.02783905 1.02174951]
-Bus 1: breaker CLOSE (line 0) | I_line=0.3063 kA, I_close=0.9539 kA
-Bus 2: breaker CLOSE (line 2) | I_line=0.4960 kA, I_close=0.7949 kA
-Bus 3: breaker CLOSE (line 4) | I_line=0.1635 kA, I_close=0.7949 kA
-Bus 4: breaker CLOSE (line 6) | I_line=0.2778 kA, I_close=0.9539 kA
-Bus 5: breaker CLOSE (line 8) | I_line=0.2982 kA, I_close=1.9078 kA
+ 2026-04-29 00:00:28
+Load flow sukses. Voltage snapshot (pu): [1.04638785 1.05541654 1.04523514 1.03784072 1.0394739 ]
+Bus 1: breaker CLOSE (line 0) | I_line=0.2865 kA, I_close=0.9539 kA
+Bus 2: breaker CLOSE (line 2) | I_line=0.4921 kA, I_close=0.7949 kA
+Bus 3: breaker CLOSE (line 4) | I_line=0.2923 kA, I_close=0.7949 kA
+Bus 4: breaker CLOSE (line 10) | I_line=0.1049 kA, I_close=1.4308 kA
+Bus 5: breaker CLOSE (line 9) | I_line=0.1110 kA, I_close=1.4308 kA
 bus=1, idx_pp=0, in_load=True, load_idx=[0], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
-bus=2, idx_pp=1, in_load=False, load_idx=[], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
-bus=3, idx_pp=2, in_load=True, load_idx=[1], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
-bus=4, idx_pp=3, in_load=True, load_idx=[2], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
-bus=5, idx_pp=4, in_load=False, load_idx=[], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=2, idx_pp=2, in_load=True, load_idx=[1], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=3, idx_pp=3, in_load=True, load_idx=[2], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=4, idx_pp=6, in_load=True, load_idx=[3], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=5, idx_pp=7, in_load=True, load_idx=[4], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
 numba cannot be imported and numba functions are disabled.
 Probably the execution is slow.
 Please install numba to gain a massive speedup.
 (or if you prefer slow execution, set the flag numba=False to avoid this warning!)
 
- 2026-04-28 23:49:53
-Load flow sukses. Voltage snapshot (pu): [1.03683766 1.04988142 1.03566909 1.02160837 1.01795428]
-Bus 1: breaker CLOSE (line 0) | I_line=0.4104 kA, I_close=0.9539 kA
-Bus 2: breaker CLOSE (line 2) | I_line=0.4203 kA, I_close=0.7949 kA
+ 2026-04-29 00:00:32
+Load flow sukses. Voltage snapshot (pu): [1.0385891  1.05393942 1.04505884 1.03793646 1.03846117]
+Bus 1: breaker CLOSE (line 0) | I_line=0.4009 kA, I_close=0.9539 kA
+Bus 2: breaker CLOSE (line 2) | I_line=0.4011 kA, I_close=0.7949 kA
+Bus 3: breaker CLOSE (line 4) | I_line=0.2223 kA, I_close=0.7949 kA
+Bus 4: breaker CLOSE (line 10) | I_line=0.2714 kA, I_close=1.4308 kA
+Bus 5: breaker CLOSE (line 9) | I_line=0.2015 kA, I_close=1.4308 kA
+bus=1, idx_pp=0, in_load=True, load_idx=[0], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=2, idx_pp=2, in_load=True, load_idx=[1], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=3, idx_pp=3, in_load=True, load_idx=[2], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=4, idx_pp=6, in_load=True, load_idx=[3], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=5, idx_pp=7, in_load=True, load_idx=[4], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-04-29 00:00:36
+Load flow sukses. Voltage snapshot (pu): [1.03535536 1.05372099 1.04612046 1.03992756 1.03955436]
+Bus 1: breaker CLOSE (line 0) | I_line=0.4544 kA, I_close=0.9539 kA
+Bus 2: breaker CLOSE (line 2) | I_line=0.3558 kA, I_close=0.7949 kA
+Bus 3: breaker CLOSE (line 4) | I_line=0.1946 kA, I_close=0.7949 kA
+Bus 4: breaker CLOSE (line 10) | I_line=0.2673 kA, I_close=1.4308 kA
+Bus 5: breaker CLOSE (line 9) | I_line=0.2697 kA, I_close=1.4308 kA
+bus=1, idx_pp=0, in_load=True, load_idx=[0], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=2, idx_pp=2, in_load=True, load_idx=[1], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=3, idx_pp=3, in_load=True, load_idx=[2], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=4, idx_pp=6, in_load=True, load_idx=[3], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=5, idx_pp=7, in_load=True, load_idx=[4], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-04-29 00:00:40
+Load flow sukses. Voltage snapshot (pu): [1.03535536 1.05372099 1.04612046 1.03992756 1.03955436]
+Bus 1: breaker CLOSE (line 0) | I_line=0.4544 kA, I_close=0.9539 kA
+Bus 2: breaker CLOSE (line 2) | I_line=0.3558 kA, I_close=0.7949 kA
+Bus 3: breaker CLOSE (line 4) | I_line=0.1946 kA, I_close=0.7949 kA
+Bus 4: breaker CLOSE (line 10) | I_line=0.2673 kA, I_close=1.4308 kA
+Bus 5: breaker CLOSE (line 9) | I_line=0.2697 kA, I_close=1.4308 kA
+bus=1, idx_pp=0, in_load=True, load_idx=[0], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=2, idx_pp=2, in_load=True, load_idx=[1], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=3, idx_pp=3, in_load=True, load_idx=[2], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=4, idx_pp=6, in_load=True, load_idx=[3], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=5, idx_pp=7, in_load=True, load_idx=[4], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-04-29 00:00:44
+Load flow sukses. Voltage snapshot (pu): [1.03382374 1.04936832 1.03550057 1.03226008 1.03375242]
+Bus 1: breaker CLOSE (line 0) | I_line=0.4163 kA, I_close=0.9539 kA
+Bus 2: breaker CLOSE (line 2) | I_line=0.4247 kA, I_close=0.7949 kA
+Bus 3: breaker CLOSE (line 4) | I_line=0.0494 kA, I_close=0.7949 kA
+Bus 4: breaker CLOSE (line 10) | I_line=0.4567 kA, I_close=1.4308 kA
+Bus 5: breaker CLOSE (line 9) | I_line=0.3393 kA, I_close=1.4308 kA
+bus=1, idx_pp=0, in_load=True, load_idx=[0], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=2, idx_pp=2, in_load=True, load_idx=[1], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=3, idx_pp=3, in_load=True, load_idx=[2], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=4, idx_pp=6, in_load=True, load_idx=[3], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=5, idx_pp=7, in_load=True, load_idx=[4], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-04-29 00:00:48
+Load flow sukses. Voltage snapshot (pu): [1.04586058 1.05526058 1.04513618 1.03878415 1.037536  ]
+Bus 1: breaker CLOSE (line 0) | I_line=0.3029 kA, I_close=0.9539 kA
+Bus 2: breaker CLOSE (line 2) | I_line=0.4789 kA, I_close=0.7949 kA
+Bus 3: breaker CLOSE (line 4) | I_line=0.2545 kA, I_close=0.7949 kA
+Bus 4: breaker CLOSE (line 10) | I_line=0.2031 kA, I_close=1.4308 kA
+Bus 5: breaker CLOSE (line 9) | I_line=0.1986 kA, I_close=1.4308 kA
+bus=1, idx_pp=0, in_load=True, load_idx=[0], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=2, idx_pp=2, in_load=True, load_idx=[1], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=3, idx_pp=3, in_load=True, load_idx=[2], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=4, idx_pp=6, in_load=True, load_idx=[3], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=5, idx_pp=7, in_load=True, load_idx=[4], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-04-29 00:00:52
+Load flow sukses. Voltage snapshot (pu): [1.04247596 1.05134056 1.03655975 1.03251747 1.03407735]
+Bus 1: breaker CLOSE (line 0) | I_line=0.2998 kA, I_close=0.9539 kA
+Bus 2: breaker CLOSE (line 2) | I_line=0.5120 kA, I_close=0.7949 kA
+Bus 3: breaker CLOSE (line 4) | I_line=0.0854 kA, I_close=0.7949 kA
+Bus 4: breaker CLOSE (line 10) | I_line=0.3930 kA, I_close=1.4308 kA
+Bus 5: breaker CLOSE (line 9) | I_line=0.2719 kA, I_close=1.4308 kA
+bus=1, idx_pp=0, in_load=True, load_idx=[0], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=2, idx_pp=2, in_load=True, load_idx=[1], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=3, idx_pp=3, in_load=True, load_idx=[2], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=4, idx_pp=6, in_load=True, load_idx=[3], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=5, idx_pp=7, in_load=True, load_idx=[4], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-04-29 00:00:56
+Load flow sukses. Voltage snapshot (pu): [1.03612118 1.05168539 1.04030664 1.03677853 1.04074032]
+Bus 1: breaker CLOSE (line 0) | I_line=0.3975 kA, I_close=0.9539 kA
+Bus 2: breaker CLOSE (line 2) | I_line=0.4235 kA, I_close=0.7949 kA
+Bus 3: breaker CLOSE (line 4) | I_line=0.0908 kA, I_close=0.7949 kA
+Bus 4: breaker CLOSE (line 10) | I_line=0.2221 kA, I_close=1.4308 kA
+Bus 5: breaker CLOSE (line 9) | I_line=0.1923 kA, I_close=1.4308 kA
+bus=1, idx_pp=0, in_load=True, load_idx=[0], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=2, idx_pp=2, in_load=True, load_idx=[1], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=3, idx_pp=3, in_load=True, load_idx=[2], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=4, idx_pp=6, in_load=True, load_idx=[3], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=5, idx_pp=7, in_load=True, load_idx=[4], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-04-29 00:01:00
+Load flow sukses. Voltage snapshot (pu): [1.03612118 1.05168539 1.04030664 1.03677853 1.04074032]
+Bus 1: breaker CLOSE (line 0) | I_line=0.3975 kA, I_close=0.9539 kA
+Bus 2: breaker CLOSE (line 2) | I_line=0.4235 kA, I_close=0.7949 kA
+Bus 3: breaker CLOSE (line 4) | I_line=0.0908 kA, I_close=0.7949 kA
+Bus 4: breaker CLOSE (line 10) | I_line=0.2221 kA, I_close=1.4308 kA
+Bus 5: breaker CLOSE (line 9) | I_line=0.1923 kA, I_close=1.4308 kA
+bus=1, idx_pp=0, in_load=True, load_idx=[0], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=2, idx_pp=2, in_load=True, load_idx=[1], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=3, idx_pp=3, in_load=True, load_idx=[2], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=4, idx_pp=6, in_load=True, load_idx=[3], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=5, idx_pp=7, in_load=True, load_idx=[4], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-04-29 00:01:04
+Load flow sukses. Voltage snapshot (pu): [1.03098804 1.05208733 1.04400351 1.03893749 1.03934839]
+Bus 1: breaker CLOSE (line 0) | I_line=0.4979 kA, I_close=0.9539 kA
+Bus 2: breaker CLOSE (line 2) | I_line=0.3293 kA, I_close=0.7949 kA
+Bus 3: breaker CLOSE (line 4) | I_line=0.1241 kA, I_close=0.7949 kA
+Bus 4: breaker CLOSE (line 10) | I_line=0.3302 kA, I_close=1.4308 kA
+Bus 5: breaker CLOSE (line 9) | I_line=0.2678 kA, I_close=1.4308 kA
+bus=1, idx_pp=0, in_load=True, load_idx=[0], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=2, idx_pp=2, in_load=True, load_idx=[1], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=3, idx_pp=3, in_load=True, load_idx=[2], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=4, idx_pp=6, in_load=True, load_idx=[3], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=5, idx_pp=7, in_load=True, load_idx=[4], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-04-29 00:01:08
+Load flow sukses. Voltage snapshot (pu): [1.04208999 1.05245997 1.03958665 1.03829258 1.03919117]
+Bus 1: breaker CLOSE (line 0) | I_line=0.3151 kA, I_close=0.9539 kA
+Bus 2: breaker CLOSE (line 2) | I_line=0.4920 kA, I_close=0.7949 kA
+Bus 3: breaker CLOSE (line 4) | I_line=0.0700 kA, I_close=0.7949 kA
+Bus 4: breaker CLOSE (line 10) | I_line=0.2549 kA, I_close=1.4308 kA
+Bus 5: breaker CLOSE (line 9) | I_line=0.1896 kA, I_close=1.4308 kA
+bus=1, idx_pp=0, in_load=True, load_idx=[0], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=2, idx_pp=2, in_load=True, load_idx=[1], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=3, idx_pp=3, in_load=True, load_idx=[2], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=4, idx_pp=6, in_load=True, load_idx=[3], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=5, idx_pp=7, in_load=True, load_idx=[4], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-04-29 00:01:12
+Load flow sukses. Voltage snapshot (pu): [1.035961   1.05214884 1.04178665 1.03528447 1.03416115]
+Bus 1: breaker CLOSE (line 0) | I_line=0.4308 kA, I_close=0.9539 kA
+Bus 2: breaker CLOSE (line 2) | I_line=0.3878 kA, I_close=0.7949 kA
+Bus 3: breaker CLOSE (line 4) | I_line=0.1417 kA, I_close=0.7949 kA
+Bus 4: breaker CLOSE (line 10) | I_line=0.4449 kA, I_close=1.4308 kA
+Bus 5: breaker CLOSE (line 9) | I_line=0.3745 kA, I_close=1.4308 kA
+bus=1, idx_pp=0, in_load=True, load_idx=[0], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=2, idx_pp=2, in_load=True, load_idx=[1], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=3, idx_pp=3, in_load=True, load_idx=[2], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=4, idx_pp=6, in_load=True, load_idx=[3], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=5, idx_pp=7, in_load=True, load_idx=[4], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-04-29 00:01:16
+Load flow sukses. Voltage snapshot (pu): [1.03419151 1.05094601 1.03949378 1.03273156 1.03309904]
+Bus 1: breaker CLOSE (line 0) | I_line=0.4405 kA, I_close=0.9539 kA
+Bus 2: breaker CLOSE (line 2) | I_line=0.3883 kA, I_close=0.7949 kA
+Bus 3: breaker CLOSE (line 4) | I_line=0.1137 kA, I_close=0.7949 kA
+Bus 4: breaker CLOSE (line 10) | I_line=0.4630 kA, I_close=1.4308 kA
+Bus 5: breaker CLOSE (line 9) | I_line=0.3849 kA, I_close=1.4308 kA
+bus=1, idx_pp=0, in_load=True, load_idx=[0], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=2, idx_pp=2, in_load=True, load_idx=[1], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=3, idx_pp=3, in_load=True, load_idx=[2], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=4, idx_pp=6, in_load=True, load_idx=[3], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=5, idx_pp=7, in_load=True, load_idx=[4], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-04-29 00:01:20
+Load flow sukses. Voltage snapshot (pu): [1.03419151 1.05094601 1.03949378 1.03273156 1.03309904]
+Bus 1: breaker CLOSE (line 0) | I_line=0.4405 kA, I_close=0.9539 kA
+Bus 2: breaker CLOSE (line 2) | I_line=0.3883 kA, I_close=0.7949 kA
+Bus 3: breaker CLOSE (line 4) | I_line=0.1137 kA, I_close=0.7949 kA
+Bus 4: breaker CLOSE (line 10) | I_line=0.4630 kA, I_close=1.4308 kA
+Bus 5: breaker CLOSE (line 9) | I_line=0.3849 kA, I_close=1.4308 kA
+bus=1, idx_pp=0, in_load=True, load_idx=[0], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=2, idx_pp=2, in_load=True, load_idx=[1], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=3, idx_pp=3, in_load=True, load_idx=[2], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=4, idx_pp=6, in_load=True, load_idx=[3], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=5, idx_pp=7, in_load=True, load_idx=[4], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-04-29 00:01:25
+Load flow sukses. Voltage snapshot (pu): [1.04234436 1.05414358 1.04382157 1.03447105 1.03592408]
+Bus 1: breaker CLOSE (line 0) | I_line=0.3442 kA, I_close=0.9539 kA
+Bus 2: breaker CLOSE (line 2) | I_line=0.4483 kA, I_close=0.7949 kA
+Bus 3: breaker CLOSE (line 4) | I_line=0.2745 kA, I_close=0.7949 kA
+Bus 4: breaker CLOSE (line 10) | I_line=0.2999 kA, I_close=1.4308 kA
+Bus 5: breaker CLOSE (line 9) | I_line=0.2114 kA, I_close=1.4308 kA
+bus=1, idx_pp=0, in_load=True, load_idx=[0], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=2, idx_pp=2, in_load=True, load_idx=[1], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=3, idx_pp=3, in_load=True, load_idx=[2], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=4, idx_pp=6, in_load=True, load_idx=[3], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=5, idx_pp=7, in_load=True, load_idx=[4], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-04-29 00:01:29
+Load flow sukses. Voltage snapshot (pu): [1.03711548 1.05160717 1.03985572 1.0329215  1.03067258]
+Bus 1: breaker CLOSE (line 0) | I_line=0.4101 kA, I_close=0.9539 kA
+Bus 2: breaker CLOSE (line 2) | I_line=0.4098 kA, I_close=0.7949 kA
+Bus 3: breaker CLOSE (line 4) | I_line=0.1283 kA, I_close=0.7949 kA
+Bus 4: breaker CLOSE (line 10) | I_line=0.5450 kA, I_close=1.4308 kA
+Bus 5: breaker CLOSE (line 9) | I_line=0.4184 kA, I_close=1.4308 kA
+bus=1, idx_pp=0, in_load=True, load_idx=[0], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=2, idx_pp=2, in_load=True, load_idx=[1], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=3, idx_pp=3, in_load=True, load_idx=[2], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=4, idx_pp=6, in_load=True, load_idx=[3], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=5, idx_pp=7, in_load=True, load_idx=[4], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-04-29 00:01:33
+Load flow sukses. Voltage snapshot (pu): [1.04499713 1.05213146 1.03746696 1.03432166 1.03569514]
+Bus 1: breaker CLOSE (line 0) | I_line=0.2652 kA, I_close=0.9539 kA
+Bus 2: breaker CLOSE (line 2) | I_line=0.5371 kA, I_close=0.7949 kA
+Bus 3: breaker CLOSE (line 4) | I_line=0.0979 kA, I_close=0.7949 kA
+Bus 4: breaker CLOSE (line 10) | I_line=0.3308 kA, I_close=1.4308 kA
+Bus 5: breaker CLOSE (line 9) | I_line=0.2169 kA, I_close=1.4308 kA
+bus=1, idx_pp=0, in_load=True, load_idx=[0], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=2, idx_pp=2, in_load=True, load_idx=[1], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=3, idx_pp=3, in_load=True, load_idx=[2], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=4, idx_pp=6, in_load=True, load_idx=[3], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=5, idx_pp=7, in_load=True, load_idx=[4], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-04-29 00:01:37
+Load flow sukses. Voltage snapshot (pu): [1.03717586 1.05116851 1.03857407 1.03640462 1.03639266]
+Bus 1: breaker CLOSE (line 0) | I_line=0.3860 kA, I_close=0.9539 kA
+Bus 2: breaker CLOSE (line 2) | I_line=0.4380 kA, I_close=0.7949 kA
+Bus 3: breaker CLOSE (line 4) | I_line=0.0426 kA, I_close=0.7949 kA
+Bus 4: breaker CLOSE (line 10) | I_line=0.3967 kA, I_close=1.4308 kA
+Bus 5: breaker CLOSE (line 9) | I_line=0.2908 kA, I_close=1.4308 kA
+bus=1, idx_pp=0, in_load=True, load_idx=[0], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=2, idx_pp=2, in_load=True, load_idx=[1], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=3, idx_pp=3, in_load=True, load_idx=[2], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=4, idx_pp=6, in_load=True, load_idx=[3], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=5, idx_pp=7, in_load=True, load_idx=[4], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-04-29 00:01:41
+Load flow sukses. Voltage snapshot (pu): [1.03590741 1.05249054 1.04261519 1.0387657  1.03843376]
+Bus 1: breaker CLOSE (line 0) | I_line=0.4252 kA, I_close=0.9539 kA
+Bus 2: breaker CLOSE (line 2) | I_line=0.3921 kA, I_close=0.7949 kA
+Bus 3: breaker CLOSE (line 4) | I_line=0.1093 kA, I_close=0.7949 kA
+Bus 4: breaker CLOSE (line 10) | I_line=0.3329 kA, I_close=1.4308 kA
+Bus 5: breaker CLOSE (line 9) | I_line=0.2598 kA, I_close=1.4308 kA
+bus=1, idx_pp=0, in_load=True, load_idx=[0], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=2, idx_pp=2, in_load=True, load_idx=[1], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=3, idx_pp=3, in_load=True, load_idx=[2], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=4, idx_pp=6, in_load=True, load_idx=[3], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=5, idx_pp=7, in_load=True, load_idx=[4], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-04-29 00:01:45
+Load flow sukses. Voltage snapshot (pu): [1.03590741 1.05249054 1.04261519 1.0387657  1.03843376]
+Bus 1: breaker CLOSE (line 0) | I_line=0.4252 kA, I_close=0.9539 kA
+Bus 2: breaker CLOSE (line 2) | I_line=0.3921 kA, I_close=0.7949 kA
+Bus 3: breaker CLOSE (line 4) | I_line=0.1093 kA, I_close=0.7949 kA
+Bus 4: breaker CLOSE (line 10) | I_line=0.3329 kA, I_close=1.4308 kA
+Bus 5: breaker CLOSE (line 9) | I_line=0.2598 kA, I_close=1.4308 kA
+bus=1, idx_pp=0, in_load=True, load_idx=[0], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=2, idx_pp=2, in_load=True, load_idx=[1], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=3, idx_pp=3, in_load=True, load_idx=[2], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=4, idx_pp=6, in_load=True, load_idx=[3], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=5, idx_pp=7, in_load=True, load_idx=[4], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-04-29 00:01:49
+Load flow sukses. Voltage snapshot (pu): [1.03595993 1.05119436 1.03919715 1.03853518 1.03857933]
+Bus 1: breaker CLOSE (line 0) | I_line=0.4022 kA, I_close=0.9539 kA
+Bus 2: breaker CLOSE (line 2) | I_line=0.4244 kA, I_close=0.7949 kA
+Bus 3: breaker CLOSE (line 4) | I_line=0.0244 kA, I_close=0.7949 kA
+Bus 4: breaker CLOSE (line 10) | I_line=0.3489 kA, I_close=1.4308 kA
+Bus 5: breaker CLOSE (line 9) | I_line=0.2568 kA, I_close=1.4308 kA
+bus=1, idx_pp=0, in_load=True, load_idx=[0], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=2, idx_pp=2, in_load=True, load_idx=[1], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=3, idx_pp=3, in_load=True, load_idx=[2], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=4, idx_pp=6, in_load=True, load_idx=[3], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=5, idx_pp=7, in_load=True, load_idx=[4], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-04-29 00:01:53
+Load flow sukses. Voltage snapshot (pu): [1.03699026 1.05169172 1.04001674 1.03789542 1.03799793]
+Bus 1: breaker CLOSE (line 0) | I_line=0.3954 kA, I_close=0.9539 kA
+Bus 2: breaker CLOSE (line 2) | I_line=0.4259 kA, I_close=0.7949 kA
+Bus 3: breaker CLOSE (line 4) | I_line=0.0544 kA, I_close=0.7949 kA
+Bus 4: breaker CLOSE (line 10) | I_line=0.3430 kA, I_close=1.4308 kA
+Bus 5: breaker CLOSE (line 9) | I_line=0.2831 kA, I_close=1.4308 kA
+bus=1, idx_pp=0, in_load=True, load_idx=[0], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=2, idx_pp=2, in_load=True, load_idx=[1], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=3, idx_pp=3, in_load=True, load_idx=[2], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=4, idx_pp=6, in_load=True, load_idx=[3], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=5, idx_pp=7, in_load=True, load_idx=[4], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-04-29 00:01:57
+Load flow sukses. Voltage snapshot (pu): [1.03581255 1.05397994 1.04657033 1.03982414 1.03921253]
+Bus 1: breaker CLOSE (line 0) | I_line=0.4511 kA, I_close=0.9539 kA
+Bus 2: breaker CLOSE (line 2) | I_line=0.3564 kA, I_close=0.7949 kA
+Bus 3: breaker CLOSE (line 4) | I_line=0.2133 kA, I_close=0.7949 kA
+Bus 4: breaker CLOSE (line 10) | I_line=0.2722 kA, I_close=1.4308 kA
+Bus 5: breaker CLOSE (line 9) | I_line=0.2573 kA, I_close=1.4308 kA
+bus=1, idx_pp=0, in_load=True, load_idx=[0], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=2, idx_pp=2, in_load=True, load_idx=[1], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=3, idx_pp=3, in_load=True, load_idx=[2], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=4, idx_pp=6, in_load=True, load_idx=[3], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=5, idx_pp=7, in_load=True, load_idx=[4], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-04-29 00:02:01
+Load flow sukses. Voltage snapshot (pu): [1.04144747 1.05114835 1.0365067  1.03228003 1.03577952]
+Bus 1: breaker CLOSE (line 0) | I_line=0.3105 kA, I_close=0.9539 kA
+Bus 2: breaker CLOSE (line 2) | I_line=0.5043 kA, I_close=0.7949 kA
+Bus 3: breaker CLOSE (line 4) | I_line=0.0870 kA, I_close=0.7949 kA
+Bus 4: breaker CLOSE (line 10) | I_line=0.3141 kA, I_close=1.4308 kA
+Bus 5: breaker CLOSE (line 9) | I_line=0.2733 kA, I_close=1.4308 kA
+bus=1, idx_pp=0, in_load=True, load_idx=[0], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=2, idx_pp=2, in_load=True, load_idx=[1], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=3, idx_pp=3, in_load=True, load_idx=[2], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=4, idx_pp=6, in_load=True, load_idx=[3], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=5, idx_pp=7, in_load=True, load_idx=[4], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-04-29 00:02:05
+Load flow sukses. Voltage snapshot (pu): [1.04144747 1.05114835 1.0365067  1.03228003 1.03577952]
+Bus 1: breaker CLOSE (line 0) | I_line=0.3105 kA, I_close=0.9539 kA
+Bus 2: breaker CLOSE (line 2) | I_line=0.5043 kA, I_close=0.7949 kA
+Bus 3: breaker CLOSE (line 4) | I_line=0.0870 kA, I_close=0.7949 kA
+Bus 4: breaker CLOSE (line 10) | I_line=0.3141 kA, I_close=1.4308 kA
+Bus 5: breaker CLOSE (line 9) | I_line=0.2733 kA, I_close=1.4308 kA
+bus=1, idx_pp=0, in_load=True, load_idx=[0], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=2, idx_pp=2, in_load=True, load_idx=[1], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=3, idx_pp=3, in_load=True, load_idx=[2], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=4, idx_pp=6, in_load=True, load_idx=[3], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=5, idx_pp=7, in_load=True, load_idx=[4], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-04-29 00:02:10
+Load flow sukses. Voltage snapshot (pu): [1.03119221 1.05267798 1.04556358 1.03962856 1.03825246]
+Bus 1: breaker CLOSE (line 0) | I_line=0.5127 kA, I_close=0.9539 kA
+Bus 2: breaker CLOSE (line 2) | I_line=0.3111 kA, I_close=0.7949 kA
+Bus 3: breaker CLOSE (line 4) | I_line=0.1535 kA, I_close=0.7949 kA
+Bus 4: breaker CLOSE (line 10) | I_line=0.3530 kA, I_close=1.4308 kA
+Bus 5: breaker CLOSE (line 9) | I_line=0.3599 kA, I_close=1.4308 kA
+bus=1, idx_pp=0, in_load=True, load_idx=[0], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=2, idx_pp=2, in_load=True, load_idx=[1], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=3, idx_pp=3, in_load=True, load_idx=[2], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=4, idx_pp=6, in_load=True, load_idx=[3], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=5, idx_pp=7, in_load=True, load_idx=[4], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-04-29 00:02:14
+Load flow sukses. Voltage snapshot (pu): [1.03334131 1.05100145 1.03996635 1.03181431 1.03427598]
+Bus 1: breaker CLOSE (line 0) | I_line=0.4469 kA, I_close=0.9539 kA
+Bus 2: breaker CLOSE (line 2) | I_line=0.3812 kA, I_close=0.7949 kA
+Bus 3: breaker CLOSE (line 4) | I_line=0.1474 kA, I_close=0.7949 kA
+Bus 4: breaker CLOSE (line 10) | I_line=0.4222 kA, I_close=1.4308 kA
+Bus 5: breaker CLOSE (line 9) | I_line=0.2907 kA, I_close=1.4308 kA
+bus=1, idx_pp=0, in_load=True, load_idx=[0], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=2, idx_pp=2, in_load=True, load_idx=[1], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=3, idx_pp=3, in_load=True, load_idx=[2], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=4, idx_pp=6, in_load=True, load_idx=[3], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=5, idx_pp=7, in_load=True, load_idx=[4], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-04-29 00:02:18
+Load flow sukses. Voltage snapshot (pu): [1.03614058 1.05004742 1.0362502  1.02934568 1.02858112]
+Bus 1: breaker CLOSE (line 0) | I_line=0.4024 kA, I_close=0.9539 kA
+Bus 2: breaker CLOSE (line 2) | I_line=0.4291 kA, I_close=0.7949 kA
+Bus 3: breaker CLOSE (line 4) | I_line=0.0898 kA, I_close=0.7949 kA
+Bus 4: breaker CLOSE (line 10) | I_line=0.5753 kA, I_close=1.4308 kA
+Bus 5: breaker CLOSE (line 9) | I_line=0.4353 kA, I_close=1.4308 kA
+bus=1, idx_pp=0, in_load=True, load_idx=[0], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=2, idx_pp=2, in_load=True, load_idx=[1], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=3, idx_pp=3, in_load=True, load_idx=[2], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=4, idx_pp=6, in_load=True, load_idx=[3], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=5, idx_pp=7, in_load=True, load_idx=[4], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-04-29 00:02:22
+Load flow sukses. Voltage snapshot (pu): [1.04334916 1.05348294 1.04170593 1.0385679  1.03778572]
+Bus 1: breaker CLOSE (line 0) | I_line=0.3180 kA, I_close=0.9539 kA
+Bus 2: breaker CLOSE (line 2) | I_line=0.4806 kA, I_close=0.7949 kA
+Bus 3: breaker CLOSE (line 4) | I_line=0.1312 kA, I_close=0.7949 kA
+Bus 4: breaker CLOSE (line 10) | I_line=0.2745 kA, I_close=1.4308 kA
+Bus 5: breaker CLOSE (line 9) | I_line=0.2582 kA, I_close=1.4308 kA
+bus=1, idx_pp=0, in_load=True, load_idx=[0], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=2, idx_pp=2, in_load=True, load_idx=[1], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=3, idx_pp=3, in_load=True, load_idx=[2], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=4, idx_pp=6, in_load=True, load_idx=[3], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=5, idx_pp=7, in_load=True, load_idx=[4], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-04-29 00:02:26
+Load flow sukses. Voltage snapshot (pu): [1.04334916 1.05348294 1.04170593 1.0385679  1.03778572]
+Bus 1: breaker CLOSE (line 0) | I_line=0.3180 kA, I_close=0.9539 kA
+Bus 2: breaker CLOSE (line 2) | I_line=0.4806 kA, I_close=0.7949 kA
+Bus 3: breaker CLOSE (line 4) | I_line=0.1312 kA, I_close=0.7949 kA
+Bus 4: breaker CLOSE (line 10) | I_line=0.2745 kA, I_close=1.4308 kA
+Bus 5: breaker CLOSE (line 9) | I_line=0.2582 kA, I_close=1.4308 kA
+bus=1, idx_pp=0, in_load=True, load_idx=[0], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=2, idx_pp=2, in_load=True, load_idx=[1], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=3, idx_pp=3, in_load=True, load_idx=[2], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=4, idx_pp=6, in_load=True, load_idx=[3], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=5, idx_pp=7, in_load=True, load_idx=[4], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-04-29 00:02:30
+Load flow sukses. Voltage snapshot (pu): [1.03662003 1.05044273 1.03687935 1.03401714 1.03737548]
+Bus 1: breaker CLOSE (line 0) | I_line=0.3761 kA, I_close=0.9539 kA
+Bus 2: breaker CLOSE (line 2) | I_line=0.4523 kA, I_close=0.7949 kA
+Bus 3: breaker CLOSE (line 4) | I_line=0.0458 kA, I_close=0.7949 kA
+Bus 4: breaker CLOSE (line 10) | I_line=0.3282 kA, I_close=1.4308 kA
+Bus 5: breaker CLOSE (line 9) | I_line=0.2413 kA, I_close=1.4308 kA
+bus=1, idx_pp=0, in_load=True, load_idx=[0], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=2, idx_pp=2, in_load=True, load_idx=[1], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=3, idx_pp=3, in_load=True, load_idx=[2], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=4, idx_pp=6, in_load=True, load_idx=[3], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=5, idx_pp=7, in_load=True, load_idx=[4], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-04-29 00:02:34
+Load flow sukses. Voltage snapshot (pu): [1.03377898 1.05090842 1.03954528 1.03147352 1.0338894 ]
+Bus 1: breaker CLOSE (line 0) | I_line=0.4419 kA, I_close=0.9539 kA
+Bus 2: breaker CLOSE (line 2) | I_line=0.3866 kA, I_close=0.7949 kA
+Bus 3: breaker CLOSE (line 4) | I_line=0.1416 kA, I_close=0.7949 kA
+Bus 4: breaker CLOSE (line 10) | I_line=0.4101 kA, I_close=1.4308 kA
+Bus 5: breaker CLOSE (line 9) | I_line=0.3471 kA, I_close=1.4308 kA
+bus=1, idx_pp=0, in_load=True, load_idx=[0], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=2, idx_pp=2, in_load=True, load_idx=[1], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=3, idx_pp=3, in_load=True, load_idx=[2], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=4, idx_pp=6, in_load=True, load_idx=[3], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=5, idx_pp=7, in_load=True, load_idx=[4], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-04-29 00:02:38
+Load flow sukses. Voltage snapshot (pu): [1.03195409 1.05211047 1.04359746 1.03511603 1.03560395]
+Bus 1: breaker CLOSE (line 0) | I_line=0.4877 kA, I_close=0.9539 kA
+Bus 2: breaker CLOSE (line 2) | I_line=0.3357 kA, I_close=0.7949 kA
+Bus 3: breaker CLOSE (line 4) | I_line=0.1861 kA, I_close=0.7949 kA
+Bus 4: breaker CLOSE (line 10) | I_line=0.4243 kA, I_close=1.4308 kA
+Bus 5: breaker CLOSE (line 9) | I_line=0.2795 kA, I_close=1.4308 kA
+bus=1, idx_pp=0, in_load=True, load_idx=[0], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=2, idx_pp=2, in_load=True, load_idx=[1], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=3, idx_pp=3, in_load=True, load_idx=[2], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=4, idx_pp=6, in_load=True, load_idx=[3], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=5, idx_pp=7, in_load=True, load_idx=[4], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-04-29 00:02:42
+Load flow sukses. Voltage snapshot (pu): [1.04117306 1.05177185 1.03829757 1.03643256 1.03580765]
+Bus 1: breaker CLOSE (line 0) | I_line=0.3312 kA, I_close=0.9539 kA
+Bus 2: breaker CLOSE (line 2) | I_line=0.4823 kA, I_close=0.7949 kA
+Bus 3: breaker CLOSE (line 4) | I_line=0.0516 kA, I_close=0.7949 kA
+Bus 4: breaker CLOSE (line 10) | I_line=0.3808 kA, I_close=1.4308 kA
+Bus 5: breaker CLOSE (line 9) | I_line=0.3076 kA, I_close=1.4308 kA
+bus=1, idx_pp=0, in_load=True, load_idx=[0], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=2, idx_pp=2, in_load=True, load_idx=[1], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=3, idx_pp=3, in_load=True, load_idx=[2], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=4, idx_pp=6, in_load=True, load_idx=[3], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=5, idx_pp=7, in_load=True, load_idx=[4], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-04-29 00:02:46
+Load flow sukses. Voltage snapshot (pu): [1.04345869 1.05440738 1.04395624 1.03610819 1.03890771]
+Bus 1: breaker CLOSE (line 0) | I_line=0.3222 kA, I_close=0.9539 kA
+Bus 2: breaker CLOSE (line 2) | I_line=0.4675 kA, I_close=0.7949 kA
+Bus 3: breaker CLOSE (line 4) | I_line=0.2628 kA, I_close=0.7949 kA
+Bus 4: breaker CLOSE (line 10) | I_line=0.1778 kA, I_close=1.4308 kA
+Bus 5: breaker CLOSE (line 9) | I_line=0.1628 kA, I_close=1.4308 kA
+bus=1, idx_pp=0, in_load=True, load_idx=[0], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=2, idx_pp=2, in_load=True, load_idx=[1], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=3, idx_pp=3, in_load=True, load_idx=[2], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=4, idx_pp=6, in_load=True, load_idx=[3], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=5, idx_pp=7, in_load=True, load_idx=[4], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-04-29 00:02:50
+Load flow sukses. Voltage snapshot (pu): [1.04345869 1.05440738 1.04395624 1.03610819 1.03890771]
+Bus 1: breaker CLOSE (line 0) | I_line=0.3222 kA, I_close=0.9539 kA
+Bus 2: breaker CLOSE (line 2) | I_line=0.4675 kA, I_close=0.7949 kA
+Bus 3: breaker CLOSE (line 4) | I_line=0.2628 kA, I_close=0.7949 kA
+Bus 4: breaker CLOSE (line 10) | I_line=0.1778 kA, I_close=1.4308 kA
+Bus 5: breaker CLOSE (line 9) | I_line=0.1628 kA, I_close=1.4308 kA
+bus=1, idx_pp=0, in_load=True, load_idx=[0], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=2, idx_pp=2, in_load=True, load_idx=[1], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=3, idx_pp=3, in_load=True, load_idx=[2], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=4, idx_pp=6, in_load=True, load_idx=[3], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=5, idx_pp=7, in_load=True, load_idx=[4], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-04-29 00:02:54
+Load flow sukses. Voltage snapshot (pu): [1.03388277 1.05262824 1.04400228 1.03748274 1.0381385 ]
+Bus 1: breaker CLOSE (line 0) | I_line=0.4637 kA, I_close=0.9539 kA
+Bus 2: breaker CLOSE (line 2) | I_line=0.3552 kA, I_close=0.7949 kA
 Bus 3: breaker CLOSE (line 4) | I_line=0.1654 kA, I_close=0.7949 kA
-Bus 4: breaker CLOSE (line 6) | I_line=0.1062 kA, I_close=0.9539 kA
-Bus 5: breaker CLOSE (line 8) | I_line=0.5073 kA, I_close=1.9078 kA
+Bus 4: breaker CLOSE (line 10) | I_line=0.3201 kA, I_close=1.4308 kA
+Bus 5: breaker CLOSE (line 9) | I_line=0.3161 kA, I_close=1.4308 kA
 bus=1, idx_pp=0, in_load=True, load_idx=[0], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
-bus=2, idx_pp=1, in_load=False, load_idx=[], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
-bus=3, idx_pp=2, in_load=True, load_idx=[1], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
-bus=4, idx_pp=3, in_load=True, load_idx=[2], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
-bus=5, idx_pp=4, in_load=False, load_idx=[], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=2, idx_pp=2, in_load=True, load_idx=[1], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=3, idx_pp=3, in_load=True, load_idx=[2], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=4, idx_pp=6, in_load=True, load_idx=[3], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=5, idx_pp=7, in_load=True, load_idx=[4], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
 numba cannot be imported and numba functions are disabled.
 Probably the execution is slow.
 Please install numba to gain a massive speedup.
 (or if you prefer slow execution, set the flag numba=False to avoid this warning!)
 
- 2026-04-28 23:49:58
-Load flow sukses. Voltage snapshot (pu): [1.03391893 1.05098631 1.04004059 1.02848449 1.02194044]
-Bus 1: breaker CLOSE (line 0) | I_line=0.4756 kA, I_close=0.9539 kA
-Bus 2: breaker CLOSE (line 2) | I_line=0.3541 kA, I_close=0.7949 kA
-Bus 3: breaker CLOSE (line 4) | I_line=0.1564 kA, I_close=0.7949 kA
-Bus 4: breaker CLOSE (line 6) | I_line=0.2610 kA, I_close=0.9539 kA
-Bus 5: breaker CLOSE (line 8) | I_line=0.3691 kA, I_close=1.9078 kA
+ 2026-04-29 00:02:58
+Load flow sukses. Voltage snapshot (pu): [1.03702701 1.05167091 1.04007607 1.03435627 1.03140943]
+Bus 1: breaker CLOSE (line 0) | I_line=0.4127 kA, I_close=0.9539 kA
+Bus 2: breaker CLOSE (line 2) | I_line=0.4078 kA, I_close=0.7949 kA
+Bus 3: breaker CLOSE (line 4) | I_line=0.1067 kA, I_close=0.7949 kA
+Bus 4: breaker CLOSE (line 10) | I_line=0.5384 kA, I_close=1.4308 kA
+Bus 5: breaker CLOSE (line 9) | I_line=0.4240 kA, I_close=1.4308 kA
 bus=1, idx_pp=0, in_load=True, load_idx=[0], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
-bus=2, idx_pp=1, in_load=False, load_idx=[], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
-bus=3, idx_pp=2, in_load=True, load_idx=[1], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
-bus=4, idx_pp=3, in_load=True, load_idx=[2], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
-bus=5, idx_pp=4, in_load=False, load_idx=[], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=2, idx_pp=2, in_load=True, load_idx=[1], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=3, idx_pp=3, in_load=True, load_idx=[2], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=4, idx_pp=6, in_load=True, load_idx=[3], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=5, idx_pp=7, in_load=True, load_idx=[4], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
 numba cannot be imported and numba functions are disabled.
 Probably the execution is slow.
 Please install numba to gain a massive speedup.
 (or if you prefer slow execution, set the flag numba=False to avoid this warning!)
 
- 2026-04-28 23:50:02
-Load flow sukses. Voltage snapshot (pu): [1.03391893 1.05098631 1.04004059 1.02848449 1.02194044]
-Bus 1: breaker CLOSE (line 0) | I_line=0.4756 kA, I_close=0.9539 kA
-Bus 2: breaker CLOSE (line 2) | I_line=0.3541 kA, I_close=0.7949 kA
-Bus 3: breaker CLOSE (line 4) | I_line=0.1564 kA, I_close=0.7949 kA
-Bus 4: breaker CLOSE (line 6) | I_line=0.2610 kA, I_close=0.9539 kA
-Bus 5: breaker CLOSE (line 8) | I_line=0.3691 kA, I_close=1.9078 kA
+ 2026-04-29 00:03:02
+Load flow sukses. Voltage snapshot (pu): [1.04279501 1.05383562 1.04290961 1.03113093 1.03082312]
+Bus 1: breaker CLOSE (line 0) | I_line=0.3472 kA, I_close=0.9539 kA
+Bus 2: breaker CLOSE (line 2) | I_line=0.4458 kA, I_close=0.7949 kA
+Bus 3: breaker CLOSE (line 4) | I_line=0.2999 kA, I_close=0.7949 kA
+Bus 4: breaker CLOSE (line 10) | I_line=0.4438 kA, I_close=1.4308 kA
+Bus 5: breaker CLOSE (line 9) | I_line=0.3582 kA, I_close=1.4308 kA
 bus=1, idx_pp=0, in_load=True, load_idx=[0], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
-bus=2, idx_pp=1, in_load=False, load_idx=[], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
-bus=3, idx_pp=2, in_load=True, load_idx=[1], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
-bus=4, idx_pp=3, in_load=True, load_idx=[2], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
-bus=5, idx_pp=4, in_load=False, load_idx=[], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=2, idx_pp=2, in_load=True, load_idx=[1], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=3, idx_pp=3, in_load=True, load_idx=[2], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=4, idx_pp=6, in_load=True, load_idx=[3], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=5, idx_pp=7, in_load=True, load_idx=[4], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
 numba cannot be imported and numba functions are disabled.
 Probably the execution is slow.
 Please install numba to gain a massive speedup.
 (or if you prefer slow execution, set the flag numba=False to avoid this warning!)
 
- 2026-04-28 23:50:06
-Load flow sukses. Voltage snapshot (pu): [1.03294604 1.04884498 1.03488802 1.02069628 1.01712882]
-Bus 1: breaker CLOSE (line 0) | I_line=0.4600 kA, I_close=0.9539 kA
-Bus 2: breaker CLOSE (line 2) | I_line=0.3847 kA, I_close=0.7949 kA
-Bus 3: breaker CLOSE (line 4) | I_line=0.1469 kA, I_close=0.7949 kA
-Bus 4: breaker CLOSE (line 6) | I_line=0.0746 kA, I_close=0.9539 kA
-Bus 5: breaker CLOSE (line 8) | I_line=0.5667 kA, I_close=1.9078 kA
+ 2026-04-29 00:03:06
+Load flow sukses. Voltage snapshot (pu): [1.02900648 1.0474686  1.03301944 1.02621543 1.02634374]
+Bus 1: breaker CLOSE (line 0) | I_line=0.4806 kA, I_close=0.9539 kA
+Bus 2: breaker CLOSE (line 2) | I_line=0.3811 kA, I_close=0.7949 kA
+Bus 3: breaker CLOSE (line 4) | I_line=0.0812 kA, I_close=0.7949 kA
+Bus 4: breaker CLOSE (line 10) | I_line=0.6331 kA, I_close=1.4308 kA
+Bus 5: breaker CLOSE (line 9) | I_line=0.4580 kA, I_close=1.4308 kA
 bus=1, idx_pp=0, in_load=True, load_idx=[0], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
-bus=2, idx_pp=1, in_load=False, load_idx=[], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
-bus=3, idx_pp=2, in_load=True, load_idx=[1], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
-bus=4, idx_pp=3, in_load=True, load_idx=[2], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
-bus=5, idx_pp=4, in_load=False, load_idx=[], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=2, idx_pp=2, in_load=True, load_idx=[1], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=3, idx_pp=3, in_load=True, load_idx=[2], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=4, idx_pp=6, in_load=True, load_idx=[3], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=5, idx_pp=7, in_load=True, load_idx=[4], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
 numba cannot be imported and numba functions are disabled.
 Probably the execution is slow.
 Please install numba to gain a massive speedup.
 (or if you prefer slow execution, set the flag numba=False to avoid this warning!)
 
- 2026-04-28 23:50:10
-Load flow sukses. Voltage snapshot (pu): [1.04463724 1.0532154  1.0406377  1.02672395 1.02087976]
-Bus 1: breaker CLOSE (line 0) | I_line=0.3316 kA, I_close=0.9539 kA
-Bus 2: breaker CLOSE (line 2) | I_line=0.4628 kA, I_close=0.7949 kA
-Bus 3: breaker CLOSE (line 4) | I_line=0.2734 kA, I_close=0.7949 kA
-Bus 4: breaker CLOSE (line 6) | I_line=0.3205 kA, I_close=0.9539 kA
-Bus 5: breaker CLOSE (line 8) | I_line=0.2498 kA, I_close=1.9078 kA
+ 2026-04-29 00:03:10
+Load flow sukses. Voltage snapshot (pu): [1.02900648 1.0474686  1.03301944 1.02621543 1.02634374]
+Bus 1: breaker CLOSE (line 0) | I_line=0.4806 kA, I_close=0.9539 kA
+Bus 2: breaker CLOSE (line 2) | I_line=0.3811 kA, I_close=0.7949 kA
+Bus 3: breaker CLOSE (line 4) | I_line=0.0812 kA, I_close=0.7949 kA
+Bus 4: breaker CLOSE (line 10) | I_line=0.6331 kA, I_close=1.4308 kA
+Bus 5: breaker CLOSE (line 9) | I_line=0.4580 kA, I_close=1.4308 kA
 bus=1, idx_pp=0, in_load=True, load_idx=[0], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
-bus=2, idx_pp=1, in_load=False, load_idx=[], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
-bus=3, idx_pp=2, in_load=True, load_idx=[1], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
-bus=4, idx_pp=3, in_load=True, load_idx=[2], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
-bus=5, idx_pp=4, in_load=False, load_idx=[], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=2, idx_pp=2, in_load=True, load_idx=[1], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=3, idx_pp=3, in_load=True, load_idx=[2], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=4, idx_pp=6, in_load=True, load_idx=[3], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=5, idx_pp=7, in_load=True, load_idx=[4], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
 numba cannot be imported and numba functions are disabled.
 Probably the execution is slow.
 Please install numba to gain a massive speedup.
 (or if you prefer slow execution, set the flag numba=False to avoid this warning!)
 
- 2026-04-28 23:50:14
-Load flow sukses. Voltage snapshot (pu): [1.04158275 1.05040148 1.03475804 1.01989763 1.01711994]
-Bus 1: breaker CLOSE (line 0) | I_line=0.3378 kA, I_close=0.9539 kA
-Bus 2: breaker CLOSE (line 2) | I_line=0.4799 kA, I_close=0.7949 kA
-Bus 3: breaker CLOSE (line 4) | I_line=0.1921 kA, I_close=0.7949 kA
-Bus 4: breaker CLOSE (line 6) | I_line=0.0906 kA, I_close=0.9539 kA
-Bus 5: breaker CLOSE (line 8) | I_line=0.4949 kA, I_close=1.9078 kA
+ 2026-04-29 00:03:14
+Load flow sukses. Voltage snapshot (pu): [1.04214628 1.05407326 1.0437696  1.03315122 1.03362467]
+Bus 1: breaker CLOSE (line 0) | I_line=0.3530 kA, I_close=0.9539 kA
+Bus 2: breaker CLOSE (line 2) | I_line=0.4398 kA, I_close=0.7949 kA
+Bus 3: breaker CLOSE (line 4) | I_line=0.2910 kA, I_close=0.7949 kA
+Bus 4: breaker CLOSE (line 10) | I_line=0.3766 kA, I_close=1.4308 kA
+Bus 5: breaker CLOSE (line 9) | I_line=0.2640 kA, I_close=1.4308 kA
 bus=1, idx_pp=0, in_load=True, load_idx=[0], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
-bus=2, idx_pp=1, in_load=False, load_idx=[], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
-bus=3, idx_pp=2, in_load=True, load_idx=[1], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
-bus=4, idx_pp=3, in_load=True, load_idx=[2], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
-bus=5, idx_pp=4, in_load=False, load_idx=[], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=2, idx_pp=2, in_load=True, load_idx=[1], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=3, idx_pp=3, in_load=True, load_idx=[2], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=4, idx_pp=6, in_load=True, load_idx=[3], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=5, idx_pp=7, in_load=True, load_idx=[4], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
 numba cannot be imported and numba functions are disabled.
 Probably the execution is slow.
 Please install numba to gain a massive speedup.
 (or if you prefer slow execution, set the flag numba=False to avoid this warning!)
 
- 2026-04-28 23:50:18
-Load flow sukses. Voltage snapshot (pu): [1.03477649 1.04988144 1.03670363 1.02763561 1.02148296]
-Bus 1: breaker CLOSE (line 0) | I_line=0.4393 kA, I_close=0.9539 kA
-Bus 2: breaker CLOSE (line 2) | I_line=0.3985 kA, I_close=0.7949 kA
-Bus 3: breaker CLOSE (line 4) | I_line=0.0906 kA, I_close=0.7949 kA
-Bus 4: breaker CLOSE (line 6) | I_line=0.1918 kA, I_close=0.9539 kA
-Bus 5: breaker CLOSE (line 8) | I_line=0.4429 kA, I_close=1.9078 kA
+ 2026-04-29 00:03:18
+Load flow sukses. Voltage snapshot (pu): [1.04296953 1.05437079 1.04411826 1.03527605 1.03707923]
+Bus 1: breaker CLOSE (line 0) | I_line=0.3357 kA, I_close=0.9539 kA
+Bus 2: breaker CLOSE (line 2) | I_line=0.4548 kA, I_close=0.7949 kA
+Bus 3: breaker CLOSE (line 4) | I_line=0.2748 kA, I_close=0.7949 kA
+Bus 4: breaker CLOSE (line 10) | I_line=0.2478 kA, I_close=1.4308 kA
+Bus 5: breaker CLOSE (line 9) | I_line=0.2100 kA, I_close=1.4308 kA
 bus=1, idx_pp=0, in_load=True, load_idx=[0], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
-bus=2, idx_pp=1, in_load=False, load_idx=[], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
-bus=3, idx_pp=2, in_load=True, load_idx=[1], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
-bus=4, idx_pp=3, in_load=True, load_idx=[2], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
-bus=5, idx_pp=4, in_load=False, load_idx=[], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=2, idx_pp=2, in_load=True, load_idx=[1], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=3, idx_pp=3, in_load=True, load_idx=[2], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=4, idx_pp=6, in_load=True, load_idx=[3], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=5, idx_pp=7, in_load=True, load_idx=[4], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
 numba cannot be imported and numba functions are disabled.
 Probably the execution is slow.
 Please install numba to gain a massive speedup.
 (or if you prefer slow execution, set the flag numba=False to avoid this warning!)
 
- 2026-04-28 23:50:22
-Load flow sukses. Voltage snapshot (pu): [1.03477649 1.04988144 1.03670363 1.02763561 1.02148296]
-Bus 1: breaker CLOSE (line 0) | I_line=0.4393 kA, I_close=0.9539 kA
-Bus 2: breaker CLOSE (line 2) | I_line=0.3985 kA, I_close=0.7949 kA
-Bus 3: breaker CLOSE (line 4) | I_line=0.0906 kA, I_close=0.7949 kA
-Bus 4: breaker CLOSE (line 6) | I_line=0.1918 kA, I_close=0.9539 kA
-Bus 5: breaker CLOSE (line 8) | I_line=0.4429 kA, I_close=1.9078 kA
+ 2026-04-29 00:03:22
+Load flow sukses. Voltage snapshot (pu): [1.03811119 1.05453647 1.04690595 1.04049563 1.03897323]
+Bus 1: breaker CLOSE (line 0) | I_line=0.4230 kA, I_close=0.9539 kA
+Bus 2: breaker CLOSE (line 2) | I_line=0.3777 kA, I_close=0.7949 kA
+Bus 3: breaker CLOSE (line 4) | I_line=0.2233 kA, I_close=0.7949 kA
+Bus 4: breaker CLOSE (line 10) | I_line=0.2545 kA, I_close=1.4308 kA
+Bus 5: breaker CLOSE (line 9) | I_line=0.2483 kA, I_close=1.4308 kA
 bus=1, idx_pp=0, in_load=True, load_idx=[0], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
-bus=2, idx_pp=1, in_load=False, load_idx=[], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
-bus=3, idx_pp=2, in_load=True, load_idx=[1], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
-bus=4, idx_pp=3, in_load=True, load_idx=[2], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
-bus=5, idx_pp=4, in_load=False, load_idx=[], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=2, idx_pp=2, in_load=True, load_idx=[1], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=3, idx_pp=3, in_load=True, load_idx=[2], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=4, idx_pp=6, in_load=True, load_idx=[3], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=5, idx_pp=7, in_load=True, load_idx=[4], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
 numba cannot be imported and numba functions are disabled.
 Probably the execution is slow.
 Please install numba to gain a massive speedup.
 (or if you prefer slow execution, set the flag numba=False to avoid this warning!)
 
- 2026-04-28 23:50:26
-Load flow sukses. Voltage snapshot (pu): [1.02931478 1.04885045 1.03677782 1.02314146 1.01849936]
-Bus 1: breaker CLOSE (line 0) | I_line=0.5206 kA, I_close=0.9539 kA
-Bus 2: breaker CLOSE (line 2) | I_line=0.3304 kA, I_close=0.7949 kA
-Bus 3: breaker CLOSE (line 4) | I_line=0.1440 kA, I_close=0.7949 kA
-Bus 4: breaker CLOSE (line 6) | I_line=0.1201 kA, I_close=0.9539 kA
-Bus 5: breaker CLOSE (line 8) | I_line=0.5343 kA, I_close=1.9078 kA
+ 2026-04-29 00:03:27
+Load flow sukses. Voltage snapshot (pu): [1.03811119 1.05453647 1.04690595 1.04049563 1.03897323]
+Bus 1: breaker CLOSE (line 0) | I_line=0.4230 kA, I_close=0.9539 kA
+Bus 2: breaker CLOSE (line 2) | I_line=0.3777 kA, I_close=0.7949 kA
+Bus 3: breaker CLOSE (line 4) | I_line=0.2233 kA, I_close=0.7949 kA
+Bus 4: breaker CLOSE (line 10) | I_line=0.2545 kA, I_close=1.4308 kA
+Bus 5: breaker CLOSE (line 9) | I_line=0.2483 kA, I_close=1.4308 kA
 bus=1, idx_pp=0, in_load=True, load_idx=[0], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
-bus=2, idx_pp=1, in_load=False, load_idx=[], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
-bus=3, idx_pp=2, in_load=True, load_idx=[1], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
-bus=4, idx_pp=3, in_load=True, load_idx=[2], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
-bus=5, idx_pp=4, in_load=False, load_idx=[], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=2, idx_pp=2, in_load=True, load_idx=[1], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=3, idx_pp=3, in_load=True, load_idx=[2], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=4, idx_pp=6, in_load=True, load_idx=[3], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=5, idx_pp=7, in_load=True, load_idx=[4], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
 numba cannot be imported and numba functions are disabled.
 Probably the execution is slow.
 Please install numba to gain a massive speedup.
 (or if you prefer slow execution, set the flag numba=False to avoid this warning!)
 
- 2026-04-28 23:50:30
-Load flow sukses. Voltage snapshot (pu): [1.04104965 1.05205141 1.03929156 1.02409068 1.01953556]
-Bus 1: breaker CLOSE (line 0) | I_line=0.3759 kA, I_close=0.9539 kA
-Bus 2: breaker CLOSE (line 2) | I_line=0.4316 kA, I_close=0.7949 kA
-Bus 3: breaker CLOSE (line 4) | I_line=0.2588 kA, I_close=0.7949 kA
-Bus 4: breaker CLOSE (line 6) | I_line=0.2294 kA, I_close=0.9539 kA
-Bus 5: breaker CLOSE (line 8) | I_line=0.3556 kA, I_close=1.9078 kA
+ 2026-04-29 00:03:31
+Load flow sukses. Voltage snapshot (pu): [1.04086996 1.05226711 1.03975731 1.0318213  1.03093947]
+Bus 1: breaker CLOSE (line 0) | I_line=0.3547 kA, I_close=0.9539 kA
+Bus 2: breaker CLOSE (line 2) | I_line=0.4535 kA, I_close=0.7949 kA
+Bus 3: breaker CLOSE (line 4) | I_line=0.1725 kA, I_close=0.7949 kA
+Bus 4: breaker CLOSE (line 10) | I_line=0.4873 kA, I_close=1.4308 kA
+Bus 5: breaker CLOSE (line 9) | I_line=0.3853 kA, I_close=1.4308 kA
 bus=1, idx_pp=0, in_load=True, load_idx=[0], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
-bus=2, idx_pp=1, in_load=False, load_idx=[], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
-bus=3, idx_pp=2, in_load=True, load_idx=[1], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
-bus=4, idx_pp=3, in_load=True, load_idx=[2], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
-bus=5, idx_pp=4, in_load=False, load_idx=[], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=2, idx_pp=2, in_load=True, load_idx=[1], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=3, idx_pp=3, in_load=True, load_idx=[2], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=4, idx_pp=6, in_load=True, load_idx=[3], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=5, idx_pp=7, in_load=True, load_idx=[4], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
 numba cannot be imported and numba functions are disabled.
 Probably the execution is slow.
 Please install numba to gain a massive speedup.
 (or if you prefer slow execution, set the flag numba=False to avoid this warning!)
 
- 2026-04-28 23:50:34
-Load flow sukses. Voltage snapshot (pu): [1.0348749  1.05010799 1.03723565 1.02292309 1.01869707]
-Bus 1: breaker CLOSE (line 0) | I_line=0.4482 kA, I_close=0.9539 kA
-Bus 2: breaker CLOSE (line 2) | I_line=0.3840 kA, I_close=0.7949 kA
-Bus 3: breaker CLOSE (line 4) | I_line=0.1802 kA, I_close=0.7949 kA
-Bus 4: breaker CLOSE (line 6) | I_line=0.1413 kA, I_close=0.9539 kA
-Bus 5: breaker CLOSE (line 8) | I_line=0.4794 kA, I_close=1.9078 kA
+ 2026-04-29 00:03:35
+Load flow sukses. Voltage snapshot (pu): [1.03443755 1.05152051 1.04087319 1.03807916 1.03686372]
+Bus 1: breaker CLOSE (line 0) | I_line=0.4416 kA, I_close=0.9539 kA
+Bus 2: breaker CLOSE (line 2) | I_line=0.3854 kA, I_close=0.7949 kA
+Bus 3: breaker CLOSE (line 4) | I_line=0.0577 kA, I_close=0.7949 kA
+Bus 4: breaker CLOSE (line 10) | I_line=0.3975 kA, I_close=1.4308 kA
+Bus 5: breaker CLOSE (line 9) | I_line=0.3583 kA, I_close=1.4308 kA
 bus=1, idx_pp=0, in_load=True, load_idx=[0], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
-bus=2, idx_pp=1, in_load=False, load_idx=[], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
-bus=3, idx_pp=2, in_load=True, load_idx=[1], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
-bus=4, idx_pp=3, in_load=True, load_idx=[2], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
-bus=5, idx_pp=4, in_load=False, load_idx=[], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=2, idx_pp=2, in_load=True, load_idx=[1], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=3, idx_pp=3, in_load=True, load_idx=[2], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=4, idx_pp=6, in_load=True, load_idx=[3], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=5, idx_pp=7, in_load=True, load_idx=[4], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
 numba cannot be imported and numba functions are disabled.
 Probably the execution is slow.
 Please install numba to gain a massive speedup.
 (or if you prefer slow execution, set the flag numba=False to avoid this warning!)
 
- 2026-04-28 23:50:38
-Load flow sukses. Voltage snapshot (pu): [1.03317295 1.04903003 1.03526314 1.02278915 1.01843938]
-Bus 1: breaker CLOSE (line 0) | I_line=0.4569 kA, I_close=0.9539 kA
-Bus 2: breaker CLOSE (line 2) | I_line=0.3873 kA, I_close=0.7949 kA
-Bus 3: breaker CLOSE (line 4) | I_line=0.1240 kA, I_close=0.7949 kA
-Bus 4: breaker CLOSE (line 6) | I_line=0.1036 kA, I_close=0.9539 kA
-Bus 5: breaker CLOSE (line 8) | I_line=0.5367 kA, I_close=1.9078 kA
+ 2026-04-29 00:03:39
+Load flow sukses. Voltage snapshot (pu): [1.04157304 1.05371487 1.04314103 1.03710567 1.03598605]
+Bus 1: breaker CLOSE (line 0) | I_line=0.3567 kA, I_close=0.9539 kA
+Bus 2: breaker CLOSE (line 2) | I_line=0.4425 kA, I_close=0.7949 kA
+Bus 3: breaker CLOSE (line 4) | I_line=0.1879 kA, I_close=0.7949 kA
+Bus 4: breaker CLOSE (line 10) | I_line=0.3393 kA, I_close=1.4308 kA
+Bus 5: breaker CLOSE (line 9) | I_line=0.2979 kA, I_close=1.4308 kA
 bus=1, idx_pp=0, in_load=True, load_idx=[0], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
-bus=2, idx_pp=1, in_load=False, load_idx=[], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
-bus=3, idx_pp=2, in_load=True, load_idx=[1], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
-bus=4, idx_pp=3, in_load=True, load_idx=[2], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
-bus=5, idx_pp=4, in_load=False, load_idx=[], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=2, idx_pp=2, in_load=True, load_idx=[1], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=3, idx_pp=3, in_load=True, load_idx=[2], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=4, idx_pp=6, in_load=True, load_idx=[3], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=5, idx_pp=7, in_load=True, load_idx=[4], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
 numba cannot be imported and numba functions are disabled.
 Probably the execution is slow.
 Please install numba to gain a massive speedup.
 (or if you prefer slow execution, set the flag numba=False to avoid this warning!)
 
- 2026-04-28 23:50:42
-Load flow sukses. Voltage snapshot (pu): [1.03317295 1.04903003 1.03526314 1.02278915 1.01843938]
-Bus 1: breaker CLOSE (line 0) | I_line=0.4569 kA, I_close=0.9539 kA
-Bus 2: breaker CLOSE (line 2) | I_line=0.3873 kA, I_close=0.7949 kA
-Bus 3: breaker CLOSE (line 4) | I_line=0.1240 kA, I_close=0.7949 kA
-Bus 4: breaker CLOSE (line 6) | I_line=0.1036 kA, I_close=0.9539 kA
-Bus 5: breaker CLOSE (line 8) | I_line=0.5367 kA, I_close=1.9078 kA
+ 2026-04-29 00:03:43
+Load flow sukses. Voltage snapshot (pu): [1.03630828 1.052182   1.04164539 1.03718509 1.03672377]
+Bus 1: breaker CLOSE (line 0) | I_line=0.4180 kA, I_close=0.9539 kA
+Bus 2: breaker CLOSE (line 2) | I_line=0.4004 kA, I_close=0.7949 kA
+Bus 3: breaker CLOSE (line 4) | I_line=0.1089 kA, I_close=0.7949 kA
+Bus 4: breaker CLOSE (line 10) | I_line=0.3799 kA, I_close=1.4308 kA
+Bus 5: breaker CLOSE (line 9) | I_line=0.3030 kA, I_close=1.4308 kA
 bus=1, idx_pp=0, in_load=True, load_idx=[0], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
-bus=2, idx_pp=1, in_load=False, load_idx=[], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
-bus=3, idx_pp=2, in_load=True, load_idx=[1], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
-bus=4, idx_pp=3, in_load=True, load_idx=[2], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
-bus=5, idx_pp=4, in_load=False, load_idx=[], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=2, idx_pp=2, in_load=True, load_idx=[1], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=3, idx_pp=3, in_load=True, load_idx=[2], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=4, idx_pp=6, in_load=True, load_idx=[3], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=5, idx_pp=7, in_load=True, load_idx=[4], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
 numba cannot be imported and numba functions are disabled.
 Probably the execution is slow.
 Please install numba to gain a massive speedup.
 (or if you prefer slow execution, set the flag numba=False to avoid this warning!)
 
- 2026-04-28 23:50:47
-Load flow sukses. Voltage snapshot (pu): [1.04061063 1.04948296 1.03284361 1.01981046 1.0169467 ]
-Bus 1: breaker CLOSE (line 0) | I_line=0.3370 kA, I_close=0.9539 kA
-Bus 2: breaker CLOSE (line 2) | I_line=0.4901 kA, I_close=0.7949 kA
-Bus 3: breaker CLOSE (line 4) | I_line=0.1351 kA, I_close=0.7949 kA
-Bus 4: breaker CLOSE (line 6) | I_line=0.0598 kA, I_close=0.9539 kA
-Bus 5: breaker CLOSE (line 8) | I_line=0.5445 kA, I_close=1.9078 kA
+ 2026-04-29 00:03:47
+Load flow sukses. Voltage snapshot (pu): [1.03630828 1.052182   1.04164539 1.03718509 1.03672377]
+Bus 1: breaker CLOSE (line 0) | I_line=0.4180 kA, I_close=0.9539 kA
+Bus 2: breaker CLOSE (line 2) | I_line=0.4004 kA, I_close=0.7949 kA
+Bus 3: breaker CLOSE (line 4) | I_line=0.1089 kA, I_close=0.7949 kA
+Bus 4: breaker CLOSE (line 10) | I_line=0.3799 kA, I_close=1.4308 kA
+Bus 5: breaker CLOSE (line 9) | I_line=0.3030 kA, I_close=1.4308 kA
 bus=1, idx_pp=0, in_load=True, load_idx=[0], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
-bus=2, idx_pp=1, in_load=False, load_idx=[], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
-bus=3, idx_pp=2, in_load=True, load_idx=[1], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
-bus=4, idx_pp=3, in_load=True, load_idx=[2], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
-bus=5, idx_pp=4, in_load=False, load_idx=[], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=2, idx_pp=2, in_load=True, load_idx=[1], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=3, idx_pp=3, in_load=True, load_idx=[2], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=4, idx_pp=6, in_load=True, load_idx=[3], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=5, idx_pp=7, in_load=True, load_idx=[4], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
 numba cannot be imported and numba functions are disabled.
 Probably the execution is slow.
 Please install numba to gain a massive speedup.
 (or if you prefer slow execution, set the flag numba=False to avoid this warning!)
 
- 2026-04-28 23:50:51
-Load flow sukses. Voltage snapshot (pu): [1.0361303  1.04964472 1.03538708 1.01791308 1.01566924]
-Bus 1: breaker CLOSE (line 0) | I_line=0.4235 kA, I_close=0.9539 kA
-Bus 2: breaker CLOSE (line 2) | I_line=0.4077 kA, I_close=0.7949 kA
-Bus 3: breaker CLOSE (line 4) | I_line=0.2254 kA, I_close=0.7949 kA
-Bus 4: breaker CLOSE (line 6) | I_line=0.0576 kA, I_close=0.9539 kA
-Bus 5: breaker CLOSE (line 8) | I_line=0.5540 kA, I_close=1.9078 kA
+ 2026-04-29 00:03:51
+Load flow sukses. Voltage snapshot (pu): [1.04272333 1.05240528 1.03919393 1.03743257 1.03751539]
+Bus 1: breaker CLOSE (line 0) | I_line=0.3091 kA, I_close=0.9539 kA
+Bus 2: breaker CLOSE (line 2) | I_line=0.4972 kA, I_close=0.7949 kA
+Bus 3: breaker CLOSE (line 4) | I_line=0.0736 kA, I_close=0.7949 kA
+Bus 4: breaker CLOSE (line 10) | I_line=0.3072 kA, I_close=1.4308 kA
+Bus 5: breaker CLOSE (line 9) | I_line=0.2413 kA, I_close=1.4308 kA
+bus=1, idx_pp=0, in_load=True, load_idx=[0], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=2, idx_pp=2, in_load=True, load_idx=[1], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=3, idx_pp=3, in_load=True, load_idx=[2], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=4, idx_pp=6, in_load=True, load_idx=[3], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=5, idx_pp=7, in_load=True, load_idx=[4], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-04-29 00:03:55
+Load flow sukses. Voltage snapshot (pu): [1.0345362  1.05369512 1.04644501 1.0419768  1.04042118]
+Bus 1: breaker CLOSE (line 0) | I_line=0.4649 kA, I_close=0.9539 kA
+Bus 2: breaker CLOSE (line 2) | I_line=0.3475 kA, I_close=0.7949 kA
+Bus 3: breaker CLOSE (line 4) | I_line=0.1603 kA, I_close=0.7949 kA
+Bus 4: breaker CLOSE (line 10) | I_line=0.2616 kA, I_close=1.4308 kA
+Bus 5: breaker CLOSE (line 9) | I_line=0.2264 kA, I_close=1.4308 kA
+bus=1, idx_pp=0, in_load=True, load_idx=[0], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=2, idx_pp=2, in_load=True, load_idx=[1], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=3, idx_pp=3, in_load=True, load_idx=[2], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=4, idx_pp=6, in_load=True, load_idx=[3], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=5, idx_pp=7, in_load=True, load_idx=[4], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-04-29 00:03:59
+Load flow sukses. Voltage snapshot (pu): [1.03613486 1.05196847 1.04114488 1.03881697 1.0393945 ]
+Bus 1: breaker CLOSE (line 0) | I_line=0.4125 kA, I_close=0.9539 kA
+Bus 2: breaker CLOSE (line 2) | I_line=0.4086 kA, I_close=0.7949 kA
+Bus 3: breaker CLOSE (line 4) | I_line=0.0671 kA, I_close=0.7949 kA
+Bus 4: breaker CLOSE (line 10) | I_line=0.2918 kA, I_close=1.4308 kA
+Bus 5: breaker CLOSE (line 9) | I_line=0.2896 kA, I_close=1.4308 kA
+bus=1, idx_pp=0, in_load=True, load_idx=[0], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=2, idx_pp=2, in_load=True, load_idx=[1], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=3, idx_pp=3, in_load=True, load_idx=[2], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=4, idx_pp=6, in_load=True, load_idx=[3], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+bus=5, idx_pp=7, in_load=True, load_idx=[4], load_buses=[0, 2, 3, 6, 7, 8, 11, 14, 15, 17, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 38]
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-04-29 00:04:04
+Load flow sukses. Voltage snapshot (pu): [1.03881785 1.05077741 1.0368726  1.0341126  1.03204117]
+Bus 1: breaker CLOSE (line 0) | I_line=0.3651 kA, I_close=0.9539 kA
+Bus 2: breaker CLOSE (line 2) | I_line=0.4591 kA, I_close=0.7949 kA
+Bus 3: breaker CLOSE (line 4) | I_line=0.0418 kA, I_close=0.7949 kA
+Bus 4: breaker CLOSE (line 10) | I_line=0.5150 kA, I_close=1.4308 kA
+Bus 5: breaker CLOSE (line 9) | I_line=0.3990 kA, I_close=1.4308 kA
