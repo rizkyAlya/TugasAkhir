@@ -210,9 +210,12 @@ def main():
     )
 
     args = parser.parse_args()
-    should_collect_baseline = bool(args.baseline or args.dos)
+    # Baseline collection hanya saat diminta eksplisit.
+    should_collect_baseline = bool(args.baseline)
+    # Folder run tetap dibuat untuk skenario apa pun agar output rapi per eksekusi.
+    should_create_run_folder = bool(args.baseline or args.mitm or args.dos)
     run_logs_path = None
-    if should_collect_baseline:
+    if should_create_run_folder:
         run_timestamp = datetime.now().strftime("%Y-%m-%d_%H%M%S")
         run_logs_path = os.path.join(BASE_DIR, "logs", run_timestamp)
         os.makedirs(run_logs_path, exist_ok=True)
