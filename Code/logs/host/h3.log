@@ -1,396 +1,144 @@
 Memulai Server OPC UA
 Endpoints other than open requested but private key and certificate are not set.
 Listening on 10.0.2.2:4840
+
+
+[2026-04-29 00:14:25] [Bus 1] Data P/Q/CMD update (RTU) -> V=0.0000 pu, I=0.0000 A, P=0.0000 MW, Q=0.0000 MVar
+[2026-04-29 00:14:25] [Bus 2] Data P/Q/CMD update (RTU) -> V=0.0000 pu, I=0.0000 A, P=0.0000 MW, Q=0.0000 MVar
+[2026-04-29 00:14:25] [Bus 3] Data P/Q/CMD update (RTU) -> V=0.0000 pu, I=0.0000 A, P=0.0000 MW, Q=0.0000 MVar
+[2026-04-29 00:14:25] [Bus 4] Data P/Q/CMD update (RTU) -> V=0.0000 pu, I=0.0000 A, P=0.0000 MW, Q=0.0000 MVar
+[2026-04-29 00:14:25] [Bus 5] Data P/Q/CMD update (RTU) -> V=0.0000 pu, I=0.0000 A, P=0.0000 MW, Q=0.0000 MVar
 Memulai Modbus Gateway di 0.0.0.0:5020
 
 
-[2026-04-29 00:00:22] [Bus 1] Data P/Q/CMD update (RTU) -> V=0.0000 pu, I=0.0000 A, P=0.0000 MW, Q=0.0000 MVar
-[2026-04-29 00:00:22] [Bus 2] Data P/Q/CMD update (RTU) -> V=0.0000 pu, I=0.0000 A, P=0.0000 MW, Q=0.0000 MVar
-[2026-04-29 00:00:22] [Bus 3] Data P/Q/CMD update (RTU) -> V=0.0000 pu, I=0.0000 A, P=0.0000 MW, Q=0.0000 MVar
-[2026-04-29 00:00:22] [Bus 4] Data P/Q/CMD update (RTU) -> V=0.0000 pu, I=0.0000 A, P=0.0000 MW, Q=0.0000 MVar
-[2026-04-29 00:00:22] [Bus 5] Data P/Q/CMD update (RTU) -> V=0.0000 pu, I=0.0000 A, P=0.0000 MW, Q=0.0000 MVar
+[2026-04-29 00:14:29] [Bus 1] Data P/Q/CMD update (RTU) -> V=1.0120 pu, I=167.5000 A, P=56.1417 MW, Q=16.3747 MVar
+[2026-04-29 00:14:29] [Bus 2] Data P/Q/CMD update (RTU) -> V=0.9770 pu, I=330.2400 A, P=126.8961 MW, Q=41.7087 MVar
+[2026-04-29 00:14:29] [Bus 3] Data P/Q/CMD update (RTU) -> V=1.0220 pu, I=639.7800 A, P=218.8126 MW, Q=54.8396 MVar
+[2026-04-29 00:14:29] [Bus 4] Data P/Q/CMD update (RTU) -> V=1.0390 pu, I=212.8400 A, P=82.4733 MW, Q=29.9338 MVar
+[2026-04-29 00:14:29] [Bus 5] Data P/Q/CMD update (RTU) -> V=0.9920 pu, I=174.8200 A, P=57.4372 MW, Q=16.7525 MVar
 
 
-[2026-04-29 00:00:26] [Bus 1] Data P/Q/CMD update (RTU) -> V=1.0120 pu, I=167.5000 A, P=56.1417 MW, Q=16.3747 MVar
-[2026-04-29 00:00:26] [Bus 2] Data P/Q/CMD update (RTU) -> V=0.9770 pu, I=330.2400 A, P=105.7467 MW, Q=34.7573 MVar
-[2026-04-29 00:00:26] [Bus 3] Data P/Q/CMD update (RTU) -> V=1.0220 pu, I=639.7800 A, P=218.8126 MW, Q=54.8396 MVar
-[2026-04-29 00:00:26] [Bus 4] Data P/Q/CMD update (RTU) -> V=1.0390 pu, I=212.8400 A, P=71.7159 MW, Q=26.0294 MVar
-[2026-04-29 00:00:26] [Bus 5] Data P/Q/CMD update (RTU) -> V=0.9920 pu, I=174.8200 A, P=57.4372 MW, Q=16.7525 MVar
+[2026-04-29 00:14:33] [Bus 1] Data P/Q/CMD update (RTU) -> V=0.9710 pu, I=547.8200 A, P=176.1763 MW, Q=51.3847 MVar
+[2026-04-29 00:14:33] [Bus 2] Data P/Q/CMD update (RTU) -> V=0.9520 pu, I=319.3200 A, P=119.5603 MW, Q=39.2976 MVar
+[2026-04-29 00:14:33] [Bus 3] Data P/Q/CMD update (RTU) -> V=1.0140 pu, I=548.2800 A, P=186.0506 MW, Q=46.6287 MVar
+[2026-04-29 00:14:33] [Bus 4] Data P/Q/CMD update (RTU) -> V=0.9720 pu, I=625.9000 A, P=226.8903 MW, Q=82.3502 MVar
+[2026-04-29 00:14:33] [Bus 5] Data P/Q/CMD update (RTU) -> V=1.0300 pu, I=151.1800 A, P=51.5729 MW, Q=15.0421 MVar
 
 
-[2026-04-29 00:00:30] [Bus 1] Data P/Q/CMD update (RTU) -> V=0.9710 pu, I=547.8200 A, P=176.1763 MW, Q=51.3847 MVar
-[2026-04-29 00:00:30] [Bus 2] Data P/Q/CMD update (RTU) -> V=0.9520 pu, I=319.3200 A, P=99.6336 MW, Q=32.7480 MVar
-[2026-04-29 00:00:30] [Bus 3] Data P/Q/CMD update (RTU) -> V=1.0140 pu, I=548.2800 A, P=186.0506 MW, Q=46.6287 MVar
-[2026-04-29 00:00:30] [Bus 4] Data P/Q/CMD update (RTU) -> V=0.9720 pu, I=625.9000 A, P=197.2959 MW, Q=71.6089 MVar
-[2026-04-29 00:00:30] [Bus 5] Data P/Q/CMD update (RTU) -> V=1.0300 pu, I=151.1800 A, P=51.5729 MW, Q=15.0421 MVar
+[2026-04-29 00:14:37] [Bus 1] Data P/Q/CMD update (RTU) -> V=1.0300 pu, I=657.8200 A, P=224.4061 MW, Q=65.4518 MVar
+[2026-04-29 00:14:37] [Bus 2] Data P/Q/CMD update (RTU) -> V=0.9840 pu, I=275.5400 A, P=106.6360 MW, Q=35.0495 MVar
+[2026-04-29 00:14:37] [Bus 3] Data P/Q/CMD update (RTU) -> V=1.0450 pu, I=383.3200 A, P=134.0505 MW, Q=33.5962 MVar
+[2026-04-29 00:14:37] [Bus 4] Data P/Q/CMD update (RTU) -> V=0.9590 pu, I=238.4400 A, P=85.2791 MW, Q=30.9522 MVar
+[2026-04-29 00:14:37] [Bus 5] Data P/Q/CMD update (RTU) -> V=1.0340 pu, I=586.2800 A, P=200.7779 MW, Q=58.5602 MVar
 
 
-[2026-04-29 00:00:34] [Bus 1] Data P/Q/CMD update (RTU) -> V=1.0300 pu, I=657.8200 A, P=224.4061 MW, Q=65.4518 MVar
-[2026-04-29 00:00:34] [Bus 2] Data P/Q/CMD update (RTU) -> V=0.9840 pu, I=275.5400 A, P=88.8633 MW, Q=29.2080 MVar
-[2026-04-29 00:00:34] [Bus 3] Data P/Q/CMD update (RTU) -> V=1.0450 pu, I=383.3200 A, P=134.0505 MW, Q=33.5962 MVar
-[2026-04-29 00:00:34] [Bus 4] Data P/Q/CMD update (RTU) -> V=0.9590 pu, I=238.4400 A, P=74.1557 MW, Q=26.9149 MVar
-[2026-04-29 00:00:34] [Bus 5] Data P/Q/CMD update (RTU) -> V=1.0340 pu, I=586.2800 A, P=200.7779 MW, Q=58.5602 MVar
+[2026-04-29 00:14:41] [Bus 1] Data P/Q/CMD update (RTU) -> V=1.0300 pu, I=657.8200 A, P=224.4061 MW, Q=65.4518 MVar
+[2026-04-29 00:14:41] [Bus 2] Data P/Q/CMD update (RTU) -> V=0.9840 pu, I=275.5400 A, P=106.6360 MW, Q=35.0495 MVar
+[2026-04-29 00:14:41] [Bus 3] Data P/Q/CMD update (RTU) -> V=1.0450 pu, I=383.3200 A, P=134.0505 MW, Q=33.5962 MVar
+[2026-04-29 00:14:41] [Bus 4] Data P/Q/CMD update (RTU) -> V=0.9590 pu, I=238.4400 A, P=85.2791 MW, Q=30.9522 MVar
+[2026-04-29 00:14:41] [Bus 5] Data P/Q/CMD update (RTU) -> V=1.0340 pu, I=586.2800 A, P=200.7779 MW, Q=58.5602 MVar
 
 
-[2026-04-29 00:00:38] [Bus 1] Data P/Q/CMD update (RTU) -> V=1.0300 pu, I=657.8200 A, P=224.4061 MW, Q=65.4518 MVar
-[2026-04-29 00:00:38] [Bus 2] Data P/Q/CMD update (RTU) -> V=0.9840 pu, I=275.5400 A, P=88.8633 MW, Q=29.2080 MVar
-[2026-04-29 00:00:38] [Bus 3] Data P/Q/CMD update (RTU) -> V=1.0450 pu, I=383.3200 A, P=134.0505 MW, Q=33.5962 MVar
-[2026-04-29 00:00:38] [Bus 4] Data P/Q/CMD update (RTU) -> V=0.9590 pu, I=238.4400 A, P=74.1557 MW, Q=26.9149 MVar
-[2026-04-29 00:00:38] [Bus 5] Data P/Q/CMD update (RTU) -> V=1.0340 pu, I=586.2800 A, P=200.7779 MW, Q=58.5602 MVar
+[2026-04-29 00:14:45] [Bus 1] Data P/Q/CMD update (RTU) -> V=1.0300 pu, I=680.8600 A, P=232.2659 MW, Q=67.7442 MVar
+[2026-04-29 00:14:45] [Bus 2] Data P/Q/CMD update (RTU) -> V=1.0020 pu, I=891.5800 A, P=351.3597 MW, Q=115.4864 MVar
+[2026-04-29 00:14:45] [Bus 3] Data P/Q/CMD update (RTU) -> V=0.9870 pu, I=568.7000 A, P=187.8414 MW, Q=47.0775 MVar
+[2026-04-29 00:14:45] [Bus 4] Data P/Q/CMD update (RTU) -> V=1.0320 pu, I=610.8600 A, P=235.1073 MW, Q=85.3326 MVar
+[2026-04-29 00:14:45] [Bus 5] Data P/Q/CMD update (RTU) -> V=1.0360 pu, I=566.2800 A, P=194.3038 MW, Q=56.6719 MVar
 
 
-[2026-04-29 00:00:42] [Bus 1] Data P/Q/CMD update (RTU) -> V=1.0300 pu, I=680.8600 A, P=232.2659 MW, Q=67.7442 MVar
-[2026-04-29 00:00:42] [Bus 2] Data P/Q/CMD update (RTU) -> V=1.0020 pu, I=891.5800 A, P=292.7998 MW, Q=96.2386 MVar
-[2026-04-29 00:00:42] [Bus 3] Data P/Q/CMD update (RTU) -> V=0.9870 pu, I=568.7000 A, P=187.8414 MW, Q=47.0775 MVar
-[2026-04-29 00:00:42] [Bus 4] Data P/Q/CMD update (RTU) -> V=1.0320 pu, I=610.8600 A, P=204.4412 MW, Q=74.2022 MVar
-[2026-04-29 00:00:42] [Bus 5] Data P/Q/CMD update (RTU) -> V=1.0360 pu, I=566.2800 A, P=194.3038 MW, Q=56.6719 MVar
+[2026-04-29 00:14:49] [Bus 1] Data P/Q/CMD update (RTU) -> V=1.0200 pu, I=181.8200 A, P=61.4232 MW, Q=17.9151 MVar
+[2026-04-29 00:14:49] [Bus 2] Data P/Q/CMD update (RTU) -> V=0.9720 pu, I=383.7200 A, P=146.6914 MW, Q=48.2151 MVar
+[2026-04-29 00:14:49] [Bus 3] Data P/Q/CMD update (RTU) -> V=0.9570 pu, I=337.4800 A, P=108.0814 MW, Q=27.0877 MVar
+[2026-04-29 00:14:49] [Bus 4] Data P/Q/CMD update (RTU) -> V=0.9600 pu, I=383.7600 A, P=137.3965 MW, Q=49.8683 MVar
+[2026-04-29 00:14:49] [Bus 5] Data P/Q/CMD update (RTU) -> V=1.0120 pu, I=420.6400 A, P=140.9878 MW, Q=41.1214 MVar
 
 
-[2026-04-29 00:00:46] [Bus 1] Data P/Q/CMD update (RTU) -> V=1.0200 pu, I=181.8200 A, P=61.4232 MW, Q=17.9151 MVar
-[2026-04-29 00:00:46] [Bus 2] Data P/Q/CMD update (RTU) -> V=0.9720 pu, I=383.7200 A, P=122.2428 MW, Q=40.1793 MVar
-[2026-04-29 00:00:46] [Bus 3] Data P/Q/CMD update (RTU) -> V=0.9570 pu, I=337.4800 A, P=108.0814 MW, Q=27.0877 MVar
-[2026-04-29 00:00:46] [Bus 4] Data P/Q/CMD update (RTU) -> V=0.9600 pu, I=383.7600 A, P=119.4752 MW, Q=43.3637 MVar
-[2026-04-29 00:00:46] [Bus 5] Data P/Q/CMD update (RTU) -> V=1.0120 pu, I=420.6400 A, P=140.9878 MW, Q=41.1214 MVar
+[2026-04-29 00:14:53] [Bus 1] Data P/Q/CMD update (RTU) -> V=0.9870 pu, I=313.1600 A, P=102.3703 MW, Q=29.8580 MVar
+[2026-04-29 00:14:53] [Bus 2] Data P/Q/CMD update (RTU) -> V=0.9760 pu, I=887.6800 A, P=340.7456 MW, Q=111.9976 MVar
+[2026-04-29 00:14:53] [Bus 3] Data P/Q/CMD update (RTU) -> V=1.0140 pu, I=595.6400 A, P=202.1216 MW, Q=50.6564 MVar
+[2026-04-29 00:14:53] [Bus 4] Data P/Q/CMD update (RTU) -> V=0.9670 pu, I=740.6000 A, P=267.0884 MW, Q=96.9401 MVar
+[2026-04-29 00:14:53] [Bus 5] Data P/Q/CMD update (RTU) -> V=0.9660 pu, I=452.6200 A, P=144.8109 MW, Q=42.2365 MVar
 
 
-[2026-04-29 00:00:50] [Bus 1] Data P/Q/CMD update (RTU) -> V=0.9870 pu, I=313.1600 A, P=102.3703 MW, Q=29.8580 MVar
-[2026-04-29 00:00:50] [Bus 2] Data P/Q/CMD update (RTU) -> V=0.9760 pu, I=887.6800 A, P=283.9546 MW, Q=93.3314 MVar
-[2026-04-29 00:00:50] [Bus 3] Data P/Q/CMD update (RTU) -> V=1.0140 pu, I=595.6400 A, P=202.1216 MW, Q=50.6564 MVar
-[2026-04-29 00:00:50] [Bus 4] Data P/Q/CMD update (RTU) -> V=0.9670 pu, I=740.6000 A, P=232.2508 MW, Q=84.2958 MVar
-[2026-04-29 00:00:50] [Bus 5] Data P/Q/CMD update (RTU) -> V=0.9660 pu, I=452.6200 A, P=144.8109 MW, Q=42.2365 MVar
+[2026-04-29 00:14:57] [Bus 1] Data P/Q/CMD update (RTU) -> V=1.0480 pu, I=604.4600 A, P=209.8066 MW, Q=61.1936 MVar
+[2026-04-29 00:14:57] [Bus 2] Data P/Q/CMD update (RTU) -> V=1.0040 pu, I=670.9400 A, P=264.9362 MW, Q=87.0803 MVar
+[2026-04-29 00:14:57] [Bus 3] Data P/Q/CMD update (RTU) -> V=1.0340 pu, I=704.9400 A, P=243.9290 MW, Q=61.1344 MVar
+[2026-04-29 00:14:57] [Bus 4] Data P/Q/CMD update (RTU) -> V=0.9720 pu, I=183.9000 A, P=66.6642 MW, Q=24.1959 MVar
+[2026-04-29 00:14:57] [Bus 5] Data P/Q/CMD update (RTU) -> V=0.9810 pu, I=359.7000 A, P=116.8691 MW, Q=34.0868 MVar
 
 
-[2026-04-29 00:00:54] [Bus 1] Data P/Q/CMD update (RTU) -> V=1.0480 pu, I=604.4600 A, P=209.8066 MW, Q=61.1936 MVar
-[2026-04-29 00:00:54] [Bus 2] Data P/Q/CMD update (RTU) -> V=1.0040 pu, I=670.9400 A, P=220.7802 MW, Q=72.5669 MVar
-[2026-04-29 00:00:54] [Bus 3] Data P/Q/CMD update (RTU) -> V=1.0340 pu, I=704.9400 A, P=243.9290 MW, Q=61.1344 MVar
-[2026-04-29 00:00:54] [Bus 4] Data P/Q/CMD update (RTU) -> V=0.9720 pu, I=183.9000 A, P=57.9689 MW, Q=21.0399 MVar
-[2026-04-29 00:00:54] [Bus 5] Data P/Q/CMD update (RTU) -> V=0.9810 pu, I=359.7000 A, P=116.8691 MW, Q=34.0868 MVar
+[2026-04-29 00:15:01] [Bus 1] Data P/Q/CMD update (RTU) -> V=1.0480 pu, I=604.4600 A, P=209.8066 MW, Q=61.1936 MVar
+[2026-04-29 00:15:01] [Bus 2] Data P/Q/CMD update (RTU) -> V=1.0040 pu, I=670.9400 A, P=264.9362 MW, Q=87.0803 MVar
+[2026-04-29 00:15:01] [Bus 3] Data P/Q/CMD update (RTU) -> V=1.0340 pu, I=704.9400 A, P=243.9290 MW, Q=61.1344 MVar
+[2026-04-29 00:15:01] [Bus 4] Data P/Q/CMD update (RTU) -> V=0.9720 pu, I=183.9000 A, P=66.6642 MW, Q=24.1959 MVar
+[2026-04-29 00:15:01] [Bus 5] Data P/Q/CMD update (RTU) -> V=0.9810 pu, I=359.7000 A, P=116.8691 MW, Q=34.0868 MVar
 
 
-[2026-04-29 00:00:58] [Bus 1] Data P/Q/CMD update (RTU) -> V=1.0480 pu, I=604.4600 A, P=209.8066 MW, Q=61.1936 MVar
-[2026-04-29 00:00:58] [Bus 2] Data P/Q/CMD update (RTU) -> V=1.0040 pu, I=670.9400 A, P=220.7802 MW, Q=72.5669 MVar
-[2026-04-29 00:00:58] [Bus 3] Data P/Q/CMD update (RTU) -> V=1.0340 pu, I=704.9400 A, P=243.9290 MW, Q=61.1344 MVar
-[2026-04-29 00:00:58] [Bus 4] Data P/Q/CMD update (RTU) -> V=0.9720 pu, I=183.9000 A, P=57.9689 MW, Q=21.0399 MVar
-[2026-04-29 00:00:58] [Bus 5] Data P/Q/CMD update (RTU) -> V=0.9810 pu, I=359.7000 A, P=116.8691 MW, Q=34.0868 MVar
+[2026-04-29 00:15:05] [Bus 1] Data P/Q/CMD update (RTU) -> V=0.9710 pu, I=888.3600 A, P=285.6923 MW, Q=83.3269 MVar
+[2026-04-29 00:15:05] [Bus 2] Data P/Q/CMD update (RTU) -> V=1.0370 pu, I=378.3400 A, P=154.3068 MW, Q=50.7182 MVar
+[2026-04-29 00:15:05] [Bus 3] Data P/Q/CMD update (RTU) -> V=1.0140 pu, I=438.1400 A, P=148.6763 MW, Q=37.2618 MVar
+[2026-04-29 00:15:05] [Bus 4] Data P/Q/CMD update (RTU) -> V=1.0410 pu, I=487.6800 A, P=189.3348 MW, Q=68.7194 MVar
+[2026-04-29 00:15:05] [Bus 5] Data P/Q/CMD update (RTU) -> V=0.9760 pu, I=345.2400 A, P=111.5992 MW, Q=32.5498 MVar
 
 
-[2026-04-29 00:01:02] [Bus 1] Data P/Q/CMD update (RTU) -> V=0.9710 pu, I=888.3600 A, P=285.6923 MW, Q=83.3269 MVar
-[2026-04-29 00:01:02] [Bus 2] Data P/Q/CMD update (RTU) -> V=1.0370 pu, I=378.3400 A, P=128.5890 MW, Q=42.2652 MVar
-[2026-04-29 00:01:02] [Bus 3] Data P/Q/CMD update (RTU) -> V=1.0140 pu, I=438.1400 A, P=148.6763 MW, Q=37.2618 MVar
-[2026-04-29 00:01:02] [Bus 4] Data P/Q/CMD update (RTU) -> V=1.0410 pu, I=487.6800 A, P=164.6390 MW, Q=59.7560 MVar
-[2026-04-29 00:01:02] [Bus 5] Data P/Q/CMD update (RTU) -> V=0.9760 pu, I=345.2400 A, P=111.5992 MW, Q=32.5498 MVar
+[2026-04-29 00:15:09] [Bus 1] Data P/Q/CMD update (RTU) -> V=1.0060 pu, I=347.1600 A, P=115.6693 MW, Q=33.7369 MVar
+[2026-04-29 00:15:09] [Bus 2] Data P/Q/CMD update (RTU) -> V=1.0080 pu, I=830.3600 A, P=329.1932 MW, Q=108.2006 MVar
+[2026-04-29 00:15:09] [Bus 3] Data P/Q/CMD update (RTU) -> V=0.9890 pu, I=316.4200 A, P=104.7252 MW, Q=26.2466 MVar
+[2026-04-29 00:15:09] [Bus 4] Data P/Q/CMD update (RTU) -> V=1.0490 pu, I=521.0400 A, P=203.8409 MW, Q=73.9844 MVar
+[2026-04-29 00:15:09] [Bus 5] Data P/Q/CMD update (RTU) -> V=0.9590 pu, I=194.4800 A, P=61.7709 MW, Q=18.0165 MVar
 
 
-[2026-04-29 00:01:06] [Bus 1] Data P/Q/CMD update (RTU) -> V=1.0060 pu, I=347.1600 A, P=115.6693 MW, Q=33.7369 MVar
-[2026-04-29 00:01:06] [Bus 2] Data P/Q/CMD update (RTU) -> V=1.0080 pu, I=830.3600 A, P=274.3277 MW, Q=90.1672 MVar
-[2026-04-29 00:01:06] [Bus 3] Data P/Q/CMD update (RTU) -> V=0.9890 pu, I=316.4200 A, P=104.7252 MW, Q=26.2466 MVar
-[2026-04-29 00:01:06] [Bus 4] Data P/Q/CMD update (RTU) -> V=1.0490 pu, I=521.0400 A, P=177.2530 MW, Q=64.3342 MVar
-[2026-04-29 00:01:06] [Bus 5] Data P/Q/CMD update (RTU) -> V=0.9590 pu, I=194.4800 A, P=61.7709 MW, Q=18.0165 MVar
+[2026-04-29 00:15:13] [Bus 1] Data P/Q/CMD update (RTU) -> V=0.9600 pu, I=649.9400 A, P=206.6497 MW, Q=60.2728 MVar
+[2026-04-29 00:15:13] [Bus 2] Data P/Q/CMD update (RTU) -> V=1.0290 pu, I=461.1000 A, P=186.6098 MW, Q=61.3357 MVar
+[2026-04-29 00:15:13] [Bus 3] Data P/Q/CMD update (RTU) -> V=0.9560 pu, I=454.3200 A, P=145.3485 MW, Q=36.4278 MVar
+[2026-04-29 00:15:13] [Bus 4] Data P/Q/CMD update (RTU) -> V=1.0490 pu, I=535.5000 A, P=209.4979 MW, Q=76.0376 MVar
+[2026-04-29 00:15:13] [Bus 5] Data P/Q/CMD update (RTU) -> V=1.0470 pu, I=764.6800 A, P=265.1653 MW, Q=77.3399 MVar
 
 
-[2026-04-29 00:01:10] [Bus 1] Data P/Q/CMD update (RTU) -> V=0.9600 pu, I=649.9400 A, P=206.6497 MW, Q=60.2728 MVar
-[2026-04-29 00:01:10] [Bus 2] Data P/Q/CMD update (RTU) -> V=1.0290 pu, I=461.1000 A, P=155.5082 MW, Q=51.1131 MVar
-[2026-04-29 00:01:10] [Bus 3] Data P/Q/CMD update (RTU) -> V=0.9560 pu, I=454.3200 A, P=145.3485 MW, Q=36.4278 MVar
-[2026-04-29 00:01:10] [Bus 4] Data P/Q/CMD update (RTU) -> V=1.0490 pu, I=535.5000 A, P=182.1721 MW, Q=66.1197 MVar
-[2026-04-29 00:01:10] [Bus 5] Data P/Q/CMD update (RTU) -> V=1.0470 pu, I=764.6800 A, P=265.1653 MW, Q=77.3399 MVar
+[2026-04-29 00:15:17] [Bus 1] Data P/Q/CMD update (RTU) -> V=0.9510 pu, I=730.6800 A, P=230.1432 MW, Q=67.1251 MVar
+[2026-04-29 00:15:17] [Bus 2] Data P/Q/CMD update (RTU) -> V=1.0180 pu, I=552.1000 A, P=221.0495 MW, Q=72.6554 MVar
+[2026-04-29 00:15:17] [Bus 3] Data P/Q/CMD update (RTU) -> V=0.9760 pu, I=643.2200 A, P=210.0875 MW, Q=52.6529 MVar
+[2026-04-29 00:15:17] [Bus 4] Data P/Q/CMD update (RTU) -> V=0.9610 pu, I=509.1000 A, P=182.4615 MW, Q=66.2247 MVar
+[2026-04-29 00:15:17] [Bus 5] Data P/Q/CMD update (RTU) -> V=0.9950 pu, I=874.9800 A, P=288.3444 MW, Q=84.1005 MVar
 
 
-[2026-04-29 00:01:14] [Bus 1] Data P/Q/CMD update (RTU) -> V=0.9510 pu, I=730.6800 A, P=230.1432 MW, Q=67.1251 MVar
-[2026-04-29 00:01:14] [Bus 2] Data P/Q/CMD update (RTU) -> V=1.0180 pu, I=552.1000 A, P=184.2079 MW, Q=60.5462 MVar
-[2026-04-29 00:01:14] [Bus 3] Data P/Q/CMD update (RTU) -> V=0.9760 pu, I=643.2200 A, P=210.0875 MW, Q=52.6529 MVar
-[2026-04-29 00:01:14] [Bus 4] Data P/Q/CMD update (RTU) -> V=0.9610 pu, I=509.1000 A, P=158.6622 MW, Q=57.5867 MVar
-[2026-04-29 00:01:14] [Bus 5] Data P/Q/CMD update (RTU) -> V=0.9950 pu, I=874.9800 A, P=288.3444 MW, Q=84.1005 MVar
+[2026-04-29 00:15:21] [Bus 1] Data P/Q/CMD update (RTU) -> V=0.9510 pu, I=730.6800 A, P=230.1432 MW, Q=67.1251 MVar
+[2026-04-29 00:15:21] [Bus 2] Data P/Q/CMD update (RTU) -> V=1.0180 pu, I=552.1000 A, P=221.0495 MW, Q=72.6554 MVar
+[2026-04-29 00:15:21] [Bus 3] Data P/Q/CMD update (RTU) -> V=0.9760 pu, I=643.2200 A, P=210.0875 MW, Q=52.6529 MVar
+[2026-04-29 00:15:21] [Bus 4] Data P/Q/CMD update (RTU) -> V=0.9610 pu, I=509.1000 A, P=182.4615 MW, Q=66.2247 MVar
+[2026-04-29 00:15:21] [Bus 5] Data P/Q/CMD update (RTU) -> V=0.9950 pu, I=874.9800 A, P=288.3444 MW, Q=84.1005 MVar
 
 
-[2026-04-29 00:01:18] [Bus 1] Data P/Q/CMD update (RTU) -> V=0.9510 pu, I=730.6800 A, P=230.1432 MW, Q=67.1251 MVar
-[2026-04-29 00:01:18] [Bus 2] Data P/Q/CMD update (RTU) -> V=1.0180 pu, I=552.1000 A, P=184.2079 MW, Q=60.5462 MVar
-[2026-04-29 00:01:18] [Bus 3] Data P/Q/CMD update (RTU) -> V=0.9760 pu, I=643.2200 A, P=210.0875 MW, Q=52.6529 MVar
-[2026-04-29 00:01:18] [Bus 4] Data P/Q/CMD update (RTU) -> V=0.9610 pu, I=509.1000 A, P=158.6622 MW, Q=57.5867 MVar
-[2026-04-29 00:01:18] [Bus 5] Data P/Q/CMD update (RTU) -> V=0.9950 pu, I=874.9800 A, P=288.3444 MW, Q=84.1005 MVar
+[2026-04-29 00:15:25] [Bus 1] Data P/Q/CMD update (RTU) -> V=1.0370 pu, I=337.1000 A, P=115.7785 MW, Q=33.7687 MVar
+[2026-04-29 00:15:25] [Bus 2] Data P/Q/CMD update (RTU) -> V=1.0000 pu, I=288.8000 A, P=113.5850 MW, Q=37.3336 MVar
+[2026-04-29 00:15:25] [Bus 3] Data P/Q/CMD update (RTU) -> V=1.0410 pu, I=768.0200 A, P=267.5556 MW, Q=67.0558 MVar
+[2026-04-29 00:15:25] [Bus 4] Data P/Q/CMD update (RTU) -> V=0.9790 pu, I=660.0400 A, P=240.9893 MW, Q=87.4674 MVar
+[2026-04-29 00:15:25] [Bus 5] Data P/Q/CMD update (RTU) -> V=1.0100 pu, I=263.4400 A, P=88.1238 MW, Q=25.7028 MVar
 
 
-[2026-04-29 00:01:22] [Bus 1] Data P/Q/CMD update (RTU) -> V=1.0370 pu, I=337.1000 A, P=115.7785 MW, Q=33.7687 MVar
-[2026-04-29 00:01:22] [Bus 2] Data P/Q/CMD update (RTU) -> V=1.0000 pu, I=288.8000 A, P=94.6542 MW, Q=31.1113 MVar
-[2026-04-29 00:01:22] [Bus 3] Data P/Q/CMD update (RTU) -> V=1.0410 pu, I=768.0200 A, P=267.5556 MW, Q=67.0558 MVar
-[2026-04-29 00:01:22] [Bus 4] Data P/Q/CMD update (RTU) -> V=0.9790 pu, I=660.0400 A, P=209.5559 MW, Q=76.0586 MVar
-[2026-04-29 00:01:22] [Bus 5] Data P/Q/CMD update (RTU) -> V=1.0100 pu, I=263.4400 A, P=88.1238 MW, Q=25.7028 MVar
+[2026-04-29 00:15:29] [Bus 1] Data P/Q/CMD update (RTU) -> V=1.0260 pu, I=543.8200 A, P=184.7961 MW, Q=53.8989 MVar
+[2026-04-29 00:15:29] [Bus 2] Data P/Q/CMD update (RTU) -> V=1.0270 pu, I=541.9800 A, P=218.9161 MW, Q=71.9542 MVar
+[2026-04-29 00:15:29] [Bus 3] Data P/Q/CMD update (RTU) -> V=0.9500 pu, I=412.1400 A, P=131.0265 MW, Q=32.8383 MVar
+[2026-04-29 00:15:29] [Bus 4] Data P/Q/CMD update (RTU) -> V=0.9510 pu, I=914.3400 A, P=324.2896 MW, Q=117.7014 MVar
+[2026-04-29 00:15:29] [Bus 5] Data P/Q/CMD update (RTU) -> V=1.0370 pu, I=750.3000 A, P=257.6938 MW, Q=75.1607 MVar
 
 
-[2026-04-29 00:01:26] [Bus 1] Data P/Q/CMD update (RTU) -> V=1.0260 pu, I=543.8200 A, P=184.7961 MW, Q=53.8989 MVar
-[2026-04-29 00:01:26] [Bus 2] Data P/Q/CMD update (RTU) -> V=1.0270 pu, I=541.9800 A, P=182.4301 MW, Q=59.9619 MVar
-[2026-04-29 00:01:26] [Bus 3] Data P/Q/CMD update (RTU) -> V=0.9500 pu, I=412.1400 A, P=131.0265 MW, Q=32.8383 MVar
-[2026-04-29 00:01:26] [Bus 4] Data P/Q/CMD update (RTU) -> V=0.9510 pu, I=914.3400 A, P=281.9910 MW, Q=102.3491 MVar
-[2026-04-29 00:01:26] [Bus 5] Data P/Q/CMD update (RTU) -> V=1.0370 pu, I=750.3000 A, P=257.6938 MW, Q=75.1607 MVar
+[2026-04-29 00:15:33] [Bus 1] Data P/Q/CMD update (RTU) -> V=0.9800 pu, I=198.5000 A, P=64.4283 MW, Q=18.7916 MVar
+[2026-04-29 00:15:33] [Bus 2] Data P/Q/CMD update (RTU) -> V=1.0370 pu, I=842.9800 A, P=343.8112 MW, Q=113.0053 MVar
+[2026-04-29 00:15:33] [Bus 3] Data P/Q/CMD update (RTU) -> V=0.9580 pu, I=534.6200 A, P=171.3963 MW, Q=42.9560 MVar
+[2026-04-29 00:15:33] [Bus 4] Data P/Q/CMD update (RTU) -> V=0.9560 pu, I=773.8400 A, P=275.9014 MW, Q=100.1388 MVar
+[2026-04-29 00:15:33] [Bus 5] Data P/Q/CMD update (RTU) -> V=1.0260 pu, I=241.4600 A, P=82.0508 MW, Q=23.9315 MVar
 
 
-[2026-04-29 00:01:30] [Bus 1] Data P/Q/CMD update (RTU) -> V=0.9800 pu, I=198.5000 A, P=64.4283 MW, Q=18.7916 MVar
-[2026-04-29 00:01:30] [Bus 2] Data P/Q/CMD update (RTU) -> V=1.0370 pu, I=842.9800 A, P=286.5093 MW, Q=94.1711 MVar
-[2026-04-29 00:01:30] [Bus 3] Data P/Q/CMD update (RTU) -> V=0.9580 pu, I=534.6200 A, P=171.3963 MW, Q=42.9560 MVar
-[2026-04-29 00:01:30] [Bus 4] Data P/Q/CMD update (RTU) -> V=0.9560 pu, I=773.8400 A, P=239.9142 MW, Q=87.0772 MVar
-[2026-04-29 00:01:30] [Bus 5] Data P/Q/CMD update (RTU) -> V=1.0260 pu, I=241.4600 A, P=82.0508 MW, Q=23.9315 MVar
+[2026-04-29 00:15:37] [Bus 1] Data P/Q/CMD update (RTU) -> V=0.9970 pu, I=567.3600 A, P=187.3459 MW, Q=54.6426 MVar
+[2026-04-29 00:15:37] [Bus 2] Data P/Q/CMD update (RTU) -> V=0.9760 pu, I=837.7000 A, P=321.5602 MW, Q=105.6917 MVar
+[2026-04-29 00:15:37] [Bus 3] Data P/Q/CMD update (RTU) -> V=0.9920 pu, I=310.0000 A, P=102.9116 MW, Q=25.7921 MVar
+[2026-04-29 00:15:37] [Bus 4] Data P/Q/CMD update (RTU) -> V=1.0020 pu, I=714.0600 A, P=266.8377 MW, Q=96.8492 MVar
+[2026-04-29 00:15:37] [Bus 5] Data P/Q/CMD update (RTU) -> V=0.9700 pu, I=398.1400 A, P=127.9080 MW, Q=37.3065 MVar
 
 
-[2026-04-29 00:01:34] [Bus 1] Data P/Q/CMD update (RTU) -> V=0.9970 pu, I=567.3600 A, P=187.3459 MW, Q=54.6426 MVar
-[2026-04-29 00:01:34] [Bus 2] Data P/Q/CMD update (RTU) -> V=0.9760 pu, I=837.7000 A, P=267.9668 MW, Q=88.0764 MVar
-[2026-04-29 00:01:34] [Bus 3] Data P/Q/CMD update (RTU) -> V=0.9920 pu, I=310.0000 A, P=102.9116 MW, Q=25.7921 MVar
-[2026-04-29 00:01:34] [Bus 4] Data P/Q/CMD update (RTU) -> V=1.0020 pu, I=714.0600 A, P=232.0328 MW, Q=84.2167 MVar
-[2026-04-29 00:01:34] [Bus 5] Data P/Q/CMD update (RTU) -> V=0.9700 pu, I=398.1400 A, P=127.9080 MW, Q=37.3065 MVar
-
-
-[2026-04-29 00:01:38] [Bus 1] Data P/Q/CMD update (RTU) -> V=1.0490 pu, I=611.2400 A, P=212.3624 MW, Q=61.9390 MVar
-[2026-04-29 00:01:38] [Bus 2] Data P/Q/CMD update (RTU) -> V=0.9930 pu, I=550.7400 A, P=179.2415 MW, Q=58.9138 MVar
-[2026-04-29 00:01:38] [Bus 3] Data P/Q/CMD update (RTU) -> V=0.9620 pu, I=329.7600 A, P=106.1607 MW, Q=26.6064 MVar
-[2026-04-29 00:01:38] [Bus 4] Data P/Q/CMD update (RTU) -> V=0.9830 pu, I=617.7000 A, P=196.9147 MW, Q=71.4705 MVar
-[2026-04-29 00:01:38] [Bus 5] Data P/Q/CMD update (RTU) -> V=0.9730 pu, I=325.9800 A, P=105.0495 MW, Q=30.6394 MVar
-
-
-[2026-04-29 00:01:42] [Bus 1] Data P/Q/CMD update (RTU) -> V=1.0490 pu, I=611.2400 A, P=212.3624 MW, Q=61.9390 MVar
-[2026-04-29 00:01:42] [Bus 2] Data P/Q/CMD update (RTU) -> V=0.9930 pu, I=550.7400 A, P=179.2415 MW, Q=58.9138 MVar
-[2026-04-29 00:01:42] [Bus 3] Data P/Q/CMD update (RTU) -> V=0.9620 pu, I=329.7600 A, P=106.1607 MW, Q=26.6064 MVar
-[2026-04-29 00:01:42] [Bus 4] Data P/Q/CMD update (RTU) -> V=0.9830 pu, I=617.7000 A, P=196.9147 MW, Q=71.4705 MVar
-[2026-04-29 00:01:42] [Bus 5] Data P/Q/CMD update (RTU) -> V=0.9730 pu, I=325.9800 A, P=105.0495 MW, Q=30.6394 MVar
-
-
-[2026-04-29 00:01:46] [Bus 1] Data P/Q/CMD update (RTU) -> V=0.9570 pu, I=655.4600 A, P=207.7536 MW, Q=60.5948 MVar
-[2026-04-29 00:01:46] [Bus 2] Data P/Q/CMD update (RTU) -> V=0.9720 pu, I=866.6800 A, P=276.1008 MW, Q=90.7500 MVar
-[2026-04-29 00:01:46] [Bus 3] Data P/Q/CMD update (RTU) -> V=1.0350 pu, I=195.3000 A, P=67.6446 MW, Q=16.9533 MVar
-[2026-04-29 00:01:46] [Bus 4] Data P/Q/CMD update (RTU) -> V=0.9730 pu, I=687.9000 A, P=217.0626 MW, Q=78.7832 MVar
-[2026-04-29 00:01:46] [Bus 5] Data P/Q/CMD update (RTU) -> V=0.9710 pu, I=258.2000 A, P=83.0359 MW, Q=24.2188 MVar
-
-
-[2026-04-29 00:01:50] [Bus 1] Data P/Q/CMD update (RTU) -> V=1.0430 pu, I=557.7000 A, P=192.6528 MW, Q=56.1904 MVar
-[2026-04-29 00:01:50] [Bus 2] Data P/Q/CMD update (RTU) -> V=0.9970 pu, I=753.1000 A, P=246.0880 MW, Q=80.8852 MVar
-[2026-04-29 00:01:50] [Bus 3] Data P/Q/CMD update (RTU) -> V=1.0300 pu, I=282.9400 A, P=97.5264 MW, Q=24.4424 MVar
-[2026-04-29 00:01:50] [Bus 4] Data P/Q/CMD update (RTU) -> V=0.9590 pu, I=506.9000 A, P=157.6478 MW, Q=57.2185 MVar
-[2026-04-29 00:01:50] [Bus 5] Data P/Q/CMD update (RTU) -> V=0.9920 pu, I=507.3600 A, P=166.6933 MW, Q=48.6189 MVar
-
-
-[2026-04-29 00:01:54] [Bus 1] Data P/Q/CMD update (RTU) -> V=1.0220 pu, I=644.4600 A, P=218.1409 MW, Q=63.6244 MVar
-[2026-04-29 00:01:54] [Bus 2] Data P/Q/CMD update (RTU) -> V=1.0480 pu, I=217.1000 A, P=74.5699 MW, Q=24.5100 MVar
-[2026-04-29 00:01:54] [Bus 3] Data P/Q/CMD update (RTU) -> V=0.9900 pu, I=406.8400 A, P=134.7875 MW, Q=33.7809 MVar
-[2026-04-29 00:01:54] [Bus 4] Data P/Q/CMD update (RTU) -> V=1.0360 pu, I=333.7800 A, P=112.1417 MW, Q=40.7020 MVar
-[2026-04-29 00:01:54] [Bus 5] Data P/Q/CMD update (RTU) -> V=0.9690 pu, I=505.2400 A, P=162.1481 MW, Q=47.2932 MVar
-
-
-[2026-04-29 00:01:58] [Bus 1] Data P/Q/CMD update (RTU) -> V=0.9920 pu, I=364.0600 A, P=119.6121 MW, Q=34.8869 MVar
-[2026-04-29 00:01:58] [Bus 2] Data P/Q/CMD update (RTU) -> V=0.9740 pu, I=878.7800 A, P=280.5316 MW, Q=92.2063 MVar
-[2026-04-29 00:01:58] [Bus 3] Data P/Q/CMD update (RTU) -> V=0.9940 pu, I=797.4000 A, P=265.2488 MW, Q=66.4776 MVar
-[2026-04-29 00:01:58] [Bus 4] Data P/Q/CMD update (RTU) -> V=1.0040 pu, I=192.2000 A, P=62.5798 MW, Q=22.7134 MVar
-[2026-04-29 00:01:58] [Bus 5] Data P/Q/CMD update (RTU) -> V=1.0490 pu, I=744.8200 A, P=258.7719 MW, Q=75.4751 MVar
-
-
-[2026-04-29 00:02:02] [Bus 1] Data P/Q/CMD update (RTU) -> V=0.9920 pu, I=364.0600 A, P=119.6121 MW, Q=34.8869 MVar
-[2026-04-29 00:02:02] [Bus 2] Data P/Q/CMD update (RTU) -> V=0.9740 pu, I=878.7800 A, P=280.5316 MW, Q=92.2063 MVar
-[2026-04-29 00:02:02] [Bus 3] Data P/Q/CMD update (RTU) -> V=0.9940 pu, I=797.4000 A, P=265.2488 MW, Q=66.4776 MVar
-[2026-04-29 00:02:02] [Bus 4] Data P/Q/CMD update (RTU) -> V=1.0040 pu, I=192.2000 A, P=62.5798 MW, Q=22.7134 MVar
-[2026-04-29 00:02:02] [Bus 5] Data P/Q/CMD update (RTU) -> V=1.0490 pu, I=744.8200 A, P=258.7719 MW, Q=75.4751 MVar
-
-
-[2026-04-29 00:02:06] [Bus 1] Data P/Q/CMD update (RTU) -> V=1.0460 pu, I=812.1200 A, P=281.3470 MW, Q=82.0595 MVar
-[2026-04-29 00:02:06] [Bus 2] Data P/Q/CMD update (RTU) -> V=1.0340 pu, I=269.9800 A, P=91.4945 MW, Q=30.0728 MVar
-[2026-04-29 00:02:06] [Bus 3] Data P/Q/CMD update (RTU) -> V=0.9980 pu, I=309.5200 A, P=103.3737 MW, Q=25.9079 MVar
-[2026-04-29 00:02:06] [Bus 4] Data P/Q/CMD update (RTU) -> V=0.9900 pu, I=201.3600 A, P=64.6480 MW, Q=23.4641 MVar
-[2026-04-29 00:02:06] [Bus 5] Data P/Q/CMD update (RTU) -> V=0.9870 pu, I=905.6600 A, P=296.0552 MW, Q=86.3494 MVar
-
-
-[2026-04-29 00:02:10] [Bus 1] Data P/Q/CMD update (RTU) -> V=0.9760 pu, I=760.6600 A, P=245.8843 MW, Q=71.7162 MVar
-[2026-04-29 00:02:10] [Bus 2] Data P/Q/CMD update (RTU) -> V=0.9950 pu, I=477.3600 A, P=155.6725 MW, Q=51.1671 MVar
-[2026-04-29 00:02:10] [Bus 3] Data P/Q/CMD update (RTU) -> V=1.0450 pu, I=853.9800 A, P=298.6447 MW, Q=74.8474 MVar
-[2026-04-29 00:02:10] [Bus 4] Data P/Q/CMD update (RTU) -> V=1.0040 pu, I=704.0600 A, P=229.2400 MW, Q=83.2030 MVar
-[2026-04-29 00:02:10] [Bus 5] Data P/Q/CMD update (RTU) -> V=0.9650 pu, I=388.3200 A, P=124.1102 MW, Q=36.1988 MVar
-
-
-[2026-04-29 00:02:15] [Bus 1] Data P/Q/CMD update (RTU) -> V=1.0460 pu, I=561.7800 A, P=194.6204 MW, Q=56.7643 MVar
-[2026-04-29 00:02:15] [Bus 2] Data P/Q/CMD update (RTU) -> V=1.0040 pu, I=720.0400 A, P=236.9371 MW, Q=77.8775 MVar
-[2026-04-29 00:02:15] [Bus 3] Data P/Q/CMD update (RTU) -> V=0.9550 pu, I=612.9600 A, P=195.8963 MW, Q=49.0963 MVar
-[2026-04-29 00:02:15] [Bus 4] Data P/Q/CMD update (RTU) -> V=1.0000 pu, I=811.3000 A, P=263.1046 MW, Q=95.4942 MVar
-[2026-04-29 00:02:15] [Bus 5] Data P/Q/CMD update (RTU) -> V=0.9650 pu, I=907.2600 A, P=289.9676 MW, Q=84.5739 MVar
-
-
-[2026-04-29 00:02:19] [Bus 1] Data P/Q/CMD update (RTU) -> V=0.9580 pu, I=303.9800 A, P=96.4497 MW, Q=28.1312 MVar
-[2026-04-29 00:02:19] [Bus 2] Data P/Q/CMD update (RTU) -> V=1.0080 pu, I=661.3000 A, P=218.4750 MW, Q=71.8093 MVar
-[2026-04-29 00:02:19] [Bus 3] Data P/Q/CMD update (RTU) -> V=0.9730 pu, I=245.4600 A, P=79.9253 MW, Q=20.0312 MVar
-[2026-04-29 00:02:19] [Bus 4] Data P/Q/CMD update (RTU) -> V=1.0390 pu, I=331.0600 A, P=111.5499 MW, Q=40.4872 MVar
-[2026-04-29 00:02:19] [Bus 5] Data P/Q/CMD update (RTU) -> V=1.0080 pu, I=612.7000 A, P=204.5496 MW, Q=59.6603 MVar
-
-
-[2026-04-29 00:02:23] [Bus 1] Data P/Q/CMD update (RTU) -> V=0.9580 pu, I=303.9800 A, P=96.4497 MW, Q=28.1312 MVar
-[2026-04-29 00:02:23] [Bus 2] Data P/Q/CMD update (RTU) -> V=1.0080 pu, I=661.3000 A, P=218.4750 MW, Q=71.8093 MVar
-[2026-04-29 00:02:23] [Bus 3] Data P/Q/CMD update (RTU) -> V=0.9730 pu, I=245.4600 A, P=79.9253 MW, Q=20.0312 MVar
-[2026-04-29 00:02:23] [Bus 4] Data P/Q/CMD update (RTU) -> V=1.0390 pu, I=331.0600 A, P=111.5499 MW, Q=40.4872 MVar
-[2026-04-29 00:02:23] [Bus 5] Data P/Q/CMD update (RTU) -> V=1.0080 pu, I=612.7000 A, P=204.5496 MW, Q=59.6603 MVar
-
-
-[2026-04-29 00:02:27] [Bus 1] Data P/Q/CMD update (RTU) -> V=0.9910 pu, I=596.3400 A, P=195.7302 MW, Q=57.0880 MVar
-[2026-04-29 00:02:27] [Bus 2] Data P/Q/CMD update (RTU) -> V=1.0020 pu, I=863.5400 A, P=283.5913 MW, Q=93.2119 MVar
-[2026-04-29 00:02:27] [Bus 3] Data P/Q/CMD update (RTU) -> V=0.9700 pu, I=705.2800 A, P=228.9413 MW, Q=57.3781 MVar
-[2026-04-29 00:02:27] [Bus 4] Data P/Q/CMD update (RTU) -> V=0.9730 pu, I=471.6000 A, P=148.8105 MW, Q=54.0110 MVar
-[2026-04-29 00:02:27] [Bus 5] Data P/Q/CMD update (RTU) -> V=1.0160 pu, I=371.0400 A, P=124.8547 MW, Q=36.4159 MVar
-
-
-[2026-04-29 00:02:31] [Bus 1] Data P/Q/CMD update (RTU) -> V=0.9810 pu, I=731.9400 A, P=237.8126 MW, Q=69.3620 MVar
-[2026-04-29 00:02:31] [Bus 2] Data P/Q/CMD update (RTU) -> V=0.9570 pu, I=524.5400 A, P=164.5255 MW, Q=54.0769 MVar
-[2026-04-29 00:02:31] [Bus 3] Data P/Q/CMD update (RTU) -> V=1.0490 pu, I=851.1000 A, P=298.7768 MW, Q=74.8805 MVar
-[2026-04-29 00:02:31] [Bus 4] Data P/Q/CMD update (RTU) -> V=0.9570 pu, I=332.6800 A, P=103.2489 MW, Q=37.4744 MVar
-[2026-04-29 00:02:31] [Bus 5] Data P/Q/CMD update (RTU) -> V=0.9760 pu, I=875.9800 A, P=283.1616 MW, Q=82.5888 MVar
-
-
-[2026-04-29 00:02:35] [Bus 1] Data P/Q/CMD update (RTU) -> V=1.0380 pu, I=784.7600 A, P=269.7892 MW, Q=78.6885 MVar
-[2026-04-29 00:02:35] [Bus 2] Data P/Q/CMD update (RTU) -> V=0.9860 pu, I=276.4800 A, P=89.3477 MW, Q=29.3672 MVar
-[2026-04-29 00:02:35] [Bus 3] Data P/Q/CMD update (RTU) -> V=1.0330 pu, I=653.1600 A, P=225.7931 MW, Q=56.5891 MVar
-[2026-04-29 00:02:35] [Bus 4] Data P/Q/CMD update (RTU) -> V=1.0100 pu, I=905.1000 A, P=296.4592 MW, Q=107.6003 MVar
-[2026-04-29 00:02:35] [Bus 5] Data P/Q/CMD update (RTU) -> V=1.0140 pu, I=154.4600 A, P=51.8734 MW, Q=15.1297 MVar
-
-
-[2026-04-29 00:02:39] [Bus 1] Data P/Q/CMD update (RTU) -> V=1.0310 pu, I=365.3600 A, P=124.7585 MW, Q=36.3879 MVar
-[2026-04-29 00:02:39] [Bus 2] Data P/Q/CMD update (RTU) -> V=1.0160 pu, I=854.7800 A, P=284.6366 MW, Q=93.5555 MVar
-[2026-04-29 00:02:39] [Bus 3] Data P/Q/CMD update (RTU) -> V=0.9630 pu, I=244.5800 A, P=78.8203 MW, Q=19.7542 MVar
-[2026-04-29 00:02:39] [Bus 4] Data P/Q/CMD update (RTU) -> V=0.9600 pu, I=604.4000 A, P=188.1666 MW, Q=68.2954 MVar
-[2026-04-29 00:02:39] [Bus 5] Data P/Q/CMD update (RTU) -> V=0.9770 pu, I=621.6600 A, P=201.1582 MW, Q=58.6712 MVar
-
-
-[2026-04-29 00:02:43] [Bus 1] Data P/Q/CMD update (RTU) -> V=1.0200 pu, I=298.1400 A, P=100.7188 MW, Q=29.3763 MVar
-[2026-04-29 00:02:43] [Bus 2] Data P/Q/CMD update (RTU) -> V=1.0120 pu, I=349.2200 A, P=115.8303 MW, Q=38.0716 MVar
-[2026-04-29 00:02:43] [Bus 3] Data P/Q/CMD update (RTU) -> V=0.9980 pu, I=826.6800 A, P=276.0952 MW, Q=69.1960 MVar
-[2026-04-29 00:02:43] [Bus 4] Data P/Q/CMD update (RTU) -> V=1.0340 pu, I=217.7800 A, P=73.0273 MW, Q=26.5054 MVar
-[2026-04-29 00:02:43] [Bus 5] Data P/Q/CMD update (RTU) -> V=0.9920 pu, I=362.5800 A, P=119.1258 MW, Q=34.7450 MVar
-
-
-[2026-04-29 00:02:47] [Bus 1] Data P/Q/CMD update (RTU) -> V=1.0200 pu, I=298.1400 A, P=100.7188 MW, Q=29.3763 MVar
-[2026-04-29 00:02:47] [Bus 2] Data P/Q/CMD update (RTU) -> V=1.0120 pu, I=349.2200 A, P=115.8303 MW, Q=38.0716 MVar
-[2026-04-29 00:02:47] [Bus 3] Data P/Q/CMD update (RTU) -> V=0.9980 pu, I=826.6800 A, P=276.0952 MW, Q=69.1960 MVar
-[2026-04-29 00:02:47] [Bus 4] Data P/Q/CMD update (RTU) -> V=1.0340 pu, I=217.7800 A, P=73.0273 MW, Q=26.5054 MVar
-[2026-04-29 00:02:47] [Bus 5] Data P/Q/CMD update (RTU) -> V=0.9920 pu, I=362.5800 A, P=119.1258 MW, Q=34.7450 MVar
-
-
-[2026-04-29 00:02:51] [Bus 1] Data P/Q/CMD update (RTU) -> V=0.9500 pu, I=771.3200 A, P=242.6881 MW, Q=70.7840 MVar
-[2026-04-29 00:02:51] [Bus 2] Data P/Q/CMD update (RTU) -> V=1.0120 pu, I=347.6000 A, P=115.2930 MW, Q=37.8950 MVar
-[2026-04-29 00:02:51] [Bus 3] Data P/Q/CMD update (RTU) -> V=1.0240 pu, I=548.2800 A, P=187.8855 MW, Q=47.0885 MVar
-[2026-04-29 00:02:51] [Bus 4] Data P/Q/CMD update (RTU) -> V=0.9920 pu, I=162.8000 A, P=52.3737 MW, Q=19.0091 MVar
-[2026-04-29 00:02:51] [Bus 5] Data P/Q/CMD update (RTU) -> V=0.9570 pu, I=853.8200 A, P=270.6254 MW, Q=78.9324 MVar
-
-
-[2026-04-29 00:02:55] [Bus 1] Data P/Q/CMD update (RTU) -> V=1.0400 pu, I=540.9400 A, P=186.3257 MW, Q=54.3450 MVar
-[2026-04-29 00:02:55] [Bus 2] Data P/Q/CMD update (RTU) -> V=1.0330 pu, I=577.5400 A, P=195.5353 MW, Q=64.2693 MVar
-[2026-04-29 00:02:55] [Bus 3] Data P/Q/CMD update (RTU) -> V=0.9640 pu, I=253.5400 A, P=81.7927 MW, Q=20.4992 MVar
-[2026-04-29 00:02:55] [Bus 4] Data P/Q/CMD update (RTU) -> V=0.9800 pu, I=863.7400 A, P=274.5087 MW, Q=99.6333 MVar
-[2026-04-29 00:02:55] [Bus 5] Data P/Q/CMD update (RTU) -> V=1.0290 pu, I=777.6200 A, P=265.0166 MW, Q=77.2965 MVar
-
-
-[2026-04-29 00:02:59] [Bus 1] Data P/Q/CMD update (RTU) -> V=1.0390 pu, I=297.6600 A, P=102.4298 MW, Q=29.8754 MVar
-[2026-04-29 00:02:59] [Bus 2] Data P/Q/CMD update (RTU) -> V=0.9740 pu, I=236.8800 A, P=75.6188 MW, Q=24.8547 MVar
-[2026-04-29 00:02:59] [Bus 3] Data P/Q/CMD update (RTU) -> V=1.0280 pu, I=787.8200 A, P=271.0260 MW, Q=67.9255 MVar
-[2026-04-29 00:02:59] [Bus 4] Data P/Q/CMD update (RTU) -> V=0.9900 pu, I=638.6000 A, P=205.0270 MW, Q=74.4149 MVar
-[2026-04-29 00:02:59] [Bus 5] Data P/Q/CMD update (RTU) -> V=0.9650 pu, I=883.3800 A, P=282.3353 MW, Q=82.3478 MVar
-
-
-[2026-04-29 00:03:03] [Bus 1] Data P/Q/CMD update (RTU) -> V=1.0360 pu, I=856.6000 A, P=293.9193 MW, Q=85.7265 MVar
-[2026-04-29 00:03:03] [Bus 2] Data P/Q/CMD update (RTU) -> V=1.0310 pu, I=800.0000 A, P=270.3282 MW, Q=88.8526 MVar
-[2026-04-29 00:03:03] [Bus 3] Data P/Q/CMD update (RTU) -> V=0.9520 pu, I=734.5600 A, P=234.0211 MW, Q=58.6512 MVar
-[2026-04-29 00:03:03] [Bus 4] Data P/Q/CMD update (RTU) -> V=0.9830 pu, I=886.6000 A, P=282.6365 MW, Q=102.5833 MVar
-[2026-04-29 00:03:03] [Bus 5] Data P/Q/CMD update (RTU) -> V=1.0300 pu, I=779.6200 A, P=265.9564 MW, Q=77.5706 MVar
-
-
-[2026-04-29 00:03:07] [Bus 1] Data P/Q/CMD update (RTU) -> V=1.0360 pu, I=856.6000 A, P=293.9193 MW, Q=85.7265 MVar
-[2026-04-29 00:03:07] [Bus 2] Data P/Q/CMD update (RTU) -> V=1.0310 pu, I=800.0000 A, P=270.3282 MW, Q=88.8526 MVar
-[2026-04-29 00:03:07] [Bus 3] Data P/Q/CMD update (RTU) -> V=0.9520 pu, I=734.5600 A, P=234.0211 MW, Q=58.6512 MVar
-[2026-04-29 00:03:07] [Bus 4] Data P/Q/CMD update (RTU) -> V=0.9830 pu, I=886.6000 A, P=282.6365 MW, Q=102.5833 MVar
-[2026-04-29 00:03:07] [Bus 5] Data P/Q/CMD update (RTU) -> V=1.0300 pu, I=779.6200 A, P=265.9564 MW, Q=77.5706 MVar
-
-
-[2026-04-29 00:03:12] [Bus 1] Data P/Q/CMD update (RTU) -> V=1.0310 pu, I=341.7200 A, P=116.6862 MW, Q=34.0335 MVar
-[2026-04-29 00:03:12] [Bus 2] Data P/Q/CMD update (RTU) -> V=1.0280 pu, I=228.4400 A, P=76.9676 MW, Q=25.2980 MVar
-[2026-04-29 00:03:12] [Bus 3] Data P/Q/CMD update (RTU) -> V=1.0370 pu, I=762.4400 A, P=264.5911 MW, Q=66.3128 MVar
-[2026-04-29 00:03:12] [Bus 4] Data P/Q/CMD update (RTU) -> V=0.9720 pu, I=806.0400 A, P=254.0796 MW, Q=92.2186 MVar
-[2026-04-29 00:03:12] [Bus 5] Data P/Q/CMD update (RTU) -> V=0.9960 pu, I=382.8400 A, P=126.2894 MW, Q=36.8344 MVar
-
-
-[2026-04-29 00:03:16] [Bus 1] Data P/Q/CMD update (RTU) -> V=1.0290 pu, I=313.5000 A, P=106.8423 MW, Q=31.1623 MVar
-[2026-04-29 00:03:16] [Bus 2] Data P/Q/CMD update (RTU) -> V=0.9520 pu, I=314.8600 A, P=98.2420 MW, Q=32.2906 MVar
-[2026-04-29 00:03:16] [Bus 3] Data P/Q/CMD update (RTU) -> V=0.9820 pu, I=809.0000 A, P=265.8587 MW, Q=66.6305 MVar
-[2026-04-29 00:03:16] [Bus 4] Data P/Q/CMD update (RTU) -> V=1.0460 pu, I=352.8600 A, P=119.6964 MW, Q=43.4440 MVar
-[2026-04-29 00:03:16] [Bus 5] Data P/Q/CMD update (RTU) -> V=1.0140 pu, I=446.3400 A, P=149.8974 MW, Q=43.7201 MVar
-
-
-[2026-04-29 00:03:20] [Bus 1] Data P/Q/CMD update (RTU) -> V=1.0480 pu, I=530.2000 A, P=184.0311 MW, Q=53.6758 MVar
-[2026-04-29 00:03:20] [Bus 2] Data P/Q/CMD update (RTU) -> V=1.0430 pu, I=230.4000 A, P=78.7607 MW, Q=25.8874 MVar
-[2026-04-29 00:03:20] [Bus 3] Data P/Q/CMD update (RTU) -> V=1.0470 pu, I=270.1000 A, P=94.6372 MW, Q=23.7183 MVar
-[2026-04-29 00:03:20] [Bus 4] Data P/Q/CMD update (RTU) -> V=1.0460 pu, I=342.9600 A, P=116.3381 MW, Q=42.2251 MVar
-[2026-04-29 00:03:20] [Bus 5] Data P/Q/CMD update (RTU) -> V=0.9600 pu, I=498.5000 A, P=158.4991 MW, Q=46.2289 MVar
-
-
-[2026-04-29 00:03:24] [Bus 1] Data P/Q/CMD update (RTU) -> V=1.0480 pu, I=530.2000 A, P=184.0311 MW, Q=53.6758 MVar
-[2026-04-29 00:03:24] [Bus 2] Data P/Q/CMD update (RTU) -> V=1.0430 pu, I=230.4000 A, P=78.7607 MW, Q=25.8874 MVar
-[2026-04-29 00:03:24] [Bus 3] Data P/Q/CMD update (RTU) -> V=1.0470 pu, I=270.1000 A, P=94.6372 MW, Q=23.7183 MVar
-[2026-04-29 00:03:24] [Bus 4] Data P/Q/CMD update (RTU) -> V=1.0460 pu, I=342.9600 A, P=116.3381 MW, Q=42.2251 MVar
-[2026-04-29 00:03:24] [Bus 5] Data P/Q/CMD update (RTU) -> V=0.9600 pu, I=498.5000 A, P=158.4991 MW, Q=46.2289 MVar
-
-
-[2026-04-29 00:03:28] [Bus 1] Data P/Q/CMD update (RTU) -> V=1.0220 pu, I=379.0600 A, P=128.3067 MW, Q=37.4228 MVar
-[2026-04-29 00:03:28] [Bus 2] Data P/Q/CMD update (RTU) -> V=1.0100 pu, I=536.9400 A, P=177.7419 MW, Q=58.4209 MVar
-[2026-04-29 00:03:28] [Bus 3] Data P/Q/CMD update (RTU) -> V=0.9880 pu, I=586.8800 A, P=194.0426 MW, Q=48.6317 MVar
-[2026-04-29 00:03:28] [Bus 4] Data P/Q/CMD update (RTU) -> V=0.9750 pu, I=718.1800 A, P=227.0831 MW, Q=82.4202 MVar
-[2026-04-29 00:03:28] [Bus 5] Data P/Q/CMD update (RTU) -> V=0.9500 pu, I=894.1600 A, P=281.3385 MW, Q=82.0571 MVar
-
-
-[2026-04-29 00:03:32] [Bus 1] Data P/Q/CMD update (RTU) -> V=1.0020 pu, I=691.3400 A, P=229.4298 MW, Q=66.9170 MVar
-[2026-04-29 00:03:32] [Bus 2] Data P/Q/CMD update (RTU) -> V=1.0240 pu, I=648.4000 A, P=217.6134 MW, Q=71.5261 MVar
-[2026-04-29 00:03:32] [Bus 3] Data P/Q/CMD update (RTU) -> V=0.9860 pu, I=204.4400 A, P=67.4580 MW, Q=16.9066 MVar
-[2026-04-29 00:03:32] [Bus 4] Data P/Q/CMD update (RTU) -> V=1.0160 pu, I=402.1200 A, P=132.4940 MW, Q=48.0889 MVar
-[2026-04-29 00:03:32] [Bus 5] Data P/Q/CMD update (RTU) -> V=0.9810 pu, I=806.0600 A, P=261.8947 MW, Q=76.3860 MVar
-
-
-[2026-04-29 00:03:36] [Bus 1] Data P/Q/CMD update (RTU) -> V=1.0200 pu, I=369.5200 A, P=124.8327 MW, Q=36.4095 MVar
-[2026-04-29 00:03:36] [Bus 2] Data P/Q/CMD update (RTU) -> V=0.9800 pu, I=473.0800 A, P=151.9509 MW, Q=49.9439 MVar
-[2026-04-29 00:03:36] [Bus 3] Data P/Q/CMD update (RTU) -> V=0.9900 pu, I=373.9200 A, P=123.8810 MW, Q=31.0475 MVar
-[2026-04-29 00:03:36] [Bus 4] Data P/Q/CMD update (RTU) -> V=0.9620 pu, I=496.8000 A, P=154.9900 MW, Q=56.2538 MVar
-[2026-04-29 00:03:36] [Bus 5] Data P/Q/CMD update (RTU) -> V=1.0440 pu, I=634.2800 A, P=219.3168 MW, Q=63.9674 MVar
-
-
-[2026-04-29 00:03:40] [Bus 1] Data P/Q/CMD update (RTU) -> V=1.0400 pu, I=591.7400 A, P=203.8237 MW, Q=59.4486 MVar
-[2026-04-29 00:03:40] [Bus 2] Data P/Q/CMD update (RTU) -> V=0.9800 pu, I=582.0800 A, P=186.9612 MW, Q=61.4512 MVar
-[2026-04-29 00:03:40] [Bus 3] Data P/Q/CMD update (RTU) -> V=0.9500 pu, I=382.8600 A, P=121.7179 MW, Q=30.5054 MVar
-[2026-04-29 00:03:40] [Bus 4] Data P/Q/CMD update (RTU) -> V=0.9920 pu, I=605.5200 A, P=194.7992 MW, Q=70.7027 MVar
-[2026-04-29 00:03:40] [Bus 5] Data P/Q/CMD update (RTU) -> V=1.0140 pu, I=494.3000 A, P=166.0041 MW, Q=48.4179 MVar
-
-
-[2026-04-29 00:03:44] [Bus 1] Data P/Q/CMD update (RTU) -> V=1.0400 pu, I=591.7400 A, P=203.8237 MW, Q=59.4486 MVar
-[2026-04-29 00:03:44] [Bus 2] Data P/Q/CMD update (RTU) -> V=0.9800 pu, I=582.0800 A, P=186.9612 MW, Q=61.4512 MVar
-[2026-04-29 00:03:44] [Bus 3] Data P/Q/CMD update (RTU) -> V=0.9500 pu, I=382.8600 A, P=121.7179 MW, Q=30.5054 MVar
-[2026-04-29 00:03:44] [Bus 4] Data P/Q/CMD update (RTU) -> V=0.9920 pu, I=605.5200 A, P=194.7992 MW, Q=70.7027 MVar
-[2026-04-29 00:03:44] [Bus 5] Data P/Q/CMD update (RTU) -> V=1.0140 pu, I=494.3000 A, P=166.0041 MW, Q=48.4179 MVar
-
-
-[2026-04-29 00:03:48] [Bus 1] Data P/Q/CMD update (RTU) -> V=0.9940 pu, I=314.0800 A, P=103.3992 MW, Q=30.1581 MVar
-[2026-04-29 00:03:48] [Bus 2] Data P/Q/CMD update (RTU) -> V=0.9970 pu, I=842.2000 A, P=275.2030 MW, Q=90.4548 MVar
-[2026-04-29 00:03:48] [Bus 3] Data P/Q/CMD update (RTU) -> V=1.0290 pu, I=268.2200 A, P=92.3629 MW, Q=23.1483 MVar
-[2026-04-29 00:03:48] [Bus 4] Data P/Q/CMD update (RTU) -> V=0.9580 pu, I=575.4000 A, P=178.7649 MW, Q=64.8830 MVar
-[2026-04-29 00:03:48] [Bus 5] Data P/Q/CMD update (RTU) -> V=1.0120 pu, I=398.6600 A, P=133.6206 MW, Q=38.9727 MVar
-
-
-[2026-04-29 00:03:52] [Bus 1] Data P/Q/CMD update (RTU) -> V=1.0310 pu, I=695.7800 A, P=237.5860 MW, Q=69.2959 MVar
-[2026-04-29 00:03:52] [Bus 2] Data P/Q/CMD update (RTU) -> V=1.0160 pu, I=318.3800 A, P=106.0186 MW, Q=34.8466 MVar
-[2026-04-29 00:03:52] [Bus 3] Data P/Q/CMD update (RTU) -> V=0.9690 pu, I=172.8400 A, P=56.0478 MW, Q=14.0469 MVar
-[2026-04-29 00:03:52] [Bus 4] Data P/Q/CMD update (RTU) -> V=0.9740 pu, I=534.0800 A, P=168.6989 MW, Q=61.2295 MVar
-[2026-04-29 00:03:52] [Bus 5] Data P/Q/CMD update (RTU) -> V=1.0340 pu, I=198.9800 A, P=68.1428 MW, Q=19.8750 MVar
-
-
-[2026-04-29 00:03:56] [Bus 1] Data P/Q/CMD update (RTU) -> V=0.9910 pu, I=631.7200 A, P=207.3426 MW, Q=60.4749 MVar
-[2026-04-29 00:03:56] [Bus 2] Data P/Q/CMD update (RTU) -> V=0.9690 pu, I=705.2600 A, P=223.9833 MW, Q=73.6198 MVar
-[2026-04-29 00:03:56] [Bus 3] Data P/Q/CMD update (RTU) -> V=0.9990 pu, I=331.8600 A, P=110.9459 MW, Q=27.8057 MVar
-[2026-04-29 00:03:56] [Bus 4] Data P/Q/CMD update (RTU) -> V=1.0140 pu, I=156.0000 A, P=51.2991 MW, Q=18.6191 MVar
-[2026-04-29 00:03:56] [Bus 5] Data P/Q/CMD update (RTU) -> V=1.0250 pu, I=714.2800 A, P=242.4838 MW, Q=70.7244 MVar
-
-
-[2026-04-29 00:04:00] [Bus 1] Data P/Q/CMD update (RTU) -> V=0.9600 pu, I=491.2000 A, P=156.1780 MW, Q=45.5519 MVar
-[2026-04-29 00:04:00] [Bus 2] Data P/Q/CMD update (RTU) -> V=0.9670 pu, I=912.8400 A, P=289.3103 MW, Q=95.0917 MVar
-[2026-04-29 00:04:00] [Bus 3] Data P/Q/CMD update (RTU) -> V=1.0000 pu, I=186.5800 A, P=62.4390 MW, Q=15.6487 MVar
-[2026-04-29 00:04:00] [Bus 4] Data P/Q/CMD update (RTU) -> V=0.9740 pu, I=828.9400 A, P=261.8358 MW, Q=95.0337 MVar
-[2026-04-29 00:04:00] [Bus 5] Data P/Q/CMD update (RTU) -> V=0.9950 pu, I=759.2000 A, P=250.1898 MW, Q=72.9720 MVar
-
-
-[2026-04-29 00:04:04] [Bus 1] Data P/Q/CMD update (RTU) -> V=0.9600 pu, I=491.2000 A, P=156.1780 MW, Q=45.5519 MVar
-[2026-04-29 00:04:04] [Bus 2] Data P/Q/CMD update (RTU) -> V=0.9670 pu, I=912.8400 A, P=289.3103 MW, Q=95.0917 MVar
-[2026-04-29 00:04:04] [Bus 3] Data P/Q/CMD update (RTU) -> V=1.0000 pu, I=186.5800 A, P=62.4390 MW, Q=15.6487 MVar
-[2026-04-29 00:04:04] [Bus 4] Data P/Q/CMD update (RTU) -> V=0.9740 pu, I=828.9400 A, P=261.8358 MW, Q=95.0337 MVar
-[2026-04-29 00:04:04] [Bus 5] Data P/Q/CMD update (RTU) -> V=0.9950 pu, I=759.2000 A, P=250.1898 MW, Q=72.9720 MVar
+[2026-04-29 00:15:41] [Bus 1] Data P/Q/CMD update (RTU) -> V=1.0490 pu, I=611.2400 A, P=212.3624 MW, Q=61.9390 MVar
+[2026-04-29 00:15:41] [Bus 2] Data P/Q/CMD update (RTU) -> V=0.9930 pu, I=550.7400 A, P=215.0898 MW, Q=70.6966 MVar
+[2026-04-29 00:15:41] [Bus 3] Data P/Q/CMD update (RTU) -> V=0.9620 pu, I=329.7600 A, P=106.1607 MW, Q=26.6064 MVar
+[2026-04-29 00:15:41] [Bus 4] Data P/Q/CMD update (RTU) -> V=0.9830 pu, I=617.7000 A, P=226.4519 MW, Q=82.1911 MVar
+[2026-04-29 00:15:41] [Bus 5] Data P/Q/CMD update (RTU) -> V=0.9730 pu, I=325.9800 A, P=105.0495 MW, Q=30.6394 MVar
