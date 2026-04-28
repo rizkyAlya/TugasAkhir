@@ -53,22 +53,28 @@ print("Unique bus->line mapping:", bus_line)
 line_status = {idx: True for idx in range(len(net.line))}
 open_factor = 1.00   # Open jika I_line > max_i_ka * open_factor
 close_factor = 0.95  # Close jika I_line < max_i_ka * close_factor
+ema_alpha = 0.35     # smoothing input P/Q agar tegangan tidak terlalu berosilasi
+p_ema = {}
+q_ema = {}
 
 while True:
     for bus in range(1, 6):
-        p_mw = p_nodes[bus].get_value()
-        q_mvar = q_nodes[bus].get_value()
+        p_in = float(p_nodes[bus].get_value())
+        q_in = float(q_nodes[bus].get_value())
+
+        if bus not in p_ema:
+            p_ema[bus] = p_in
+            q_ema[bus] = q_in
+        else:
+            p_ema[bus] = (ema_alpha * p_in) + ((1 - ema_alpha) * p_ema[bus])
+            q_ema[bus] = (ema_alpha * q_in) + ((1 - ema_alpha) * q_ema[bus])
 
         idx_pp = bus_map[bus]
-        
-        in_load = idx_pp in net.load.bus.values
+
         load_idx = net.load[net.load.bus == idx_pp].index.tolist()
-
-        print(f"bus={bus}, idx_pp={idx_pp}, in_load={in_load}, load_idx={load_idx}, load_buses={sorted(net.load.bus.unique().tolist())}")
-
-        if in_load and len(load_idx):
-            net.load.loc[load_idx, "p_mw"] = float(p_mw) # MW
-            net.load.loc[load_idx, "q_mvar"] = float(q_mvar) # MVar
+        if len(load_idx):
+            net.load.loc[load_idx, "p_mw"] = p_ema[bus] # MW
+            net.load.loc[load_idx, "q_mvar"] = q_ema[bus] # MVar
 
     try:
         pp.runpp(net)
@@ -111,4 +117,3 @@ while True:
             print(f"Bus {bus}: breaker CLOSE (line {line_idx}) | I_line={i_line_ka:.4f} kA, I_close={i_close_ka:.4f} kA")
 
     time.sleep(4)
-

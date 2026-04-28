@@ -54,6 +54,22 @@ PF_BY_BUS = {
     4: 0.94,
     5: 0.96,
 }
+# Kalibrasi sederhana agar magnitudo P/Q lebih dekat ke respons DT per bus.
+# Fokus tuning pada bus dengan drift V lebih tinggi (2 dan 4).
+P_GAIN_BY_BUS = {
+    1: 1.00,
+    2: 1.20,
+    3: 1.00,
+    4: 1.15,
+    5: 1.00,
+}
+Q_GAIN_BY_BUS = {
+    1: 1.00,
+    2: 1.20,
+    3: 1.00,
+    4: 1.15,
+    5: 1.00,
+}
 INJECT_ENABLE_FLAG = "/tmp/h3_http_inject_enabled"
 INJECT_API_IP = "0.0.0.0"
 INJECT_API_PORT = 8088
@@ -333,8 +349,11 @@ try:
                 pf = PF_BY_BUS.get(bus, 0.95)
                 v_real = v_final * V_BASE
                 s_va = v_real * i_final
-                p_mw = (s_va * pf) / 1e6
-                q_mvar = (s_va * math.sqrt(1 - pf**2)) / 1e6
+                p_mw_raw = (s_va * pf) / 1e6
+                q_mvar_raw = (s_va * math.sqrt(1 - pf**2)) / 1e6
+
+                p_mw = p_mw_raw * P_GAIN_BY_BUS.get(bus, 1.0)
+                q_mvar = q_mvar_raw * Q_GAIN_BY_BUS.get(bus, 1.0)
 
                 p_nodes[bus].set_value(p_mw)
                 q_nodes[bus].set_value(q_mvar)
