@@ -26,6 +26,7 @@ command_folder = objects.add_folder(idx, "COMMANDS")
 
 p_nodes = {}
 q_nodes = {}
+v_dt_nodes = {}
 command_nodes = {}
 
 last_breaker = {}
@@ -145,13 +146,14 @@ def log_h5_change(event, bus, v, i, ttl, client):
         i,
         "",
         "",
+        "",
         ttl,
         client,
         "",
     ])
 
 
-def log_h3_final(ts, bus, v_raw, i_raw, v_final, i_final, source, breaker_fb, breaker_cmd):
+def log_h3_final(ts, bus, v_raw, i_raw, v_final, i_final, v_dt, source, breaker_fb, breaker_cmd):
     append_trace_row(MITM_TRACE_CSV, [
         ts,
         get_run_id(),
@@ -163,6 +165,7 @@ def log_h3_final(ts, bus, v_raw, i_raw, v_final, i_final, source, breaker_fb, br
         f"{i_raw:.6f}",
         f"{v_final:.6f}",
         f"{i_final:.6f}",
+        f"{v_dt:.6f}",
         breaker_cmd,
         breaker_fb,
         "",
@@ -266,6 +269,10 @@ for bus in range(1, 6):
     q_nodes[bus] = sensor_folder.add_variable(idx, f"Q_bus_{bus}", 0.0)   # MVar
     q_nodes[bus].set_writable()
 
+    # Diisi oleh pandapower (h4) agar gateway bisa logging V_DT per bus.
+    v_dt_nodes[bus] = sensor_folder.add_variable(idx, f"V_DT_bus_{bus}", 1.0)   # pu
+    v_dt_nodes[bus].set_writable()
+
     command_nodes[bus] = command_folder.add_variable(idx, f"CMD_bus_{bus}", 1)
     command_nodes[bus].set_writable()
 
@@ -329,11 +336,12 @@ try:
                 cmd = command_nodes[bus].get_value()
                 cmd_val = 1 if int(cmd) == 1 else 0
                 context[0x00].setValues(1, BREAKER_CMD_BASE_ADDR + (bus - 1), [cmd_val])
-                log_h3_final(ts, bus, float(v_raw), float(i_raw), v_final, i_final, source, breaker_fb, cmd_val)
+                v_dt = float(v_dt_nodes[bus].get_value())
+                log_h3_final(ts, bus, float(v_raw), float(i_raw), v_final, i_final, v_dt, source, breaker_fb, cmd_val)
 
                 print(
                     f"[{ts}] [Bus {bus}] Data P/Q/CMD update ({source}) -> "
-                    f"V={v_final:.4f} pu, I={i_final:.4f} A, "
+                    f"V={v_final:.4f} pu, I={i_final:.4f} A, V_DT={v_dt:.4f} pu, "
                     f"P={p_mw:.4f} MW, Q={q_mvar:.4f} MVar"
                 )
             except Exception as e:

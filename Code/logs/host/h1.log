@@ -1,135 +1,184 @@
-Starting Modbus TCP server on 0.0.0.0:5020
-Field random seed: 42
+Starting Modbus TCP server on 0.0.0.0:5020Field random seed: 42
 
- 2026-04-29 01:37:18
+
+ 2026-04-29 01:53:01
 Bus 1 | V=1.014 pu (1013 reg @x1000) | I=167.510 A (8375 reg @x50) | Breaker=CLOSE
 Bus 2 | V=0.978 pu (977 reg @x1000) | I=330.245 A (16512 reg @x50) | Breaker=CLOSE
 Bus 3 | V=1.024 pu (1023 reg @x1000) | I=639.808 A (31990 reg @x50) | Breaker=CLOSE
 Bus 4 | V=1.039 pu (1039 reg @x1000) | I=212.851 A (10642 reg @x50) | Breaker=CLOSE
 Bus 5 | V=0.992 pu (992 reg @x1000) | I=174.823 A (8741 reg @x50) | Breaker=CLOSE
 
- 2026-04-29 01:37:23
+ 2026-04-29 01:53:06
 Bus 1 | V=0.972 pu (971 reg @x1000) | I=547.838 A (27391 reg @x50) | Breaker=CLOSE
 Bus 2 | V=0.953 pu (952 reg @x1000) | I=319.344 A (15967 reg @x50) | Breaker=CLOSE
 Bus 3 | V=1.015 pu (1014 reg @x1000) | I=548.290 A (27414 reg @x50) | Breaker=CLOSE
 Bus 4 | V=0.972 pu (972 reg @x1000) | I=625.937 A (31296 reg @x50) | Breaker=CLOSE
 Bus 5 | V=1.031 pu (1030 reg @x1000) | I=151.193 A (7559 reg @x50) | Breaker=CLOSE
 
- 2026-04-29 01:37:28
+ 2026-04-29 01:53:11
 Bus 1 | V=1.031 pu (1030 reg @x1000) | I=657.826 A (32891 reg @x50) | Breaker=CLOSE
 Bus 2 | V=0.984 pu (984 reg @x1000) | I=275.553 A (13777 reg @x50) | Breaker=CLOSE
 Bus 3 | V=1.046 pu (1045 reg @x1000) | I=383.336 A (19166 reg @x50) | Breaker=CLOSE
 Bus 4 | V=0.959 pu (959 reg @x1000) | I=238.447 A (11922 reg @x50) | Breaker=CLOSE
 Bus 5 | V=1.035 pu (1034 reg @x1000) | I=586.304 A (29315 reg @x50) | Breaker=CLOSE
 
- 2026-04-29 01:37:33
+ 2026-04-29 01:53:16
 Bus 1 | V=1.031 pu (1030 reg @x1000) | I=680.879 A (34043 reg @x50) | Breaker=CLOSE
 Bus 2 | V=1.004 pu (1003 reg @x1000) | I=891.595 A (44579 reg @x50) | Breaker=CLOSE
 Bus 3 | V=0.988 pu (987 reg @x1000) | I=568.719 A (28435 reg @x50) | Breaker=CLOSE
 Bus 4 | V=1.033 pu (1032 reg @x1000) | I=610.867 A (30543 reg @x50) | Breaker=CLOSE
 Bus 5 | V=1.036 pu (1036 reg @x1000) | I=566.286 A (28314 reg @x50) | Breaker=CLOSE
 
- 2026-04-29 01:37:38
+ 2026-04-29 01:53:21
 Bus 1 | V=1.020 pu (1020 reg @x1000) | I=181.836 A (9091 reg @x50) | Breaker=CLOSE
 Bus 2 | V=0.973 pu (972 reg @x1000) | I=383.735 A (19186 reg @x50) | Breaker=CLOSE
 Bus 3 | V=0.958 pu (957 reg @x1000) | I=337.498 A (16874 reg @x50) | Breaker=CLOSE
 Bus 4 | V=0.960 pu (960 reg @x1000) | I=383.778 A (19188 reg @x50) | Breaker=CLOSE
 Bus 5 | V=1.014 pu (1013 reg @x1000) | I=420.645 A (21032 reg @x50) | Breaker=CLOSE
 
- 2026-04-29 01:37:43
+ 2026-04-29 01:53:26
 Bus 1 | V=0.987 pu (987 reg @x1000) | I=313.174 A (15658 reg @x50) | Breaker=CLOSE
 Bus 2 | V=0.977 pu (976 reg @x1000) | I=887.699 A (44384 reg @x50) | Breaker=CLOSE
 Bus 3 | V=1.015 pu (1014 reg @x1000) | I=595.643 A (29782 reg @x50) | Breaker=CLOSE
-Bus 4 | V=0.967 pu (967 reg @x1000) | I=740.611 A (37030 reg @x50) | Breaker=CLOSE
+Bus 4 | V=0.967 pu (967 reg @x1000) | I=740.611 A (37030 reg @x50) | Breaker=OPEN
 Bus 5 | V=0.966 pu (966 reg @x1000) | I=452.626 A (22631 reg @x50) | Breaker=CLOSE
 
- 2026-04-29 01:37:48
+ 2026-04-29 01:53:31
 Bus 1 | V=1.049 pu (1048 reg @x1000) | I=604.468 A (30223 reg @x50) | Breaker=CLOSE
 Bus 2 | V=1.006 pu (1005 reg @x1000) | I=670.942 A (33547 reg @x50) | Breaker=CLOSE
 Bus 3 | V=1.034 pu (1034 reg @x1000) | I=704.951 A (35247 reg @x50) | Breaker=CLOSE
-Bus 4 | V=0.973 pu (972 reg @x1000) | I=183.907 A (9195 reg @x50) | Breaker=CLOSE
+Bus 4 | V=0.973 pu (972 reg @x1000) | I=183.907 A (9195 reg @x50) | Breaker=OPEN
 Bus 5 | V=0.982 pu (981 reg @x1000) | I=359.703 A (17985 reg @x50) | Breaker=CLOSE
 
- 2026-04-29 01:37:53
+ 2026-04-29 01:53:36
 Bus 1 | V=0.971 pu (971 reg @x1000) | I=888.379 A (44418 reg @x50) | Breaker=CLOSE
 Bus 2 | V=1.038 pu (1037 reg @x1000) | I=378.345 A (18917 reg @x50) | Breaker=CLOSE
 Bus 3 | V=1.016 pu (1015 reg @x1000) | I=438.156 A (21907 reg @x50) | Breaker=CLOSE
-Bus 4 | V=1.041 pu (1041 reg @x1000) | I=487.686 A (24384 reg @x50) | Breaker=CLOSE
+Bus 4 | V=1.041 pu (1041 reg @x1000) | I=487.686 A (24384 reg @x50) | Breaker=OPEN
 Bus 5 | V=0.976 pu (976 reg @x1000) | I=345.246 A (17262 reg @x50) | Breaker=CLOSE
 
- 2026-04-29 01:37:58
+ 2026-04-29 01:53:41
 Bus 1 | V=1.006 pu (1006 reg @x1000) | I=347.161 A (17358 reg @x50) | Breaker=CLOSE
 Bus 2 | V=1.008 pu (1008 reg @x1000) | I=830.370 A (41518 reg @x50) | Breaker=CLOSE
 Bus 3 | V=0.990 pu (989 reg @x1000) | I=316.437 A (15821 reg @x50) | Breaker=CLOSE
-Bus 4 | V=1.050 pu (1049 reg @x1000) | I=521.044 A (26052 reg @x50) | Breaker=CLOSE
+Bus 4 | V=1.050 pu (1049 reg @x1000) | I=521.044 A (26052 reg @x50) | Breaker=OPEN
 Bus 5 | V=0.959 pu (959 reg @x1000) | I=194.487 A (9724 reg @x50) | Breaker=CLOSE
 
- 2026-04-29 01:38:03
+ 2026-04-29 01:53:46
 Bus 1 | V=0.961 pu (960 reg @x1000) | I=649.953 A (32497 reg @x50) | Breaker=CLOSE
 Bus 2 | V=1.029 pu (1029 reg @x1000) | I=461.101 A (23055 reg @x50) | Breaker=CLOSE
 Bus 3 | V=0.956 pu (956 reg @x1000) | I=454.328 A (22716 reg @x50) | Breaker=CLOSE
-Bus 4 | V=1.050 pu (1049 reg @x1000) | I=535.500 A (26775 reg @x50) | Breaker=CLOSE
+Bus 4 | V=1.050 pu (1049 reg @x1000) | I=535.500 A (26775 reg @x50) | Breaker=OPEN
 Bus 5 | V=1.047 pu (1047 reg @x1000) | I=764.687 A (38234 reg @x50) | Breaker=CLOSE
 
- 2026-04-29 01:38:08
+ 2026-04-29 01:53:51
 Bus 1 | V=0.951 pu (951 reg @x1000) | I=730.685 A (36534 reg @x50) | Breaker=CLOSE
 Bus 2 | V=1.018 pu (1018 reg @x1000) | I=552.111 A (27605 reg @x50) | Breaker=CLOSE
 Bus 3 | V=0.977 pu (976 reg @x1000) | I=643.239 A (32161 reg @x50) | Breaker=CLOSE
-Bus 4 | V=0.961 pu (961 reg @x1000) | I=509.111 A (25455 reg @x50) | Breaker=CLOSE
+Bus 4 | V=0.961 pu (961 reg @x1000) | I=509.111 A (25455 reg @x50) | Breaker=OPEN
 Bus 5 | V=0.995 pu (995 reg @x1000) | I=874.985 A (43749 reg @x50) | Breaker=CLOSE
 
- 2026-04-29 01:38:13
+ 2026-04-29 01:53:56
 Bus 1 | V=1.038 pu (1037 reg @x1000) | I=337.110 A (16855 reg @x50) | Breaker=CLOSE
 Bus 2 | V=1.000 pu (1000 reg @x1000) | I=288.810 A (14440 reg @x50) | Breaker=CLOSE
 Bus 3 | V=1.041 pu (1041 reg @x1000) | I=768.039 A (38401 reg @x50) | Breaker=CLOSE
-Bus 4 | V=0.980 pu (979 reg @x1000) | I=660.042 A (33002 reg @x50) | Breaker=CLOSE
+Bus 4 | V=0.980 pu (979 reg @x1000) | I=660.042 A (33002 reg @x50) | Breaker=OPEN
 Bus 5 | V=1.011 pu (1010 reg @x1000) | I=263.463 A (13173 reg @x50) | Breaker=CLOSE
 
- 2026-04-29 01:38:18
+ 2026-04-29 01:54:01
 Bus 1 | V=1.026 pu (1026 reg @x1000) | I=543.830 A (27191 reg @x50) | Breaker=CLOSE
 Bus 2 | V=1.028 pu (1027 reg @x1000) | I=541.995 A (27099 reg @x50) | Breaker=CLOSE
 Bus 3 | V=0.950 pu (950 reg @x1000) | I=412.154 A (20607 reg @x50) | Breaker=CLOSE
-Bus 4 | V=0.952 pu (951 reg @x1000) | I=914.349 A (45717 reg @x50) | Breaker=CLOSE
+Bus 4 | V=0.952 pu (951 reg @x1000) | I=914.349 A (45717 reg @x50) | Breaker=OPEN
 Bus 5 | V=1.038 pu (1037 reg @x1000) | I=750.317 A (37515 reg @x50) | Breaker=CLOSE
 
- 2026-04-29 01:38:23
+ 2026-04-29 01:54:06
 Bus 1 | V=0.981 pu (980 reg @x1000) | I=198.511 A (9925 reg @x50) | Breaker=CLOSE
 Bus 2 | V=1.038 pu (1037 reg @x1000) | I=843.000 A (42149 reg @x50) | Breaker=CLOSE
 Bus 3 | V=0.959 pu (958 reg @x1000) | I=534.620 A (26731 reg @x50) | Breaker=CLOSE
-Bus 4 | V=0.957 pu (956 reg @x1000) | I=773.856 A (38692 reg @x50) | Breaker=CLOSE
+Bus 4 | V=0.957 pu (956 reg @x1000) | I=773.856 A (38692 reg @x50) | Breaker=OPEN
 Bus 5 | V=1.027 pu (1026 reg @x1000) | I=241.461 A (12073 reg @x50) | Breaker=CLOSE
 
- 2026-04-29 01:38:28
+ 2026-04-29 01:54:11
 Bus 1 | V=0.998 pu (997 reg @x1000) | I=567.377 A (28368 reg @x50) | Breaker=CLOSE
 Bus 2 | V=0.977 pu (976 reg @x1000) | I=837.708 A (41885 reg @x50) | Breaker=CLOSE
 Bus 3 | V=0.992 pu (992 reg @x1000) | I=310.016 A (15500 reg @x50) | Breaker=CLOSE
-Bus 4 | V=1.004 pu (1003 reg @x1000) | I=714.070 A (35703 reg @x50) | Breaker=CLOSE
+Bus 4 | V=1.004 pu (1003 reg @x1000) | I=714.070 A (35703 reg @x50) | Breaker=OPEN
 Bus 5 | V=0.970 pu (970 reg @x1000) | I=398.158 A (19907 reg @x50) | Breaker=CLOSE
 
- 2026-04-29 01:38:33
+ 2026-04-29 01:54:16
 Bus 1 | V=1.050 pu (1049 reg @x1000) | I=611.248 A (30562 reg @x50) | Breaker=CLOSE
 Bus 2 | V=0.994 pu (993 reg @x1000) | I=550.759 A (27537 reg @x50) | Breaker=CLOSE
 Bus 3 | V=0.962 pu (962 reg @x1000) | I=329.768 A (16488 reg @x50) | Breaker=CLOSE
-Bus 4 | V=0.984 pu (983 reg @x1000) | I=617.702 A (30885 reg @x50) | Breaker=CLOSE
+Bus 4 | V=0.984 pu (983 reg @x1000) | I=617.702 A (30885 reg @x50) | Breaker=OPEN
 Bus 5 | V=0.973 pu (973 reg @x1000) | I=325.991 A (16299 reg @x50) | Breaker=CLOSE
 
- 2026-04-29 01:38:38
+ 2026-04-29 01:54:21
 Bus 1 | V=0.957 pu (957 reg @x1000) | I=655.462 A (32773 reg @x50) | Breaker=CLOSE
 Bus 2 | V=0.973 pu (972 reg @x1000) | I=866.681 A (43334 reg @x50) | Breaker=CLOSE
 Bus 3 | V=1.036 pu (1035 reg @x1000) | I=195.319 A (9765 reg @x50) | Breaker=CLOSE
-Bus 4 | V=0.974 pu (973 reg @x1000) | I=687.910 A (34395 reg @x50) | Breaker=CLOSE
+Bus 4 | V=0.974 pu (973 reg @x1000) | I=687.910 A (34395 reg @x50) | Breaker=OPEN
 Bus 5 | V=0.971 pu (971 reg @x1000) | I=258.218 A (12910 reg @x50) | Breaker=CLOSE
 
- 2026-04-29 01:38:43
+ 2026-04-29 01:54:26
 Bus 1 | V=1.044 pu (1043 reg @x1000) | I=557.718 A (27885 reg @x50) | Breaker=CLOSE
 Bus 2 | V=0.997 pu (997 reg @x1000) | I=753.103 A (37655 reg @x50) | Breaker=CLOSE
 Bus 3 | V=1.031 pu (1030 reg @x1000) | I=282.955 A (14147 reg @x50) | Breaker=CLOSE
-Bus 4 | V=0.960 pu (959 reg @x1000) | I=506.903 A (25345 reg @x50) | Breaker=CLOSE
+Bus 4 | V=0.960 pu (959 reg @x1000) | I=506.903 A (25345 reg @x50) | Breaker=OPEN
 Bus 5 | V=0.992 pu (992 reg @x1000) | I=507.368 A (25368 reg @x50) | Breaker=CLOSE
 
- 2026-04-29 01:38:48
+ 2026-04-29 01:54:31
 Bus 1 | V=1.023 pu (1022 reg @x1000) | I=644.479 A (32223 reg @x50) | Breaker=CLOSE
 Bus 2 | V=1.048 pu (1048 reg @x1000) | I=217.114 A (10855 reg @x50) | Breaker=CLOSE
 Bus 3 | V=0.990 pu (990 reg @x1000) | I=406.847 A (20342 reg @x50) | Breaker=CLOSE
-Bus 4 | V=1.036 pu (1036 reg @x1000) | I=333.793 A (16689 reg @x50) | Breaker=CLOSE
+Bus 4 | V=1.036 pu (1036 reg @x1000) | I=333.793 A (16689 reg @x50) | Breaker=OPEN
 Bus 5 | V=0.969 pu (969 reg @x1000) | I=505.246 A (25262 reg @x50) | Breaker=CLOSE
+
+ 2026-04-29 01:54:36
+Bus 1 | V=0.992 pu (992 reg @x1000) | I=364.065 A (18203 reg @x50) | Breaker=CLOSE
+Bus 2 | V=0.975 pu (974 reg @x1000) | I=878.787 A (43939 reg @x50) | Breaker=CLOSE
+Bus 3 | V=0.994 pu (994 reg @x1000) | I=797.415 A (39870 reg @x50) | Breaker=CLOSE
+Bus 4 | V=1.005 pu (1005 reg @x1000) | I=192.209 A (9610 reg @x50) | Breaker=OPEN
+Bus 5 | V=1.050 pu (1049 reg @x1000) | I=744.837 A (37241 reg @x50) | Breaker=CLOSE
+
+ 2026-04-29 01:54:41
+Bus 1 | V=1.047 pu (1046 reg @x1000) | I=812.128 A (40606 reg @x50) | Breaker=CLOSE
+Bus 2 | V=1.035 pu (1034 reg @x1000) | I=269.999 A (13499 reg @x50) | Breaker=CLOSE
+Bus 3 | V=0.999 pu (998 reg @x1000) | I=309.534 A (15476 reg @x50) | Breaker=CLOSE
+Bus 4 | V=0.990 pu (990 reg @x1000) | I=201.373 A (10068 reg @x50) | Breaker=OPEN
+Bus 5 | V=0.988 pu (987 reg @x1000) | I=905.669 A (45283 reg @x50) | Breaker=CLOSE
+
+ 2026-04-29 01:54:46
+Bus 1 | V=0.977 pu (976 reg @x1000) | I=760.667 A (38033 reg @x50) | Breaker=CLOSE
+Bus 2 | V=0.996 pu (995 reg @x1000) | I=477.363 A (23868 reg @x50) | Breaker=CLOSE
+Bus 3 | V=1.046 pu (1045 reg @x1000) | I=853.985 A (42699 reg @x50) | Breaker=CLOSE
+Bus 4 | V=1.006 pu (1005 reg @x1000) | I=704.066 A (35203 reg @x50) | Breaker=OPEN
+Bus 5 | V=0.965 pu (965 reg @x1000) | I=388.336 A (19416 reg @x50) | Breaker=CLOSE
+
+ 2026-04-29 01:54:51
+Bus 1 | V=1.047 pu (1046 reg @x1000) | I=561.817 A (28090 reg @x50) | Breaker=CLOSE
+Bus 2 | V=1.004 pu (1004 reg @x1000) | I=720.055 A (36002 reg @x50) | Breaker=CLOSE
+Bus 3 | V=0.956 pu (955 reg @x1000) | I=612.963 A (30648 reg @x50) | Breaker=CLOSE
+Bus 4 | V=1.000 pu (1000 reg @x1000) | I=811.301 A (40565 reg @x50) | Breaker=OPEN
+Bus 5 | V=0.966 pu (965 reg @x1000) | I=907.272 A (45363 reg @x50) | Breaker=CLOSE
+
+ 2026-04-29 01:54:56
+Bus 1 | V=0.958 pu (958 reg @x1000) | I=303.997 A (15199 reg @x50) | Breaker=CLOSE
+Bus 2 | V=1.010 pu (1009 reg @x1000) | I=661.307 A (33065 reg @x50) | Breaker=CLOSE
+Bus 3 | V=0.974 pu (973 reg @x1000) | I=245.471 A (12273 reg @x50) | Breaker=CLOSE
+Bus 4 | V=1.039 pu (1039 reg @x1000) | I=331.063 A (16553 reg @x50) | Breaker=OPEN
+Bus 5 | V=1.009 pu (1009 reg @x1000) | I=612.703 A (30635 reg @x50) | Breaker=CLOSE
+
+ 2026-04-29 01:55:01
+Bus 1 | V=0.992 pu (991 reg @x1000) | I=596.357 A (29817 reg @x50) | Breaker=CLOSE
+Bus 2 | V=1.002 pu (1002 reg @x1000) | I=863.560 A (43177 reg @x50) | Breaker=CLOSE
+Bus 3 | V=0.970 pu (970 reg @x1000) | I=705.299 A (35264 reg @x50) | Breaker=CLOSE
+Bus 4 | V=0.974 pu (973 reg @x1000) | I=471.610 A (23580 reg @x50) | Breaker=OPEN
+Bus 5 | V=1.017 pu (1017 reg @x1000) | I=371.043 A (18552 reg @x50) | Breaker=CLOSE
+
+ 2026-04-29 01:55:06
+Bus 1 | V=0.982 pu (981 reg @x1000) | I=731.952 A (36597 reg @x50) | Breaker=CLOSE
+Bus 2 | V=0.957 pu (957 reg @x1000) | I=524.547 A (26227 reg @x50) | Breaker=CLOSE
+Bus 3 | V=1.050 pu (1049 reg @x1000) | I=851.118 A (42555 reg @x50) | Breaker=CLOSE
+Bus 4 | V=0.957 pu (957 reg @x1000) | I=332.694 A (16634 reg @x50) | Breaker=OPEN
+Bus 5 | V=0.977 pu (976 reg @x1000) | I=875.987 A (43799 reg @x50) | Breaker=CLOSE

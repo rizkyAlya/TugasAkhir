@@ -416,3 +416,309 @@ curl: (7) Couldn't connect to server
 [2026-04-29 01:38:51] [h5] injector: try bus=2 i=1327.372
 curl: (7) Couldn't connect to server
 [2026-04-29 01:38:51] [h5] injector: FAIL bus=2 curl_exit=0
+[2026-04-29 01:53:03] [h5] injector: starting url=http://10.0.2.2:8088/inject
+[2026-04-29 01:53:03] [h5] injector: try bus=1 i=1900.716
+curl: (7) Failed to connect to 10.0.2.2 port 8088: Connection refused
+[2026-04-29 01:53:03] [h5] injector: FAIL bus=1 curl_exit=0
+[2026-04-29 01:53:03] [h5] injector: try bus=2 i=2462.509
+curl: (7) Failed to connect to 10.0.2.2 port 8088: Connection refused
+[2026-04-29 01:53:03] [h5] injector: FAIL bus=2 curl_exit=0
+[2026-04-29 01:53:03] [h5] injector: try bus=3 i=1998.411
+curl: (7) Failed to connect to 10.0.2.2 port 8088: Connection refused
+[2026-04-29 01:53:03] [h5] injector: FAIL bus=3 curl_exit=0
+[2026-04-29 01:53:03] [h5] injector: try bus=4 i=2166.723
+curl: (7) Failed to connect to 10.0.2.2 port 8088: Connection refused
+[2026-04-29 01:53:03] [h5] injector: FAIL bus=4 curl_exit=0
+[2026-04-29 01:53:04] [h5] injector: try bus=5 i=2245.469
+curl: (7) Failed to connect to 10.0.2.2 port 8088: Connection refused
+[2026-04-29 01:53:04] [h5] injector: FAIL bus=5 curl_exit=0
+[2026-04-29 01:53:08] [h5] injector: try bus=1 i=2020.942
+[2026-04-29 01:53:08] [h5] injector: OK bus=1 resp={"ok": true, "bus": 1, "ttl": 8}
+[2026-04-29 01:53:08] [h5] injector: try bus=2 i=2470.785
+[2026-04-29 01:53:08] [h5] injector: OK bus=2 resp={"ok": true, "bus": 2, "ttl": 8}
+[2026-04-29 01:53:08] [h5] injector: try bus=3 i=2025.099
+[2026-04-29 01:53:08] [h5] injector: OK bus=3 resp={"ok": true, "bus": 3, "ttl": 8}
+[2026-04-29 01:53:08] [h5] injector: try bus=4 i=2499.678
+[2026-04-29 01:53:08] [h5] injector: OK bus=4 resp={"ok": true, "bus": 4, "ttl": 8}
+[2026-04-29 01:53:08] [h5] injector: try bus=5 i=2506.654
+[2026-04-29 01:53:08] [h5] injector: OK bus=5 resp={"ok": true, "bus": 5, "ttl": 8}
+[2026-04-29 01:53:12] [h5] injector: try bus=1 i=1805.221
+[2026-04-29 01:53:12] [h5] injector: OK bus=1 resp={"ok": true, "bus": 1, "ttl": 8}
+[2026-04-29 01:53:12] [h5] injector: try bus=2 i=2442.42
+[2026-04-29 01:53:12] [h5] injector: OK bus=2 resp={"ok": true, "bus": 2, "ttl": 8}
+[2026-04-29 01:53:12] [h5] injector: try bus=3 i=2403.008
+[2026-04-29 01:53:12] [h5] injector: OK bus=3 resp={"ok": true, "bus": 3, "ttl": 8}
+[2026-04-29 01:53:12] [h5] injector: try bus=4 i=2421.057
+[2026-04-29 01:53:12] [h5] injector: OK bus=4 resp={"ok": true, "bus": 4, "ttl": 8}
+[2026-04-29 01:53:12] [h5] injector: try bus=5 i=1860.03
+[2026-04-29 01:53:12] [h5] injector: OK bus=5 resp={"ok": true, "bus": 5, "ttl": 8}
+[2026-04-29 01:53:16] [h5] injector: try bus=1 i=2414.593
+[2026-04-29 01:53:16] [h5] injector: OK bus=1 resp={"ok": true, "bus": 1, "ttl": 8}
+[2026-04-29 01:53:16] [h5] injector: try bus=2 i=2410.36
+[2026-04-29 01:53:16] [h5] injector: OK bus=2 resp={"ok": true, "bus": 2, "ttl": 8}
+[2026-04-29 01:53:16] [h5] injector: try bus=3 i=2063.219
+[2026-04-29 01:53:16] [h5] injector: OK bus=3 resp={"ok": true, "bus": 3, "ttl": 8}
+[2026-04-29 01:53:16] [h5] injector: try bus=4 i=2391.637
+[2026-04-29 01:53:16] [h5] injector: OK bus=4 resp={"ok": true, "bus": 4, "ttl": 8}
+[2026-04-29 01:53:16] [h5] injector: try bus=5 i=2071.458
+[2026-04-29 01:53:16] [h5] injector: OK bus=5 resp={"ok": true, "bus": 5, "ttl": 8}
+[2026-04-29 01:53:20] [h5] injector: try bus=1 i=2332.681
+[2026-04-29 01:53:20] [h5] injector: OK bus=1 resp={"ok": true, "bus": 1, "ttl": 8}
+[2026-04-29 01:53:21] [h5] injector: try bus=2 i=2592.754
+[2026-04-29 01:53:21] [h5] injector: OK bus=2 resp={"ok": true, "bus": 2, "ttl": 8}
+[2026-04-29 01:53:21] [h5] injector: try bus=3 i=2565.754
+[2026-04-29 01:53:21] [h5] injector: OK bus=3 resp={"ok": true, "bus": 3, "ttl": 8}
+[2026-04-29 01:53:21] [h5] injector: try bus=4 i=1835.371
+[2026-04-29 01:53:21] [h5] injector: OK bus=4 resp={"ok": true, "bus": 4, "ttl": 8}
+[2026-04-29 01:53:21] [h5] injector: try bus=5 i=2501.445
+[2026-04-29 01:53:21] [h5] injector: OK bus=5 resp={"ok": true, "bus": 5, "ttl": 8}
+[2026-04-29 01:53:25] [h5] injector: try bus=1 i=1891.047
+[2026-04-29 01:53:25] [h5] injector: OK bus=1 resp={"ok": true, "bus": 1, "ttl": 8}
+[2026-04-29 01:53:25] [h5] injector: try bus=2 i=2377.024
+[2026-04-29 01:53:25] [h5] injector: OK bus=2 resp={"ok": true, "bus": 2, "ttl": 8}
+[2026-04-29 01:53:25] [h5] injector: try bus=3 i=1979.215
+[2026-04-29 01:53:25] [h5] injector: OK bus=3 resp={"ok": true, "bus": 3, "ttl": 8}
+[2026-04-29 01:53:25] [h5] injector: try bus=4 i=2125.813
+[2026-04-29 01:53:25] [h5] injector: OK bus=4 resp={"ok": true, "bus": 4, "ttl": 8}
+[2026-04-29 01:53:25] [h5] injector: try bus=5 i=2023.994
+[2026-04-29 01:53:25] [h5] injector: OK bus=5 resp={"ok": true, "bus": 5, "ttl": 8}
+[2026-04-29 01:53:29] [h5] injector: try bus=1 i=2026.489
+[2026-04-29 01:53:29] [h5] injector: OK bus=1 resp={"ok": true, "bus": 1, "ttl": 8}
+[2026-04-29 01:53:29] [h5] injector: try bus=2 i=2378.397
+[2026-04-29 01:53:29] [h5] injector: OK bus=2 resp={"ok": true, "bus": 2, "ttl": 8}
+[2026-04-29 01:53:29] [h5] injector: try bus=3 i=2459.054
+[2026-04-29 01:53:29] [h5] injector: OK bus=3 resp={"ok": true, "bus": 3, "ttl": 8}
+[2026-04-29 01:53:29] [h5] injector: try bus=4 i=2037.114
+[2026-04-29 01:53:29] [h5] injector: OK bus=4 resp={"ok": true, "bus": 4, "ttl": 8}
+[2026-04-29 01:53:29] [h5] injector: try bus=5 i=2076.501
+[2026-04-29 01:53:29] [h5] injector: OK bus=5 resp={"ok": true, "bus": 5, "ttl": 8}
+[2026-04-29 01:53:33] [h5] injector: try bus=1 i=2504.902
+[2026-04-29 01:53:33] [h5] injector: OK bus=1 resp={"ok": true, "bus": 1, "ttl": 8}
+[2026-04-29 01:53:33] [h5] injector: try bus=2 i=2223.436
+[2026-04-29 01:53:33] [h5] injector: OK bus=2 resp={"ok": true, "bus": 2, "ttl": 8}
+[2026-04-29 01:53:34] [h5] injector: try bus=3 i=2089.154
+[2026-04-29 01:53:34] [h5] injector: OK bus=3 resp={"ok": true, "bus": 3, "ttl": 8}
+[2026-04-29 01:53:34] [h5] injector: try bus=4 i=2010.839
+[2026-04-29 01:53:34] [h5] injector: OK bus=4 resp={"ok": true, "bus": 4, "ttl": 8}
+[2026-04-29 01:53:34] [h5] injector: try bus=5 i=2247.855
+[2026-04-29 01:53:34] [h5] injector: OK bus=5 resp={"ok": true, "bus": 5, "ttl": 8}
+[2026-04-29 01:53:38] [h5] injector: try bus=1 i=1828.503
+[2026-04-29 01:53:38] [h5] injector: OK bus=1 resp={"ok": true, "bus": 1, "ttl": 8}
+[2026-04-29 01:53:38] [h5] injector: try bus=2 i=2265.341
+[2026-04-29 01:53:38] [h5] injector: OK bus=2 resp={"ok": true, "bus": 2, "ttl": 8}
+[2026-04-29 01:53:38] [h5] injector: try bus=3 i=2124.175
+[2026-04-29 01:53:38] [h5] injector: OK bus=3 resp={"ok": true, "bus": 3, "ttl": 8}
+[2026-04-29 01:53:38] [h5] injector: try bus=4 i=2036.119
+[2026-04-29 01:53:38] [h5] injector: OK bus=4 resp={"ok": true, "bus": 4, "ttl": 8}
+[2026-04-29 01:53:38] [h5] injector: try bus=5 i=1809.518
+[2026-04-29 01:53:38] [h5] injector: OK bus=5 resp={"ok": true, "bus": 5, "ttl": 8}
+[2026-04-29 01:53:42] [h5] injector: try bus=1 i=2373.312
+[2026-04-29 01:53:42] [h5] injector: OK bus=1 resp={"ok": true, "bus": 1, "ttl": 8}
+[2026-04-29 01:53:42] [h5] injector: try bus=2 i=1926.141
+[2026-04-29 01:53:42] [h5] injector: OK bus=2 resp={"ok": true, "bus": 2, "ttl": 8}
+[2026-04-29 01:53:42] [h5] injector: try bus=3 i=2267.238
+[2026-04-29 01:53:42] [h5] injector: OK bus=3 resp={"ok": true, "bus": 3, "ttl": 8}
+[2026-04-29 01:53:42] [h5] injector: try bus=4 i=2513.926
+[2026-04-29 01:53:42] [h5] injector: OK bus=4 resp={"ok": true, "bus": 4, "ttl": 8}
+[2026-04-29 01:53:42] [h5] injector: try bus=5 i=2369.497
+[2026-04-29 01:53:42] [h5] injector: OK bus=5 resp={"ok": true, "bus": 5, "ttl": 8}
+[2026-04-29 01:53:46] [h5] injector: try bus=1 i=1830.787
+[2026-04-29 01:53:46] [h5] injector: OK bus=1 resp={"ok": true, "bus": 1, "ttl": 8}
+[2026-04-29 01:53:46] [h5] injector: try bus=2 i=1898.036
+[2026-04-29 01:53:46] [h5] injector: OK bus=2 resp={"ok": true, "bus": 2, "ttl": 8}
+[2026-04-29 01:53:46] [h5] injector: try bus=3 i=2107.404
+[2026-04-29 01:53:47] [h5] injector: OK bus=3 resp={"ok": true, "bus": 3, "ttl": 8}
+[2026-04-29 01:53:47] [h5] injector: try bus=4 i=2388.5
+[2026-04-29 01:53:47] [h5] injector: OK bus=4 resp={"ok": true, "bus": 4, "ttl": 8}
+[2026-04-29 01:53:47] [h5] injector: try bus=5 i=1958.18
+[2026-04-29 01:53:47] [h5] injector: OK bus=5 resp={"ok": true, "bus": 5, "ttl": 8}
+[2026-04-29 01:53:51] [h5] injector: try bus=1 i=2530.418
+[2026-04-29 01:53:51] [h5] injector: OK bus=1 resp={"ok": true, "bus": 1, "ttl": 8}
+[2026-04-29 01:53:51] [h5] injector: try bus=2 i=2304.841
+[2026-04-29 01:53:51] [h5] injector: OK bus=2 resp={"ok": true, "bus": 2, "ttl": 8}
+[2026-04-29 01:53:51] [h5] injector: try bus=3 i=2562.503
+[2026-04-29 01:53:51] [h5] injector: OK bus=3 resp={"ok": true, "bus": 3, "ttl": 8}
+[2026-04-29 01:53:51] [h5] injector: try bus=4 i=2113.858
+[2026-04-29 01:53:51] [h5] injector: OK bus=4 resp={"ok": true, "bus": 4, "ttl": 8}
+[2026-04-29 01:53:51] [h5] injector: try bus=5 i=2515.199
+[2026-04-29 01:53:51] [h5] injector: OK bus=5 resp={"ok": true, "bus": 5, "ttl": 8}
+[2026-04-29 01:53:55] [h5] injector: try bus=1 i=1937.61
+[2026-04-29 01:53:55] [h5] injector: OK bus=1 resp={"ok": true, "bus": 1, "ttl": 8}
+[2026-04-29 01:53:55] [h5] injector: try bus=2 i=2269.66
+[2026-04-29 01:53:55] [h5] injector: OK bus=2 resp={"ok": true, "bus": 2, "ttl": 8}
+[2026-04-29 01:53:55] [h5] injector: try bus=3 i=2212.1
+[2026-04-29 01:53:55] [h5] injector: OK bus=3 resp={"ok": true, "bus": 3, "ttl": 8}
+[2026-04-29 01:53:55] [h5] injector: try bus=4 i=2303.768
+[2026-04-29 01:53:55] [h5] injector: OK bus=4 resp={"ok": true, "bus": 4, "ttl": 8}
+[2026-04-29 01:53:55] [h5] injector: try bus=5 i=2501.508
+[2026-04-29 01:53:55] [h5] injector: OK bus=5 resp={"ok": true, "bus": 5, "ttl": 8}
+[2026-04-29 01:54:00] [h5] injector: try bus=1 i=2325.492
+[2026-04-29 01:54:00] [h5] injector: OK bus=1 resp={"ok": true, "bus": 1, "ttl": 8}
+[2026-04-29 01:54:00] [h5] injector: try bus=2 i=2111.567
+[2026-04-29 01:54:00] [h5] injector: OK bus=2 resp={"ok": true, "bus": 2, "ttl": 8}
+[2026-04-29 01:54:00] [h5] injector: try bus=3 i=2261.454
+[2026-04-29 01:54:00] [h5] injector: OK bus=3 resp={"ok": true, "bus": 3, "ttl": 8}
+[2026-04-29 01:54:00] [h5] injector: try bus=4 i=2376.135
+[2026-04-29 01:54:00] [h5] injector: OK bus=4 resp={"ok": true, "bus": 4, "ttl": 8}
+[2026-04-29 01:54:00] [h5] injector: try bus=5 i=2195.663
+[2026-04-29 01:54:00] [h5] injector: OK bus=5 resp={"ok": true, "bus": 5, "ttl": 8}
+[2026-04-29 01:54:04] [h5] injector: try bus=1 i=2407.02
+[2026-04-29 01:54:04] [h5] injector: OK bus=1 resp={"ok": true, "bus": 1, "ttl": 8}
+[2026-04-29 01:54:04] [h5] injector: try bus=2 i=2032.047
+[2026-04-29 01:54:04] [h5] injector: OK bus=2 resp={"ok": true, "bus": 2, "ttl": 8}
+[2026-04-29 01:54:04] [h5] injector: try bus=3 i=2390.63
+[2026-04-29 01:54:04] [h5] injector: OK bus=3 resp={"ok": true, "bus": 3, "ttl": 8}
+[2026-04-29 01:54:04] [h5] injector: try bus=4 i=2172.327
+[2026-04-29 01:54:04] [h5] injector: OK bus=4 resp={"ok": true, "bus": 4, "ttl": 8}
+[2026-04-29 01:54:04] [h5] injector: try bus=5 i=2365.21
+[2026-04-29 01:54:04] [h5] injector: OK bus=5 resp={"ok": true, "bus": 5, "ttl": 8}
+[2026-04-29 01:54:08] [h5] injector: try bus=1 i=1827.723
+[2026-04-29 01:54:08] [h5] injector: OK bus=1 resp={"ok": true, "bus": 1, "ttl": 8}
+[2026-04-29 01:54:08] [h5] injector: try bus=2 i=2146.363
+[2026-04-29 01:54:08] [h5] injector: OK bus=2 resp={"ok": true, "bus": 2, "ttl": 8}
+[2026-04-29 01:54:08] [h5] injector: try bus=3 i=1941.053
+[2026-04-29 01:54:08] [h5] injector: OK bus=3 resp={"ok": true, "bus": 3, "ttl": 8}
+[2026-04-29 01:54:08] [h5] injector: try bus=4 i=2192.638
+[2026-04-29 01:54:08] [h5] injector: OK bus=4 resp={"ok": true, "bus": 4, "ttl": 8}
+[2026-04-29 01:54:08] [h5] injector: try bus=5 i=1951.44
+[2026-04-29 01:54:08] [h5] injector: OK bus=5 resp={"ok": true, "bus": 5, "ttl": 8}
+[2026-04-29 01:54:12] [h5] injector: try bus=1 i=2299.882
+[2026-04-29 01:54:12] [h5] injector: OK bus=1 resp={"ok": true, "bus": 1, "ttl": 8}
+[2026-04-29 01:54:12] [h5] injector: try bus=2 i=1958.788
+[2026-04-29 01:54:13] [h5] injector: OK bus=2 resp={"ok": true, "bus": 2, "ttl": 8}
+[2026-04-29 01:54:13] [h5] injector: try bus=3 i=2571.37
+[2026-04-29 01:54:13] [h5] injector: OK bus=3 resp={"ok": true, "bus": 3, "ttl": 8}
+[2026-04-29 01:54:13] [h5] injector: try bus=4 i=2472.417
+[2026-04-29 01:54:13] [h5] injector: OK bus=4 resp={"ok": true, "bus": 4, "ttl": 8}
+[2026-04-29 01:54:13] [h5] injector: try bus=5 i=2198.624
+[2026-04-29 01:54:13] [h5] injector: OK bus=5 resp={"ok": true, "bus": 5, "ttl": 8}
+[2026-04-29 01:54:17] [h5] injector: try bus=1 i=2071.875
+[2026-04-29 01:54:17] [h5] injector: OK bus=1 resp={"ok": true, "bus": 1, "ttl": 8}
+[2026-04-29 01:54:17] [h5] injector: try bus=2 i=2043.84
+[2026-04-29 01:54:17] [h5] injector: OK bus=2 resp={"ok": true, "bus": 2, "ttl": 8}
+[2026-04-29 01:54:17] [h5] injector: try bus=3 i=2074.248
+[2026-04-29 01:54:17] [h5] injector: OK bus=3 resp={"ok": true, "bus": 3, "ttl": 8}
+[2026-04-29 01:54:17] [h5] injector: try bus=4 i=1966.128
+[2026-04-29 01:54:17] [h5] injector: OK bus=4 resp={"ok": true, "bus": 4, "ttl": 8}
+[2026-04-29 01:54:17] [h5] injector: try bus=5 i=2284.62
+[2026-04-29 01:54:17] [h5] injector: OK bus=5 resp={"ok": true, "bus": 5, "ttl": 8}
+[2026-04-29 01:54:21] [h5] injector: try bus=1 i=2567.746
+[2026-04-29 01:54:21] [h5] injector: OK bus=1 resp={"ok": true, "bus": 1, "ttl": 8}
+[2026-04-29 01:54:21] [h5] injector: try bus=2 i=2518.277
+[2026-04-29 01:54:21] [h5] injector: OK bus=2 resp={"ok": true, "bus": 2, "ttl": 8}
+[2026-04-29 01:54:21] [h5] injector: try bus=3 i=2353.459
+[2026-04-29 01:54:21] [h5] injector: OK bus=3 resp={"ok": true, "bus": 3, "ttl": 8}
+[2026-04-29 01:54:21] [h5] injector: try bus=4 i=2344.469
+[2026-04-29 01:54:21] [h5] injector: OK bus=4 resp={"ok": true, "bus": 4, "ttl": 8}
+[2026-04-29 01:54:21] [h5] injector: try bus=5 i=2214.162
+[2026-04-29 01:54:21] [h5] injector: OK bus=5 resp={"ok": true, "bus": 5, "ttl": 8}
+[2026-04-29 01:54:25] [h5] injector: try bus=1 i=2401.323
+[2026-04-29 01:54:25] [h5] injector: OK bus=1 resp={"ok": true, "bus": 1, "ttl": 8}
+[2026-04-29 01:54:25] [h5] injector: try bus=2 i=2358.756
+[2026-04-29 01:54:25] [h5] injector: OK bus=2 resp={"ok": true, "bus": 2, "ttl": 8}
+[2026-04-29 01:54:25] [h5] injector: try bus=3 i=2393.035
+[2026-04-29 01:54:25] [h5] injector: OK bus=3 resp={"ok": true, "bus": 3, "ttl": 8}
+[2026-04-29 01:54:25] [h5] injector: try bus=4 i=1976.382
+[2026-04-29 01:54:25] [h5] injector: OK bus=4 resp={"ok": true, "bus": 4, "ttl": 8}
+[2026-04-29 01:54:26] [h5] injector: try bus=5 i=1945.097
+[2026-04-29 01:54:26] [h5] injector: OK bus=5 resp={"ok": true, "bus": 5, "ttl": 8}
+[2026-04-29 01:54:30] [h5] injector: try bus=1 i=1997.677
+[2026-04-29 01:54:30] [h5] injector: OK bus=1 resp={"ok": true, "bus": 1, "ttl": 8}
+[2026-04-29 01:54:30] [h5] injector: try bus=2 i=2117.472
+[2026-04-29 01:54:30] [h5] injector: OK bus=2 resp={"ok": true, "bus": 2, "ttl": 8}
+[2026-04-29 01:54:30] [h5] injector: try bus=3 i=2358.044
+[2026-04-29 01:54:30] [h5] injector: OK bus=3 resp={"ok": true, "bus": 3, "ttl": 8}
+[2026-04-29 01:54:30] [h5] injector: try bus=4 i=2287.639
+[2026-04-29 01:54:30] [h5] injector: OK bus=4 resp={"ok": true, "bus": 4, "ttl": 8}
+[2026-04-29 01:54:30] [h5] injector: try bus=5 i=2456.061
+[2026-04-29 01:54:30] [h5] injector: OK bus=5 resp={"ok": true, "bus": 5, "ttl": 8}
+[2026-04-29 01:54:34] [h5] injector: try bus=1 i=2218.007
+[2026-04-29 01:54:34] [h5] injector: OK bus=1 resp={"ok": true, "bus": 1, "ttl": 8}
+[2026-04-29 01:54:34] [h5] injector: try bus=2 i=2590.949
+[2026-04-29 01:54:34] [h5] injector: OK bus=2 resp={"ok": true, "bus": 2, "ttl": 8}
+[2026-04-29 01:54:34] [h5] injector: try bus=3 i=2093.744
+[2026-04-29 01:54:34] [h5] injector: OK bus=3 resp={"ok": true, "bus": 3, "ttl": 8}
+[2026-04-29 01:54:34] [h5] injector: try bus=4 i=2087.664
+[2026-04-29 01:54:34] [h5] injector: OK bus=4 resp={"ok": true, "bus": 4, "ttl": 8}
+[2026-04-29 01:54:34] [h5] injector: try bus=5 i=1914.456
+[2026-04-29 01:54:34] [h5] injector: OK bus=5 resp={"ok": true, "bus": 5, "ttl": 8}
+[2026-04-29 01:54:38] [h5] injector: try bus=1 i=2465.151
+[2026-04-29 01:54:38] [h5] injector: OK bus=1 resp={"ok": true, "bus": 1, "ttl": 8}
+[2026-04-29 01:54:38] [h5] injector: try bus=2 i=2485.508
+[2026-04-29 01:54:38] [h5] injector: OK bus=2 resp={"ok": true, "bus": 2, "ttl": 8}
+[2026-04-29 01:54:38] [h5] injector: try bus=3 i=2119.715
+[2026-04-29 01:54:38] [h5] injector: OK bus=3 resp={"ok": true, "bus": 3, "ttl": 8}
+[2026-04-29 01:54:38] [h5] injector: try bus=4 i=2235.557
+[2026-04-29 01:54:38] [h5] injector: OK bus=4 resp={"ok": true, "bus": 4, "ttl": 8}
+[2026-04-29 01:54:38] [h5] injector: try bus=5 i=2292.22
+[2026-04-29 01:54:38] [h5] injector: OK bus=5 resp={"ok": true, "bus": 5, "ttl": 8}
+[2026-04-29 01:54:43] [h5] injector: try bus=1 i=2241.802
+[2026-04-29 01:54:43] [h5] injector: OK bus=1 resp={"ok": true, "bus": 1, "ttl": 8}
+[2026-04-29 01:54:43] [h5] injector: try bus=2 i=2578.244
+[2026-04-29 01:54:43] [h5] injector: OK bus=2 resp={"ok": true, "bus": 2, "ttl": 8}
+[2026-04-29 01:54:43] [h5] injector: try bus=3 i=2439.929
+[2026-04-29 01:54:43] [h5] injector: OK bus=3 resp={"ok": true, "bus": 3, "ttl": 8}
+[2026-04-29 01:54:43] [h5] injector: try bus=4 i=2160.704
+[2026-04-29 01:54:43] [h5] injector: OK bus=4 resp={"ok": true, "bus": 4, "ttl": 8}
+[2026-04-29 01:54:43] [h5] injector: try bus=5 i=1852.978
+[2026-04-29 01:54:43] [h5] injector: OK bus=5 resp={"ok": true, "bus": 5, "ttl": 8}
+[2026-04-29 01:54:47] [h5] injector: try bus=1 i=2108.313
+[2026-04-29 01:54:47] [h5] injector: OK bus=1 resp={"ok": true, "bus": 1, "ttl": 8}
+[2026-04-29 01:54:47] [h5] injector: try bus=2 i=2140.916
+[2026-04-29 01:54:47] [h5] injector: OK bus=2 resp={"ok": true, "bus": 2, "ttl": 8}
+[2026-04-29 01:54:47] [h5] injector: try bus=3 i=2161.643
+[2026-04-29 01:54:47] [h5] injector: OK bus=3 resp={"ok": true, "bus": 3, "ttl": 8}
+[2026-04-29 01:54:47] [h5] injector: try bus=4 i=2323.004
+[2026-04-29 01:54:47] [h5] injector: OK bus=4 resp={"ok": true, "bus": 4, "ttl": 8}
+[2026-04-29 01:54:47] [h5] injector: try bus=5 i=2003.434
+[2026-04-29 01:54:47] [h5] injector: OK bus=5 resp={"ok": true, "bus": 5, "ttl": 8}
+[2026-04-29 01:54:51] [h5] injector: try bus=1 i=1913.004
+[2026-04-29 01:54:51] [h5] injector: OK bus=1 resp={"ok": true, "bus": 1, "ttl": 8}
+[2026-04-29 01:54:51] [h5] injector: try bus=2 i=2270.888
+[2026-04-29 01:54:51] [h5] injector: OK bus=2 resp={"ok": true, "bus": 2, "ttl": 8}
+[2026-04-29 01:54:51] [h5] injector: try bus=3 i=2031.79
+[2026-04-29 01:54:51] [h5] injector: OK bus=3 resp={"ok": true, "bus": 3, "ttl": 8}
+[2026-04-29 01:54:51] [h5] injector: try bus=4 i=2237.695
+[2026-04-29 01:54:51] [h5] injector: OK bus=4 resp={"ok": true, "bus": 4, "ttl": 8}
+[2026-04-29 01:54:51] [h5] injector: try bus=5 i=2149.664
+[2026-04-29 01:54:51] [h5] injector: OK bus=5 resp={"ok": true, "bus": 5, "ttl": 8}
+[2026-04-29 01:54:55] [h5] injector: try bus=1 i=2468.677
+[2026-04-29 01:54:55] [h5] injector: OK bus=1 resp={"ok": true, "bus": 1, "ttl": 8}
+[2026-04-29 01:54:55] [h5] injector: try bus=2 i=1985.438
+[2026-04-29 01:54:55] [h5] injector: OK bus=2 resp={"ok": true, "bus": 2, "ttl": 8}
+[2026-04-29 01:54:55] [h5] injector: try bus=3 i=1977.911
+[2026-04-29 01:54:55] [h5] injector: OK bus=3 resp={"ok": true, "bus": 3, "ttl": 8}
+[2026-04-29 01:54:56] [h5] injector: try bus=4 i=2149.349
+[2026-04-29 01:54:56] [h5] injector: OK bus=4 resp={"ok": true, "bus": 4, "ttl": 8}
+[2026-04-29 01:54:56] [h5] injector: try bus=5 i=2525.482
+[2026-04-29 01:54:56] [h5] injector: OK bus=5 resp={"ok": true, "bus": 5, "ttl": 8}
+[2026-04-29 01:55:00] [h5] injector: try bus=1 i=2202.135
+[2026-04-29 01:55:00] [h5] injector: OK bus=1 resp={"ok": true, "bus": 1, "ttl": 8}
+[2026-04-29 01:55:00] [h5] injector: try bus=2 i=1972.447
+[2026-04-29 01:55:00] [h5] injector: OK bus=2 resp={"ok": true, "bus": 2, "ttl": 8}
+[2026-04-29 01:55:00] [h5] injector: try bus=3 i=1837.508
+[2026-04-29 01:55:00] [h5] injector: OK bus=3 resp={"ok": true, "bus": 3, "ttl": 8}
+[2026-04-29 01:55:00] [h5] injector: try bus=4 i=1969.861
+[2026-04-29 01:55:00] [h5] injector: OK bus=4 resp={"ok": true, "bus": 4, "ttl": 8}
+[2026-04-29 01:55:00] [h5] injector: try bus=5 i=2388.115
+[2026-04-29 01:55:00] [h5] injector: OK bus=5 resp={"ok": true, "bus": 5, "ttl": 8}
+[2026-04-29 01:55:04] [h5] injector: try bus=1 i=2317.063
+[2026-04-29 01:55:04] [h5] injector: OK bus=1 resp={"ok": true, "bus": 1, "ttl": 8}
+[2026-04-29 01:55:04] [h5] injector: try bus=2 i=2099.997
+[2026-04-29 01:55:04] [h5] injector: OK bus=2 resp={"ok": true, "bus": 2, "ttl": 8}
+[2026-04-29 01:55:04] [h5] injector: try bus=3 i=2353.093
+[2026-04-29 01:55:04] [h5] injector: OK bus=3 resp={"ok": true, "bus": 3, "ttl": 8}
+[2026-04-29 01:55:04] [h5] injector: try bus=4 i=1827.46
+[2026-04-29 01:55:04] [h5] injector: OK bus=4 resp={"ok": true, "bus": 4, "ttl": 8}
+[2026-04-29 01:55:04] [h5] injector: try bus=5 i=2470.289
+[2026-04-29 01:55:04] [h5] injector: OK bus=5 resp={"ok": true, "bus": 5, "ttl": 8}
+[2026-04-29 01:55:08] [h5] injector: try bus=1 i=1868.132
+[2026-04-29 01:55:08] [h5] injector: OK bus=1 resp={"ok": true, "bus": 1, "ttl": 8}
+[2026-04-29 01:55:08] [h5] injector: try bus=2 i=2000.619
+[2026-04-29 01:55:08] [h5] injector: OK bus=2 resp={"ok": true, "bus": 2, "ttl": 8}
+[2026-04-29 01:55:08] [h5] injector: try bus=3 i=1939.059
+[2026-04-29 01:55:08] [h5] injector: OK bus=3 resp={"ok": true, "bus": 3, "ttl": 8}
+[2026-04-29 01:55:08] [h5] injector: try bus=4 i=2212.799
+[2026-04-29 01:55:08] [h5] injector: OK bus=4 resp={"ok": true, "bus": 4, "ttl": 8}
+[2026-04-29 01:55:09] [h5] injector: try bus=5 i=1963.726
+[2026-04-29 01:55:09] [h5] injector: OK bus=5 resp={"ok": true, "bus": 5, "ttl": 8}

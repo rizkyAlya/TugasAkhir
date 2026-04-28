@@ -17,11 +17,13 @@ root = client.get_root_node()
 
 p_nodes = {}
 q_nodes = {}
+v_dt_nodes = {}
 command_nodes = {}
 
 for bus in range(1, 6):
     p_nodes[bus] = root.get_child(["0:Objects", f"{idx}:SENSORS", f"{idx}:P_bus_{bus}"])
     q_nodes[bus] = root.get_child(["0:Objects", f"{idx}:SENSORS", f"{idx}:Q_bus_{bus}"])
+    v_dt_nodes[bus] = root.get_child(["0:Objects", f"{idx}:SENSORS", f"{idx}:V_DT_bus_{bus}"])
     command_nodes[bus] = root.get_child(["0:Objects", f"{idx}:COMMANDS", f"{idx}:CMD_bus_{bus}"])
 
 # Map field bus -> pandapower bus yang memiliki elemen load
@@ -78,6 +80,9 @@ while True:
 
     try:
         pp.runpp(net)
+        for bus in range(1, 6):
+            idx_pp = bus_map[bus]
+            v_dt_nodes[bus].set_value(float(net.res_bus.vm_pu.loc[idx_pp]))
         print("\n", datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
         print("Load flow sukses. Voltage snapshot (pu):", net.res_bus.vm_pu.values[:5])
     except Exception:
