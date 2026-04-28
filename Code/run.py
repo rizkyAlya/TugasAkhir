@@ -210,7 +210,7 @@ def main():
     )
 
     args = parser.parse_args()
-    should_collect_baseline = bool(args.baseline or args.mitm or args.dos)
+    should_collect_baseline = bool(args.baseline or args.dos)
     run_logs_path = None
     if should_collect_baseline:
         run_timestamp = datetime.now().strftime("%Y-%m-%d_%H%M%S")

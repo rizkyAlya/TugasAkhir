@@ -1,5 +1,5 @@
-import csv
 import os
+import sys
 import time
 from datetime import datetime
 
@@ -12,6 +12,8 @@ RUN_ID_FILE = "/tmp/mitm_run_id"
 BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
 MITM_LOG_DIR = os.path.join(BASE_DIR, "logs", "mitm")
 MITM_TRACE_CSV = os.path.join(MITM_LOG_DIR, "mitm_trace.csv")
+sys.path.append(BASE_DIR)
+from logger.mitm_trace_logger import ensure_trace_csv, append_trace_row, now_ts
 
 
 def _new_run_id():
@@ -19,27 +21,7 @@ def _new_run_id():
 
 
 def _ensure_mitm_trace():
-    os.makedirs(MITM_LOG_DIR, exist_ok=True)
-    if not os.path.exists(MITM_TRACE_CSV):
-        with open(MITM_TRACE_CSV, "w", newline="", encoding="utf-8") as f:
-            writer = csv.writer(f)
-            writer.writerow([
-                "timestamp",
-                "run_id",
-                "phase",
-                "source",
-                "event",
-                "bus",
-                "v_raw",
-                "i_raw",
-                "v_final",
-                "i_final",
-                "breaker_cmd",
-                "breaker_fb",
-                "ttl",
-                "client",
-                "detail",
-            ])
+    ensure_trace_csv(MITM_TRACE_CSV)
 
 
 def _write_run_id(run_id):
@@ -48,25 +30,23 @@ def _write_run_id(run_id):
 
 
 def _append_trace(run_id, event, detail, phase="post_attack"):
-    with open(MITM_TRACE_CSV, "a", newline="", encoding="utf-8") as f:
-        writer = csv.writer(f)
-        writer.writerow([
-            datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
-            run_id,
-            phase,
-            "h5",
-            event,
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            detail,
-        ])
+    append_trace_row(MITM_TRACE_CSV, [
+        now_ts(),
+        run_id,
+        phase,
+        "h5",
+        event,
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        detail,
+    ])
 
 
 def _append_route_snapshot(run_id, stage, rtu, gateway, attacker):
@@ -92,8 +72,8 @@ def run_mitm_attack(net, rtu_name=DEFAULT_RTU_NAME, gateway_name=DEFAULT_GATEWAY
     """
     Compromise simulation flow:
     - Enable HTTP inject API on gateway (h3)
-    - Attacker (h5) sends simulated sensor values periodically
-    - Gateway forwards overridden values to OPC UA (for h4)
+    - Attacker (h5) sends injected current (I) periodically
+    - Gateway keeps V asli RTU, override I lalu forward ke OPC UA (for h4)
     """
     _ensure_mitm_trace()
     run_id = _new_run_id()
@@ -124,10 +104,9 @@ def run_mitm_attack(net, rtu_name=DEFAULT_RTU_NAME, gateway_name=DEFAULT_GATEWAY
         "echo \"[\"$(date \"+%Y-%m-%d %H:%M:%S\")\"] [h5] injector: starting url=$URL\"; "
         "while true; do "
         "  for b in 1 2 3 4 5; do "
-        "    v=$(python3 -c \"import random; print(round(random.uniform(0.72,0.86),3))\"); "
-        "    i=$(python3 -c \"import random; print(round(random.uniform(2.4,4.2),3))\"); "
-        "    body=$(python3 -c \"import json,sys; b=int(sys.argv[1]); v=float(sys.argv[2]); i=float(sys.argv[3]); print(json.dumps({\\\"token\\\":\\\"lab-sim-token\\\",\\\"bus\\\":b,\\\"v\\\":v,\\\"i\\\":i,\\\"ttl\\\":8}))\" \"$b\" \"$v\" \"$i\"); "
-        "    echo \"[\"$(date \"+%Y-%m-%d %H:%M:%S\")\"] [h5] injector: try bus=$b v=$v i=$i\"; "
+        "    i=$(python3 -c \"import random; print(round(random.uniform(950.0,1350.0),3))\"); "
+        "    body=$(python3 -c \"import json,sys; b=int(sys.argv[1]); i=float(sys.argv[2]); print(json.dumps({\\\"token\\\":\\\"lab-sim-token\\\",\\\"bus\\\":b,\\\"i\\\":i,\\\"ttl\\\":8}))\" \"$b\" \"$i\"); "
+        "    echo \"[\"$(date \"+%Y-%m-%d %H:%M:%S\")\"] [h5] injector: try bus=$b i=$i\"; "
         "    if out=$(curl -sS -m 3 -X POST -H \"Content-Type: application/json\" -d \"$body\" \"$URL\"); then "
         "      echo \"[\"$(date \"+%Y-%m-%d %H:%M:%S\")\"] [h5] injector: OK bus=$b resp=$out\"; "
         "    else "
