@@ -69,6 +69,7 @@ def log_h2_original(ts: str, bus: int, v: float, i: float, breaker_cmd_val: int)
         f"{i:.6f}",
         f"{v:.6f}",
         f"{i:.6f}",
+        "",
         breaker_cmd_val,
         "",
         "",

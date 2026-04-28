@@ -16,6 +16,7 @@ TRACE_HEADER = [
     "i_raw",
     "v_final",
     "i_final",
+    "v_dt",
     "breaker_cmd",
     "breaker_fb",
     "ttl",
