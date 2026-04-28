@@ -52,13 +52,15 @@ while True:
         q_mvar = q_nodes[bus].get_value()
 
         idx_pp = bus_map[bus]
+        
+        in_load = idx_pp in net.load.bus.values
+        load_idx = net.load[net.load.bus == idx_pp].index.tolist()
 
-        # Gunakan idx_pp agar mapping bus ekuivalen konsisten.
-        if idx_pp in net.load.bus.values:
-            load_idx = net.load[net.load.bus == idx_pp].index
-            if len(load_idx):
-                net.load.loc[load_idx, "p_mw"] = float(p_mw)
-                net.load.loc[load_idx, "q_mvar"] = float(q_mvar)
+        print(f"bus={bus}, idx_pp={idx_pp}, in_load={in_load}, load_idx={load_idx}, load_buses={sorted(net.load.bus.unique().tolist())}")
+
+        if in_load and len(load_idx):
+            net.load.loc[load_idx, "p_mw"] = float(p_mw) # MW
+            net.load.loc[load_idx, "q_mvar"] = float(q_mvar) # MVar
 
     try:
         pp.runpp(net)
