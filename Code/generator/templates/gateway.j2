@@ -338,7 +338,11 @@ try:
                 context[0x00].setValues(1, BREAKER_CMD_BASE_ADDR + (bus - 1), [cmd_val])
                 log_h3_final(ts, bus, float(v_raw), float(i_raw), v_final, i_final, source, breaker_fb, cmd_val)
 
-                print(f"[{ts}] [Bus {bus}] Data P/Q/CMD update ({source}) -> P={p_mw:.4f} MW, Q={q_mvar:.4f} MVar")
+                print(
+                    f"[{ts}] [Bus {bus}] Data P/Q/CMD update ({source}) -> "
+                    f"V={v_final:.4f} pu, I={i_final:.4f} A, "
+                    f"P={p_mw:.4f} MW, Q={q_mvar:.4f} MVar"
+                )
             except Exception as e:
                 print(f"[{ts}] [Bus {bus}] Gagal update: {e}")
 

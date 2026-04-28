@@ -80,7 +80,12 @@ def main_loop():
                 try:
                     context[slave_id].setValues(fx_hr, addr_v, [v_scaled])
                     context[slave_id].setValues(fx_hr, addr_i, [i_scaled])
-                    print(f"Bus {bus} | V={v_scaled} | I={i_scaled} | Breaker={'OPEN' if breaker_status[bus]==0 else 'CLOSE'}")
+                    print(
+                        f"Bus {bus} | "
+                        f"V={v_pu:.3f} pu ({v_scaled} reg @x{V_SCALE}) | "
+                        f"I={I:.3f} A ({i_scaled} reg @x{I_SCALE}) | "
+                        f"Breaker={'OPEN' if breaker_status[bus]==0 else 'CLOSE'}"
+                    )
                 except Exception as e:
                     print("Error update Modbus datastore:", e)
 
