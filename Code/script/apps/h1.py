@@ -1,6 +1,7 @@
 import time
 from datetime import datetime
 import random
+import os
 from threading import Thread
 
 from pymodbus.server import StartTcpServer
@@ -12,6 +13,8 @@ MODBUS_LISTEN_IP = "0.0.0.0"
 MODBUS_PORT = 5020
 
 NUM_BUS = 5
+FIELD_RANDOM_SEED = int(os.environ.get("FIELD_RANDOM_SEED", "42"))
+random.seed(FIELD_RANDOM_SEED)
 
 # Mapping register Modbus
 V_BASE_ADDR = 0         # HR 0-4
@@ -45,6 +48,7 @@ def main_loop():
     fx_co = 1         # 1 = Coils
 
     try:
+        print(f"Field random seed: {FIELD_RANDOM_SEED}")
         while True:
             print("\n", datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
             for bus in range(1, NUM_BUS + 1):

@@ -1,335 +1,424 @@
 Memulai Server OPC UA
 Endpoints other than open requested but private key and certificate are not set.
 Listening on 10.0.2.2:4840
+
+
 Memulai Modbus Gateway di 0.0.0.0:5020
-
-
-[2026-04-17 04:34:09] [Bus 1] Data V/I/CMD update (RTU)
-[2026-04-17 04:34:09] [Bus 2] Data V/I/CMD update (RTU)
-[2026-04-17 04:34:09] [Bus 3] Data V/I/CMD update (RTU)
-[2026-04-17 04:34:09] [Bus 4] Data V/I/CMD update (RTU)
-[2026-04-17 04:34:09] [Bus 5] Data V/I/CMD update (RTU)
-
-
-[2026-04-17 04:34:13] [Bus 1] Data V/I/CMD update (RTU)
-[2026-04-17 04:34:13] [Bus 1] Command breaker ke RTU: OPEN
-[2026-04-17 04:34:13] [Bus 2] Data V/I/CMD update (RTU)
-[2026-04-17 04:34:13] [Bus 2] Command breaker ke RTU: OPEN
-[2026-04-17 04:34:13] [Bus 3] Data V/I/CMD update (RTU)
-[2026-04-17 04:34:13] [Bus 3] Command breaker ke RTU: OPEN
-[2026-04-17 04:34:13] [Bus 4] Data V/I/CMD update (RTU)
-[2026-04-17 04:34:13] [Bus 5] Data V/I/CMD update (RTU)
-
-
-[2026-04-17 04:34:17] [Bus 1] Data V/I/CMD update (RTU)
-[2026-04-17 04:34:17] [Bus 1] Command breaker ke RTU: CLOSE
-[2026-04-17 04:34:17] [Bus 2] Data V/I/CMD update (RTU)
-[2026-04-17 04:34:17] [Bus 3] Data V/I/CMD update (RTU)
-[2026-04-17 04:34:17] [Bus 3] Command breaker ke RTU: CLOSE
-[2026-04-17 04:34:17] [Bus 4] Data V/I/CMD update (RTU)
-[2026-04-17 04:34:17] [Bus 5] Data V/I/CMD update (RTU)
-
-
-[2026-04-17 04:34:21] [Bus 1] Data V/I/CMD update (RTU)
-[2026-04-17 04:34:21] [Bus 1] Command breaker ke RTU: OPEN
-[2026-04-17 04:34:21] [Bus 2] Data V/I/CMD update (RTU)
-[2026-04-17 04:34:21] [Bus 3] Data V/I/CMD update (RTU)
-[2026-04-17 04:34:21] [Bus 3] Command breaker ke RTU: OPEN
-[2026-04-17 04:34:21] [Bus 4] Data V/I/CMD update (RTU)
-[2026-04-17 04:34:21] [Bus 5] Data V/I/CMD update (RTU)
-
-
-[2026-04-17 04:34:25] [Bus 1] Data V/I/CMD update (RTU)
-[2026-04-17 04:34:25] [Bus 1] Command breaker ke RTU: CLOSE
-[2026-04-17 04:34:25] [Bus 2] Data V/I/CMD update (RTU)
-[2026-04-17 04:34:25] [Bus 3] Data V/I/CMD update (RTU)
-[2026-04-17 04:34:25] [Bus 3] Command breaker ke RTU: CLOSE
-[2026-04-17 04:34:25] [Bus 4] Data V/I/CMD update (RTU)
-[2026-04-17 04:34:25] [Bus 5] Data V/I/CMD update (RTU)
-
-
-[2026-04-17 04:34:29] [Bus 1] Data V/I/CMD update (RTU)
-[2026-04-17 04:34:29] [Bus 1] Command breaker ke RTU: OPEN
-[2026-04-17 04:34:29] [Bus 2] Data V/I/CMD update (RTU)
-[2026-04-17 04:34:29] [Bus 3] Data V/I/CMD update (RTU)
-[2026-04-17 04:34:29] [Bus 3] Command breaker ke RTU: OPEN
-[2026-04-17 04:34:29] [Bus 4] Data V/I/CMD update (RTU)
-[2026-04-17 04:34:29] [Bus 5] Data V/I/CMD update (RTU)
-
-
-[2026-04-17 04:34:33] [Bus 1] Data V/I/CMD update (RTU)
-[2026-04-17 04:34:33] [Bus 1] Command breaker ke RTU: CLOSE
-[2026-04-17 04:34:33] [Bus 2] Data V/I/CMD update (RTU)
-[2026-04-17 04:34:33] [Bus 3] Data V/I/CMD update (RTU)
-[2026-04-17 04:34:33] [Bus 3] Command breaker ke RTU: CLOSE
-[2026-04-17 04:34:33] [Bus 4] Data V/I/CMD update (RTU)
-[2026-04-17 04:34:33] [Bus 5] Data V/I/CMD update (RTU)
-
-
-[2026-04-17 04:34:37] [Bus 1] Data V/I/CMD update (RTU)
-[2026-04-17 04:34:37] [Bus 1] Command breaker ke RTU: OPEN
-[2026-04-17 04:34:37] [Bus 2] Data V/I/CMD update (RTU)
-[2026-04-17 04:34:37] [Bus 3] Data V/I/CMD update (RTU)
-[2026-04-17 04:34:37] [Bus 3] Command breaker ke RTU: OPEN
-[2026-04-17 04:34:37] [Bus 4] Data V/I/CMD update (RTU)
-[2026-04-17 04:34:37] [Bus 5] Data V/I/CMD update (RTU)
-
-
-[2026-04-17 04:34:41] [Bus 1] Data V/I/CMD update (RTU)
-[2026-04-17 04:34:41] [Bus 1] Command breaker ke RTU: CLOSE
-[2026-04-17 04:34:41] [Bus 2] Data V/I/CMD update (RTU)
-[2026-04-17 04:34:41] [Bus 3] Data V/I/CMD update (RTU)
-[2026-04-17 04:34:41] [Bus 3] Command breaker ke RTU: CLOSE
-[2026-04-17 04:34:41] [Bus 4] Data V/I/CMD update (RTU)
-[2026-04-17 04:34:41] [Bus 5] Data V/I/CMD update (RTU)
-
-
-[2026-04-17 04:34:45] [Bus 1] Data V/I/CMD update (RTU)
-[2026-04-17 04:34:45] [Bus 1] Command breaker ke RTU: OPEN
-[2026-04-17 04:34:45] [Bus 2] Data V/I/CMD update (RTU)
-[2026-04-17 04:34:45] [Bus 3] Data V/I/CMD update (RTU)
-[2026-04-17 04:34:45] [Bus 3] Command breaker ke RTU: OPEN
-[2026-04-17 04:34:45] [Bus 4] Data V/I/CMD update (RTU)
-[2026-04-17 04:34:45] [Bus 5] Data V/I/CMD update (RTU)
-
-
-[2026-04-17 04:34:49] [Bus 1] Data V/I/CMD update (RTU)
-[2026-04-17 04:34:49] [Bus 1] Command breaker ke RTU: CLOSE
-[2026-04-17 04:34:49] [Bus 2] Data V/I/CMD update (RTU)
-[2026-04-17 04:34:49] [Bus 3] Data V/I/CMD update (RTU)
-[2026-04-17 04:34:49] [Bus 3] Command breaker ke RTU: CLOSE
-[2026-04-17 04:34:49] [Bus 4] Data V/I/CMD update (RTU)
-[2026-04-17 04:34:49] [Bus 5] Data V/I/CMD update (RTU)
-
-
-[2026-04-17 04:34:53] [Bus 1] Data V/I/CMD update (RTU)
-[2026-04-17 04:34:53] [Bus 1] Command breaker ke RTU: OPEN
-[2026-04-17 04:34:53] [Bus 2] Data V/I/CMD update (RTU)
-[2026-04-17 04:34:53] [Bus 3] Data V/I/CMD update (RTU)
-[2026-04-17 04:34:53] [Bus 3] Command breaker ke RTU: OPEN
-[2026-04-17 04:34:53] [Bus 4] Data V/I/CMD update (RTU)
-[2026-04-17 04:34:53] [Bus 5] Data V/I/CMD update (RTU)
-
-
-[2026-04-17 04:34:57] [Bus 1] Data V/I/CMD update (RTU)
-[2026-04-17 04:34:57] [Bus 1] Command breaker ke RTU: CLOSE
-[2026-04-17 04:34:57] [Bus 2] Data V/I/CMD update (RTU)
-[2026-04-17 04:34:57] [Bus 3] Data V/I/CMD update (RTU)
-[2026-04-17 04:34:57] [Bus 3] Command breaker ke RTU: CLOSE
-[2026-04-17 04:34:57] [Bus 4] Data V/I/CMD update (RTU)
-[2026-04-17 04:34:57] [Bus 5] Data V/I/CMD update (RTU)
-
-
-[2026-04-17 04:35:01] [Bus 1] Data V/I/CMD update (RTU)
-[2026-04-17 04:35:01] [Bus 1] Command breaker ke RTU: OPEN
-[2026-04-17 04:35:01] [Bus 2] Data V/I/CMD update (RTU)
-[2026-04-17 04:35:01] [Bus 3] Data V/I/CMD update (RTU)
-[2026-04-17 04:35:01] [Bus 3] Command breaker ke RTU: OPEN
-[2026-04-17 04:35:01] [Bus 4] Data V/I/CMD update (RTU)
-[2026-04-17 04:35:01] [Bus 5] Data V/I/CMD update (RTU)
-
-
-[2026-04-17 04:35:05] [Bus 1] Data V/I/CMD update (RTU)
-[2026-04-17 04:35:05] [Bus 1] Command breaker ke RTU: CLOSE
-[2026-04-17 04:35:05] [Bus 2] Data V/I/CMD update (RTU)
-[2026-04-17 04:35:05] [Bus 3] Data V/I/CMD update (RTU)
-[2026-04-17 04:35:05] [Bus 3] Command breaker ke RTU: CLOSE
-[2026-04-17 04:35:05] [Bus 4] Data V/I/CMD update (RTU)
-[2026-04-17 04:35:05] [Bus 5] Data V/I/CMD update (RTU)
-
-
-[2026-04-17 04:35:09] [Bus 1] Data V/I/CMD update (RTU)
-[2026-04-17 04:35:09] [Bus 1] Command breaker ke RTU: OPEN
-[2026-04-17 04:35:09] [Bus 2] Data V/I/CMD update (RTU)
-[2026-04-17 04:35:09] [Bus 3] Data V/I/CMD update (RTU)
-[2026-04-17 04:35:09] [Bus 3] Command breaker ke RTU: OPEN
-[2026-04-17 04:35:09] [Bus 4] Data V/I/CMD update (RTU)
-[2026-04-17 04:35:09] [Bus 5] Data V/I/CMD update (RTU)
-
-
-[2026-04-17 04:35:13] [Bus 1] Data V/I/CMD update (RTU)
-[2026-04-17 04:35:13] [Bus 1] Command breaker ke RTU: CLOSE
-[2026-04-17 04:35:13] [Bus 2] Data V/I/CMD update (RTU)
-[2026-04-17 04:35:13] [Bus 3] Data V/I/CMD update (RTU)
-[2026-04-17 04:35:13] [Bus 3] Command breaker ke RTU: CLOSE
-[2026-04-17 04:35:13] [Bus 4] Data V/I/CMD update (RTU)
-[2026-04-17 04:35:13] [Bus 5] Data V/I/CMD update (RTU)
-HTTP inject API aktif di 0.0.0.0:8088
-
-
-[2026-04-17 04:35:17] [Bus 1] Data V/I/CMD update (RTU)
-[2026-04-17 04:35:17] [Bus 1] Command breaker ke RTU: OPEN
-[2026-04-17 04:35:17] [Bus 2] Data V/I/CMD update (RTU)
-[2026-04-17 04:35:17] [Bus 3] Data V/I/CMD update (RTU)
-[2026-04-17 04:35:17] [Bus 3] Command breaker ke RTU: OPEN
-[2026-04-17 04:35:17] [Bus 4] Data V/I/CMD update (RTU)
-[2026-04-17 04:35:17] [Bus 5] Data V/I/CMD update (RTU)
-
-
-[2026-04-17 04:35:21] [Bus 1] Data V/I/CMD update (SIMULATED)
-[2026-04-17 04:35:21] [Bus 1] Command breaker ke RTU: CLOSE
-[2026-04-17 04:35:21] [Bus 2] Data V/I/CMD update (SIMULATED)
-[2026-04-17 04:35:21] [Bus 3] Data V/I/CMD update (SIMULATED)
-[2026-04-17 04:35:21] [Bus 3] Command breaker ke RTU: CLOSE
-[2026-04-17 04:35:21] [Bus 4] Data V/I/CMD update (SIMULATED)
-[2026-04-17 04:35:21] [Bus 5] Data V/I/CMD update (SIMULATED)
-
-
-[2026-04-17 04:35:25] [Bus 1] Data V/I/CMD update (SIMULATED)
-[2026-04-17 04:35:25] [Bus 1] Command breaker ke RTU: OPEN
-[2026-04-17 04:35:25] [Bus 2] Data V/I/CMD update (SIMULATED)
-[2026-04-17 04:35:25] [Bus 3] Data V/I/CMD update (SIMULATED)
-[2026-04-17 04:35:25] [Bus 3] Command breaker ke RTU: OPEN
-[2026-04-17 04:35:25] [Bus 4] Data V/I/CMD update (SIMULATED)
-[2026-04-17 04:35:25] [Bus 5] Data V/I/CMD update (SIMULATED)
-
-
-[2026-04-17 04:35:29] [Bus 1] Data V/I/CMD update (SIMULATED)
-[2026-04-17 04:35:29] [Bus 1] Command breaker ke RTU: CLOSE
-[2026-04-17 04:35:29] [Bus 2] Data V/I/CMD update (SIMULATED)
-[2026-04-17 04:35:29] [Bus 3] Data V/I/CMD update (SIMULATED)
-[2026-04-17 04:35:29] [Bus 3] Command breaker ke RTU: CLOSE
-[2026-04-17 04:35:29] [Bus 4] Data V/I/CMD update (SIMULATED)
-[2026-04-17 04:35:29] [Bus 5] Data V/I/CMD update (SIMULATED)
-
-
-[2026-04-17 04:35:33] [Bus 1] Data V/I/CMD update (SIMULATED)
-[2026-04-17 04:35:33] [Bus 1] Command breaker ke RTU: OPEN
-[2026-04-17 04:35:33] [Bus 2] Data V/I/CMD update (SIMULATED)
-[2026-04-17 04:35:33] [Bus 3] Data V/I/CMD update (SIMULATED)
-[2026-04-17 04:35:33] [Bus 3] Command breaker ke RTU: OPEN
-[2026-04-17 04:35:33] [Bus 4] Data V/I/CMD update (SIMULATED)
-[2026-04-17 04:35:33] [Bus 5] Data V/I/CMD update (SIMULATED)
-
-
-[2026-04-17 04:35:37] [Bus 1] Data V/I/CMD update (SIMULATED)
-[2026-04-17 04:35:37] [Bus 1] Command breaker ke RTU: CLOSE
-[2026-04-17 04:35:37] [Bus 2] Data V/I/CMD update (SIMULATED)
-[2026-04-17 04:35:37] [Bus 3] Data V/I/CMD update (SIMULATED)
-[2026-04-17 04:35:37] [Bus 3] Command breaker ke RTU: CLOSE
-[2026-04-17 04:35:37] [Bus 4] Data V/I/CMD update (SIMULATED)
-[2026-04-17 04:35:37] [Bus 5] Data V/I/CMD update (SIMULATED)
-
-
-[2026-04-17 04:35:41] [Bus 1] Data V/I/CMD update (SIMULATED)
-[2026-04-17 04:35:41] [Bus 1] Command breaker ke RTU: OPEN
-[2026-04-17 04:35:41] [Bus 2] Data V/I/CMD update (SIMULATED)
-[2026-04-17 04:35:41] [Bus 3] Data V/I/CMD update (SIMULATED)
-[2026-04-17 04:35:41] [Bus 3] Command breaker ke RTU: OPEN
-[2026-04-17 04:35:41] [Bus 4] Data V/I/CMD update (SIMULATED)
-[2026-04-17 04:35:41] [Bus 5] Data V/I/CMD update (SIMULATED)
-
-
-[2026-04-17 04:35:45] [Bus 1] Data V/I/CMD update (SIMULATED)
-[2026-04-17 04:35:45] [Bus 1] Command breaker ke RTU: CLOSE
-[2026-04-17 04:35:45] [Bus 2] Data V/I/CMD update (SIMULATED)
-[2026-04-17 04:35:45] [Bus 3] Data V/I/CMD update (SIMULATED)
-[2026-04-17 04:35:45] [Bus 3] Command breaker ke RTU: CLOSE
-[2026-04-17 04:35:45] [Bus 4] Data V/I/CMD update (SIMULATED)
-[2026-04-17 04:35:45] [Bus 5] Data V/I/CMD update (SIMULATED)
-
-
-[2026-04-17 04:35:49] [Bus 1] Data V/I/CMD update (SIMULATED)
-[2026-04-17 04:35:49] [Bus 1] Command breaker ke RTU: OPEN
-[2026-04-17 04:35:49] [Bus 2] Data V/I/CMD update (SIMULATED)
-[2026-04-17 04:35:49] [Bus 3] Data V/I/CMD update (SIMULATED)
-[2026-04-17 04:35:49] [Bus 3] Command breaker ke RTU: OPEN
-[2026-04-17 04:35:49] [Bus 4] Data V/I/CMD update (SIMULATED)
-[2026-04-17 04:35:49] [Bus 5] Data V/I/CMD update (SIMULATED)
-
-
-[2026-04-17 04:35:53] [Bus 1] Data V/I/CMD update (SIMULATED)
-[2026-04-17 04:35:53] [Bus 1] Command breaker ke RTU: CLOSE
-[2026-04-17 04:35:53] [Bus 2] Data V/I/CMD update (SIMULATED)
-[2026-04-17 04:35:53] [Bus 3] Data V/I/CMD update (SIMULATED)
-[2026-04-17 04:35:53] [Bus 3] Command breaker ke RTU: CLOSE
-[2026-04-17 04:35:53] [Bus 4] Data V/I/CMD update (SIMULATED)
-[2026-04-17 04:35:53] [Bus 5] Data V/I/CMD update (SIMULATED)
-
-
-[2026-04-17 04:35:57] [Bus 1] Data V/I/CMD update (SIMULATED)
-[2026-04-17 04:35:57] [Bus 1] Command breaker ke RTU: OPEN
-[2026-04-17 04:35:57] [Bus 2] Data V/I/CMD update (SIMULATED)
-[2026-04-17 04:35:57] [Bus 3] Data V/I/CMD update (SIMULATED)
-[2026-04-17 04:35:57] [Bus 3] Command breaker ke RTU: OPEN
-[2026-04-17 04:35:57] [Bus 4] Data V/I/CMD update (SIMULATED)
-[2026-04-17 04:35:57] [Bus 5] Data V/I/CMD update (SIMULATED)
-
-
-[2026-04-17 04:36:01] [Bus 1] Data V/I/CMD update (SIMULATED)
-[2026-04-17 04:36:01] [Bus 1] Command breaker ke RTU: CLOSE
-[2026-04-17 04:36:01] [Bus 2] Data V/I/CMD update (SIMULATED)
-[2026-04-17 04:36:01] [Bus 3] Data V/I/CMD update (SIMULATED)
-[2026-04-17 04:36:01] [Bus 3] Command breaker ke RTU: CLOSE
-[2026-04-17 04:36:01] [Bus 4] Data V/I/CMD update (SIMULATED)
-[2026-04-17 04:36:01] [Bus 5] Data V/I/CMD update (SIMULATED)
-
-
-[2026-04-17 04:36:05] [Bus 1] Data V/I/CMD update (SIMULATED)
-[2026-04-17 04:36:05] [Bus 1] Command breaker ke RTU: OPEN
-[2026-04-17 04:36:05] [Bus 2] Data V/I/CMD update (SIMULATED)
-[2026-04-17 04:36:05] [Bus 3] Data V/I/CMD update (SIMULATED)
-[2026-04-17 04:36:05] [Bus 3] Command breaker ke RTU: OPEN
-[2026-04-17 04:36:05] [Bus 4] Data V/I/CMD update (SIMULATED)
-[2026-04-17 04:36:05] [Bus 5] Data V/I/CMD update (SIMULATED)
-
-
-[2026-04-17 04:36:09] [Bus 1] Data V/I/CMD update (SIMULATED)
-[2026-04-17 04:36:09] [Bus 1] Command breaker ke RTU: CLOSE
-[2026-04-17 04:36:09] [Bus 2] Data V/I/CMD update (SIMULATED)
-[2026-04-17 04:36:09] [Bus 3] Data V/I/CMD update (SIMULATED)
-[2026-04-17 04:36:09] [Bus 3] Command breaker ke RTU: CLOSE
-[2026-04-17 04:36:09] [Bus 4] Data V/I/CMD update (SIMULATED)
-[2026-04-17 04:36:09] [Bus 5] Data V/I/CMD update (SIMULATED)
-
-
-[2026-04-17 04:36:13] [Bus 1] Data V/I/CMD update (SIMULATED)
-[2026-04-17 04:36:13] [Bus 1] Command breaker ke RTU: OPEN
-[2026-04-17 04:36:13] [Bus 2] Data V/I/CMD update (SIMULATED)
-[2026-04-17 04:36:13] [Bus 3] Data V/I/CMD update (SIMULATED)
-[2026-04-17 04:36:13] [Bus 3] Command breaker ke RTU: OPEN
-[2026-04-17 04:36:13] [Bus 4] Data V/I/CMD update (SIMULATED)
-[2026-04-17 04:36:13] [Bus 5] Data V/I/CMD update (SIMULATED)
-
-
-[2026-04-17 04:36:17] [Bus 1] Data V/I/CMD update (SIMULATED)
-[2026-04-17 04:36:17] [Bus 1] Command breaker ke RTU: CLOSE
-[2026-04-17 04:36:17] [Bus 2] Data V/I/CMD update (SIMULATED)
-[2026-04-17 04:36:17] [Bus 3] Data V/I/CMD update (SIMULATED)
-[2026-04-17 04:36:17] [Bus 3] Command breaker ke RTU: CLOSE
-[2026-04-17 04:36:17] [Bus 4] Data V/I/CMD update (SIMULATED)
-[2026-04-17 04:36:17] [Bus 5] Data V/I/CMD update (SIMULATED)
-
-
-[2026-04-17 04:36:21] [Bus 1] Data V/I/CMD update (SIMULATED)
-[2026-04-17 04:36:21] [Bus 1] Command breaker ke RTU: OPEN
-[2026-04-17 04:36:21] [Bus 2] Data V/I/CMD update (SIMULATED)
-[2026-04-17 04:36:21] [Bus 3] Data V/I/CMD update (SIMULATED)
-[2026-04-17 04:36:21] [Bus 3] Command breaker ke RTU: OPEN
-[2026-04-17 04:36:21] [Bus 4] Data V/I/CMD update (SIMULATED)
-[2026-04-17 04:36:21] [Bus 5] Data V/I/CMD update (SIMULATED)
-
-
-[2026-04-17 04:36:25] [Bus 1] Data V/I/CMD update (SIMULATED)
-[2026-04-17 04:36:25] [Bus 1] Command breaker ke RTU: CLOSE
-[2026-04-17 04:36:25] [Bus 2] Data V/I/CMD update (SIMULATED)
-[2026-04-17 04:36:25] [Bus 3] Data V/I/CMD update (SIMULATED)
-[2026-04-17 04:36:25] [Bus 3] Command breaker ke RTU: CLOSE
-[2026-04-17 04:36:25] [Bus 4] Data V/I/CMD update (SIMULATED)
-[2026-04-17 04:36:25] [Bus 5] Data V/I/CMD update (SIMULATED)
-
-
-[2026-04-17 04:36:29] [Bus 1] Data V/I/CMD update (SIMULATED)
-[2026-04-17 04:36:29] [Bus 1] Command breaker ke RTU: OPEN
-[2026-04-17 04:36:29] [Bus 2] Data V/I/CMD update (SIMULATED)
-[2026-04-17 04:36:29] [Bus 3] Data V/I/CMD update (SIMULATED)
-[2026-04-17 04:36:29] [Bus 4] Data V/I/CMD update (SIMULATED)
-[2026-04-17 04:36:29] [Bus 5] Data V/I/CMD update (SIMULATED)
-
-
-[2026-04-17 04:36:33] [Bus 1] Data V/I/CMD update (SIMULATED)
-[2026-04-17 04:36:33] [Bus 2] Data V/I/CMD update (SIMULATED)
-[2026-04-17 04:36:33] [Bus 3] Data V/I/CMD update (SIMULATED)
-[2026-04-17 04:36:33] [Bus 3] Command breaker ke RTU: OPEN
-[2026-04-17 04:36:33] [Bus 4] Data V/I/CMD update (SIMULATED)
-[2026-04-17 04:36:33] [Bus 5] Data V/I/CMD update (SIMULATED)
+[2026-04-28 21:55:36] [Bus 1] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:55:36] [Bus 2] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:55:36] [Bus 3] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:55:36] [Bus 4] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:55:36] [Bus 5] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+
+
+[2026-04-28 21:55:40] [Bus 1] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:55:40] [Bus 1] Command breaker ke RTU: OPEN
+[2026-04-28 21:55:40] [Bus 2] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:55:40] [Bus 2] Command breaker ke RTU: OPEN
+[2026-04-28 21:55:40] [Bus 3] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:55:40] [Bus 3] Command breaker ke RTU: OPEN
+[2026-04-28 21:55:40] [Bus 4] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:55:40] [Bus 5] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+
+
+[2026-04-28 21:55:44] [Bus 1] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:55:44] [Bus 1] Command breaker ke RTU: CLOSE
+[2026-04-28 21:55:44] [Bus 2] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:55:44] [Bus 3] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:55:44] [Bus 3] Command breaker ke RTU: CLOSE
+[2026-04-28 21:55:44] [Bus 4] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:55:44] [Bus 5] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+
+
+[2026-04-28 21:55:48] [Bus 1] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:55:48] [Bus 1] Command breaker ke RTU: OPEN
+[2026-04-28 21:55:48] [Bus 2] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:55:48] [Bus 3] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:55:48] [Bus 3] Command breaker ke RTU: OPEN
+[2026-04-28 21:55:48] [Bus 4] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:55:48] [Bus 5] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+
+
+[2026-04-28 21:55:52] [Bus 1] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:55:52] [Bus 1] Command breaker ke RTU: CLOSE
+[2026-04-28 21:55:52] [Bus 2] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:55:52] [Bus 3] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:55:52] [Bus 3] Command breaker ke RTU: CLOSE
+[2026-04-28 21:55:52] [Bus 4] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:55:52] [Bus 5] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+
+
+[2026-04-28 21:55:56] [Bus 1] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:55:56] [Bus 1] Command breaker ke RTU: OPEN
+[2026-04-28 21:55:56] [Bus 2] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:55:56] [Bus 3] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:55:56] [Bus 3] Command breaker ke RTU: OPEN
+[2026-04-28 21:55:56] [Bus 4] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:55:56] [Bus 5] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+
+
+[2026-04-28 21:56:00] [Bus 1] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:56:00] [Bus 1] Command breaker ke RTU: CLOSE
+[2026-04-28 21:56:00] [Bus 2] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:56:00] [Bus 3] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:56:00] [Bus 3] Command breaker ke RTU: CLOSE
+[2026-04-28 21:56:00] [Bus 4] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:56:00] [Bus 5] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+
+
+[2026-04-28 21:56:04] [Bus 1] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:56:04] [Bus 1] Command breaker ke RTU: OPEN
+[2026-04-28 21:56:04] [Bus 2] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:56:04] [Bus 3] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:56:04] [Bus 3] Command breaker ke RTU: OPEN
+[2026-04-28 21:56:04] [Bus 4] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:56:04] [Bus 5] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+
+
+[2026-04-28 21:56:08] [Bus 1] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:56:08] [Bus 1] Command breaker ke RTU: CLOSE
+[2026-04-28 21:56:08] [Bus 2] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:56:08] [Bus 3] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:56:08] [Bus 3] Command breaker ke RTU: CLOSE
+[2026-04-28 21:56:08] [Bus 4] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:56:08] [Bus 5] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+
+
+[2026-04-28 21:56:12] [Bus 1] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:56:12] [Bus 1] Command breaker ke RTU: OPEN
+[2026-04-28 21:56:12] [Bus 2] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:56:12] [Bus 3] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:56:12] [Bus 3] Command breaker ke RTU: OPEN
+[2026-04-28 21:56:12] [Bus 4] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:56:12] [Bus 5] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+
+
+[2026-04-28 21:56:16] [Bus 1] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:56:16] [Bus 1] Command breaker ke RTU: CLOSE
+[2026-04-28 21:56:16] [Bus 2] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:56:16] [Bus 3] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:56:16] [Bus 3] Command breaker ke RTU: CLOSE
+[2026-04-28 21:56:16] [Bus 4] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:56:16] [Bus 5] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+
+
+[2026-04-28 21:56:20] [Bus 1] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:56:20] [Bus 1] Command breaker ke RTU: OPEN
+[2026-04-28 21:56:20] [Bus 2] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:56:20] [Bus 3] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:56:20] [Bus 3] Command breaker ke RTU: OPEN
+[2026-04-28 21:56:20] [Bus 4] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:56:20] [Bus 5] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+
+
+[2026-04-28 21:56:24] [Bus 1] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:56:24] [Bus 1] Command breaker ke RTU: CLOSE
+[2026-04-28 21:56:24] [Bus 2] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:56:24] [Bus 3] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:56:24] [Bus 3] Command breaker ke RTU: CLOSE
+[2026-04-28 21:56:24] [Bus 4] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:56:24] [Bus 5] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+
+
+[2026-04-28 21:56:28] [Bus 1] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:56:28] [Bus 1] Command breaker ke RTU: OPEN
+[2026-04-28 21:56:28] [Bus 2] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:56:28] [Bus 3] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:56:28] [Bus 3] Command breaker ke RTU: OPEN
+[2026-04-28 21:56:28] [Bus 4] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:56:28] [Bus 5] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+
+
+[2026-04-28 21:56:32] [Bus 1] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:56:32] [Bus 1] Command breaker ke RTU: CLOSE
+[2026-04-28 21:56:32] [Bus 2] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:56:32] [Bus 3] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:56:32] [Bus 3] Command breaker ke RTU: CLOSE
+[2026-04-28 21:56:32] [Bus 4] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:56:32] [Bus 5] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+
+
+[2026-04-28 21:56:36] [Bus 1] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:56:36] [Bus 2] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:56:36] [Bus 3] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:56:36] [Bus 4] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:56:36] [Bus 5] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+
+
+[2026-04-28 21:56:40] [Bus 1] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:56:40] [Bus 1] Command breaker ke RTU: OPEN
+[2026-04-28 21:56:40] [Bus 2] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:56:40] [Bus 3] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:56:40] [Bus 3] Command breaker ke RTU: OPEN
+[2026-04-28 21:56:40] [Bus 4] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:56:40] [Bus 5] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+
+
+[2026-04-28 21:56:44] [Bus 1] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:56:44] [Bus 1] Command breaker ke RTU: CLOSE
+[2026-04-28 21:56:44] [Bus 2] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:56:44] [Bus 3] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:56:44] [Bus 3] Command breaker ke RTU: CLOSE
+[2026-04-28 21:56:44] [Bus 4] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:56:44] [Bus 5] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+
+
+[2026-04-28 21:56:48] [Bus 1] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:56:48] [Bus 1] Command breaker ke RTU: OPEN
+[2026-04-28 21:56:48] [Bus 2] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:56:48] [Bus 3] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:56:48] [Bus 3] Command breaker ke RTU: OPEN
+[2026-04-28 21:56:48] [Bus 4] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:56:48] [Bus 5] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+
+
+[2026-04-28 21:56:52] [Bus 1] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:56:52] [Bus 1] Command breaker ke RTU: CLOSE
+[2026-04-28 21:56:52] [Bus 2] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:56:52] [Bus 3] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:56:52] [Bus 3] Command breaker ke RTU: CLOSE
+[2026-04-28 21:56:52] [Bus 4] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:56:52] [Bus 5] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+
+
+[2026-04-28 21:56:56] [Bus 1] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:56:56] [Bus 1] Command breaker ke RTU: OPEN
+[2026-04-28 21:56:56] [Bus 2] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:56:56] [Bus 3] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:56:56] [Bus 3] Command breaker ke RTU: OPEN
+[2026-04-28 21:56:56] [Bus 4] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:56:56] [Bus 5] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+
+
+[2026-04-28 21:57:00] [Bus 1] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:57:00] [Bus 1] Command breaker ke RTU: CLOSE
+[2026-04-28 21:57:00] [Bus 2] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:57:00] [Bus 3] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:57:00] [Bus 3] Command breaker ke RTU: CLOSE
+[2026-04-28 21:57:00] [Bus 4] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:57:00] [Bus 5] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+
+
+[2026-04-28 21:57:04] [Bus 1] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:57:04] [Bus 1] Command breaker ke RTU: OPEN
+[2026-04-28 21:57:04] [Bus 2] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:57:04] [Bus 3] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:57:04] [Bus 3] Command breaker ke RTU: OPEN
+[2026-04-28 21:57:04] [Bus 4] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:57:04] [Bus 5] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+
+
+[2026-04-28 21:57:08] [Bus 1] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:57:08] [Bus 1] Command breaker ke RTU: CLOSE
+[2026-04-28 21:57:08] [Bus 2] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:57:08] [Bus 3] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:57:08] [Bus 3] Command breaker ke RTU: CLOSE
+[2026-04-28 21:57:08] [Bus 4] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:57:08] [Bus 5] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+
+
+[2026-04-28 21:57:12] [Bus 1] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:57:12] [Bus 1] Command breaker ke RTU: OPEN
+[2026-04-28 21:57:12] [Bus 2] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:57:12] [Bus 3] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:57:12] [Bus 3] Command breaker ke RTU: OPEN
+[2026-04-28 21:57:12] [Bus 4] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:57:12] [Bus 5] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+
+
+[2026-04-28 21:57:16] [Bus 1] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:57:16] [Bus 1] Command breaker ke RTU: CLOSE
+[2026-04-28 21:57:16] [Bus 2] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:57:16] [Bus 3] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:57:16] [Bus 3] Command breaker ke RTU: CLOSE
+[2026-04-28 21:57:16] [Bus 4] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:57:16] [Bus 5] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+
+
+[2026-04-28 21:57:20] [Bus 1] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:57:20] [Bus 1] Command breaker ke RTU: OPEN
+[2026-04-28 21:57:20] [Bus 2] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:57:20] [Bus 3] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:57:20] [Bus 3] Command breaker ke RTU: OPEN
+[2026-04-28 21:57:20] [Bus 4] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:57:20] [Bus 5] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+
+
+[2026-04-28 21:57:24] [Bus 1] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:57:24] [Bus 1] Command breaker ke RTU: CLOSE
+[2026-04-28 21:57:24] [Bus 2] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:57:24] [Bus 3] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:57:24] [Bus 3] Command breaker ke RTU: CLOSE
+[2026-04-28 21:57:24] [Bus 4] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:57:24] [Bus 5] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+
+
+[2026-04-28 21:57:28] [Bus 1] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:57:28] [Bus 1] Command breaker ke RTU: OPEN
+[2026-04-28 21:57:28] [Bus 2] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:57:28] [Bus 3] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:57:28] [Bus 3] Command breaker ke RTU: OPEN
+[2026-04-28 21:57:28] [Bus 4] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:57:28] [Bus 5] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+
+
+[2026-04-28 21:57:32] [Bus 1] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:57:32] [Bus 1] Command breaker ke RTU: CLOSE
+[2026-04-28 21:57:32] [Bus 2] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:57:32] [Bus 3] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:57:32] [Bus 3] Command breaker ke RTU: CLOSE
+[2026-04-28 21:57:32] [Bus 4] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:57:32] [Bus 5] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+
+
+[2026-04-28 21:57:36] [Bus 1] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:57:36] [Bus 1] Command breaker ke RTU: OPEN
+[2026-04-28 21:57:36] [Bus 2] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:57:36] [Bus 3] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:57:36] [Bus 3] Command breaker ke RTU: OPEN
+[2026-04-28 21:57:36] [Bus 4] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:57:36] [Bus 5] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+
+
+[2026-04-28 21:57:40] [Bus 1] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:57:40] [Bus 1] Command breaker ke RTU: CLOSE
+[2026-04-28 21:57:40] [Bus 2] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:57:40] [Bus 3] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:57:40] [Bus 3] Command breaker ke RTU: CLOSE
+[2026-04-28 21:57:40] [Bus 4] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:57:40] [Bus 5] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+
+
+[2026-04-28 21:57:44] [Bus 1] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:57:44] [Bus 1] Command breaker ke RTU: OPEN
+[2026-04-28 21:57:44] [Bus 2] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:57:44] [Bus 3] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:57:44] [Bus 3] Command breaker ke RTU: OPEN
+[2026-04-28 21:57:44] [Bus 4] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:57:44] [Bus 5] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+
+
+[2026-04-28 21:57:48] [Bus 1] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:57:48] [Bus 1] Command breaker ke RTU: CLOSE
+[2026-04-28 21:57:48] [Bus 2] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:57:48] [Bus 3] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:57:48] [Bus 3] Command breaker ke RTU: CLOSE
+[2026-04-28 21:57:48] [Bus 4] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:57:48] [Bus 5] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+
+
+[2026-04-28 21:57:52] [Bus 1] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:57:52] [Bus 1] Command breaker ke RTU: OPEN
+[2026-04-28 21:57:52] [Bus 2] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:57:52] [Bus 3] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:57:52] [Bus 3] Command breaker ke RTU: OPEN
+[2026-04-28 21:57:52] [Bus 4] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:57:52] [Bus 5] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+
+
+[2026-04-28 21:57:56] [Bus 1] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:57:56] [Bus 1] Command breaker ke RTU: CLOSE
+[2026-04-28 21:57:56] [Bus 2] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:57:56] [Bus 3] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:57:56] [Bus 3] Command breaker ke RTU: CLOSE
+[2026-04-28 21:57:56] [Bus 4] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:57:56] [Bus 5] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+
+
+[2026-04-28 21:58:00] [Bus 1] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:58:00] [Bus 1] Command breaker ke RTU: OPEN
+[2026-04-28 21:58:00] [Bus 2] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:58:00] [Bus 3] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:58:00] [Bus 3] Command breaker ke RTU: OPEN
+[2026-04-28 21:58:00] [Bus 4] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:58:00] [Bus 5] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+
+
+[2026-04-28 21:58:04] [Bus 1] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:58:04] [Bus 1] Command breaker ke RTU: CLOSE
+[2026-04-28 21:58:04] [Bus 2] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:58:04] [Bus 3] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:58:04] [Bus 3] Command breaker ke RTU: CLOSE
+[2026-04-28 21:58:04] [Bus 4] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:58:04] [Bus 5] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+
+
+[2026-04-28 21:58:08] [Bus 1] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:58:08] [Bus 1] Command breaker ke RTU: OPEN
+[2026-04-28 21:58:08] [Bus 2] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:58:08] [Bus 3] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:58:08] [Bus 3] Command breaker ke RTU: OPEN
+[2026-04-28 21:58:08] [Bus 4] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:58:08] [Bus 5] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+
+
+[2026-04-28 21:58:12] [Bus 1] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:58:12] [Bus 1] Command breaker ke RTU: CLOSE
+[2026-04-28 21:58:12] [Bus 2] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:58:12] [Bus 3] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:58:12] [Bus 3] Command breaker ke RTU: CLOSE
+[2026-04-28 21:58:12] [Bus 4] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:58:12] [Bus 5] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+
+
+[2026-04-28 21:58:16] [Bus 1] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:58:16] [Bus 1] Command breaker ke RTU: OPEN
+[2026-04-28 21:58:16] [Bus 2] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:58:16] [Bus 3] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:58:16] [Bus 3] Command breaker ke RTU: OPEN
+[2026-04-28 21:58:16] [Bus 4] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:58:16] [Bus 5] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+
+
+[2026-04-28 21:58:20] [Bus 1] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:58:20] [Bus 1] Command breaker ke RTU: CLOSE
+[2026-04-28 21:58:20] [Bus 2] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:58:20] [Bus 3] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:58:20] [Bus 3] Command breaker ke RTU: CLOSE
+[2026-04-28 21:58:20] [Bus 4] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:58:20] [Bus 5] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+
+
+[2026-04-28 21:58:24] [Bus 1] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:58:24] [Bus 1] Command breaker ke RTU: OPEN
+[2026-04-28 21:58:24] [Bus 2] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:58:24] [Bus 3] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:58:24] [Bus 3] Command breaker ke RTU: OPEN
+[2026-04-28 21:58:24] [Bus 4] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:58:24] [Bus 5] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+
+
+[2026-04-28 21:58:28] [Bus 1] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:58:28] [Bus 1] Command breaker ke RTU: CLOSE
+[2026-04-28 21:58:28] [Bus 2] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:58:28] [Bus 3] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:58:28] [Bus 3] Command breaker ke RTU: CLOSE
+[2026-04-28 21:58:28] [Bus 4] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:58:28] [Bus 5] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+
+
+[2026-04-28 21:58:32] [Bus 1] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:58:32] [Bus 1] Command breaker ke RTU: OPEN
+[2026-04-28 21:58:32] [Bus 2] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:58:32] [Bus 3] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:58:32] [Bus 3] Command breaker ke RTU: OPEN
+[2026-04-28 21:58:32] [Bus 4] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:58:32] [Bus 5] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+
+
+[2026-04-28 21:58:36] [Bus 1] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:58:36] [Bus 1] Command breaker ke RTU: CLOSE
+[2026-04-28 21:58:36] [Bus 2] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:58:36] [Bus 3] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:58:36] [Bus 3] Command breaker ke RTU: CLOSE
+[2026-04-28 21:58:36] [Bus 4] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:58:36] [Bus 5] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+
+
+[2026-04-28 21:58:40] [Bus 1] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:58:40] [Bus 1] Command breaker ke RTU: OPEN
+[2026-04-28 21:58:40] [Bus 2] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:58:40] [Bus 3] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:58:40] [Bus 3] Command breaker ke RTU: OPEN
+[2026-04-28 21:58:40] [Bus 4] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
+[2026-04-28 21:58:40] [Bus 5] Data P/Q/CMD update (RTU) -> P=0.0000 MW, Q=0.0000 MVar
