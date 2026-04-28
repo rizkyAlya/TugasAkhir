@@ -43,6 +43,8 @@ V_BASE_ADDR = 0
 I_BASE_ADDR = 10
 BREAKER_FB_BASE_ADDR = 20
 BREAKER_CMD_BASE_ADDR = 0
+V_SCALE = 1000
+I_SCALE = 10
 NUM_BUS = 5
 INJECT_ENABLE_FLAG = "/tmp/h3_http_inject_enabled"
 INJECT_API_IP = "0.0.0.0"
@@ -298,14 +300,16 @@ try:
                 addr_v = V_BASE_ADDR + (bus - 1)
                 addr_i = I_BASE_ADDR + (bus - 1)
                 addr_b = BREAKER_FB_BASE_ADDR + (bus - 1)
-                v_raw = context[0x00].getValues(3, addr_v, count=1)[0]
-                i_raw = context[0x00].getValues(3, addr_i, count=1)[0]
+                v_raw_reg = context[0x00].getValues(3, addr_v, count=1)[0]
+                i_raw_reg = context[0x00].getValues(3, addr_i, count=1)[0]
                 b_raw = context[0x00].getValues(3, addr_b, count=1)[0]
+                v_raw = float(v_raw_reg) / V_SCALE
+                i_raw = float(i_raw_reg) / I_SCALE
 
                 breaker_fb = 1 if int(b_raw) == 1 else 0
                 source = "RTU"
-                v_final = float(v_raw)
-                i_final = float(i_raw)
+                v_final = v_raw
+                i_final = i_raw
 
                 override = _get_active_override(bus)
                 if override is not None:

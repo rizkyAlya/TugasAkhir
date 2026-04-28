@@ -15,6 +15,8 @@ MODBUS_PORT = 5020
 NUM_BUS = 5
 FIELD_RANDOM_SEED = int(os.environ.get("FIELD_RANDOM_SEED", "42"))
 random.seed(FIELD_RANDOM_SEED)
+V_SCALE = 1000
+I_SCALE = 10
 
 # Mapping register Modbus
 V_BASE_ADDR = 0         # HR 0-4
@@ -71,8 +73,8 @@ def main_loop():
 
                 I = S / V_real                           # Arus (Ampere)
 
-                v_scaled = int(v_pu * 1000)              # Tegangan (integer scaling)
-                i_scaled = int(I * 1000)                 # Arus (integer scaling)
+                v_scaled = int(v_pu * V_SCALE)           # Tegangan pu -> register
+                i_scaled = int(I * I_SCALE)              # Arus A -> register 
 
                 # 3) Tulis V/I ke Holding Register
                 try:
