@@ -16,16 +16,14 @@ APPS_DIR = os.path.join(OUTPUT_DIR, "apps")
 HOST_LOG_DIR = os.path.join(BASE_DIR, "logs", "host")
 TOPOLOGY_PATH = os.path.join(OUTPUT_DIR, "topology.py")
 ATTACK_ACTIVE_FLAG = "/tmp/mitm_attack_active"
-H3_INJECT_ENABLE_FLAG = "/tmp/h3_http_inject_enabled"
 
 sys.path.append(OUTPUT_DIR)
 sys.path.append(BASE_DIR)
 
 from logger.collector import collect_data
 
-
 def reset_attack_flags():
-    for flag_path in (ATTACK_ACTIVE_FLAG, H3_INJECT_ENABLE_FLAG):
+    for flag_path in (ATTACK_ACTIVE_FLAG,):
         try:
             if os.path.exists(flag_path):
                 os.remove(flag_path)
@@ -195,7 +193,7 @@ def main():
     parser.add_argument(
         "--mitm",
         action="store_true",
-        help="Apply MITM route setup (h2 -> h3 via h5) if hosts exist"
+        help="False data injection: h5 writes malicious I via Modbus TCP to gateway (same segment as RTU)"
     )
     parser.add_argument(
         "--no-cli",
@@ -253,6 +251,10 @@ def main():
         print("Baseline collection complete.\n")
 
     if args.mitm:
+        # Topologi: attacker foothold di Control dulu; eskalasi ke Field saat skenario MITM.
+        if hasattr(topology_mod, "escalate_attacker_to_field"):
+            topology_mod.escalate_attacker_to_field(net)
+            time.sleep(1)
         run_mitm(net)
         print("Collecting MITM metrics...")
         collect_data(net, mode="mitm", logs_path=run_logs_path)

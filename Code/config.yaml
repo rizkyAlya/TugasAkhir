@@ -13,20 +13,19 @@ topology:
       hosts:
         - name: h3
           role: gateway
+        - name: h5
+          role: attacker
 
     it:
       subnet: 10.0.3.0/24
       hosts:
         - name: h4
           role: pandapower
-        - name: h5
-          role: attacker
 
   links:
     - [h1, h2]
     - [h2, h3]
     - [h3, h4]
-    - [h4, h5]
 
 network:
   bandwidth: 5

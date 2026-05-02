@@ -97,7 +97,7 @@ def generate_topology(hosts, zone_map, links, bandwidth, hosts_by_role):
     template = env.get_template("topology.j2")
     attacker_hosts = hosts_by_role.get("attacker", [])
     if not attacker_hosts:
-        raise ValueError("Topology requires at least one host with role 'attacker' for dual-homed setup.")
+        raise ValueError("Topology requires at least one host with role 'attacker' (Control foothold + optional Field link).")
     attacker_name = attacker_hosts[0]["name"]
 
     output = template.render(
@@ -138,7 +138,6 @@ def main():
     print(f"Output directory: {OUTPUT_DIR}")
     print(f"App filename mode: {args.app_mode}")
     print(f"App mapping file: {os.path.join(OUTPUT_DIR, 'apps', 'app_map.json')}")
-
 
 if __name__ == "__main__":
     main()

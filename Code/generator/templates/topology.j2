@@ -41,11 +41,13 @@ def create_network():
 {% for h in zones.get('it', []) %}
     net.addLink({{ h.name }}, switch_it, bw={{ bandwidth }})
 {% endfor %}
-    # Dual-homed attacker: add second interface to Control zone
-    net.addLink({{ attacker_name }}, switch_control, bw={{ bandwidth }})
+    # Attacker: eth0, dari loop control, lalu lateral ke Field (eth1).
+    net.addLink({{ attacker_name }}, switch_field, bw={{ bandwidth }})
+
     net.addLink(switch_field, core_switch, bw={{ bandwidth }})
     net.addLink(switch_control, core_switch, bw={{ bandwidth }})
     net.addLink(switch_it, core_switch, bw={{ bandwidth }})
+    
     net.addLink(r0, switch_field, bw={{ bandwidth }})
     net.addLink(r0, switch_control, bw={{ bandwidth }})
     net.addLink(r0, switch_it, bw={{ bandwidth }})
@@ -74,26 +76,41 @@ def post_start_setup(net):
     r0.cmd('iptables -A FORWARD -i r0-eth0 -o r0-eth2 -j DROP')    # Field -> IT
     r0.cmd('iptables -A FORWARD -i r0-eth2 -o r0-eth0 -j DROP')    # IT -> Field
 
-    print("Configuring attacker dual-homed interface")
-    # Assumption: attacker gets second link to switch_control as eth1
-    # Primary IT address stays on eth0 from Mininet host definition.
-    net.get('{{ attacker_name }}').cmd('ip addr add 10.0.2.100/24 dev {{ attacker_name }}-eth1')
-    net.get('{{ attacker_name }}').cmd('ip link set {{ attacker_name }}-eth1 up')
-
     print("Setting default routes on hosts")
 {% for h in zones.get('field', []) %}
     net.get('{{ h.name }}').cmd('ip route add default via 10.0.1.1')
 {% endfor %}
 {% for h in zones.get('control', []) %}
+{% if h.name != attacker_name %}
     net.get('{{ h.name }}').cmd('ip route add default via 10.0.2.1')
+{% endif %}
 {% endfor %}
 {% for h in zones.get('it', []) %}
     net.get('{{ h.name }}').cmd('ip route add default via 10.0.3.1')
 {% endfor %}
 
+    print("Attacker: foothold Control saja; Field (eth1) down sampai eskalasi")
+    # eth0 = switch_control (IP dari addHost). eth1 = switch_field (lateral movement).
+    net.get('{{ attacker_name }}').cmd('ip link set {{ attacker_name }}-eth1 down')
+    net.get('{{ attacker_name }}').cmd('ip route replace default via 10.0.2.1 dev {{ attacker_name }}-eth0')
+    print("  (manual CLI: panggil escalate_attacker_to_field(net) untuk lateral ke Field)")
+
     print("\nWaiting for network stabilization...")
     time.sleep(5)
     print("Network ready")
+
+
+def escalate_attacker_to_field(net):
+    """
+    Eskalasi lateral: aktifkan antarmuka Field pada attacker (setelah foothold di Control).
+    Dipanggil dari orchestrator saat skenario MITM (atau manual dari CLI).
+    """
+    h = net.get('{{ attacker_name }}')
+    h.cmd('ip link set {{ attacker_name }}-eth1 up')
+    h.cmd('ip addr add 10.0.1.100/24 dev {{ attacker_name }}-eth1')
+    h.cmd('ip route replace default via 10.0.2.1 dev {{ attacker_name }}-eth0')
+    print("[topology] Attacker eskalasi ke Field: {{ attacker_name }}-eth1 = 10.0.1.100/24")
+
 
 def CPS_topology():
     net = create_network()
