@@ -18,13 +18,6 @@ random.seed(FIELD_RANDOM_SEED)
 V_SCALE = 1000
 I_SCALE = 50
 V_BASE = 345e3
-PF_BY_BUS = {
-    1: 0.96,
-    2: 0.95,
-    3: 0.97,
-    4: 0.94,
-    5: 0.96,
-}
 
 # Mapping register Modbus
 V_BASE_ADDR = 0         # HR 0-4
@@ -75,7 +68,7 @@ def main_loop():
                 V_real = v_pu * V_BASE                   # Tegangan aktual (Volt)
 
                 P = random.uniform(50e6, 300e6)          # 50–300 MW
-                pf = PF_BY_BUS.get(bus, 0.95)            # Power factor per bus
+                pf = 0.95                                # Power factor
                 S = P / pf                               # Apparent power
 
                 I = S / V_real                           # Arus (Ampere)

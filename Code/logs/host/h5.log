@@ -722,3 +722,305 @@ curl: (7) Failed to connect to 10.0.2.2 port 8088: Connection refused
 [2026-04-29 01:55:08] [h5] injector: OK bus=4 resp={"ok": true, "bus": 4, "ttl": 8}
 [2026-04-29 01:55:09] [h5] injector: try bus=5 i=1963.726
 [2026-04-29 01:55:09] [h5] injector: OK bus=5 resp={"ok": true, "bus": 5, "ttl": 8}
+[modbus-inject] Gateway 10.0.2.2:5020 — false I pada holding 10..14
+[modbus-inject] bus 1 I=2054.613 A (reg=65535)
+[modbus-inject] bus 2 I=1806.327 A (reg=65535)
+[modbus-inject] bus 3 I=2316.325 A (reg=65535)
+[modbus-inject] bus 4 I=2292.061 A (reg=65535)
+[modbus-inject] bus 5 I=2575.343 A (reg=65535)
+[modbus-inject] bus 1 I=1943.263 A (reg=65535)
+[modbus-inject] bus 2 I=1940.141 A (reg=65535)
+[modbus-inject] bus 3 I=2438.275 A (reg=65535)
+[modbus-inject] bus 4 I=2133.639 A (reg=65535)
+[modbus-inject] bus 5 I=2209.346 A (reg=65535)
+[modbus-inject] bus 1 I=2466.655 A (reg=65535)
+[modbus-inject] bus 2 I=2436.797 A (reg=65535)
+[modbus-inject] bus 3 I=1852.934 A (reg=65535)
+[modbus-inject] bus 4 I=1879.464 A (reg=65535)
+[modbus-inject] bus 5 I=1827.926 A (reg=65535)
+[modbus-inject] bus 1 I=1884.195 A (reg=65535)
+[modbus-inject] bus 2 I=2261.755 A (reg=65535)
+[modbus-inject] bus 3 I=2158.327 A (reg=65535)
+[modbus-inject] bus 4 I=2215.11 A (reg=65535)
+[modbus-inject] bus 5 I=1952.588 A (reg=65535)
+[modbus-inject] bus 1 I=2332.642 A (reg=65535)
+[modbus-inject] bus 2 I=2103.404 A (reg=65535)
+[modbus-inject] bus 3 I=1901.997 A (reg=65535)
+[modbus-inject] bus 4 I=2439.314 A (reg=65535)
+[modbus-inject] bus 5 I=2078.103 A (reg=65535)
+[modbus-inject] bus 1 I=2034.655 A (reg=65535)
+[modbus-inject] bus 2 I=2106.069 A (reg=65535)
+[modbus-inject] bus 3 I=2408.435 A (reg=65535)
+[modbus-inject] bus 4 I=2218.615 A (reg=65535)
+[modbus-inject] bus 5 I=2160.064 A (reg=65535)
+[modbus-inject] bus 1 I=2436.815 A (reg=65535)
+[modbus-inject] bus 2 I=2599.456 A (reg=65535)
+[modbus-inject] bus 3 I=2566.318 A (reg=65535)
+[modbus-inject] bus 4 I=2011.07 A (reg=65535)
+[modbus-inject] bus 5 I=2041.834 A (reg=65535)
+[modbus-inject] bus 1 I=1801.712 A (reg=65535)
+[modbus-inject] bus 2 I=2312.494 A (reg=65535)
+[modbus-inject] bus 3 I=1839.508 A (reg=65535)
+[modbus-inject] bus 4 I=2190.97 A (reg=65535)
+[modbus-inject] bus 5 I=2180.21 A (reg=65535)
+[modbus-inject] bus 1 I=2443.053 A (reg=65535)
+[modbus-inject] bus 2 I=2244.229 A (reg=65535)
+[modbus-inject] bus 3 I=2509.837 A (reg=65535)
+[modbus-inject] bus 4 I=2336.128 A (reg=65535)
+[modbus-inject] bus 5 I=1862.168 A (reg=65535)
+[modbus-inject] bus 1 I=1873.02 A (reg=65535)
+[modbus-inject] bus 2 I=2191.931 A (reg=65535)
+[modbus-inject] bus 3 I=2012.577 A (reg=65535)
+[modbus-inject] bus 4 I=1879.546 A (reg=65535)
+[modbus-inject] bus 5 I=1895.562 A (reg=65535)
+[modbus-inject] bus 1 I=2136.712 A (reg=65535)
+[modbus-inject] bus 2 I=2365.415 A (reg=65535)
+[modbus-inject] bus 3 I=2103.387 A (reg=65535)
+[modbus-inject] bus 4 I=2301.572 A (reg=65535)
+[modbus-inject] bus 5 I=2273.275 A (reg=65535)
+[modbus-inject] bus 1 I=2463.019 A (reg=65535)
+[modbus-inject] bus 2 I=2363.826 A (reg=65535)
+[modbus-inject] bus 3 I=1853.196 A (reg=65535)
+[modbus-inject] bus 4 I=2309.683 A (reg=65535)
+[modbus-inject] bus 5 I=2394.969 A (reg=65535)
+[modbus-inject] bus 1 I=2356.079 A (reg=65535)
+[modbus-inject] bus 2 I=2274.488 A (reg=65535)
+[modbus-inject] bus 3 I=2370.267 A (reg=65535)
+[modbus-inject] bus 4 I=2390.696 A (reg=65535)
+[modbus-inject] bus 5 I=2172.16 A (reg=65535)
+[modbus-inject] bus 1 I=2191.104 A (reg=65535)
+[modbus-inject] bus 2 I=2323.168 A (reg=65535)
+[modbus-inject] bus 3 I=2012.404 A (reg=65535)
+[modbus-inject] bus 4 I=2253.858 A (reg=65535)
+[modbus-inject] bus 5 I=2037.067 A (reg=65535)
+[modbus-inject] bus 1 I=2439.634 A (reg=65535)
+[modbus-inject] bus 2 I=2071.72 A (reg=65535)
+[modbus-inject] bus 3 I=2397.311 A (reg=65535)
+[modbus-inject] bus 4 I=2354.543 A (reg=65535)
+[modbus-inject] bus 5 I=1922.185 A (reg=65535)
+[modbus-inject] bus 1 I=2549.774 A (reg=65535)
+[modbus-inject] bus 2 I=2064.706 A (reg=65535)
+[modbus-inject] bus 3 I=1950.999 A (reg=65535)
+[modbus-inject] bus 4 I=1807.433 A (reg=65535)
+[modbus-inject] bus 5 I=2360.145 A (reg=65535)
+[modbus-inject] bus 1 I=2307.304 A (reg=65535)
+[modbus-inject] bus 2 I=1947.422 A (reg=65535)
+[modbus-inject] bus 3 I=2562.306 A (reg=65535)
+[modbus-inject] bus 4 I=1857.194 A (reg=65535)
+[modbus-inject] bus 5 I=2388.629 A (reg=65535)
+[modbus-inject] bus 1 I=2410.227 A (reg=65535)
+[modbus-inject] bus 2 I=1820.18 A (reg=65535)
+[modbus-inject] bus 3 I=2491.652 A (reg=65535)
+[modbus-inject] bus 4 I=2076.31 A (reg=65535)
+[modbus-inject] bus 5 I=2101.319 A (reg=65535)
+[modbus-inject] bus 1 I=2034.984 A (reg=65535)
+[modbus-inject] bus 2 I=1930.648 A (reg=65535)
+[modbus-inject] bus 3 I=1907.653 A (reg=65535)
+[modbus-inject] bus 4 I=2487.326 A (reg=65535)
+[modbus-inject] bus 5 I=2586.289 A (reg=65535)
+[modbus-inject] bus 1 I=1914.051 A (reg=65535)
+[modbus-inject] bus 2 I=2180.974 A (reg=65535)
+[modbus-inject] bus 3 I=2550.655 A (reg=65535)
+[modbus-inject] bus 4 I=2237.047 A (reg=65535)
+[modbus-inject] bus 5 I=1941.264 A (reg=65535)
+[modbus-inject] bus 1 I=2008.412 A (reg=65535)
+[modbus-inject] bus 2 I=1848.245 A (reg=65535)
+[modbus-inject] bus 3 I=1963.141 A (reg=65535)
+[modbus-inject] bus 4 I=2402.598 A (reg=65535)
+[modbus-inject] bus 5 I=2078.883 A (reg=65535)
+[modbus-inject] bus 1 I=2460.941 A (reg=65535)
+[modbus-inject] bus 2 I=1954.696 A (reg=65535)
+[modbus-inject] bus 3 I=1829.148 A (reg=65535)
+[modbus-inject] bus 4 I=2181.008 A (reg=65535)
+[modbus-inject] bus 5 I=2228.119 A (reg=65535)
+[modbus-inject] bus 1 I=2014.839 A (reg=65535)
+[modbus-inject] bus 2 I=2083.998 A (reg=65535)
+[modbus-inject] bus 3 I=1904.751 A (reg=65535)
+[modbus-inject] bus 4 I=2351.089 A (reg=65535)
+[modbus-inject] bus 5 I=2215.547 A (reg=65535)
+[modbus-inject] bus 1 I=2387.18 A (reg=65535)
+[modbus-inject] bus 2 I=2388.699 A (reg=65535)
+[modbus-inject] bus 3 I=2010.529 A (reg=65535)
+[modbus-inject] bus 4 I=2295.005 A (reg=65535)
+[modbus-inject] bus 5 I=2468.487 A (reg=65535)
+[modbus-inject] bus 1 I=2209.529 A (reg=65535)
+[modbus-inject] bus 2 I=2039.066 A (reg=65535)
+[modbus-inject] bus 3 I=1927.727 A (reg=65535)
+[modbus-inject] bus 4 I=2133.391 A (reg=65535)
+[modbus-inject] bus 5 I=1989.95 A (reg=65535)
+[modbus-inject] bus 1 I=2065.26 A (reg=65535)
+[modbus-inject] bus 2 I=2407.927 A (reg=65535)
+[modbus-inject] bus 3 I=2316.086 A (reg=65535)
+[modbus-inject] bus 4 I=2136.717 A (reg=65535)
+[modbus-inject] bus 5 I=2113.96 A (reg=65535)
+[modbus-inject] bus 1 I=2146.752 A (reg=65535)
+[modbus-inject] bus 2 I=2567.837 A (reg=65535)
+[modbus-inject] bus 3 I=2122.443 A (reg=65535)
+[modbus-inject] bus 4 I=1937.799 A (reg=65535)
+[modbus-inject] bus 5 I=2330.45 A (reg=65535)
+[modbus-inject] bus 1 I=2538.034 A (reg=65535)
+[modbus-inject] bus 2 I=2542.326 A (reg=65535)
+[modbus-inject] bus 3 I=2276.938 A (reg=65535)
+[modbus-inject] bus 4 I=2492.946 A (reg=65535)
+[modbus-inject] bus 5 I=1851.845 A (reg=65535)
+[modbus-inject] bus 1 I=2399.644 A (reg=65535)
+[modbus-inject] bus 2 I=2473.613 A (reg=65535)
+[modbus-inject] bus 3 I=2180.499 A (reg=65535)
+[modbus-inject] bus 4 I=2555.92 A (reg=65535)
+[modbus-inject] bus 5 I=2342.716 A (reg=65535)
+[modbus-inject] bus 1 I=1881.118 A (reg=65535)
+[modbus-inject] bus 2 I=2549.586 A (reg=65535)
+[modbus-inject] bus 3 I=2333.507 A (reg=65535)
+[modbus-inject] bus 4 I=1920.478 A (reg=65535)
+[modbus-inject] bus 5 I=2097.52 A (reg=65535)
+[modbus-inject] bus 1 I=1987.083 A (reg=65535)
+[modbus-inject] bus 2 I=2119.593 A (reg=65535)
+[modbus-inject] bus 3 I=2462.171 A (reg=65535)
+[modbus-inject] bus 4 I=2096.374 A (reg=65535)
+[modbus-inject] bus 5 I=2262.071 A (reg=65535)
+[modbus-inject] bus 1 I=2239.024 A (reg=65535)
+[modbus-inject] bus 2 I=1855.962 A (reg=65535)
+[modbus-inject] bus 3 I=1859.57 A (reg=65535)
+[modbus-inject] bus 4 I=2542.416 A (reg=65535)
+[modbus-inject] bus 5 I=2115.981 A (reg=65535)
+[modbus-inject] bus 1 I=2410.937 A (reg=65535)
+[modbus-inject] bus 2 I=1862.701 A (reg=65535)
+[modbus-inject] bus 3 I=2537.005 A (reg=65535)
+[modbus-inject] bus 4 I=1950.532 A (reg=65535)
+[modbus-inject] bus 5 I=2510.05 A (reg=65535)
+[modbus-inject] bus 1 I=2088.038 A (reg=65535)
+[modbus-inject] bus 2 I=2172.712 A (reg=65535)
+[modbus-inject] bus 3 I=2197.959 A (reg=65535)
+[modbus-inject] bus 4 I=2207.187 A (reg=65535)
+[modbus-inject] bus 5 I=1801.543 A (reg=65535)
+[modbus-inject] bus 1 I=2062.07 A (reg=65535)
+[modbus-inject] bus 2 I=1911.467 A (reg=65535)
+[modbus-inject] bus 3 I=1865.349 A (reg=65535)
+[modbus-inject] bus 4 I=2485.995 A (reg=65535)
+[modbus-inject] bus 5 I=2089.78 A (reg=65535)
+[modbus-inject] bus 1 I=2308.016 A (reg=65535)
+[modbus-inject] bus 2 I=2236.466 A (reg=65535)
+[modbus-inject] bus 3 I=2300.134 A (reg=65535)
+[modbus-inject] bus 4 I=1953.807 A (reg=65535)
+[modbus-inject] bus 5 I=2467.581 A (reg=65535)
+[modbus-inject] bus 1 I=2391.56 A (reg=65535)
+[modbus-inject] bus 2 I=2014.274 A (reg=65535)
+[modbus-inject] bus 3 I=2205.184 A (reg=65535)
+[modbus-inject] bus 4 I=1844.78 A (reg=65535)
+[modbus-inject] bus 5 I=2199.7 A (reg=65535)
+[modbus-inject] bus 1 I=2354.948 A (reg=65535)
+[modbus-inject] bus 2 I=2319.022 A (reg=65535)
+[modbus-inject] bus 3 I=2402.682 A (reg=65535)
+[modbus-inject] bus 4 I=1828.937 A (reg=65535)
+[modbus-inject] bus 5 I=2227.118 A (reg=65535)
+[modbus-inject] bus 1 I=2176.362 A (reg=65535)
+[modbus-inject] bus 2 I=2200.256 A (reg=65535)
+[modbus-inject] bus 3 I=2407.829 A (reg=65535)
+[modbus-inject] bus 4 I=2419.245 A (reg=65535)
+[modbus-inject] bus 5 I=2552.76 A (reg=65535)
+[modbus-inject] bus 1 I=1862.736 A (reg=65535)
+[modbus-inject] bus 2 I=2279.041 A (reg=65535)
+[modbus-inject] bus 3 I=2216.642 A (reg=65535)
+[modbus-inject] bus 4 I=1922.401 A (reg=65535)
+[modbus-inject] bus 5 I=2336.634 A (reg=65535)
+[modbus-inject] bus 1 I=2474.27 A (reg=65535)
+[modbus-inject] bus 2 I=2575.164 A (reg=65535)
+[modbus-inject] bus 3 I=1983.982 A (reg=65535)
+[modbus-inject] bus 4 I=1912.315 A (reg=65535)
+[modbus-inject] bus 5 I=2065.411 A (reg=65535)
+[modbus-inject] bus 1 I=2157.739 A (reg=65535)
+[modbus-inject] bus 2 I=2142.782 A (reg=65535)
+[modbus-inject] bus 3 I=1990.019 A (reg=65535)
+[modbus-inject] bus 4 I=2121.747 A (reg=65535)
+[modbus-inject] bus 5 I=2550.972 A (reg=65535)
+[modbus-inject] bus 1 I=2532.465 A (reg=65535)
+[modbus-inject] bus 2 I=1877.09 A (reg=65535)
+[modbus-inject] bus 3 I=2300.884 A (reg=65535)
+[modbus-inject] bus 4 I=2449.306 A (reg=65535)
+[modbus-inject] bus 5 I=2572.828 A (reg=65535)
+Connection to (10.0.2.2, 5020) failed: [Errno 101] Network is unreachable
+[modbus-inject] connect gagal, coba lagi...
+Connection to (10.0.2.2, 5020) failed: [Errno 101] Network is unreachable
+[modbus-inject] connect gagal, coba lagi...
+Connection to (10.0.2.2, 5020) failed: [Errno 101] Network is unreachable
+[modbus-inject] connect gagal, coba lagi...
+Connection to (10.0.2.2, 5020) failed: [Errno 101] Network is unreachable
+[modbus-inject] connect gagal, coba lagi...
+Connection to (10.0.2.2, 5020) failed: [Errno 101] Network is unreachable
+[modbus-inject] connect gagal, coba lagi...
+Connection to (10.0.2.2, 5020) failed: [Errno 101] Network is unreachable
+[modbus-inject] connect gagal, coba lagi...
+Connection to (10.0.2.2, 5020) failed: [Errno 101] Network is unreachable
+[modbus-inject] connect gagal, coba lagi...
+Connection to (10.0.2.2, 5020) failed: [Errno 101] Network is unreachable
+[modbus-inject] connect gagal, coba lagi...
+Connection to (10.0.2.2, 5020) failed: [Errno 101] Network is unreachable
+[modbus-inject] connect gagal, coba lagi...
+Connection to (10.0.2.2, 5020) failed: [Errno 101] Network is unreachable
+[modbus-inject] connect gagal, coba lagi...
+Connection to (10.0.2.2, 5020) failed: [Errno 101] Network is unreachable
+[modbus-inject] connect gagal, coba lagi...
+Connection to (10.0.2.2, 5020) failed: [Errno 101] Network is unreachable
+[modbus-inject] connect gagal, coba lagi...
+Connection to (10.0.2.2, 5020) failed: [Errno 101] Network is unreachable
+[modbus-inject] connect gagal, coba lagi...
+Connection to (10.0.2.2, 5020) failed: [Errno 101] Network is unreachable
+[modbus-inject] connect gagal, coba lagi...
+Connection to (10.0.2.2, 5020) failed: [Errno 101] Network is unreachable
+[modbus-inject] connect gagal, coba lagi...
+Connection to (10.0.2.2, 5020) failed: [Errno 101] Network is unreachable
+[modbus-inject] connect gagal, coba lagi...
+Connection to (10.0.2.2, 5020) failed: [Errno 101] Network is unreachable
+[modbus-inject] connect gagal, coba lagi...
+Connection to (10.0.2.2, 5020) failed: [Errno 101] Network is unreachable
+[modbus-inject] connect gagal, coba lagi...
+Connection to (10.0.2.2, 5020) failed: [Errno 101] Network is unreachable
+[modbus-inject] connect gagal, coba lagi...
+Connection to (10.0.2.2, 5020) failed: [Errno 101] Network is unreachable
+[modbus-inject] connect gagal, coba lagi...
+Connection to (10.0.2.2, 5020) failed: [Errno 101] Network is unreachable
+[modbus-inject] connect gagal, coba lagi...
+Connection to (10.0.2.2, 5020) failed: [Errno 101] Network is unreachable
+[modbus-inject] connect gagal, coba lagi...
+Connection to (10.0.2.2, 5020) failed: [Errno 101] Network is unreachable
+[modbus-inject] connect gagal, coba lagi...
+Connection to (10.0.2.2, 5020) failed: [Errno 101] Network is unreachable
+[modbus-inject] connect gagal, coba lagi...
+Connection to (10.0.2.2, 5020) failed: [Errno 101] Network is unreachable
+[modbus-inject] connect gagal, coba lagi...
+Connection to (10.0.2.2, 5020) failed: [Errno 101] Network is unreachable
+[modbus-inject] connect gagal, coba lagi...
+Connection to (10.0.2.2, 5020) failed: [Errno 101] Network is unreachable
+[modbus-inject] connect gagal, coba lagi...
+Connection to (10.0.2.2, 5020) failed: [Errno 101] Network is unreachable
+[modbus-inject] connect gagal, coba lagi...
+Connection to (10.0.2.2, 5020) failed: [Errno 101] Network is unreachable
+[modbus-inject] connect gagal, coba lagi...
+Connection to (10.0.2.2, 5020) failed: [Errno 101] Network is unreachable
+[modbus-inject] connect gagal, coba lagi...
+Connection to (10.0.2.2, 5020) failed: [Errno 101] Network is unreachable
+[modbus-inject] connect gagal, coba lagi...
+Connection to (10.0.2.2, 5020) failed: [Errno 101] Network is unreachable
+[modbus-inject] connect gagal, coba lagi...
+Connection to (10.0.2.2, 5020) failed: [Errno 101] Network is unreachable
+[modbus-inject] connect gagal, coba lagi...
+Connection to (10.0.2.2, 5020) failed: [Errno 101] Network is unreachable
+[modbus-inject] connect gagal, coba lagi...
+Connection to (10.0.2.2, 5020) failed: [Errno 101] Network is unreachable
+[modbus-inject] connect gagal, coba lagi...
+Connection to (10.0.2.2, 5020) failed: [Errno 101] Network is unreachable
+[modbus-inject] connect gagal, coba lagi...
+Connection to (10.0.2.2, 5020) failed: [Errno 101] Network is unreachable
+[modbus-inject] connect gagal, coba lagi...
+Connection to (10.0.2.2, 5020) failed: [Errno 101] Network is unreachable
+[modbus-inject] connect gagal, coba lagi...
+Connection to (10.0.2.2, 5020) failed: [Errno 101] Network is unreachable
+[modbus-inject] connect gagal, coba lagi...
+Connection to (10.0.2.2, 5020) failed: [Errno 101] Network is unreachable
+[modbus-inject] connect gagal, coba lagi...
+Connection to (10.0.2.2, 5020) failed: [Errno 101] Network is unreachable
+[modbus-inject] connect gagal, coba lagi...
+Connection to (10.0.2.2, 5020) failed: [Errno 101] Network is unreachable
+[modbus-inject] connect gagal, coba lagi...
+Connection to (10.0.2.2, 5020) failed: [Errno 101] Network is unreachable
+[modbus-inject] connect gagal, coba lagi...

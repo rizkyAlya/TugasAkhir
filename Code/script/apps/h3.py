@@ -1,11 +1,9 @@
-import json
 import os
 import sys
 import time
 import math
 from datetime import datetime
-from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
-from threading import Lock, Thread
+from threading import Thread
 
 from opcua import Server
 from pymodbus.server import StartTcpServer
@@ -71,18 +69,12 @@ Q_GAIN_BY_BUS = {
     4: 1.15,
     5: 1.00,
 }
-INJECT_ENABLE_FLAG = "/tmp/h3_http_inject_enabled"
-INJECT_API_IP = "0.0.0.0"
-INJECT_API_PORT = 8088
-INJECT_API_TOKEN = "lab-sim-token"
-MAX_TTL_SECONDS = 30
-ATTACK_FLAG = "/tmp/mitm_attack_active"
-RUN_ID_FILE = "/tmp/mitm_run_id"
+# Data V/I hanya dari holding register Modbus (RTU sah atau injeksi penyerang — tanpa autentikasi).
 BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
 MITM_LOG_DIR = os.path.join(BASE_DIR, "logs", "mitm")
 MITM_TRACE_CSV = os.path.join(MITM_LOG_DIR, "mitm_trace.csv")
 sys.path.append(BASE_DIR)
-from logger.mitm_trace_logger import ensure_trace_csv, get_run_id, get_phase_label, append_trace_row, now_ts
+from logger.mitm_trace_logger import ensure_trace_csv, get_run_id, get_phase_label, append_trace_row
 
 store = ModbusSlaveContext(
     di=ModbusSequentialDataBlock(0, [0] * 100),
@@ -91,66 +83,12 @@ store = ModbusSlaveContext(
     ir=ModbusSequentialDataBlock(0, [0] * 100),
 )
 context = ModbusServerContext(slaves=store, single=True)
-override_lock = Lock()
-overrides = {}
-inject_api_started = False
 
 ensure_trace_csv(MITM_TRACE_CSV)
 
 def start_modbus_server():
     print(f"Memulai Modbus Gateway di {MODBUS_LISTEN_IP}:{MODBUS_PORT}")
     StartTcpServer(context=context, identity=None, address=(MODBUS_LISTEN_IP, MODBUS_PORT))
-
-
-def _json_response(handler, code, payload):
-    data = json.dumps(payload).encode("utf-8")
-    handler.send_response(code)
-    handler.send_header("Content-Type", "application/json")
-    handler.send_header("Content-Length", str(len(data)))
-    handler.end_headers()
-    handler.wfile.write(data)
-
-
-def _get_active_override(bus):
-    now = time.time()
-    with override_lock:
-        item = overrides.get(bus)
-        if not item:
-            return None
-        if item["expires_at"] <= now:
-            overrides.pop(bus, None)
-            return None
-        return item
-
-
-def _clear_override(bus=None):
-    with override_lock:
-        if bus is None:
-            overrides.clear()
-        else:
-            overrides.pop(bus, None)
-
-
-def log_h5_change(event, bus, v, i, ttl, client):
-    ts = now_ts()
-    append_trace_row(MITM_TRACE_CSV, [
-        ts,
-        get_run_id(),
-        get_phase_label(),
-        "h5",
-        event,
-        bus,
-        "",
-        "",
-        v,
-        i,
-        "",
-        "",
-        "",
-        ttl,
-        client,
-        "",
-    ])
 
 
 def log_h3_final(ts, bus, v_raw, i_raw, v_final, i_final, v_dt, source, breaker_fb, breaker_cmd):
@@ -173,94 +111,6 @@ def log_h3_final(ts, bus, v_raw, i_raw, v_final, i_final, v_dt, source, breaker_
         source,
     ])
 
-
-class InjectHandler(BaseHTTPRequestHandler):
-    def log_message(self, *_args):
-        return
-
-    def do_POST(self):
-        length = int(self.headers.get("Content-Length", "0"))
-        body = self.rfile.read(length) if length > 0 else b"{}"
-        try:
-            payload = json.loads(body.decode("utf-8"))
-        except Exception:
-            _json_response(self, 400, {"ok": False, "error": "invalid json"})
-            return
-
-        token = str(payload.get("token", ""))
-        if token != INJECT_API_TOKEN:
-            _json_response(self, 403, {"ok": False, "error": "unauthorized"})
-            return
-
-        if self.path == "/inject":
-            try:
-                bus = int(payload["bus"])
-                has_v = "v" in payload and payload["v"] is not None
-                has_i = "i" in payload and payload["i"] is not None
-                if not has_v and not has_i:
-                    raise ValueError("missing v/i")
-                v = float(payload["v"]) if has_v else None
-                i = float(payload["i"]) if has_i else None
-                ttl = int(payload.get("ttl", 8))
-            except Exception:
-                _json_response(self, 400, {"ok": False, "error": "invalid payload"})
-                return
-
-            if bus < 1 or bus > NUM_BUS:
-                _json_response(self, 400, {"ok": False, "error": "bus out of range"})
-                return
-
-            ttl = max(1, min(ttl, MAX_TTL_SECONDS))
-            override_item = {"expires_at": time.time() + ttl}
-            if has_v:
-                override_item["v"] = v
-            if has_i:
-                override_item["i"] = i
-            with override_lock:
-                overrides[bus] = override_item
-            log_h5_change(
-                event="inject",
-                bus=bus,
-                v=f"{v:.6f}" if v is not None else "",
-                i=f"{i:.6f}" if i is not None else "",
-                ttl=ttl,
-                client=getattr(self, "client_address", ("", ""))[0],
-            )
-            _json_response(self, 200, {"ok": True, "bus": bus, "ttl": ttl})
-            return
-
-        if self.path == "/clear":
-            bus = payload.get("bus")
-            if bus is None:
-                _clear_override()
-                log_h5_change("clear_all", "all", "", "", "", getattr(self, "client_address", ("", ""))[0])
-            else:
-                try:
-                    _clear_override(int(bus))
-                    log_h5_change("clear_bus", int(bus), "", "", "", getattr(self, "client_address", ("", ""))[0])
-                except Exception:
-                    _json_response(self, 400, {"ok": False, "error": "invalid bus"})
-                    return
-            _json_response(self, 200, {"ok": True})
-            return
-
-        _json_response(self, 404, {"ok": False, "error": "not found"})
-
-
-def start_inject_api():
-    print(f"HTTP inject API aktif di {INJECT_API_IP}:{INJECT_API_PORT}")
-    httpd = ThreadingHTTPServer((INJECT_API_IP, INJECT_API_PORT), InjectHandler)
-    httpd.serve_forever()
-
-
-def maybe_start_inject_api():
-    global inject_api_started
-    if inject_api_started:
-        return
-    if os.path.exists(INJECT_ENABLE_FLAG):
-        t_http = Thread(target=start_inject_api, daemon=True)
-        t_http.start()
-        inject_api_started = True
 
 for bus in range(1, 6):
     p_nodes[bus] = sensor_folder.add_variable(idx, f"P_bus_{bus}", 0.0)   # MW
@@ -285,7 +135,6 @@ t.start()
 
 try:
     while True:
-        maybe_start_inject_api()
         print("\n")
         ts = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
@@ -303,17 +152,10 @@ try:
                 i_raw = float(i_raw_reg) / I_SCALE
 
                 breaker_fb = 1 if int(b_raw) == 1 else 0
-                source = "RTU"
+                # Nilai terakhir di holding register (siapa pun yang menulis via Modbus TCP).
+                source = "MODBUS_TCP"
                 v_final = v_raw
                 i_final = i_raw
-
-                override = _get_active_override(bus)
-                if override is not None:
-                    if "v" in override:
-                        v_final = float(override["v"])
-                    if "i" in override:
-                        i_final = float(override["i"])
-                    source = "SIMULATED"
 
                 # 2) Konversi V/I -> P/Q lalu publish ke OPC UA untuk pandapower
                 # Asumsi:

