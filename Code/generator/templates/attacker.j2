@@ -74,6 +74,15 @@ def run_mitm_attack(
     gateway = net.get(gateway_name)
     gateway_ip = gateway.IP()
 
+    host_log = os.path.join(BASE_DIR, "logs", "host", f"{attacker_name}.log")
+    try:
+        os.makedirs(os.path.dirname(host_log), exist_ok=True)
+        open(host_log, "w", encoding="utf-8").close()
+    except OSError:
+        pass
+    host_log_q = host_log.replace("\\", "/")
+    attacker.cmd(f"bash -lc ': > \"{host_log_q}\"'")
+
     run_id = _new_run_id()
     _write_run_id(run_id)
     attacker.cmd(f"touch {ATTACK_ACTIVE_FLAG}")
@@ -84,14 +93,12 @@ def run_mitm_attack(
 
     _iptables_dnat_modbus(attacker, attacker_name, gateway_ip, enable=True)
 
-    host_log = os.path.join(BASE_DIR, "logs", "host", f"{attacker_name}.log")
     attacker.cmd(f"mkdir -p {os.path.join(BASE_DIR, 'logs', 'host')}")
     attacker.cmd(
         "if [ -f /tmp/h5_modbus_inject.pid ]; then kill $(cat /tmp/h5_modbus_inject.pid) 2>/dev/null; rm -f /tmp/h5_modbus_inject.pid; fi; "
         "if [ -f /tmp/h5_modbus_mitm_proxy.pid ]; then kill $(cat /tmp/h5_modbus_mitm_proxy.pid) 2>/dev/null; rm -f /tmp/h5_modbus_mitm_proxy.pid; fi"
     )
     inject_script = os.path.abspath(__file__).replace("\\", "/")
-    host_log_q = host_log.replace("\\", "/")
     attacker.cmd(
         f"bash -lc 'nohup python3 -u \"{inject_script}\" modbus-mitm-proxy >>\"{host_log_q}\" 2>&1 & echo $! > /tmp/h5_modbus_mitm_proxy.pid'"
     )

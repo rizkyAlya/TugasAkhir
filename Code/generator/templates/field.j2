@@ -16,7 +16,7 @@ NUM_BUS = 5
 FIELD_RANDOM_SEED = int(os.environ.get("FIELD_RANDOM_SEED", "42"))
 random.seed(FIELD_RANDOM_SEED)
 V_SCALE = 1000
-I_SCALE = 50
+I_SCALE = 29
 V_BASE = 345e3
 
 # Mapping register Modbus

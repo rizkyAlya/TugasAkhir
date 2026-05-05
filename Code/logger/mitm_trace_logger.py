@@ -50,7 +50,7 @@ def get_phase_label():
 def append_trace_row(trace_csv_path, row):
     """
     row: [timestamp, iterasi_ke, run_id, bus, v_in, i_in, v_out, i_out, v_dt, breaker_cmd, breaker_fb]
-    Penyimpanan: logs/baseline/<run_key>/ atau logs/mitm/<run_key>/ berdasarkan flag serangan.
+    Penyimpanan: logs/mitm/<run_key>/mitm_trace.csv (satu folder per run_id).
     """
     if len(row) != len(TRACE_HEADER):
         raise ValueError(
@@ -58,7 +58,9 @@ def append_trace_row(trace_csv_path, row):
         )
 
     logs_root = os.path.dirname(os.path.dirname(trace_csv_path))
-    phase_bucket = "baseline" if get_phase_label() == "pre_attack" else "mitm"
+    # Selalu logs/mitm/<run_key>/ — jangan pisah ke logs/baseline/ untuk baris yang sama,
+    # karena host (h2/h3) menulis trace sebelum /tmp/mitm_attack_active dibuat di run_mitm_attack.
+    phase_bucket = "mitm"
 
     run_id = str(row[2]).strip() if len(row) > 2 else ""
 

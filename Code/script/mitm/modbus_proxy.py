@@ -18,12 +18,11 @@ MODBUS_PORT = 5020
 MITM_PROXY_PORT = 50201
 MITM_FIXED_SEED = 424242
 I_BASE_ADDR = 10
-I_SCALE = 50
+# 29: arus max ~2259 A (65535/29); injeksi 1800–2200 A muat di register 16-bit.
+I_SCALE = 29
 NUM_BUS = 5
-# Holding 16-bit: nilai register <= 65535  =>  I_amp <= 65535 / I_SCALE (~1310.7 A di scale 50).
-# Batas di bawah ini; _fake_i_register_value() juga mem-clamp ke rentang aman.
-I_INJECT_MIN_A = 900.0
-I_INJECT_MAX_A = 1280.0
+I_INJECT_MIN_A = 1800.0
+I_INJECT_MAX_A = 2200.0
 RUN_ID_FILE = "/tmp/mitm_run_id"
 
 BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
