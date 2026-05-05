@@ -7,6 +7,10 @@ import statistics
 import yaml
 
 NUM_RUNS = 1
+IPERF_PORT = 5001
+IPERF_DURATION_S = 5
+IPERF_CONNECT_TIMEOUT_S = 8
+IPERF_MAX_RETRIES = 3
 
 base_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 DEFAULT_CONFIG_PATH = os.path.join(base_dir, "config.yaml")
@@ -179,7 +183,16 @@ def collect_data(net, mode="baseline", logs_path=None, config_path=None):
     with open(th_path, "w", newline="") as th_file:
 
         th_writer = csv.writer(th_file)
-        th_writer.writerow(["timestamp","run","layer","source","destination","throughput_Mbps"])
+        th_writer.writerow([
+            "timestamp",
+            "run",
+            "layer",
+            "source",
+            "destination",
+            "throughput_Mbps",
+            "status",
+            "error",
+        ])
 
         th_summary = {}
 
@@ -191,28 +204,60 @@ def collect_data(net, mode="baseline", logs_path=None, config_path=None):
                 print(f"[{datetime.datetime.now()}] {mode.upper()} - Throughput: {layer} (Run {run+1})")
                 server_host = dest_host
 
-                net.get(server_host).cmd("killall -9 iperf")
-                net.get(server_host).cmd("iperf -s -p 5001 &")
-                time.sleep(1)
+                throughput = 0.0
+                status = "failed"
+                error = "parse_failed"
 
-                output = net.get(host).cmd(f"iperf -c {dest_ip} -t 5")
+                for attempt in range(1, IPERF_MAX_RETRIES + 1):
+                    net.get(server_host).cmd("killall -9 iperf >/dev/null 2>&1 || true")
+                    net.get(server_host).cmd(f"iperf -s -p {IPERF_PORT} >/dev/null 2>&1 &")
+                    time.sleep(1.2)
 
-                for line in output.split("\n"):
-                    if "Mbits/sec" in line and "sec" in line:
-                        parts = line.split()
-                        throughput = float(parts[-2])
-                        th_writer.writerow([
-                            datetime.datetime.now(),
-                            run+1,
-                            layer,
-                            host,
-                            dest_host,
-                            throughput
-                        ])
-                        th_summary[(layer, host, dest_host)].append(throughput)
+                    output = net.get(host).cmd(
+                        f"timeout {IPERF_CONNECT_TIMEOUT_S}s iperf -c {dest_ip} -p {IPERF_PORT} -t {IPERF_DURATION_S}"
+                    )
+
+                    parsed = False
+                    for line in output.split("\n"):
+                        if "Mbits/sec" in line and "sec" in line:
+                            parts = line.split()
+                            try:
+                                throughput = float(parts[-2])
+                                status = "ok"
+                                error = ""
+                                th_summary[(layer, host, dest_host)].append(throughput)
+                                parsed = True
+                                break
+                            except Exception:
+                                continue
+
+                    if parsed:
                         break
 
-                net.get(server_host).cmd("killall -9 iperf")
+                    text = output.lower()
+                    if "timed out" in text or "timeout" in text:
+                        error = "timeout"
+                    elif "connection refused" in text:
+                        error = "refused"
+                    elif "unable to connect" in text:
+                        error = "unreachable"
+                    else:
+                        error = "parse_failed"
+                    status = f"failed_retry_{attempt}"
+                    time.sleep(0.6 * attempt)
+
+                th_writer.writerow([
+                    datetime.datetime.now(),
+                    run+1,
+                    layer,
+                    host,
+                    dest_host,
+                    round(throughput, 2),
+                    "ok" if throughput > 0 else status,
+                    error if throughput == 0 else "",
+                ])
+
+                net.get(server_host).cmd("killall -9 iperf >/dev/null 2>&1 || true")
                 time.sleep(1)
 
     # Summary
