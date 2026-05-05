@@ -22,6 +22,11 @@ def _new_run_id():
     return datetime.now().strftime("%Y%m%d_%H%M%S")
 
 
+def _resolve_host_log(attacker_name: str, host_log_dir: str | None = None) -> str:
+    base = host_log_dir or os.path.join(BASE_DIR, "logs", "host")
+    return os.path.join(base, f"{attacker_name}.log")
+
+
 def _iptables_dnat_modbus(attacker, attacker_name: str, gateway_ip: str, enable: bool):
     eth1 = f"{attacker_name}-eth1"
     dest = f"{ATTACKER_FIELD_IP}:{MITM_PROXY_PORT}"
@@ -58,6 +63,7 @@ def run_mitm_attack(
     rtu_name=DEFAULT_RTU_NAME,
     gateway_name=DEFAULT_GATEWAY_NAME,
     attacker_name=DEFAULT_ATTACKER_NAME,
+    host_log_dir=None,
 ):
     """
     L3: RTU arahkan subnet kontrol via Field attacker + ip_forward.
@@ -69,7 +75,7 @@ def run_mitm_attack(
     gateway = net.get(gateway_name)
     gateway_ip = gateway.IP()
 
-    host_log = os.path.join(BASE_DIR, "logs", "host", f"{attacker_name}.log")
+    host_log = _resolve_host_log(attacker_name, host_log_dir)
     try:
         os.makedirs(os.path.dirname(host_log), exist_ok=True)
         open(host_log, "w", encoding="utf-8").close()
@@ -90,7 +96,7 @@ def run_mitm_attack(
 
     _iptables_dnat_modbus(attacker, attacker_name, gateway_ip, enable=True)
 
-    attacker.cmd(f"mkdir -p {os.path.join(BASE_DIR, 'logs', 'host')}")
+    attacker.cmd(f"mkdir -p {os.path.dirname(host_log_q)}")
     attacker.cmd(
         "if [ -f /tmp/h5_modbus_inject.pid ]; then kill $(cat /tmp/h5_modbus_inject.pid) 2>/dev/null; rm -f /tmp/h5_modbus_inject.pid; fi; "
         "if [ -f /tmp/h5_modbus_mitm_proxy.pid ]; then kill $(cat /tmp/h5_modbus_mitm_proxy.pid) 2>/dev/null; rm -f /tmp/h5_modbus_mitm_proxy.pid; fi"
@@ -106,12 +112,14 @@ def run_mitm_attack(
     )
 
 
-def run_dos_attack(net, mode="light"):
+def run_dos_attack(net, mode="light", host_log_dir=None):
     h5 = net.get('h5')
     target_ip = "10.0.2.2"
     target_port = 5001
 
-    os.makedirs("logs/host", exist_ok=True)
+    host_log = _resolve_host_log("h5", host_log_dir)
+    host_log_q = host_log.replace("\\", "/")
+    h5.cmd(f"mkdir -p {os.path.dirname(host_log_q)}")
 
     h5.cmd("pkill -f hping3")
 
@@ -119,18 +127,18 @@ def run_dos_attack(net, mode="light"):
 
     if mode == "light":
         print("Running LIGHT DoS (Controlled UDP flood)")
-        h5.cmd(f"echo '\\n===== DoS LIGHT {timestamp} =====' >> logs/host/h5.log")
+        h5.cmd(f"echo '\\n===== DoS LIGHT {timestamp} =====' >> {host_log_q}")
         h5.cmd(
             f"hping3 --udp -p {target_port} -i u50 {target_ip} "
-            f">> logs/host/h5.log 2>&1 &"
+            f">> {host_log_q} 2>&1 &"
         )
 
     elif mode == "heavy":
         print("Running HEAVY DoS (Full UDP flood)")
-        h5.cmd(f"echo '\\n===== DoS HEAVY {timestamp} =====' >> logs/host/h5.log")
+        h5.cmd(f"echo '\\n===== DoS HEAVY {timestamp} =====' >> {host_log_q}")
         h5.cmd(
             f"hping3 --udp --flood -p {target_port} {target_ip} "
-            f">> logs/host/h5.log 2>&1 &"
+            f">> {host_log_q} 2>&1 &"
         )
 
 

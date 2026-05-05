@@ -58,6 +58,18 @@ def publish_run_root_on_hosts(net, run_root_abs: str):
             pass
 
 
+def prime_mitm_phase_on_hosts(net):
+    """
+    Untuk mode --mitm, aktifkan marker serangan sebelum app start agar
+    iterasi awal trace langsung masuk bucket mitm.
+    """
+    for host in net.hosts:
+        try:
+            host.cmd(f"touch {ATTACK_ACTIVE_FLAG}")
+        except Exception:
+            pass
+
+
 def load_app_map():
     app_map_path = os.path.join(APPS_DIR, "app_map.json")
     if not os.path.exists(app_map_path):
@@ -114,9 +126,9 @@ def load_generated_attacker_module():
     return module
 
 # UTIL: START APPS
-def start_apps(net):
+def start_apps(net, host_log_dir):
     print("Starting apps...")
-    os.makedirs(HOST_LOG_DIR, exist_ok=True)
+    os.makedirs(host_log_dir, exist_ok=True)
     app_map = load_app_map()
 
     def _start_host_app(host):
@@ -131,7 +143,7 @@ def start_apps(net):
         if not os.path.exists(app_path):
             return
 
-        log_file = os.path.join(HOST_LOG_DIR, f"{name}.log")
+        log_file = os.path.join(host_log_dir, f"{name}.log")
         host.cmd(f"python3 -u {app_path} > {log_file} 2>&1 &")
         print(f" {name} started ({app_filename})")
 
@@ -162,7 +174,7 @@ def start_apps(net):
 
     print("All apps started\n")
 
-def run_mitm(net):
+def run_mitm(net, host_log_dir):
     print("Starting MITM attack...")
     attacker_module = load_generated_attacker_module()
 
@@ -176,7 +188,7 @@ def run_mitm(net):
         return False
 
     try:
-        run_mitm_attack(net)
+        run_mitm_attack(net, host_log_dir=host_log_dir)
         print("MITM running\n")
         return True
     except Exception as e:
@@ -184,7 +196,7 @@ def run_mitm(net):
         return False
 
 # UTIL: RUN DOS
-def run_dos(net, mode):
+def run_dos(net, mode, host_log_dir):
     print(f"Starting DoS attack ({mode})...")
     attacker_module = load_generated_attacker_module()
 
@@ -198,7 +210,7 @@ def run_dos(net, mode):
         return False
 
     try:
-        run_dos_attack(net, mode=mode)
+        run_dos_attack(net, mode=mode, host_log_dir=host_log_dir)
         print(f"DoS {mode} running\n")
         return True
     except Exception as e:
@@ -280,6 +292,10 @@ def main():
     # Ensure phase markers do not leak from previous runs.
     reset_attack_flags()
 
+    host_log_run_key = run_id_str or datetime.now().strftime("%Y-%m-%d_%H%M%S")
+    host_log_dir = os.path.join(HOST_LOG_DIR, host_log_run_key)
+    print(f"Host logs path: {host_log_dir}")
+
     # START NETWORK FROM GENERATED TOPOLOGY
     print("Starting generated topology...")
     net, topology_mod = create_network_from_generated_topology()
@@ -294,9 +310,11 @@ def main():
 
     if run_logs_path:
         publish_run_root_on_hosts(net, run_logs_path)
+    if args.mitm:
+        prime_mitm_phase_on_hosts(net)
 
     # START APPS
-    start_apps(net)
+    start_apps(net, host_log_dir)
 
     # Collect baseline only when enabled (explicitly or as part of a scenario).
     if should_collect_baseline:
@@ -311,7 +329,7 @@ def main():
         if hasattr(topology_mod, "escalate_attacker_to_field"):
             topology_mod.escalate_attacker_to_field(net)
             time.sleep(1)
-        run_mitm(net)
+        run_mitm(net, host_log_dir)
         print("Collecting MITM metrics...")
         collect_data(net, mode="mitm", logs_path=run_logs_path)
         print("MITM collection complete.\n")
@@ -319,7 +337,7 @@ def main():
     if args.dos:
         # Always run both scenarios in one DoS run.
         for dos_mode in ("light", "heavy"):
-            ok = run_dos(net, dos_mode)
+            ok = run_dos(net, dos_mode, host_log_dir)
             if ok:
                 print(f"Collecting DoS ({dos_mode}) metrics...")
                 collect_data(net, mode=dos_mode, logs_path=run_logs_path)
