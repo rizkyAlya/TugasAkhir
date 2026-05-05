@@ -15,8 +15,28 @@ ROLE_TEMPLATE = {
     "rtu": "rtu.j2",
     "gateway": "gateway.j2",
     "pandapower": "pandapower.j2",
-    "attacker": "attacker.j2"
+    "attacker": "attacker.j2",
 }
+
+
+def build_mitm_config(config, hosts_by_role):
+    """Nilai MITM/proxy: default + override dari config['mitm']; IP gateway dari topology."""
+    defaults = {
+        "random_seed": 424242,
+        "attacker_field_ip": "10.0.1.100",
+        "proxy_listen_port": 50201,
+        "modbus_port": 5020,
+        "i_base_addr": 10,
+        "i_scale": 50,
+        "num_bus": 5,
+        "i_inject_min_a": 1800.0,
+        "i_inject_max_a": 2600.0,
+    }
+    merged = {**defaults, **(config.get("mitm") or {})}
+    gw = hosts_by_role.get("gateway", [{}])[0].get("ip")
+    if gw:
+        merged["gateway_ip"] = gw
+    return merged
 
 # LOAD CONFIG
 def load_config(path):
@@ -92,8 +112,20 @@ def generate_apps(hosts, app_mode="host"):
         json.dump(app_map, f, indent=2)
     return app_map
 
+
+def generate_mitm_proxy(hosts_by_role, mitm_config):
+    """Output stabil di script/mitm/ (bukan script/apps yang per-host)."""
+    out_dir = os.path.join(OUTPUT_DIR, "mitm")
+    os.makedirs(out_dir, exist_ok=True)
+    template = env.get_template("mitm_modbus_proxy.j2")
+    text = template.render(hosts_by_role=hosts_by_role, mitm=mitm_config)
+    out_path = os.path.join(out_dir, "mitm_modbus_proxy.py")
+    with open(out_path, "w", encoding="utf-8") as f:
+        f.write(text)
+
+
 # GENERATE TOPOLOGY FILE
-def generate_topology(hosts, zone_map, links, bandwidth, hosts_by_role):
+def generate_topology(hosts, zone_map, links, bandwidth, hosts_by_role, mitm_config):
     template = env.get_template("topology.j2")
     attacker_hosts = hosts_by_role.get("attacker", [])
     if not attacker_hosts:
@@ -106,6 +138,7 @@ def generate_topology(hosts, zone_map, links, bandwidth, hosts_by_role):
         links=links,
         bandwidth=bandwidth,
         attacker_name=attacker_name,
+        attacker_field_ip=mitm_config.get("attacker_field_ip", "10.0.1.100"),
     )
 
     os.makedirs(OUTPUT_DIR, exist_ok=True)
@@ -130,14 +163,18 @@ def main():
     hosts, zone_map, links, bandwidth, hosts_by_name, hosts_by_role = parse_topology(config)
     generate_apps.hosts_by_name = hosts_by_name
     generate_apps.hosts_by_role = hosts_by_role
+    mitm_cfg = build_mitm_config(config, hosts_by_role)
+    generate_apps.mitm_config = mitm_cfg
 
     app_map = generate_apps(hosts, app_mode=args.app_mode)
-    generate_topology(hosts, zone_map, links, bandwidth, hosts_by_role)
+    generate_mitm_proxy(hosts_by_role, mitm_cfg)
+    generate_topology(hosts, zone_map, links, bandwidth, hosts_by_role, mitm_cfg)
 
     print("Generation complete!")
     print(f"Output directory: {OUTPUT_DIR}")
     print(f"App filename mode: {args.app_mode}")
     print(f"App mapping file: {os.path.join(OUTPUT_DIR, 'apps', 'app_map.json')}")
+    print(f"MITM proxy (shared): {os.path.join(OUTPUT_DIR, 'mitm', 'mitm_modbus_proxy.py')}")
 
 if __name__ == "__main__":
     main()

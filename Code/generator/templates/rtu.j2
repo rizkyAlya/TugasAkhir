@@ -1,5 +1,3 @@
-import os
-import sys
 from pymodbus.client import ModbusTcpClient
 from pymodbus.exceptions import ConnectionException
 import time
@@ -16,15 +14,6 @@ BREAKER_FB_BASE_ADDR = 20
 V_SCALE = 1000
 I_SCALE = 50
 NUM_BUS = 5
-ATTACK_FLAG = "/tmp/mitm_attack_active"
-RUN_ID_FILE = "/tmp/mitm_run_id"
-BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
-MITM_LOG_DIR = os.path.join(BASE_DIR, "logs", "mitm")
-MITM_TRACE_CSV = os.path.join(MITM_LOG_DIR, "mitm_trace.csv")
-sys.path.append(BASE_DIR)
-from logger.mitm_trace_logger import ensure_trace_csv, get_run_id, get_phase_label, append_trace_row
-
-ensure_trace_csv(MITM_TRACE_CSV)
 
 # Modbus clients
 field_client = ModbusTcpClient(FIELD_IP, port=MODBUS_PORT)
@@ -56,26 +45,6 @@ def ensure_connections() -> None:
     if not _is_connected(gateway_client):
         _connect_with_retry(gateway_client, f"GATEWAY ({GATEWAY_IP}:{MODBUS_PORT})")
 
-
-def log_h2_original(ts: str, bus: int, v: float, i: float, breaker_cmd_val: int) -> None:
-    append_trace_row(MITM_TRACE_CSV, [
-        ts,
-        get_run_id(),
-        get_phase_label(),
-        "h2",
-        "original_sample",
-        bus,
-        f"{v:.6f}",
-        f"{i:.6f}",
-        f"{v:.6f}",
-        f"{i:.6f}",
-        "",
-        breaker_cmd_val,
-        "",
-        "",
-        "",
-        "",
-    ])
 
 breaker_cmd = {bus: 1 for bus in range(1, NUM_BUS+1)}  # 0=OPEN, 1=CLOSE
 
@@ -141,7 +110,6 @@ try:
 
                 # 3) Kirim data dan status breaker ke gateway via Modbus
                 send_to_gateway_modbus(bus, v, i, breaker_cmd[bus])
-                log_h2_original(ts, bus, v, i, breaker_cmd[bus])
 
                 print(
                     f"[{ts}] Bus {bus}: "

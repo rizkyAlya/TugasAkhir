@@ -74,7 +74,7 @@ BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
 MITM_LOG_DIR = os.path.join(BASE_DIR, "logs", "mitm")
 MITM_TRACE_CSV = os.path.join(MITM_LOG_DIR, "mitm_trace.csv")
 sys.path.append(BASE_DIR)
-from logger.mitm_trace_logger import ensure_trace_csv, get_run_id, get_phase_label, append_trace_row
+from logger.mitm_trace_logger import ensure_trace_csv, get_run_id, append_trace_row
 
 store = ModbusSlaveContext(
     di=ModbusSequentialDataBlock(0, [0] * 100),
@@ -91,25 +91,24 @@ def start_modbus_server():
     StartTcpServer(context=context, identity=None, address=(MODBUS_LISTEN_IP, MODBUS_PORT))
 
 
-def log_h3_final(ts, bus, v_raw, i_raw, v_final, i_final, v_dt, source, breaker_fb, breaker_cmd):
-    append_trace_row(MITM_TRACE_CSV, [
-        ts,
-        get_run_id(),
-        get_phase_label(),
-        "h3",
-        "final_forward",
-        bus,
-        f"{v_raw:.6f}",
-        f"{i_raw:.6f}",
-        f"{v_final:.6f}",
-        f"{i_final:.6f}",
-        f"{v_dt:.6f}",
-        breaker_cmd,
-        breaker_fb,
-        "",
-        "",
-        source,
-    ])
+def log_h3_measurement(ts, iterasi_ke, bus, v_in, i_in, v_out, i_out, v_dt, breaker_cmd, breaker_fb):
+    """Satu baris = satu bus per siklus; V/I in/out gateway + V_dt & breaker dari digital twin (h4)."""
+    append_trace_row(
+        MITM_TRACE_CSV,
+        [
+            ts,
+            iterasi_ke,
+            get_run_id(),
+            bus,
+            f"{v_in:.6f}",
+            f"{i_in:.6f}",
+            f"{v_out:.6f}",
+            f"{i_out:.6f}",
+            f"{v_dt:.6f}",
+            breaker_cmd,
+            breaker_fb,
+        ],
+    )
 
 
 for bus in range(1, 6):
@@ -133,9 +132,12 @@ server.start()
 t = Thread(target=start_modbus_server, daemon=True)
 t.start()
 
+_gateway_measure_iter = 0
+
 try:
     while True:
         print("\n")
+        _gateway_measure_iter += 1
         ts = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
         for bus in range(1, NUM_BUS + 1):
@@ -152,19 +154,17 @@ try:
                 i_raw = float(i_raw_reg) / I_SCALE
 
                 breaker_fb = 1 if int(b_raw) == 1 else 0
-                # Nilai terakhir di holding register (siapa pun yang menulis via Modbus TCP).
-                source = "MODBUS_TCP"
-                v_final = v_raw
-                i_final = i_raw
+                v_out = v_raw
+                i_out = i_raw
 
                 # 2) Konversi V/I -> P/Q lalu publish ke OPC UA untuk pandapower
                 # Asumsi:
-                # - v_final dari RTU dalam satuan pu
-                # - i_final dalam ampere
+                # - v_out dari Modbus dalam satuan pu
+                # - i_out dalam ampere
                 # - faktor daya per-bus (lagging)
                 pf = PF_BY_BUS.get(bus, 0.95)
-                v_real = v_final * V_BASE
-                s_va = v_real * i_final
+                v_real = v_out * V_BASE
+                s_va = v_real * i_out
                 p_mw_raw = (s_va * pf) / 1e6
                 q_mvar_raw = (s_va * math.sqrt(1 - pf**2)) / 1e6
 
@@ -179,12 +179,23 @@ try:
                 cmd_val = 1 if int(cmd) == 1 else 0
                 context[0x00].setValues(1, BREAKER_CMD_BASE_ADDR + (bus - 1), [cmd_val])
                 v_dt = float(v_dt_nodes[bus].get_value())
-                log_h3_final(ts, bus, float(v_raw), float(i_raw), v_final, i_final, v_dt, source, breaker_fb, cmd_val)
+                log_h3_measurement(
+                    ts,
+                    _gateway_measure_iter,
+                    bus,
+                    float(v_raw),
+                    float(i_raw),
+                    v_out,
+                    i_out,
+                    v_dt,
+                    cmd_val,
+                    breaker_fb,
+                )
 
                 print(
-                    f"[{ts}] [Bus {bus}] Data P/Q/CMD update ({source}) -> "
-                    f"V={v_final:.4f} pu, I={i_final:.4f} A, V_DT={v_dt:.4f} pu, "
-                    f"P={p_mw:.4f} MW, Q={q_mvar:.4f} MVar"
+                    f"[{ts}] [iter {_gateway_measure_iter}] [Bus {bus}] P/Q/CMD -> "
+                    f"V_in={v_raw:.4f} pu, I_in={i_raw:.4f} A, V_out={v_out:.4f} pu, I_out={i_out:.4f} A, "
+                    f"V_DT={v_dt:.4f} pu, P={p_mw:.4f} MW, Q={q_mvar:.4f} MVar"
                 )
             except Exception as e:
                 print(f"[{ts}] [Bus {bus}] Gagal update: {e}")

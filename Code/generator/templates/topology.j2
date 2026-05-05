@@ -107,9 +107,9 @@ def escalate_attacker_to_field(net):
     """
     h = net.get('{{ attacker_name }}')
     h.cmd('ip link set {{ attacker_name }}-eth1 up')
-    h.cmd('ip addr add 10.0.1.100/24 dev {{ attacker_name }}-eth1')
+    h.cmd('ip addr add {{ attacker_field_ip }}/24 dev {{ attacker_name }}-eth1')
     h.cmd('ip route replace default via 10.0.2.1 dev {{ attacker_name }}-eth0')
-    print("[topology] Attacker eskalasi ke Field: {{ attacker_name }}-eth1 = 10.0.1.100/24")
+    print("[topology] Attacker eskalasi ke Field: {{ attacker_name }}-eth1 = {{ attacker_field_ip }}/24")
 
 
 def CPS_topology():

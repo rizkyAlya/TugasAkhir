@@ -193,7 +193,7 @@ def main():
     parser.add_argument(
         "--mitm",
         action="store_true",
-        help="False data injection: h5 writes malicious I via Modbus TCP to gateway (same segment as RTU)"
+        help="MITM: h2 route control via h5 Field; DNAT Modbus to proxy; I diubah in-path (mitm_modbus_proxy)"
     )
     parser.add_argument(
         "--no-cli",

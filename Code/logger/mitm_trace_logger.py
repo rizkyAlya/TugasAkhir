@@ -5,23 +5,21 @@ from datetime import datetime
 ATTACK_FLAG = "/tmp/mitm_attack_active"
 RUN_ID_FILE = "/tmp/mitm_run_id"
 _SESSION_DIR_KEYS = {}
+
+# Hanya pengukuran gateway (h3): V/I in & out; V_dt + breaker dari/ke h4 via OPC UA.
+# Baseline vs MITM: folder dipilih dari flag serangan (bukan kolom di CSV).
 TRACE_HEADER = [
     "timestamp",
+    "iterasi_ke",
     "run_id",
-    "phase",
-    "source",
-    "event",
     "bus",
-    "v_raw",
-    "i_raw",
-    "v_final",
-    "i_final",
+    "v_in",
+    "i_in",
+    "v_out",
+    "i_out",
     "v_dt",
     "breaker_cmd",
     "breaker_fb",
-    "ttl",
-    "client",
-    "detail",
 ]
 
 
@@ -50,17 +48,20 @@ def get_phase_label():
 
 
 def append_trace_row(trace_csv_path, row):
-    # Simpan trace terpisah berdasarkan phase, bukan agregat ke logs/mitm/mitm_trace.csv
-    # Struktur output:
-    # - baseline: logs/baseline/<timestamp>/mitm_trace.csv
-    # - mitm    : logs/mitm/<run_id or timestamp>/mitm_trace.csv
+    """
+    row: [timestamp, iterasi_ke, run_id, bus, v_in, i_in, v_out, i_out, v_dt, breaker_cmd, breaker_fb]
+    Penyimpanan: logs/baseline/<run_key>/ atau logs/mitm/<run_key>/ berdasarkan flag serangan.
+    """
+    if len(row) != len(TRACE_HEADER):
+        raise ValueError(
+            f"mitm_trace row length {len(row)} != header {len(TRACE_HEADER)}: {TRACE_HEADER}"
+        )
+
     logs_root = os.path.dirname(os.path.dirname(trace_csv_path))
+    phase_bucket = "baseline" if get_phase_label() == "pre_attack" else "mitm"
 
-    run_id = str(row[1]).strip() if len(row) > 1 else ""
-    phase = str(row[2]).strip() if len(row) > 2 else ""
-    phase_bucket = "baseline" if phase == "pre_attack" else "mitm"
+    run_id = str(row[2]).strip() if len(row) > 2 else ""
 
-    # Gunakan run_id jika ada (dan bukan no_attack). Jika tidak, pakai timestamp sesi.
     if run_id and run_id != "no_attack":
         run_key = run_id
     else:
