@@ -79,11 +79,9 @@ def run_mitm_attack(
     attacker.cmd(f"bash -lc ': > \"{host_log_q}\"'")
 
     run_id = _new_run_id()
-    # Trace gateway (h3) membaca flag & run_id di namespace host ini, bukan di orchestrator/h5.
     gateway.cmd(
         f'bash -lc "echo -n {run_id} > {RUN_ID_FILE} && touch {ATTACK_ACTIVE_FLAG}"'
     )
-    # Proxy Modbus jalan di h5 dan membaca run_id dari /tmp lokal.
     attacker.cmd(f'bash -lc "echo -n {run_id} > {RUN_ID_FILE}"')
 
     attacker.cmd("bash -lc 'echo 1 > /proc/sys/net/ipv4/ip_forward'")
