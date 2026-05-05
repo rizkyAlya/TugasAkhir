@@ -1,0 +1,9 @@
+Connection to (10.0.2.2, 5020) failed: [Errno 111] Connection refused
+Connection to GATEWAY (10.0.2.2:5020) failed (connect() returned False). Retrying in 1.0s...
+
+
+[2026-05-05 12:35:21] Bus 1: V=1.013 pu, I=169.241 A, Breaker=CLOSE
+[2026-05-05 12:35:21] Bus 2: V=0.977 pu, I=330.241 A, Breaker=CLOSE
+[2026-05-05 12:35:21] Bus 3: V=1.023 pu, I=653.276 A, Breaker=CLOSE
+[2026-05-05 12:35:21] Bus 4: V=1.039 pu, I=210.586 A, Breaker=CLOSE
+[2026-05-05 12:35:21] Bus 5: V=0.992 pu, I=176.655 A, Breaker=CLOSE

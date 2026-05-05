@@ -1,0 +1,335 @@
+Namespace index: 2
+Field bus -> Pandapower bus mapping: {1: 0, 2: 2, 3: 3, 4: 6, 5: 7}
+Unique bus->line mapping: {1: 0, 2: 2, 3: 4, 4: 10, 5: 9}
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-05 12:37:50
+Load flow sukses. Voltage snapshot (pu): [1.05004136 1.05788632 1.04999957 1.0405164  1.03555679]
+Bus 1: breaker CLOSE (line 0) | I_line=0.2726 kA, I_close=0.9539 kA
+Bus 2: breaker CLOSE (line 2) | I_line=0.4843 kA, I_close=0.7949 kA
+Bus 3: breaker CLOSE (line 4) | I_line=0.4068 kA, I_close=0.7949 kA
+Bus 4: breaker CLOSE (line 10) | I_line=0.1303 kA, I_close=1.4308 kA
+Bus 5: breaker CLOSE (line 9) | I_line=0.0745 kA, I_close=1.4308 kA
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-05 12:37:54
+Load flow sukses. Voltage snapshot (pu): [1.04881513 1.05709894 1.04850484 1.04039846 1.03812441]
+Bus 1: breaker CLOSE (line 0) | I_line=0.2761 kA, I_close=0.9539 kA
+Bus 2: breaker CLOSE (line 2) | I_line=0.4885 kA, I_close=0.7949 kA
+Bus 3: breaker CLOSE (line 4) | I_line=0.3586 kA, I_close=0.7949 kA
+Bus 4: breaker CLOSE (line 10) | I_line=0.0702 kA, I_close=1.4308 kA
+Bus 5: breaker CLOSE (line 9) | I_line=0.0773 kA, I_close=1.4308 kA
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-05 12:37:58
+Load flow sukses. Voltage snapshot (pu): [1.03295938 1.04811823 1.0327052  1.02525535 1.02702576]
+Bus 1: breaker CLOSE (line 0) | I_line=0.4213 kA, I_close=0.9539 kA
+Bus 2: breaker CLOSE (line 2) | I_line=0.4280 kA, I_close=0.7949 kA
+Bus 3: breaker CLOSE (line 4) | I_line=0.0774 kA, I_close=0.7949 kA
+Bus 4: breaker CLOSE (line 10) | I_line=0.5774 kA, I_close=1.4308 kA
+Bus 5: breaker CLOSE (line 9) | I_line=0.4063 kA, I_close=1.4308 kA
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-05 12:38:02
+Load flow sukses. Voltage snapshot (pu): [1.01718094 1.03551176 1.00790745 0.99125861 0.98962735]
+Bus 1: breaker CLOSE (line 0) | I_line=0.5377 kA, I_close=0.9539 kA
+Bus 2: breaker CLOSE (line 2) | I_line=0.4497 kA, I_close=0.7949 kA
+Bus 3: breaker CLOSE (line 4) | I_line=0.3389 kA, I_close=0.7949 kA
+Bus 4: breaker CLOSE (line 10) | I_line=1.0373 kA, I_close=1.4308 kA
+Bus 5: breaker CLOSE (line 9) | I_line=0.6861 kA, I_close=1.4308 kA
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-05 12:38:07
+Load flow sukses. Voltage snapshot (pu): [1.00635026 1.02445683 0.98497098 0.95365831 0.94387053]
+Bus 1: breaker CLOSE (line 0) | I_line=0.6115 kA, I_close=0.9539 kA
+Bus 2: breaker CLOSE (line 2) | I_line=0.5258 kA, I_close=0.7949 kA
+Bus 3: breaker CLOSE (line 4) | I_line=0.5420 kA, I_close=0.7949 kA
+Bus 4: breaker CLOSE (line 10) | I_line=1.4127 kA, I_close=1.4308 kA
+Bus 5: breaker CLOSE (line 9) | I_line=0.9173 kA, I_close=1.4308 kA
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-05 12:38:11
+Load flow sukses. Voltage snapshot (pu): [0.99970066 1.01597795 0.96659217 0.92402222 0.90666222]
+Bus 1: breaker CLOSE (line 0) | I_line=0.6463 kA, I_close=0.9539 kA
+Bus 2: breaker CLOSE (line 2) | I_line=0.6144 kA, I_close=0.7949 kA
+Bus 3: breaker CLOSE (line 4) | I_line=0.6991 kA, I_close=0.7949 kA
+Bus 4: breaker OPEN (line 10) | I_line=1.6452 kA, I_open=1.5061 kA
+Bus 5: breaker CLOSE (line 9) | I_line=1.0675 kA, I_close=1.4308 kA
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+Load flow gagal
+Bus 1: breaker CLOSE (line 0) | I_line=nan kA, I_close=0.9539 kA
+Bus 2: breaker CLOSE (line 2) | I_line=nan kA, I_close=0.7949 kA
+Bus 3: breaker CLOSE (line 4) | I_line=nan kA, I_close=0.7949 kA
+Bus 4: breaker OPEN (line 10) | I_line=nan kA, I_open=1.5061 kA
+Bus 5: breaker CLOSE (line 9) | I_line=nan kA, I_close=1.4308 kA
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+Load flow gagal
+Bus 1: breaker CLOSE (line 0) | I_line=nan kA, I_close=0.9539 kA
+Bus 2: breaker CLOSE (line 2) | I_line=nan kA, I_close=0.7949 kA
+Bus 3: breaker CLOSE (line 4) | I_line=nan kA, I_close=0.7949 kA
+Bus 4: breaker OPEN (line 10) | I_line=nan kA, I_open=1.5061 kA
+Bus 5: breaker CLOSE (line 9) | I_line=nan kA, I_close=1.4308 kA
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+Load flow gagal
+Bus 1: breaker CLOSE (line 0) | I_line=nan kA, I_close=0.9539 kA
+Bus 2: breaker CLOSE (line 2) | I_line=nan kA, I_close=0.7949 kA
+Bus 3: breaker CLOSE (line 4) | I_line=nan kA, I_close=0.7949 kA
+Bus 4: breaker OPEN (line 10) | I_line=nan kA, I_open=1.5061 kA
+Bus 5: breaker CLOSE (line 9) | I_line=nan kA, I_close=1.4308 kA
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+Load flow gagal
+Bus 1: breaker CLOSE (line 0) | I_line=nan kA, I_close=0.9539 kA
+Bus 2: breaker CLOSE (line 2) | I_line=nan kA, I_close=0.7949 kA
+Bus 3: breaker CLOSE (line 4) | I_line=nan kA, I_close=0.7949 kA
+Bus 4: breaker OPEN (line 10) | I_line=nan kA, I_open=1.5061 kA
+Bus 5: breaker CLOSE (line 9) | I_line=nan kA, I_close=1.4308 kA
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+Load flow gagal
+Bus 1: breaker CLOSE (line 0) | I_line=nan kA, I_close=0.9539 kA
+Bus 2: breaker CLOSE (line 2) | I_line=nan kA, I_close=0.7949 kA
+Bus 3: breaker CLOSE (line 4) | I_line=nan kA, I_close=0.7949 kA
+Bus 4: breaker OPEN (line 10) | I_line=nan kA, I_open=1.5061 kA
+Bus 5: breaker CLOSE (line 9) | I_line=nan kA, I_close=1.4308 kA
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+Load flow gagal
+Bus 1: breaker CLOSE (line 0) | I_line=nan kA, I_close=0.9539 kA
+Bus 2: breaker CLOSE (line 2) | I_line=nan kA, I_close=0.7949 kA
+Bus 3: breaker CLOSE (line 4) | I_line=nan kA, I_close=0.7949 kA
+Bus 4: breaker OPEN (line 10) | I_line=nan kA, I_open=1.5061 kA
+Bus 5: breaker CLOSE (line 9) | I_line=nan kA, I_close=1.4308 kA
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+Load flow gagal
+Bus 1: breaker CLOSE (line 0) | I_line=nan kA, I_close=0.9539 kA
+Bus 2: breaker CLOSE (line 2) | I_line=nan kA, I_close=0.7949 kA
+Bus 3: breaker CLOSE (line 4) | I_line=nan kA, I_close=0.7949 kA
+Bus 4: breaker OPEN (line 10) | I_line=nan kA, I_open=1.5061 kA
+Bus 5: breaker CLOSE (line 9) | I_line=nan kA, I_close=1.4308 kA
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+Load flow gagal
+Bus 1: breaker CLOSE (line 0) | I_line=nan kA, I_close=0.9539 kA
+Bus 2: breaker CLOSE (line 2) | I_line=nan kA, I_close=0.7949 kA
+Bus 3: breaker CLOSE (line 4) | I_line=nan kA, I_close=0.7949 kA
+Bus 4: breaker OPEN (line 10) | I_line=nan kA, I_open=1.5061 kA
+Bus 5: breaker CLOSE (line 9) | I_line=nan kA, I_close=1.4308 kA
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+Load flow gagal
+Bus 1: breaker CLOSE (line 0) | I_line=nan kA, I_close=0.9539 kA
+Bus 2: breaker CLOSE (line 2) | I_line=nan kA, I_close=0.7949 kA
+Bus 3: breaker CLOSE (line 4) | I_line=nan kA, I_close=0.7949 kA
+Bus 4: breaker OPEN (line 10) | I_line=nan kA, I_open=1.5061 kA
+Bus 5: breaker CLOSE (line 9) | I_line=nan kA, I_close=1.4308 kA
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+Load flow gagal
+Bus 1: breaker CLOSE (line 0) | I_line=nan kA, I_close=0.9539 kA
+Bus 2: breaker CLOSE (line 2) | I_line=nan kA, I_close=0.7949 kA
+Bus 3: breaker CLOSE (line 4) | I_line=nan kA, I_close=0.7949 kA
+Bus 4: breaker OPEN (line 10) | I_line=nan kA, I_open=1.5061 kA
+Bus 5: breaker CLOSE (line 9) | I_line=nan kA, I_close=1.4308 kA
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+Load flow gagal
+Bus 1: breaker CLOSE (line 0) | I_line=nan kA, I_close=0.9539 kA
+Bus 2: breaker CLOSE (line 2) | I_line=nan kA, I_close=0.7949 kA
+Bus 3: breaker CLOSE (line 4) | I_line=nan kA, I_close=0.7949 kA
+Bus 4: breaker OPEN (line 10) | I_line=nan kA, I_open=1.5061 kA
+Bus 5: breaker CLOSE (line 9) | I_line=nan kA, I_close=1.4308 kA
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+Load flow gagal
+Bus 1: breaker CLOSE (line 0) | I_line=nan kA, I_close=0.9539 kA
+Bus 2: breaker CLOSE (line 2) | I_line=nan kA, I_close=0.7949 kA
+Bus 3: breaker CLOSE (line 4) | I_line=nan kA, I_close=0.7949 kA
+Bus 4: breaker OPEN (line 10) | I_line=nan kA, I_open=1.5061 kA
+Bus 5: breaker CLOSE (line 9) | I_line=nan kA, I_close=1.4308 kA
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+Load flow gagal
+Bus 1: breaker CLOSE (line 0) | I_line=nan kA, I_close=0.9539 kA
+Bus 2: breaker CLOSE (line 2) | I_line=nan kA, I_close=0.7949 kA
+Bus 3: breaker CLOSE (line 4) | I_line=nan kA, I_close=0.7949 kA
+Bus 4: breaker OPEN (line 10) | I_line=nan kA, I_open=1.5061 kA
+Bus 5: breaker CLOSE (line 9) | I_line=nan kA, I_close=1.4308 kA
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+Load flow gagal
+Bus 1: breaker CLOSE (line 0) | I_line=nan kA, I_close=0.9539 kA
+Bus 2: breaker CLOSE (line 2) | I_line=nan kA, I_close=0.7949 kA
+Bus 3: breaker CLOSE (line 4) | I_line=nan kA, I_close=0.7949 kA
+Bus 4: breaker OPEN (line 10) | I_line=nan kA, I_open=1.5061 kA
+Bus 5: breaker CLOSE (line 9) | I_line=nan kA, I_close=1.4308 kA
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+Load flow gagal
+Bus 1: breaker CLOSE (line 0) | I_line=nan kA, I_close=0.9539 kA
+Bus 2: breaker CLOSE (line 2) | I_line=nan kA, I_close=0.7949 kA
+Bus 3: breaker CLOSE (line 4) | I_line=nan kA, I_close=0.7949 kA
+Bus 4: breaker OPEN (line 10) | I_line=nan kA, I_open=1.5061 kA
+Bus 5: breaker CLOSE (line 9) | I_line=nan kA, I_close=1.4308 kA
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+Load flow gagal
+Bus 1: breaker CLOSE (line 0) | I_line=nan kA, I_close=0.9539 kA
+Bus 2: breaker CLOSE (line 2) | I_line=nan kA, I_close=0.7949 kA
+Bus 3: breaker CLOSE (line 4) | I_line=nan kA, I_close=0.7949 kA
+Bus 4: breaker OPEN (line 10) | I_line=nan kA, I_open=1.5061 kA
+Bus 5: breaker CLOSE (line 9) | I_line=nan kA, I_close=1.4308 kA
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+Load flow gagal
+Bus 1: breaker CLOSE (line 0) | I_line=nan kA, I_close=0.9539 kA
+Bus 2: breaker CLOSE (line 2) | I_line=nan kA, I_close=0.7949 kA
+Bus 3: breaker CLOSE (line 4) | I_line=nan kA, I_close=0.7949 kA
+Bus 4: breaker OPEN (line 10) | I_line=nan kA, I_open=1.5061 kA
+Bus 5: breaker CLOSE (line 9) | I_line=nan kA, I_close=1.4308 kA
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+Load flow gagal
+Bus 1: breaker CLOSE (line 0) | I_line=nan kA, I_close=0.9539 kA
+Bus 2: breaker CLOSE (line 2) | I_line=nan kA, I_close=0.7949 kA
+Bus 3: breaker CLOSE (line 4) | I_line=nan kA, I_close=0.7949 kA
+Bus 4: breaker OPEN (line 10) | I_line=nan kA, I_open=1.5061 kA
+Bus 5: breaker CLOSE (line 9) | I_line=nan kA, I_close=1.4308 kA
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+Load flow gagal
+Bus 1: breaker CLOSE (line 0) | I_line=nan kA, I_close=0.9539 kA
+Bus 2: breaker CLOSE (line 2) | I_line=nan kA, I_close=0.7949 kA
+Bus 3: breaker CLOSE (line 4) | I_line=nan kA, I_close=0.7949 kA
+Bus 4: breaker OPEN (line 10) | I_line=nan kA, I_open=1.5061 kA
+Bus 5: breaker CLOSE (line 9) | I_line=nan kA, I_close=1.4308 kA
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+Load flow gagal
+Bus 1: breaker CLOSE (line 0) | I_line=nan kA, I_close=0.9539 kA
+Bus 2: breaker CLOSE (line 2) | I_line=nan kA, I_close=0.7949 kA
+Bus 3: breaker CLOSE (line 4) | I_line=nan kA, I_close=0.7949 kA
+Bus 4: breaker OPEN (line 10) | I_line=nan kA, I_open=1.5061 kA
+Bus 5: breaker CLOSE (line 9) | I_line=nan kA, I_close=1.4308 kA
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+Load flow gagal
+Bus 1: breaker CLOSE (line 0) | I_line=nan kA, I_close=0.9539 kA
+Bus 2: breaker CLOSE (line 2) | I_line=nan kA, I_close=0.7949 kA
+Bus 3: breaker CLOSE (line 4) | I_line=nan kA, I_close=0.7949 kA
+Bus 4: breaker OPEN (line 10) | I_line=nan kA, I_open=1.5061 kA
+Bus 5: breaker CLOSE (line 9) | I_line=nan kA, I_close=1.4308 kA
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+Load flow gagal
+Bus 1: breaker CLOSE (line 0) | I_line=nan kA, I_close=0.9539 kA
+Bus 2: breaker CLOSE (line 2) | I_line=nan kA, I_close=0.7949 kA
+Bus 3: breaker CLOSE (line 4) | I_line=nan kA, I_close=0.7949 kA
+Bus 4: breaker OPEN (line 10) | I_line=nan kA, I_open=1.5061 kA
+Bus 5: breaker CLOSE (line 9) | I_line=nan kA, I_close=1.4308 kA
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+Load flow gagal
+Bus 1: breaker CLOSE (line 0) | I_line=nan kA, I_close=0.9539 kA
+Bus 2: breaker CLOSE (line 2) | I_line=nan kA, I_close=0.7949 kA
+Bus 3: breaker CLOSE (line 4) | I_line=nan kA, I_close=0.7949 kA
+Bus 4: breaker OPEN (line 10) | I_line=nan kA, I_open=1.5061 kA
+Bus 5: breaker CLOSE (line 9) | I_line=nan kA, I_close=1.4308 kA
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+Load flow gagal
+Bus 1: breaker CLOSE (line 0) | I_line=nan kA, I_close=0.9539 kA
+Bus 2: breaker CLOSE (line 2) | I_line=nan kA, I_close=0.7949 kA
+Bus 3: breaker CLOSE (line 4) | I_line=nan kA, I_close=0.7949 kA
+Bus 4: breaker OPEN (line 10) | I_line=nan kA, I_open=1.5061 kA
+Bus 5: breaker CLOSE (line 9) | I_line=nan kA, I_close=1.4308 kA
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+Load flow gagal
+Bus 1: breaker CLOSE (line 0) | I_line=nan kA, I_close=0.9539 kA
+Bus 2: breaker CLOSE (line 2) | I_line=nan kA, I_close=0.7949 kA
+Bus 3: breaker CLOSE (line 4) | I_line=nan kA, I_close=0.7949 kA
+Bus 4: breaker OPEN (line 10) | I_line=nan kA, I_open=1.5061 kA
+Bus 5: breaker CLOSE (line 9) | I_line=nan kA, I_close=1.4308 kA
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+Load flow gagal
+Bus 1: breaker CLOSE (line 0) | I_line=nan kA, I_close=0.9539 kA
+Bus 2: breaker CLOSE (line 2) | I_line=nan kA, I_close=0.7949 kA
+Bus 3: breaker CLOSE (line 4) | I_line=nan kA, I_close=0.7949 kA
+Bus 4: breaker OPEN (line 10) | I_line=nan kA, I_open=1.5061 kA
+Bus 5: breaker CLOSE (line 9) | I_line=nan kA, I_close=1.4308 kA

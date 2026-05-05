@@ -1,6 +1,7 @@
 import os
 import sys
 from datetime import datetime
+from typing import Optional
 
 DEFAULT_RTU_NAME = "h2"
 DEFAULT_GATEWAY_NAME = "h3"
@@ -22,10 +23,9 @@ def _new_run_id():
     return datetime.now().strftime("%Y%m%d_%H%M%S")
 
 
-def _resolve_host_log(attacker_name: str, host_log_dir: str | None = None) -> str:
+def _resolve_host_log(attacker_name: str, host_log_dir: Optional[str] = None) -> str:
     base = host_log_dir or os.path.join(BASE_DIR, "logs", "host")
     return os.path.join(base, f"{attacker_name}.log")
-
 
 def _iptables_dnat_modbus(attacker, attacker_name: str, gateway_ip: str, enable: bool):
     eth1 = f"{attacker_name}-eth1"
