@@ -27,6 +27,7 @@ def _resolve_host_log(attacker_name: str, host_log_dir: Optional[str] = None) ->
     base = host_log_dir or os.path.join(BASE_DIR, "logs", "host")
     return os.path.join(base, f"{attacker_name}.log")
 
+
 def _iptables_dnat_modbus(attacker, attacker_name: str, gateway_ip: str, enable: bool):
     eth1 = f"{attacker_name}-eth1"
     dest = f"{ATTACKER_FIELD_IP}:{MITM_PROXY_PORT}"
