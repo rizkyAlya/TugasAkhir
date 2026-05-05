@@ -136,7 +136,7 @@ def run_dos_attack(net, mode="light", host_log_dir=None):
         )
         h5.cmd(f"echo '[DOS][LIGHT][SYN] start pps~1000 duration=45s' >> {host_log_q}")
         h5.cmd(
-            f"bash -lc 'timeout 45s hping3 -S -q -p {target_port} -d 64 -i u1000 --rand-source {target_ip} >> {host_log_q} 2>&1 &'"
+            f"bash -lc 'timeout 45s hping3 -S -q -p {target_port} -d 64 --rand-source {target_ip} >> {host_log_q} 2>&1 &'"
         )
 
 
