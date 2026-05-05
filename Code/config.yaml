@@ -29,15 +29,3 @@ topology:
 
 network:
   bandwidth: 5
-
-# Parameter MITM / proxy Modbus (digabungkan ke default di generator.py).
-mitm:
-  random_seed: 424242
-  attacker_field_ip: 10.0.1.100
-  proxy_listen_port: 50201
-  modbus_port: 5020
-  i_base_addr: 10
-  i_scale: 50
-  num_bus: 5
-  i_inject_min_a: 1800.0
-  i_inject_max_a: 2600.0

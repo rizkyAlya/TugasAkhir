@@ -1,4 +1,7 @@
-# Di-generate dari config.yaml + topology (jangan edit manual; jalankan generator.py).
+"""
+Proxy Modbus TCP (hardcoded) untuk skenario MITM penelitian.
+Tidak di-generate dari template; edit konstanta di sini jika topology/IP berubah.
+"""
 from __future__ import annotations
 
 import os
@@ -10,15 +13,15 @@ import threading
 import time
 from typing import Optional
 
-GATEWAY_IP = "{{ hosts_by_role['gateway'][0].ip }}"
-MODBUS_PORT = {{ mitm.modbus_port }}
-MITM_PROXY_PORT = {{ mitm.proxy_listen_port }}
-MITM_FIXED_SEED = {{ mitm.random_seed }}
-I_BASE_ADDR = {{ mitm.i_base_addr }}
-I_SCALE = {{ mitm.i_scale }}
-NUM_BUS = {{ mitm.num_bus }}
-I_INJECT_MIN_A = {{ mitm.i_inject_min_a }}
-I_INJECT_MAX_A = {{ mitm.i_inject_max_a }}
+GATEWAY_IP = "10.0.2.2"
+MODBUS_PORT = 5020
+MITM_PROXY_PORT = 50201
+MITM_FIXED_SEED = 424242
+I_BASE_ADDR = 10
+I_SCALE = 50
+NUM_BUS = 5
+I_INJECT_MIN_A = 1800.0
+I_INJECT_MAX_A = 2600.0
 RUN_ID_FILE = "/tmp/mitm_run_id"
 
 BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
@@ -87,7 +90,7 @@ def _mangle_client_to_server(frame: bytes) -> bytes:
             bus = addr - I_BASE_ADDR + 1
             _log_mitm_proxy_i(bus, i_orig, new_val / I_SCALE, addr)
             print(
-                f"[mitm-proxy] FC06 I mangle bus={bus} addr={addr} {i_orig:.3f}A -> {new_val / I_SCALE:.3f}A",
+                f"[modbus-proxy] FC06 I mangle bus={bus} addr={addr} {i_orig:.3f}A -> {new_val / I_SCALE:.3f}A",
                 flush=True,
             )
     elif fc == 0x10 and len(pdu) >= 6:
@@ -108,7 +111,7 @@ def _mangle_client_to_server(frame: bytes) -> bytes:
                 bus = addr - I_BASE_ADDR + 1
                 _log_mitm_proxy_i(bus, i_orig, new_val / I_SCALE, addr)
                 print(
-                    f"[mitm-proxy] FC16 I mangle bus={bus} addr={addr} {i_orig:.3f}A -> {new_val / I_SCALE:.3f}A",
+                    f"[modbus-proxy] FC16 I mangle bus={bus} addr={addr} {i_orig:.3f}A -> {new_val / I_SCALE:.3f}A",
                     flush=True,
                 )
 
@@ -158,7 +161,7 @@ def _mitm_client_handler(client: socket.socket, _addr):
         client.settimeout(None)
         _relay_pair(client, upstream)
     except Exception as e:
-        print(f"[mitm-proxy] upstream error: {e}", flush=True)
+        print(f"[modbus-proxy] upstream error: {e}", flush=True)
         try:
             client.close()
         except OSError:
@@ -173,7 +176,7 @@ def main():
     ls.bind(("0.0.0.0", MITM_PROXY_PORT))
     ls.listen(32)
     print(
-        f"[mitm-proxy] listen 0.0.0.0:{MITM_PROXY_PORT} -> {GATEWAY_IP}:{MODBUS_PORT} "
+        f"[modbus-proxy] listen 0.0.0.0:{MITM_PROXY_PORT} -> {GATEWAY_IP}:{MODBUS_PORT} "
         f"I regs {I_BASE_ADDR}..{I_BASE_ADDR + NUM_BUS - 1} fixed_seed={MITM_FIXED_SEED}",
         flush=True,
     )
@@ -182,7 +185,7 @@ def main():
             c, addr = ls.accept()
             threading.Thread(target=_mitm_client_handler, args=(c, addr), daemon=True).start()
         except Exception as e:
-            print(f"[mitm-proxy] accept error: {e}", flush=True)
+            print(f"[modbus-proxy] accept error: {e}", flush=True)
             time.sleep(0.5)
 
 

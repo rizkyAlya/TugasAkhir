@@ -11,10 +11,11 @@ BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
 
 {% set _gwp = hosts_by_role['gateway'][0].ip.split('.') %}
 CONTROL_SUBNET = "{{ _gwp[0] }}.{{ _gwp[1] }}.{{ _gwp[2] }}.0/24"
-ATTACKER_FIELD_IP = "{{ mitm.attacker_field_ip }}"
-MITM_FIXED_SEED = {{ mitm.random_seed }}
-MODBUS_PORT = {{ mitm.modbus_port }}
-MITM_PROXY_PORT = {{ mitm.proxy_listen_port }}
+# Harus sama dengan escalate_attacker_to_field di topology.j2 (bukan output generator).
+ATTACKER_FIELD_IP = "10.0.1.100"
+MITM_FIXED_SEED = 424242
+MODBUS_PORT = 5020
+MITM_PROXY_PORT = 50201
 
 
 def _new_run_id():
@@ -46,11 +47,11 @@ def _iptables_dnat_modbus(attacker, attacker_name: str, gateway_ip: str, enable:
 
 
 def _run_mitm_proxy_entrypoint():
-    """Muat proxy yang di-generate ke script/mitm/ (bukan script/apps/)."""
+    """Modbus proxy statis: Code/script/mitm/modbus_proxy.py (bukan hasil template)."""
     import importlib.util
 
-    path = os.path.join(BASE_DIR, "script", "mitm", "mitm_modbus_proxy.py")
-    spec = importlib.util.spec_from_file_location("mitm_modbus_proxy", path)
+    path = os.path.join(BASE_DIR, "script", "mitm", "modbus_proxy.py")
+    spec = importlib.util.spec_from_file_location("modbus_proxy", path)
     mod = importlib.util.module_from_spec(spec)
     assert spec.loader is not None
     spec.loader.exec_module(mod)
@@ -65,7 +66,7 @@ def run_mitm_attack(
 ):
     """
     L3: RTU arahkan subnet kontrol via Field attacker + ip_forward.
-    Modbus ke gateway di-DNAT ke mitm_modbus_proxy (ubah I pada FC06/FC16).
+    Modbus ke gateway di-DNAT ke modbus_proxy (ubah I pada FC06/FC16).
     """
     print("Running MITM (route + DNAT Modbus proxy + fixed-seed false I)...")
     attacker = net.get(attacker_name)
