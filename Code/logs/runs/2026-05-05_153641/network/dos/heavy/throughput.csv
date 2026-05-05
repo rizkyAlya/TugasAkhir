@@ -1,0 +1,3 @@
+timestamp,run,layer,source,destination,throughput_Mbps,status,error
+2026-05-05 15:39:31.581672,1,field,h2,h3,0.0,failed_retry_3,parse_failed
+2026-05-05 15:39:55.378751,1,system,h3,h4,0.0,failed_retry_3,parse_failed
