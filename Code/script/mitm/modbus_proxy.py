@@ -20,8 +20,10 @@ MITM_FIXED_SEED = 424242
 I_BASE_ADDR = 10
 I_SCALE = 50
 NUM_BUS = 5
-I_INJECT_MIN_A = 1800.0
-I_INJECT_MAX_A = 2600.0
+# Holding 16-bit: nilai register <= 65535  =>  I_amp <= 65535 / I_SCALE (~1310.7 A di scale 50).
+# Batas di bawah ini; _fake_i_register_value() juga mem-clamp ke rentang aman.
+I_INJECT_MIN_A = 900.0
+I_INJECT_MAX_A = 1280.0
 RUN_ID_FILE = "/tmp/mitm_run_id"
 
 BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
@@ -30,6 +32,9 @@ MITM_TRACE_CSV = os.path.join(MITM_LOG_DIR, "mitm_trace.csv")
 
 sys.path.append(BASE_DIR)
 from logger.mitm_trace_logger import ensure_trace_csv, append_trace_row, now_ts, get_run_id  # noqa: E402
+
+# Kunci RNG: beberapa koneksi TCP paralel tidak merusak state random global.
+_rng_lock = threading.Lock()
 
 
 def _log_mitm_proxy_i(bus: int, i_orig: float, i_new: float, addr: int):
@@ -64,9 +69,18 @@ def _pop_modbus_tcp_frame(buf: bytearray) -> Optional[bytes]:
 
 
 def _fake_i_register_value() -> int:
-    i_amp = random.uniform(I_INJECT_MIN_A, I_INJECT_MAX_A)
+    """Satu nilai acak per panggilan; urutan tetap per run karena random.seed di main()."""
+    reg_max = 65535
+    amp_max = reg_max / float(I_SCALE)
+    lo = max(0.0, min(I_INJECT_MIN_A, amp_max))
+    hi = max(lo, min(I_INJECT_MAX_A, amp_max))
+    with _rng_lock:
+        if hi <= lo:
+            i_amp = amp_max
+        else:
+            i_amp = random.uniform(lo, hi)
     val = int(round(i_amp * I_SCALE))
-    return min(65535, max(0, val))
+    return min(reg_max, max(0, val))
 
 
 def _mangle_client_to_server(frame: bytes) -> bytes:
