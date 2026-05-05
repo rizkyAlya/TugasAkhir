@@ -25,9 +25,9 @@ I_INJECT_MIN_A = 1800.0
 I_INJECT_MAX_A = 2200.0
 # Mekanisme realistis: manipulasi hanya aktif pada jendela waktu tertentu,
 # lalu masih disaring probabilitas per-write.
-ATTACK_ON_SECONDS = 8.0
-ATTACK_OFF_SECONDS = 12.0
-MODIFY_PROBABILITY = 0.55
+ATTACK_ON_SECONDS = 10.0
+ATTACK_OFF_SECONDS = 4.0
+MODIFY_PROBABILITY = 0.6
 RUN_ID_FILE = "/tmp/mitm_run_id"
 
 BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
