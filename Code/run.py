@@ -5,6 +5,7 @@ import argparse
 import importlib.util
 import json
 import shlex
+import yaml
 from datetime import datetime
 
 from mininet.cli import CLI
@@ -16,6 +17,7 @@ OUTPUT_DIR = os.path.join(BASE_DIR, "script")
 APPS_DIR = os.path.join(OUTPUT_DIR, "apps")
 HOST_LOG_DIR = os.path.join(BASE_DIR, "logs", "host")
 TOPOLOGY_PATH = os.path.join(OUTPUT_DIR, "topology.py")
+CONFIG_PATH = os.path.join(BASE_DIR, "config.yaml")
 ATTACK_ACTIVE_FLAG = "/tmp/mitm_attack_active"
 MITM_RUN_ID_FILE = "/tmp/mitm_run_id"
 
@@ -79,6 +81,34 @@ def load_app_map():
             return json.load(f)
     except Exception:
         return {}
+
+
+def load_start_order_from_config(config_path=CONFIG_PATH):
+    """
+    Ambil urutan startup host dari config berdasarkan role:
+    field -> gateway -> rtu -> pandapower.
+    """
+    role_order = ("field", "gateway", "rtu", "pandapower")
+    try:
+        with open(config_path, "r", encoding="utf-8") as f:
+            cfg = yaml.safe_load(f) or {}
+        zones = cfg.get("topology", {}).get("zones", {})
+        hosts = []
+        for zone in zones.values():
+            hosts.extend(zone.get("hosts", []))
+        by_role = {role: [] for role in role_order}
+        for h in hosts:
+            name = h.get("name")
+            role = h.get("role")
+            if name and role in by_role:
+                by_role[role].append(name)
+        ordered = []
+        for role in role_order:
+            ordered.extend(by_role[role])
+        return ordered
+    except Exception:
+        return []
+
 
 def load_topology_module():
     if not os.path.exists(TOPOLOGY_PATH):
@@ -147,12 +177,8 @@ def start_apps(net, host_log_dir):
         host.cmd(f"python3 -u {app_path} > {log_file} 2>&1 &")
         print(f" {name} started ({app_filename})")
 
-    # Ensure critical app order:
-    # - start h1 and h3 first
-    # - then h2
-    # - then h4
-    # This improves chance that h2 can establish connections to both sides.
-    order = ["h1", "h3", "h2", "h4"]
+    # Priority order mengikuti config role: field -> gateway -> rtu -> pandapower.
+    order = load_start_order_from_config()
     started = set()
 
     for name in order:
