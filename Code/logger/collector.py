@@ -11,6 +11,7 @@ IPERF_PORT = 5001
 IPERF_DURATION_S = 5
 IPERF_CONNECT_TIMEOUT_S = 8
 IPERF_MAX_RETRIES = 3
+IPERF_ERROR_TAIL_CHARS = 220
 
 base_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 DEFAULT_CONFIG_PATH = os.path.join(base_dir, "config.yaml")
@@ -63,6 +64,25 @@ def _unified_run_root(logs_path):
         return False
     parent = os.path.basename(os.path.dirname(os.path.abspath(logs_path)))
     return parent == "runs"
+
+
+def _extract_throughput_mbps(output: str):
+    """
+    Parse throughput dari output iperf2/iperf3 teks.
+    Return float Mbps atau None jika tidak ada match valid.
+    """
+    # Contoh: "4.95 Mbits/sec", "980 Kbits/sec", "1.2 Gbits/sec"
+    matches = re.findall(r'(\d+(?:\.\d+)?)\s*([KMG])bits/sec', output, flags=re.IGNORECASE)
+    if not matches:
+        return None
+    value_s, unit = matches[-1]
+    value = float(value_s)
+    u = unit.upper()
+    if u == "K":
+        return value / 1000.0
+    if u == "G":
+        return value * 1000.0
+    return value
 
 
 def collect_data(net, mode="baseline", logs_path=None, config_path=None):
@@ -192,6 +212,7 @@ def collect_data(net, mode="baseline", logs_path=None, config_path=None):
             "throughput_Mbps",
             "status",
             "error",
+            "raw_output_tail",
         ])
 
         th_summary = {}
@@ -207,6 +228,7 @@ def collect_data(net, mode="baseline", logs_path=None, config_path=None):
                 throughput = 0.0
                 status = "failed"
                 error = "parse_failed"
+                output_tail = ""
 
                 for attempt in range(1, IPERF_MAX_RETRIES + 1):
                     net.get(server_host).cmd("killall -9 iperf >/dev/null 2>&1 || true")
@@ -216,25 +238,17 @@ def collect_data(net, mode="baseline", logs_path=None, config_path=None):
                     output = net.get(host).cmd(
                         f"timeout {IPERF_CONNECT_TIMEOUT_S}s iperf -c {dest_ip} -p {IPERF_PORT} -t {IPERF_DURATION_S}"
                     )
+                    output_tail = (output or "").strip()[-IPERF_ERROR_TAIL_CHARS:]
 
-                    parsed = False
-                    for line in output.split("\n"):
-                        if "Mbits/sec" in line and "sec" in line:
-                            parts = line.split()
-                            try:
-                                throughput = float(parts[-2])
-                                status = "ok"
-                                error = ""
-                                th_summary[(layer, host, dest_host)].append(throughput)
-                                parsed = True
-                                break
-                            except Exception:
-                                continue
-
-                    if parsed:
+                    parsed_value = _extract_throughput_mbps(output or "")
+                    if parsed_value is not None:
+                        throughput = parsed_value
+                        status = "ok"
+                        error = ""
+                        th_summary[(layer, host, dest_host)].append(throughput)
                         break
 
-                    text = output.lower()
+                    text = (output or "").lower()
                     if "timed out" in text or "timeout" in text:
                         error = "timeout"
                     elif "connection refused" in text:
@@ -255,6 +269,7 @@ def collect_data(net, mode="baseline", logs_path=None, config_path=None):
                     round(throughput, 2),
                     "ok" if throughput > 0 else status,
                     error if throughput == 0 else "",
+                    output_tail if throughput == 0 else "",
                 ])
 
                 net.get(server_host).cmd("killall -9 iperf >/dev/null 2>&1 || true")
