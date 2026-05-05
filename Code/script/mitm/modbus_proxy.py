@@ -27,28 +27,39 @@ RUN_ID_FILE = "/tmp/mitm_run_id"
 
 BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
 MITM_LOG_DIR = os.path.join(BASE_DIR, "logs", "mitm")
-MITM_TRACE_CSV = os.path.join(MITM_LOG_DIR, "mitm_trace.csv")
+TRACE_CSV = os.path.join(MITM_LOG_DIR, "trace.csv")
 
 sys.path.append(BASE_DIR)
 from logger.mitm_trace_logger import ensure_trace_csv, append_trace_row, now_ts, get_run_id  # noqa: E402
 
 # Kunci RNG: beberapa koneksi TCP paralel tidak merusak state random global.
 _rng_lock = threading.Lock()
+_trace_lock = threading.Lock()
+_trace_iter = 0
+_v_cache_by_bus = {}
 
 
-def _log_mitm_proxy_i(bus: int, i_orig: float, i_new: float, addr: int):
+def _next_trace_iter() -> int:
+    global _trace_iter
+    with _trace_lock:
+        _trace_iter += 1
+        return _trace_iter
+
+
+def _log_mitm_proxy_i(bus: int, i_orig: float, i_new: float, v_before: Optional[float], v_after: Optional[float]):
+    iter_idx = _next_trace_iter()
     append_trace_row(
-        MITM_TRACE_CSV,
+        TRACE_CSV,
         [
             now_ts(),
-            "mitm_proxy_i",
+            iter_idx,
             get_run_id(),
             bus,
-            "",
+            "" if v_before is None else f"{v_before:.6f}",
+            "" if v_after is None else f"{v_after:.6f}",
             f"{i_orig:.6f}",
-            "",
             f"{i_new:.6f}",
-            f"addr={addr}",
+            "",
             "",
             "",
         ],
@@ -94,6 +105,8 @@ def _mangle_client_to_server(frame: bytes) -> bytes:
 
     if fc == 0x06 and len(pdu) >= 5:
         addr = (pdu[1] << 8) | pdu[2]
+        if 0 <= addr < NUM_BUS:
+            _v_cache_by_bus[addr + 1] = ((pdu[3] << 8) | pdu[4]) / 1000.0
         if I_BASE_ADDR <= addr < I_BASE_ADDR + NUM_BUS:
             old_val = (pdu[3] << 8) | pdu[4]
             i_orig = old_val / I_SCALE
@@ -101,7 +114,8 @@ def _mangle_client_to_server(frame: bytes) -> bytes:
             pdu[3] = (new_val >> 8) & 0xFF
             pdu[4] = new_val & 0xFF
             bus = addr - I_BASE_ADDR + 1
-            _log_mitm_proxy_i(bus, i_orig, new_val / I_SCALE, addr)
+            v_before = _v_cache_by_bus.get(bus)
+            _log_mitm_proxy_i(bus, i_orig, new_val / I_SCALE, v_before, v_before)
             print(
                 f"[modbus-proxy] FC06 I mangle bus={bus} addr={addr} {i_orig:.3f}A -> {new_val / I_SCALE:.3f}A",
                 flush=True,
@@ -114,6 +128,9 @@ def _mangle_client_to_server(frame: bytes) -> bytes:
             return bytes(frame)
         for i in range(count):
             addr = start + i
+            if 0 <= addr < NUM_BUS:
+                lo_v = 6 + 2 * i
+                _v_cache_by_bus[addr + 1] = ((pdu[lo_v] << 8) | pdu[lo_v + 1]) / 1000.0
             if I_BASE_ADDR <= addr < I_BASE_ADDR + NUM_BUS:
                 lo = 6 + 2 * i
                 old_val = (pdu[lo] << 8) | pdu[lo + 1]
@@ -122,7 +139,8 @@ def _mangle_client_to_server(frame: bytes) -> bytes:
                 pdu[lo] = (new_val >> 8) & 0xFF
                 pdu[lo + 1] = new_val & 0xFF
                 bus = addr - I_BASE_ADDR + 1
-                _log_mitm_proxy_i(bus, i_orig, new_val / I_SCALE, addr)
+                v_before = _v_cache_by_bus.get(bus)
+                _log_mitm_proxy_i(bus, i_orig, new_val / I_SCALE, v_before, v_before)
                 print(
                     f"[modbus-proxy] FC16 I mangle bus={bus} addr={addr} {i_orig:.3f}A -> {new_val / I_SCALE:.3f}A",
                     flush=True,
@@ -182,7 +200,7 @@ def _mitm_client_handler(client: socket.socket, _addr):
 
 
 def main():
-    ensure_trace_csv(MITM_TRACE_CSV)
+    ensure_trace_csv(TRACE_CSV)
     random.seed(MITM_FIXED_SEED)
     ls = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     ls.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)

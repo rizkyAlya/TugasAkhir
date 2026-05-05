@@ -28,10 +28,10 @@ TRACE_HEADER = [
     "iterasi_ke",
     "run_id",
     "bus",
-    "v_in",
-    "i_in",
-    "v_out",
-    "i_out",
+    "v_berfore",
+    "v_after",
+    "i_before",
+    "i_after",
     "v_dt",
     "breaker_cmd",
     "breaker_fb",
@@ -67,12 +67,12 @@ def get_phase_label():
 
 def append_trace_row(trace_csv_path, row):
     """
-    row: [timestamp, iterasi_ke, run_id, bus, v_in, i_in, v_out, i_out, v_dt, breaker_cmd, breaker_fb]
+    row: [timestamp, iterasi_ke, run_id, bus, v_berfore, v_after, i_before, i_after, v_dt, breaker_cmd, breaker_fb]
 
-    Unified: logs/runs/<run_id>/trace/<baseline|mitm>/mitm_trace.csv
+    Unified: logs/runs/<run_id>/trace/<baseline|mitm>/trace.csv
     (RUN_ROOT_HOST_FILE menunjuk ke logs/runs/<run_id>).
 
-    Legacy: logs/<baseline|mitm>/<run_key>/mitm_trace.csv dari placeholder trace_csv_path.
+    Legacy: logs/<baseline|mitm>/<run_key>/trace.csv dari placeholder trace_csv_path.
     """
     if len(row) != len(TRACE_HEADER):
         raise ValueError(
@@ -83,7 +83,7 @@ def append_trace_row(trace_csv_path, row):
 
     run_root = read_run_root()
     if run_root:
-        run_trace_csv = os.path.join(run_root, "trace", phase_bucket, "mitm_trace.csv")
+        run_trace_csv = os.path.join(run_root, "trace", phase_bucket, "trace.csv")
         os.makedirs(os.path.dirname(run_trace_csv), exist_ok=True)
     else:
         logs_root = os.path.dirname(os.path.dirname(trace_csv_path))
@@ -97,7 +97,7 @@ def append_trace_row(trace_csv_path, row):
                 run_key = datetime.now().strftime("%Y-%m-%d_%H%M%S")
                 _SESSION_DIR_KEYS[key] = run_key
         run_dir = os.path.join(logs_root, phase_bucket, run_key)
-        run_trace_csv = os.path.join(run_dir, "mitm_trace.csv")
+        run_trace_csv = os.path.join(run_dir, "trace.csv")
         os.makedirs(run_dir, exist_ok=True)
 
     if not os.path.exists(run_trace_csv):

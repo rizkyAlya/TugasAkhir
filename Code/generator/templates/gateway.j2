@@ -72,9 +72,9 @@ Q_GAIN_BY_BUS = {
 # Data V/I hanya dari holding register Modbus (RTU sah atau injeksi penyerang — tanpa autentikasi).
 BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
 MITM_LOG_DIR = os.path.join(BASE_DIR, "logs", "mitm")
-MITM_TRACE_CSV = os.path.join(MITM_LOG_DIR, "mitm_trace.csv")
+TRACE_CSV = os.path.join(MITM_LOG_DIR, "trace.csv")
 sys.path.append(BASE_DIR)
-from logger.mitm_trace_logger import ensure_trace_csv, get_run_id, append_trace_row
+from logger.mitm_trace_logger import ATTACK_FLAG, ensure_trace_csv, get_run_id, append_trace_row
 
 store = ModbusSlaveContext(
     di=ModbusSequentialDataBlock(0, [0] * 100),
@@ -84,7 +84,7 @@ store = ModbusSlaveContext(
 )
 context = ModbusServerContext(slaves=store, single=True)
 
-ensure_trace_csv(MITM_TRACE_CSV)
+ensure_trace_csv(TRACE_CSV)
 
 def start_modbus_server():
     print(f"Memulai Modbus Gateway di {MODBUS_LISTEN_IP}:{MODBUS_PORT}")
@@ -92,9 +92,11 @@ def start_modbus_server():
 
 
 def log_h3_measurement(ts, iterasi_ke, bus, v_in, i_in, v_out, i_out, v_dt, breaker_cmd, breaker_fb):
-    """Satu baris = satu bus per siklus; V/I in/out gateway + V_dt & breaker dari digital twin (h4)."""
+    """Baseline trace dari h3: before=input gateway, after=output gateway."""
+    if os.path.exists(ATTACK_FLAG):
+        return
     append_trace_row(
-        MITM_TRACE_CSV,
+        TRACE_CSV,
         [
             ts,
             iterasi_ke,
