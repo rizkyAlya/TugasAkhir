@@ -4,6 +4,7 @@ import time
 import argparse
 import importlib.util
 import json
+import shlex
 from datetime import datetime
 
 from mininet.cli import CLI
@@ -16,19 +17,46 @@ APPS_DIR = os.path.join(OUTPUT_DIR, "apps")
 HOST_LOG_DIR = os.path.join(BASE_DIR, "logs", "host")
 TOPOLOGY_PATH = os.path.join(OUTPUT_DIR, "topology.py")
 ATTACK_ACTIVE_FLAG = "/tmp/mitm_attack_active"
+MITM_RUN_ID_FILE = "/tmp/mitm_run_id"
 
 sys.path.append(OUTPUT_DIR)
 sys.path.append(BASE_DIR)
 
 from logger.collector import collect_data
+from logger.mitm_trace_logger import RUN_ROOT_HOST_FILE
 
 def reset_attack_flags():
-    for flag_path in (ATTACK_ACTIVE_FLAG,):
+    for flag_path in (ATTACK_ACTIVE_FLAG, MITM_RUN_ID_FILE):
         try:
             if os.path.exists(flag_path):
                 os.remove(flag_path)
         except Exception as e:
             print(f"Warning: failed to remove {flag_path}: {e}")
+
+
+def clear_mininet_mitm_trace_state(net):
+    """
+    Hapus marker MITM dan pointer run root di /tmp setiap host Mininet.
+    """
+    extras = f"{ATTACK_ACTIVE_FLAG} {MITM_RUN_ID_FILE} {RUN_ROOT_HOST_FILE}"
+    for host in net.hosts:
+        try:
+            host.cmd(f"rm -f {extras} 2>/dev/null || true")
+        except Exception:
+            pass
+
+
+def publish_run_root_on_hosts(net, run_root_abs: str):
+    """Tulis path absolut logs/runs/<run_id>/ di setiap host agar trace pakai layout sama."""
+    path = os.path.abspath(run_root_abs)
+    snippet = f"open({repr(RUN_ROOT_HOST_FILE)},'w',encoding='utf-8').write({repr(path)})"
+    arg = shlex.quote(snippet)
+    for host in net.hosts:
+        try:
+            host.cmd(f"python3 -c {arg}")
+        except Exception:
+            pass
+
 
 def load_app_map():
     app_map_path = os.path.join(APPS_DIR, "app_map.json")
@@ -213,10 +241,33 @@ def main():
     # Folder run tetap dibuat untuk skenario apa pun agar output rapi per eksekusi.
     should_create_run_folder = bool(args.baseline or args.mitm or args.dos)
     run_logs_path = None
+    run_id_str = None
     if should_create_run_folder:
-        run_timestamp = datetime.now().strftime("%Y-%m-%d_%H%M%S")
-        run_logs_path = os.path.join(BASE_DIR, "logs", run_timestamp)
+        run_id_str = datetime.now().strftime("%Y-%m-%d_%H%M%S")
+        run_logs_path = os.path.join(BASE_DIR, "logs", "runs", run_id_str)
         os.makedirs(run_logs_path, exist_ok=True)
+        for sub in (
+            os.path.join("network"),
+            os.path.join("trace", "baseline"),
+            os.path.join("trace", "mitm"),
+        ):
+            os.makedirs(os.path.join(run_logs_path, sub), exist_ok=True)
+        meta_path = os.path.join(run_logs_path, "meta.json")
+        with open(meta_path, "w", encoding="utf-8") as f:
+            json.dump(
+                {
+                    "run_id": run_id_str,
+                    "created_at": datetime.now().isoformat(timespec="seconds"),
+                    "modes": {
+                        "baseline": bool(args.baseline),
+                        "mitm": bool(args.mitm),
+                        "dos": bool(args.dos),
+                    },
+                    "collect_delay_s": args.collect_delay if args.baseline else None,
+                },
+                f,
+                indent=2,
+            )
         print(f"Run logs path: {run_logs_path}")
 
     print("\n==============================")
@@ -238,6 +289,11 @@ def main():
 
     print("Waiting for stabilization...")
     time.sleep(3)
+
+    clear_mininet_mitm_trace_state(net)
+
+    if run_logs_path:
+        publish_run_root_on_hosts(net, run_logs_path)
 
     # START APPS
     start_apps(net)

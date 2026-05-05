@@ -22,11 +22,6 @@ def _new_run_id():
     return datetime.now().strftime("%Y%m%d_%H%M%S")
 
 
-def _write_run_id(run_id):
-    with open(RUN_ID_FILE, "w", encoding="utf-8") as f:
-        f.write(run_id)
-
-
 def _iptables_dnat_modbus(attacker, attacker_name: str, gateway_ip: str, enable: bool):
     eth1 = f"{attacker_name}-eth1"
     dest = f"{ATTACKER_FIELD_IP}:{MITM_PROXY_PORT}"
@@ -84,8 +79,12 @@ def run_mitm_attack(
     attacker.cmd(f"bash -lc ': > \"{host_log_q}\"'")
 
     run_id = _new_run_id()
-    _write_run_id(run_id)
-    attacker.cmd(f"touch {ATTACK_ACTIVE_FLAG}")
+    # Trace gateway (h3) membaca flag & run_id di namespace host ini, bukan di orchestrator/h5.
+    gateway.cmd(
+        f'bash -lc "echo -n {run_id} > {RUN_ID_FILE} && touch {ATTACK_ACTIVE_FLAG}"'
+    )
+    # Proxy Modbus jalan di h5 dan membaca run_id dari /tmp lokal.
+    attacker.cmd(f'bash -lc "echo -n {run_id} > {RUN_ID_FILE}"')
 
     attacker.cmd("bash -lc 'echo 1 > /proc/sys/net/ipv4/ip_forward'")
     attacker.cmd("sysctl -w net.ipv4.conf.all.rp_filter=0 >/dev/null 2>&1 || true")

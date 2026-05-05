@@ -53,15 +53,36 @@ def _resolve_links_from_config(config_path):
     ]
 
 
+def _unified_run_root(logs_path):
+    """True jika logs_path adalah logs/runs/<run_id> (layout orchestrator baru)."""
+    if not logs_path:
+        return False
+    parent = os.path.basename(os.path.dirname(os.path.abspath(logs_path)))
+    return parent == "runs"
+
+
 def collect_data(net, mode="baseline", logs_path=None, config_path=None):
     """
     Collect RTT, packet loss, and throughput data.
-    Saves under logs/[timestamp]/baseline or logs/[timestamp]/dos/<mode> when
-    logs_path is set (path to logs/[timestamp], from datetime). Otherwise uses
-    logs/baseline or logs/dos/<mode> (legacy).
+
+    Unified (logs_path = logs/runs/<run_id>/): menyimpan di
+    logs/runs/<run_id>/network/baseline|mitm|dos/...
+
+    Legacy flat timestamp (logs_path = logs/<timestamp>/): seperti semula,
+    langsung di bawah logs_path tanpa subfolder network/.
+
+    Tanpa logs_path: logs/baseline atau logs/dos/<mode> / logs/<mode>.
     """
     if logs_path:
-        if mode == "baseline":
+        if _unified_run_root(logs_path):
+            net_prefix = os.path.join(logs_path, "network")
+            if mode == "baseline":
+                log_dir = os.path.join(net_prefix, "baseline")
+            elif mode in ("light", "heavy"):
+                log_dir = os.path.join(net_prefix, "dos", mode)
+            else:
+                log_dir = os.path.join(net_prefix, mode)
+        elif mode == "baseline":
             log_dir = os.path.join(logs_path, "baseline")
         elif mode in ("light", "heavy"):
             log_dir = os.path.join(logs_path, "dos", mode)
@@ -69,9 +90,11 @@ def collect_data(net, mode="baseline", logs_path=None, config_path=None):
             log_dir = os.path.join(logs_path, mode)
     else:
         if mode == "baseline":
-            log_dir = os.path.join(base_dir, 'logs', 'baseline')
+            log_dir = os.path.join(base_dir, "logs", "baseline")
+        elif mode in ("light", "heavy"):
+            log_dir = os.path.join(base_dir, "logs", "dos", mode)
         else:
-            log_dir = os.path.join(base_dir, 'logs', 'dos', mode)
+            log_dir = os.path.join(base_dir, "logs", mode)
 
     if config_path is None:
         config_path = DEFAULT_CONFIG_PATH
