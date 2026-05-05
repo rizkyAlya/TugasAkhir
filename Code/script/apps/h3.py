@@ -74,7 +74,13 @@ BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
 MITM_LOG_DIR = os.path.join(BASE_DIR, "logs", "mitm")
 TRACE_CSV = os.path.join(MITM_LOG_DIR, "trace.csv")
 sys.path.append(BASE_DIR)
-from logger.mitm_trace_logger import ATTACK_FLAG, ensure_trace_csv, get_run_id, append_trace_row
+from logger.mitm_trace_logger import (
+    ATTACK_FLAG,
+    append_trace_row,
+    ensure_trace_csv,
+    get_run_id,
+    read_mitm_proxy_snapshot,
+)
 
 store = ModbusSlaveContext(
     di=ModbusSequentialDataBlock(0, [0] * 100),
@@ -92,9 +98,19 @@ def start_modbus_server():
 
 
 def log_h3_measurement(ts, iterasi_ke, bus, v_in, i_in, v_out, i_out, v_dt, breaker_cmd, breaker_fb):
-    """Baseline trace dari h3: before=input gateway, after=output gateway."""
+    """Satu baris per bus per iterasi; baseline/mitm dipilih via ATTACK_FLAG."""
     if os.path.exists(ATTACK_FLAG):
-        return
+        snap = read_mitm_proxy_snapshot(bus) or {}
+        v_before = snap.get("v_before", f"{v_in:.6f}")
+        v_after = snap.get("v_after", f"{v_out:.6f}")
+        i_before = snap.get("i_before", f"{i_in:.6f}")
+        i_after = snap.get("i_after", f"{i_out:.6f}")
+    else:
+        v_before = f"{v_in:.6f}"
+        v_after = f"{v_out:.6f}"
+        i_before = f"{i_in:.6f}"
+        i_after = f"{i_out:.6f}"
+
     append_trace_row(
         TRACE_CSV,
         [
@@ -102,10 +118,10 @@ def log_h3_measurement(ts, iterasi_ke, bus, v_in, i_in, v_out, i_out, v_dt, brea
             iterasi_ke,
             get_run_id(),
             bus,
-            f"{v_in:.6f}",
-            f"{i_in:.6f}",
-            f"{v_out:.6f}",
-            f"{i_out:.6f}",
+            v_before,
+            v_after,
+            i_before,
+            i_after,
             f"{v_dt:.6f}",
             breaker_cmd,
             breaker_fb,

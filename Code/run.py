@@ -25,7 +25,7 @@ sys.path.append(OUTPUT_DIR)
 sys.path.append(BASE_DIR)
 
 from logger.collector import collect_data
-from logger.mitm_trace_logger import RUN_ROOT_HOST_FILE
+from logger.mitm_trace_logger import MITM_PROXY_SNAPSHOT_FILE, RUN_ROOT_HOST_FILE
 
 def reset_attack_flags():
     for flag_path in (ATTACK_ACTIVE_FLAG, MITM_RUN_ID_FILE):
@@ -40,7 +40,7 @@ def clear_mininet_mitm_trace_state(net):
     """
     Hapus marker MITM dan pointer run root di /tmp setiap host Mininet.
     """
-    extras = f"{ATTACK_ACTIVE_FLAG} {MITM_RUN_ID_FILE} {RUN_ROOT_HOST_FILE}"
+    extras = f"{ATTACK_ACTIVE_FLAG} {MITM_RUN_ID_FILE} {RUN_ROOT_HOST_FILE} {MITM_PROXY_SNAPSHOT_FILE}"
     for host in net.hosts:
         try:
             host.cmd(f"rm -f {extras} 2>/dev/null || true")

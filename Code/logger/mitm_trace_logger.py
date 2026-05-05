@@ -1,4 +1,5 @@
 import csv
+import json
 import os
 from datetime import datetime
 
@@ -6,6 +7,7 @@ ATTACK_FLAG = "/tmp/mitm_attack_active"
 RUN_ID_FILE = "/tmp/mitm_run_id"
 # Absolute path ke logs/runs/<run_id>/ ditulis orchestrator di setiap host Mininet.
 RUN_ROOT_HOST_FILE = "/tmp/cyber_range_run_root"
+MITM_PROXY_SNAPSHOT_FILE = "/tmp/mitm_proxy_snapshot.json"
 _SESSION_DIR_KEYS = {}
 
 
@@ -112,3 +114,47 @@ def append_trace_row(trace_csv_path, row):
 
 def now_ts():
     return datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+
+
+def read_mitm_proxy_snapshot(bus: int):
+    """Ambil snapshot latest before/after dari proxy untuk bus tertentu."""
+    try:
+        if not os.path.exists(MITM_PROXY_SNAPSHOT_FILE):
+            return None
+        with open(MITM_PROXY_SNAPSHOT_FILE, "r", encoding="utf-8") as f:
+            data = json.load(f) or {}
+        by_bus = data.get("by_bus", {})
+        item = by_bus.get(str(bus))
+        if not isinstance(item, dict):
+            return None
+        return item
+    except Exception:
+        return None
+
+
+def write_mitm_proxy_snapshot(bus: int, v_before, v_after, i_before, i_after):
+    """Update snapshot before/after dari proxy (shared via filesystem host)."""
+    data = {"by_bus": {}, "updated_at": now_ts()}
+    try:
+        if os.path.exists(MITM_PROXY_SNAPSHOT_FILE):
+            with open(MITM_PROXY_SNAPSHOT_FILE, "r", encoding="utf-8") as f:
+                loaded = json.load(f) or {}
+            if isinstance(loaded, dict):
+                data.update(loaded)
+                if not isinstance(data.get("by_bus"), dict):
+                    data["by_bus"] = {}
+    except Exception:
+        data = {"by_bus": {}, "updated_at": now_ts()}
+
+    data["updated_at"] = now_ts()
+    data["by_bus"][str(bus)] = {
+        "v_before": "" if v_before is None else f"{float(v_before):.6f}",
+        "v_after": "" if v_after is None else f"{float(v_after):.6f}",
+        "i_before": "" if i_before is None else f"{float(i_before):.6f}",
+        "i_after": "" if i_after is None else f"{float(i_after):.6f}",
+    }
+
+    tmp = f"{MITM_PROXY_SNAPSHOT_FILE}.tmp"
+    with open(tmp, "w", encoding="utf-8") as f:
+        json.dump(data, f)
+    os.replace(tmp, MITM_PROXY_SNAPSHOT_FILE)
