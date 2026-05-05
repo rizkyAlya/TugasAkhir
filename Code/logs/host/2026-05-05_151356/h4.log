@@ -1,0 +1,351 @@
+Namespace index: 2
+Field bus -> Pandapower bus mapping: {1: 0, 2: 2, 3: 3, 4: 6, 5: 7}
+Unique bus->line mapping: {1: 0, 2: 2, 3: 4, 4: 10, 5: 9}
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-05 15:14:10
+Load flow sukses. Voltage snapshot (pu): [1.05004136 1.05788632 1.04999957 1.0405164  1.03555679]
+Bus 1: breaker CLOSE (line 0) | I_line=0.2726 kA, I_close=0.9539 kA
+Bus 2: breaker CLOSE (line 2) | I_line=0.4843 kA, I_close=0.7949 kA
+Bus 3: breaker CLOSE (line 4) | I_line=0.4068 kA, I_close=0.7949 kA
+Bus 4: breaker CLOSE (line 10) | I_line=0.1303 kA, I_close=1.4308 kA
+Bus 5: breaker CLOSE (line 9) | I_line=0.0745 kA, I_close=1.4308 kA
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-05 15:14:14
+Load flow sukses. Voltage snapshot (pu): [1.04881513 1.05709894 1.04850484 1.04039846 1.03812441]
+Bus 1: breaker CLOSE (line 0) | I_line=0.2761 kA, I_close=0.9539 kA
+Bus 2: breaker CLOSE (line 2) | I_line=0.4885 kA, I_close=0.7949 kA
+Bus 3: breaker CLOSE (line 4) | I_line=0.3586 kA, I_close=0.7949 kA
+Bus 4: breaker CLOSE (line 10) | I_line=0.0702 kA, I_close=1.4308 kA
+Bus 5: breaker CLOSE (line 9) | I_line=0.0773 kA, I_close=1.4308 kA
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-05 15:14:18
+Load flow sukses. Voltage snapshot (pu): [1.04533204 1.05607439 1.04742757 1.04019028 1.03922187]
+Bus 1: breaker CLOSE (line 0) | I_line=0.3187 kA, I_close=0.9539 kA
+Bus 2: breaker CLOSE (line 2) | I_line=0.4588 kA, I_close=0.7949 kA
+Bus 3: breaker CLOSE (line 4) | I_line=0.3026 kA, I_close=0.7949 kA
+Bus 4: breaker CLOSE (line 10) | I_line=0.0979 kA, I_close=1.4308 kA
+Bus 5: breaker CLOSE (line 9) | I_line=0.1145 kA, I_close=1.4308 kA
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-05 15:14:22
+Load flow sukses. Voltage snapshot (pu): [1.04189733 1.05526073 1.04692481 1.04035288 1.03977761]
+Bus 1: breaker CLOSE (line 0) | I_line=0.3654 kA, I_close=0.9539 kA
+Bus 2: breaker CLOSE (line 2) | I_line=0.4239 kA, I_close=0.7949 kA
+Bus 3: breaker CLOSE (line 4) | I_line=0.2576 kA, I_close=0.7949 kA
+Bus 4: breaker CLOSE (line 10) | I_line=0.1604 kA, I_close=1.4308 kA
+Bus 5: breaker CLOSE (line 9) | I_line=0.1681 kA, I_close=1.4308 kA
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-05 15:14:26
+Load flow sukses. Voltage snapshot (pu): [1.0395862  1.05465482 1.04646008 1.04021949 1.03982486]
+Bus 1: breaker CLOSE (line 0) | I_line=0.3958 kA, I_close=0.9539 kA
+Bus 2: breaker CLOSE (line 2) | I_line=0.4013 kA, I_close=0.7949 kA
+Bus 3: breaker CLOSE (line 4) | I_line=0.2287 kA, I_close=0.7949 kA
+Bus 4: breaker CLOSE (line 10) | I_line=0.2032 kA, I_close=1.4308 kA
+Bus 5: breaker CLOSE (line 9) | I_line=0.2056 kA, I_close=1.4308 kA
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-05 15:14:30
+Load flow sukses. Voltage snapshot (pu): [1.03752538 1.0526195  1.04215673 1.03775252 1.03838097]
+Bus 1: breaker CLOSE (line 0) | I_line=0.3995 kA, I_close=0.9539 kA
+Bus 2: breaker CLOSE (line 2) | I_line=0.4138 kA, I_close=0.7949 kA
+Bus 3: breaker CLOSE (line 4) | I_line=0.1261 kA, I_close=0.7949 kA
+Bus 4: breaker CLOSE (line 10) | I_line=0.3062 kA, I_close=1.4308 kA
+Bus 5: breaker CLOSE (line 9) | I_line=0.2573 kA, I_close=1.4308 kA
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-05 15:14:34
+Load flow sukses. Voltage snapshot (pu): [1.04047729 1.05346495 1.04295781 1.03814182 1.03822982]
+Bus 1: breaker CLOSE (line 0) | I_line=0.3640 kA, I_close=0.9539 kA
+Bus 2: breaker CLOSE (line 2) | I_line=0.4389 kA, I_close=0.7949 kA
+Bus 3: breaker CLOSE (line 4) | I_line=0.1617 kA, I_close=0.7949 kA
+Bus 4: breaker CLOSE (line 10) | I_line=0.2786 kA, I_close=1.4308 kA
+Bus 5: breaker CLOSE (line 9) | I_line=0.2402 kA, I_close=1.4308 kA
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-05 15:14:39
+Load flow sukses. Voltage snapshot (pu): [1.04108924 1.0523845  1.03987819 1.03579318 1.0365738 ]
+Bus 1: breaker CLOSE (line 0) | I_line=0.3378 kA, I_close=0.9539 kA
+Bus 2: breaker CLOSE (line 2) | I_line=0.4705 kA, I_close=0.7949 kA
+Bus 3: breaker CLOSE (line 4) | I_line=0.1145 kA, I_close=0.7949 kA
+Bus 4: breaker CLOSE (line 10) | I_line=0.3354 kA, I_close=1.4308 kA
+Bus 5: breaker CLOSE (line 9) | I_line=0.2579 kA, I_close=1.4308 kA
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-05 15:14:43
+Load flow sukses. Voltage snapshot (pu): [1.03926723 1.0518709  1.03936168 1.03584438 1.03792699]
+Bus 1: breaker CLOSE (line 0) | I_line=0.3559 kA, I_close=0.9539 kA
+Bus 2: breaker CLOSE (line 2) | I_line=0.4589 kA, I_close=0.7949 kA
+Bus 3: breaker CLOSE (line 4) | I_line=0.0911 kA, I_close=0.7949 kA
+Bus 4: breaker CLOSE (line 10) | I_line=0.3013 kA, I_close=1.4308 kA
+Bus 5: breaker CLOSE (line 9) | I_line=0.2365 kA, I_close=1.4308 kA
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-05 15:14:47
+Load flow sukses. Voltage snapshot (pu): [1.03806401 1.05152141 1.03899722 1.03582945 1.03875391]
+Bus 1: breaker CLOSE (line 0) | I_line=0.3677 kA, I_close=0.9539 kA
+Bus 2: breaker CLOSE (line 2) | I_line=0.4514 kA, I_close=0.7949 kA
+Bus 3: breaker CLOSE (line 4) | I_line=0.0763 kA, I_close=0.7949 kA
+Bus 4: breaker CLOSE (line 10) | I_line=0.2795 kA, I_close=1.4308 kA
+Bus 5: breaker CLOSE (line 9) | I_line=0.2230 kA, I_close=1.4308 kA
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-05 15:14:56
+Load flow sukses. Voltage snapshot (pu): [1.03533823 1.05060238 1.03791622 1.03600896 1.03843664]
+Bus 1: breaker CLOSE (line 0) | I_line=0.4001 kA, I_close=0.9539 kA
+Bus 2: breaker CLOSE (line 2) | I_line=0.4303 kA, I_close=0.7949 kA
+Bus 3: breaker CLOSE (line 4) | I_line=0.0347 kA, I_close=0.7949 kA
+Bus 4: breaker CLOSE (line 10) | I_line=0.3238 kA, I_close=1.4308 kA
+Bus 5: breaker CLOSE (line 9) | I_line=0.2486 kA, I_close=1.4308 kA
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-05 15:15:02
+Load flow sukses. Voltage snapshot (pu): [1.03482294 1.05045626 1.03782588 1.03444167 1.03624108]
+Bus 1: breaker CLOSE (line 0) | I_line=0.4123 kA, I_close=0.9539 kA
+Bus 2: breaker CLOSE (line 2) | I_line=0.4196 kA, I_close=0.7949 kA
+Bus 3: breaker CLOSE (line 4) | I_line=0.0505 kA, I_close=0.7949 kA
+Bus 4: breaker CLOSE (line 10) | I_line=0.3846 kA, I_close=1.4308 kA
+Bus 5: breaker CLOSE (line 9) | I_line=0.3004 kA, I_close=1.4308 kA
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-05 15:15:06
+Load flow sukses. Voltage snapshot (pu): [1.03745183 1.05166188 1.03969705 1.03431504 1.03600842]
+Bus 1: breaker CLOSE (line 0) | I_line=0.3875 kA, I_close=0.9539 kA
+Bus 2: breaker CLOSE (line 2) | I_line=0.4310 kA, I_close=0.7949 kA
+Bus 3: breaker CLOSE (line 4) | I_line=0.1154 kA, I_close=0.7949 kA
+Bus 4: breaker CLOSE (line 10) | I_line=0.3679 kA, I_close=1.4308 kA
+Bus 5: breaker CLOSE (line 9) | I_line=0.2747 kA, I_close=1.4308 kA
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-05 15:15:10
+Load flow sukses. Voltage snapshot (pu): [1.03721491 1.05135326 1.03905926 1.03329095 1.03361101]
+Bus 1: breaker CLOSE (line 0) | I_line=0.3936 kA, I_close=0.9539 kA
+Bus 2: breaker CLOSE (line 2) | I_line=0.4275 kA, I_close=0.7949 kA
+Bus 3: breaker CLOSE (line 4) | I_line=0.1082 kA, I_close=0.7949 kA
+Bus 4: breaker CLOSE (line 10) | I_line=0.4483 kA, I_close=1.4308 kA
+Bus 5: breaker CLOSE (line 9) | I_line=0.3330 kA, I_close=1.4308 kA
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-05 15:15:14
+Load flow sukses. Voltage snapshot (pu): [1.03705381 1.05113773 1.03861041 1.03255523 1.0319535 ]
+Bus 1: breaker CLOSE (line 0) | I_line=0.3977 kA, I_close=0.9539 kA
+Bus 2: breaker CLOSE (line 2) | I_line=0.4253 kA, I_close=0.7949 kA
+Bus 3: breaker CLOSE (line 4) | I_line=0.1041 kA, I_close=0.7949 kA
+Bus 4: breaker CLOSE (line 10) | I_line=0.5010 kA, I_close=1.4308 kA
+Bus 5: breaker CLOSE (line 9) | I_line=0.3715 kA, I_close=1.4308 kA
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-05 15:15:18
+Load flow sukses. Voltage snapshot (pu): [1.03980565 1.05114068 1.03728912 1.03263869 1.03287305]
+Bus 1: breaker CLOSE (line 0) | I_line=0.3471 kA, I_close=0.9539 kA
+Bus 2: breaker CLOSE (line 2) | I_line=0.4711 kA, I_close=0.7949 kA
+Bus 3: breaker CLOSE (line 4) | I_line=0.0836 kA, I_close=0.7949 kA
+Bus 4: breaker CLOSE (line 10) | I_line=0.4586 kA, I_close=1.4308 kA
+Bus 5: breaker CLOSE (line 9) | I_line=0.3238 kA, I_close=1.4308 kA
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-05 15:15:22
+Load flow sukses. Voltage snapshot (pu): [1.03874973 1.05076154 1.03679365 1.03334349 1.03357957]
+Bus 1: breaker CLOSE (line 0) | I_line=0.3575 kA, I_close=0.9539 kA
+Bus 2: breaker CLOSE (line 2) | I_line=0.4656 kA, I_close=0.7949 kA
+Bus 3: breaker CLOSE (line 4) | I_line=0.0546 kA, I_close=0.7949 kA
+Bus 4: breaker CLOSE (line 10) | I_line=0.4539 kA, I_close=1.4308 kA
+Bus 5: breaker CLOSE (line 9) | I_line=0.3194 kA, I_close=1.4308 kA
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-05 15:15:26
+Load flow sukses. Voltage snapshot (pu): [1.03766286 1.05113049 1.03825195 1.03491017 1.03502655]
+Bus 1: breaker CLOSE (line 0) | I_line=0.3794 kA, I_close=0.9539 kA
+Bus 2: breaker CLOSE (line 2) | I_line=0.4434 kA, I_close=0.7949 kA
+Bus 3: breaker CLOSE (line 4) | I_line=0.0605 kA, I_close=0.7949 kA
+Bus 4: breaker CLOSE (line 10) | I_line=0.4251 kA, I_close=1.4308 kA
+Bus 5: breaker CLOSE (line 9) | I_line=0.3041 kA, I_close=1.4308 kA
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-05 15:15:34
+Load flow sukses. Voltage snapshot (pu): [1.03692573 1.0507652  1.03764305 1.03562589 1.03583669]
+Bus 1: breaker CLOSE (line 0) | I_line=0.3841 kA, I_close=0.9539 kA
+Bus 2: breaker CLOSE (line 2) | I_line=0.4429 kA, I_close=0.7949 kA
+Bus 3: breaker CLOSE (line 4) | I_line=0.0355 kA, I_close=0.7949 kA
+Bus 4: breaker CLOSE (line 10) | I_line=0.4144 kA, I_close=1.4308 kA
+Bus 5: breaker CLOSE (line 9) | I_line=0.2938 kA, I_close=1.4308 kA
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-05 15:15:39
+Load flow sukses. Voltage snapshot (pu): [1.03646269 1.05067067 1.03761682 1.03594634 1.03626129]
+Bus 1: breaker CLOSE (line 0) | I_line=0.3899 kA, I_close=0.9539 kA
+Bus 2: breaker CLOSE (line 2) | I_line=0.4388 kA, I_close=0.7949 kA
+Bus 3: breaker CLOSE (line 4) | I_line=0.0324 kA, I_close=0.7949 kA
+Bus 4: breaker CLOSE (line 10) | I_line=0.4043 kA, I_close=1.4308 kA
+Bus 5: breaker CLOSE (line 9) | I_line=0.2970 kA, I_close=1.4308 kA
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-05 15:15:43
+Load flow sukses. Voltage snapshot (pu): [1.03619097 1.05178103 1.04063676 1.03732368 1.03735766]
+Bus 1: breaker CLOSE (line 0) | I_line=0.4111 kA, I_close=0.9539 kA
+Bus 2: breaker CLOSE (line 2) | I_line=0.4103 kA, I_close=0.7949 kA
+Bus 3: breaker CLOSE (line 4) | I_line=0.0777 kA, I_close=0.7949 kA
+Bus 4: breaker CLOSE (line 10) | I_line=0.3657 kA, I_close=1.4308 kA
+Bus 5: breaker CLOSE (line 9) | I_line=0.2864 kA, I_close=1.4308 kA
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-05 15:15:48
+Load flow sukses. Voltage snapshot (pu): [1.03797085 1.0512343  1.03834902 1.03518149 1.03664558]
+Bus 1: breaker CLOSE (line 0) | I_line=0.3718 kA, I_close=0.9539 kA
+Bus 2: breaker CLOSE (line 2) | I_line=0.4497 kA, I_close=0.7949 kA
+Bus 3: breaker CLOSE (line 4) | I_line=0.0635 kA, I_close=0.7949 kA
+Bus 4: breaker CLOSE (line 10) | I_line=0.3559 kA, I_close=1.4308 kA
+Bus 5: breaker CLOSE (line 9) | I_line=0.2847 kA, I_close=1.4308 kA
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-05 15:15:52
+Load flow sukses. Voltage snapshot (pu): [1.03558761 1.05166983 1.04064948 1.03663605 1.03714425]
+Bus 1: breaker CLOSE (line 0) | I_line=0.4206 kA, I_close=0.9539 kA
+Bus 2: breaker CLOSE (line 2) | I_line=0.4024 kA, I_close=0.7949 kA
+Bus 3: breaker CLOSE (line 4) | I_line=0.0875 kA, I_close=0.7949 kA
+Bus 4: breaker CLOSE (line 10) | I_line=0.3609 kA, I_close=1.4308 kA
+Bus 5: breaker CLOSE (line 9) | I_line=0.3139 kA, I_close=1.4308 kA
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-05 15:16:00
+Load flow sukses. Voltage snapshot (pu): [1.03443465 1.05194782 1.04195645 1.03715978 1.03687797]
+Bus 1: breaker CLOSE (line 0) | I_line=0.4455 kA, I_close=0.9539 kA
+Bus 2: breaker CLOSE (line 2) | I_line=0.3774 kA, I_close=0.7949 kA
+Bus 3: breaker CLOSE (line 4) | I_line=0.1085 kA, I_close=0.7949 kA
+Bus 4: breaker CLOSE (line 10) | I_line=0.3844 kA, I_close=1.4308 kA
+Bus 5: breaker CLOSE (line 9) | I_line=0.3177 kA, I_close=1.4308 kA
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-05 15:16:07
+Load flow sukses. Voltage snapshot (pu): [1.0336662  1.05068137 1.0390585  1.03392559 1.03362101]
+Bus 1: breaker CLOSE (line 0) | I_line=0.4441 kA, I_close=0.9539 kA
+Bus 2: breaker CLOSE (line 2) | I_line=0.3881 kA, I_close=0.7949 kA
+Bus 3: breaker CLOSE (line 4) | I_line=0.0778 kA, I_close=0.7949 kA
+Bus 4: breaker CLOSE (line 10) | I_line=0.4771 kA, I_close=1.4308 kA
+Bus 5: breaker CLOSE (line 9) | I_line=0.3727 kA, I_close=1.4308 kA
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-05 15:16:12
+Load flow sukses. Voltage snapshot (pu): [1.03715703 1.05160249 1.03972597 1.03604343 1.03604684]
+Bus 1: breaker CLOSE (line 0) | I_line=0.3952 kA, I_close=0.9539 kA
+Bus 2: breaker CLOSE (line 2) | I_line=0.4257 kA, I_close=0.7949 kA
+Bus 3: breaker CLOSE (line 4) | I_line=0.0783 kA, I_close=0.7949 kA
+Bus 4: breaker CLOSE (line 10) | I_line=0.3927 kA, I_close=1.4308 kA
+Bus 5: breaker CLOSE (line 9) | I_line=0.3136 kA, I_close=1.4308 kA
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-05 15:16:16
+Load flow sukses. Voltage snapshot (pu): [1.03587883 1.05113691 1.03912363 1.03413649 1.03509712]
+Bus 1: breaker CLOSE (line 0) | I_line=0.4098 kA, I_close=0.9539 kA
+Bus 2: breaker CLOSE (line 2) | I_line=0.4154 kA, I_close=0.7949 kA
+Bus 3: breaker CLOSE (line 4) | I_line=0.0900 kA, I_close=0.7949 kA
+Bus 4: breaker CLOSE (line 10) | I_line=0.4080 kA, I_close=1.4308 kA
+Bus 5: breaker CLOSE (line 9) | I_line=0.3293 kA, I_close=1.4308 kA
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-05 15:16:21
+Load flow sukses. Voltage snapshot (pu): [1.03503334 1.05081167 1.03868313 1.03279777 1.03435702]
+Bus 1: breaker CLOSE (line 0) | I_line=0.4193 kA, I_close=0.9539 kA
+Bus 2: breaker CLOSE (line 2) | I_line=0.4089 kA, I_close=0.7949 kA
+Bus 3: breaker CLOSE (line 4) | I_line=0.0979 kA, I_close=0.7949 kA
+Bus 4: breaker CLOSE (line 10) | I_line=0.4181 kA, I_close=1.4308 kA
+Bus 5: breaker CLOSE (line 9) | I_line=0.3396 kA, I_close=1.4308 kA
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-05 15:16:25
+Load flow sukses. Voltage snapshot (pu): [1.03710466 1.05078766 1.0376323  1.03357098 1.0344972 ]
+Bus 1: breaker CLOSE (line 0) | I_line=0.3846 kA, I_close=0.9539 kA
+Bus 2: breaker CLOSE (line 2) | I_line=0.4411 kA, I_close=0.7949 kA
+Bus 3: breaker CLOSE (line 4) | I_line=0.0653 kA, I_close=0.7949 kA
+Bus 4: breaker CLOSE (line 10) | I_line=0.4199 kA, I_close=1.4308 kA
+Bus 5: breaker CLOSE (line 9) | I_line=0.3346 kA, I_close=1.4308 kA
