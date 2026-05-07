@@ -18,15 +18,12 @@ MITM_FIXED_SEED = 424242
 MODBUS_PORT = 5020
 MITM_PROXY_PORT = 50201
 
-
 def _new_run_id():
     return datetime.now().strftime("%Y%m%d_%H%M%S")
-
 
 def _resolve_host_log(attacker_name: str, host_log_dir: Optional[str] = None) -> str:
     base = host_log_dir or os.path.join(BASE_DIR, "logs", "host")
     return os.path.join(base, f"{attacker_name}.log")
-
 
 def _iptables_dnat_modbus(attacker, attacker_name: str, gateway_ip: str, enable: bool):
     eth1 = f"{attacker_name}-eth1"
@@ -46,7 +43,6 @@ def _iptables_dnat_modbus(attacker, attacker_name: str, gateway_ip: str, enable:
             f"--dport {MODBUS_PORT} -j DNAT --to-destination {dest} 2>/dev/null || true"
         )
 
-
 def _run_mitm_proxy_entrypoint():
     """Modbus proxy statis: Code/script/mitm/modbus_proxy.py (bukan hasil template)."""
     import importlib.util
@@ -57,7 +53,6 @@ def _run_mitm_proxy_entrypoint():
     assert spec.loader is not None
     spec.loader.exec_module(mod)
     mod.main()
-
 
 def run_mitm_attack(
     net,
@@ -111,7 +106,6 @@ def run_mitm_attack(
         f"L3 MITM: {rtu_name} -> {CONTROL_SUBNET} via {ATTACKER_FIELD_IP}; "
         f"DNAT Modbus -> :{MITM_PROXY_PORT}; fixed_seed={MITM_FIXED_SEED}; log {host_log_q}"
     )
-
 
 def run_dos_attack(net, mode="light", host_log_dir=None):
     h5 = net.get('{{ host.name }}')

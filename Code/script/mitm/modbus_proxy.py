@@ -1,7 +1,3 @@
-"""
-Proxy Modbus TCP (hardcoded) untuk skenario MITM penelitian.
-Tidak di-generate dari template; edit konstanta di sini jika topology/IP berubah.
-"""
 from __future__ import annotations
 
 import os
@@ -41,7 +37,6 @@ from logger.mitm_trace_logger import write_mitm_proxy_snapshot  # noqa: E402
 _rng_lock = threading.Lock()
 _v_cache_by_bus = {}
 
-
 def _should_modify_now() -> bool:
     """
     Kombinasi interval waktu + probabilitas:
@@ -57,10 +52,8 @@ def _should_modify_now() -> bool:
     with _rng_lock:
         return random.random() < MODIFY_PROBABILITY
 
-
 def _log_mitm_proxy_i(bus: int, i_orig: float, i_new: float, v_before: Optional[float], v_after: Optional[float]):
     write_mitm_proxy_snapshot(bus, v_before, v_after, i_orig, i_new)
-
 
 def _pop_modbus_tcp_frame(buf: bytearray) -> Optional[bytes]:
     if len(buf) < 6:
@@ -72,7 +65,6 @@ def _pop_modbus_tcp_frame(buf: bytearray) -> Optional[bytes]:
     frame = bytes(buf[:need])
     del buf[:need]
     return frame
-
 
 def _fake_i_register_value() -> int:
     """Satu nilai acak per panggilan; urutan tetap per run karena random.seed di main()."""
@@ -87,7 +79,6 @@ def _fake_i_register_value() -> int:
             i_amp = random.uniform(lo, hi)
     val = int(round(i_amp * I_SCALE))
     return min(reg_max, max(0, val))
-
 
 def _mangle_client_to_server(frame: bytes) -> bytes:
     if len(frame) < 8:
@@ -154,7 +145,6 @@ def _mangle_client_to_server(frame: bytes) -> bytes:
     mbap = frame[:4] + new_len.to_bytes(2, "big") + bytes([unit])
     return mbap + bytes(pdu)
 
-
 def _relay_pair(client: socket.socket, upstream: socket.socket):
     cbuf = bytearray()
     try:
@@ -188,7 +178,6 @@ def _relay_pair(client: socket.socket, upstream: socket.socket):
             except OSError:
                 pass
 
-
 def _mitm_client_handler(client: socket.socket, _addr):
     try:
         upstream = socket.create_connection((GATEWAY_IP, MODBUS_PORT), timeout=15)
@@ -201,7 +190,6 @@ def _mitm_client_handler(client: socket.socket, _addr):
             client.close()
         except OSError:
             pass
-
 
 def main():
     random.seed(MITM_FIXED_SEED)
@@ -222,7 +210,6 @@ def main():
         except Exception as e:
             print(f"[modbus-proxy] accept error: {e}", flush=True)
             time.sleep(0.5)
-
 
 if __name__ == "__main__":
     main()
