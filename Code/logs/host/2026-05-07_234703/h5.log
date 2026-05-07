@@ -1,0 +1,76 @@
+[DOS][INFO] target=10.0.2.2:5001 at=2026-05-07 23:47:19
+\n===== DoS LIGHT 2026-05-07 23:47:19 =====
+[DOS][LIGHT][UDP] start pps~500 duration=45s
+
+--- 10.0.2.2 hping statistic ---
+5359 packets transmitted, 25 packets received, 100% packet loss
+round-trip min/avg/max = 5.5/28.9/287.8 ms
+HPING 10.0.2.2 (h5-eth0 10.0.2.2): udp mode set, 28 headers + 120 data bytes
+status=0 port=2841 seq=0
+status=0 port=2842 seq=1
+status=0 port=2843 seq=2
+status=0 port=2844 seq=3
+status=0 port=2845 seq=4
+status=0 port=2846 seq=5
+status=0 port=2905 seq=64
+status=0 port=2966 seq=125
+status=0 port=2974 seq=133
+status=0 port=3057 seq=216
+status=0 port=3371 seq=530
+status=0 port=3712 seq=871
+status=0 port=4050 seq=1209
+status=0 port=4386 seq=1545
+status=0 port=4726 seq=1885
+status=0 port=5067 seq=2226
+status=0 port=5409 seq=2568
+status=0 port=5745 seq=2904
+status=0 port=6084 seq=3243
+status=0 port=6421 seq=3580
+status=0 port=6750 seq=3909
+status=0 port=6958 seq=4117
+status=0 port=7200 seq=4359
+status=0 port=7520 seq=4679
+status=0 port=7872 seq=5031
+[DOS][INFO] target=10.0.2.2:5001 at=2026-05-07 23:48:16
+\n===== DoS HEAVY 2026-05-07 23:48:16 =====
+[DOS][HEAVY][UDP] start pps~3000 duration=60s
+
+--- 10.0.2.2 hping statistic ---
+10464 packets transmitted, 35 packets received, 100% packet loss
+round-trip min/avg/max = 3.4/12.2/46.6 ms
+HPING 10.0.2.2 (h5-eth0 10.0.2.2): udp mode set, 28 headers + 120 data bytes
+status=0 port=1510 seq=0
+status=0 port=1511 seq=1
+status=0 port=1512 seq=2
+status=0 port=1513 seq=3
+status=0 port=1514 seq=4
+status=0 port=1515 seq=5
+status=0 port=1886 seq=376
+status=0 port=2139 seq=629
+status=0 port=2541 seq=1031
+status=0 port=2960 seq=1450
+status=0 port=3307 seq=1797
+status=0 port=3667 seq=2157
+status=0 port=3941 seq=2431
+status=0 port=4298 seq=2788
+status=0 port=4690 seq=3180
+status=0 port=5076 seq=3566
+status=0 port=5403 seq=3893
+status=0 port=5683 seq=4173
+status=0 port=6036 seq=4526
+status=0 port=6377 seq=4867
+status=0 port=6695 seq=5185
+status=0 port=7042 seq=5532
+status=0 port=7301 seq=5791
+status=0 port=7654 seq=6144
+status=0 port=8001 seq=6491
+status=0 port=8374 seq=6864
+status=0 port=8731 seq=7221
+status=0 port=9033 seq=7523
+status=0 port=9399 seq=7889
+status=0 port=9740 seq=8230
+status=0 port=10107 seq=8597
+status=0 port=10516 seq=9006
+status=0 port=10896 seq=9386
+status=0 port=11289 seq=9779
+status=0 port=11681 seq=10171

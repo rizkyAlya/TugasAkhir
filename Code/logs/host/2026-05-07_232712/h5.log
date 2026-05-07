@@ -1,0 +1,129 @@
+[DOS][INFO] target=10.0.2.2:5001 at=2026-05-07 23:27:27
+\n===== DoS LIGHT 2026-05-07 23:27:27 =====
+[DOS][LIGHT][UDP] start pps~500 duration=45s
+
+--- 10.0.2.2 hping statistic ---
+48917 packets transmitted, 50 packets received, 100% packet loss
+round-trip min/avg/max = 8.6/47.6/271.1 ms
+HPING 10.0.2.2 (h5-eth0 10.0.2.2): udp mode set, 28 headers + 120 data bytes
+status=0 port=1918 seq=0
+status=0 port=1919 seq=1
+status=0 port=1920 seq=2
+status=0 port=1921 seq=3
+status=0 port=1922 seq=4
+status=0 port=1923 seq=5
+status=0 port=2025 seq=107
+status=0 port=2067 seq=149
+status=0 port=2286 seq=368
+status=0 port=3151 seq=1233
+status=0 port=4244 seq=2326
+status=0 port=5267 seq=3349
+status=0 port=6347 seq=4429
+status=0 port=7340 seq=5422
+status=0 port=8328 seq=6410
+status=0 port=9193 seq=7275
+status=0 port=10234 seq=8316
+status=0 port=11416 seq=9498
+status=0 port=12563 seq=10645
+status=0 port=13781 seq=11863
+status=0 port=15039 seq=13121
+status=0 port=16312 seq=14394
+status=0 port=17546 seq=15628
+status=0 port=18893 seq=16975
+status=0 port=20129 seq=18211
+status=0 port=21126 seq=19208
+status=0 port=22096 seq=20178
+status=0 port=23223 seq=21305
+status=0 port=24463 seq=22545
+status=0 port=25864 seq=23946
+status=0 port=27233 seq=25315
+status=0 port=28267 seq=26349
+status=0 port=29646 seq=27728
+status=0 port=30907 seq=28989
+status=0 port=32196 seq=30278
+status=0 port=33552 seq=31634
+status=0 port=34827 seq=32909
+status=0 port=36266 seq=34348
+status=0 port=37699 seq=35781
+status=0 port=39066 seq=37148
+status=0 port=40074 seq=38156
+status=0 port=41319 seq=39401
+status=0 port=42395 seq=40477
+status=0 port=43513 seq=41595
+status=0 port=44852 seq=42934
+status=0 port=46030 seq=44112
+status=0 port=46874 seq=44956
+status=0 port=48046 seq=46128
+status=0 port=49013 seq=47095
+status=0 port=50171 seq=48253
+[DOS][INFO] target=10.0.2.2:5001 at=2026-05-07 23:28:24
+\n===== DoS HEAVY 2026-05-07 23:28:24 =====
+[DOS][HEAVY][UDP] start pps~3000 duration=60s
+
+--- 10.0.2.2 hping statistic ---
+62713 packets transmitted, 63 packets received, 100% packet loss
+round-trip min/avg/max = 20.3/172.7/362.1 ms
+HPING 10.0.2.2 (h5-eth0 10.0.2.2): udp mode set, 28 headers + 512 data bytes
+status=0 port=1094 seq=0
+status=0 port=1095 seq=1
+status=0 port=1096 seq=2
+status=0 port=1097 seq=3
+status=0 port=1098 seq=4
+status=0 port=1099 seq=5
+status=0 port=2132 seq=1038
+status=0 port=3203 seq=2109
+status=0 port=4225 seq=3131
+status=0 port=5337 seq=4243
+status=0 port=6429 seq=5335
+status=0 port=7534 seq=6440
+status=0 port=8623 seq=7529
+status=0 port=9732 seq=8638
+status=0 port=10814 seq=9720
+status=0 port=11940 seq=10846
+status=0 port=13044 seq=11950
+status=0 port=14168 seq=13074
+status=0 port=15269 seq=14175
+status=0 port=15969 seq=14875
+status=0 port=18084 seq=16990
+status=0 port=19212 seq=18118
+status=0 port=20242 seq=19148
+status=0 port=21169 seq=20075
+status=0 port=22201 seq=21107
+status=0 port=23322 seq=22228
+status=0 port=24354 seq=23260
+status=0 port=25445 seq=24351
+status=0 port=27554 seq=26460
+status=0 port=28429 seq=27335
+status=0 port=29522 seq=28428
+status=0 port=30618 seq=29524
+status=0 port=31735 seq=30641
+status=0 port=32837 seq=31743
+status=0 port=33829 seq=32735
+status=0 port=34926 seq=33832
+status=0 port=36037 seq=34943
+status=0 port=37135 seq=36041
+status=0 port=38246 seq=37152
+status=0 port=39092 seq=37998
+status=0 port=40137 seq=39043
+status=0 port=41241 seq=40147
+status=0 port=42273 seq=41179
+status=0 port=43323 seq=42229
+status=0 port=44424 seq=43330
+status=0 port=45055 seq=43961
+status=0 port=45823 seq=0
+status=0 port=46646 seq=0
+status=0 port=47510 seq=0
+status=0 port=48461 seq=0
+status=0 port=49474 seq=0
+status=0 port=50558 seq=0
+status=0 port=51670 seq=0
+status=0 port=52789 seq=0
+status=0 port=53846 seq=0
+status=0 port=54891 seq=0
+status=0 port=55887 seq=0
+status=0 port=56975 seq=0
+status=0 port=58056 seq=0
+status=0 port=59107 seq=0
+status=0 port=60198 seq=0
+status=0 port=61169 seq=0
+status=0 port=62109 seq=0

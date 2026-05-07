@@ -1,0 +1,75 @@
+[DOS][INFO] target=10.0.2.2:5001 at=2026-05-08 00:02:06
+\n===== DoS LIGHT 2026-05-08 00:02:06 =====
+[DOS][LIGHT][UDP] start pps~500 duration=45s
+
+--- 10.0.2.2 hping statistic ---
+10530 packets transmitted, 25 packets received, 100% packet loss
+round-trip min/avg/max = 3.8/123.4/1131.8 ms
+HPING 10.0.2.2 (h5-eth0 10.0.2.2): udp mode set, 28 headers + 64 data bytes
+status=0 port=3017 seq=0
+status=0 port=3018 seq=1
+status=0 port=3019 seq=2
+status=0 port=3020 seq=3
+status=0 port=3021 seq=4
+status=0 port=3022 seq=5
+status=0 port=3143 seq=126
+status=0 port=3455 seq=438
+status=0 port=4057 seq=1040
+status=0 port=4643 seq=1626
+status=0 port=5216 seq=2199
+status=0 port=5794 seq=2777
+status=0 port=6338 seq=3321
+status=0 port=6890 seq=3873
+status=0 port=7472 seq=4455
+status=0 port=8059 seq=5042
+status=0 port=8641 seq=5624
+status=0 port=9139 seq=6122
+status=0 port=9630 seq=6613
+status=0 port=10231 seq=7214
+status=0 port=10799 seq=7782
+status=0 port=11359 seq=8342
+status=0 port=11940 seq=8923
+status=0 port=12478 seq=9461
+status=0 port=13051 seq=10034
+[DOS][INFO] target=10.0.2.2:5001 at=2026-05-08 00:03:02
+\n===== DoS HEAVY 2026-05-08 00:03:02 =====
+[DOS][HEAVY][UDP] start pps~3000 duration=60s
+
+--- 10.0.2.2 hping statistic ---
+43887 packets transmitted, 34 packets received, 100% packet loss
+round-trip min/avg/max = 4.1/53.5/179.6 ms
+HPING 10.0.2.2 (h5-eth0 10.0.2.2): udp mode set, 28 headers + 256 data bytes
+status=0 port=1797 seq=0
+status=0 port=1798 seq=1
+status=0 port=1799 seq=2
+status=0 port=1800 seq=3
+status=0 port=1801 seq=4
+status=0 port=1802 seq=5
+status=0 port=2832 seq=1035
+status=0 port=4294 seq=2497
+status=0 port=5858 seq=4061
+status=0 port=7404 seq=5607
+status=0 port=8965 seq=7168
+status=0 port=10349 seq=8552
+status=0 port=11886 seq=10089
+status=0 port=13562 seq=11765
+status=0 port=15046 seq=13249
+status=0 port=16663 seq=14866
+status=0 port=17944 seq=16147
+status=0 port=19512 seq=17715
+status=0 port=20821 seq=19024
+status=0 port=21948 seq=20151
+status=0 port=23077 seq=21280
+status=0 port=24524 seq=22727
+status=0 port=25951 seq=24154
+status=0 port=27330 seq=0
+status=0 port=28987 seq=0
+status=0 port=30491 seq=0
+status=0 port=31798 seq=0
+status=0 port=33225 seq=31428
+status=0 port=34378 seq=32581
+status=0 port=35914 seq=0
+status=0 port=37595 seq=0
+status=0 port=38919 seq=0
+status=0 port=40359 seq=0
+status=0 port=41783 seq=0

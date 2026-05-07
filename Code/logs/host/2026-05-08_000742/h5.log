@@ -1,0 +1,75 @@
+[DOS][INFO] target=10.0.2.2:5001 at=2026-05-08 00:07:57
+\n===== DoS LIGHT 2026-05-08 00:07:57 =====
+[DOS][LIGHT][UDP] start pps~500 duration=45s
+[DOS][INFO] target=10.0.2.2:5001 at=2026-05-08 00:08:54
+\n===== DoS HEAVY 2026-05-08 00:08:54 =====
+[DOS][HEAVY][UDP] start pps~3000 duration=60s
+hping3: invalid option -- l
+Try hping3 --help
+
+--- 10.0.2.2 hping statistic ---
+29105 packets transmitted, 62 packets received, 100% packet loss
+round-trip min/avg/max = 3.8/59.3/1290.7 ms
+HPING 10.0.2.2 (h5-eth0 10.0.2.2): udp mode set, 28 headers + 128 data bytes
+status=0 port=1440 seq=0
+status=0 port=1441 seq=1
+status=0 port=1442 seq=2
+status=0 port=1443 seq=3
+status=0 port=1444 seq=4
+status=0 port=1445 seq=5
+status=0 port=1756 seq=316
+status=0 port=1764 seq=324
+status=0 port=2298 seq=858
+status=0 port=2884 seq=1444
+status=0 port=3370 seq=1930
+status=0 port=3927 seq=2487
+status=0 port=4495 seq=3055
+status=0 port=5073 seq=3633
+status=0 port=5644 seq=4204
+status=0 port=6211 seq=4771
+status=0 port=6761 seq=5321
+status=0 port=7350 seq=5910
+status=0 port=7922 seq=6482
+status=0 port=8502 seq=7062
+status=0 port=9075 seq=7635
+status=0 port=9486 seq=8046
+status=0 port=10045 seq=8605
+status=0 port=10623 seq=9183
+status=0 port=11179 seq=9739
+status=0 port=11751 seq=10311
+status=0 port=12279 seq=10839
+status=0 port=12812 seq=11372
+status=0 port=13374 seq=11934
+status=0 port=13941 seq=12501
+status=0 port=14503 seq=13063
+status=0 port=15079 seq=13639
+status=0 port=15409 seq=13969
+status=0 port=15927 seq=14487
+status=0 port=16479 seq=15039
+status=0 port=17045 seq=15605
+status=0 port=17606 seq=16166
+status=0 port=17983 seq=16543
+status=0 port=18506 seq=17066
+status=0 port=19059 seq=17619
+status=0 port=19625 seq=18185
+status=0 port=20164 seq=18724
+status=0 port=20704 seq=19264
+status=0 port=21124 seq=19684
+status=0 port=21641 seq=20201
+status=0 port=22181 seq=20741
+status=0 port=22729 seq=21289
+status=0 port=23264 seq=21824
+status=0 port=23742 seq=22302
+status=0 port=24212 seq=22772
+status=0 port=24670 seq=23230
+status=0 port=25141 seq=23701
+status=0 port=25603 seq=24163
+status=0 port=26066 seq=24626
+status=0 port=26634 seq=25194
+status=0 port=27135 seq=25695
+status=0 port=27667 seq=26227
+status=0 port=28179 seq=26739
+status=0 port=28688 seq=27248
+status=0 port=29119 seq=27679
+status=0 port=29656 seq=28216
+status=0 port=30128 seq=28688

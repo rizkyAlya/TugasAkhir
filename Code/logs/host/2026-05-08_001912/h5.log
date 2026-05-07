@@ -1,0 +1,75 @@
+[DOS][INFO] target=10.0.2.2:5001 at=2026-05-08 00:19:23
+\n===== DoS LIGHT 2026-05-08 00:19:23 =====
+[DOS][LIGHT][UDP] start pps~500 duration=45s
+[DOS][INFO] target=10.0.2.2:5001 at=2026-05-08 00:20:19
+\n===== DoS HEAVY 2026-05-08 00:20:19 =====
+[DOS][HEAVY][UDP] start pps~3000 duration=60s
+
+--- 10.0.2.2 hping statistic ---
+99104 packets transmitted, 61 packets received, 100% packet loss
+round-trip min/avg/max = 3.7/21.2/144.7 ms
+HPING 10.0.2.2 (h5-eth0 10.0.2.2): udp mode set, 28 headers + 128 data bytes
+status=0 port=1611 seq=0
+status=0 port=1612 seq=1
+status=0 port=1613 seq=2
+status=0 port=1614 seq=3
+status=0 port=1615 seq=4
+status=0 port=1616 seq=5
+status=0 port=2480 seq=869
+status=0 port=4783 seq=3172
+status=0 port=6973 seq=5362
+status=0 port=9240 seq=7629
+status=0 port=11511 seq=9900
+status=0 port=13704 seq=12093
+status=0 port=15926 seq=14315
+status=0 port=17943 seq=16332
+status=0 port=20009 seq=18398
+status=0 port=21981 seq=20370
+status=0 port=23892 seq=22281
+status=0 port=25778 seq=24167
+status=0 port=27602 seq=25991
+status=0 port=29417 seq=27806
+status=0 port=31181 seq=29570
+status=0 port=32949 seq=31338
+status=0 port=34656 seq=33045
+status=0 port=36112 seq=34501
+status=0 port=37879 seq=36268
+status=0 port=39690 seq=38079
+status=0 port=41420 seq=39809
+status=0 port=43255 seq=41644
+status=0 port=44854 seq=43243
+status=0 port=46552 seq=44941
+status=0 port=48187 seq=46576
+status=0 port=49840 seq=48229
+status=0 port=51752 seq=50141
+status=0 port=53741 seq=52130
+status=0 port=55119 seq=53508
+status=0 port=56724 seq=55113
+status=0 port=58553 seq=56942
+status=0 port=60588 seq=58977
+status=0 port=62335 seq=60724
+status=0 port=64102 seq=62491
+status=0 port=146 seq=64071
+status=0 port=1767 seq=65692
+status=0 port=3445 seq=67370
+status=0 port=5048 seq=68973
+status=0 port=6621 seq=70546
+status=0 port=8314 seq=72239
+status=0 port=9967 seq=73892
+status=0 port=11433 seq=75358
+status=0 port=12887 seq=0
+status=0 port=14633 seq=0
+status=0 port=16382 seq=0
+status=0 port=18123 seq=0
+status=0 port=19847 seq=0
+status=0 port=22449 seq=86374
+status=0 port=24409 seq=88334
+status=0 port=26082 seq=90007
+status=0 port=27821 seq=91746
+status=0 port=29453 seq=93378
+status=0 port=31143 seq=95068
+status=0 port=32930 seq=96855
+status=0 port=33989 seq=97914
+hping in flood mode, no replies will be shown
+[send_ip] sendto: Network is unreachable
+HPING 10.0.2.2 (h5-eth0 10.0.2.2): udp mode set, 28 headers + 128 data bytes
