@@ -97,8 +97,8 @@ def start_modbus_server():
     StartTcpServer(context=context, identity=None, address=(MODBUS_LISTEN_IP, MODBUS_PORT))
 
 
-def log_h3_measurement(ts, iterasi_ke, bus, v_in, i_in, v_out, i_out, v_dt, breaker_cmd, breaker_fb):
-    """Satu baris per bus per iterasi; baseline/mitm dipilih via ATTACK_FLAG."""
+def log_h3_measurement(ts, waktu, bus, v_in, i_in, v_out, i_out, v_dt, breaker_cmd, breaker_fb):
+    """Satu baris per bus; waktu=indeks siklus gateway; iterasi_ke di CSV dari fase collect (sinkron kolom run)."""
     if os.path.exists(ATTACK_FLAG):
         snap = read_mitm_proxy_snapshot(bus) or {}
         v_before = snap.get("v_before", f"{v_in:.6f}")
@@ -115,7 +115,7 @@ def log_h3_measurement(ts, iterasi_ke, bus, v_in, i_in, v_out, i_out, v_dt, brea
         TRACE_CSV,
         [
             ts,
-            iterasi_ke,
+            waktu,
             get_run_id(),
             bus,
             v_before,

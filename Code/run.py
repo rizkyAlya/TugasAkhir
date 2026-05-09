@@ -25,7 +25,11 @@ sys.path.append(OUTPUT_DIR)
 sys.path.append(BASE_DIR)
 
 from logger.collector import collect_data
-from logger.mitm_trace_logger import MITM_PROXY_SNAPSHOT_FILE, RUN_ROOT_HOST_FILE
+from logger.mitm_trace_logger import (
+    MITM_PROXY_SNAPSHOT_FILE,
+    RUN_ROOT_HOST_FILE,
+    TRACE_COLLECT_RUN_FILE,
+)
 
 def reset_attack_flags():
     for flag_path in (ATTACK_ACTIVE_FLAG, MITM_RUN_ID_FILE):
@@ -40,7 +44,10 @@ def clear_mininet_mitm_trace_state(net):
     """
     Hapus marker MITM dan pointer run root di /tmp setiap host Mininet.
     """
-    extras = f"{ATTACK_ACTIVE_FLAG} {MITM_RUN_ID_FILE} {RUN_ROOT_HOST_FILE} {MITM_PROXY_SNAPSHOT_FILE}"
+    extras = (
+        f"{ATTACK_ACTIVE_FLAG} {MITM_RUN_ID_FILE} {RUN_ROOT_HOST_FILE} "
+        f"{MITM_PROXY_SNAPSHOT_FILE} {TRACE_COLLECT_RUN_FILE}"
+    )
     for host in net.hosts:
         try:
             host.cmd(f"rm -f {extras} 2>/dev/null || true")
@@ -49,7 +56,7 @@ def clear_mininet_mitm_trace_state(net):
 
 
 def publish_run_root_on_hosts(net, run_root_abs: str):
-    """Tulis path absolut logs/runs/<run_id>/ di setiap host agar trace pakai layout sama."""
+    """Tulis path absolut root sesi logs/<baseline|mitm|dos>/<run_id>/ di setiap host untuk trace CSV."""
     path = os.path.abspath(run_root_abs)
     snippet = f"open({repr(RUN_ROOT_HOST_FILE)},'w',encoding='utf-8').write({repr(path)})"
     arg = shlex.quote(snippet)
@@ -70,6 +77,37 @@ def prime_mitm_phase_on_hosts(net):
             host.cmd(f"touch {ATTACK_ACTIVE_FLAG}")
         except Exception:
             pass
+
+
+def write_session_meta(session_root: str, run_id_str: str, args) -> None:
+    os.makedirs(session_root, exist_ok=True)
+    meta_path = os.path.join(session_root, "meta.json")
+    with open(meta_path, "w", encoding="utf-8") as f:
+        json.dump(
+            {
+                "run_id": run_id_str,
+                "created_at": datetime.now().isoformat(timespec="seconds"),
+                "modes": {
+                    "baseline": bool(args.baseline),
+                    "mitm": bool(args.mitm),
+                    "dos": bool(args.dos),
+                },
+                "collect_delay_s": args.collect_delay if args.baseline else None,
+            },
+            f,
+            indent=2,
+        )
+
+
+def initial_trace_session_root(path_baseline, path_mitm, path_dos, args):
+    """Folder trace awal: MITM diprioritaskan (marker serangan aktif sejak awal bila --mitm)."""
+    if args.mitm and path_mitm:
+        return path_mitm
+    if args.baseline and path_baseline:
+        return path_baseline
+    if args.dos and path_dos:
+        return path_dos
+    return None
 
 
 def load_app_map():
@@ -276,37 +314,29 @@ def main():
     args = parser.parse_args()
     # Baseline collection hanya saat diminta eksplisit.
     should_collect_baseline = bool(args.baseline)
-    # Folder run tetap dibuat untuk skenario apa pun agar output rapi per eksekusi.
+    # logs/<baseline|mitm|dos>/<timestamp>/ per skenario (satu run_id untuk korelasi antar mode).
     should_create_run_folder = bool(args.baseline or args.mitm or args.dos)
-    run_logs_path = None
     run_id_str = None
+    path_baseline = path_mitm = path_dos = None
     if should_create_run_folder:
         run_id_str = datetime.now().strftime("%Y-%m-%d_%H%M%S")
-        run_logs_path = os.path.join(BASE_DIR, "logs", "runs", run_id_str)
-        os.makedirs(run_logs_path, exist_ok=True)
-        for sub in (
-            os.path.join("network"),
-            os.path.join("trace", "baseline"),
-            os.path.join("trace", "mitm"),
-        ):
-            os.makedirs(os.path.join(run_logs_path, sub), exist_ok=True)
-        meta_path = os.path.join(run_logs_path, "meta.json")
-        with open(meta_path, "w", encoding="utf-8") as f:
-            json.dump(
-                {
-                    "run_id": run_id_str,
-                    "created_at": datetime.now().isoformat(timespec="seconds"),
-                    "modes": {
-                        "baseline": bool(args.baseline),
-                        "mitm": bool(args.mitm),
-                        "dos": bool(args.dos),
-                    },
-                    "collect_delay_s": args.collect_delay if args.baseline else None,
-                },
-                f,
-                indent=2,
-            )
-        print(f"Run logs path: {run_logs_path}")
+        if args.baseline:
+            path_baseline = os.path.join(BASE_DIR, "logs", "baseline", run_id_str)
+            write_session_meta(path_baseline, run_id_str, args)
+        if args.mitm:
+            path_mitm = os.path.join(BASE_DIR, "logs", "mitm", run_id_str)
+            write_session_meta(path_mitm, run_id_str, args)
+        if args.dos:
+            path_dos = os.path.join(BASE_DIR, "logs", "dos", run_id_str)
+            write_session_meta(path_dos, run_id_str, args)
+        log_lines = []
+        if path_baseline:
+            log_lines.append(f"baseline -> {path_baseline}")
+        if path_mitm:
+            log_lines.append(f"mitm -> {path_mitm}")
+        if path_dos:
+            log_lines.append(f"dos -> {path_dos}")
+        print("Run logs paths:\n  " + "\n  ".join(log_lines))
 
     print("\n==============================")
     print("MODE: ORCHESTRATOR")
@@ -334,8 +364,9 @@ def main():
 
     clear_mininet_mitm_trace_state(net)
 
-    if run_logs_path:
-        publish_run_root_on_hosts(net, run_logs_path)
+    trace_root0 = initial_trace_session_root(path_baseline, path_mitm, path_dos, args)
+    if trace_root0:
+        publish_run_root_on_hosts(net, trace_root0)
     if args.mitm:
         prime_mitm_phase_on_hosts(net)
 
@@ -347,7 +378,7 @@ def main():
         delay = max(0, args.collect_delay)
         print(f"Collecting baseline in {delay}s...")
         time.sleep(delay)
-        collect_data(net, mode="baseline", logs_path=run_logs_path)
+        collect_data(net, mode="baseline", logs_path=path_baseline)
         print("Baseline collection complete.\n")
 
     if args.mitm:
@@ -357,16 +388,18 @@ def main():
             time.sleep(1)
         run_mitm(net, host_log_dir)
         print("Collecting MITM metrics...")
-        collect_data(net, mode="mitm", logs_path=run_logs_path)
+        collect_data(net, mode="mitm", logs_path=path_mitm)
         print("MITM collection complete.\n")
 
     if args.dos:
+        if path_dos:
+            publish_run_root_on_hosts(net, path_dos)
         # Always run both scenarios in one DoS run.
         for dos_mode in ("light", "heavy"):
             ok = run_dos(net, dos_mode, host_log_dir)
             if ok:
                 print(f"Collecting DoS ({dos_mode}) metrics...")
-                collect_data(net, mode=dos_mode, logs_path=run_logs_path)
+                collect_data(net, mode=dos_mode, logs_path=path_dos)
                 print(f"DoS ({dos_mode}) collection complete.\n")
 
     print("System ready\n")

@@ -5,14 +5,16 @@ from datetime import datetime
 
 ATTACK_FLAG = "/tmp/mitm_attack_active"
 RUN_ID_FILE = "/tmp/mitm_run_id"
-# Absolute path ke logs/runs/<run_id>/ ditulis orchestrator di setiap host Mininet.
+# Absolute path ke logs/<baseline|mitm|dos>/<run_id>/ ditulis orchestrator di setiap host Mininet.
 RUN_ROOT_HOST_FILE = "/tmp/cyber_range_run_root"
 MITM_PROXY_SNAPSHOT_FILE = "/tmp/mitm_proxy_snapshot.json"
+# Ditulis orchestrator/collector saat iterasi pengumpulan (1..N); gateway baca untuk kolom iterasi_ke trace.
+TRACE_COLLECT_RUN_FILE = "/tmp/cyber_range_trace_collect_run"
 _SESSION_DIR_KEYS = {}
 
 
 def read_run_root():
-    """Path ke logs/runs/<run_id>/ jika ada; selain itu None."""
+    """Path ke root sesi (logs/<scenario>/<run_id>/) jika ada; selain itu None."""
     try:
         if os.path.exists(RUN_ROOT_HOST_FILE):
             with open(RUN_ROOT_HOST_FILE, "r", encoding="utf-8") as f:
@@ -27,6 +29,7 @@ def read_run_root():
 # Baseline vs MITM: folder dipilih dari flag serangan (bukan kolom di CSV).
 TRACE_HEADER = [
     "timestamp",
+    "waktu",
     "iterasi_ke",
     "run_id",
     "bus",
@@ -67,19 +70,36 @@ def get_phase_label():
     return "post_attack" if os.path.exists(ATTACK_FLAG) else "pre_attack"
 
 
+def read_trace_collect_run():
+    """Nomor pengulangan pengumpulan (1,2,...) dari collector; kosong jika di luar fase collect."""
+    try:
+        if os.path.exists(TRACE_COLLECT_RUN_FILE):
+            with open(TRACE_COLLECT_RUN_FILE, "r", encoding="utf-8") as f:
+                v = f.read().strip()
+                return v if v else ""
+    except Exception:
+        pass
+    return ""
+
+
 def append_trace_row(trace_csv_path, row):
     """
-    row: [timestamp, iterasi_ke, run_id, bus, v_berfore, v_after, i_before, i_after, v_dt, breaker_cmd, breaker_fb]
+    row: [timestamp, waktu, run_id, bus, v_berfore, v_after, i_before, i_after, v_dt, breaker_cmd, breaker_fb]
+    Kolom iterasi_ke di CSV diisi dari read_trace_collect_run() (sinkron dengan kolom run di network CSV).
 
-    Unified: logs/runs/<run_id>/trace/<baseline|mitm>/trace.csv
-    (RUN_ROOT_HOST_FILE menunjuk ke logs/runs/<run_id>).
+    Unified: <run_root>/trace/<baseline|mitm>/trace.csv
+    (RUN_ROOT_HOST_FILE menunjuk ke logs/<baseline|mitm|dos>/<run_id>/).
 
     Legacy: logs/<baseline|mitm>/<run_key>/trace.csv dari placeholder trace_csv_path.
     """
-    if len(row) != len(TRACE_HEADER):
+    expected_body = len(TRACE_HEADER) - 1
+    if len(row) != expected_body:
         raise ValueError(
-            f"mitm_trace row length {len(row)} != header {len(TRACE_HEADER)}: {TRACE_HEADER}"
+            f"mitm_trace row length {len(row)} != {expected_body} "
+            f"(timestamp, waktu, run_id, ...): {TRACE_HEADER}"
         )
+    collect_run = read_trace_collect_run()
+    full_row = list(row[:2]) + [collect_run] + list(row[2:])
 
     phase_bucket = "mitm" if os.path.exists(ATTACK_FLAG) else "baseline"
 
@@ -109,7 +129,7 @@ def append_trace_row(trace_csv_path, row):
 
     with open(run_trace_csv, "a", newline="", encoding="utf-8") as f:
         writer = csv.writer(f)
-        writer.writerow(row)
+        writer.writerow(full_row)
 
 
 def now_ts():
