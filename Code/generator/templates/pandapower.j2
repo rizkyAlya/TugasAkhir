@@ -53,8 +53,8 @@ for bus, idx_pp in bus_map.items():
 print("Unique bus->line mapping:", bus_line)
 
 line_status = {idx: True for idx in range(len(net.line))}
-open_factor = 1.05   # Open jika I_line > max_i_ka * open_factor
-close_factor = 0.95  # Close jika I_line < max_i_ka * close_factor
+open_factor = 0.6   # Open jika I_line > max_i_ka * open_factor
+close_factor = 0.55  # Close jika I_line < max_i_ka * close_factor
 ema_alpha = 0.35     # smoothing input P/Q agar tegangan tidak terlalu berosilasi
 p_ema = {}
 q_ema = {}

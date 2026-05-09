@@ -1,0 +1,7 @@
+timestamp,run,fase,layer,source,destination,packet_loss_percent
+2026-05-10 01:10:56.220459,1,attack,field,h2,h3,0.0
+2026-05-10 01:11:16.667574,2,attack,field,h2,h3,0.0
+2026-05-10 01:11:37.115467,3,attack,field,h2,h3,0.0
+2026-05-10 01:11:57.563792,1,attack,system,h3,h4,0.0
+2026-05-10 01:12:18.011962,2,attack,system,h3,h4,0.0
+2026-05-10 01:12:38.459880,3,attack,system,h3,h4,0.0
