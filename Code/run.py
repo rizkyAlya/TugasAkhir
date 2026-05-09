@@ -29,7 +29,16 @@ from logger.mitm_trace_logger import (
     MITM_PROXY_SNAPSHOT_FILE,
     RUN_ROOT_HOST_FILE,
     TRACE_COLLECT_RUN_FILE,
+    MEASURE_PHASE_FILE,
+    TRACE_ENABLED_FILE,
+    publish_collect_run_on_hosts,
+    publish_measure_phase_on_hosts,
+    publish_trace_enabled_on_hosts,
+    clear_measure_session_markers_on_hosts,
 )
+
+# Jeda fase normal (tanpa pengumpulan baseline) sebelum serangan MITM.
+NORMAL_PHASE_PRE_ATTACK_S = 5
 
 def reset_attack_flags():
     for flag_path in (ATTACK_ACTIVE_FLAG, MITM_RUN_ID_FILE):
@@ -46,7 +55,8 @@ def clear_mininet_mitm_trace_state(net):
     """
     extras = (
         f"{ATTACK_ACTIVE_FLAG} {MITM_RUN_ID_FILE} {RUN_ROOT_HOST_FILE} "
-        f"{MITM_PROXY_SNAPSHOT_FILE} {TRACE_COLLECT_RUN_FILE}"
+        f"{MITM_PROXY_SNAPSHOT_FILE} {TRACE_COLLECT_RUN_FILE} "
+        f"{MEASURE_PHASE_FILE} {TRACE_ENABLED_FILE}"
     )
     for host in net.hosts:
         try:
@@ -100,7 +110,7 @@ def write_session_meta(session_root: str, run_id_str: str, args) -> None:
 
 
 def initial_trace_session_root(path_baseline, path_mitm, path_dos, args):
-    """Folder trace awal: MITM diprioritaskan (marker serangan aktif sejak awal bila --mitm)."""
+    """Folder RUN_ROOT awal: mitm > baseline > dos (output trace sesi utama)."""
     if args.mitm and path_mitm:
         return path_mitm
     if args.baseline and path_baseline:
@@ -281,6 +291,16 @@ def run_dos(net, mode, host_log_dir):
         print(f"DoS failed: {e}")
         return False
 
+
+def clear_mitm_attack_flag_on_hosts(net):
+    """Hapus marker serangan MITM di semua host (setelah pengumpulan fase attack)."""
+    for host in net.hosts:
+        try:
+            host.cmd(f"rm -f {ATTACK_ACTIVE_FLAG} 2>/dev/null || true")
+        except Exception:
+            pass
+
+
 # MAIN
 def main():
     parser = argparse.ArgumentParser(description="Cyber Range Orchestrator")
@@ -307,7 +327,7 @@ def main():
     parser.add_argument(
         "--collect-delay",
         type=int,
-        default=10,
+        default=5,
         help="Seconds to wait before baseline collection (when enabled)"
     )
 
@@ -367,28 +387,50 @@ def main():
     trace_root0 = initial_trace_session_root(path_baseline, path_mitm, path_dos, args)
     if trace_root0:
         publish_run_root_on_hosts(net, trace_root0)
-    if args.mitm:
-        prime_mitm_phase_on_hosts(net)
 
     # START APPS
     start_apps(net, host_log_dir)
+
+    # Sesi pengukuran: iterasi_ke + fase host selaras trace / network (collector tidak menghapus marker di tengah).
+    if should_create_run_folder:
+        publish_trace_enabled_on_hosts(net, True)
+        publish_measure_phase_on_hosts(net, "normal")
+        publish_collect_run_on_hosts(net, 1)
 
     # Collect baseline only when enabled (explicitly or as part of a scenario).
     if should_collect_baseline:
         delay = max(0, args.collect_delay)
         print(f"Collecting baseline in {delay}s...")
         time.sleep(delay)
-        collect_data(net, mode="baseline", logs_path=path_baseline)
+        collect_data(
+            net,
+            mode="baseline",
+            logs_path=path_baseline,
+            measure_phase="normal",
+        )
         print("Baseline collection complete.\n")
 
     if args.mitm:
+        if not should_collect_baseline:
+            print(f"Normal phase (pre-attack, {NORMAL_PHASE_PRE_ATTACK_S}s)...")
+            time.sleep(NORMAL_PHASE_PRE_ATTACK_S)
+        publish_measure_phase_on_hosts(net, "attack")
+        prime_mitm_phase_on_hosts(net)
         # Topologi: attacker foothold di Control dulu; eskalasi ke Field saat skenario MITM.
         if hasattr(topology_mod, "escalate_attacker_to_field"):
             topology_mod.escalate_attacker_to_field(net)
             time.sleep(1)
         run_mitm(net, host_log_dir)
-        print("Collecting MITM metrics...")
-        collect_data(net, mode="mitm", logs_path=path_mitm)
+        print("Collecting MITM metrics (attack phase)...")
+        collect_data(
+            net,
+            mode="mitm",
+            logs_path=path_mitm,
+            measure_phase="attack",
+        )
+        print("Stopping MITM attack...")
+        clear_mitm_attack_flag_on_hosts(net)
+        publish_measure_phase_on_hosts(net, "normal")
         print("MITM collection complete.\n")
 
     if args.dos:
@@ -398,9 +440,21 @@ def main():
         for dos_mode in ("light", "heavy"):
             ok = run_dos(net, dos_mode, host_log_dir)
             if ok:
+                phase_label = f"dos_{dos_mode}"
+                publish_measure_phase_on_hosts(net, phase_label)
                 print(f"Collecting DoS ({dos_mode}) metrics...")
-                collect_data(net, mode=dos_mode, logs_path=path_dos)
+                collect_data(
+                    net,
+                    mode=dos_mode,
+                    logs_path=path_dos,
+                    measure_phase=phase_label,
+                )
                 print(f"DoS ({dos_mode}) collection complete.\n")
+
+    if should_create_run_folder:
+        publish_trace_enabled_on_hosts(net, False)
+        clear_measure_session_markers_on_hosts(net)
+        print("DT trace logger stopped; measurement session markers cleared on hosts.\n")
 
     print("System ready\n")
 

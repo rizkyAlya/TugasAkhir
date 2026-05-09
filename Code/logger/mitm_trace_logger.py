@@ -1,6 +1,7 @@
 import csv
 import json
 import os
+import shlex
 from datetime import datetime
 
 ATTACK_FLAG = "/tmp/mitm_attack_active"
@@ -8,9 +9,60 @@ RUN_ID_FILE = "/tmp/mitm_run_id"
 # Absolute path ke logs/<baseline|mitm|dos>/<run_id>/ ditulis orchestrator di setiap host Mininet.
 RUN_ROOT_HOST_FILE = "/tmp/cyber_range_run_root"
 MITM_PROXY_SNAPSHOT_FILE = "/tmp/mitm_proxy_snapshot.json"
-# Ditulis orchestrator/collector saat iterasi pengumpulan (1..N); gateway baca untuk kolom iterasi_ke trace.
+# Sinkron dengan collector: nilai 1..N; selama sesi terukur tidak dihapus agar trace selalu terisi.
 TRACE_COLLECT_RUN_FILE = "/tmp/cyber_range_trace_collect_run"
+# Fase eksperimen: normal | attack | dos_light | dos_heavy | idle
+MEASURE_PHASE_FILE = "/tmp/cyber_range_measure_phase"
+# Isi "1" = gateway menulis trace; "0" = hentikan logger DT (append_trace_row no-op).
+TRACE_ENABLED_FILE = "/tmp/cyber_range_trace_enabled"
 _SESSION_DIR_KEYS = {}
+
+
+def _host_cmd_all(net, cmd: str) -> None:
+    if net is None:
+        return
+    for host in net.hosts:
+        try:
+            host.cmd(cmd)
+        except Exception:
+            pass
+
+
+def publish_collect_run_on_hosts(net, run_one_based) -> None:
+    """Tulis nomor iterasi pengumpulan (1..N) di setiap host untuk kolom iterasi_ke trace."""
+    if net is None:
+        return
+    val = str(int(run_one_based))
+    cmd = f"printf '%s' {shlex.quote(val)} > {TRACE_COLLECT_RUN_FILE}"
+    _host_cmd_all(net, cmd)
+
+
+def clear_collect_run_on_hosts(net) -> None:
+    _host_cmd_all(net, f"rm -f {TRACE_COLLECT_RUN_FILE} 2>/dev/null || true")
+
+
+def publish_measure_phase_on_hosts(net, phase: str) -> None:
+    """Fase pengukuran (selaras dengan kolom fase di CSV jaringan/trace)."""
+    if net is None:
+        return
+    val = shlex.quote(phase.strip() or "idle")
+    _host_cmd_all(net, f"printf '%s' {val} > {MEASURE_PHASE_FILE}")
+
+
+def publish_trace_enabled_on_hosts(net, enabled: bool) -> None:
+    """Aktif/nonaktif penulisan trace di gateway (h3 membaca via append_trace_row)."""
+    if net is None:
+        return
+    bit = "1" if enabled else "0"
+    _host_cmd_all(net, f"printf '%s' {shlex.quote(bit)} > {TRACE_ENABLED_FILE}")
+
+
+def clear_measure_session_markers_on_hosts(net) -> None:
+    """Hapus marker sesi pengukuran di semua host (awal run bersih / akhir sesi)."""
+    if net is None:
+        return
+    files = f"{TRACE_COLLECT_RUN_FILE} {MEASURE_PHASE_FILE} {TRACE_ENABLED_FILE}"
+    _host_cmd_all(net, f"rm -f {files} 2>/dev/null || true")
 
 
 def read_run_root():
@@ -25,12 +77,14 @@ def read_run_root():
         pass
     return None
 
+
 # Hanya pengukuran gateway (h3): V/I in & out; V_dt + breaker dari/ke h4 via OPC UA.
 # Baseline vs MITM: folder dipilih dari flag serangan (bukan kolom di CSV).
 TRACE_HEADER = [
     "timestamp",
     "waktu",
     "iterasi_ke",
+    "fase",
     "run_id",
     "bus",
     "v_berfore",
@@ -71,35 +125,67 @@ def get_phase_label():
 
 
 def read_trace_collect_run():
-    """Nomor pengulangan pengumpulan (1,2,...) dari collector; kosong jika di luar fase collect."""
+    """Nomor pengumpulan (1,2,...); default '1' saat RUN_ROOT aktif agar trace tidak kosong."""
+    v = ""
     try:
         if os.path.exists(TRACE_COLLECT_RUN_FILE):
             with open(TRACE_COLLECT_RUN_FILE, "r", encoding="utf-8") as f:
                 v = f.read().strip()
-                return v if v else ""
     except Exception:
         pass
+    if v:
+        return v
+    if read_run_root():
+        return "1"
     return ""
+
+
+def read_measure_phase():
+    try:
+        if os.path.exists(MEASURE_PHASE_FILE):
+            with open(MEASURE_PHASE_FILE, "r", encoding="utf-8") as f:
+                p = f.read().strip()
+                if p:
+                    return p
+    except Exception:
+        pass
+    return "normal"
+
+
+def read_trace_enabled():
+    """Tanpa berkas = legacy (selalu tulis). Orchestrator menulis 1/0."""
+    try:
+        if not os.path.exists(TRACE_ENABLED_FILE):
+            return True
+        with open(TRACE_ENABLED_FILE, "r", encoding="utf-8") as f:
+            return f.read().strip() == "1"
+    except Exception:
+        return True
 
 
 def append_trace_row(trace_csv_path, row):
     """
     row: [timestamp, waktu, run_id, bus, v_berfore, v_after, i_before, i_after, v_dt, breaker_cmd, breaker_fb]
-    Kolom iterasi_ke di CSV diisi dari read_trace_collect_run() (sinkron dengan kolom run di network CSV).
+    Kolom iterasi_ke dan fase diisi dari berkas host (sinkron dengan collector / orchestrator).
 
     Unified: <run_root>/trace/<baseline|mitm>/trace.csv
     (RUN_ROOT_HOST_FILE menunjuk ke logs/<baseline|mitm|dos>/<run_id>/).
 
     Legacy: logs/<baseline|mitm>/<run_key>/trace.csv dari placeholder trace_csv_path.
     """
-    expected_body = len(TRACE_HEADER) - 1
+    if not read_trace_enabled():
+        return
+
+    inject = 2
+    expected_body = len(TRACE_HEADER) - inject
     if len(row) != expected_body:
         raise ValueError(
             f"mitm_trace row length {len(row)} != {expected_body} "
             f"(timestamp, waktu, run_id, ...): {TRACE_HEADER}"
         )
     collect_run = read_trace_collect_run()
-    full_row = list(row[:2]) + [collect_run] + list(row[2:])
+    measure_phase = read_measure_phase()
+    full_row = list(row[:2]) + [collect_run, measure_phase] + list(row[2:])
 
     phase_bucket = "mitm" if os.path.exists(ATTACK_FLAG) else "baseline"
 

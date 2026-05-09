@@ -7,7 +7,7 @@ import shlex
 import statistics
 import yaml
 
-from logger.mitm_trace_logger import TRACE_COLLECT_RUN_FILE
+from logger.mitm_trace_logger import publish_collect_run_on_hosts
 
 NUM_RUNS = 3
 IPERF_PORT = 5001
@@ -69,25 +69,6 @@ def _is_scenario_session_root(logs_path):
     return parent in ("baseline", "mitm", "dos")
 
 
-def _publish_trace_collect_run_on_hosts(net, run_one_based):
-    """
-    Sinkronkan trace gateway dengan kolom run di rtt/loss/throughput.
-    run_one_based: 1..NUM_RUNS, atau None untuk menghapus marker (di luar pengumpulan).
-    """
-    if net is None:
-        return
-    if run_one_based is None:
-        cmd = f"rm -f {TRACE_COLLECT_RUN_FILE} 2>/dev/null || true"
-    else:
-        val = str(int(run_one_based))
-        cmd = f"printf '%s' {shlex.quote(val)} > {TRACE_COLLECT_RUN_FILE}"
-    for host in net.hosts:
-        try:
-            host.cmd(cmd)
-        except Exception:
-            pass
-
-
 def _extract_throughput_mbps(output: str):
     """
     Parse throughput dari output iperf2/iperf3 teks.
@@ -107,12 +88,20 @@ def _extract_throughput_mbps(output: str):
     return value
 
 
-def collect_data(net, mode="baseline", logs_path=None, config_path=None):
+def collect_data(
+    net,
+    mode="baseline",
+    logs_path=None,
+    config_path=None,
+    measure_phase=None,
+):
     """
     Collect RTT, packet loss, and throughput data.
 
     Unified (logs_path = logs/<baseline|mitm|dos>/<run_id>/): menyimpan di
     .../network/baseline|mitm|dos/...
+
+    measure_phase: jika diisi, kolom fase ditambahkan pada CSV (selaras trace).
 
     Legacy flat timestamp (logs_path = logs/<timestamp>/): seperti semula,
     langsung di bawah logs_path tanpa subfolder network/.
@@ -164,7 +153,24 @@ def collect_data(net, mode="baseline", logs_path=None, config_path=None):
     print(f"\nStarting data collection mode: {mode}")
     print(f"Saving to: {log_dir}")
 
-    _publish_trace_collect_run_on_hosts(net, None)
+    use_fase = measure_phase is not None
+    rtt_header = ["timestamp", "run", "layer", "source", "destination", "latency_ms"]
+    loss_header = ["timestamp", "run", "layer", "source", "destination", "packet_loss_percent"]
+    th_header = [
+        "timestamp",
+        "run",
+        "layer",
+        "source",
+        "destination",
+        "throughput_Mbps",
+        "status",
+        "error",
+        "raw_output_tail",
+    ]
+    if use_fase:
+        rtt_header.insert(2, "fase")
+        loss_header.insert(2, "fase")
+        th_header.insert(2, "fase")
 
     # RTT & Packet Loss
     with open(rtt_path, "w", newline="") as rtt_file, \
@@ -173,8 +179,8 @@ def collect_data(net, mode="baseline", logs_path=None, config_path=None):
         rtt_writer = csv.writer(rtt_file)
         loss_writer = csv.writer(loss_file)
 
-        rtt_writer.writerow(["timestamp","run","layer","source","destination","latency_ms"])
-        loss_writer.writerow(["timestamp","run","layer","source","destination","packet_loss_percent"])
+        rtt_writer.writerow(rtt_header)
+        loss_writer.writerow(loss_header)
 
         rtt_summary = {}
         loss_summary = {}
@@ -184,7 +190,7 @@ def collect_data(net, mode="baseline", logs_path=None, config_path=None):
             loss_summary[(layer, host, dest_host)] = []
 
             for run in range(NUM_RUNS):
-                _publish_trace_collect_run_on_hosts(net, run + 1)
+                publish_collect_run_on_hosts(net, run + 1)
                 print(f"[{datetime.datetime.now()}] {mode.upper()} - RTT & Loss: {layer} (Run {run+1})")
 
                 output = net.get(host).cmd(f"ping -c 20 {dest_ip}")
@@ -195,14 +201,17 @@ def collect_data(net, mode="baseline", logs_path=None, config_path=None):
                         latency = re.search(r'time=(\d+\.?\d*)', line)
                         if latency:
                             value = float(latency.group(1))
-                            rtt_writer.writerow([
+                            row_rtt = [
                                 datetime.datetime.now(),
-                                run+1,
+                                run + 1,
                                 layer,
                                 host,
                                 dest_host,
-                                value
-                            ])
+                                value,
+                            ]
+                            if use_fase:
+                                row_rtt.insert(2, measure_phase)
+                            rtt_writer.writerow(row_rtt)
                             rtt_summary[(layer, host, dest_host)].append(value)
 
                 # Packet loss parsing
@@ -211,35 +220,26 @@ def collect_data(net, mode="baseline", logs_path=None, config_path=None):
                         loss = re.search(r'(\d+)% packet loss', line)
                         if loss:
                             value = float(loss.group(1))
-                            loss_writer.writerow([
+                            row_loss = [
                                 datetime.datetime.now(),
-                                run+1,
+                                run + 1,
                                 layer,
                                 host,
                                 dest_host,
-                                value
-                            ])
+                                value,
+                            ]
+                            if use_fase:
+                                row_loss.insert(2, measure_phase)
+                            loss_writer.writerow(row_loss)
                             loss_summary[(layer, host, dest_host)].append(value)
 
                 time.sleep(1)
-
-    _publish_trace_collect_run_on_hosts(net, None)
 
     # Throughput
     with open(th_path, "w", newline="") as th_file:
 
         th_writer = csv.writer(th_file)
-        th_writer.writerow([
-            "timestamp",
-            "run",
-            "layer",
-            "source",
-            "destination",
-            "throughput_Mbps",
-            "status",
-            "error",
-            "raw_output_tail",
-        ])
+        th_writer.writerow(th_header)
 
         th_summary = {}
 
@@ -247,7 +247,7 @@ def collect_data(net, mode="baseline", logs_path=None, config_path=None):
             th_summary[(layer, host, dest_host)] = []
 
             for run in range(NUM_RUNS):
-                _publish_trace_collect_run_on_hosts(net, run + 1)
+                publish_collect_run_on_hosts(net, run + 1)
 
                 print(f"[{datetime.datetime.now()}] {mode.upper()} - Throughput: {layer} (Run {run+1})")
                 server_host = dest_host
@@ -287,9 +287,9 @@ def collect_data(net, mode="baseline", logs_path=None, config_path=None):
                     status = f"failed_retry_{attempt}"
                     time.sleep(0.6 * attempt)
 
-                th_writer.writerow([
+                row_th = [
                     datetime.datetime.now(),
-                    run+1,
+                    run + 1,
                     layer,
                     host,
                     dest_host,
@@ -297,7 +297,10 @@ def collect_data(net, mode="baseline", logs_path=None, config_path=None):
                     "ok" if throughput > 0 else status,
                     error if throughput == 0 else "",
                     output_tail if throughput == 0 else "",
-                ])
+                ]
+                if use_fase:
+                    row_th.insert(2, measure_phase)
+                th_writer.writerow(row_th)
 
                 net.get(server_host).cmd("killall -9 iperf >/dev/null 2>&1 || true")
                 time.sleep(1)
@@ -331,8 +334,6 @@ def collect_data(net, mode="baseline", logs_path=None, config_path=None):
                 mean = round(statistics.mean(values), 2)
                 std = round(statistics.stdev(values), 2) if len(values) > 1 else 0
                 sum_writer.writerow(["Throughput", layer, src, dst, mean, std])
-
-    _publish_trace_collect_run_on_hosts(net, None)
 
     print(f"\nData collection ({mode}) complete")
     print(f"CSVs saved in {log_dir}")
