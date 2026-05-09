@@ -1,0 +1,675 @@
+Namespace index: 2
+Field bus -> Pandapower bus mapping: {1: 0, 2: 2, 3: 3, 4: 6, 5: 7}
+Unique bus->line mapping: {1: 0, 2: 2, 3: 4, 4: 10, 5: 9}
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-10 00:19:22
+Load flow sukses. Voltage snapshot (pu): [1.05004136 1.05788632 1.04999957 1.0405164  1.03555679]
+[h4] 2026-05-10 00:19:22 bus=1 line=0 pp_bus=0 | i_from=0.2726 i_to=0.2685 i_line=0.2726 kA | max_i=1.0041 thr_open=1.0543 thr_close=0.9539 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0500 P_ema=0.0000 Q_ema=0.0000
+[h4] 2026-05-10 00:19:22 bus=2 line=2 pp_bus=2 | i_from=0.4800 i_to=0.4843 i_line=0.4843 kA | max_i=0.8367 thr_open=0.8786 thr_close=0.7949 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0500 P_ema=0.0000 Q_ema=0.0000
+[h4] 2026-05-10 00:19:22 bus=3 line=4 pp_bus=3 | i_from=0.4021 i_to=0.4068 i_line=0.4068 kA | max_i=0.8367 thr_open=0.8786 thr_close=0.7949 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0405 P_ema=0.0000 Q_ema=0.0000
+[h4] 2026-05-10 00:19:22 bus=4 line=10 pp_bus=6 | i_from=0.1303 i_to=0.1184 i_line=0.1303 kA | max_i=1.5061 thr_open=1.5814 thr_close=1.4308 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0377 P_ema=0.0000 Q_ema=0.0000
+[h4] 2026-05-10 00:19:22 bus=5 line=9 pp_bus=7 | i_from=0.0745 i_to=0.0492 i_line=0.0745 kA | max_i=1.5061 thr_open=1.5814 thr_close=1.4308 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0396 P_ema=0.0000 Q_ema=0.0000
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-10 00:19:26
+Load flow sukses. Voltage snapshot (pu): [1.04934548 1.05745863 1.04920012 1.04057519 1.03720423]
+[h4] 2026-05-10 00:19:26 bus=1 line=0 pp_bus=0 | i_from=0.2746 i_to=0.2701 i_line=0.2746 kA | max_i=1.0041 thr_open=1.0543 thr_close=0.9539 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0493 P_ema=11.4641 Q_ema=3.3437
+[h4] 2026-05-10 00:19:26 bus=2 line=2 pp_bus=2 | i_from=0.4819 i_to=0.4866 i_line=0.4866 kA | max_i=0.8367 thr_open=0.8786 thr_close=0.7949 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0492 P_ema=25.6410 Q_ema=8.4278
+[h4] 2026-05-10 00:19:26 bus=3 line=4 pp_bus=3 | i_from=0.3743 i_to=0.3789 i_line=0.3789 kA | max_i=0.8367 thr_open=0.8786 thr_close=0.7949 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0406 P_ema=45.1450 Q_ema=11.3144
+[h4] 2026-05-10 00:19:26 bus=4 line=10 pp_bus=6 | i_from=0.0924 i_to=0.0777 i_line=0.0924 kA | max_i=1.5061 thr_open=1.5814 thr_close=1.4308 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0390 P_ema=16.4897 Q_ema=5.9850
+[h4] 2026-05-10 00:19:26 bus=5 line=9 pp_bus=7 | i_from=0.0741 i_to=0.0513 i_line=0.0741 kA | max_i=1.5061 thr_open=1.5814 thr_close=1.4308 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0408 P_ema=11.7253 Q_ema=3.4199
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-10 00:19:30
+Load flow sukses. Voltage snapshot (pu): [1.04738514 1.05695179 1.04876767 1.04082524 1.03832838]
+[h4] 2026-05-10 00:19:30 bus=1 line=0 pp_bus=0 | i_from=0.2992 i_to=0.2935 i_line=0.2992 kA | max_i=1.0041 thr_open=1.0543 thr_close=0.9539 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0474 P_ema=43.4276 Q_ema=12.6664
+[h4] 2026-05-10 00:19:30 bus=2 line=2 pp_bus=2 | i_from=0.4643 i_to=0.4692 i_line=0.4692 kA | max_i=0.8367 thr_open=0.8786 thr_close=0.7949 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0488 P_ema=40.8246 Q_ema=13.4184
+[h4] 2026-05-10 00:19:30 bus=3 line=4 pp_bus=3 | i_from=0.3416 i_to=0.3462 i_line=0.3462 kA | max_i=0.8367 thr_open=0.8786 thr_close=0.7949 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0408 P_ema=67.7307 Q_ema=16.9749
+[h4] 2026-05-10 00:19:30 bus=4 line=10 pp_bus=6 | i_from=0.0576 i_to=0.0385 i_line=0.0576 kA | max_i=1.5061 thr_open=1.5814 thr_close=1.4308 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0393 P_ema=56.0830 Q_ema=20.3554
+[h4] 2026-05-10 00:19:30 bus=5 line=9 pp_bus=7 | i_from=0.0873 i_to=0.0720 i_line=0.0873 kA | max_i=1.5061 thr_open=1.5814 thr_close=1.4308 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0412 P_ema=18.1531 Q_ema=5.2947
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-10 00:19:34
+Load flow sukses. Voltage snapshot (pu): [1.04547855 1.05657875 1.04867513 1.0412875  1.03913726]
+[h4] 2026-05-10 00:19:34 bus=1 line=0 pp_bus=0 | i_from=0.3260 i_to=0.3192 i_line=0.3260 kA | max_i=1.0041 thr_open=1.0543 thr_close=0.9539 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0455 P_ema=74.0519 Q_ema=21.5985
+[h4] 2026-05-10 00:19:34 bus=2 line=2 pp_bus=2 | i_from=0.4438 i_to=0.4488 i_line=0.4488 kA | max_i=0.8367 thr_open=0.8786 thr_close=0.7949 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0487 P_ema=48.0823 Q_ema=15.8039
+[h4] 2026-05-10 00:19:34 bus=3 line=4 pp_bus=3 | i_from=0.3152 i_to=0.3199 i_line=0.3199 kA | max_i=0.8367 thr_open=0.8786 thr_close=0.7949 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0413 P_ema=71.6827 Q_ema=17.9654
+[h4] 2026-05-10 00:19:34 bus=4 line=10 pp_bus=6 | i_from=0.0704 i_to=0.0581 i_line=0.0704 kA | max_i=1.5061 thr_open=1.5814 thr_close=1.4308 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0398 P_ema=53.4999 Q_ema=19.4179
+[h4] 2026-05-10 00:19:34 bus=5 line=9 pp_bus=7 | i_from=0.1118 i_to=0.1020 i_line=0.1118 kA | max_i=1.5061 thr_open=1.5814 thr_close=1.4308 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0414 P_ema=52.7962 Q_ema=15.3989
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-10 00:19:38
+Load flow sukses. Voltage snapshot (pu): [1.04398036 1.05555848 1.04672711 1.04100207 1.03981304]
+[h4] 2026-05-10 00:19:38 bus=1 line=0 pp_bus=0 | i_from=0.3341 i_to=0.3271 i_line=0.3341 kA | max_i=1.0041 thr_open=1.0543 thr_close=0.9539 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0440 P_ema=95.5634 Q_ema=27.8727
+[h4] 2026-05-10 00:19:38 bus=2 line=2 pp_bus=2 | i_from=0.4439 i_to=0.4499 i_line=0.4499 kA | max_i=0.8367 thr_open=0.8786 thr_close=0.7949 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0467 P_ema=102.2495 Q_ema=33.6078
+[h4] 2026-05-10 00:19:38 bus=3 line=4 pp_bus=3 | i_from=0.2485 i_to=0.2531 i_line=0.2531 kA | max_i=0.8367 thr_open=0.8786 thr_close=0.7949 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0410 P_ema=85.3493 Q_ema=21.3905
+[h4] 2026-05-10 00:19:38 bus=4 line=10 pp_bus=6 | i_from=0.1224 i_to=0.1185 i_line=0.1224 kA | max_i=1.5061 thr_open=1.5814 thr_close=1.4308 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0397 P_ema=81.7833 Q_ema=29.6834
+[h4] 2026-05-10 00:19:38 bus=5 line=9 pp_bus=7 | i_from=0.1437 i_to=0.1379 i_line=0.1437 kA | max_i=1.5061 thr_open=1.5814 thr_close=1.4308 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0413 P_ema=73.9938 Q_ema=21.5815
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-10 00:19:42
+Load flow sukses. Voltage snapshot (pu): [1.04297222 1.05482717 1.04530241 1.04053336 1.03989564]
+[h4] 2026-05-10 00:19:42 bus=1 line=0 pp_bus=0 | i_from=0.3394 i_to=0.3322 i_line=0.3394 kA | max_i=1.0041 thr_open=1.0543 thr_close=0.9539 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0430 P_ema=109.5459 Q_ema=31.9509
+[h4] 2026-05-10 00:19:42 bus=2 line=2 pp_bus=2 | i_from=0.4443 i_to=0.4511 i_line=0.4511 kA | max_i=0.8367 thr_open=0.8786 thr_close=0.7949 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0453 P_ema=137.4583 Q_ema=45.1803
+[h4] 2026-05-10 00:19:42 bus=3 line=4 pp_bus=3 | i_from=0.2052 i_to=0.2098 i_line=0.2098 kA | max_i=0.8367 thr_open=0.8786 thr_close=0.7949 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0405 P_ema=94.2326 Q_ema=23.6169
+[h4] 2026-05-10 00:19:42 bus=4 line=10 pp_bus=6 | i_from=0.1635 i_to=0.1618 i_line=0.1635 kA | max_i=1.5061 thr_open=1.5814 thr_close=1.4308 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0393 P_ema=100.1675 Q_ema=36.3559
+[h4] 2026-05-10 00:19:42 bus=5 line=9 pp_bus=7 | i_from=0.1663 i_to=0.1623 i_line=0.1663 kA | max_i=1.5061 thr_open=1.5814 thr_close=1.4308 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0408 P_ema=87.7723 Q_ema=25.6002
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-10 00:19:46
+Load flow sukses. Voltage snapshot (pu): [1.04464365 1.0554016  1.04602566 1.04059226 1.03939147]
+[h4] 2026-05-10 00:19:46 bus=1 line=0 pp_bus=0 | i_from=0.3212 i_to=0.3147 i_line=0.3212 kA | max_i=1.0041 thr_open=1.0543 thr_close=0.9539 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0446 P_ema=83.7463 Q_ema=24.4260
+[h4] 2026-05-10 00:19:46 bus=2 line=2 pp_bus=2 | i_from=0.4562 i_to=0.4626 i_line=0.4626 kA | max_i=0.8367 thr_open=0.8786 thr_close=0.7949 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0460 P_ema=118.9870 Q_ema=39.1091
+[h4] 2026-05-10 00:19:46 bus=3 line=4 pp_bus=3 | i_from=0.2380 i_to=0.2425 i_line=0.2425 kA | max_i=0.8367 thr_open=0.8786 thr_close=0.7949 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0406 P_ema=83.5496 Q_ema=20.9395
+[h4] 2026-05-10 00:19:46 bus=4 line=10 pp_bus=6 | i_from=0.1390 i_to=0.1365 i_line=0.1390 kA | max_i=1.5061 thr_open=1.5814 thr_close=1.4308 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0389 P_ema=92.5819 Q_ema=33.6027
+[h4] 2026-05-10 00:19:46 bus=5 line=9 pp_bus=7 | i_from=0.1537 i_to=0.1491 i_line=0.1537 kA | max_i=1.5061 thr_open=1.5814 thr_close=1.4308 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0405 P_ema=85.8417 Q_ema=25.0372
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-10 00:19:51
+Load flow sukses. Voltage snapshot (pu): [1.04506228 1.05500207 1.04480593 1.03984859 1.03908351]
+[h4] 2026-05-10 00:19:51 bus=1 line=0 pp_bus=0 | i_from=0.3076 i_to=0.3017 i_line=0.3076 kA | max_i=1.0041 thr_open=1.0543 thr_close=0.9539 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0451 P_ema=75.3371 Q_ema=21.9733
+[h4] 2026-05-10 00:19:51 bus=2 line=2 pp_bus=2 | i_from=0.4708 i_to=0.4778 i_line=0.4778 kA | max_i=0.8367 thr_open=0.8786 thr_close=0.7949 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0448 P_ema=146.1943 Q_ema=48.0517
+[h4] 2026-05-10 00:19:51 bus=3 line=4 pp_bus=3 | i_from=0.2170 i_to=0.2216 i_line=0.2216 kA | max_i=0.8367 thr_open=0.8786 thr_close=0.7949 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0398 P_ema=96.0068 Q_ema=24.0616
+[h4] 2026-05-10 00:19:51 bus=4 line=10 pp_bus=6 | i_from=0.1629 i_to=0.1618 i_line=0.1629 kA | max_i=1.5061 thr_open=1.5814 thr_close=1.4308 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0382 P_ema=113.5794 Q_ema=41.2238
+[h4] 2026-05-10 00:19:51 bus=5 line=9 pp_bus=7 | i_from=0.1606 i_to=0.1567 i_line=0.1606 kA | max_i=1.5061 thr_open=1.5814 thr_close=1.4308 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0400 P_ema=85.3672 Q_ema=24.8988
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-10 00:19:55
+Load flow sukses. Voltage snapshot (pu): [1.04408616 1.05483954 1.04481232 1.04014094 1.04007365]
+[h4] 2026-05-10 00:19:55 bus=1 line=0 pp_bus=0 | i_from=0.3189 i_to=0.3123 i_line=0.3189 kA | max_i=1.0041 thr_open=1.0543 thr_close=0.9539 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0441 P_ema=91.8112 Q_ema=26.7783
+[h4] 2026-05-10 00:19:55 bus=2 line=2 pp_bus=2 | i_from=0.4624 i_to=0.4693 i_line=0.4693 kA | max_i=0.8367 thr_open=0.8786 thr_close=0.7949 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0448 P_ema=148.5595 Q_ema=48.8292
+[h4] 2026-05-10 00:19:55 bus=3 line=4 pp_bus=3 | i_from=0.2076 i_to=0.2121 i_line=0.2121 kA | max_i=0.8367 thr_open=0.8786 thr_close=0.7949 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0401 P_ema=112.7318 Q_ema=28.2533
+[h4] 2026-05-10 00:19:55 bus=4 line=10 pp_bus=6 | i_from=0.1420 i_to=0.1392 i_line=0.1420 kA | max_i=1.5061 thr_open=1.5814 thr_close=1.4308 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0399 P_ema=87.1529 Q_ema=31.6323
+[h4] 2026-05-10 00:19:55 bus=5 line=9 pp_bus=7 | i_from=0.1483 i_to=0.1430 i_line=0.1483 kA | max_i=1.5061 thr_open=1.5814 thr_close=1.4308 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0414 P_ema=79.3498 Q_ema=23.1437
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-10 00:19:59
+Load flow sukses. Voltage snapshot (pu): [1.04248926 1.05488379 1.04566266 1.0406817  1.04027916]
+[h4] 2026-05-10 00:19:59 bus=1 line=0 pp_bus=0 | i_from=0.3473 i_to=0.3397 i_line=0.3473 kA | max_i=1.0041 thr_open=1.0543 thr_close=0.9539 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0425 P_ema=118.0096 Q_ema=34.4195
+[h4] 2026-05-10 00:19:59 bus=2 line=2 pp_bus=2 | i_from=0.4370 i_to=0.4436 i_line=0.4436 kA | max_i=0.8367 thr_open=0.8786 thr_close=0.7949 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0457 P_ema=127.7419 Q_ema=41.9867
+[h4] 2026-05-10 00:19:59 bus=3 line=4 pp_bus=3 | i_from=0.2116 i_to=0.2163 i_line=0.2163 kA | max_i=0.8367 thr_open=0.8786 thr_close=0.7949 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0407 P_ema=103.9504 Q_ema=26.0524
+[h4] 2026-05-10 00:19:59 bus=4 line=10 pp_bus=6 | i_from=0.1510 i_to=0.1486 i_line=0.1510 kA | max_i=1.5061 thr_open=1.5814 thr_close=1.4308 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0399 P_ema=94.5044 Q_ema=34.3005
+[h4] 2026-05-10 00:19:59 bus=5 line=9 pp_bus=7 | i_from=0.1560 i_to=0.1511 i_line=0.1560 kA | max_i=1.5061 thr_open=1.5814 thr_close=1.4308 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0415 P_ema=74.3649 Q_ema=21.6898
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-10 00:20:03
+Load flow sukses. Voltage snapshot (pu): [1.0414337  1.05490213 1.04620574 1.04102623 1.04040681]
+[h4] 2026-05-10 00:20:03 bus=1 line=0 pp_bus=0 | i_from=0.3658 i_to=0.3577 i_line=0.3658 kA | max_i=1.0041 thr_open=1.0543 thr_close=0.9539 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0414 P_ema=135.0386 Q_ema=39.3863
+[h4] 2026-05-10 00:20:03 bus=2 line=2 pp_bus=2 | i_from=0.4205 i_to=0.4269 i_line=0.4269 kA | max_i=0.8367 thr_open=0.8786 thr_close=0.7949 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0462 P_ema=114.2104 Q_ema=37.5391
+[h4] 2026-05-10 00:20:03 bus=3 line=4 pp_bus=3 | i_from=0.2142 i_to=0.2191 i_line=0.2191 kA | max_i=0.8367 thr_open=0.8786 thr_close=0.7949 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0410 P_ema=98.2425 Q_ema=24.6219
+[h4] 2026-05-10 00:20:03 bus=4 line=10 pp_bus=6 | i_from=0.1570 i_to=0.1548 i_line=0.1570 kA | max_i=1.5061 thr_open=1.5814 thr_close=1.4308 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0400 P_ema=99.2829 Q_ema=36.0349
+[h4] 2026-05-10 00:20:03 bus=5 line=9 pp_bus=7 | i_from=0.1611 i_to=0.1564 i_line=0.1611 kA | max_i=1.5061 thr_open=1.5814 thr_close=1.4308 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0416 P_ema=71.1247 Q_ema=20.7447
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-10 00:20:07
+Load flow sukses. Voltage snapshot (pu): [1.04289216 1.05484838 1.04538508 1.04095491 1.04030041]
+[h4] 2026-05-10 00:20:07 bus=1 line=0 pp_bus=0 | i_from=0.3396 i_to=0.3323 i_line=0.3396 kA | max_i=1.0041 thr_open=1.0543 thr_close=0.9539 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0429 P_ema=111.3918 Q_ema=32.4893
+[h4] 2026-05-10 00:20:07 bus=2 line=2 pp_bus=2 | i_from=0.4442 i_to=0.4510 i_line=0.4510 kA | max_i=0.8367 thr_open=0.8786 thr_close=0.7949 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0454 P_ema=140.7584 Q_ema=46.2651
+[h4] 2026-05-10 00:20:07 bus=3 line=4 pp_bus=3 | i_from=0.2005 i_to=0.2048 i_line=0.2048 kA | max_i=0.8367 thr_open=0.8786 thr_close=0.7949 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0410 P_ema=85.4636 Q_ema=21.4192
+[h4] 2026-05-10 00:20:07 bus=4 line=10 pp_bus=6 | i_from=0.1474 i_to=0.1450 i_line=0.1474 kA | max_i=1.5061 thr_open=1.5814 thr_close=1.4308 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0399 P_ema=105.2908 Q_ema=38.2155
+[h4] 2026-05-10 00:20:07 bus=5 line=9 pp_bus=7 | i_from=0.1496 i_to=0.1442 i_line=0.1496 kA | max_i=1.5061 thr_open=1.5814 thr_close=1.4308 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0417 P_ema=58.8428 Q_ema=17.1625
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-10 00:20:11
+Load flow sukses. Voltage snapshot (pu): [1.04264851 1.05487861 1.04559391 1.04061399 1.03961639]
+[h4] 2026-05-10 00:20:11 bus=1 line=0 pp_bus=0 | i_from=0.3470 i_to=0.3397 i_line=0.3470 kA | max_i=1.0041 thr_open=1.0543 thr_close=0.9539 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0426 P_ema=114.6002 Q_ema=33.4250
+[h4] 2026-05-10 00:20:11 bus=2 line=2 pp_bus=2 | i_from=0.4370 i_to=0.4437 i_line=0.4437 kA | max_i=0.8367 thr_open=0.8786 thr_close=0.7949 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0456 P_ema=129.2004 Q_ema=42.4661
+[h4] 2026-05-10 00:20:11 bus=3 line=4 pp_bus=3 | i_from=0.2089 i_to=0.2137 i_line=0.2137 kA | max_i=0.8367 thr_open=0.8786 thr_close=0.7949 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0406 P_ema=85.5410 Q_ema=21.4386
+[h4] 2026-05-10 00:20:11 bus=4 line=10 pp_bus=6 | i_from=0.1764 i_to=0.1754 i_line=0.1764 kA | max_i=1.5061 thr_open=1.5814 thr_close=1.4308 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0387 P_ema=110.3245 Q_ema=40.0424
+[h4] 2026-05-10 00:20:11 bus=5 line=9 pp_bus=7 | i_from=0.1763 i_to=0.1729 i_line=0.1763 kA | max_i=1.5061 thr_open=1.5814 thr_close=1.4308 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0403 P_ema=92.3948 Q_ema=26.9485
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-10 00:20:16
+Load flow sukses. Voltage snapshot (pu): [1.04216375 1.05469844 1.0453597  1.04013228 1.03931061]
+[h4] 2026-05-10 00:20:16 bus=1 line=0 pp_bus=0 | i_from=0.3535 i_to=0.3461 i_line=0.3535 kA | max_i=1.0041 thr_open=1.0543 thr_close=0.9539 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0422 P_ema=121.4827 Q_ema=35.4325
+[h4] 2026-05-10 00:20:16 bus=2 line=2 pp_bus=2 | i_from=0.4322 i_to=0.4391 i_line=0.4391 kA | max_i=0.8367 thr_open=0.8786 thr_close=0.7949 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0454 P_ema=128.6488 Q_ema=42.2848
+[h4] 2026-05-10 00:20:16 bus=3 line=4 pp_bus=3 | i_from=0.2063 i_to=0.2115 i_line=0.2115 kA | max_i=0.8367 thr_open=0.8786 thr_close=0.7949 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0401 P_ema=98.9473 Q_ema=24.7985
+[h4] 2026-05-10 00:20:16 bus=4 line=10 pp_bus=6 | i_from=0.1991 i_to=0.1986 i_line=0.1991 kA | max_i=1.5061 thr_open=1.5814 thr_close=1.4308 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0382 P_ema=108.1923 Q_ema=39.2686
+[h4] 2026-05-10 00:20:16 bus=5 line=9 pp_bus=7 | i_from=0.1960 i_to=0.1936 i_line=0.1960 kA | max_i=1.5061 thr_open=1.5814 thr_close=1.4308 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0396 P_ema=118.9359 Q_ema=34.6896
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-10 00:20:20
+Load flow sukses. Voltage snapshot (pu): [1.0423998  1.05466831 1.04518887 1.03968049 1.03839144]
+[h4] 2026-05-10 00:20:20 bus=1 line=0 pp_bus=0 | i_from=0.3517 i_to=0.3446 i_line=0.3517 kA | max_i=1.0041 thr_open=1.0543 thr_close=0.9539 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0424 P_ema=116.6986 Q_ema=34.0371
+[h4] 2026-05-10 00:20:20 bus=2 line=2 pp_bus=2 | i_from=0.4336 i_to=0.4406 i_line=0.4406 kA | max_i=0.8367 thr_open=0.8786 thr_close=0.7949 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0452 P_ema=127.8564 Q_ema=42.0244
+[h4] 2026-05-10 00:20:20 bus=3 line=4 pp_bus=3 | i_from=0.2081 i_to=0.2137 i_line=0.2137 kA | max_i=0.8367 thr_open=0.8786 thr_close=0.7949 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0397 P_ema=91.3508 Q_ema=22.8947
+[h4] 2026-05-10 00:20:20 bus=4 line=10 pp_bus=6 | i_from=0.2325 i_to=0.2331 i_line=0.2331 kA | max_i=1.5061 thr_open=1.5814 thr_close=1.4308 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0366 P_ema=135.1576 Q_ema=49.0557
+[h4] 2026-05-10 00:20:20 bus=5 line=9 pp_bus=7 | i_from=0.2165 i_to=0.2152 i_line=0.2165 kA | max_i=1.5061 thr_open=1.5814 thr_close=1.4308 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0381 P_ema=129.9267 Q_ema=37.8953
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-10 00:20:24
+Load flow sukses. Voltage snapshot (pu): [1.04255188 1.05464631 1.04507225 1.03937524 1.03777748]
+[h4] 2026-05-10 00:20:24 bus=1 line=0 pp_bus=0 | i_from=0.3506 i_to=0.3436 i_line=0.3506 kA | max_i=1.0041 thr_open=1.0543 thr_close=0.9539 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0426 P_ema=113.5890 Q_ema=33.1301
+[h4] 2026-05-10 00:20:24 bus=2 line=2 pp_bus=2 | i_from=0.4344 i_to=0.4415 i_line=0.4415 kA | max_i=0.8367 thr_open=0.8786 thr_close=0.7949 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0451 P_ema=127.3414 Q_ema=41.8551
+[h4] 2026-05-10 00:20:24 bus=3 line=4 pp_bus=3 | i_from=0.2093 i_to=0.2151 i_line=0.2151 kA | max_i=0.8367 thr_open=0.8786 thr_close=0.7949 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0394 P_ema=86.4131 Q_ema=21.6572
+[h4] 2026-05-10 00:20:24 bus=4 line=10 pp_bus=6 | i_from=0.2546 i_to=0.2557 i_line=0.2557 kA | max_i=1.5061 thr_open=1.5814 thr_close=1.4308 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0355 P_ema=152.6850 Q_ema=55.4173
+[h4] 2026-05-10 00:20:24 bus=5 line=9 pp_bus=7 | i_from=0.2302 i_to=0.2294 i_line=0.2302 kA | max_i=1.5061 thr_open=1.5814 thr_close=1.4308 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0371 P_ema=137.0708 Q_ema=39.9790
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-10 00:20:28
+Load flow sukses. Voltage snapshot (pu): [1.04421731 1.05463351 1.04425729 1.03919332 1.03805593]
+[h4] 2026-05-10 00:20:28 bus=1 line=0 pp_bus=0 | i_from=0.3195 i_to=0.3135 i_line=0.3195 kA | max_i=1.0041 thr_open=1.0543 thr_close=0.9539 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0442 P_ema=86.9871 Q_ema=25.3712
+[h4] 2026-05-10 00:20:28 bus=2 line=2 pp_bus=2 | i_from=0.4623 i_to=0.4696 i_line=0.4696 kA | max_i=0.8367 thr_open=0.8786 thr_close=0.7949 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0443 P_ema=152.2460 Q_ema=50.0408
+[h4] 2026-05-10 00:20:28 bus=3 line=4 pp_bus=3 | i_from=0.2019 i_to=0.2071 i_line=0.2071 kA | max_i=0.8367 thr_open=0.8786 thr_close=0.7949 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0392 P_ema=91.5295 Q_ema=22.9395
+[h4] 2026-05-10 00:20:28 bus=4 line=10 pp_bus=6 | i_from=0.2264 i_to=0.2272 i_line=0.2272 kA | max_i=1.5061 thr_open=1.5814 thr_close=1.4308 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0361 P_ema=154.4099 Q_ema=56.0433
+[h4] 2026-05-10 00:20:28 bus=5 line=9 pp_bus=7 | i_from=0.1995 i_to=0.1977 i_line=0.1995 kA | max_i=1.5061 thr_open=1.5814 thr_close=1.4308 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0380 P_ema=105.8493 Q_ema=30.8727
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-10 00:20:32
+Load flow sukses. Voltage snapshot (pu): [1.04372825 1.05446524 1.04404164 1.03961691 1.03851906]
+[h4] 2026-05-10 00:20:32 bus=1 line=0 pp_bus=0 | i_from=0.3240 i_to=0.3178 i_line=0.3240 kA | max_i=1.0041 thr_open=1.0543 thr_close=0.9539 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0437 P_ema=94.7960 Q_ema=27.6488
+[h4] 2026-05-10 00:20:32 bus=2 line=2 pp_bus=2 | i_from=0.4598 i_to=0.4672 i_line=0.4672 kA | max_i=0.8367 thr_open=0.8786 thr_close=0.7949 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0440 P_ema=163.9350 Q_ema=53.8828
+[h4] 2026-05-10 00:20:32 bus=3 line=4 pp_bus=3 | i_from=0.1845 i_to=0.1893 i_line=0.1893 kA | max_i=0.8367 thr_open=0.8786 thr_close=0.7949 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0396 P_ema=80.7250 Q_ema=20.2316
+[h4] 2026-05-10 00:20:32 bus=4 line=10 pp_bus=6 | i_from=0.2212 i_to=0.2217 i_line=0.2217 kA | max_i=1.5061 thr_open=1.5814 thr_close=1.4308 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0367 P_ema=153.7160 Q_ema=55.7914
+[h4] 2026-05-10 00:20:32 bus=5 line=9 pp_bus=7 | i_from=0.1943 i_to=0.1923 i_line=0.1943 kA | max_i=1.5061 thr_open=1.5814 thr_close=1.4308 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0386 P_ema=94.9197 Q_ema=27.6849
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-10 00:20:36
+Load flow sukses. Voltage snapshot (pu): [1.04316398 1.05464235 1.04475264 1.04021957 1.03899932]
+[h4] 2026-05-10 00:20:36 bus=1 line=0 pp_bus=0 | i_from=0.3357 i_to=0.3288 i_line=0.3357 kA | max_i=1.0041 thr_open=1.0543 thr_close=0.9539 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0432 P_ema=104.9783 Q_ema=30.6187
+[h4] 2026-05-10 00:20:36 bus=2 line=2 pp_bus=2 | i_from=0.4486 i_to=0.4557 i_line=0.4557 kA | max_i=0.8367 thr_open=0.8786 thr_close=0.7949 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0448 P_ema=150.0209 Q_ema=49.3095
+[h4] 2026-05-10 00:20:36 bus=3 line=4 pp_bus=3 | i_from=0.1920 i_to=0.1968 i_line=0.1968 kA | max_i=0.8367 thr_open=0.8786 thr_close=0.7949 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0402 P_ema=74.3733 Q_ema=18.6397
+[h4] 2026-05-10 00:20:36 bus=4 line=10 pp_bus=6 | i_from=0.2037 i_to=0.2038 i_line=0.2038 kA | max_i=1.5061 thr_open=1.5814 thr_close=1.4308 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0374 P_ema=145.1917 Q_ema=52.6976
+[h4] 2026-05-10 00:20:36 bus=5 line=9 pp_bus=7 | i_from=0.1846 i_to=0.1819 i_line=0.1846 kA | max_i=1.5061 thr_open=1.5814 thr_close=1.4308 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0394 P_ema=83.1474 Q_ema=24.2513
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-10 00:20:40
+Load flow sukses. Voltage snapshot (pu): [1.04280045 1.05446306 1.04445144 1.04064344 1.03946854]
+[h4] 2026-05-10 00:20:40 bus=1 line=0 pp_bus=0 | i_from=0.3378 i_to=0.3308 i_line=0.3378 kA | max_i=1.0041 thr_open=1.0543 thr_close=0.9539 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0428 P_ema=110.6592 Q_ema=32.2756
+[h4] 2026-05-10 00:20:40 bus=2 line=2 pp_bus=2 | i_from=0.4483 i_to=0.4556 i_line=0.4556 kA | max_i=0.8367 thr_open=0.8786 thr_close=0.7949 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0445 P_ema=164.4600 Q_ema=54.0554
+[h4] 2026-05-10 00:20:40 bus=3 line=4 pp_bus=3 | i_from=0.1731 i_to=0.1774 i_line=0.1774 kA | max_i=0.8367 thr_open=0.8786 thr_close=0.7949 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0406 P_ema=62.3004 Q_ema=15.6140
+[h4] 2026-05-10 00:20:40 bus=4 line=10 pp_bus=6 | i_from=0.1968 i_to=0.1967 i_line=0.1968 kA | max_i=1.5061 thr_open=1.5814 thr_close=1.4308 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0380 P_ema=144.2838 Q_ema=52.3680
+[h4] 2026-05-10 00:20:40 bus=5 line=9 pp_bus=7 | i_from=0.1781 i_to=0.1750 i_line=0.1781 kA | max_i=1.5061 thr_open=1.5814 thr_close=1.4308 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0401 P_ema=70.9994 Q_ema=20.7082
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-10 00:20:45
+Load flow sukses. Voltage snapshot (pu): [1.042563   1.05434489 1.04425201 1.04091468 1.03977003]
+[h4] 2026-05-10 00:20:45 bus=1 line=0 pp_bus=0 | i_from=0.3391 i_to=0.3321 i_line=0.3391 kA | max_i=1.0041 thr_open=1.0543 thr_close=0.9539 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0426 P_ema=114.3517 Q_ema=33.3526
+[h4] 2026-05-10 00:20:45 bus=2 line=2 pp_bus=2 | i_from=0.4482 i_to=0.4555 i_line=0.4555 kA | max_i=0.8367 thr_open=0.8786 thr_close=0.7949 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0443 P_ema=173.8455 Q_ema=57.1403
+[h4] 2026-05-10 00:20:45 bus=3 line=4 pp_bus=3 | i_from=0.1609 i_to=0.1648 i_line=0.1648 kA | max_i=0.8367 thr_open=0.8786 thr_close=0.7949 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0409 P_ema=54.4531 Q_ema=13.6472
+[h4] 2026-05-10 00:20:45 bus=4 line=10 pp_bus=6 | i_from=0.1924 i_to=0.1921 i_line=0.1924 kA | max_i=1.5061 thr_open=1.5814 thr_close=1.4308 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0384 P_ema=143.6936 Q_ema=52.1538
+[h4] 2026-05-10 00:20:45 bus=5 line=9 pp_bus=7 | i_from=0.1739 i_to=0.1705 i_line=0.1739 kA | max_i=1.5061 thr_open=1.5814 thr_close=1.4308 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0405 P_ema=63.1032 Q_ema=18.4051
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-10 00:20:49
+Load flow sukses. Voltage snapshot (pu): [1.0426135  1.05438187 1.04432492 1.0409792  1.03987629]
+[h4] 2026-05-10 00:20:49 bus=1 line=0 pp_bus=0 | i_from=0.3388 i_to=0.3318 i_line=0.3388 kA | max_i=1.0041 thr_open=1.0543 thr_close=0.9539 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0426 P_ema=113.6684 Q_ema=33.1533
+[h4] 2026-05-10 00:20:49 bus=2 line=2 pp_bus=2 | i_from=0.4483 i_to=0.4556 i_line=0.4556 kA | max_i=0.8367 thr_open=0.8786 thr_close=0.7949 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0443 P_ema=172.6715 Q_ema=56.7544
+[h4] 2026-05-10 00:20:49 bus=3 line=4 pp_bus=3 | i_from=0.1625 i_to=0.1663 i_line=0.1663 kA | max_i=0.8367 thr_open=0.8786 thr_close=0.7949 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0410 P_ema=55.5167 Q_ema=13.9138
+[h4] 2026-05-10 00:20:49 bus=4 line=10 pp_bus=6 | i_from=0.1867 i_to=0.1861 i_line=0.1867 kA | max_i=1.5061 thr_open=1.5814 thr_close=1.4308 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0387 P_ema=129.6466 Q_ema=47.0554
+[h4] 2026-05-10 00:20:49 bus=5 line=9 pp_bus=7 | i_from=0.1755 i_to=0.1721 i_line=0.1755 kA | max_i=1.5061 thr_open=1.5814 thr_close=1.4308 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0406 P_ema=75.0549 Q_ema=21.8910
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-10 00:20:53
+Load flow sukses. Voltage snapshot (pu): [1.04242993 1.05493331 1.04583785 1.041241   1.03988333]
+[h4] 2026-05-10 00:20:53 bus=1 line=0 pp_bus=0 | i_from=0.3514 i_to=0.3439 i_line=0.3514 kA | max_i=1.0041 thr_open=1.0543 thr_close=0.9539 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0424 P_ema=118.4293 Q_ema=34.5419
+[h4] 2026-05-10 00:20:53 bus=2 line=2 pp_bus=2 | i_from=0.4332 i_to=0.4398 i_line=0.4398 kA | max_i=0.8367 thr_open=0.8786 thr_close=0.7949 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0458 P_ema=130.3190 Q_ema=42.8338
+[h4] 2026-05-10 00:20:53 bus=3 line=4 pp_bus=3 | i_from=0.2031 i_to=0.2075 i_line=0.2075 kA | max_i=0.8367 thr_open=0.8786 thr_close=0.7949 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0412 P_ema=63.8953 Q_ema=16.0137
+[h4] 2026-05-10 00:20:53 bus=4 line=10 pp_bus=6 | i_from=0.1670 i_to=0.1656 i_line=0.1670 kA | max_i=1.5061 thr_open=1.5814 thr_close=1.4308 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0391 P_ema=110.0526 Q_ema=39.9438
+[h4] 2026-05-10 00:20:53 bus=5 line=9 pp_bus=7 | i_from=0.1710 i_to=0.1672 i_line=0.1710 kA | max_i=1.5061 thr_open=1.5814 thr_close=1.4308 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0407 P_ema=81.8949 Q_ema=23.8860
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-10 00:20:57
+Load flow sukses. Voltage snapshot (pu): [1.04344139 1.05469275 1.04474065 1.04035155 1.03991604]
+[h4] 2026-05-10 00:20:57 bus=1 line=0 pp_bus=0 | i_from=0.3292 i_to=0.3223 i_line=0.3292 kA | max_i=1.0041 thr_open=1.0543 thr_close=0.9539 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0434 P_ema=101.4011 Q_ema=29.5753
+[h4] 2026-05-10 00:20:57 bus=2 line=2 pp_bus=2 | i_from=0.4543 i_to=0.4614 i_line=0.4614 kA | max_i=0.8367 thr_open=0.8786 thr_close=0.7949 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0447 P_ema=152.7301 Q_ema=50.2000
+[h4] 2026-05-10 00:20:57 bus=3 line=4 pp_bus=3 | i_from=0.1948 i_to=0.1992 i_line=0.1992 kA | max_i=0.8367 thr_open=0.8786 thr_close=0.7949 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0404 P_ema=96.2596 Q_ema=24.1249
+[h4] 2026-05-10 00:20:57 bus=4 line=10 pp_bus=6 | i_from=0.1628 i_to=0.1609 i_line=0.1628 kA | max_i=1.5061 thr_open=1.5814 thr_close=1.4308 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0394 P_ema=85.9229 Q_ema=31.1858
+[h4] 2026-05-10 00:20:57 bus=5 line=9 pp_bus=7 | i_from=0.1704 i_to=0.1667 i_line=0.1704 kA | max_i=1.5061 thr_open=1.5814 thr_close=1.4308 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0407 P_ema=106.0732 Q_ema=30.9380
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-10 00:21:01
+Load flow sukses. Voltage snapshot (pu): [1.04211757 1.05493754 1.045998   1.04099641 1.04000094]
+[h4] 2026-05-10 00:21:01 bus=1 line=0 pp_bus=0 | i_from=0.3572 i_to=0.3495 i_line=0.3572 kA | max_i=1.0041 thr_open=1.0543 thr_close=0.9539 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0421 P_ema=123.3592 Q_ema=35.9798
+[h4] 2026-05-10 00:21:01 bus=2 line=2 pp_bus=2 | i_from=0.4279 i_to=0.4344 i_line=0.4344 kA | max_i=0.8367 thr_open=0.8786 thr_close=0.7949 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0460 P_ema=121.4592 Q_ema=39.9217
+[h4] 2026-05-10 00:21:01 bus=3 line=4 pp_bus=3 | i_from=0.2108 i_to=0.2156 i_line=0.2156 kA | max_i=0.8367 thr_open=0.8786 thr_close=0.7949 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0410 P_ema=83.8957 Q_ema=21.0263
+[h4] 2026-05-10 00:21:01 bus=4 line=10 pp_bus=6 | i_from=0.1663 i_to=0.1644 i_line=0.1663 kA | max_i=1.5061 thr_open=1.5814 thr_close=1.4308 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0395 P_ema=70.7153 Q_ema=25.6662
+[h4] 2026-05-10 00:21:01 bus=5 line=9 pp_bus=7 | i_from=0.1866 i_to=0.1836 i_line=0.1866 kA | max_i=1.5061 thr_open=1.5814 thr_close=1.4308 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0406 P_ema=129.4011 Q_ema=37.7420
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-10 00:21:05
+Load flow sukses. Voltage snapshot (pu): [1.04124067 1.05508422 1.04679992 1.0414002  1.04004205]
+[h4] 2026-05-10 00:21:05 bus=1 line=0 pp_bus=0 | i_from=0.3754 i_to=0.3673 i_line=0.3754 kA | max_i=1.0041 thr_open=1.0543 thr_close=0.9539 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0412 P_ema=137.6320 Q_ema=40.1427
+[h4] 2026-05-10 00:21:05 bus=2 line=2 pp_bus=2 | i_from=0.4108 i_to=0.4169 i_line=0.4169 kA | max_i=0.8367 thr_open=0.8786 thr_close=0.7949 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0468 P_ema=101.1332 Q_ema=33.2409
+[h4] 2026-05-10 00:21:05 bus=3 line=4 pp_bus=3 | i_from=0.2212 i_to=0.2262 i_line=0.2262 kA | max_i=0.8367 thr_open=0.8786 thr_close=0.7949 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0414 P_ema=75.8592 Q_ema=19.0121
+[h4] 2026-05-10 00:21:05 bus=4 line=10 pp_bus=6 | i_from=0.1686 i_to=0.1666 i_line=0.1686 kA | max_i=1.5061 thr_open=1.5814 thr_close=1.4308 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0396 P_ema=60.8303 Q_ema=22.0784
+[h4] 2026-05-10 00:21:05 bus=5 line=9 pp_bus=7 | i_from=0.1972 i_to=0.1946 i_line=0.1972 kA | max_i=1.5061 thr_open=1.5814 thr_close=1.4308 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0404 P_ema=144.5642 Q_ema=42.1646
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-10 00:21:10
+Load flow sukses. Voltage snapshot (pu): [1.04108022 1.05484992 1.04625548 1.04042347 1.03974422]
+[h4] 2026-05-10 00:21:10 bus=1 line=0 pp_bus=0 | i_from=0.3736 i_to=0.3655 i_line=0.3736 kA | max_i=1.0041 thr_open=1.0543 thr_close=0.9539 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0411 P_ema=139.6706 Q_ema=40.7373
+[h4] 2026-05-10 00:21:10 bus=2 line=2 pp_bus=2 | i_from=0.4134 i_to=0.4199 i_line=0.4199 kA | max_i=0.8367 thr_open=0.8786 thr_close=0.7949 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0463 P_ema=103.4827 Q_ema=34.0131
+[h4] 2026-05-10 00:21:10 bus=3 line=4 pp_bus=3 | i_from=0.2224 i_to=0.2279 i_line=0.2279 kA | max_i=0.8367 thr_open=0.8786 thr_close=0.7949 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0404 P_ema=110.9254 Q_ema=27.8005
+[h4] 2026-05-10 00:21:10 bus=4 line=10 pp_bus=6 | i_from=0.1875 i_to=0.1864 i_line=0.1875 kA | max_i=1.5061 thr_open=1.5814 thr_close=1.4308 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0390 P_ema=92.2501 Q_ema=33.4823
+[h4] 2026-05-10 00:21:10 bus=5 line=9 pp_bus=7 | i_from=0.1927 i_to=0.1900 i_line=0.1927 kA | max_i=1.5061 thr_open=1.5814 thr_close=1.4308 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0402 P_ema=119.3094 Q_ema=34.7986
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-10 00:21:14
+Load flow sukses. Voltage snapshot (pu): [1.04153075 1.0545029  1.0451578  1.03950335 1.03875008]
+[h4] 2026-05-10 00:21:14 bus=1 line=0 pp_bus=0 | i_from=0.3628 i_to=0.3552 i_line=0.3628 kA | max_i=1.0041 thr_open=1.0543 thr_close=0.9539 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0415 P_ema=130.5274 Q_ema=38.0705
+[h4] 2026-05-10 00:21:14 bus=2 line=2 pp_bus=2 | i_from=0.4249 i_to=0.4320 i_line=0.4320 kA | max_i=0.8367 thr_open=0.8786 thr_close=0.7949 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0452 P_ema=124.7144 Q_ema=40.9916
+[h4] 2026-05-10 00:21:14 bus=3 line=4 pp_bus=3 | i_from=0.2058 i_to=0.2116 i_line=0.2116 kA | max_i=0.8367 thr_open=0.8786 thr_close=0.7949 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0395 P_ema=112.5204 Q_ema=28.2003
+[h4] 2026-05-10 00:21:14 bus=4 line=10 pp_bus=6 | i_from=0.2306 i_to=0.2308 i_line=0.2308 kA | max_i=1.5061 thr_open=1.5814 thr_close=1.4308 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0372 P_ema=120.4568 Q_ema=43.7200
+[h4] 2026-05-10 00:21:14 bus=5 line=9 pp_bus=7 | i_from=0.2173 i_to=0.2158 i_line=0.2173 kA | max_i=1.5061 thr_open=1.5814 thr_close=1.4308 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0386 P_ema=136.7574 Q_ema=39.8876
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-10 00:21:18
+Load flow sukses. Voltage snapshot (pu): [1.04321395 1.05482605 1.04521011 1.04006109 1.0389906 ]
+[h4] 2026-05-10 00:21:18 bus=1 line=0 pp_bus=0 | i_from=0.3386 i_to=0.3318 i_line=0.3386 kA | max_i=1.0041 thr_open=1.0543 thr_close=0.9539 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0432 P_ema=104.5372 Q_ema=30.4900
+[h4] 2026-05-10 00:21:18 bus=2 line=2 pp_bus=2 | i_from=0.4445 i_to=0.4514 i_line=0.4514 kA | max_i=0.8367 thr_open=0.8786 thr_close=0.7949 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0452 P_ema=134.0405 Q_ema=44.0570
+[h4] 2026-05-10 00:21:18 bus=3 line=4 pp_bus=3 | i_from=0.2096 i_to=0.2146 i_line=0.2146 kA | max_i=0.8367 thr_open=0.8786 thr_close=0.7949 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0401 P_ema=89.6278 Q_ema=22.4628
+[h4] 2026-05-10 00:21:18 bus=4 line=10 pp_bus=6 | i_from=0.1963 i_to=0.1959 i_line=0.1963 kA | max_i=1.5061 thr_open=1.5814 thr_close=1.4308 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0378 P_ema=103.9434 Q_ema=37.7264
+[h4] 2026-05-10 00:21:18 bus=5 line=9 pp_bus=7 | i_from=0.1979 i_to=0.1958 i_line=0.1979 kA | max_i=1.5061 thr_open=1.5814 thr_close=1.4308 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0391 P_ema=130.6592 Q_ema=38.1089
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-10 00:21:22
+Load flow sukses. Voltage snapshot (pu): [1.04298254 1.05447737 1.0443979  1.03989826 1.03958725]
+[h4] 2026-05-10 00:21:22 bus=1 line=0 pp_bus=0 | i_from=0.3343 i_to=0.3274 i_line=0.3343 kA | max_i=1.0041 thr_open=1.0543 thr_close=0.9539 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0430 P_ema=107.9184 Q_ema=31.4762
+[h4] 2026-05-10 00:21:22 bus=2 line=2 pp_bus=2 | i_from=0.4510 i_to=0.4583 i_line=0.4583 kA | max_i=0.8367 thr_open=0.8786 thr_close=0.7949 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0444 P_ema=155.8917 Q_ema=51.2391
+[h4] 2026-05-10 00:21:22 bus=3 line=4 pp_bus=3 | i_from=0.1884 i_to=0.1932 i_line=0.1932 kA | max_i=0.8367 thr_open=0.8786 thr_close=0.7949 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0399 P_ema=105.4939 Q_ema=26.4393
+[h4] 2026-05-10 00:21:22 bus=4 line=10 pp_bus=6 | i_from=0.1866 i_to=0.1857 i_line=0.1866 kA | max_i=1.5061 thr_open=1.5814 thr_close=1.4308 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0388 P_ema=101.7761 Q_ema=36.9398
+[h4] 2026-05-10 00:21:22 bus=5 line=9 pp_bus=7 | i_from=0.1827 i_to=0.1797 i_line=0.1827 kA | max_i=1.5061 thr_open=1.5814 thr_close=1.4308 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0401 P_ema=110.4206 Q_ema=32.2060
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-10 00:21:26
+Load flow sukses. Voltage snapshot (pu): [1.04231004 1.05445278 1.0446437  1.03946982 1.03951219]
+[h4] 2026-05-10 00:21:26 bus=1 line=0 pp_bus=0 | i_from=0.3456 i_to=0.3384 i_line=0.3456 kA | max_i=1.0041 thr_open=1.0543 thr_close=0.9539 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0423 P_ema=118.7082 Q_ema=34.6232
+[h4] 2026-05-10 00:21:26 bus=2 line=2 pp_bus=2 | i_from=0.4408 i_to=0.4480 i_line=0.4480 kA | max_i=0.8367 thr_open=0.8786 thr_close=0.7949 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0446 P_ema=141.2229 Q_ema=46.4177
+[h4] 2026-05-10 00:21:26 bus=3 line=4 pp_bus=3 | i_from=0.1994 i_to=0.2048 i_line=0.2048 kA | max_i=0.8367 thr_open=0.8786 thr_close=0.7949 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0395 P_ema=130.2163 Q_ema=32.6353
+[h4] 2026-05-10 00:21:26 bus=4 line=10 pp_bus=6 | i_from=0.1942 i_to=0.1933 i_line=0.1942 kA | max_i=1.5061 thr_open=1.5814 thr_close=1.4308 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0388 P_ema=89.8932 Q_ema=32.6269
+[h4] 2026-05-10 00:21:26 bus=5 line=9 pp_bus=7 | i_from=0.1925 i_to=0.1899 i_line=0.1925 kA | max_i=1.5061 thr_open=1.5814 thr_close=1.4308 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0399 P_ema=129.5947 Q_ema=37.7984
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-10 00:21:30
+Load flow sukses. Voltage snapshot (pu): [1.04186896 1.05443245 1.04479555 1.03917775 1.03944675]
+[h4] 2026-05-10 00:21:30 bus=1 line=0 pp_bus=0 | i_from=0.3530 i_to=0.3455 i_line=0.3530 kA | max_i=1.0041 thr_open=1.0543 thr_close=0.9539 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0419 P_ema=125.7217 Q_ema=36.6688
+[h4] 2026-05-10 00:21:30 bus=2 line=2 pp_bus=2 | i_from=0.4341 i_to=0.4413 i_line=0.4413 kA | max_i=0.8367 thr_open=0.8786 thr_close=0.7949 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0448 P_ema=131.6881 Q_ema=43.2838
+[h4] 2026-05-10 00:21:30 bus=3 line=4 pp_bus=3 | i_from=0.2066 i_to=0.2124 i_line=0.2124 kA | max_i=0.8367 thr_open=0.8786 thr_close=0.7949 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0392 P_ema=146.2858 Q_ema=36.6627
+[h4] 2026-05-10 00:21:30 bus=4 line=10 pp_bus=6 | i_from=0.1991 i_to=0.1983 i_line=0.1991 kA | max_i=1.5061 thr_open=1.5814 thr_close=1.4308 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0388 P_ema=82.1693 Q_ema=29.8235
+[h4] 2026-05-10 00:21:31 bus=5 line=9 pp_bus=7 | i_from=0.1989 i_to=0.1965 i_line=0.1989 kA | max_i=1.5061 thr_open=1.5814 thr_close=1.4308 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0397 P_ema=142.0578 Q_ema=41.4335
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-10 00:21:35
+Load flow sukses. Voltage snapshot (pu): [1.04121589 1.0546403  1.04564079 1.03935849 1.03921129]
+[h4] 2026-05-10 00:21:35 bus=1 line=0 pp_bus=0 | i_from=0.3679 i_to=0.3600 i_line=0.3679 kA | max_i=1.0041 thr_open=1.0543 thr_close=0.9539 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0412 P_ema=136.8072 Q_ema=39.9021
+[h4] 2026-05-10 00:21:35 bus=2 line=2 pp_bus=2 | i_from=0.4193 i_to=0.4261 i_line=0.4261 kA | max_i=0.8367 thr_open=0.8786 thr_close=0.7949 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0456 P_ema=107.2622 Q_ema=35.2554
+[h4] 2026-05-10 00:21:35 bus=3 line=4 pp_bus=3 | i_from=0.2244 i_to=0.2304 i_line=0.2304 kA | max_i=0.8367 thr_open=0.8786 thr_close=0.7949 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0394 P_ema=141.6721 Q_ema=35.5064
+[h4] 2026-05-10 00:21:35 bus=4 line=10 pp_bus=6 | i_from=0.2090 i_to=0.2088 i_line=0.2090 kA | max_i=1.5061 thr_open=1.5814 thr_close=1.4308 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0381 P_ema=121.5784 Q_ema=44.1271
+[h4] 2026-05-10 00:21:35 bus=5 line=9 pp_bus=7 | i_from=0.1925 i_to=0.1899 i_line=0.1925 kA | max_i=1.5061 thr_open=1.5814 thr_close=1.4308 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0396 P_ema=102.9286 Q_ema=30.0208
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-10 00:21:39
+Load flow sukses. Voltage snapshot (pu): [1.04257866 1.05457372 1.04484026 1.03968226 1.03909982]
+[h4] 2026-05-10 00:21:39 bus=1 line=0 pp_bus=0 | i_from=0.3442 i_to=0.3371 i_line=0.3442 kA | max_i=1.0041 thr_open=1.0543 thr_close=0.9539 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0426 P_ema=114.3975 Q_ema=33.3659
+[h4] 2026-05-10 00:21:39 bus=2 line=2 pp_bus=2 | i_from=0.4412 i_to=0.4483 i_line=0.4483 kA | max_i=0.8367 thr_open=0.8786 thr_close=0.7949 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0448 P_ema=138.7377 Q_ema=45.6009
+[h4] 2026-05-10 00:21:39 bus=3 line=4 pp_bus=3 | i_from=0.2017 i_to=0.2070 i_line=0.2070 kA | max_i=0.8367 thr_open=0.8786 thr_close=0.7949 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0397 P_ema=108.3486 Q_ema=27.1547
+[h4] 2026-05-10 00:21:39 bus=4 line=10 pp_bus=6 | i_from=0.2056 i_to=0.2054 i_line=0.2056 kA | max_i=1.5061 thr_open=1.5814 thr_close=1.4308 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0378 P_ema=122.2923 Q_ema=44.3862
+[h4] 2026-05-10 00:21:39 bus=5 line=9 pp_bus=7 | i_from=0.1923 i_to=0.1899 i_line=0.1923 kA | max_i=1.5061 thr_open=1.5814 thr_close=1.4308 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0394 P_ema=107.9796 Q_ema=31.4940
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-10 00:21:43
+Load flow sukses. Voltage snapshot (pu): [1.0439136  1.05510118 1.04557519 1.03966427 1.03938023]
+[h4] 2026-05-10 00:21:43 bus=1 line=0 pp_bus=0 | i_from=0.3282 i_to=0.3215 i_line=0.3282 kA | max_i=1.0041 thr_open=1.0543 thr_close=0.9539 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0439 P_ema=94.9237 Q_ema=27.6861
+[h4] 2026-05-10 00:21:43 bus=2 line=2 pp_bus=2 | i_from=0.4516 i_to=0.4582 i_line=0.4582 kA | max_i=0.8367 thr_open=0.8786 thr_close=0.7949 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0456 P_ema=118.2667 Q_ema=38.8724
+[h4] 2026-05-10 00:21:43 bus=3 line=4 pp_bus=3 | i_from=0.2373 i_to=0.2425 i_line=0.2425 kA | max_i=0.8367 thr_open=0.8786 thr_close=0.7949 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0397 P_ema=127.3899 Q_ema=31.9269
+[h4] 2026-05-10 00:21:43 bus=4 line=10 pp_bus=6 | i_from=0.1596 i_to=0.1579 i_line=0.1596 kA | max_i=1.5061 thr_open=1.5814 thr_close=1.4308 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0389 P_ema=96.2820 Q_ema=34.9457
+[h4] 2026-05-10 00:21:43 bus=5 line=9 pp_bus=7 | i_from=0.1625 i_to=0.1584 i_line=0.1625 kA | max_i=1.5061 thr_open=1.5814 thr_close=1.4308 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0403 P_ema=94.5097 Q_ema=27.5653
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-10 00:21:47
+Load flow sukses. Voltage snapshot (pu): [1.04295901 1.05514301 1.04611062 1.03998365 1.04004397]
+[h4] 2026-05-10 00:21:47 bus=1 line=0 pp_bus=0 | i_from=0.3435 i_to=0.3360 i_line=0.3435 kA | max_i=1.0041 thr_open=1.0543 thr_close=0.9539 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0430 P_ema=111.2562 Q_ema=32.4497
+[h4] 2026-05-10 00:21:47 bus=2 line=2 pp_bus=2 | i_from=0.4380 i_to=0.4444 i_line=0.4444 kA | max_i=0.8367 thr_open=0.8786 thr_close=0.7949 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0461 P_ema=104.8260 Q_ema=34.4546
+[h4] 2026-05-10 00:21:47 bus=3 line=4 pp_bus=3 | i_from=0.2432 i_to=0.2484 i_line=0.2484 kA | max_i=0.8367 thr_open=0.8786 thr_close=0.7949 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0400 P_ema=139.7667 Q_ema=35.0288
+[h4] 2026-05-10 00:21:47 bus=4 line=10 pp_bus=6 | i_from=0.1426 i_to=0.1396 i_line=0.1426 kA | max_i=1.5061 thr_open=1.5814 thr_close=1.4308 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0400 P_ema=79.3753 Q_ema=28.8094
+[h4] 2026-05-10 00:21:47 bus=5 line=9 pp_bus=7 | i_from=0.1525 i_to=0.1473 i_line=0.1525 kA | max_i=1.5061 thr_open=1.5814 thr_close=1.4308 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0414 P_ema=85.7542 Q_ema=25.0116
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-10 00:21:52
+Load flow sukses. Voltage snapshot (pu): [1.0422943  1.05518206 1.0465301  1.04034736 1.04012022]
+[h4] 2026-05-10 00:21:52 bus=1 line=0 pp_bus=0 | i_from=0.3564 i_to=0.3486 i_line=0.3564 kA | max_i=1.0041 thr_open=1.0543 thr_close=0.9539 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0423 P_ema=121.8723 Q_ema=35.5461
+[h4] 2026-05-10 00:21:52 bus=2 line=2 pp_bus=2 | i_from=0.4264 i_to=0.4327 i_line=0.4327 kA | max_i=0.8367 thr_open=0.8786 thr_close=0.7949 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0465 P_ema=96.0895 Q_ema=31.5831
+[h4] 2026-05-10 00:21:52 bus=3 line=4 pp_bus=3 | i_from=0.2437 i_to=0.2490 i_line=0.2490 kA | max_i=0.8367 thr_open=0.8786 thr_close=0.7949 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0403 P_ema=129.6133 Q_ema=32.4842
+[h4] 2026-05-10 00:21:52 bus=4 line=10 pp_bus=6 | i_from=0.1470 i_to=0.1440 i_line=0.1470 kA | max_i=1.5061 thr_open=1.5814 thr_close=1.4308 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0401 P_ema=63.6362 Q_ema=23.0968
+[h4] 2026-05-10 00:21:52 bus=5 line=9 pp_bus=7 | i_from=0.1664 i_to=0.1621 i_line=0.1664 kA | max_i=1.5061 thr_open=1.5814 thr_close=1.4308 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0412 P_ema=111.0014 Q_ema=32.3754
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-10 00:21:56
+Load flow sukses. Voltage snapshot (pu): [1.0436145  1.05544186 1.0466079  1.03929873 1.03869576]
+[h4] 2026-05-10 00:21:56 bus=1 line=0 pp_bus=0 | i_from=0.3417 i_to=0.3347 i_line=0.3417 kA | max_i=1.0041 thr_open=1.0543 thr_close=0.9539 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0436 P_ema=100.1322 Q_ema=29.2052
+[h4] 2026-05-10 00:21:56 bus=2 line=2 pp_bus=2 | i_from=0.4367 i_to=0.4429 i_line=0.4429 kA | max_i=0.8367 thr_open=0.8786 thr_close=0.7949 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0466 P_ema=80.7942 Q_ema=26.5558
+[h4] 2026-05-10 00:21:56 bus=3 line=4 pp_bus=3 | i_from=0.2726 i_to=0.2783 i_line=0.2783 kA | max_i=0.8367 thr_open=0.8786 thr_close=0.7949 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0393 P_ema=140.1674 Q_ema=35.1293
+[h4] 2026-05-10 00:21:56 bus=4 line=10 pp_bus=6 | i_from=0.1750 i_to=0.1739 i_line=0.1750 kA | max_i=1.5061 thr_open=1.5814 thr_close=1.4308 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0380 P_ema=88.5041 Q_ema=32.1227
+[h4] 2026-05-10 00:21:56 bus=5 line=9 pp_bus=7 | i_from=0.1841 i_to=0.1814 i_line=0.1841 kA | max_i=1.5061 thr_open=1.5814 thr_close=1.4308 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0392 P_ema=129.8027 Q_ema=37.8591
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-10 00:22:01
+Load flow sukses. Voltage snapshot (pu): [1.04446234 1.05560252 1.04664403 1.03859697 1.03774806]
+[h4] 2026-05-10 00:22:01 bus=1 line=0 pp_bus=0 | i_from=0.3322 i_to=0.3257 i_line=0.3322 kA | max_i=1.0041 thr_open=1.0543 thr_close=0.9539 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0445 P_ema=86.0011 Q_ema=25.0837
+[h4] 2026-05-10 00:22:01 bus=2 line=2 pp_bus=2 | i_from=0.4434 i_to=0.4496 i_line=0.4496 kA | max_i=0.8367 thr_open=0.8786 thr_close=0.7949 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0466 P_ema=70.8523 Q_ema=23.2880
+[h4] 2026-05-10 00:22:01 bus=3 line=4 pp_bus=3 | i_from=0.2914 i_to=0.2974 i_line=0.2974 kA | max_i=0.8367 thr_open=0.8786 thr_close=0.7949 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0386 P_ema=147.0275 Q_ema=36.8486
+[h4] 2026-05-10 00:22:01 bus=4 line=10 pp_bus=6 | i_from=0.1941 i_to=0.1939 i_line=0.1941 kA | max_i=1.5061 thr_open=1.5814 thr_close=1.4308 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0366 P_ema=104.6682 Q_ema=37.9895
+[h4] 2026-05-10 00:22:01 bus=5 line=9 pp_bus=7 | i_from=0.1961 i_to=0.1941 i_line=0.1961 kA | max_i=1.5061 thr_open=1.5814 thr_close=1.4308 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0378 P_ema=142.0235 Q_ema=41.4235
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-10 00:22:05
+Load flow sukses. Voltage snapshot (pu): [1.0424307  1.05463435 1.04508194 1.03831204 1.03779327]
+[h4] 2026-05-10 00:22:05 bus=1 line=0 pp_bus=0 | i_from=0.3512 i_to=0.3441 i_line=0.3512 kA | max_i=1.0041 thr_open=1.0543 thr_close=0.9539 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0424 P_ema=115.9183 Q_ema=33.8095
+[h4] 2026-05-10 00:22:05 bus=2 line=2 pp_bus=2 | i_from=0.4334 i_to=0.4405 i_line=0.4405 kA | max_i=0.8367 thr_open=0.8786 thr_close=0.7949 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0451 P_ema=111.6025 Q_ema=36.6820
+[h4] 2026-05-10 00:22:05 bus=3 line=4 pp_bus=3 | i_from=0.2314 i_to=0.2378 i_line=0.2378 kA | max_i=0.8367 thr_open=0.8786 thr_close=0.7949 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0383 P_ema=143.8497 Q_ema=36.0521
+[h4] 2026-05-10 00:22:05 bus=4 line=10 pp_bus=6 | i_from=0.2474 i_to=0.2482 i_line=0.2482 kA | max_i=1.5061 thr_open=1.5814 thr_close=1.4308 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0360 P_ema=133.0220 Q_ema=48.2805
+[h4] 2026-05-10 00:22:05 bus=5 line=9 pp_bus=7 | i_from=0.2244 i_to=0.2233 i_line=0.2244 kA | max_i=1.5061 thr_open=1.5814 thr_close=1.4308 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0373 P_ema=146.6206 Q_ema=42.7643
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-10 00:22:09
+Load flow sukses. Voltage snapshot (pu): [1.04355748 1.05510643 1.04577749 1.03825074 1.037554  ]
+[h4] 2026-05-10 00:22:09 bus=1 line=0 pp_bus=0 | i_from=0.3396 i_to=0.3328 i_line=0.3396 kA | max_i=1.0041 thr_open=1.0543 thr_close=0.9539 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0436 P_ema=99.1754 Q_ema=28.9262
+[h4] 2026-05-10 00:22:09 bus=2 line=2 pp_bus=2 | i_from=0.4402 i_to=0.4469 i_line=0.4469 kA | max_i=0.8367 thr_open=0.8786 thr_close=0.7949 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0458 P_ema=91.2014 Q_ema=29.9764
+[h4] 2026-05-10 00:22:09 bus=3 line=4 pp_bus=3 | i_from=0.2631 i_to=0.2694 i_line=0.2694 kA | max_i=0.8367 thr_open=0.8786 thr_close=0.7949 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0383 P_ema=148.0928 Q_ema=37.1156
+[h4] 2026-05-10 00:22:09 bus=4 line=10 pp_bus=6 | i_from=0.2296 i_to=0.2304 i_line=0.2304 kA | max_i=1.5061 thr_open=1.5814 thr_close=1.4308 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0357 P_ema=144.8841 Q_ema=52.5859
+[h4] 2026-05-10 00:22:09 bus=5 line=9 pp_bus=7 | i_from=0.2051 i_to=0.2035 i_line=0.2051 kA | max_i=1.5061 thr_open=1.5814 thr_close=1.4308 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0374 P_ema=121.0900 Q_ema=35.3179
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-10 00:22:13
+Load flow sukses. Voltage snapshot (pu): [1.04444498 1.05544464 1.04623272 1.03856935 1.03801705]
+[h4] 2026-05-10 00:22:13 bus=1 line=0 pp_bus=0 | i_from=0.3282 i_to=0.3217 i_line=0.3282 kA | max_i=1.0041 thr_open=1.0543 thr_close=0.9539 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0444 P_ema=86.2802 Q_ema=25.1651
+[h4] 2026-05-10 00:22:13 bus=2 line=2 pp_bus=2 | i_from=0.4481 i_to=0.4545 i_line=0.4545 kA | max_i=0.8367 thr_open=0.8786 thr_close=0.7949 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0462 P_ema=83.0999 Q_ema=27.3136
+[h4] 2026-05-10 00:22:13 bus=3 line=4 pp_bus=3 | i_from=0.2802 i_to=0.2860 i_line=0.2860 kA | max_i=0.8367 thr_open=0.8786 thr_close=0.7949 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0386 P_ema=151.1126 Q_ema=37.8724
+[h4] 2026-05-10 00:22:13 bus=4 line=10 pp_bus=6 | i_from=0.1897 i_to=0.1894 i_line=0.1897 kA | max_i=1.5061 thr_open=1.5814 thr_close=1.4308 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0368 P_ema=121.6983 Q_ema=44.1706
+[h4] 2026-05-10 00:22:13 bus=5 line=9 pp_bus=7 | i_from=0.1805 i_to=0.1778 i_line=0.1805 kA | max_i=1.5061 thr_open=1.5814 thr_close=1.4308 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0384 P_ema=109.3102 Q_ema=31.8821
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-10 00:22:18
+Load flow sukses. Voltage snapshot (pu): [1.04405693 1.05570197 1.04707879 1.03972754 1.03853145]
+[h4] 2026-05-10 00:22:18 bus=1 line=0 pp_bus=0 | i_from=0.3387 i_to=0.3318 i_line=0.3387 kA | max_i=1.0041 thr_open=1.0543 thr_close=0.9539 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0441 P_ema=93.6585 Q_ema=27.3170
+[h4] 2026-05-10 00:22:18 bus=2 line=2 pp_bus=2 | i_from=0.4377 i_to=0.4436 i_line=0.4436 kA | max_i=0.8367 thr_open=0.8786 thr_close=0.7949 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0471 P_ema=73.1103 Q_ema=24.0302
+[h4] 2026-05-10 00:22:18 bus=3 line=4 pp_bus=3 | i_from=0.2818 i_to=0.2873 i_line=0.2873 kA | max_i=0.8367 thr_open=0.8786 thr_close=0.7949 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0397 P_ema=117.7471 Q_ema=29.5102
+[h4] 2026-05-10 00:22:18 bus=4 line=10 pp_bus=6 | i_from=0.1653 i_to=0.1642 i_line=0.1653 kA | max_i=1.5061 thr_open=1.5814 thr_close=1.4308 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0377 P_ema=105.8506 Q_ema=38.4187
+[h4] 2026-05-10 00:22:18 bus=5 line=9 pp_bus=7 | i_from=0.1724 i_to=0.1691 i_line=0.1724 kA | max_i=1.5061 thr_open=1.5814 thr_close=1.4308 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0392 P_ema=103.4158 Q_ema=30.1629
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-10 00:22:22
+Load flow sukses. Voltage snapshot (pu): [1.04436827 1.05544145 1.04627384 1.03917769 1.03792224]
+[h4] 2026-05-10 00:22:22 bus=1 line=0 pp_bus=0 | i_from=0.3309 i_to=0.3244 i_line=0.3309 kA | max_i=1.0041 thr_open=1.0543 thr_close=0.9539 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0444 P_ema=87.0763 Q_ema=25.3972
+[h4] 2026-05-10 00:22:22 bus=2 line=2 pp_bus=2 | i_from=0.4461 i_to=0.4525 i_line=0.4525 kA | max_i=0.8367 thr_open=0.8786 thr_close=0.7949 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0463 P_ema=90.6215 Q_ema=29.7858
+[h4] 2026-05-10 00:22:22 bus=3 line=4 pp_bus=3 | i_from=0.2671 i_to=0.2727 i_line=0.2727 kA | max_i=0.8367 thr_open=0.8786 thr_close=0.7949 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0392 P_ema=116.5714 Q_ema=29.2156
+[h4] 2026-05-10 00:22:22 bus=4 line=10 pp_bus=6 | i_from=0.1976 i_to=0.1976 i_line=0.1976 kA | max_i=1.5061 thr_open=1.5814 thr_close=1.4308 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0365 P_ema=121.0177 Q_ema=43.9236
+[h4] 2026-05-10 00:22:22 bus=5 line=9 pp_bus=7 | i_from=0.1939 i_to=0.1919 i_line=0.1939 kA | max_i=1.5061 thr_open=1.5814 thr_close=1.4308 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0380 P_ema=124.6670 Q_ema=36.3612
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-10 00:22:26
+Load flow sukses. Voltage snapshot (pu): [1.04456711 1.05526534 1.0457356  1.03879262 1.03748872]
+[h4] 2026-05-10 00:22:26 bus=1 line=0 pp_bus=0 | i_from=0.3258 i_to=0.3197 i_line=0.3258 kA | max_i=1.0041 thr_open=1.0543 thr_close=0.9539 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0446 P_ema=82.7978 Q_ema=24.1494
+[h4] 2026-05-10 00:22:26 bus=2 line=2 pp_bus=2 | i_from=0.4516 i_to=0.4582 i_line=0.4582 kA | max_i=0.8367 thr_open=0.8786 thr_close=0.7949 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0457 P_ema=102.0037 Q_ema=33.5270
+[h4] 2026-05-10 00:22:26 bus=3 line=4 pp_bus=3 | i_from=0.2575 i_to=0.2633 i_line=0.2633 kA | max_i=0.8367 thr_open=0.8786 thr_close=0.7949 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0388 P_ema=115.8073 Q_ema=29.0240
+[h4] 2026-05-10 00:22:26 bus=4 line=10 pp_bus=6 | i_from=0.2190 i_to=0.2196 i_line=0.2196 kA | max_i=1.5061 thr_open=1.5814 thr_close=1.4308 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0357 P_ema=130.8763 Q_ema=47.5017
+[h4] 2026-05-10 00:22:26 bus=5 line=9 pp_bus=7 | i_from=0.2081 i_to=0.2068 i_line=0.2081 kA | max_i=1.5061 thr_open=1.5814 thr_close=1.4308 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0372 P_ema=138.4803 Q_ema=40.3901
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-10 00:22:30
+Load flow sukses. Voltage snapshot (pu): [1.04344538 1.05500128 1.04556873 1.03974868 1.038294  ]
+[h4] 2026-05-10 00:22:30 bus=1 line=0 pp_bus=0 | i_from=0.3397 i_to=0.3330 i_line=0.3397 kA | max_i=1.0041 thr_open=1.0543 thr_close=0.9539 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0434 P_ema=100.6678 Q_ema=29.3615
+[h4] 2026-05-10 00:22:30 bus=2 line=2 pp_bus=2 | i_from=0.4419 i_to=0.4487 i_line=0.4487 kA | max_i=0.8367 thr_open=0.8786 thr_close=0.7949 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0456 P_ema=119.0696 Q_ema=39.1363
+[h4] 2026-05-10 00:22:30 bus=3 line=4 pp_bus=3 | i_from=0.2262 i_to=0.2316 i_line=0.2316 kA | max_i=0.8367 thr_open=0.8786 thr_close=0.7949 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0397 P_ema=89.1930 Q_ema=22.3539
+[h4] 2026-05-10 00:22:30 bus=4 line=10 pp_bus=6 | i_from=0.2137 i_to=0.2139 i_line=0.2139 kA | max_i=1.5061 thr_open=1.5814 thr_close=1.4308 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0368 P_ema=115.5308 Q_ema=41.9321
+[h4] 2026-05-10 00:22:30 bus=5 line=9 pp_bus=7 | i_from=0.2118 i_to=0.2103 i_line=0.2118 kA | max_i=1.5061 thr_open=1.5814 thr_close=1.4308 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0381 P_ema=143.4908 Q_ema=41.8515
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-10 00:22:34
+Load flow sukses. Voltage snapshot (pu): [1.0440868  1.05521887 1.04583521 1.03990691 1.03828719]
+[h4] 2026-05-10 00:22:34 bus=1 line=0 pp_bus=0 | i_from=0.3322 i_to=0.3257 i_line=0.3322 kA | max_i=1.0041 thr_open=1.0543 thr_close=0.9539 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0441 P_ema=90.9247 Q_ema=26.5197
+[h4] 2026-05-10 00:22:34 bus=2 line=2 pp_bus=2 | i_from=0.4471 i_to=0.4537 i_line=0.4537 kA | max_i=0.8367 thr_open=0.8786 thr_close=0.7949 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0458 P_ema=114.2374 Q_ema=37.5480
+[h4] 2026-05-10 00:22:34 bus=3 line=4 pp_bus=3 | i_from=0.2365 i_to=0.2416 i_line=0.2416 kA | max_i=0.8367 thr_open=0.8786 thr_close=0.7949 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0399 P_ema=83.5338 Q_ema=20.9355
+[h4] 2026-05-10 00:22:34 bus=4 line=10 pp_bus=6 | i_from=0.1986 i_to=0.1986 i_line=0.1986 kA | max_i=1.5061 thr_open=1.5814 thr_close=1.4308 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0369 P_ema=110.7311 Q_ema=40.1900
+[h4] 2026-05-10 00:22:34 bus=5 line=9 pp_bus=7 | i_from=0.2024 i_to=0.2007 i_line=0.2024 kA | max_i=1.5061 thr_open=1.5814 thr_close=1.4308 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0382 P_ema=138.0508 Q_ema=40.2648
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-10 00:22:38
+Load flow sukses. Voltage snapshot (pu): [1.0434787  1.05507951 1.04575003 1.04017038 1.03862348]
+[h4] 2026-05-10 00:22:38 bus=1 line=0 pp_bus=0 | i_from=0.3394 i_to=0.3326 i_line=0.3394 kA | max_i=1.0041 thr_open=1.0543 thr_close=0.9539 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0435 P_ema=100.7181 Q_ema=29.3761
+[h4] 2026-05-10 00:22:38 bus=2 line=2 pp_bus=2 | i_from=0.4419 i_to=0.4486 i_line=0.4486 kA | max_i=0.8367 thr_open=0.8786 thr_close=0.7949 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0458 P_ema=119.5907 Q_ema=39.3075
+[h4] 2026-05-10 00:22:38 bus=3 line=4 pp_bus=3 | i_from=0.2250 i_to=0.2301 i_line=0.2301 kA | max_i=0.8367 thr_open=0.8786 thr_close=0.7949 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0402 P_ema=79.4097 Q_ema=19.9019
+[h4] 2026-05-10 00:22:38 bus=4 line=10 pp_bus=6 | i_from=0.1983 i_to=0.1982 i_line=0.1983 kA | max_i=1.5061 thr_open=1.5814 thr_close=1.4308 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0372 P_ema=116.7642 Q_ema=42.3797
+[h4] 2026-05-10 00:22:38 bus=5 line=9 pp_bus=7 | i_from=0.1981 i_to=0.1961 i_line=0.1981 kA | max_i=1.5061 thr_open=1.5814 thr_close=1.4308 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0387 P_ema=123.6299 Q_ema=36.0587
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-10 00:22:43
+Load flow sukses. Voltage snapshot (pu): [1.04433712 1.05495404 1.04502575 1.04027035 1.03887197]
+[h4] 2026-05-10 00:22:43 bus=1 line=0 pp_bus=0 | i_from=0.3213 i_to=0.3150 i_line=0.3213 kA | max_i=1.0041 thr_open=1.0543 thr_close=0.9539 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0443 P_ema=86.5806 Q_ema=25.2527
+[h4] 2026-05-10 00:22:43 bus=2 line=2 pp_bus=2 | i_from=0.4592 i_to=0.4660 i_line=0.4660 kA | max_i=0.8367 thr_open=0.8786 thr_close=0.7949 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0450 P_ema=144.4667 Q_ema=47.4839
+[h4] 2026-05-10 00:22:43 bus=3 line=4 pp_bus=3 | i_from=0.2080 i_to=0.2125 i_line=0.2125 kA | max_i=0.8367 thr_open=0.8786 thr_close=0.7949 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0403 P_ema=70.6716 Q_ema=17.7120
+[h4] 2026-05-10 00:22:43 bus=4 line=10 pp_bus=6 | i_from=0.1840 i_to=0.1835 i_line=0.1840 kA | max_i=1.5061 thr_open=1.5814 thr_close=1.4308 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0377 P_ema=117.0032 Q_ema=42.4665
+[h4] 2026-05-10 00:22:43 bus=5 line=9 pp_bus=7 | i_from=0.1832 i_to=0.1805 i_line=0.1832 kA | max_i=1.5061 thr_open=1.5814 thr_close=1.4308 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0392 P_ema=107.6444 Q_ema=31.3963
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-10 00:22:47
+Load flow sukses. Voltage snapshot (pu): [1.04330226 1.05522116 1.04618589 1.0411282  1.03936665]
+[h4] 2026-05-10 00:22:47 bus=1 line=0 pp_bus=0 | i_from=0.3425 i_to=0.3354 i_line=0.3425 kA | max_i=1.0041 thr_open=1.0543 thr_close=0.9539 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0433 P_ema=104.7917 Q_ema=30.5642
+[h4] 2026-05-10 00:22:47 bus=2 line=2 pp_bus=2 | i_from=0.4388 i_to=0.4452 i_line=0.4452 kA | max_i=0.8367 thr_open=0.8786 thr_close=0.7949 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0462 P_ema=119.6130 Q_ema=39.3149
+[h4] 2026-05-10 00:22:47 bus=3 line=4 pp_bus=3 | i_from=0.2210 i_to=0.2255 i_line=0.2255 kA | max_i=0.8367 thr_open=0.8786 thr_close=0.7949 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0411 P_ema=57.5014 Q_ema=14.4112
+[h4] 2026-05-10 00:22:47 bus=4 line=10 pp_bus=6 | i_from=0.1647 i_to=0.1635 i_line=0.1647 kA | max_i=1.5061 thr_open=1.5814 thr_close=1.4308 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0384 P_ema=114.8420 Q_ema=41.6821
+[h4] 2026-05-10 00:22:47 bus=5 line=9 pp_bus=7 | i_from=0.1706 i_to=0.1670 i_line=0.1706 kA | max_i=1.5061 thr_open=1.5814 thr_close=1.4308 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0401 P_ema=83.8810 Q_ema=24.4653
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-10 00:22:51
+Load flow sukses. Voltage snapshot (pu): [1.04261817 1.05538307 1.04692024 1.04165486 1.03964957]
+[h4] 2026-05-10 00:22:51 bus=1 line=0 pp_bus=0 | i_from=0.3563 i_to=0.3487 i_line=0.3563 kA | max_i=1.0041 thr_open=1.0543 thr_close=0.9539 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0426 P_ema=116.6288 Q_ema=34.0167
+[h4] 2026-05-10 00:22:51 bus=2 line=2 pp_bus=2 | i_from=0.4257 i_to=0.4317 i_line=0.4317 kA | max_i=0.8367 thr_open=0.8786 thr_close=0.7949 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0469 P_ema=103.4581 Q_ema=34.0050
+[h4] 2026-05-10 00:22:51 bus=3 line=4 pp_bus=3 | i_from=0.2295 i_to=0.2340 i_line=0.2340 kA | max_i=0.8367 thr_open=0.8786 thr_close=0.7949 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0417 P_ema=48.9408 Q_ema=12.2657
+[h4] 2026-05-10 00:22:51 bus=4 line=10 pp_bus=6 | i_from=0.1524 i_to=0.1506 i_line=0.1524 kA | max_i=1.5061 thr_open=1.5814 thr_close=1.4308 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0388 P_ema=113.4372 Q_ema=41.1722
+[h4] 2026-05-10 00:22:51 bus=5 line=9 pp_bus=7 | i_from=0.1627 i_to=0.1584 i_line=0.1627 kA | max_i=1.5061 thr_open=1.5814 thr_close=1.4308 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0407 P_ema=68.4348 Q_ema=19.9602
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-10 00:22:55
+Load flow sukses. Voltage snapshot (pu): [1.04249145 1.05513712 1.04633862 1.04168818 1.0401258 ]
+[h4] 2026-05-10 00:22:55 bus=1 line=0 pp_bus=0 | i_from=0.3535 i_to=0.3459 i_line=0.3535 kA | max_i=1.0041 thr_open=1.0543 thr_close=0.9539 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0425 P_ema=118.1468 Q_ema=34.4595
+[h4] 2026-05-10 00:22:55 bus=2 line=2 pp_bus=2 | i_from=0.4301 i_to=0.4364 i_line=0.4364 kA | max_i=0.8367 thr_open=0.8786 thr_close=0.7949 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0463 P_ema=121.5596 Q_ema=39.9547
+[h4] 2026-05-10 00:22:55 bus=3 line=4 pp_bus=3 | i_from=0.2109 i_to=0.2152 i_line=0.2152 kA | max_i=0.8367 thr_open=0.8786 thr_close=0.7949 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0417 P_ema=54.7012 Q_ema=13.7094
+[h4] 2026-05-10 00:22:55 bus=4 line=10 pp_bus=6 | i_from=0.1487 i_to=0.1462 i_line=0.1487 kA | max_i=1.5061 thr_open=1.5814 thr_close=1.4308 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0397 P_ema=85.5278 Q_ema=31.0424
+[h4] 2026-05-10 00:22:55 bus=5 line=9 pp_bus=7 | i_from=0.1682 i_to=0.1642 i_line=0.1682 kA | max_i=1.5061 thr_open=1.5814 thr_close=1.4308 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0411 P_ema=93.9970 Q_ema=27.4158
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-10 00:22:59
+Load flow sukses. Voltage snapshot (pu): [1.04294583 1.05474535 1.04512945 1.04098623 1.03929586]
+[h4] 2026-05-10 00:22:59 bus=1 line=0 pp_bus=0 | i_from=0.3418 i_to=0.3348 i_line=0.3418 kA | max_i=1.0041 thr_open=1.0543 thr_close=0.9539 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0429 P_ema=108.6838 Q_ema=31.6994
+[h4] 2026-05-10 00:22:59 bus=2 line=2 pp_bus=2 | i_from=0.4429 i_to=0.4498 i_line=0.4498 kA | max_i=0.8367 thr_open=0.8786 thr_close=0.7949 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0451 P_ema=149.1685 Q_ema=49.0293
+[h4] 2026-05-10 00:22:59 bus=3 line=4 pp_bus=3 | i_from=0.1870 i_to=0.1913 i_line=0.1913 kA | max_i=0.8367 thr_open=0.8786 thr_close=0.7949 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0410 P_ema=48.4358 Q_ema=12.1391
+[h4] 2026-05-10 00:22:59 bus=4 line=10 pp_bus=6 | i_from=0.1932 i_to=0.1928 i_line=0.1932 kA | max_i=1.5061 thr_open=1.5814 thr_close=1.4308 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0380 P_ema=115.7990 Q_ema=42.0294
+[h4] 2026-05-10 00:22:59 bus=5 line=9 pp_bus=7 | i_from=0.1941 i_to=0.1918 i_line=0.1941 kA | max_i=1.5061 thr_open=1.5814 thr_close=1.4308 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0395 P_ema=112.1859 Q_ema=32.7209
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-10 00:23:03
+Load flow sukses. Voltage snapshot (pu): [1.04146396 1.05415787 1.04428413 1.04060369 1.03978412]
+[h4] 2026-05-10 00:23:03 bus=1 line=0 pp_bus=0 | i_from=0.3557 i_to=0.3482 i_line=0.3557 kA | max_i=1.0041 thr_open=1.0543 thr_close=0.9539 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0415 P_ema=131.2375 Q_ema=38.2776
+[h4] 2026-05-10 00:23:03 bus=2 line=2 pp_bus=2 | i_from=0.4346 i_to=0.4420 i_line=0.4420 kA | max_i=0.8367 thr_open=0.8786 thr_close=0.7949 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0443 P_ema=166.5673 Q_ema=54.7480
+[h4] 2026-05-10 00:23:03 bus=3 line=4 pp_bus=3 | i_from=0.1593 i_to=0.1639 i_line=0.1639 kA | max_i=0.8367 thr_open=0.8786 thr_close=0.7949 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0406 P_ema=73.3927 Q_ema=18.3939
+[h4] 2026-05-10 00:23:03 bus=4 line=10 pp_bus=6 | i_from=0.2086 i_to=0.2083 i_line=0.2086 kA | max_i=1.5061 thr_open=1.5814 thr_close=1.4308 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0386 P_ema=115.7030 Q_ema=41.9946
+[h4] 2026-05-10 00:23:03 bus=5 line=9 pp_bus=7 | i_from=0.1993 i_to=0.1970 i_line=0.1993 kA | max_i=1.5061 thr_open=1.5814 thr_close=1.4308 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0400 P_ema=111.0948 Q_ema=32.4027
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-10 00:23:07
+Load flow sukses. Voltage snapshot (pu): [1.04141261 1.05452733 1.04525963 1.04053941 1.03977614]
+[h4] 2026-05-10 00:23:07 bus=1 line=0 pp_bus=0 | i_from=0.3622 i_to=0.3544 i_line=0.3622 kA | max_i=1.0041 thr_open=1.0543 thr_close=0.9539 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0414 P_ema=133.4434 Q_ema=38.9210
+[h4] 2026-05-10 00:23:07 bus=2 line=2 pp_bus=2 | i_from=0.4260 i_to=0.4330 i_line=0.4330 kA | max_i=0.8367 thr_open=0.8786 thr_close=0.7949 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0453 P_ema=136.0910 Q_ema=44.7310
+[h4] 2026-05-10 00:23:07 bus=3 line=4 pp_bus=3 | i_from=0.1911 i_to=0.1962 i_line=0.1962 kA | max_i=0.8367 thr_open=0.8786 thr_close=0.7949 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0405 P_ema=90.8794 Q_ema=22.7765
+[h4] 2026-05-10 00:23:07 bus=4 line=10 pp_bus=6 | i_from=0.1959 i_to=0.1952 i_line=0.1959 kA | max_i=1.5061 thr_open=1.5814 thr_close=1.4308 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0387 P_ema=116.6450 Q_ema=42.3365
+[h4] 2026-05-10 00:23:07 bus=5 line=9 pp_bus=7 | i_from=0.1879 i_to=0.1850 i_line=0.1879 kA | max_i=1.5061 thr_open=1.5814 thr_close=1.4308 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0403 P_ema=96.4222 Q_ema=28.1231
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-10 00:23:12
+Load flow sukses. Voltage snapshot (pu): [1.04137644 1.05476166 1.0458806  1.04048151 1.03975533]
+[h4] 2026-05-10 00:23:12 bus=1 line=0 pp_bus=0 | i_from=0.3664 i_to=0.3584 i_line=0.3664 kA | max_i=1.0041 thr_open=1.0543 thr_close=0.9539 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0414 P_ema=134.8772 Q_ema=39.3392
+[h4] 2026-05-10 00:23:12 bus=2 line=2 pp_bus=2 | i_from=0.4205 i_to=0.4272 i_line=0.4272 kA | max_i=0.8367 thr_open=0.8786 thr_close=0.7949 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0459 P_ema=116.2814 Q_ema=38.2199
+[h4] 2026-05-10 00:23:12 bus=3 line=4 pp_bus=3 | i_from=0.2119 i_to=0.2172 i_line=0.2172 kA | max_i=0.8367 thr_open=0.8786 thr_close=0.7949 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0405 P_ema=102.2458 Q_ema=25.6252
+[h4] 2026-05-10 00:23:12 bus=4 line=10 pp_bus=6 | i_from=0.1876 i_to=0.1868 i_line=0.1876 kA | max_i=1.5061 thr_open=1.5814 thr_close=1.4308 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0388 P_ema=117.2574 Q_ema=42.5587
+[h4] 2026-05-10 00:23:12 bus=5 line=9 pp_bus=7 | i_from=0.1806 i_to=0.1773 i_line=0.1806 kA | max_i=1.5061 thr_open=1.5814 thr_close=1.4308 | was_closed=True cmd=1 in_svc=True | vm_pu=1.0405 P_ema=86.8850 Q_ema=25.3415

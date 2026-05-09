@@ -17,8 +17,8 @@ I_BASE_ADDR = 10
 # 29: arus max ~2259 A (65535/29); injeksi 1800–2200 A muat di register 16-bit.
 I_SCALE = 29
 NUM_BUS = 5
-I_INJECT_MIN_A = 1800.0
-I_INJECT_MAX_A = 2200.0
+I_INJECT_MIN_A = 1500.0
+I_INJECT_MAX_A = 1700.0
 # Mekanisme realistis: manipulasi hanya aktif pada jendela waktu tertentu,
 # lalu masih disaring probabilitas per-write.
 ATTACK_ON_SECONDS = 10.0

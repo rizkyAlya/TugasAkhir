@@ -3,6 +3,7 @@ from datetime import datetime
 import random
 import os
 from threading import Thread
+import math
 
 from pymodbus.server import StartTcpServer
 from pymodbus.datastore import ModbusSlaveContext, ModbusServerContext
@@ -71,7 +72,7 @@ def main_loop():
                 pf = 0.95                                # Power factor
                 S = P / pf                               # Apparent power
 
-                I = S / V_real                           # Arus (Ampere)
+                I = S / (math.sqrt(3) * V_real)          # Arus (Ampere)
 
                 v_scaled = int(v_pu * V_SCALE)           # Tegangan pu -> register
                 i_scaled = int(I * I_SCALE)              # Arus A -> register 
