@@ -53,7 +53,7 @@ for bus, idx_pp in bus_map.items():
 print("Unique bus->line mapping:", bus_line)
 
 line_status = {idx: True for idx in range(len(net.line))}
-open_factor = 1.00   # Open jika I_line > max_i_ka * open_factor
+open_factor = 1.05   # Open jika I_line > max_i_ka * open_factor
 close_factor = 0.95  # Close jika I_line < max_i_ka * close_factor
 ema_alpha = 0.35     # smoothing input P/Q agar tegangan tidak terlalu berosilasi
 p_ema = {}
@@ -115,10 +115,21 @@ while True:
         if cmd == 0:
             net.line.loc[line_idx, "in_service"] = False
             line_status[line_idx] = False
-            print(f"Bus {bus}: breaker OPEN (line {line_idx}) | I_line={i_line_ka:.4f} kA, I_open={i_open_ka:.4f} kA")
         elif cmd == 1:
             net.line.loc[line_idx, "in_service"] = True
             line_status[line_idx] = True
-            print(f"Bus {bus}: breaker CLOSE (line {line_idx}) | I_line={i_line_ka:.4f} kA, I_close={i_close_ka:.4f} kA")
+
+        vm_pu = float(net.res_bus.vm_pu.loc[idx_pp])
+        max_i = float(net.line.max_i_ka.loc[line_idx])
+        in_svc_after = bool(net.line.loc[line_idx, "in_service"])
+        ts_row = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        print(
+            f"[h4] {ts_row} bus={bus} line={line_idx} pp_bus={idx_pp} | "
+            f"i_from={i_from_ka:.4f} i_to={i_to_ka:.4f} i_line={i_line_ka:.4f} kA | "
+            f"max_i={max_i:.4f} thr_open={i_open_ka:.4f} thr_close={i_close_ka:.4f} | "
+            f"was_closed={line_is_closed} cmd={cmd} in_svc={in_svc_after} | "
+            f"vm_pu={vm_pu:.4f} P_ema={p_ema[bus]:.4f} Q_ema={q_ema[bus]:.4f}",
+            flush=True,
+        )
 
     time.sleep(4)
