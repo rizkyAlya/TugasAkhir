@@ -293,6 +293,16 @@ def run_dos(net, mode, host_log_dir):
         return False
 
 
+def stop_dos_hping_on_net(net):
+    """Hentikan hping3 di host attacker (topologi ini: h5)."""
+    try:
+        h = net.get("h5")
+        if h:
+            h.cmd("killall hping3 >/dev/null 2>&1 || true")
+    except Exception:
+        pass
+
+
 def clear_mitm_attack_flag_on_hosts(net):
     """Hapus marker serangan MITM di semua host (setelah pengumpulan fase attack)."""
     for host in net.hosts:
@@ -437,25 +447,28 @@ def main():
     if args.dos:
         if path_dos:
             publish_run_root_on_hosts(net, path_dos)
-        # Always run both scenarios in one DoS run.
+        # Satu kali jalankan serangan per mode; network lalu latensi tanpa restart DoS di antaranya.
         for dos_mode in ("light", "heavy"):
             ok = run_dos(net, dos_mode, host_log_dir)
             if ok:
                 phase_label = f"dos_{dos_mode}"
                 publish_measure_phase_on_hosts(net, phase_label)
-                print(f"Collecting DoS ({dos_mode}) metrics...")
+                print(f"Collecting DoS ({dos_mode}) network metrics...")
                 collect_data(
                     net,
                     mode=dos_mode,
                     logs_path=path_dos,
                     measure_phase=phase_label,
                 )
-                print(f"DoS ({dos_mode}) collection complete.\n")
-                print(f"Menjalankan DoS ulang ({dos_mode}) untuk pengukuran delay field/RTU -> DT (h2->h4)...")
-                run_dos(net, dos_mode, host_log_dir)
+                print(
+                    f"Collecting DoS ({dos_mode}) DT path latency "
+                    "(serangan tetap aktif, tanpa run_dos ulang)..."
+                )
                 lat_dir = os.path.join(path_dos, "dt_path_latency", dos_mode)
                 collect_dt_path_latency(net, lat_dir, dos_mode, host_log_dir)
-                print()
+                print(f"DoS ({dos_mode}) network + latency complete.\n")
+        stop_dos_hping_on_net(net)
+        print("DoS stopped (hping3 cleared).\n")
 
     if should_create_run_folder:
         publish_trace_enabled_on_hosts(net, False)
