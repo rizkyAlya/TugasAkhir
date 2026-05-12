@@ -1,0 +1,266 @@
+[DOS][INFO] target=10.0.2.2:5001 at=2026-05-12 22:22:09
+\n===== DoS LIGHT 2026-05-12 22:22:09 =====
+[DOS][LIGHT][UDP] start pps~500 duration=45s
+HPING 10.0.2.2 (h5-eth0 10.0.2.2): udp mode set, 28 headers + 128 data bytes
+status=0 port=1909 seq=0
+status=0 port=1910 seq=1
+status=0 port=1911 seq=2
+status=0 port=1912 seq=3
+status=0 port=1913 seq=4
+status=0 port=1914 seq=5
+status=0 port=3911 seq=2002
+status=0 port=6051 seq=4142
+status=0 port=8066 seq=6157
+status=0 port=10215 seq=8306
+status=0 port=12197 seq=10288
+status=0 port=14395 seq=12486
+status=0 port=16543 seq=14634
+status=0 port=18368 seq=16459
+status=0 port=20394 seq=18485
+status=0 port=22443 seq=20534
+status=0 port=24432 seq=22523
+status=0 port=26274 seq=24365
+status=0 port=28013 seq=26104
+status=0 port=29820 seq=27911
+status=0 port=31658 seq=29749
+status=0 port=33449 seq=31540
+status=0 port=35424 seq=33515
+status=0 port=36745 seq=34836
+status=0 port=38636 seq=36727
+status=0 port=40342 seq=38433
+status=0 port=41896 seq=39987
+status=0 port=43574 seq=41665
+status=0 port=45078 seq=43169
+status=0 port=46650 seq=44741
+status=0 port=48312 seq=46403
+status=0 port=50098 seq=48189
+status=0 port=52106 seq=50197
+status=0 port=53783 seq=51874
+status=0 port=55255 seq=53346
+status=0 port=56850 seq=54941
+status=0 port=57714 seq=55805
+status=0 port=59383 seq=57474
+status=0 port=61069 seq=59160
+status=0 port=62247 seq=60338
+status=0 port=63916 seq=62007
+status=0 port=95 seq=63722
+status=0 port=1735 seq=65362
+status=0 port=3222 seq=66849
+status=0 port=5054 seq=68681
+status=0 port=6903 seq=70530
+status=0 port=8715 seq=72342
+status=0 port=10599 seq=74226
+status=0 port=12476 seq=76103
+status=0 port=14042 seq=77669
+status=0 port=15713 seq=79340
+status=0 port=17424 seq=81051
+status=0 port=19091 seq=82718
+status=0 port=20778 seq=84405
+status=0 port=22347 seq=85974
+status=0 port=23977 seq=87604
+status=0 port=25620 seq=89247
+status=0 port=27355 seq=90982
+status=0 port=29024 seq=92651
+status=0 port=30599 seq=94226
+status=0 port=32344 seq=95971
+status=0 port=33985 seq=97612
+status=0 port=35568 seq=99195
+status=0 port=37178 seq=100805
+status=0 port=38872 seq=102499
+status=0 port=40255 seq=103882
+status=0 port=41915 seq=105542
+status=0 port=43324 seq=106951
+status=0 port=45124 seq=108751
+status=0 port=46862 seq=110489
+status=0 port=48513 seq=112140
+status=0 port=50099 seq=113726
+status=0 port=51690 seq=115317
+status=0 port=53424 seq=117051
+status=0 port=54918 seq=118545
+status=0 port=56453 seq=120080
+status=0 port=58026 seq=121653
+status=0 port=59675 seq=123302
+status=0 port=61171 seq=124798
+status=0 port=62761 seq=126388
+status=0 port=64361 seq=127988
+status=0 port=386 seq=129549
+status=0 port=2081 seq=131244
+status=0 port=3646 seq=132809
+status=0 port=5154 seq=134317
+status=0 port=6947 seq=136110
+status=0 port=8622 seq=137785
+status=0 port=10266 seq=139429
+status=0 port=12046 seq=141209
+status=0 port=13729 seq=142892
+status=0 port=15210 seq=144373
+status=0 port=16856 seq=146019
+status=0 port=18373 seq=147536
+status=0 port=19826 seq=148989
+status=0 port=21496 seq=150659
+status=0 port=22929 seq=152092
+status=0 port=24522 seq=153685
+status=0 port=26197 seq=155360
+status=0 port=27947 seq=157110
+status=0 port=29610 seq=158773
+status=0 port=31335 seq=160498
+status=0 port=32948 seq=162111
+status=0 port=34463 seq=163626
+status=0 port=36001 seq=165164
+status=0 port=37766 seq=166929
+status=0 port=39432 seq=168595
+status=0 port=41062 seq=170225
+status=0 port=42590 seq=171753
+status=0 port=44413 seq=173576
+status=0 port=46132 seq=175295
+status=0 port=47830 seq=176993
+status=0 port=49290 seq=178453
+status=0 port=50847 seq=180010
+status=0 port=52397 seq=181560
+status=0 port=53974 seq=183137
+status=0 port=55602 seq=184765
+status=0 port=57243 seq=186406
+status=0 port=58861 seq=188024
+status=0 port=60538 seq=189701
+status=0 port=62203 seq=191366
+status=0 port=63791 seq=192954
+status=0 port=65310 seq=194473
+status=0 port=1344 seq=196043
+status=0 port=2917 seq=197616
+status=0 port=4376 seq=199075
+status=0 port=5947 seq=200646
+status=0 port=7382 seq=202081
+status=0 port=8748 seq=203447
+status=0 port=10325 seq=205024
+status=0 port=11971 seq=206670
+status=0 port=13677 seq=0
+status=0 port=15515 seq=0
+status=0 port=17533 seq=0
+status=0 port=19492 seq=0
+status[DOS][INFO] target=10.0.2.2:5001 at=2026-05-12 22:24:59
+\n===== DoS LIGHT 2026-05-12 22:24:59 =====
+[DOS][LIGHT][UDP] start pps~500 duration=45s
+
+--- 10.0.2.2 hping statistic ---
+288501 packets transmitted, 175 packets received, 100% packet loss
+round-trip min/avg/max = 1.4/25.2/190.0 ms
+=0 port=21293 seq=0
+status=0 port=23412 seq=0
+status=0 port=26036 seq=220735
+status=0 port=27718 seq=222417
+status=0 port=29722 seq=0
+status=0 port=31468 seq=0
+status=0 port=33401 seq=0
+status=0 port=35247 seq=0
+status=0 port=37161 seq=0
+status=0 port=39626 seq=234325
+status=0 port=41555 seq=236254
+status=0 port=43106 seq=237805
+status=0 port=45135 seq=239834
+status=0 port=46934 seq=241633
+status=0 port=48877 seq=243576
+status=0 port=50661 seq=0
+status=0 port=52053 seq=0
+status=0 port=52640 seq=0
+status=0 port=55136 seq=249835
+status=0 port=56876 seq=251575
+status=0 port=58638 seq=253337
+status=0 port=60532 seq=255231
+status=0 port=62291 seq=256990
+status=0 port=64050 seq=258749
+status=0 port=465 seq=260700
+status=0 port=2057 seq=262292
+status=0 port=3750 seq=263985
+status=0 port=5662 seq=265897
+status=0 port=7337 seq=267572
+status=0 port=9176 seq=269411
+status=0 port=10974 seq=271209
+status=0 port=12731 seq=272966
+status=0 port=14226 seq=274461
+status=0 port=15758 seq=275993
+status=0 port=17532 seq=277767
+status=0 port=19501 seq=279736
+status=0 port=21235 seq=281470
+status=0 port=22967 seq=283202
+status=0 port=24723 seq=284958
+status=0 port=26446 seq=286681
+status=0 port=27088 seq=287323
+[DOS][INFO] target=10.0.2.2:5001 at=2026-05-12 22:25:59
+\n===== DoS HEAVY 2026-05-12 22:25:59 =====
+[DOS][HEAVY][UDP] start pps~3000 duration=60s
+
+--- 10.0.2.2 hping statistic ---
+99168 packets transmitted, 60 packets received, 100% packet loss
+round-trip min/avg/max = 2.9/8.3/53.3 ms
+HPING 10.0.2.2 (h5-eth0 10.0.2.2): udp mode set, 28 headers + 128 data bytes
+status=0 port=2148 seq=424
+status=0 port=3982 seq=2258
+status=0 port=5544 seq=3820
+status=0 port=7178 seq=5454
+status=0 port=8962 seq=7238
+status=0 port=10405 seq=8681
+status=0 port=12076 seq=10352
+status=0 port=13770 seq=12046
+status=0 port=15460 seq=13736
+status=0 port=17299 seq=15575
+status=0 port=19014 seq=17290
+status=0 port=20750 seq=19026
+status=0 port=22494 seq=20770
+status=0 port=24139 seq=22415
+status=0 port=25832 seq=24108
+status=0 port=27548 seq=25824
+status=0 port=28908 seq=27184
+status=0 port=30580 seq=28856
+status=0 port=32396 seq=30672
+status=0 port=33848 seq=32124
+status=0 port=35516 seq=33792
+status=0 port=37270 seq=35546
+status=0 port=38827 seq=37103
+status=0 port=40557 seq=38833
+status=0 port=42058 seq=40334
+status=0 port=43656 seq=41932
+status=0 port=45485 seq=43761
+status=0 port=47219 seq=45495
+status=0 port=48755 seq=47031
+status=0 port=50614 seq=48890
+status=0 port=52328 seq=50604
+status=0 port=53797 seq=52073
+status=0 port=55604 seq=53880
+status=0 port=57166 seq=55442
+status=0 port=58450 seq=56726
+status=0 port=59975 seq=58251
+status=0 port=61658 seq=59934
+status=0 port=63280 seq=61556
+status=0 port=64936 seq=63212
+status=0 port=1282 seq=65094
+status=0 port=2871 seq=66683
+status=0 port=4745 seq=68557
+status=0 port=6467 seq=70279
+status=0 port=8240 seq=72052
+status=0 port=9959 seq=73771
+status=0 port=11764 seq=75576
+status=0 port=13298 seq=77110
+status=0 port=14961 seq=78773
+status=0 port=16503 seq=80315
+status=0 port=17853 seq=81665
+status=0 port=19565 seq=83377
+status=0 port=21093 seq=84905
+status=0 port=22746 seq=86558
+status=0 port=24123 seq=87935
+status=0 port=25676 seq=89488
+status=0 port=27308 seq=91120
+status=0 port=28931 seq=92743
+status=0 port=30562 seq=94374
+status=0 port=32308 seq=96120
+status=0 port=33993 seq=97805
+hping in flood mode, no replies will be shown
+[DOS][INFO] target=10.0.2.2:5001 at=2026-05-12 22:28:53
+\n===== DoS HEAVY 2026-05-12 22:28:53 =====
+[DOS][HEAVY][UDP] start pps~3000 duration=60s
+
+--- 10.0.2.2 hping statistic ---
+597722 packets transmitted, 0 packets received, 100% packet loss
+round-trip min/avg/max = 0.0/0.0/0.0 ms
+HPING 10.0.2.2 (h5-eth0 10.0.2.2): udp mode set, 28 headers + 128 data bytes
+hping in flood mode, no replies will be shown
+[send_ip] sendto: Network is unreachable
+HPING 10.0.2.2 (h5-eth0 10.0.2.2): udp mode set, 28 headers + 128 data bytes

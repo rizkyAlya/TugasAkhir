@@ -14,7 +14,6 @@ BREAKER_FB_BASE_ADDR = 20
 V_SCALE = 1000
 I_SCALE = 29
 NUM_BUS = 5
-# Sinkron delay h2->h4: counter batch ditulis ke gateway HR ini (baca h3 -> OPC DT_path_probe).
 DT_PATH_PROBE_ADDR = 95
 _dt_path_cycle = 0
 
