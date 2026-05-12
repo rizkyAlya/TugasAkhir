@@ -432,6 +432,9 @@ def main():
             topology_mod.escalate_attacker_to_field(net)
             time.sleep(1)
         run_mitm(net, host_log_dir)
+        if hasattr(topology_mod, "mitm_trace_before_network_collect"):
+            print("MITM: fase pengukuran trace (sebelum network)...")
+            topology_mod.mitm_trace_before_network_collect(net)
         print("Collecting MITM metrics (attack phase)...")
         collect_data(
             net,

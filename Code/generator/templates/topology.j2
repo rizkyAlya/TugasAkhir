@@ -112,6 +112,33 @@ def escalate_attacker_to_field(net):
     print("[topology] Attacker eskalasi ke Field: {{ attacker_name }}-eth1 = 10.0.1.100/24")
 
 
+# --- MITM: trace sebelum pengukuran jaringan (orchestrator memanggil setelah run_mitm) ---
+# Jumlah iterasi_ke trace selama fase serangan; tiap iterasi menunggu minimal MITM_TRACE_MIN_WAKTU
+# inkremen kolom "waktu" (satu tick = satu putaran loop gateway).
+MITM_TRACE_NUM_ITERATIONS = 3
+MITM_TRACE_MIN_WAKTU_PER_ITERATION = 30
+# Harus selaras dengan generator/templates/gateway.j2 (time.sleep di akhir loop utama).
+MITM_TRACE_GATEWAY_CYCLE_S = 4
+
+
+def mitm_trace_before_network_collect(net):
+    """
+    Pengukuran trace MITM dulu: untuk setiap iterasi_ke 1..N, tunggu cukup lama agar
+    gateway sempat menghasilkan minimal M baris per bus dengan waktu bertambah (satu
+    tick waktu per siklus gateway), lalu orchestrator melanjutkan ke collect_data.
+    """
+    from logger.mitm_trace_logger import publish_collect_run_on_hosts
+
+    wait_s = MITM_TRACE_MIN_WAKTU_PER_ITERATION * MITM_TRACE_GATEWAY_CYCLE_S
+    for i in range(1, MITM_TRACE_NUM_ITERATIONS + 1):
+        publish_collect_run_on_hosts(net, i)
+        print(
+            f"[topology] MITM trace: iterasi_ke={i}/{MITM_TRACE_NUM_ITERATIONS}, "
+            f"menunggu {wait_s}s (target >= {MITM_TRACE_MIN_WAKTU_PER_ITERATION} waktu/iterasi)..."
+        )
+        time.sleep(wait_s)
+
+
 def CPS_topology():
     net = create_network()
     print("Starting network")
