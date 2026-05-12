@@ -1,0 +1,1419 @@
+Memulai Server OPC UA
+Endpoints other than open requested but private key and certificate are not set.
+Listening on 10.0.2.2:4840
+
+
+[2026-05-12 23:23:17] [iter 1] [Bus 1] P/Q/CMD -> V_in=0.0000 pu, I_in=0.0000 A, V_out=0.0000 pu, I_out=0.0000 A, V_DT=1.0000 pu, P=0.0000 MW, Q=0.0000 MVar
+[2026-05-12 23:23:17] [iter 1] [Bus 2] P/Q/CMD -> V_in=0.0000 pu, I_in=0.0000 A, V_out=0.0000 pu, I_out=0.0000 A, V_DT=1.0000 pu, P=0.0000 MW, Q=0.0000 MVar
+Memulai Modbus Gateway di 0.0.0.0:5020[2026-05-12 23:23:17] [iter 1] [Bus 3] P/Q/CMD -> V_in=0.0000 pu, I_in=0.0000 A, V_out=0.0000 pu, I_out=0.0000 A, V_DT=1.0000 pu, P=0.0000 MW, Q=0.0000 MVar
+
+[2026-05-12 23:23:17] [iter 1] [Bus 4] P/Q/CMD -> V_in=0.0000 pu, I_in=0.0000 A, V_out=0.0000 pu, I_out=0.0000 A, V_DT=1.0000 pu, P=0.0000 MW, Q=0.0000 MVar
+[2026-05-12 23:23:17] [iter 1] [Bus 5] P/Q/CMD -> V_in=0.0000 pu, I_in=0.0000 A, V_out=0.0000 pu, I_out=0.0000 A, V_DT=1.0000 pu, P=0.0000 MW, Q=0.0000 MVar
+
+
+[2026-05-12 23:23:21] [iter 2] [Bus 1] P/Q/CMD -> V_in=1.0120 pu, I_in=97.7241 A, V_out=1.0120 pu, I_out=97.7241 A, V_DT=1.0500 pu, P=32.7546 MW, Q=9.5534 MVar
+[2026-05-12 23:23:21] [iter 2] [Bus 2] P/Q/CMD -> V_in=0.9770 pu, I_in=190.6552 A, V_out=0.9770 pu, I_out=190.6552 A, V_DT=1.0500 pu, P=73.2600 MW, Q=24.0794 MVar
+[2026-05-12 23:23:21] [iter 2] [Bus 3] P/Q/CMD -> V_in=1.0220 pu, I_in=377.1379 A, V_out=1.0220 pu, I_out=377.1379 A, V_DT=1.0405 pu, P=128.9858 MW, Q=32.3269 MVar
+[2026-05-12 23:23:21] [iter 2] [Bus 4] P/Q/CMD -> V_in=1.0390 pu, I_in=121.5862 A, V_out=1.0390 pu, I_out=121.5862 A, V_DT=1.0377 pu, P=47.1134 MW, Q=17.0999 MVar
+[2026-05-12 23:23:21] [iter 2] [Bus 5] P/Q/CMD -> V_in=0.9920 pu, I_in=101.9655 A, V_out=0.9920 pu, I_out=101.9655 A, V_DT=1.0396 pu, P=33.5008 MW, Q=9.7711 MVar
+
+
+[2026-05-12 23:23:25] [iter 3] [Bus 1] P/Q/CMD -> V_in=0.9710 pu, I_in=319.6207 A, V_out=0.9710 pu, I_out=319.6207 A, V_DT=1.0493 pu, P=102.7885 MW, Q=29.9800 MVar
+[2026-05-12 23:23:25] [iter 3] [Bus 2] P/Q/CMD -> V_in=0.9520 pu, I_in=184.3448 A, V_out=0.9520 pu, I_out=184.3448 A, V_DT=1.0492 pu, P=69.0227 MW, Q=22.6867 MVar
+[2026-05-12 23:23:25] [iter 3] [Bus 3] P/Q/CMD -> V_in=1.0140 pu, I_in=323.2069 A, V_out=1.0140 pu, I_out=323.2069 A, V_DT=1.0406 pu, P=109.6754 MW, Q=27.4873 MVar
+[2026-05-12 23:23:25] [iter 3] [Bus 4] P/Q/CMD -> V_in=0.9720 pu, I_in=357.5517 A, V_out=0.9720 pu, I_out=357.5517 A, V_DT=1.0390 pu, P=129.6134 MW, Q=47.0434 MVar
+[2026-05-12 23:23:25] [iter 3] [Bus 5] P/Q/CMD -> V_in=1.0300 pu, I_in=88.2069 A, V_out=1.0300 pu, I_out=88.2069 A, V_DT=1.0408 pu, P=30.0905 MW, Q=8.7764 MVar
+
+
+[2026-05-12 23:23:29] [iter 4] [Bus 1] P/Q/CMD -> V_in=1.0300 pu, I_in=1545.3103 A, V_out=1.0300 pu, I_out=1545.3103 A, V_DT=1.0474 pu, P=527.1610 MW, Q=153.7553 MVar
+[2026-05-12 23:23:29] [iter 4] [Bus 2] P/Q/CMD -> V_in=0.9840 pu, I_in=1554.0690 A, V_out=0.9840 pu, I_out=1554.0690 A, V_DT=1.0488 pu, P=601.4359 MW, Q=197.6824 MVar
+[2026-05-12 23:23:29] [iter 4] [Bus 3] P/Q/CMD -> V_in=1.0450 pu, I_in=1671.3793 A, V_out=1.0450 pu, I_out=1671.3793 A, V_DT=1.0408 pu, P=584.4968 MW, Q=146.4887 MVar
+[2026-05-12 23:23:29] [iter 4] [Bus 4] P/Q/CMD -> V_in=0.9590 pu, I_in=136.1724 A, V_out=0.9590 pu, I_out=136.1724 A, V_DT=1.0393 pu, P=48.7026 MW, Q=17.6767 MVar
+[2026-05-12 23:23:29] [iter 4] [Bus 5] P/Q/CMD -> V_in=1.0340 pu, I_in=342.0345 A, V_out=1.0340 pu, I_out=342.0345 A, V_DT=1.0412 pu, P=117.1334 MW, Q=34.1639 MVar
+
+
+[2026-05-12 23:23:33] [iter 5] [Bus 1] P/Q/CMD -> V_in=1.0300 pu, I_in=1545.3103 A, V_out=1.0300 pu, I_out=1545.3103 A, V_DT=1.0360 pu, P=527.1610 MW, Q=153.7553 MVar
+[2026-05-12 23:23:33] [iter 5] [Bus 2] P/Q/CMD -> V_in=0.9840 pu, I_in=1554.0690 A, V_out=0.9840 pu, I_out=1554.0690 A, V_DT=1.0401 pu, P=601.4359 MW, Q=197.6824 MVar
+[2026-05-12 23:23:33] [iter 5] [Bus 3] P/Q/CMD -> V_in=1.0450 pu, I_in=1671.3793 A, V_out=1.0450 pu, I_out=1671.3793 A, V_DT=1.0375 pu, P=584.4968 MW, Q=146.4887 MVar
+[2026-05-12 23:23:33] [iter 5] [Bus 4] P/Q/CMD -> V_in=0.9590 pu, I_in=136.1724 A, V_out=0.9590 pu, I_out=136.1724 A, V_DT=1.0435 pu, P=48.7026 MW, Q=17.6767 MVar
+[2026-05-12 23:23:33] [iter 5] [Bus 5] P/Q/CMD -> V_in=1.0340 pu, I_in=342.0345 A, V_out=1.0340 pu, I_out=342.0345 A, V_DT=1.0446 pu, P=117.1334 MW, Q=34.1639 MVar
+
+
+[2026-05-12 23:23:37] [iter 6] [Bus 1] P/Q/CMD -> V_in=1.0300 pu, I_in=1569.4483 A, V_out=1.0300 pu, I_out=1569.4483 A, V_DT=1.0276 pu, P=535.3953 MW, Q=156.1570 MVar
+[2026-05-12 23:23:37] [iter 6] [Bus 2] P/Q/CMD -> V_in=1.0020 pu, I_in=1590.7241 A, V_out=1.0020 pu, I_out=1590.7241 A, V_DT=1.0312 pu, P=626.8831 MW, Q=206.0465 MVar
+[2026-05-12 23:23:37] [iter 6] [Bus 3] P/Q/CMD -> V_in=0.9870 pu, I_in=1645.4483 A, V_out=0.9870 pu, I_out=1645.4483 A, V_DT=1.0296 pu, P=543.4908 MW, Q=136.2116 MVar
+[2026-05-12 23:23:37] [iter 6] [Bus 4] P/Q/CMD -> V_in=1.0320 pu, I_in=1585.2759 A, V_out=1.0320 pu, I_out=1585.2759 A, V_DT=1.0395 pu, P=610.1398 MW, Q=221.4512 MVar
+[2026-05-12 23:23:37] [iter 6] [Bus 5] P/Q/CMD -> V_in=1.0360 pu, I_in=1620.5172 A, V_out=1.0360 pu, I_out=1620.5172 A, V_DT=1.0402 pu, P=556.0371 MW, Q=162.1775 MVar
+
+
+[2026-05-12 23:23:41] [iter 7] [Bus 1] P/Q/CMD -> V_in=1.0200 pu, I_in=1612.3448 A, V_out=1.0200 pu, I_out=1612.3448 A, V_DT=1.0200 pu, P=544.6888 MW, Q=158.8676 MVar
+[2026-05-12 23:23:41] [iter 7] [Bus 2] P/Q/CMD -> V_in=0.9720 pu, I_in=1633.1034 A, V_out=0.9720 pu, I_out=1633.1034 A, V_DT=1.0175 pu, P=624.3152 MW, Q=205.2025 MVar
+[2026-05-12 23:23:41] [iter 7] [Bus 3] P/Q/CMD -> V_in=0.9570 pu, I_in=198.9310 A, V_out=0.9570 pu, I_out=198.9310 A, V_DT=1.0095 pu, P=63.7097 MW, Q=15.9671 MVar
+[2026-05-12 23:23:41] [iter 7] [Bus 4] P/Q/CMD -> V_in=0.9600 pu, I_in=1659.0690 A, V_out=0.9600 pu, I_out=1659.0690 A, V_DT=1.0099 pu, P=593.9918 MW, Q=215.5902 MVar
+[2026-05-12 23:23:41] [iter 7] [Bus 5] P/Q/CMD -> V_in=1.0120 pu, I_in=1599.6897 A, V_out=1.0120 pu, I_out=1599.6897 A, V_DT=1.0115 pu, P=536.1750 MW, Q=156.3844 MVar
+
+
+[2026-05-12 23:23:45] [iter 8] [Bus 1] P/Q/CMD -> V_in=0.9870 pu, I_in=182.6897 A, V_out=0.9870 pu, I_out=182.6897 A, V_DT=1.0149 pu, P=59.7202 MW, Q=17.4184 MVar
+[2026-05-12 23:23:45] [iter 8] [Bus 2] P/Q/CMD -> V_in=0.9760 pu, I_in=1576.5517 A, V_out=0.9760 pu, I_out=1576.5517 A, V_DT=1.0111 pu, P=605.1764 MW, Q=198.9119 MVar
+[2026-05-12 23:23:45] [iter 8] [Bus 3] P/Q/CMD -> V_in=1.0140 pu, I_in=1604.1379 A, V_out=1.0140 pu, I_out=1604.1379 A, V_DT=1.0022 pu, P=544.3403 MW, Q=136.4245 MVar
+[2026-05-12 23:23:45] [iter 8] [Bus 4] P/Q/CMD -> V_in=0.9670 pu, I_in=423.0690 A, V_out=0.9670 pu, I_out=423.0690 A, V_DT=0.9926 pu, P=152.5747 MW, Q=55.3772 MVar
+[2026-05-12 23:23:45] [iter 8] [Bus 5] P/Q/CMD -> V_in=0.9660 pu, I_in=264.0690 A, V_out=0.9660 pu, I_out=264.0690 A, V_DT=0.9948 pu, P=84.4860 MW, Q=24.6418 MVar
+
+
+[2026-05-12 23:23:49] [iter 9] [Bus 1] P/Q/CMD -> V_in=0.9870 pu, I_in=182.6897 A, V_out=0.9870 pu, I_out=182.6897 A, V_DT=1.0257 pu, P=59.7202 MW, Q=17.4184 MVar
+[2026-05-12 23:23:49] [iter 9] [Bus 2] P/Q/CMD -> V_in=0.9760 pu, I_in=512.4828 A, V_out=0.9760 pu, I_out=512.4828 A, V_DT=1.0137 pu, P=196.7220 MW, Q=64.6594 MVar
+[2026-05-12 23:23:49] [iter 9] [Bus 3] P/Q/CMD -> V_in=1.0140 pu, I_in=351.1034 A, V_out=1.0140 pu, I_out=351.1034 A, V_DT=1.0076 pu, P=119.1417 MW, Q=29.8597 MVar
+[2026-05-12 23:23:49] [iter 9] [Bus 4] P/Q/CMD -> V_in=0.9670 pu, I_in=423.0690 A, V_out=0.9670 pu, I_out=423.0690 A, V_DT=1.0064 pu, P=152.5747 MW, Q=55.3772 MVar
+[2026-05-12 23:23:49] [iter 9] [Bus 5] P/Q/CMD -> V_in=0.9660 pu, I_in=264.0690 A, V_out=0.9660 pu, I_out=264.0690 A, V_DT=1.0084 pu, P=84.4860 MW, Q=24.6418 MVar
+
+
+[2026-05-12 23:23:53] [iter 10] [Bus 1] P/Q/CMD -> V_in=1.0480 pu, I_in=1527.3793 A, V_out=1.0480 pu, I_out=1527.3793 A, V_DT=1.0334 pu, P=530.1497 MW, Q=154.6270 MVar
+[2026-05-12 23:23:53] [iter 10] [Bus 2] P/Q/CMD -> V_in=1.0040 pu, I_in=1688.2414 A, V_out=1.0040 pu, I_out=1688.2414 A, V_DT=1.0265 pu, P=666.6413 MW, Q=219.1144 MVar
+[2026-05-12 23:23:53] [iter 10] [Bus 3] P/Q/CMD -> V_in=1.0340 pu, I_in=1518.6552 A, V_out=1.0340 pu, I_out=1518.6552 A, V_DT=1.0233 pu, P=525.4974 MW, Q=131.7021 MVar
+[2026-05-12 23:23:53] [iter 10] [Bus 4] P/Q/CMD -> V_in=0.9720 pu, I_in=1515.0000 A, V_out=0.9720 pu, I_out=1515.0000 A, V_DT=1.0231 pu, P=549.1913 MW, Q=199.3298 MVar
+[2026-05-12 23:23:53] [iter 10] [Bus 5] P/Q/CMD -> V_in=0.9810 pu, I_in=1661.7241 A, V_out=0.9810 pu, I_out=1661.7241 A, V_DT=1.0249 pu, P=539.9061 MW, Q=157.4726 MVar
+
+
+[2026-05-12 23:23:57] [iter 11] [Bus 1] P/Q/CMD -> V_in=0.9710 pu, I_in=1582.6897 A, V_out=0.9710 pu, I_out=1582.6897 A, V_DT=1.0241 pu, P=508.9854 MW, Q=148.4541 MVar
+[2026-05-12 23:23:57] [iter 11] [Bus 2] P/Q/CMD -> V_in=1.0370 pu, I_in=1659.5172 A, V_out=1.0370 pu, I_out=1659.5172 A, V_DT=1.0134 pu, P=676.8376 MW, Q=222.4658 MVar
+[2026-05-12 23:23:57] [iter 11] [Bus 3] P/Q/CMD -> V_in=1.0140 pu, I_in=1504.4828 A, V_out=1.0140 pu, I_out=1504.4828 A, V_DT=1.0043 pu, P=510.5238 MW, Q=127.9493 MVar
+[2026-05-12 23:23:57] [iter 11] [Bus 4] P/Q/CMD -> V_in=1.0410 pu, I_in=1575.6207 A, V_out=1.0410 pu, I_out=1575.6207 A, V_DT=0.9982 pu, P=611.7123 MW, Q=222.0219 MVar
+[2026-05-12 23:23:57] [iter 11] [Bus 5] P/Q/CMD -> V_in=0.9760 pu, I_in=1679.5517 A, V_out=0.9760 pu, I_out=1679.5517 A, V_DT=1.0005 pu, P=542.9171 MW, Q=158.3508 MVar
+
+
+[2026-05-12 23:24:01] [iter 12] [Bus 1] P/Q/CMD -> V_in=1.0060 pu, I_in=202.5172 A, V_out=1.0060 pu, I_out=202.5172 A, V_DT=1.0177 pu, P=67.4762 MW, Q=19.6805 MVar
+[2026-05-12 23:24:01] [iter 12] [Bus 2] P/Q/CMD -> V_in=1.0080 pu, I_in=479.4138 A, V_out=1.0080 pu, I_out=479.4138 A, V_DT=1.0016 pu, P=190.0619 MW, Q=62.4703 MVar
+[2026-05-12 23:24:01] [iter 12] [Bus 3] P/Q/CMD -> V_in=0.9890 pu, I_in=186.5172 A, V_out=0.9890 pu, I_out=186.5172 A, V_DT=0.9859 pu, P=61.7314 MW, Q=15.4713 MVar
+[2026-05-12 23:24:01] [iter 12] [Bus 4] P/Q/CMD -> V_in=1.0490 pu, I_in=297.6552 A, V_out=1.0490 pu, I_out=297.6552 A, V_DT=0.9730 pu, P=116.4484 MW, Q=42.2651 MVar
+[2026-05-12 23:24:01] [Bus 4] Command breaker ke RTU: OPEN
+[2026-05-12 23:24:01] [iter 12] [Bus 5] P/Q/CMD -> V_in=0.9590 pu, I_in=113.4483 A, V_out=0.9590 pu, I_out=113.4483 A, V_DT=0.9761 pu, P=36.0335 MW, Q=10.5098 MVar
+
+
+[2026-05-12 23:24:06] [iter 13] [Bus 1] P/Q/CMD -> V_in=0.9600 pu, I_in=1638.9310 A, V_out=0.9600 pu, I_out=1638.9310 A, V_DT=1.0277 pu, P=521.1014 MW, Q=151.9879 MVar
+[2026-05-12 23:24:06] [iter 13] [Bus 2] P/Q/CMD -> V_in=1.0290 pu, I_in=266.2069 A, V_out=1.0290 pu, I_out=266.2069 A, V_DT=1.0202 pu, P=107.7354 MW, Q=35.4109 MVar
+[2026-05-12 23:24:06] [iter 13] [Bus 3] P/Q/CMD -> V_in=0.9560 pu, I_in=1537.1034 A, V_out=0.9560 pu, I_out=1537.1034 A, V_DT=1.0121 pu, P=491.7584 MW, Q=123.2463 MVar
+[2026-05-12 23:24:06] [iter 13] [Bus 4] P/Q/CMD -> V_in=1.0490 pu, I_in=1571.0000 A, V_out=1.0490 pu, I_out=1571.0000 A, V_DT=0.9902 pu, P=614.6055 MW, Q=223.0720 MVar
+[2026-05-12 23:24:06] [Bus 4] Command breaker ke RTU: CLOSE
+[2026-05-12 23:24:06] [iter 13] [Bus 5] P/Q/CMD -> V_in=1.0470 pu, I_in=1653.0345 A, V_out=1.0470 pu, I_out=1653.0345 A, V_DT=0.9970 pu, P=573.2168 MW, Q=167.1882 MVar
+[2026-05-12 23:24:06] [Bus 5] Command breaker ke RTU: OPEN
+
+
+[2026-05-12 23:24:10] [iter 14] [Bus 1] P/Q/CMD -> V_in=0.9600 pu, I_in=379.1724 A, V_out=0.9600 pu, I_out=379.1724 A, V_DT=1.0207 pu, P=120.5586 MW, Q=35.1629 MVar
+[2026-05-12 23:24:10] [iter 14] [Bus 2] P/Q/CMD -> V_in=1.0290 pu, I_in=1546.7241 A, V_out=1.0290 pu, I_out=1546.7241 A, V_DT=1.0200 pu, P=625.9681 MW, Q=205.7458 MVar
+[2026-05-12 23:24:10] [iter 14] [Bus 3] P/Q/CMD -> V_in=0.9560 pu, I_in=1563.7586 A, V_out=0.9560 pu, I_out=1563.7586 A, V_DT=1.0045 pu, P=500.2861 MW, Q=125.3835 MVar
+[2026-05-12 23:24:10] [iter 14] [Bus 4] P/Q/CMD -> V_in=1.0490 pu, I_in=1507.8621 A, V_out=1.0490 pu, I_out=1507.8621 A, V_DT=0.9817 pu, P=589.9048 MW, Q=214.1068 MVar
+[2026-05-12 23:24:10] [Bus 4] Command breaker ke RTU: OPEN
+[2026-05-12 23:24:10] [iter 14] [Bus 5] P/Q/CMD -> V_in=1.0470 pu, I_in=1686.1034 A, V_out=1.0470 pu, I_out=1686.1034 A, V_DT=0.9818 pu, P=584.6840 MW, Q=170.5328 MVar
+[2026-05-12 23:24:10] [Bus 5] Command breaker ke RTU: CLOSE
+
+
+[2026-05-12 23:24:14] [iter 15] [Bus 1] P/Q/CMD -> V_in=0.9510 pu, I_in=1553.0000 A, V_out=0.9510 pu, I_out=1553.0000 A, V_DT=1.0247 pu, P=489.1503 MW, Q=142.6688 MVar
+[2026-05-12 23:24:14] [iter 15] [Bus 2] P/Q/CMD -> V_in=1.0180 pu, I_in=318.7586 A, V_out=1.0180 pu, I_out=318.7586 A, V_DT=1.0071 pu, P=127.6244 MW, Q=41.9481 MVar
+[2026-05-12 23:24:14] [iter 15] [Bus 3] P/Q/CMD -> V_in=0.9760 pu, I_in=1513.7931 A, V_out=0.9760 pu, I_out=1513.7931 A, V_DT=0.9846 pu, P=494.4327 MW, Q=123.9165 MVar
+[2026-05-12 23:24:14] [iter 15] [Bus 4] P/Q/CMD -> V_in=0.9610 pu, I_in=1553.7586 A, V_out=0.9610 pu, I_out=1553.7586 A, V_DT=0.9372 pu, P=556.8673 MW, Q=202.1158 MVar
+[2026-05-12 23:24:14] [Bus 4] Command breaker ke RTU: CLOSE
+[2026-05-12 23:24:14] [iter 15] [Bus 5] P/Q/CMD -> V_in=0.9950 pu, I_in=1585.4483 A, V_out=0.9950 pu, I_out=1585.4483 A, V_DT=0.9481 pu, P=522.4750 MW, Q=152.3885 MVar
+[2026-05-12 23:24:14] [Bus 5] Command breaker ke RTU: OPEN
+
+
+[2026-05-12 23:24:18] [iter 16] [Bus 1] P/Q/CMD -> V_in=1.0370 pu, I_in=196.6552 A, V_out=1.0370 pu, I_out=196.6552 A, V_DT=1.0247 pu, P=67.5421 MW, Q=19.6998 MVar
+[2026-05-12 23:24:18] [iter 16] [Bus 2] P/Q/CMD -> V_in=1.0000 pu, I_in=166.7241 A, V_out=1.0000 pu, I_out=166.7241 A, V_DT=1.0071 pu, P=65.5726 MW, Q=21.5527 MVar
+[2026-05-12 23:24:18] [iter 16] [Bus 3] P/Q/CMD -> V_in=1.0410 pu, I_in=452.7586 A, V_out=1.0410 pu, I_out=452.7586 A, V_DT=0.9846 pu, P=157.7278 MW, Q=39.5303 MVar
+[2026-05-12 23:24:18] [iter 16] [Bus 4] P/Q/CMD -> V_in=0.9790 pu, I_in=377.0345 A, V_out=0.9790 pu, I_out=377.0345 A, V_DT=0.9372 pu, P=137.6602 MW, Q=49.9640 MVar
+[2026-05-12 23:24:18] [iter 16] [Bus 5] P/Q/CMD -> V_in=1.0100 pu, I_in=153.6897 A, V_out=1.0100 pu, I_out=153.6897 A, V_DT=0.9481 pu, P=51.4110 MW, Q=14.9949 MVar
+
+
+[2026-05-12 23:24:22] [iter 17] [Bus 1] P/Q/CMD -> V_in=1.0260 pu, I_in=1621.5517 A, V_out=1.0260 pu, I_out=1621.5517 A, V_DT=1.0223 pu, P=551.0214 MW, Q=160.7146 MVar
+[2026-05-12 23:24:22] [iter 17] [Bus 2] P/Q/CMD -> V_in=1.0270 pu, I_in=1567.3448 A, V_out=1.0270 pu, I_out=1567.3448 A, V_DT=1.0212 pu, P=633.0805 MW, Q=208.0835 MVar
+[2026-05-12 23:24:22] [iter 17] [Bus 3] P/Q/CMD -> V_in=0.9500 pu, I_in=1602.6207 A, V_out=0.9500 pu, I_out=1602.6207 A, V_DT=1.0065 pu, P=509.5012 MW, Q=127.6930 MVar
+[2026-05-12 23:24:22] [iter 17] [Bus 4] P/Q/CMD -> V_in=0.9510 pu, I_in=1661.9655 A, V_out=0.9510 pu, I_out=1661.9655 A, V_DT=0.9925 pu, P=589.4505 MW, Q=213.9420 MVar
+[2026-05-12 23:24:22] [Bus 4] Command breaker ke RTU: OPEN
+[2026-05-12 23:24:22] [iter 17] [Bus 5] P/Q/CMD -> V_in=1.0370 pu, I_in=1698.1724 A, V_out=1.0370 pu, I_out=1698.1724 A, V_DT=0.9930 pu, P=583.2448 MW, Q=170.1131 MVar
+[2026-05-12 23:24:22] [Bus 5] Command breaker ke RTU: CLOSE
+
+
+[2026-05-12 23:24:26] [iter 18] [Bus 1] P/Q/CMD -> V_in=0.9800 pu, I_in=1608.8966 A, V_out=0.9800 pu, I_out=1608.8966 A, V_DT=1.0137 pu, P=522.2092 MW, Q=152.3110 MVar
+[2026-05-12 23:24:26] [iter 18] [Bus 2] P/Q/CMD -> V_in=1.0370 pu, I_in=1514.7586 A, V_out=1.0370 pu, I_out=1514.7586 A, V_DT=1.0033 pu, P=617.7975 MW, Q=203.0602 MVar
+[2026-05-12 23:24:26] [iter 18] [Bus 3] P/Q/CMD -> V_in=0.9580 pu, I_in=1636.4138 A, V_out=0.9580 pu, I_out=1636.4138 A, V_DT=0.9797 pu, P=524.6256 MW, Q=131.4836 MVar
+[2026-05-12 23:24:26] [iter 18] [Bus 4] P/Q/CMD -> V_in=0.9560 pu, I_in=442.0690 A, V_out=0.9560 pu, I_out=442.0690 A, V_DT=0.9384 pu, P=157.6132 MW, Q=57.2060 MVar
+[2026-05-12 23:24:26] [Bus 4] Command breaker ke RTU: CLOSE
+[2026-05-12 23:24:26] [iter 18] [Bus 5] P/Q/CMD -> V_in=1.0260 pu, I_in=1664.8621 A, V_out=1.0260 pu, I_out=1664.8621 A, V_DT=0.9482 pu, P=565.7388 MW, Q=165.0071 MVar
+[2026-05-12 23:24:26] [Bus 5] Command breaker ke RTU: OPEN
+
+
+[2026-05-12 23:24:30] [iter 19] [Bus 1] P/Q/CMD -> V_in=0.9800 pu, I_in=115.7931 A, V_out=0.9800 pu, I_out=115.7931 A, V_DT=1.0114 pu, P=37.5837 MW, Q=10.9619 MVar
+[2026-05-12 23:24:30] [iter 19] [Bus 2] P/Q/CMD -> V_in=1.0370 pu, I_in=486.6897 A, V_out=1.0370 pu, I_out=486.6897 A, V_DT=1.0015 pu, P=198.4974 MW, Q=65.2429 MVar
+[2026-05-12 23:24:30] [iter 19] [Bus 3] P/Q/CMD -> V_in=0.9580 pu, I_in=315.1379 A, V_out=0.9580 pu, I_out=315.1379 A, V_DT=0.9817 pu, P=101.0316 MW, Q=25.3209 MVar
+[2026-05-12 23:24:30] [iter 19] [Bus 4] P/Q/CMD -> V_in=0.9560 pu, I_in=442.0690 A, V_out=0.9560 pu, I_out=442.0690 A, V_DT=0.9607 pu, P=157.6132 MW, Q=57.2060 MVar
+[2026-05-12 23:24:30] [Bus 4] Command breaker ke RTU: OPEN
+[2026-05-12 23:24:30] [iter 19] [Bus 5] P/Q/CMD -> V_in=1.0260 pu, I_in=140.8621 A, V_out=1.0260 pu, I_out=140.8621 A, V_DT=0.9600 pu, P=47.8665 MW, Q=13.9611 MVar
+[2026-05-12 23:24:30] [Bus 5] Command breaker ke RTU: CLOSE
+
+
+[2026-05-12 23:24:34] [iter 20] [Bus 1] P/Q/CMD -> V_in=0.9970 pu, I_in=331.0000 A, V_out=0.9970 pu, I_out=331.0000 A, V_DT=1.0255 pu, P=109.2983 MW, Q=31.8787 MVar
+[2026-05-12 23:24:34] [iter 20] [Bus 2] P/Q/CMD -> V_in=0.9760 pu, I_in=1510.3103 A, V_out=0.9760 pu, I_out=1510.3103 A, V_DT=1.0209 pu, P=579.7489 MW, Q=190.5543 MVar
+[2026-05-12 23:24:34] [iter 20] [Bus 3] P/Q/CMD -> V_in=0.9920 pu, I_in=1537.1724 A, V_out=0.9920 pu, I_out=1537.1724 A, V_DT=1.0106 pu, P=510.2994 MW, Q=127.8931 MVar
+[2026-05-12 23:24:34] [iter 20] [Bus 4] P/Q/CMD -> V_in=1.0020 pu, I_in=1638.0345 A, V_out=1.0020 pu, I_out=1638.0345 A, V_DT=0.9908 pu, P=612.1186 MW, Q=222.1694 MVar
+[2026-05-12 23:24:34] [Bus 4] Command breaker ke RTU: CLOSE
+[2026-05-12 23:24:34] [iter 20] [Bus 5] P/Q/CMD -> V_in=0.9700 pu, I_in=1554.8276 A, V_out=0.9700 pu, I_out=1554.8276 A, V_DT=0.9966 pu, P=499.5101 MW, Q=145.6905 MVar
+[2026-05-12 23:24:34] [Bus 5] Command breaker ke RTU: OPEN
+
+
+[2026-05-12 23:24:38] [iter 21] [Bus 1] P/Q/CMD -> V_in=1.0490 pu, I_in=1503.2414 A, V_out=1.0490 pu, I_out=1503.2414 A, V_DT=1.0294 pu, P=522.2693 MW, Q=152.3286 MVar
+[2026-05-12 23:24:38] [iter 21] [Bus 2] P/Q/CMD -> V_in=0.9930 pu, I_in=1623.9655 A, V_out=0.9930 pu, I_out=1623.9655 A, V_DT=1.0141 pu, P=634.2347 MW, Q=208.4629 MVar
+[2026-05-12 23:24:38] [iter 21] [Bus 3] P/Q/CMD -> V_in=0.9620 pu, I_in=1565.5517 A, V_out=0.9620 pu, I_out=1565.5517 A, V_DT=1.0006 pu, P=504.0032 MW, Q=126.3151 MVar
+[2026-05-12 23:24:38] [iter 21] [Bus 4] P/Q/CMD -> V_in=0.9830 pu, I_in=1587.3793 A, V_out=0.9830 pu, I_out=1587.3793 A, V_DT=0.9826 pu, P=581.9411 MW, Q=211.2164 MVar
+[2026-05-12 23:24:38] [Bus 4] Command breaker ke RTU: OPEN
+[2026-05-12 23:24:38] [iter 21] [Bus 5] P/Q/CMD -> V_in=0.9730 pu, I_in=1568.1034 A, V_out=0.9730 pu, I_out=1568.1034 A, V_DT=0.9827 pu, P=505.3333 MW, Q=147.3889 MVar
+[2026-05-12 23:24:38] [Bus 5] Command breaker ke RTU: CLOSE
+
+
+[2026-05-12 23:24:42] [iter 22] [Bus 1] P/Q/CMD -> V_in=0.9570 pu, I_in=1548.1724 A, V_out=0.9570 pu, I_out=1548.1724 A, V_DT=1.0196 pu, P=490.7063 MW, Q=143.1227 MVar
+[2026-05-12 23:24:42] [iter 22] [Bus 2] P/Q/CMD -> V_in=0.9720 pu, I_in=1672.0690 A, V_out=0.9720 pu, I_out=1672.0690 A, V_DT=0.9993 pu, P=639.2112 MW, Q=210.0986 MVar
+[2026-05-12 23:24:42] [iter 22] [Bus 3] P/Q/CMD -> V_in=1.0350 pu, I_in=1533.2069 A, V_out=1.0350 pu, I_out=1533.2069 A, V_DT=0.9770 pu, P=531.0458 MW, Q=133.0926 MVar
+[2026-05-12 23:24:42] [iter 22] [Bus 4] P/Q/CMD -> V_in=0.9730 pu, I_in=1634.0345 A, V_out=0.9730 pu, I_out=1634.0345 A, V_DT=0.9337 pu, P=592.9511 MW, Q=215.2125 MVar
+[2026-05-12 23:24:42] [Bus 4] Command breaker ke RTU: CLOSE
+[2026-05-12 23:24:42] [iter 22] [Bus 5] P/Q/CMD -> V_in=0.9710 pu, I_in=150.6207 A, V_out=0.9710 pu, I_out=150.6207 A, V_DT=0.9440 pu, P=48.4389 MW, Q=14.1280 MVar
+[2026-05-12 23:24:42] [Bus 5] Command breaker ke RTU: OPEN
+
+
+[2026-05-12 23:24:46] [iter 23] [Bus 1] P/Q/CMD -> V_in=1.0430 pu, I_in=325.3793 A, V_out=1.0430 pu, I_out=325.3793 A, V_DT=1.0165 pu, P=112.3995 MW, Q=32.7832 MVar
+[2026-05-12 23:24:46] [iter 23] [Bus 2] P/Q/CMD -> V_in=0.9970 pu, I_in=434.7931 A, V_out=0.9970 pu, I_out=434.7931 A, V_DT=0.9995 pu, P=170.4911 MW, Q=56.0377 MVar
+[2026-05-12 23:24:46] [iter 23] [Bus 3] P/Q/CMD -> V_in=1.0300 pu, I_in=166.7931 A, V_out=1.0300 pu, I_out=166.7931 A, V_DT=0.9815 pu, P=57.4918 MW, Q=14.4088 MVar
+[2026-05-12 23:24:46] [iter 23] [Bus 4] P/Q/CMD -> V_in=0.9590 pu, I_in=289.5517 A, V_out=0.9590 pu, I_out=289.5517 A, V_DT=0.9611 pu, P=103.5594 MW, Q=37.5870 MVar
+[2026-05-12 23:24:46] [Bus 4] Command breaker ke RTU: OPEN
+[2026-05-12 23:24:46] [iter 23] [Bus 5] P/Q/CMD -> V_in=0.9920 pu, I_in=296.0000 A, V_out=0.9920 pu, I_out=296.0000 A, V_DT=0.9636 pu, P=97.2509 MW, Q=28.3649 MVar
+[2026-05-12 23:24:46] [Bus 5] Command breaker ke RTU: CLOSE
+
+
+[2026-05-12 23:24:50] [iter 24] [Bus 1] P/Q/CMD -> V_in=1.0430 pu, I_in=1643.4828 A, V_out=1.0430 pu, I_out=1643.4828 A, V_DT=1.0266 pu, P=567.7273 MW, Q=165.5871 MVar
+[2026-05-12 23:24:50] [iter 24] [Bus 2] P/Q/CMD -> V_in=0.9970 pu, I_in=434.7931 A, V_out=0.9970 pu, I_out=434.7931 A, V_DT=1.0198 pu, P=170.4911 MW, Q=56.0377 MVar
+[2026-05-12 23:24:50] [iter 24] [Bus 3] P/Q/CMD -> V_in=1.0300 pu, I_in=1629.1379 A, V_out=1.0300 pu, I_out=1629.1379 A, V_DT=1.0106 pu, P=561.5467 MW, Q=140.7369 MVar
+[2026-05-12 23:24:50] [iter 24] [Bus 4] P/Q/CMD -> V_in=0.9590 pu, I_in=289.5517 A, V_out=0.9590 pu, I_out=289.5517 A, V_DT=0.9881 pu, P=103.5594 MW, Q=37.5870 MVar
+[2026-05-12 23:24:50] [Bus 4] Command breaker ke RTU: CLOSE
+[2026-05-12 23:24:50] [iter 24] [Bus 5] P/Q/CMD -> V_in=0.9920 pu, I_in=1558.9310 A, V_out=0.9920 pu, I_out=1558.9310 A, V_DT=0.9957 pu, P=512.1874 MW, Q=149.3880 MVar
+[2026-05-12 23:24:50] [Bus 5] Command breaker ke RTU: OPEN
+
+
+[2026-05-12 23:24:54] [iter 25] [Bus 1] P/Q/CMD -> V_in=1.0220 pu, I_in=1553.5517 A, V_out=1.0220 pu, I_out=1553.5517 A, V_DT=1.0198 pu, P=525.8561 MW, Q=153.3747 MVar
+[2026-05-12 23:24:54] [iter 25] [Bus 2] P/Q/CMD -> V_in=1.0480 pu, I_in=125.3448 A, V_out=1.0480 pu, I_out=125.3448 A, V_DT=1.0221 pu, P=51.6644 MW, Q=16.9813 MVar
+[2026-05-12 23:24:54] [iter 25] [Bus 3] P/Q/CMD -> V_in=0.9900 pu, I_in=1657.7586 A, V_out=0.9900 pu, I_out=1657.7586 A, V_DT=1.0101 pu, P=549.2212 MW, Q=137.6478 MVar
+[2026-05-12 23:24:54] [iter 25] [Bus 4] P/Q/CMD -> V_in=1.0360 pu, I_in=1569.6552 A, V_out=1.0360 pu, I_out=1569.6552 A, V_DT=0.9997 pu, P=606.4693 MW, Q=220.1190 MVar
+[2026-05-12 23:24:54] [Bus 4] Command breaker ke RTU: OPEN
+[2026-05-12 23:24:54] [iter 25] [Bus 5] P/Q/CMD -> V_in=0.9690 pu, I_in=1541.0345 A, V_out=0.9690 pu, I_out=1541.0345 A, V_DT=0.9994 pu, P=494.5685 MW, Q=144.2491 MVar
+[2026-05-12 23:24:54] [Bus 5] Command breaker ke RTU: CLOSE
+
+
+[2026-05-12 23:24:58] [iter 26] [Bus 1] P/Q/CMD -> V_in=0.9920 pu, I_in=212.3793 A, V_out=0.9920 pu, I_out=212.3793 A, V_DT=1.0144 pu, P=69.7773 MW, Q=20.3517 MVar
+[2026-05-12 23:24:58] [Bus 1] Command breaker ke RTU: OPEN
+[2026-05-12 23:24:58] [iter 26] [Bus 2] P/Q/CMD -> V_in=0.9740 pu, I_in=507.3448 A, V_out=0.9740 pu, I_out=507.3448 A, V_DT=1.0188 pu, P=194.3507 MW, Q=63.8800 MVar
+[2026-05-12 23:24:58] [iter 26] [Bus 3] P/Q/CMD -> V_in=0.9940 pu, I_in=470.0690 A, V_out=0.9940 pu, I_out=470.0690 A, V_DT=0.9968 pu, P=156.3647 MW, Q=39.1887 MVar
+[2026-05-12 23:24:58] [iter 26] [Bus 4] P/Q/CMD -> V_in=1.0040 pu, I_in=109.7931 A, V_out=1.0040 pu, I_out=109.7931 A, V_DT=0.9617 pu, P=41.1106 MW, Q=14.9211 MVar
+[2026-05-12 23:24:58] [Bus 4] Command breaker ke RTU: CLOSE
+[2026-05-12 23:24:58] [iter 26] [Bus 5] P/Q/CMD -> V_in=1.0490 pu, I_in=434.5517 A, V_out=1.0490 pu, I_out=434.5517 A, V_DT=0.9701 pu, P=150.9758 MW, Q=44.0346 MVar
+[2026-05-12 23:24:58] [Bus 5] Command breaker ke RTU: OPEN
+
+
+[2026-05-12 23:25:02] [iter 27] [Bus 1] P/Q/CMD -> V_in=1.0460 pu, I_in=1590.5862 A, V_out=1.0460 pu, I_out=1590.5862 A, V_DT=1.0114 pu, P=551.0351 MW, Q=160.7186 MVar
+[2026-05-12 23:25:02] [Bus 1] Command breaker ke RTU: CLOSE
+[2026-05-12 23:25:02] [iter 27] [Bus 2] P/Q/CMD -> V_in=1.0340 pu, I_in=1621.8966 A, V_out=1.0340 pu, I_out=1621.8966 A, V_DT=1.0267 pu, P=659.5802 MW, Q=216.7935 MVar
+[2026-05-12 23:25:02] [Bus 2] Command breaker ke RTU: OPEN
+[2026-05-12 23:25:02] [iter 27] [Bus 3] P/Q/CMD -> V_in=0.9980 pu, I_in=1677.0345 A, V_out=0.9980 pu, I_out=1677.0345 A, V_DT=1.0114 pu, P=560.0972 MW, Q=140.3736 MVar
+[2026-05-12 23:25:02] [iter 27] [Bus 4] P/Q/CMD -> V_in=0.9900 pu, I_in=1629.4483 A, V_out=0.9900 pu, I_out=1629.4483 A, V_DT=0.9903 pu, P=601.6176 MW, Q=218.3580 MVar
+[2026-05-12 23:25:02] [Bus 4] Command breaker ke RTU: OPEN
+[2026-05-12 23:25:02] [iter 27] [Bus 5] P/Q/CMD -> V_in=0.9870 pu, I_in=1520.9655 A, V_out=0.9870 pu, I_out=1520.9655 A, V_DT=0.9881 pu, P=497.1951 MW, Q=145.0152 MVar
+[2026-05-12 23:25:02] [Bus 5] Command breaker ke RTU: CLOSE
+
+
+[2026-05-12 23:25:06] [iter 28] [Bus 1] P/Q/CMD -> V_in=0.9760 pu, I_in=1616.1034 A, V_out=0.9760 pu, I_out=1616.1034 A, V_DT=1.0214 pu, P=522.4074 MW, Q=152.3688 MVar
+[2026-05-12 23:25:06] [Bus 1] Command breaker ke RTU: OPEN
+[2026-05-12 23:25:06] [iter 28] [Bus 2] P/Q/CMD -> V_in=0.9950 pu, I_in=1649.9310 A, V_out=0.9950 pu, I_out=1649.9310 A, V_DT=0.9755 pu, P=645.6733 MW, Q=212.2225 MVar
+[2026-05-12 23:25:06] [Bus 2] Command breaker ke RTU: CLOSE
+[2026-05-12 23:25:06] [iter 28] [Bus 3] P/Q/CMD -> V_in=1.0450 pu, I_in=1606.5172 A, V_out=1.0450 pu, I_out=1606.5172 A, V_DT=0.9759 pu, P=561.8139 MW, Q=140.8038 MVar
+[2026-05-12 23:25:06] [iter 28] [Bus 4] P/Q/CMD -> V_in=1.0040 pu, I_in=402.2069 A, V_out=1.0040 pu, I_out=402.2069 A, V_DT=0.9528 pu, P=150.6011 MW, Q=54.6609 MVar
+[2026-05-12 23:25:06] [Bus 4] Command breaker ke RTU: CLOSE
+[2026-05-12 23:25:06] [iter 28] [Bus 5] P/Q/CMD -> V_in=0.9650 pu, I_in=1606.4138 A, V_out=0.9650 pu, I_out=1606.4138 A, V_DT=0.9611 pu, P=513.4227 MW, Q=149.7483 MVar
+[2026-05-12 23:25:06] [Bus 5] Command breaker ke RTU: OPEN
+
+
+[2026-05-12 23:25:10] [iter 29] [Bus 1] P/Q/CMD -> V_in=1.0460 pu, I_in=327.7586 A, V_out=1.0460 pu, I_out=327.7586 A, V_DT=0.9971 pu, P=113.5471 MW, Q=33.1179 MVar
+[2026-05-12 23:25:10] [Bus 1] Command breaker ke RTU: CLOSE
+[2026-05-12 23:25:10] [iter 29] [Bus 2] P/Q/CMD -> V_in=1.0040 pu, I_in=415.6897 A, V_out=1.0040 pu, I_out=415.6897 A, V_DT=1.0022 pu, P=164.1447 MW, Q=53.9518 MVar
+[2026-05-12 23:25:10] [Bus 2] Command breaker ke RTU: OPEN
+[2026-05-12 23:25:10] [iter 29] [Bus 3] P/Q/CMD -> V_in=0.9550 pu, I_in=1539.5172 A, V_out=0.9550 pu, I_out=1539.5172 A, V_DT=0.9795 pu, P=492.0155 MW, Q=123.3107 MVar
+[2026-05-12 23:25:10] [iter 29] [Bus 4] P/Q/CMD -> V_in=1.0000 pu, I_in=1675.6552 A, V_out=1.0000 pu, I_out=1675.6552 A, V_DT=0.9419 pu, P=624.9272 MW, Q=226.8183 MVar
+[2026-05-12 23:25:10] [Bus 4] Command breaker ke RTU: OPEN
+[2026-05-12 23:25:10] [iter 29] [Bus 5] P/Q/CMD -> V_in=0.9650 pu, I_in=529.2759 A, V_out=0.9650 pu, I_out=529.2759 A, V_DT=0.9375 pu, P=169.1608 MW, Q=49.3386 MVar
+[2026-05-12 23:25:10] [Bus 5] Command breaker ke RTU: CLOSE
+
+
+[2026-05-12 23:25:14] [iter 30] [Bus 1] P/Q/CMD -> V_in=1.0460 pu, I_in=327.7586 A, V_out=1.0460 pu, I_out=327.7586 A, V_DT=1.0266 pu, P=113.5471 MW, Q=33.1179 MVar
+[2026-05-12 23:25:14] [iter 30] [Bus 2] P/Q/CMD -> V_in=1.0040 pu, I_in=415.6897 A, V_out=1.0040 pu, I_out=415.6897 A, V_DT=0.9756 pu, P=164.1447 MW, Q=53.9518 MVar
+[2026-05-12 23:25:14] [Bus 2] Command breaker ke RTU: CLOSE
+[2026-05-12 23:25:14] [iter 30] [Bus 3] P/Q/CMD -> V_in=0.9550 pu, I_in=361.3448 A, V_out=0.9550 pu, I_out=361.3448 A, V_DT=0.9752 pu, P=115.4825 MW, Q=28.9426 MVar
+[2026-05-12 23:25:14] [iter 30] [Bus 4] P/Q/CMD -> V_in=1.0000 pu, I_in=463.4483 A, V_out=1.0000 pu, I_out=463.4483 A, V_DT=0.9534 pu, P=172.8407 MW, Q=62.7328 MVar
+[2026-05-12 23:25:14] [Bus 4] Command breaker ke RTU: CLOSE
+[2026-05-12 23:25:14] [iter 30] [Bus 5] P/Q/CMD -> V_in=0.9650 pu, I_in=529.2759 A, V_out=0.9650 pu, I_out=529.2759 A, V_DT=0.9624 pu, P=169.1608 MW, Q=49.3386 MVar
+[2026-05-12 23:25:14] [Bus 5] Command breaker ke RTU: OPEN
+
+
+[2026-05-12 23:25:18] [iter 31] [Bus 1] P/Q/CMD -> V_in=0.9580 pu, I_in=1663.2759 A, V_out=0.9580 pu, I_out=1663.2759 A, V_DT=1.0307 pu, P=527.7401 MW, Q=153.9242 MVar
+[2026-05-12 23:25:18] [iter 31] [Bus 2] P/Q/CMD -> V_in=1.0080 pu, I_in=1555.0345 A, V_out=1.0080 pu, I_out=1555.0345 A, V_DT=1.0283 pu, P=616.4878 MW, Q=202.6297 MVar
+[2026-05-12 23:25:18] [iter 31] [Bus 3] P/Q/CMD -> V_in=0.9730 pu, I_in=1661.4138 A, V_out=0.9730 pu, I_out=1661.4138 A, V_DT=1.0175 pu, P=540.9803 MW, Q=135.5825 MVar
+[2026-05-12 23:25:18] [iter 31] [Bus 4] P/Q/CMD -> V_in=1.0390 pu, I_in=1507.9655 A, V_out=1.0390 pu, I_out=1507.9655 A, V_DT=1.0059 pu, P=584.3213 MW, Q=212.0803 MVar
+[2026-05-12 23:25:18] [Bus 4] Command breaker ke RTU: OPEN
+[2026-05-12 23:25:18] [iter 31] [Bus 5] P/Q/CMD -> V_in=1.0080 pu, I_in=1612.8276 A, V_out=1.0080 pu, I_out=1612.8276 A, V_DT=1.0064 pu, P=538.4418 MW, Q=157.0455 MVar
+[2026-05-12 23:25:18] [Bus 5] Command breaker ke RTU: CLOSE
+
+
+[2026-05-12 23:25:22] [iter 32] [Bus 1] P/Q/CMD -> V_in=0.9910 pu, I_in=347.9310 A, V_out=0.9910 pu, I_out=347.9310 A, V_DT=1.0208 pu, P=114.1976 MW, Q=33.3076 MVar
+[2026-05-12 23:25:22] [iter 32] [Bus 2] P/Q/CMD -> V_in=1.0020 pu, I_in=498.5517 A, V_out=1.0020 pu, I_out=498.5517 A, V_DT=1.0114 pu, P=196.4726 MW, Q=64.5774 MVar
+[2026-05-12 23:25:22] [iter 32] [Bus 3] P/Q/CMD -> V_in=0.9700 pu, I_in=1583.9655 A, V_out=0.9700 pu, I_out=1583.9655 A, V_DT=0.9929 pu, P=514.1718 MW, Q=128.8636 MVar
+[2026-05-12 23:25:22] [iter 32] [Bus 4] P/Q/CMD -> V_in=0.9730 pu, I_in=1681.8276 A, V_out=0.9730 pu, I_out=1681.8276 A, V_DT=0.9573 pu, P=610.2940 MW, Q=221.5071 MVar
+[2026-05-12 23:25:22] [Bus 4] Command breaker ke RTU: CLOSE
+[2026-05-12 23:25:22] [iter 32] [Bus 5] P/Q/CMD -> V_in=1.0160 pu, I_in=1501.4483 A, V_out=1.0160 pu, I_out=1501.4483 A, V_DT=0.9664 pu, P=505.2361 MW, Q=147.3605 MVar
+[2026-05-12 23:25:22] [Bus 5] Command breaker ke RTU: OPEN
+
+
+[2026-05-12 23:25:26] [iter 33] [Bus 1] P/Q/CMD -> V_in=0.9810 pu, I_in=427.0345 A, V_out=0.9810 pu, I_out=427.0345 A, V_DT=1.0273 pu, P=138.7466 MW, Q=40.4678 MVar
+[2026-05-12 23:25:26] [iter 33] [Bus 2] P/Q/CMD -> V_in=0.9570 pu, I_in=302.8276 A, V_out=0.9570 pu, I_out=302.8276 A, V_DT=1.0165 pu, P=113.9807 MW, Q=37.4636 MVar
+[2026-05-12 23:25:26] [iter 33] [Bus 3] P/Q/CMD -> V_in=1.0490 pu, I_in=501.7241 A, V_out=1.0490 pu, I_out=501.7241 A, V_DT=0.9964 pu, P=176.1292 MW, Q=44.1421 MVar
+[2026-05-12 23:25:26] [iter 33] [Bus 4] P/Q/CMD -> V_in=0.9570 pu, I_in=190.0345 A, V_out=0.9570 pu, I_out=190.0345 A, V_DT=0.9703 pu, P=67.8249 MW, Q=24.6172 MVar
+[2026-05-12 23:25:26] [Bus 4] Command breaker ke RTU: OPEN
+[2026-05-12 23:25:26] [iter 33] [Bus 5] P/Q/CMD -> V_in=0.9760 pu, I_in=511.0690 A, V_out=0.9760 pu, I_out=511.0690 A, V_DT=0.9706 pu, P=165.2037 MW, Q=48.1844 MVar
+[2026-05-12 23:25:26] [Bus 5] Command breaker ke RTU: CLOSE
+
+
+[2026-05-12 23:25:30] [iter 34] [Bus 1] P/Q/CMD -> V_in=0.9810 pu, I_in=1522.2414 A, V_out=0.9810 pu, I_out=1522.2414 A, V_DT=1.0322 pu, P=494.5872 MW, Q=144.2546 MVar
+[2026-05-12 23:25:30] [iter 34] [Bus 2] P/Q/CMD -> V_in=0.9570 pu, I_in=1575.4483 A, V_out=0.9570 pu, I_out=1575.4483 A, V_DT=1.0281 pu, P=592.9800 MW, Q=194.9031 MVar
+[2026-05-12 23:25:30] [iter 34] [Bus 3] P/Q/CMD -> V_in=1.0490 pu, I_in=501.7241 A, V_out=1.0490 pu, I_out=501.7241 A, V_DT=1.0140 pu, P=176.1292 MW, Q=44.1421 MVar
+[2026-05-12 23:25:30] [iter 34] [Bus 4] P/Q/CMD -> V_in=0.9570 pu, I_in=1657.2069 A, V_out=0.9570 pu, I_out=1657.2069 A, V_DT=0.9878 pu, P=591.4710 MW, Q=214.6753 MVar
+[2026-05-12 23:25:30] [Bus 4] Command breaker ke RTU: CLOSE
+[2026-05-12 23:25:30] [iter 34] [Bus 5] P/Q/CMD -> V_in=0.9760 pu, I_in=1651.4483 A, V_out=0.9760 pu, I_out=1651.4483 A, V_DT=0.9949 pu, P=533.8326 MW, Q=155.7012 MVar
+[2026-05-12 23:25:30] [Bus 5] Command breaker ke RTU: OPEN
+
+
+[2026-05-12 23:25:34] [iter 35] [Bus 1] P/Q/CMD -> V_in=1.0380 pu, I_in=1564.1034 A, V_out=1.0380 pu, I_out=1564.1034 A, V_DT=1.0241 pu, P=537.7162 MW, Q=156.8339 MVar
+[2026-05-12 23:25:34] [iter 35] [Bus 2] P/Q/CMD -> V_in=0.9860 pu, I_in=1623.7241 A, V_out=0.9860 pu, I_out=1623.7241 A, V_DT=1.0194 pu, P=629.6702 MW, Q=206.9626 MVar
+[2026-05-12 23:25:34] [iter 35] [Bus 3] P/Q/CMD -> V_in=1.0330 pu, I_in=1590.4138 A, V_out=1.0330 pu, I_out=1590.4138 A, V_DT=1.0066 pu, P=549.7956 MW, Q=137.7918 MVar
+[2026-05-12 23:25:34] [iter 35] [Bus 4] P/Q/CMD -> V_in=1.0100 pu, I_in=1676.2069 A, V_out=1.0100 pu, I_out=1676.2069 A, V_DT=0.9822 pu, P=631.3843 MW, Q=229.1619 MVar
+[2026-05-12 23:25:34] [Bus 4] Command breaker ke RTU: OPEN
+[2026-05-12 23:25:34] [iter 35] [Bus 5] P/Q/CMD -> V_in=1.0140 pu, I_in=1582.4828 A, V_out=1.0140 pu, I_out=1582.4828 A, V_DT=0.9819 pu, P=531.4559 MW, Q=155.0080 MVar
+[2026-05-12 23:25:34] [Bus 5] Command breaker ke RTU: CLOSE
+
+
+[2026-05-12 23:25:38] [iter 36] [Bus 1] P/Q/CMD -> V_in=1.0310 pu, I_in=1683.0345 A, V_out=1.0310 pu, I_out=1683.0345 A, V_DT=1.0151 pu, P=574.7011 MW, Q=167.6211 MVar
+[2026-05-12 23:25:38] [iter 36] [Bus 2] P/Q/CMD -> V_in=1.0160 pu, I_in=1564.8966 A, V_out=1.0160 pu, I_out=1564.8966 A, V_DT=1.0011 pu, P=625.3214 MW, Q=205.5332 MVar
+[2026-05-12 23:25:38] [iter 36] [Bus 3] P/Q/CMD -> V_in=0.9630 pu, I_in=144.1724 A, V_out=0.9630 pu, I_out=144.1724 A, V_DT=0.9773 pu, P=46.4621 MW, Q=11.6445 MVar
+[2026-05-12 23:25:38] [iter 36] [Bus 4] P/Q/CMD -> V_in=0.9600 pu, I_in=345.2759 A, V_out=0.9600 pu, I_out=345.2759 A, V_DT=0.9263 pu, P=123.6182 MW, Q=44.8674 MVar
+[2026-05-12 23:25:38] [Bus 4] Command breaker ke RTU: CLOSE
+[2026-05-12 23:25:38] [iter 36] [Bus 5] P/Q/CMD -> V_in=0.9770 pu, I_in=1611.4138 A, V_out=0.9770 pu, I_out=1611.4138 A, V_DT=0.9375 pu, P=521.4251 MW, Q=152.0823 MVar
+[2026-05-12 23:25:38] [Bus 5] Command breaker ke RTU: OPEN
+
+
+[2026-05-12 23:25:42] [iter 37] [Bus 1] P/Q/CMD -> V_in=1.0200 pu, I_in=173.9310 A, V_out=1.0200 pu, I_out=173.9310 A, V_DT=1.0118 pu, P=58.7581 MW, Q=17.1378 MVar
+[2026-05-12 23:25:42] [Bus 1] Command breaker ke RTU: OPEN
+[2026-05-12 23:25:42] [iter 37] [Bus 2] P/Q/CMD -> V_in=1.0120 pu, I_in=201.6207 A, V_out=1.0120 pu, I_out=201.6207 A, V_DT=1.0065 pu, P=80.2490 MW, Q=26.3766 MVar
+[2026-05-12 23:25:42] [iter 37] [Bus 3] P/Q/CMD -> V_in=0.9980 pu, I_in=487.3103 A, V_out=0.9980 pu, I_out=487.3103 A, V_DT=0.9945 pu, P=162.7523 MW, Q=40.7896 MVar
+[2026-05-12 23:25:42] [iter 37] [Bus 4] P/Q/CMD -> V_in=1.0340 pu, I_in=124.4138 A, V_out=1.0340 pu, I_out=124.4138 A, V_DT=0.9685 pu, P=47.9771 MW, Q=17.4134 MVar
+[2026-05-12 23:25:42] [Bus 4] Command breaker ke RTU: OPEN
+[2026-05-12 23:25:42] [iter 37] [Bus 5] P/Q/CMD -> V_in=0.9920 pu, I_in=211.5172 A, V_out=0.9920 pu, I_out=211.5172 A, V_DT=0.9672 pu, P=69.4941 MW, Q=20.2691 MVar
+[2026-05-12 23:25:42] [Bus 5] Command breaker ke RTU: CLOSE
+
+
+[2026-05-12 23:25:46] [iter 38] [Bus 1] P/Q/CMD -> V_in=0.9500 pu, I_in=1556.1724 A, V_out=0.9500 pu, I_out=1556.1724 A, V_DT=1.0104 pu, P=489.6341 MW, Q=142.8099 MVar
+[2026-05-12 23:25:46] [Bus 1] Command breaker ke RTU: CLOSE
+[2026-05-12 23:25:46] [iter 38] [Bus 2] P/Q/CMD -> V_in=1.0120 pu, I_in=1603.7241 A, V_out=1.0120 pu, I_out=1603.7241 A, V_DT=1.0205 pu, P=638.3136 MW, Q=209.8035 MVar
+[2026-05-12 23:25:46] [Bus 2] Command breaker ke RTU: OPEN
+[2026-05-12 23:25:46] [iter 38] [Bus 3] P/Q/CMD -> V_in=1.0240 pu, I_in=1679.2414 A, V_out=1.0240 pu, I_out=1679.2414 A, V_DT=1.0091 pu, P=575.4451 MW, Q=144.2201 MVar
+[2026-05-12 23:25:46] [iter 38] [Bus 4] P/Q/CMD -> V_in=0.9920 pu, I_in=1630.6207 A, V_out=0.9920 pu, I_out=1630.6207 A, V_DT=0.9761 pu, P=603.2668 MW, Q=218.9566 MVar
+[2026-05-12 23:25:46] [Bus 4] Command breaker ke RTU: CLOSE
+[2026-05-12 23:25:46] [iter 38] [Bus 5] P/Q/CMD -> V_in=0.9570 pu, I_in=498.1379 A, V_out=0.9570 pu, I_out=498.1379 A, V_DT=0.9814 pu, P=157.8890 MW, Q=46.0510 MVar
+[2026-05-12 23:25:46] [Bus 5] Command breaker ke RTU: OPEN
+
+
+[2026-05-12 23:25:50] [iter 39] [Bus 1] P/Q/CMD -> V_in=0.9500 pu, I_in=450.0000 A, V_out=0.9500 pu, I_out=450.0000 A, V_DT=1.0235 pu, P=141.5880 MW, Q=41.2965 MVar
+[2026-05-12 23:25:50] [Bus 1] Command breaker ke RTU: OPEN
+[2026-05-12 23:25:50] [iter 39] [Bus 2] P/Q/CMD -> V_in=1.0330 pu, I_in=1518.0345 A, V_out=1.0330 pu, I_out=1518.0345 A, V_DT=0.9774 pu, P=616.7454 MW, Q=202.7144 MVar
+[2026-05-12 23:25:50] [Bus 2] Command breaker ke RTU: CLOSE
+[2026-05-12 23:25:50] [iter 39] [Bus 3] P/Q/CMD -> V_in=0.9640 pu, I_in=1647.2759 A, V_out=0.9640 pu, I_out=1647.2759 A, V_DT=0.9864 pu, P=531.4155 MW, Q=133.1853 MVar
+[2026-05-12 23:25:50] [iter 39] [Bus 4] P/Q/CMD -> V_in=0.9800 pu, I_in=1526.2759 A, V_out=0.9800 pu, I_out=1526.2759 A, V_DT=0.9841 pu, P=557.8326 MW, Q=202.4662 MVar
+[2026-05-12 23:25:50] [Bus 4] Command breaker ke RTU: OPEN
+[2026-05-12 23:25:50] [iter 39] [Bus 5] P/Q/CMD -> V_in=1.0290 pu, I_in=1693.6552 A, V_out=1.0290 pu, I_out=1693.6552 A, V_DT=0.9860 pu, P=577.2058 MW, Q=168.3517 MVar
+[2026-05-12 23:25:50] [Bus 5] Command breaker ke RTU: CLOSE
+
+
+[2026-05-12 23:25:54] [iter 40] [Bus 1] P/Q/CMD -> V_in=1.0400 pu, I_in=315.5862 A, V_out=1.0400 pu, I_out=315.5862 A, V_DT=1.0128 pu, P=108.7030 MW, Q=31.7051 MVar
+[2026-05-12 23:25:54] [Bus 1] Command breaker ke RTU: CLOSE
+[2026-05-12 23:25:54] [iter 40] [Bus 2] P/Q/CMD -> V_in=1.0330 pu, I_in=333.4483 A, V_out=1.0330 pu, I_out=333.4483 A, V_DT=0.9990 pu, P=135.4730 MW, Q=44.5278 MVar
+[2026-05-12 23:25:54] [Bus 2] Command breaker ke RTU: OPEN
+[2026-05-12 23:25:54] [iter 40] [Bus 3] P/Q/CMD -> V_in=0.9640 pu, I_in=149.4483 A, V_out=0.9640 pu, I_out=149.4483 A, V_DT=0.9766 pu, P=48.2124 MW, Q=12.0832 MVar
+[2026-05-12 23:25:54] [iter 40] [Bus 4] P/Q/CMD -> V_in=0.9800 pu, I_in=493.4138 A, V_out=0.9800 pu, I_out=493.4138 A, V_DT=0.9240 pu, P=180.3359 MW, Q=65.4532 MVar
+[2026-05-12 23:25:54] [Bus 4] Command breaker ke RTU: CLOSE
+[2026-05-12 23:25:54] [iter 40] [Bus 5] P/Q/CMD -> V_in=1.0290 pu, I_in=453.6552 A, V_out=1.0290 pu, I_out=453.6552 A, V_DT=0.9340 pu, P=154.6079 MW, Q=45.0940 MVar
+[2026-05-12 23:25:54] [Bus 5] Command breaker ke RTU: OPEN
+
+
+[2026-05-12 23:25:58] [iter 41] [Bus 1] P/Q/CMD -> V_in=1.0390 pu, I_in=173.6552 A, V_out=1.0390 pu, I_out=173.6552 A, V_DT=1.0341 pu, P=59.7577 MW, Q=17.4293 MVar
+[2026-05-12 23:25:58] [iter 41] [Bus 2] P/Q/CMD -> V_in=0.9740 pu, I_in=1652.3103 A, V_out=0.9740 pu, I_out=1652.3103 A, V_DT=0.9920 pu, P=632.9575 MW, Q=208.0431 MVar
+[2026-05-12 23:25:58] [Bus 2] Command breaker ke RTU: CLOSE
+[2026-05-12 23:25:58] [iter 41] [Bus 3] P/Q/CMD -> V_in=1.0280 pu, I_in=1512.0690 A, V_out=1.0280 pu, I_out=1512.0690 A, V_DT=1.0001 pu, P=520.1823 MW, Q=130.3700 MVar
+[2026-05-12 23:25:58] [iter 41] [Bus 4] P/Q/CMD -> V_in=0.9900 pu, I_in=1559.4138 A, V_out=0.9900 pu, I_out=1559.4138 A, V_DT=0.9957 pu, P=575.7598 MW, Q=208.9729 MVar
+[2026-05-12 23:25:58] [Bus 4] Command breaker ke RTU: OPEN
+[2026-05-12 23:25:58] [iter 41] [Bus 5] P/Q/CMD -> V_in=0.9650 pu, I_in=1669.6552 A, V_out=0.9650 pu, I_out=1669.6552 A, V_DT=0.9967 pu, P=533.6352 MW, Q=155.6436 MVar
+[2026-05-12 23:25:58] [Bus 5] Command breaker ke RTU: CLOSE
+
+
+[2026-05-12 23:26:02] [iter 42] [Bus 1] P/Q/CMD -> V_in=1.0360 pu, I_in=1664.2069 A, V_out=1.0360 pu, I_out=1664.2069 A, V_DT=1.0336 pu, P=571.0280 MW, Q=166.5498 MVar
+[2026-05-12 23:26:02] [iter 42] [Bus 2] P/Q/CMD -> V_in=1.0310 pu, I_in=461.8621 A, V_out=1.0310 pu, I_out=461.8621 A, V_DT=1.0128 pu, P=187.2815 MW, Q=61.5565 MVar
+[2026-05-12 23:26:02] [iter 42] [Bus 3] P/Q/CMD -> V_in=0.9520 pu, I_in=1655.2759 A, V_out=0.9520 pu, I_out=1655.2759 A, V_DT=0.9980 pu, P=527.3490 MW, Q=132.1661 MVar
+[2026-05-12 23:26:02] [iter 42] [Bus 4] P/Q/CMD -> V_in=0.9830 pu, I_in=1595.4483 A, V_out=0.9830 pu, I_out=1595.4483 A, V_DT=0.9622 pu, P=584.8992 MW, Q=212.2901 MVar
+[2026-05-12 23:26:02] [Bus 4] Command breaker ke RTU: CLOSE
+[2026-05-12 23:26:02] [iter 42] [Bus 5] P/Q/CMD -> V_in=1.0300 pu, I_in=1527.0690 A, V_out=1.0300 pu, I_out=1527.0690 A, V_DT=0.9715 pu, P=520.9382 MW, Q=151.9403 MVar
+[2026-05-12 23:26:02] [Bus 5] Command breaker ke RTU: OPEN
+
+
+[2026-05-12 23:26:06] [iter 43] [Bus 1] P/Q/CMD -> V_in=1.0310 pu, I_in=199.3793 A, V_out=1.0310 pu, I_out=199.3793 A, V_DT=1.0236 pu, P=68.0815 MW, Q=19.8571 MVar
+[2026-05-12 23:26:06] [iter 43] [Bus 2] P/Q/CMD -> V_in=1.0280 pu, I_in=131.8621 A, V_out=1.0280 pu, I_out=131.8621 A, V_DT=1.0136 pu, P=53.3135 MW, Q=17.5233 MVar
+[2026-05-12 23:26:06] [iter 43] [Bus 3] P/Q/CMD -> V_in=1.0370 pu, I_in=449.4483 A, V_out=1.0370 pu, I_out=449.4483 A, V_DT=0.9940 pu, P=155.9730 MW, Q=39.0905 MVar
+[2026-05-12 23:26:06] [iter 43] [Bus 4] P/Q/CMD -> V_in=0.9720 pu, I_in=460.4483 A, V_out=0.9720 pu, I_out=460.4483 A, V_DT=0.9664 pu, P=166.9137 MW, Q=60.5816 MVar
+[2026-05-12 23:26:06] [Bus 4] Command breaker ke RTU: OPEN
+[2026-05-12 23:26:06] [iter 43] [Bus 5] P/Q/CMD -> V_in=0.9960 pu, I_in=223.3448 A, V_out=0.9960 pu, I_out=223.3448 A, V_DT=0.9665 pu, P=73.6759 MW, Q=21.4888 MVar
+[2026-05-12 23:26:06] [Bus 5] Command breaker ke RTU: CLOSE
+
+
+[2026-05-12 23:26:10] [iter 44] [Bus 1] P/Q/CMD -> V_in=1.0290 pu, I_in=1633.8966 A, V_out=1.0290 pu, I_out=1633.8966 A, V_DT=1.0319 pu, P=556.8398 MW, Q=162.4116 MVar
+[2026-05-12 23:26:10] [iter 44] [Bus 2] P/Q/CMD -> V_in=0.9520 pu, I_in=181.7586 A, V_out=0.9520 pu, I_out=181.7586 A, V_DT=1.0281 pu, P=68.0544 MW, Q=22.3684 MVar
+[2026-05-12 23:26:10] [iter 44] [Bus 3] P/Q/CMD -> V_in=0.9820 pu, I_in=1606.9310 A, V_out=0.9820 pu, I_out=1606.9310 A, V_DT=1.0144 pu, P=528.0798 MW, Q=132.3493 MVar
+[2026-05-12 23:26:10] [iter 44] [Bus 4] P/Q/CMD -> V_in=1.0460 pu, I_in=201.5862 A, V_out=1.0460 pu, I_out=201.5862 A, V_DT=0.9861 pu, P=78.6389 MW, Q=28.5421 MVar
+[2026-05-12 23:26:10] [Bus 4] Command breaker ke RTU: CLOSE
+[2026-05-12 23:26:10] [iter 44] [Bus 5] P/Q/CMD -> V_in=1.0140 pu, I_in=1697.6897 A, V_out=1.0140 pu, I_out=1697.6897 A, V_DT=0.9938 pu, P=570.1467 MW, Q=166.2928 MVar
+[2026-05-12 23:26:10] [Bus 5] Command breaker ke RTU: OPEN
+
+
+[2026-05-12 23:26:14] [iter 45] [Bus 1] P/Q/CMD -> V_in=1.0290 pu, I_in=182.8966 A, V_out=1.0290 pu, I_out=182.8966 A, V_DT=1.0238 pu, P=62.3320 MW, Q=18.1802 MVar
+[2026-05-12 23:26:14] [iter 45] [Bus 2] P/Q/CMD -> V_in=0.9520 pu, I_in=1521.0000 A, V_out=0.9520 pu, I_out=1521.0000 A, V_DT=1.0299 pu, P=569.4953 MW, Q=187.1840 MVar
+[2026-05-12 23:26:14] [iter 45] [Bus 3] P/Q/CMD -> V_in=0.9820 pu, I_in=1518.3793 A, V_out=0.9820 pu, I_out=1518.3793 A, V_DT=1.0148 pu, P=498.9794 MW, Q=125.0560 MVar
+[2026-05-12 23:26:14] [iter 45] [Bus 4] P/Q/CMD -> V_in=1.0460 pu, I_in=201.5862 A, V_out=1.0460 pu, I_out=201.5862 A, V_DT=1.0001 pu, P=78.6389 MW, Q=28.5421 MVar
+[2026-05-12 23:26:14] [Bus 4] Command breaker ke RTU: OPEN
+[2026-05-12 23:26:14] [iter 45] [Bus 5] P/Q/CMD -> V_in=1.0140 pu, I_in=260.3448 A, V_out=1.0140 pu, I_out=260.3448 A, V_DT=0.9987 pu, P=87.4334 MW, Q=25.5014 MVar
+[2026-05-12 23:26:14] [Bus 5] Command breaker ke RTU: CLOSE
+
+
+[2026-05-12 23:26:18] [iter 46] [Bus 1] P/Q/CMD -> V_in=1.0480 pu, I_in=1675.8276 A, V_out=1.0480 pu, I_out=1675.8276 A, V_DT=1.0311 pu, P=581.6757 MW, Q=169.6554 MVar
+[2026-05-12 23:26:18] [iter 46] [Bus 2] P/Q/CMD -> V_in=1.0430 pu, I_in=1668.6552 A, V_out=1.0430 pu, I_out=1668.6552 A, V_DT=1.0261 pu, P=684.5022 MW, Q=224.9850 MVar
+[2026-05-12 23:26:18] [iter 46] [Bus 3] P/Q/CMD -> V_in=1.0470 pu, I_in=1697.7586 A, V_out=1.0470 pu, I_out=1697.7586 A, V_DT=1.0152 pu, P=594.8582 MW, Q=149.0855 MVar
+[2026-05-12 23:26:18] [iter 46] [Bus 4] P/Q/CMD -> V_in=1.0460 pu, I_in=1646.3448 A, V_out=1.0460 pu, I_out=1646.3448 A, V_DT=1.0046 pu, P=642.2399 MW, Q=233.1020 MVar
+[2026-05-12 23:26:18] [Bus 4] Command breaker ke RTU: CLOSE
+[2026-05-12 23:26:18] [iter 46] [Bus 5] P/Q/CMD -> V_in=0.9600 pu, I_in=1595.4828 A, V_out=0.9600 pu, I_out=1595.4828 A, V_DT=1.0086 pu, P=507.2869 MW, Q=147.9587 MVar
+
+
+[2026-05-12 23:26:23] [iter 47] [Bus 1] P/Q/CMD -> V_in=1.0220 pu, I_in=221.1379 A, V_out=1.0220 pu, I_out=221.1379 A, V_DT=1.0214 pu, P=74.8522 MW, Q=21.8319 MVar
+[2026-05-12 23:26:23] [iter 47] [Bus 2] P/Q/CMD -> V_in=1.0100 pu, I_in=310.0000 A, V_out=1.0100 pu, I_out=310.0000 A, V_DT=1.0115 pu, P=123.1422 MW, Q=40.4749 MVar
+[2026-05-12 23:26:23] [iter 47] [Bus 3] P/Q/CMD -> V_in=0.9880 pu, I_in=345.9655 A, V_out=0.9880 pu, I_out=345.9655 A, V_DT=0.9961 pu, P=114.3880 MW, Q=28.6683 MVar
+[2026-05-12 23:26:23] [iter 47] [Bus 4] P/Q/CMD -> V_in=0.9750 pu, I_in=410.2759 A, V_out=0.9750 pu, I_out=410.2759 A, V_DT=0.9891 pu, P=149.1851 MW, Q=54.1470 MVar
+[2026-05-12 23:26:23] [iter 47] [Bus 5] P/Q/CMD -> V_in=0.9500 pu, I_in=521.6552 A, V_out=0.9500 pu, I_out=521.6552 A, V_DT=0.9912 pu, P=164.1336 MW, Q=47.8723 MVar
+
+
+[2026-05-12 23:26:27] [iter 48] [Bus 1] P/Q/CMD -> V_in=1.0020 pu, I_in=1636.3103 A, V_out=1.0020 pu, I_out=1636.3103 A, V_DT=1.0306 pu, P=543.0299 MW, Q=158.3837 MVar
+[2026-05-12 23:26:27] [iter 48] [Bus 2] P/Q/CMD -> V_in=1.0240 pu, I_in=374.3448 A, V_out=1.0240 pu, I_out=374.3448 A, V_DT=1.0269 pu, P=150.7633 MW, Q=49.5535 MVar
+[2026-05-12 23:26:27] [iter 48] [Bus 3] P/Q/CMD -> V_in=0.9860 pu, I_in=1606.5517 A, V_out=0.9860 pu, I_out=1606.5517 A, V_DT=1.0179 pu, P=530.1057 MW, Q=132.8570 MVar
+[2026-05-12 23:26:27] [iter 48] [Bus 4] P/Q/CMD -> V_in=1.0160 pu, I_in=1652.5862 A, V_out=1.0160 pu, I_out=1652.5862 A, V_DT=1.0139 pu, P=626.1849 MW, Q=227.2748 MVar
+[2026-05-12 23:26:27] [iter 48] [Bus 5] P/Q/CMD -> V_in=0.9810 pu, I_in=1548.4828 A, V_out=0.9810 pu, I_out=1548.4828 A, V_DT=1.0155 pu, P=503.1132 MW, Q=146.7413 MVar
+
+
+[2026-05-12 23:26:31] [iter 49] [Bus 1] P/Q/CMD -> V_in=1.0200 pu, I_in=1644.3448 A, V_out=1.0200 pu, I_out=1644.3448 A, V_DT=1.0227 pu, P=555.4991 MW, Q=162.0206 MVar
+[2026-05-12 23:26:31] [iter 49] [Bus 2] P/Q/CMD -> V_in=0.9800 pu, I_in=273.1034 A, V_out=0.9800 pu, I_out=273.1034 A, V_DT=1.0234 pu, P=105.2634 MW, Q=34.5984 MVar
+[2026-05-12 23:26:31] [iter 49] [Bus 3] P/Q/CMD -> V_in=0.9900 pu, I_in=1661.4828 A, V_out=0.9900 pu, I_out=1661.4828 A, V_DT=1.0071 pu, P=550.4551 MW, Q=137.9570 MVar
+[2026-05-12 23:26:31] [iter 49] [Bus 4] P/Q/CMD -> V_in=0.9620 pu, I_in=1696.2069 A, V_out=0.9620 pu, I_out=1696.2069 A, V_DT=0.9960 pu, P=608.5534 MW, Q=220.8754 MVar
+[2026-05-12 23:26:31] [iter 49] [Bus 5] P/Q/CMD -> V_in=1.0440 pu, I_in=1516.7931 A, V_out=1.0440 pu, I_out=1516.7931 A, V_DT=0.9984 pu, P=524.4658 MW, Q=152.9692 MVar
+
+
+[2026-05-12 23:26:35] [iter 50] [Bus 1] P/Q/CMD -> V_in=1.0200 pu, I_in=215.5862 A, V_out=1.0200 pu, I_out=215.5862 A, V_DT=1.0168 pu, P=72.8302 MW, Q=21.2421 MVar
+[2026-05-12 23:26:35] [iter 50] [Bus 2] P/Q/CMD -> V_in=0.9800 pu, I_in=273.1034 A, V_out=0.9800 pu, I_out=273.1034 A, V_DT=1.0208 pu, P=105.2634 MW, Q=34.5984 MVar
+[2026-05-12 23:26:35] [iter 50] [Bus 3] P/Q/CMD -> V_in=0.9900 pu, I_in=220.4138 A, V_out=0.9900 pu, I_out=220.4138 A, V_DT=0.9985 pu, P=73.0239 MW, Q=18.3015 MVar
+[2026-05-12 23:26:35] [iter 50] [Bus 4] P/Q/CMD -> V_in=0.9620 pu, I_in=283.7931 A, V_out=0.9620 pu, I_out=283.7931 A, V_DT=0.9820 pu, P=101.8173 MW, Q=36.9548 MVar
+[2026-05-12 23:26:35] [Bus 4] Command breaker ke RTU: OPEN
+[2026-05-12 23:26:35] [iter 50] [Bus 5] P/Q/CMD -> V_in=1.0440 pu, I_in=370.0345 A, V_out=1.0440 pu, I_out=370.0345 A, V_DT=0.9850 pu, P=127.9479 MW, Q=37.3181 MVar
+
+
+[2026-05-12 23:26:39] [iter 51] [Bus 1] P/Q/CMD -> V_in=1.0400 pu, I_in=1570.2069 A, V_out=1.0400 pu, I_out=1570.2069 A, V_DT=1.0266 pu, P=540.8546 MW, Q=157.7493 MVar
+[2026-05-12 23:26:39] [iter 51] [Bus 2] P/Q/CMD -> V_in=0.9800 pu, I_in=1636.1034 A, V_out=0.9800 pu, I_out=1636.1034 A, V_DT=1.0316 pu, P=630.6099 MW, Q=207.2714 MVar
+[2026-05-12 23:26:39] [iter 51] [Bus 3] P/Q/CMD -> V_in=0.9500 pu, I_in=1552.8276 A, V_out=0.9500 pu, I_out=1552.8276 A, V_DT=1.0166 pu, P=493.6711 MW, Q=123.7256 MVar
+[2026-05-12 23:26:39] [iter 51] [Bus 4] P/Q/CMD -> V_in=0.9920 pu, I_in=1508.3448 A, V_out=0.9920 pu, I_out=1508.3448 A, V_DT=0.9888 pu, P=558.0294 MW, Q=202.5376 MVar
+[2026-05-12 23:26:39] [Bus 4] Command breaker ke RTU: CLOSE
+[2026-05-12 23:26:39] [iter 51] [Bus 5] P/Q/CMD -> V_in=1.0140 pu, I_in=1588.1034 A, V_out=1.0140 pu, I_out=1588.1034 A, V_DT=0.9960 pu, P=533.3436 MW, Q=155.5585 MVar
+[2026-05-12 23:26:39] [Bus 5] Command breaker ke RTU: OPEN
+
+
+[2026-05-12 23:26:43] [iter 52] [Bus 1] P/Q/CMD -> V_in=0.9940 pu, I_in=1536.3448 A, V_out=0.9940 pu, I_out=1536.3448 A, V_DT=1.0187 pu, P=505.7844 MW, Q=147.5204 MVar
+[2026-05-12 23:26:43] [iter 52] [Bus 2] P/Q/CMD -> V_in=0.9970 pu, I_in=1633.2414 A, V_out=0.9970 pu, I_out=1633.2414 A, V_DT=1.0178 pu, P=640.4268 MW, Q=210.4981 MVar
+[2026-05-12 23:26:43] [iter 52] [Bus 3] P/Q/CMD -> V_in=1.0290 pu, I_in=1670.6207 A, V_out=1.0290 pu, I_out=1670.6207 A, V_DT=1.0012 pu, P=575.2863 MW, Q=144.1803 MVar
+[2026-05-12 23:26:43] [iter 52] [Bus 4] P/Q/CMD -> V_in=0.9580 pu, I_in=1584.5862 A, V_out=0.9580 pu, I_out=1584.5862 A, V_DT=0.9781 pu, P=566.1430 MW, Q=205.4825 MVar
+[2026-05-12 23:26:43] [Bus 4] Command breaker ke RTU: OPEN
+[2026-05-12 23:26:43] [iter 52] [Bus 5] P/Q/CMD -> V_in=1.0120 pu, I_in=232.5862 A, V_out=1.0120 pu, I_out=232.5862 A, V_DT=0.9780 pu, P=77.9569 MW, Q=22.7374 MVar
+[2026-05-12 23:26:43] [Bus 5] Command breaker ke RTU: CLOSE
+
+
+[2026-05-12 23:26:47] [iter 53] [Bus 1] P/Q/CMD -> V_in=1.0310 pu, I_in=1629.1034 A, V_out=1.0310 pu, I_out=1629.1034 A, V_DT=1.0140 pu, P=556.2854 MW, Q=162.2499 MVar
+[2026-05-12 23:26:47] [iter 53] [Bus 2] P/Q/CMD -> V_in=1.0160 pu, I_in=1657.4483 A, V_out=1.0160 pu, I_out=1657.4483 A, V_DT=1.0061 pu, P=662.3044 MW, Q=217.6889 MVar
+[2026-05-12 23:26:47] [iter 53] [Bus 3] P/Q/CMD -> V_in=0.9690 pu, I_in=1563.8621 A, V_out=0.9690 pu, I_out=1563.8621 A, V_DT=0.9862 pu, P=507.1227 MW, Q=127.0969 MVar
+[2026-05-12 23:26:47] [iter 53] [Bus 4] P/Q/CMD -> V_in=0.9740 pu, I_in=1682.8966 A, V_out=0.9740 pu, I_out=1682.8966 A, V_DT=0.9501 pu, P=611.3095 MW, Q=221.8757 MVar
+[2026-05-12 23:26:47] [Bus 4] Command breaker ke RTU: CLOSE
+[2026-05-12 23:26:47] [iter 53] [Bus 5] P/Q/CMD -> V_in=1.0340 pu, I_in=1589.0690 A, V_out=1.0340 pu, I_out=1589.0690 A, V_DT=0.9604 pu, P=544.1938 MW, Q=158.7232 MVar
+[2026-05-12 23:26:47] [Bus 5] Command breaker ke RTU: OPEN
+
+
+[2026-05-12 23:26:51] [iter 54] [Bus 1] P/Q/CMD -> V_in=0.9910 pu, I_in=368.5517 A, V_out=0.9910 pu, I_out=368.5517 A, V_DT=1.0091 pu, P=120.9658 MW, Q=35.2817 MVar
+[2026-05-12 23:26:51] [Bus 1] Command breaker ke RTU: OPEN
+[2026-05-12 23:26:51] [iter 54] [Bus 2] P/Q/CMD -> V_in=0.9690 pu, I_in=407.1724 A, V_out=0.9690 pu, I_out=407.1724 A, V_DT=0.9962 pu, P=155.1765 MW, Q=51.0041 MVar
+[2026-05-12 23:26:51] [iter 54] [Bus 3] P/Q/CMD -> V_in=0.9990 pu, I_in=195.6207 A, V_out=0.9990 pu, I_out=195.6207 A, V_DT=0.9732 pu, P=65.3990 MW, Q=16.3905 MVar
+[2026-05-12 23:26:51] [iter 54] [Bus 4] P/Q/CMD -> V_in=1.0140 pu, I_in=89.1034 A, V_out=1.0140 pu, I_out=89.1034 A, V_DT=0.9449 pu, P=33.6959 MW, Q=12.2300 MVar
+[2026-05-12 23:26:51] [Bus 4] Command breaker ke RTU: OPEN
+[2026-05-12 23:26:51] [iter 54] [Bus 5] P/Q/CMD -> V_in=1.0250 pu, I_in=416.7241 A, V_out=1.0250 pu, I_out=416.7241 A, V_DT=0.9467 pu, P=141.4695 MW, Q=41.2619 MVar
+[2026-05-12 23:26:51] [Bus 5] Command breaker ke RTU: CLOSE
+
+
+[2026-05-12 23:26:55] [iter 55] [Bus 1] P/Q/CMD -> V_in=0.9910 pu, I_in=1578.1034 A, V_out=0.9910 pu, I_out=1578.1034 A, V_DT=1.0070 pu, P=517.9639 MW, Q=151.0728 MVar
+[2026-05-12 23:26:55] [Bus 1] Command breaker ke RTU: CLOSE
+[2026-05-12 23:26:55] [iter 55] [Bus 2] P/Q/CMD -> V_in=0.9690 pu, I_in=1642.1379 A, V_out=0.9690 pu, I_out=1642.1379 A, V_DT=1.0139 pu, P=625.8314 MW, Q=205.7008 MVar
+[2026-05-12 23:26:55] [Bus 2] Command breaker ke RTU: OPEN
+[2026-05-12 23:26:55] [iter 55] [Bus 3] P/Q/CMD -> V_in=0.9990 pu, I_in=1542.9310 A, V_out=0.9990 pu, I_out=1542.9310 A, V_DT=0.9974 pu, P=515.8255 MW, Q=129.2781 MVar
+[2026-05-12 23:26:55] [iter 55] [Bus 4] P/Q/CMD -> V_in=0.9740 pu, I_in=1627.3793 A, V_out=0.9740 pu, I_out=1627.3793 A, V_DT=0.9569 pu, P=591.1430 MW, Q=214.5563 MVar
+[2026-05-12 23:26:55] [Bus 4] Command breaker ke RTU: CLOSE
+[2026-05-12 23:26:55] [iter 55] [Bus 5] P/Q/CMD -> V_in=0.9950 pu, I_in=1511.7931 A, V_out=0.9950 pu, I_out=1511.7931 A, V_DT=0.9644 pu, P=498.2023 MW, Q=145.3090 MVar
+[2026-05-12 23:26:55] [Bus 5] Command breaker ke RTU: OPEN
+
+
+[2026-05-12 23:26:59] [iter 56] [Bus 1] P/Q/CMD -> V_in=0.9600 pu, I_in=1564.8276 A, V_out=0.9600 pu, I_out=1564.8276 A, V_DT=1.0206 pu, P=497.5401 MW, Q=145.1159 MVar
+[2026-05-12 23:26:59] [Bus 1] Command breaker ke RTU: OPEN
+[2026-05-12 23:26:59] [iter 56] [Bus 2] P/Q/CMD -> V_in=0.9670 pu, I_in=527.0345 A, V_out=0.9670 pu, I_out=527.0345 A, V_DT=0.9654 pu, P=200.4423 MW, Q=65.8822 MVar
+[2026-05-12 23:26:59] [Bus 2] Command breaker ke RTU: CLOSE
+[2026-05-12 23:26:59] [iter 56] [Bus 3] P/Q/CMD -> V_in=1.0000 pu, I_in=1661.7586 A, V_out=1.0000 pu, I_out=1661.7586 A, V_DT=0.9709 pu, P=556.1075 MW, Q=139.3737 MVar
+[2026-05-12 23:26:59] [iter 56] [Bus 4] P/Q/CMD -> V_in=0.9740 pu, I_in=1529.9655 A, V_out=0.9740 pu, I_out=1529.9655 A, V_DT=0.9616 pu, P=555.7576 MW, Q=201.7131 MVar
+[2026-05-12 23:26:59] [Bus 4] Command breaker ke RTU: OPEN
+[2026-05-12 23:26:59] [iter 56] [Bus 5] P/Q/CMD -> V_in=0.9950 pu, I_in=442.9310 A, V_out=0.9950 pu, I_out=442.9310 A, V_DT=0.9631 pu, P=145.9653 MW, Q=42.5732 MVar
+[2026-05-12 23:26:59] [Bus 5] Command breaker ke RTU: CLOSE
+
+
+[2026-05-12 23:27:03] [iter 57] [Bus 1] P/Q/CMD -> V_in=1.0160 pu, I_in=514.4828 A, V_out=1.0160 pu, I_out=514.4828 A, V_DT=0.9969 pu, P=173.1230 MW, Q=50.4942 MVar
+[2026-05-12 23:27:03] [Bus 1] Command breaker ke RTU: CLOSE
+[2026-05-12 23:27:03] [iter 57] [Bus 2] P/Q/CMD -> V_in=1.0080 pu, I_in=501.6552 A, V_out=1.0080 pu, I_out=501.6552 A, V_DT=1.0020 pu, P=198.8794 MW, Q=65.3685 MVar
+[2026-05-12 23:27:03] [Bus 2] Command breaker ke RTU: OPEN
+[2026-05-12 23:27:03] [iter 57] [Bus 3] P/Q/CMD -> V_in=1.0390 pu, I_in=344.3793 A, V_out=1.0390 pu, I_out=344.3793 A, V_DT=0.9723 pu, P=119.7412 MW, Q=30.0100 MVar
+[2026-05-12 23:27:03] [iter 57] [Bus 4] P/Q/CMD -> V_in=1.0200 pu, I_in=303.6897 A, V_out=1.0200 pu, I_out=303.6897 A, V_DT=0.9097 pu, P=115.5247 MW, Q=41.9299 MVar
+[2026-05-12 23:27:03] [Bus 4] Command breaker ke RTU: CLOSE
+[2026-05-12 23:27:03] [iter 57] [Bus 5] P/Q/CMD -> V_in=1.0330 pu, I_in=318.7931 A, V_out=1.0330 pu, I_out=318.7931 A, V_DT=0.9207 pu, P=109.0686 MW, Q=31.8117 MVar
+[2026-05-12 23:27:03] [Bus 5] Command breaker ke RTU: OPEN
+
+
+[2026-05-12 23:27:07] [iter 58] [Bus 1] P/Q/CMD -> V_in=1.0390 pu, I_in=1510.0000 A, V_out=1.0390 pu, I_out=1510.0000 A, V_DT=1.0258 pu, P=519.6164 MW, Q=151.5548 MVar
+[2026-05-12 23:27:07] [Bus 1] Command breaker ke RTU: OPEN
+[2026-05-12 23:27:07] [iter 58] [Bus 2] P/Q/CMD -> V_in=0.9970 pu, I_in=202.7241 A, V_out=0.9970 pu, I_out=202.7241 A, V_DT=0.9984 pu, P=79.4922 MW, Q=26.1278 MVar
+[2026-05-12 23:27:07] [Bus 2] Command breaker ke RTU: CLOSE
+[2026-05-12 23:27:07] [iter 58] [Bus 3] P/Q/CMD -> V_in=0.9740 pu, I_in=1506.6897 A, V_out=0.9740 pu, I_out=1506.6897 A, V_DT=1.0028 pu, P=491.1041 MW, Q=123.0823 MVar
+[2026-05-12 23:27:07] [iter 58] [Bus 4] P/Q/CMD -> V_in=1.0260 pu, I_in=309.4138 A, V_out=1.0260 pu, I_out=309.4138 A, V_DT=1.0001 pu, P=118.3946 MW, Q=42.9715 MVar
+[2026-05-12 23:27:07] [Bus 4] Command breaker ke RTU: OPEN
+[2026-05-12 23:27:07] [iter 58] [Bus 5] P/Q/CMD -> V_in=1.0120 pu, I_in=1594.3448 A, V_out=1.0120 pu, I_out=1594.3448 A, V_DT=1.0018 pu, P=534.3836 MW, Q=155.8619 MVar
+[2026-05-12 23:27:07] [Bus 5] Command breaker ke RTU: CLOSE
+
+
+[2026-05-12 23:27:11] [iter 59] [Bus 1] P/Q/CMD -> V_in=0.9570 pu, I_in=1688.4483 A, V_out=0.9570 pu, I_out=1688.4483 A, V_DT=1.0007 pu, P=535.1679 MW, Q=156.0906 MVar
+[2026-05-12 23:27:11] [Bus 1] Command breaker ke RTU: CLOSE
+[2026-05-12 23:27:11] [iter 59] [Bus 2] P/Q/CMD -> V_in=0.9770 pu, I_in=234.2069 A, V_out=0.9770 pu, I_out=234.2069 A, V_DT=1.0201 pu, P=89.9950 MW, Q=29.5799 MVar
+[2026-05-12 23:27:11] [Bus 2] Command breaker ke RTU: OPEN
+[2026-05-12 23:27:11] [iter 59] [Bus 3] P/Q/CMD -> V_in=1.0040 pu, I_in=1614.6207 A, V_out=1.0040 pu, I_out=1614.6207 A, V_DT=0.9987 pu, P=542.4941 MW, Q=135.9618 MVar
+[2026-05-12 23:27:11] [iter 59] [Bus 4] P/Q/CMD -> V_in=0.9730 pu, I_in=404.5517 A, V_out=0.9730 pu, I_out=404.5517 A, V_DT=0.9600 pu, P=146.8019 MW, Q=53.2820 MVar
+[2026-05-12 23:27:11] [Bus 4] Command breaker ke RTU: CLOSE
+[2026-05-12 23:27:11] [iter 59] [Bus 5] P/Q/CMD -> V_in=1.0200 pu, I_in=1682.1034 A, V_out=1.0200 pu, I_out=1682.1034 A, V_DT=0.9657 pu, P=568.2549 MW, Q=165.7410 MVar
+[2026-05-12 23:27:11] [Bus 5] Command breaker ke RTU: OPEN
+
+
+[2026-05-12 23:27:15] [iter 60] [Bus 1] P/Q/CMD -> V_in=0.9900 pu, I_in=330.0690 A, V_out=0.9900 pu, I_out=330.0690 A, V_DT=1.0170 pu, P=108.2257 MW, Q=31.5658 MVar
+[2026-05-12 23:27:15] [Bus 1] Command breaker ke RTU: OPEN
+[2026-05-12 23:27:15] [iter 60] [Bus 2] P/Q/CMD -> V_in=0.9910 pu, I_in=180.6552 A, V_out=0.9910 pu, I_out=180.6552 A, V_DT=1.0045 pu, P=70.4122 MW, Q=23.1434 MVar
+[2026-05-12 23:27:15] [Bus 2] Command breaker ke RTU: CLOSE
+[2026-05-12 23:27:15] [iter 60] [Bus 3] P/Q/CMD -> V_in=0.9920 pu, I_in=490.4483 A, V_out=0.9920 pu, I_out=490.4483 A, V_DT=0.9999 pu, P=162.8155 MW, Q=40.8054 MVar
+[2026-05-12 23:27:15] [iter 60] [Bus 4] P/Q/CMD -> V_in=1.0080 pu, I_in=391.0690 A, V_out=1.0080 pu, I_out=391.0690 A, V_DT=0.9932 pu, P=147.0140 MW, Q=53.3590 MVar
+[2026-05-12 23:27:15] [Bus 4] Command breaker ke RTU: OPEN
+[2026-05-12 23:27:15] [iter 60] [Bus 5] P/Q/CMD -> V_in=1.0350 pu, I_in=410.5862 A, V_out=1.0350 pu, I_out=410.5862 A, V_DT=0.9919 pu, P=140.7457 MW, Q=41.0508 MVar
+[2026-05-12 23:27:15] [Bus 5] Command breaker ke RTU: CLOSE
+
+
+[2026-05-12 23:27:19] [iter 61] [Bus 1] P/Q/CMD -> V_in=0.9880 pu, I_in=91.7586 A, V_out=0.9880 pu, I_out=91.7586 A, V_DT=1.0090 pu, P=30.0258 MW, Q=8.7575 MVar
+[2026-05-12 23:27:19] [Bus 1] Command breaker ke RTU: CLOSE
+[2026-05-12 23:27:19] [iter 61] [Bus 2] P/Q/CMD -> V_in=0.9850 pu, I_in=1578.0000 A, V_out=0.9850 pu, I_out=1578.0000 A, V_DT=1.0294 pu, P=611.3180 MW, Q=200.9305 MVar
+[2026-05-12 23:27:19] [Bus 2] Command breaker ke RTU: OPEN
+[2026-05-12 23:27:19] [iter 61] [Bus 3] P/Q/CMD -> V_in=1.0350 pu, I_in=490.5862 A, V_out=1.0350 pu, I_out=490.5862 A, V_DT=1.0118 pu, P=169.9208 MW, Q=42.5862 MVar
+[2026-05-12 23:27:19] [iter 61] [Bus 4] P/Q/CMD -> V_in=0.9910 pu, I_in=1503.8966 A, V_out=0.9910 pu, I_out=1503.8966 A, V_DT=0.9848 pu, P=555.8229 MW, Q=201.7368 MVar
+[2026-05-12 23:27:19] [Bus 4] Command breaker ke RTU: CLOSE
+[2026-05-12 23:27:19] [iter 61] [Bus 5] P/Q/CMD -> V_in=1.0040 pu, I_in=1551.9655 A, V_out=1.0040 pu, I_out=1551.9655 A, V_DT=0.9889 pu, P=516.0670 MW, Q=150.5195 MVar
+[2026-05-12 23:27:19] [Bus 5] Command breaker ke RTU: OPEN
+
+
+[2026-05-12 23:27:23] [iter 62] [Bus 1] P/Q/CMD -> V_in=0.9880 pu, I_in=1646.6207 A, V_out=0.9880 pu, I_out=1646.6207 A, V_DT=1.0340 pu, P=538.8164 MW, Q=157.1548 MVar
+[2026-05-12 23:27:23] [iter 62] [Bus 2] P/Q/CMD -> V_in=0.9850 pu, I_in=1518.2069 A, V_out=0.9850 pu, I_out=1518.2069 A, V_DT=0.9985 pu, P=588.1541 MW, Q=193.3169 MVar
+[2026-05-12 23:27:23] [Bus 2] Command breaker ke RTU: CLOSE
+[2026-05-12 23:27:23] [iter 62] [Bus 3] P/Q/CMD -> V_in=1.0350 pu, I_in=490.5862 A, V_out=1.0350 pu, I_out=490.5862 A, V_DT=1.0026 pu, P=169.9208 MW, Q=42.5862 MVar
+[2026-05-12 23:27:23] [iter 62] [Bus 4] P/Q/CMD -> V_in=0.9910 pu, I_in=1656.3448 A, V_out=0.9910 pu, I_out=1656.3448 A, V_DT=0.9937 pu, P=612.1660 MW, Q=222.1866 MVar
+[2026-05-12 23:27:23] [Bus 4] Command breaker ke RTU: OPEN
+[2026-05-12 23:27:23] [iter 62] [Bus 5] P/Q/CMD -> V_in=1.0040 pu, I_in=352.1034 A, V_out=1.0040 pu, I_out=352.1034 A, V_DT=0.9933 pu, P=117.0831 MW, Q=34.1492 MVar
+[2026-05-12 23:27:23] [Bus 5] Command breaker ke RTU: CLOSE
+
+
+[2026-05-12 23:27:27] [iter 63] [Bus 1] P/Q/CMD -> V_in=0.9720 pu, I_in=1514.7241 A, V_out=0.9720 pu, I_out=1514.7241 A, V_DT=1.0229 pu, P=487.6297 MW, Q=142.2253 MVar
+[2026-05-12 23:27:27] [iter 63] [Bus 2] P/Q/CMD -> V_in=0.9930 pu, I_in=1620.7931 A, V_out=0.9930 pu, I_out=1620.7931 A, V_DT=1.0189 pu, P=632.9957 MW, Q=208.0556 MVar
+[2026-05-12 23:27:27] [iter 63] [Bus 3] P/Q/CMD -> V_in=0.9830 pu, I_in=1531.4138 A, V_out=0.9830 pu, I_out=1531.4138 A, V_DT=1.0082 pu, P=503.7753 MW, Q=126.2580 MVar
+[2026-05-12 23:27:27] [iter 63] [Bus 4] P/Q/CMD -> V_in=0.9900 pu, I_in=1627.7241 A, V_out=0.9900 pu, I_out=1627.7241 A, V_DT=0.9744 pu, P=600.9811 MW, Q=218.1270 MVar
+[2026-05-12 23:27:27] [Bus 4] Command breaker ke RTU: CLOSE
+[2026-05-12 23:27:27] [iter 63] [Bus 5] P/Q/CMD -> V_in=0.9960 pu, I_in=1592.8966 A, V_out=0.9960 pu, I_out=1592.8966 A, V_DT=0.9835 pu, P=525.4571 MW, Q=153.2583 MVar
+[2026-05-12 23:27:27] [Bus 5] Command breaker ke RTU: OPEN
+
+
+[2026-05-12 23:27:31] [iter 64] [Bus 1] P/Q/CMD -> V_in=1.0120 pu, I_in=98.7241 A, V_out=1.0120 pu, I_out=98.7241 A, V_DT=1.0174 pu, P=33.0898 MW, Q=9.6512 MVar
+[2026-05-12 23:27:31] [iter 64] [Bus 2] P/Q/CMD -> V_in=0.9890 pu, I_in=340.2069 A, V_out=0.9890 pu, I_out=340.2069 A, V_DT=1.0082 pu, P=132.3315 MW, Q=43.4953 MVar
+[2026-05-12 23:27:31] [iter 64] [Bus 3] P/Q/CMD -> V_in=0.9520 pu, I_in=389.5517 A, V_out=0.9520 pu, I_out=389.5517 A, V_DT=0.9934 pu, P=124.1060 MW, Q=31.1039 MVar
+[2026-05-12 23:27:31] [iter 64] [Bus 4] P/Q/CMD -> V_in=0.9630 pu, I_in=302.4138 A, V_out=0.9630 pu, I_out=302.4138 A, V_DT=0.9672 pu, P=108.6107 MW, Q=39.4204 MVar
+[2026-05-12 23:27:31] [Bus 4] Command breaker ke RTU: OPEN
+[2026-05-12 23:27:31] [iter 64] [Bus 5] P/Q/CMD -> V_in=0.9550 pu, I_in=267.0345 A, V_out=0.9550 pu, I_out=267.0345 A, V_DT=0.9680 pu, P=84.4619 MW, Q=24.6347 MVar
+[2026-05-12 23:27:31] [Bus 5] Command breaker ke RTU: CLOSE
+
+
+[2026-05-12 23:27:35] [iter 65] [Bus 1] P/Q/CMD -> V_in=0.9710 pu, I_in=1679.3448 A, V_out=0.9710 pu, I_out=1679.3448 A, V_DT=1.0291 pu, P=540.0692 MW, Q=157.5202 MVar
+[2026-05-12 23:27:35] [iter 65] [Bus 2] P/Q/CMD -> V_in=1.0260 pu, I_in=1591.3448 A, V_out=1.0260 pu, I_out=1591.3448 A, V_DT=1.0248 pu, P=642.1487 MW, Q=211.0641 MVar
+[2026-05-12 23:27:35] [iter 65] [Bus 3] P/Q/CMD -> V_in=1.0250 pu, I_in=1624.8621 A, V_out=1.0250 pu, I_out=1624.8621 A, V_DT=1.0158 pu, P=557.3541 MW, Q=139.6861 MVar
+[2026-05-12 23:27:35] [iter 65] [Bus 4] P/Q/CMD -> V_in=0.9750 pu, I_in=1694.7586 A, V_out=0.9750 pu, I_out=1694.7586 A, V_DT=0.9902 pu, P=616.2505 MW, Q=223.6690 MVar
+[2026-05-12 23:27:35] [Bus 4] Command breaker ke RTU: CLOSE
+[2026-05-12 23:27:35] [iter 65] [Bus 5] P/Q/CMD -> V_in=0.9510 pu, I_in=1516.3793 A, V_out=0.9510 pu, I_out=1516.3793 A, V_DT=0.9976 pu, P=477.6158 MW, Q=139.3046 MVar
+[2026-05-12 23:27:35] [Bus 5] Command breaker ke RTU: OPEN
+
+
+[2026-05-12 23:27:39] [iter 66] [Bus 1] P/Q/CMD -> V_in=1.0490 pu, I_in=1522.0000 A, V_out=1.0490 pu, I_out=1522.0000 A, V_DT=1.0203 pu, P=528.7866 MW, Q=154.2294 MVar
+[2026-05-12 23:27:39] [iter 66] [Bus 2] P/Q/CMD -> V_in=1.0140 pu, I_in=1522.2414 A, V_out=1.0140 pu, I_out=1522.2414 A, V_DT=1.0118 pu, P=607.0793 MW, Q=199.5373 MVar
+[2026-05-12 23:27:39] [iter 66] [Bus 3] P/Q/CMD -> V_in=1.0140 pu, I_in=1539.1724 A, V_out=1.0140 pu, I_out=1539.1724 A, V_DT=0.9980 pu, P=522.2952 MW, Q=130.8995 MVar
+[2026-05-12 23:27:39] [iter 66] [Bus 4] P/Q/CMD -> V_in=1.0440 pu, I_in=1675.1034 A, V_out=1.0440 pu, I_out=1675.1034 A, V_DT=0.9769 pu, P=652.2092 MW, Q=236.7203 MVar
+[2026-05-12 23:27:39] [Bus 4] Command breaker ke RTU: OPEN
+[2026-05-12 23:27:39] [iter 66] [Bus 5] P/Q/CMD -> V_in=0.9520 pu, I_in=1653.9310 A, V_out=0.9520 pu, I_out=1653.9310 A, V_DT=0.9777 pu, P=521.4884 MW, Q=152.1008 MVar
+[2026-05-12 23:27:39] [Bus 5] Command breaker ke RTU: CLOSE
+
+
+[2026-05-12 23:27:43] [iter 67] [Bus 1] P/Q/CMD -> V_in=1.0490 pu, I_in=230.6552 A, V_out=1.0490 pu, I_out=230.6552 A, V_DT=1.0126 pu, P=80.1362 MW, Q=23.3731 MVar
+[2026-05-12 23:27:43] [iter 67] [Bus 2] P/Q/CMD -> V_in=1.0140 pu, I_in=425.7241 A, V_out=1.0140 pu, I_out=425.7241 A, V_DT=0.9956 pu, P=169.7814 MW, Q=55.8045 MVar
+[2026-05-12 23:27:43] [iter 67] [Bus 3] P/Q/CMD -> V_in=1.0140 pu, I_in=413.9310 A, V_out=1.0140 pu, I_out=413.9310 A, V_DT=0.9704 pu, P=140.4613 MW, Q=35.2029 MVar
+[2026-05-12 23:27:43] [iter 67] [Bus 4] P/Q/CMD -> V_in=1.0440 pu, I_in=168.2759 A, V_out=1.0440 pu, I_out=168.2759 A, V_DT=0.9199 pu, P=65.5190 MW, Q=23.7802 MVar
+[2026-05-12 23:27:43] [Bus 4] Command breaker ke RTU: CLOSE
+[2026-05-12 23:27:43] [iter 67] [Bus 5] P/Q/CMD -> V_in=0.9520 pu, I_in=163.0000 A, V_out=0.9520 pu, I_out=163.0000 A, V_DT=0.9317 pu, P=51.3943 MW, Q=14.9900 MVar
+[2026-05-12 23:27:43] [Bus 5] Command breaker ke RTU: OPEN
+
+
+[2026-05-12 23:27:47] [iter 68] [Bus 1] P/Q/CMD -> V_in=0.9620 pu, I_in=397.7586 A, V_out=0.9620 pu, I_out=397.7586 A, V_DT=1.0264 pu, P=126.7316 MW, Q=36.9634 MVar
+[2026-05-12 23:27:47] [iter 68] [Bus 2] P/Q/CMD -> V_in=1.0060 pu, I_in=1596.8966 A, V_out=1.0060 pu, I_out=1596.8966 A, V_DT=1.0221 pu, P=631.8278 MW, Q=207.6717 MVar
+[2026-05-12 23:27:47] [iter 68] [Bus 3] P/Q/CMD -> V_in=1.0180 pu, I_in=1612.6552 A, V_out=1.0180 pu, I_out=1612.6552 A, V_DT=1.0129 pu, P=549.3892 MW, Q=137.6899 MVar
+[2026-05-12 23:27:47] [iter 68] [Bus 4] P/Q/CMD -> V_in=0.9660 pu, I_in=1646.2759 A, V_out=0.9660 pu, I_out=1646.2759 A, V_DT=0.9994 pu, P=593.0954 MW, Q=215.2649 MVar
+[2026-05-12 23:27:47] [Bus 4] Command breaker ke RTU: OPEN
+[2026-05-12 23:27:47] [iter 68] [Bus 5] P/Q/CMD -> V_in=1.0240 pu, I_in=1589.6207 A, V_out=1.0240 pu, I_out=1589.6207 A, V_DT=1.0001 pu, P=539.1179 MW, Q=157.2427 MVar
+[2026-05-12 23:27:47] [Bus 5] Command breaker ke RTU: CLOSE
+
+
+[2026-05-12 23:27:51] [iter 69] [Bus 1] P/Q/CMD -> V_in=1.0310 pu, I_in=1597.4138 A, V_out=1.0310 pu, I_out=1597.4138 A, V_DT=1.0284 pu, P=545.4644 MW, Q=159.0938 MVar
+[2026-05-12 23:27:51] [iter 69] [Bus 2] P/Q/CMD -> V_in=0.9600 pu, I_in=103.4138 A, V_out=0.9600 pu, I_out=103.4138 A, V_DT=1.0095 pu, P=39.0457 MW, Q=12.8337 MVar
+[2026-05-12 23:27:51] [iter 69] [Bus 3] P/Q/CMD -> V_in=0.9810 pu, I_in=1657.7586 A, V_out=0.9810 pu, I_out=1657.7586 A, V_DT=0.9926 pu, P=544.2283 MW, Q=136.3965 MVar
+[2026-05-12 23:27:51] [iter 69] [Bus 4] P/Q/CMD -> V_in=1.0450 pu, I_in=1576.4828 A, V_out=1.0450 pu, I_out=1576.4828 A, V_DT=0.9559 pu, P=614.3987 MW, Q=222.9970 MVar
+[2026-05-12 23:27:51] [Bus 4] Command breaker ke RTU: CLOSE
+[2026-05-12 23:27:51] [iter 69] [Bus 5] P/Q/CMD -> V_in=1.0200 pu, I_in=118.9655 A, V_out=1.0200 pu, I_out=118.9655 A, V_DT=0.9655 pu, P=40.1894 MW, Q=11.7219 MVar
+[2026-05-12 23:27:51] [Bus 5] Command breaker ke RTU: OPEN
+
+
+[2026-05-12 23:27:55] [iter 70] [Bus 1] P/Q/CMD -> V_in=1.0180 pu, I_in=1668.6552 A, V_out=1.0180 pu, I_out=1668.6552 A, V_DT=1.0222 pu, P=562.6064 MW, Q=164.0935 MVar
+[2026-05-12 23:27:55] [iter 70] [Bus 2] P/Q/CMD -> V_in=0.9600 pu, I_in=446.0000 A, V_out=0.9600 pu, I_out=446.0000 A, V_DT=1.0188 pu, P=168.3953 MW, Q=55.3489 MVar
+[2026-05-12 23:27:55] [iter 70] [Bus 3] P/Q/CMD -> V_in=1.0350 pu, I_in=340.5517 A, V_out=1.0350 pu, I_out=340.5517 A, V_DT=1.0015 pu, P=117.9544 MW, Q=29.5622 MVar
+[2026-05-12 23:27:55] [iter 70] [Bus 4] P/Q/CMD -> V_in=0.9620 pu, I_in=541.8621 A, V_out=0.9620 pu, I_out=541.8621 A, V_DT=0.9824 pu, P=194.4055 MW, Q=70.5598 MVar
+[2026-05-12 23:27:55] [Bus 4] Command breaker ke RTU: OPEN
+[2026-05-12 23:27:55] [iter 70] [Bus 5] P/Q/CMD -> V_in=1.0280 pu, I_in=234.3448 A, V_out=1.0280 pu, I_out=234.3448 A, V_DT=0.9845 pu, P=79.7882 MW, Q=23.2716 MVar
+[2026-05-12 23:27:55] [Bus 5] Command breaker ke RTU: CLOSE
+
+
+[2026-05-12 23:27:59] [iter 71] [Bus 1] P/Q/CMD -> V_in=0.9920 pu, I_in=253.0690 A, V_out=0.9920 pu, I_out=253.0690 A, V_DT=1.0173 pu, P=83.1459 MW, Q=24.2509 MVar
+[2026-05-12 23:27:59] [iter 71] [Bus 2] P/Q/CMD -> V_in=1.0000 pu, I_in=238.2069 A, V_out=1.0000 pu, I_out=238.2069 A, V_DT=1.0256 pu, P=93.6868 MW, Q=30.7934 MVar
+[2026-05-12 23:27:59] [iter 71] [Bus 3] P/Q/CMD -> V_in=1.0340 pu, I_in=435.0000 A, V_out=1.0340 pu, I_out=435.0000 A, V_DT=1.0130 pu, P=150.5222 MW, Q=37.7244 MVar
+[2026-05-12 23:27:59] [iter 71] [Bus 4] P/Q/CMD -> V_in=0.9600 pu, I_in=532.1724 A, V_out=0.9600 pu, I_out=532.1724 A, V_DT=0.9874 pu, P=190.5322 MW, Q=69.1540 MVar
+[2026-05-12 23:27:59] [Bus 4] Command breaker ke RTU: CLOSE
+[2026-05-12 23:27:59] [iter 71] [Bus 5] P/Q/CMD -> V_in=1.0120 pu, I_in=446.9655 A, V_out=1.0120 pu, I_out=446.9655 A, V_DT=0.9957 pu, P=149.8114 MW, Q=43.6950 MVar
+[2026-05-12 23:27:59] [Bus 5] Command breaker ke RTU: OPEN
+
+
+[2026-05-12 23:28:03] [iter 72] [Bus 1] P/Q/CMD -> V_in=1.0200 pu, I_in=1623.5172 A, V_out=1.0200 pu, I_out=1623.5172 A, V_DT=1.0278 pu, P=548.4631 MW, Q=159.9684 MVar
+[2026-05-12 23:28:03] [iter 72] [Bus 2] P/Q/CMD -> V_in=1.0220 pu, I_in=1646.2069 A, V_out=1.0220 pu, I_out=1646.2069 A, V_DT=1.0351 pu, P=661.6971 MW, Q=217.4893 MVar
+[2026-05-12 23:28:03] [iter 72] [Bus 3] P/Q/CMD -> V_in=0.9770 pu, I_in=454.4483 A, V_out=0.9770 pu, I_out=454.4483 A, V_DT=1.0263 pu, P=148.5832 MW, Q=37.2385 MVar
+[2026-05-12 23:28:03] [iter 72] [Bus 4] P/Q/CMD -> V_in=1.0020 pu, I_in=1646.8621 A, V_out=1.0020 pu, I_out=1646.8621 A, V_DT=1.0165 pu, P=615.4174 MW, Q=223.3667 MVar
+[2026-05-12 23:28:03] [Bus 4] Command breaker ke RTU: OPEN
+[2026-05-12 23:28:03] [iter 72] [Bus 5] P/Q/CMD -> V_in=0.9930 pu, I_in=1573.7931 A, V_out=0.9930 pu, I_out=1573.7931 A, V_DT=1.0179 pu, P=517.5916 MW, Q=150.9642 MVar
+[2026-05-12 23:28:03] [Bus 5] Command breaker ke RTU: CLOSE
+
+
+[2026-05-12 23:28:07] [iter 73] [Bus 1] P/Q/CMD -> V_in=1.0200 pu, I_in=1564.8276 A, V_out=1.0200 pu, I_out=1564.8276 A, V_DT=1.0188 pu, P=528.6363 MW, Q=154.1856 MVar
+[2026-05-12 23:28:07] [iter 73] [Bus 2] P/Q/CMD -> V_in=1.0220 pu, I_in=1560.1724 A, V_out=1.0220 pu, I_out=1560.1724 A, V_DT=1.0202 pu, P=627.1154 MW, Q=206.1229 MVar
+[2026-05-12 23:28:07] [iter 73] [Bus 3] P/Q/CMD -> V_in=0.9770 pu, I_in=454.4483 A, V_out=0.9770 pu, I_out=454.4483 A, V_DT=1.0090 pu, P=148.5832 MW, Q=37.2385 MVar
+[2026-05-12 23:28:07] [iter 73] [Bus 4] P/Q/CMD -> V_in=1.0020 pu, I_in=1658.4483 A, V_out=1.0020 pu, I_out=1658.4483 A, V_DT=0.9738 pu, P=619.7470 MW, Q=224.9381 MVar
+[2026-05-12 23:28:07] [Bus 4] Command breaker ke RTU: CLOSE
+[2026-05-12 23:28:07] [iter 73] [Bus 5] P/Q/CMD -> V_in=0.9930 pu, I_in=1578.2759 A, V_out=0.9930 pu, I_out=1578.2759 A, V_DT=0.9829 pu, P=519.0659 MW, Q=151.3942 MVar
+[2026-05-12 23:28:07] [Bus 5] Command breaker ke RTU: OPEN
+
+
+[2026-05-12 23:28:11] [iter 74] [Bus 1] P/Q/CMD -> V_in=0.9760 pu, I_in=474.1379 A, V_out=0.9760 pu, I_out=474.1379 A, V_DT=1.0139 pu, P=153.2657 MW, Q=44.7025 MVar
+[2026-05-12 23:28:11] [Bus 1] Command breaker ke RTU: OPEN
+[2026-05-12 23:28:11] [iter 74] [Bus 2] P/Q/CMD -> V_in=1.0330 pu, I_in=122.1724 A, V_out=1.0330 pu, I_out=122.1724 A, V_DT=1.0125 pu, P=49.6361 MW, Q=16.3146 MVar
+[2026-05-12 23:28:11] [iter 74] [Bus 3] P/Q/CMD -> V_in=1.0380 pu, I_in=188.2759 A, V_out=1.0380 pu, I_out=188.2759 A, V_DT=1.0014 pu, P=65.4008 MW, Q=16.3910 MVar
+[2026-05-12 23:28:11] [iter 74] [Bus 4] P/Q/CMD -> V_in=0.9960 pu, I_in=358.1034 A, V_out=0.9960 pu, I_out=358.1034 A, V_DT=0.9720 pu, P=133.0187 MW, Q=48.2793 MVar
+[2026-05-12 23:28:11] [Bus 4] Command breaker ke RTU: OPEN
+[2026-05-12 23:28:11] [iter 74] [Bus 5] P/Q/CMD -> V_in=0.9870 pu, I_in=101.9310 A, V_out=0.9870 pu, I_out=101.9310 A, V_DT=0.9725 pu, P=33.3207 MW, Q=9.7185 MVar
+[2026-05-12 23:28:11] [Bus 5] Command breaker ke RTU: CLOSE
+
+
+[2026-05-12 23:28:15] [iter 75] [Bus 1] P/Q/CMD -> V_in=1.0350 pu, I_in=1593.6552 A, V_out=1.0350 pu, I_out=1593.6552 A, V_DT=1.0082 pu, P=546.2922 MW, Q=159.3352 MVar
+[2026-05-12 23:28:15] [Bus 1] Command breaker ke RTU: CLOSE
+[2026-05-12 23:28:15] [iter 75] [Bus 2] P/Q/CMD -> V_in=0.9710 pu, I_in=1525.6207 A, V_out=0.9710 pu, I_out=1525.6207 A, V_DT=1.0228 pu, P=582.6258 MW, Q=191.4999 MVar
+[2026-05-12 23:28:15] [Bus 2] Command breaker ke RTU: OPEN
+[2026-05-12 23:28:15] [iter 75] [Bus 3] P/Q/CMD -> V_in=0.9840 pu, I_in=1618.2069 A, V_out=0.9840 pu, I_out=1618.2069 A, V_DT=1.0100 pu, P=532.8684 MW, Q=133.5494 MVar
+[2026-05-12 23:28:15] [iter 75] [Bus 4] P/Q/CMD -> V_in=1.0200 pu, I_in=1568.9310 A, V_out=1.0200 pu, I_out=1568.9310 A, V_DT=0.9678 pu, P=596.8275 MW, Q=216.6195 MVar
+[2026-05-12 23:28:15] [Bus 4] Command breaker ke RTU: CLOSE
+[2026-05-12 23:28:15] [iter 75] [Bus 5] P/Q/CMD -> V_in=0.9510 pu, I_in=1547.9310 A, V_out=0.9510 pu, I_out=1547.9310 A, V_DT=0.9756 pu, P=487.5537 MW, Q=142.2032 MVar
+[2026-05-12 23:28:15] [Bus 5] Command breaker ke RTU: OPEN
+
+
+[2026-05-12 23:28:19] [iter 76] [Bus 1] P/Q/CMD -> V_in=0.9580 pu, I_in=1522.4828 A, V_out=0.9580 pu, I_out=1522.4828 A, V_DT=1.0082 pu, P=483.0679 MW, Q=140.8948 MVar
+[2026-05-12 23:28:19] [iter 76] [Bus 2] P/Q/CMD -> V_in=0.9980 pu, I_in=1575.0690 A, V_out=0.9980 pu, I_out=1575.0690 A, V_DT=1.0228 pu, P=618.2357 MW, Q=203.2042 MVar
+[2026-05-12 23:28:19] [iter 76] [Bus 3] P/Q/CMD -> V_in=1.0180 pu, I_in=1543.6897 A, V_out=1.0180 pu, I_out=1543.6897 A, V_DT=1.0100 pu, P=525.8945 MW, Q=131.8016 MVar
+[2026-05-12 23:28:19] [iter 76] [Bus 4] P/Q/CMD -> V_in=0.9990 pu, I_in=1595.2414 A, V_out=0.9990 pu, I_out=1595.2414 A, V_DT=0.9678 pu, P=594.3424 MW, Q=215.7175 MVar
+[2026-05-12 23:28:19] [iter 76] [Bus 5] P/Q/CMD -> V_in=0.9590 pu, I_in=1671.4483 A, V_out=0.9590 pu, I_out=1671.4483 A, V_DT=0.9756 pu, P=530.8867 MW, Q=154.8420 MVar
+
+
+[2026-05-12 23:28:23] [iter 77] [Bus 1] P/Q/CMD -> V_in=1.0180 pu, I_in=218.7241 A, V_out=1.0180 pu, I_out=218.7241 A, V_DT=1.0214 pu, P=73.7454 MW, Q=21.5091 MVar
+[2026-05-12 23:28:23] [Bus 1] Command breaker ke RTU: OPEN
+[2026-05-12 23:28:23] [iter 77] [Bus 2] P/Q/CMD -> V_in=1.0080 pu, I_in=294.0690 A, V_out=1.0080 pu, I_out=294.0690 A, V_DT=0.9792 pu, P=116.5826 MW, Q=38.3188 MVar
+[2026-05-12 23:28:23] [Bus 2] Command breaker ke RTU: CLOSE
+[2026-05-12 23:28:23] [iter 77] [Bus 3] P/Q/CMD -> V_in=1.0020 pu, I_in=274.5862 A, V_out=1.0020 pu, I_out=274.5862 A, V_DT=0.9851 pu, P=92.0741 MW, Q=23.0759 MVar
+[2026-05-12 23:28:23] [iter 77] [Bus 4] P/Q/CMD -> V_in=0.9990 pu, I_in=1595.2414 A, V_out=0.9990 pu, I_out=1595.2414 A, V_DT=0.9717 pu, P=594.3424 MW, Q=215.7175 MVar
+[2026-05-12 23:28:23] [Bus 4] Command breaker ke RTU: OPEN
+[2026-05-12 23:28:23] [iter 77] [Bus 5] P/Q/CMD -> V_in=0.9590 pu, I_in=1671.4483 A, V_out=0.9590 pu, I_out=1671.4483 A, V_DT=0.9730 pu, P=530.8867 MW, Q=154.8420 MVar
+[2026-05-12 23:28:23] [Bus 5] Command breaker ke RTU: CLOSE
+
+
+[2026-05-12 23:28:27] [iter 78] [Bus 1] P/Q/CMD -> V_in=1.0180 pu, I_in=218.7241 A, V_out=1.0180 pu, I_out=218.7241 A, V_DT=1.0141 pu, P=73.7454 MW, Q=21.5091 MVar
+[2026-05-12 23:28:27] [Bus 1] Command breaker ke RTU: CLOSE
+[2026-05-12 23:28:27] [iter 78] [Bus 2] P/Q/CMD -> V_in=1.0080 pu, I_in=294.0690 A, V_out=1.0080 pu, I_out=294.0690 A, V_DT=1.0129 pu, P=116.5826 MW, Q=38.3188 MVar
+[2026-05-12 23:28:27] [Bus 2] Command breaker ke RTU: OPEN
+[2026-05-12 23:28:27] [iter 78] [Bus 3] P/Q/CMD -> V_in=1.0020 pu, I_in=274.5862 A, V_out=1.0020 pu, I_out=274.5862 A, V_DT=0.9898 pu, P=92.0741 MW, Q=23.0759 MVar
+[2026-05-12 23:28:27] [iter 78] [Bus 4] P/Q/CMD -> V_in=1.0240 pu, I_in=228.1379 A, V_out=1.0240 pu, I_out=228.1379 A, V_DT=0.9238 pu, P=87.1249 MW, Q=31.6221 MVar
+[2026-05-12 23:28:27] [Bus 4] Command breaker ke RTU: CLOSE
+[2026-05-12 23:28:27] [iter 78] [Bus 5] P/Q/CMD -> V_in=1.0200 pu, I_in=203.2414 A, V_out=1.0200 pu, I_out=203.2414 A, V_DT=0.9351 pu, P=68.6598 MW, Q=20.0258 MVar
+[2026-05-12 23:28:27] [Bus 5] Command breaker ke RTU: OPEN
+
+
+[2026-05-12 23:28:31] [iter 79] [Bus 1] P/Q/CMD -> V_in=1.0180 pu, I_in=1691.2414 A, V_out=1.0180 pu, I_out=1691.2414 A, V_DT=1.0351 pu, P=570.2216 MW, Q=166.3146 MVar
+[2026-05-12 23:28:31] [iter 79] [Bus 2] P/Q/CMD -> V_in=1.0080 pu, I_in=1515.9310 A, V_out=1.0080 pu, I_out=1515.9310 A, V_DT=1.0106 pu, P=600.9854 MW, Q=197.5343 MVar
+[2026-05-12 23:28:31] [Bus 2] Command breaker ke RTU: CLOSE
+[2026-05-12 23:28:31] [iter 79] [Bus 3] P/Q/CMD -> V_in=1.0020 pu, I_in=274.5862 A, V_out=1.0020 pu, I_out=274.5862 A, V_DT=1.0145 pu, P=92.0741 MW, Q=23.0759 MVar
+[2026-05-12 23:28:31] [iter 79] [Bus 4] P/Q/CMD -> V_in=1.0240 pu, I_in=1591.1379 A, V_out=1.0240 pu, I_out=1591.1379 A, V_DT=1.0039 pu, P=607.6487 MW, Q=220.5470 MVar
+[2026-05-12 23:28:31] [Bus 4] Command breaker ke RTU: OPEN
+[2026-05-12 23:28:31] [iter 79] [Bus 5] P/Q/CMD -> V_in=1.0200 pu, I_in=1591.6897 A, V_out=1.0200 pu, I_out=1591.6897 A, V_DT=1.0045 pu, P=537.7110 MW, Q=156.8324 MVar
+[2026-05-12 23:28:31] [Bus 5] Command breaker ke RTU: CLOSE
+
+
+[2026-05-12 23:28:35] [iter 80] [Bus 1] P/Q/CMD -> V_in=0.9750 pu, I_in=1696.0345 A, V_out=0.9750 pu, I_out=1696.0345 A, V_DT=1.0225 pu, P=547.6835 MW, Q=159.7410 MVar
+[2026-05-12 23:28:35] [iter 80] [Bus 2] P/Q/CMD -> V_in=0.9690 pu, I_in=145.1724 A, V_out=0.9690 pu, I_out=145.1724 A, V_DT=1.0208 pu, P=55.3263 MW, Q=18.1849 MVar
+[2026-05-12 23:28:35] [iter 80] [Bus 3] P/Q/CMD -> V_in=1.0020 pu, I_in=1501.6897 A, V_out=1.0020 pu, I_out=1501.6897 A, V_DT=1.0097 pu, P=503.5455 MW, Q=126.2004 MVar
+[2026-05-12 23:28:35] [iter 80] [Bus 4] P/Q/CMD -> V_in=0.9680 pu, I_in=1603.5862 A, V_out=0.9680 pu, I_out=1603.5862 A, V_DT=0.9671 pu, P=578.9119 MW, Q=210.1170 MVar
+[2026-05-12 23:28:35] [Bus 4] Command breaker ke RTU: CLOSE
+[2026-05-12 23:28:35] [iter 80] [Bus 5] P/Q/CMD -> V_in=0.9980 pu, I_in=407.7931 A, V_out=0.9980 pu, I_out=407.7931 A, V_DT=0.9766 pu, P=134.7910 MW, Q=39.3140 MVar
+[2026-05-12 23:28:35] [Bus 5] Command breaker ke RTU: OPEN
+
+
+[2026-05-12 23:28:39] [iter 81] [Bus 1] P/Q/CMD -> V_in=1.0470 pu, I_in=1652.1724 A, V_out=1.0470 pu, I_out=1652.1724 A, V_DT=1.0177 pu, P=572.9179 MW, Q=167.1010 MVar
+[2026-05-12 23:28:39] [Bus 1] Command breaker ke RTU: OPEN
+[2026-05-12 23:28:39] [iter 81] [Bus 2] P/Q/CMD -> V_in=0.9780 pu, I_in=135.2759 A, V_out=0.9780 pu, I_out=135.2759 A, V_DT=1.0253 pu, P=52.0335 MW, Q=17.1026 MVar
+[2026-05-12 23:28:39] [iter 81] [Bus 3] P/Q/CMD -> V_in=0.9690 pu, I_in=1649.2759 A, V_out=0.9690 pu, I_out=1649.2759 A, V_DT=1.0118 pu, P=534.8203 MW, Q=134.0386 MVar
+[2026-05-12 23:28:39] [iter 81] [Bus 4] P/Q/CMD -> V_in=0.9670 pu, I_in=1666.0690 A, V_out=0.9670 pu, I_out=1666.0690 A, V_DT=0.9872 pu, P=600.8475 MW, Q=218.0785 MVar
+[2026-05-12 23:28:39] [Bus 4] Command breaker ke RTU: OPEN
+[2026-05-12 23:28:39] [iter 81] [Bus 5] P/Q/CMD -> V_in=1.0020 pu, I_in=1512.5172 A, V_out=1.0020 pu, I_out=1512.5172 A, V_DT=0.9884 pu, P=501.9476 MW, Q=146.4014 MVar
+[2026-05-12 23:28:39] [Bus 5] Command breaker ke RTU: CLOSE
+
+
+[2026-05-12 23:28:43] [iter 82] [Bus 1] P/Q/CMD -> V_in=1.0470 pu, I_in=316.7241 A, V_out=1.0470 pu, I_out=316.7241 A, V_DT=0.9937 pu, P=109.8293 MW, Q=32.0335 MVar
+[2026-05-12 23:28:43] [Bus 1] Command breaker ke RTU: CLOSE
+[2026-05-12 23:28:43] [iter 82] [Bus 2] P/Q/CMD -> V_in=1.0180 pu, I_in=140.8966 A, V_out=1.0180 pu, I_out=140.8966 A, V_DT=1.0076 pu, P=56.4121 MW, Q=18.5418 MVar
+[2026-05-12 23:28:43] [Bus 2] Command breaker ke RTU: OPEN
+[2026-05-12 23:28:43] [iter 82] [Bus 3] P/Q/CMD -> V_in=1.0360 pu, I_in=293.4138 A, V_out=1.0360 pu, I_out=293.4138 A, V_DT=0.9702 pu, P=101.7258 MW, Q=25.4949 MVar
+[2026-05-12 23:28:43] [iter 82] [Bus 4] P/Q/CMD -> V_in=1.0370 pu, I_in=328.6207 A, V_out=1.0370 pu, I_out=328.6207 A, V_DT=0.8876 pu, P=127.0921 MW, Q=46.1283 MVar
+[2026-05-12 23:28:43] [Bus 4] Command breaker ke RTU: CLOSE
+[2026-05-12 23:28:43] [iter 82] [Bus 5] P/Q/CMD -> V_in=0.9960 pu, I_in=282.8966 A, V_out=0.9960 pu, I_out=282.8966 A, V_DT=0.9002 pu, P=93.3206 MW, Q=27.2185 MVar
+[2026-05-12 23:28:43] [Bus 5] Command breaker ke RTU: OPEN
+
+
+[2026-05-12 23:28:47] [iter 83] [Bus 1] P/Q/CMD -> V_in=0.9680 pu, I_in=1505.0000 A, V_out=0.9680 pu, I_out=1505.0000 A, V_DT=1.0253 pu, P=482.5054 MW, Q=140.7307 MVar
+[2026-05-12 23:28:47] [Bus 1] Command breaker ke RTU: OPEN
+[2026-05-12 23:28:47] [iter 83] [Bus 2] P/Q/CMD -> V_in=1.0440 pu, I_in=285.8276 A, V_out=1.0440 pu, I_out=285.8276 A, V_DT=1.0160 pu, P=117.3623 MW, Q=38.5751 MVar
+[2026-05-12 23:28:47] [Bus 2] Command breaker ke RTU: CLOSE
+[2026-05-12 23:28:47] [iter 83] [Bus 3] P/Q/CMD -> V_in=1.0320 pu, I_in=1604.7586 A, V_out=1.0320 pu, I_out=1604.7586 A, V_DT=1.0132 pu, P=554.2175 MW, Q=138.9000 MVar
+[2026-05-12 23:28:47] [iter 83] [Bus 4] P/Q/CMD -> V_in=0.9570 pu, I_in=1669.7931 A, V_out=0.9570 pu, I_out=1669.7931 A, V_DT=1.0010 pu, P=595.9631 MW, Q=216.3057 MVar
+[2026-05-12 23:28:47] [Bus 4] Command breaker ke RTU: OPEN
+[2026-05-12 23:28:47] [iter 83] [Bus 5] P/Q/CMD -> V_in=0.9550 pu, I_in=1611.5172 A, V_out=0.9550 pu, I_out=1611.5172 A, V_DT=1.0020 pu, P=509.7165 MW, Q=148.6673 MVar
+[2026-05-12 23:28:47] [Bus 5] Command breaker ke RTU: CLOSE
+
+
+[2026-05-12 23:28:52] [iter 84] [Bus 1] P/Q/CMD -> V_in=0.9680 pu, I_in=114.3103 A, V_out=0.9680 pu, I_out=114.3103 A, V_DT=1.0025 pu, P=36.6481 MW, Q=10.6890 MVar
+[2026-05-12 23:28:52] [Bus 1] Command breaker ke RTU: CLOSE
+[2026-05-12 23:28:52] [iter 84] [Bus 2] P/Q/CMD -> V_in=1.0440 pu, I_in=1560.5172 A, V_out=1.0440 pu, I_out=1560.5172 A, V_DT=1.0176 pu, P=640.7565 MW, Q=210.6065 MVar
+[2026-05-12 23:28:52] [Bus 2] Command breaker ke RTU: OPEN
+[2026-05-12 23:28:52] [iter 84] [Bus 3] P/Q/CMD -> V_in=1.0320 pu, I_in=1660.0345 A, V_out=1.0320 pu, I_out=1660.0345 A, V_DT=0.9870 pu, P=573.3075 MW, Q=143.6844 MVar
+[2026-05-12 23:28:52] [iter 84] [Bus 4] P/Q/CMD -> V_in=0.9570 pu, I_in=1665.3103 A, V_out=0.9570 pu, I_out=1665.3103 A, V_DT=0.9242 pu, P=594.3632 MW, Q=215.7250 MVar
+[2026-05-12 23:28:52] [Bus 4] Command breaker ke RTU: CLOSE
+[2026-05-12 23:28:52] [iter 84] [Bus 5] P/Q/CMD -> V_in=0.9550 pu, I_in=1599.4483 A, V_out=0.9550 pu, I_out=1599.4483 A, V_DT=0.9347 pu, P=505.8991 MW, Q=147.5539 MVar
+[2026-05-12 23:28:52] [Bus 5] Command breaker ke RTU: OPEN
+
+
+[2026-05-12 23:28:56] [iter 85] [Bus 1] P/Q/CMD -> V_in=1.0060 pu, I_in=220.4828 A, V_out=1.0060 pu, I_out=220.4828 A, V_DT=1.0306 pu, P=73.4620 MW, Q=21.4264 MVar
+[2026-05-12 23:28:56] [iter 85] [Bus 2] P/Q/CMD -> V_in=1.0490 pu, I_in=133.6207 A, V_out=1.0490 pu, I_out=133.6207 A, V_DT=0.9814 pu, P=55.1281 MW, Q=18.1197 MVar
+[2026-05-12 23:28:56] [Bus 2] Command breaker ke RTU: CLOSE
+[2026-05-12 23:28:56] [iter 85] [Bus 3] P/Q/CMD -> V_in=1.0260 pu, I_in=345.9310 A, V_out=1.0260 pu, I_out=345.9310 A, V_DT=0.9791 pu, P=118.7757 MW, Q=29.7680 MVar
+[2026-05-12 23:28:56] [iter 85] [Bus 4] P/Q/CMD -> V_in=1.0290 pu, I_in=182.1379 A, V_out=1.0290 pu, I_out=182.1379 A, V_DT=0.9623 pu, P=69.8973 MW, Q=25.3693 MVar
+[2026-05-12 23:28:56] [Bus 4] Command breaker ke RTU: OPEN
+[2026-05-12 23:28:56] [iter 85] [Bus 5] P/Q/CMD -> V_in=1.0020 pu, I_in=285.8276 A, V_out=1.0020 pu, I_out=285.8276 A, V_DT=0.9635 pu, P=94.8554 MW, Q=27.6662 MVar
+[2026-05-12 23:28:56] [Bus 5] Command breaker ke RTU: CLOSE
+
+
+[2026-05-12 23:29:00] [iter 86] [Bus 1] P/Q/CMD -> V_in=0.9940 pu, I_in=1554.6897 A, V_out=0.9940 pu, I_out=1554.6897 A, V_DT=1.0341 pu, P=511.8237 MW, Q=149.2819 MVar
+[2026-05-12 23:29:00] [iter 86] [Bus 2] P/Q/CMD -> V_in=1.0490 pu, I_in=1657.7586 A, V_out=1.0490 pu, I_out=1657.7586 A, V_DT=1.0310 pu, P=683.9443 MW, Q=224.8016 MVar
+[2026-05-12 23:29:00] [iter 86] [Bus 3] P/Q/CMD -> V_in=1.0120 pu, I_in=1587.1379 A, V_out=1.0120 pu, I_out=1587.1379 A, V_DT=1.0173 pu, P=537.5093 MW, Q=134.7125 MVar
+[2026-05-12 23:29:00] [iter 86] [Bus 4] P/Q/CMD -> V_in=1.0240 pu, I_in=1650.0690 A, V_out=1.0240 pu, I_out=1650.0690 A, V_DT=0.9909 pu, P=630.1542 MW, Q=228.7154 MVar
+[2026-05-12 23:29:00] [Bus 4] Command breaker ke RTU: CLOSE
+[2026-05-12 23:29:00] [iter 86] [Bus 5] P/Q/CMD -> V_in=0.9700 pu, I_in=1615.2414 A, V_out=0.9700 pu, I_out=1615.2414 A, V_DT=0.9982 pu, P=518.9189 MW, Q=151.3513 MVar
+[2026-05-12 23:29:00] [Bus 5] Command breaker ke RTU: OPEN
+
+
+[2026-05-12 23:29:04] [iter 87] [Bus 1] P/Q/CMD -> V_in=1.0160 pu, I_in=154.7586 A, V_out=1.0160 pu, I_out=154.7586 A, V_DT=1.0244 pu, P=52.0762 MW, Q=15.1889 MVar
+[2026-05-12 23:29:04] [iter 87] [Bus 2] P/Q/CMD -> V_in=0.9670 pu, I_in=1566.5517 A, V_out=0.9670 pu, I_out=1566.5517 A, V_DT=1.0159 pu, P=595.7927 MW, Q=195.8276 MVar
+[2026-05-12 23:29:04] [iter 87] [Bus 3] P/Q/CMD -> V_in=0.9500 pu, I_in=1680.0690 A, V_out=0.9500 pu, I_out=1680.0690 A, V_DT=0.9997 pu, P=534.1233 MW, Q=133.8639 MVar
+[2026-05-12 23:29:04] [iter 87] [Bus 4] P/Q/CMD -> V_in=1.0080 pu, I_in=1605.0000 A, V_out=1.0080 pu, I_out=1605.0000 A, V_DT=0.9772 pu, P=603.3653 MW, Q=218.9924 MVar
+[2026-05-12 23:29:04] [Bus 4] Command breaker ke RTU: OPEN
+[2026-05-12 23:29:04] [iter 87] [Bus 5] P/Q/CMD -> V_in=0.9730 pu, I_in=1648.4138 A, V_out=0.9730 pu, I_out=1648.4138 A, V_DT=0.9776 pu, P=531.2139 MW, Q=154.9374 MVar
+[2026-05-12 23:29:04] [Bus 5] Command breaker ke RTU: CLOSE
+
+
+[2026-05-12 23:29:08] [iter 88] [Bus 1] P/Q/CMD -> V_in=1.0200 pu, I_in=1637.5517 A, V_out=1.0200 pu, I_out=1637.5517 A, V_DT=1.0289 pu, P=553.2043 MW, Q=161.3512 MVar
+[2026-05-12 23:29:08] [iter 88] [Bus 2] P/Q/CMD -> V_in=1.0180 pu, I_in=1609.7931 A, V_out=1.0180 pu, I_out=1609.7931 A, V_DT=1.0055 pu, P=644.5280 MW, Q=211.8461 MVar
+[2026-05-12 23:29:08] [iter 88] [Bus 3] P/Q/CMD -> V_in=1.0280 pu, I_in=1561.1724 A, V_out=1.0280 pu, I_out=1561.1724 A, V_DT=0.9826 pu, P=537.0748 MW, Q=134.6036 MVar
+[2026-05-12 23:29:08] [iter 88] [Bus 4] P/Q/CMD -> V_in=1.0160 pu, I_in=1598.0345 A, V_out=1.0160 pu, I_out=1598.0345 A, V_DT=0.9358 pu, P=605.5146 MW, Q=219.7725 MVar
+[2026-05-12 23:29:08] [Bus 4] Command breaker ke RTU: CLOSE
+[2026-05-12 23:29:08] [iter 88] [Bus 5] P/Q/CMD -> V_in=0.9920 pu, I_in=1517.3103 A, V_out=0.9920 pu, I_out=1517.3103 A, V_DT=0.9471 pu, P=498.5129 MW, Q=145.3996 MVar
+[2026-05-12 23:29:08] [Bus 5] Command breaker ke RTU: OPEN
+
+
+[2026-05-12 23:29:12] [iter 89] [Bus 1] P/Q/CMD -> V_in=1.0200 pu, I_in=282.2759 A, V_out=1.0200 pu, I_out=282.2759 A, V_DT=1.0196 pu, P=95.3596 MW, Q=27.8132 MVar
+[2026-05-12 23:29:12] [iter 89] [Bus 2] P/Q/CMD -> V_in=1.0180 pu, I_in=485.8276 A, V_out=1.0180 pu, I_out=485.8276 A, V_DT=0.9973 pu, P=194.5154 MW, Q=63.9341 MVar
+[2026-05-12 23:29:12] [iter 89] [Bus 3] P/Q/CMD -> V_in=1.0280 pu, I_in=353.1724 A, V_out=1.0280 pu, I_out=353.1724 A, V_DT=0.9731 pu, P=121.4984 MW, Q=30.4504 MVar
+[2026-05-12 23:29:12] [iter 89] [Bus 4] P/Q/CMD -> V_in=1.0160 pu, I_in=491.3103 A, V_out=1.0160 pu, I_out=491.3103 A, V_DT=0.9406 pu, P=186.1634 MW, Q=67.5683 MVar
+[2026-05-12 23:29:12] [Bus 4] Command breaker ke RTU: OPEN
+[2026-05-12 23:29:12] [iter 89] [Bus 5] P/Q/CMD -> V_in=0.9920 pu, I_in=330.3448 A, V_out=0.9920 pu, I_out=330.3448 A, V_DT=0.9417 pu, P=108.5349 MW, Q=31.6560 MVar
+[2026-05-12 23:29:12] [Bus 5] Command breaker ke RTU: CLOSE
+
+
+[2026-05-12 23:29:16] [iter 90] [Bus 1] P/Q/CMD -> V_in=1.0140 pu, I_in=1557.8276 A, V_out=1.0140 pu, I_out=1557.8276 A, V_DT=1.0287 pu, P=523.1758 MW, Q=152.5930 MVar
+[2026-05-12 23:29:16] [iter 90] [Bus 2] P/Q/CMD -> V_in=1.0320 pu, I_in=1620.8621 A, V_out=1.0320 pu, I_out=1620.8621 A, V_DT=1.0169 pu, P=657.8846 MW, Q=216.2362 MVar
+[2026-05-12 23:29:16] [iter 90] [Bus 3] P/Q/CMD -> V_in=0.9660 pu, I_in=1586.6207 A, V_out=0.9660 pu, I_out=1586.6207 A, V_DT=1.0027 pu, P=512.9099 MW, Q=128.5473 MVar
+[2026-05-12 23:29:16] [iter 90] [Bus 4] P/Q/CMD -> V_in=1.0240 pu, I_in=1589.6897 A, V_out=1.0240 pu, I_out=1589.6897 A, V_DT=0.9699 pu, P=607.0956 MW, Q=220.3463 MVar
+[2026-05-12 23:29:16] [Bus 4] Command breaker ke RTU: CLOSE
+[2026-05-12 23:29:16] [iter 90] [Bus 5] P/Q/CMD -> V_in=0.9780 pu, I_in=1663.7931 A, V_out=0.9780 pu, I_out=1663.7931 A, V_DT=0.9788 pu, P=538.9252 MW, Q=157.1865 MVar
+[2026-05-12 23:29:16] [Bus 5] Command breaker ke RTU: OPEN
+
+
+[2026-05-12 23:29:20] [iter 91] [Bus 1] P/Q/CMD -> V_in=0.9590 pu, I_in=533.4828 A, V_out=0.9590 pu, I_out=533.4828 A, V_DT=1.0202 pu, P=169.4452 MW, Q=49.4215 MVar
+[2026-05-12 23:29:20] [iter 91] [Bus 2] P/Q/CMD -> V_in=1.0440 pu, I_in=1505.0345 A, V_out=1.0440 pu, I_out=1505.0345 A, V_DT=1.0054 pu, P=617.9750 MW, Q=203.1186 MVar
+[2026-05-12 23:29:20] [iter 91] [Bus 3] P/Q/CMD -> V_in=0.9990 pu, I_in=1601.0690 A, V_out=0.9990 pu, I_out=1601.0690 A, V_DT=0.9876 pu, P=535.2619 MW, Q=134.1493 MVar
+[2026-05-12 23:29:20] [iter 91] [Bus 4] P/Q/CMD -> V_in=0.9530 pu, I_in=1508.7586 A, V_out=0.9530 pu, I_out=1508.7586 A, V_DT=0.9614 pu, P=536.2378 MW, Q=194.6283 MVar
+[2026-05-12 23:29:20] [Bus 4] Command breaker ke RTU: OPEN
+[2026-05-12 23:29:20] [iter 91] [Bus 5] P/Q/CMD -> V_in=0.9820 pu, I_in=1562.4828 A, V_out=0.9820 pu, I_out=1562.4828 A, V_DT=0.9621 pu, P=508.1794 MW, Q=148.2190 MVar
+[2026-05-12 23:29:20] [Bus 5] Command breaker ke RTU: CLOSE
+
+
+[2026-05-12 23:29:24] [iter 92] [Bus 1] P/Q/CMD -> V_in=0.9590 pu, I_in=533.4828 A, V_out=0.9590 pu, I_out=533.4828 A, V_DT=1.0231 pu, P=169.4452 MW, Q=49.4215 MVar
+[2026-05-12 23:29:24] [iter 92] [Bus 2] P/Q/CMD -> V_in=1.0330 pu, I_in=330.2759 A, V_out=1.0330 pu, I_out=330.2759 A, V_DT=0.9969 pu, P=134.1841 MW, Q=44.1042 MVar
+[2026-05-12 23:29:24] [iter 92] [Bus 3] P/Q/CMD -> V_in=1.0450 pu, I_in=505.4828 A, V_out=1.0450 pu, I_out=505.4828 A, V_DT=0.9725 pu, P=176.7720 MW, Q=44.3032 MVar
+[2026-05-12 23:29:24] [iter 92] [Bus 4] P/Q/CMD -> V_in=1.0160 pu, I_in=203.2414 A, V_out=1.0160 pu, I_out=203.2414 A, V_DT=0.9243 pu, P=77.0106 MW, Q=27.9511 MVar
+[2026-05-12 23:29:24] [Bus 4] Command breaker ke RTU: CLOSE
+[2026-05-12 23:29:24] [iter 92] [Bus 5] P/Q/CMD -> V_in=0.9540 pu, I_in=441.4138 A, V_out=0.9540 pu, I_out=441.4138 A, V_DT=0.9356 pu, P=139.4712 MW, Q=40.6791 MVar
+[2026-05-12 23:29:24] [Bus 5] Command breaker ke RTU: OPEN
+
+
+[2026-05-12 23:29:28] [iter 93] [Bus 1] P/Q/CMD -> V_in=0.9970 pu, I_in=1507.4483 A, V_out=0.9970 pu, I_out=1507.4483 A, V_DT=1.0301 pu, P=497.7691 MW, Q=145.1826 MVar
+[2026-05-12 23:29:28] [iter 93] [Bus 2] P/Q/CMD -> V_in=1.0410 pu, I_in=161.2759 A, V_out=1.0410 pu, I_out=161.2759 A, V_DT=1.0211 pu, P=66.0304 MW, Q=21.7031 MVar
+[2026-05-12 23:29:28] [iter 93] [Bus 3] P/Q/CMD -> V_in=1.0080 pu, I_in=1511.1034 A, V_out=1.0080 pu, I_out=1511.1034 A, V_DT=1.0103 pu, P=509.7363 MW, Q=127.7520 MVar
+[2026-05-12 23:29:28] [iter 93] [Bus 4] P/Q/CMD -> V_in=0.9990 pu, I_in=128.3448 A, V_out=0.9990 pu, I_out=128.3448 A, V_DT=0.9957 pu, P=47.8177 MW, Q=17.3555 MVar
+[2026-05-12 23:29:28] [Bus 4] Command breaker ke RTU: OPEN
+[2026-05-12 23:29:28] [iter 93] [Bus 5] P/Q/CMD -> V_in=0.9840 pu, I_in=238.4828 A, V_out=0.9840 pu, I_out=238.4828 A, V_DT=0.9958 pu, P=77.7217 MW, Q=22.6688 MVar
+[2026-05-12 23:29:28] [Bus 5] Command breaker ke RTU: CLOSE
+
+
+[2026-05-12 23:29:32] [iter 94] [Bus 1] P/Q/CMD -> V_in=0.9970 pu, I_in=1530.5862 A, V_out=0.9970 pu, I_out=1530.5862 A, V_DT=1.0248 pu, P=505.4094 MW, Q=147.4111 MVar
+[2026-05-12 23:29:32] [iter 94] [Bus 2] P/Q/CMD -> V_in=1.0410 pu, I_in=1509.0000 A, V_out=1.0410 pu, I_out=1509.0000 A, V_DT=1.0274 pu, P=617.8228 MW, Q=203.0685 MVar
+[2026-05-12 23:29:32] [iter 94] [Bus 3] P/Q/CMD -> V_in=1.0080 pu, I_in=1530.9310 A, V_out=1.0080 pu, I_out=1530.9310 A, V_DT=1.0160 pu, P=516.4247 MW, Q=129.4282 MVar
+[2026-05-12 23:29:32] [iter 94] [Bus 4] P/Q/CMD -> V_in=0.9990 pu, I_in=1612.6897 A, V_out=0.9990 pu, I_out=1612.6897 A, V_DT=1.0026 pu, P=600.8431 MW, Q=218.0769 MVar
+[2026-05-12 23:29:32] [Bus 4] Command breaker ke RTU: CLOSE
+[2026-05-12 23:29:32] [iter 94] [Bus 5] P/Q/CMD -> V_in=0.9950 pu, I_in=1600.5172 A, V_out=0.9950 pu, I_out=1600.5172 A, V_DT=1.0076 pu, P=527.4409 MW, Q=153.8369 MVar
+[2026-05-12 23:29:32] [Bus 5] Command breaker ke RTU: OPEN
+
+
+[2026-05-12 23:29:36] [iter 95] [Bus 1] P/Q/CMD -> V_in=1.0160 pu, I_in=1556.6207 A, V_out=1.0160 pu, I_out=1556.6207 A, V_DT=1.0183 pu, P=523.8016 MW, Q=152.7755 MVar
+[2026-05-12 23:29:36] [iter 95] [Bus 2] P/Q/CMD -> V_in=0.9820 pu, I_in=400.3448 A, V_out=0.9820 pu, I_out=400.3448 A, V_DT=1.0143 pu, P=154.6214 MW, Q=50.8216 MVar
+[2026-05-12 23:29:36] [iter 95] [Bus 3] P/Q/CMD -> V_in=0.9780 pu, I_in=1664.8621 A, V_out=0.9780 pu, I_out=1664.8621 A, V_DT=0.9989 pu, P=544.8889 MW, Q=136.5620 MVar
+[2026-05-12 23:29:36] [iter 95] [Bus 4] P/Q/CMD -> V_in=1.0310 pu, I_in=320.2759 A, V_out=1.0310 pu, I_out=320.2759 A, V_DT=0.9829 pu, P=123.1481 MW, Q=44.6968 MVar
+[2026-05-12 23:29:36] [Bus 4] Command breaker ke RTU: OPEN
+[2026-05-12 23:29:36] [iter 95] [Bus 5] P/Q/CMD -> V_in=0.9950 pu, I_in=1679.3103 A, V_out=0.9950 pu, I_out=1679.3103 A, V_DT=0.9833 pu, P=553.4066 MW, Q=161.4103 MVar
+[2026-05-12 23:29:36] [Bus 5] Command breaker ke RTU: CLOSE
+
+
+[2026-05-12 23:29:40] [iter 96] [Bus 1] P/Q/CMD -> V_in=0.9820 pu, I_in=524.5862 A, V_out=0.9820 pu, I_out=524.5862 A, V_DT=1.0145 pu, P=170.6156 MW, Q=49.7629 MVar
+[2026-05-12 23:29:40] [Bus 1] Command breaker ke RTU: OPEN
+[2026-05-12 23:29:40] [iter 96] [Bus 2] P/Q/CMD -> V_in=0.9900 pu, I_in=317.7241 A, V_out=0.9900 pu, I_out=317.7241 A, V_DT=1.0158 pu, P=123.7113 MW, Q=40.6619 MVar
+[2026-05-12 23:29:40] [iter 96] [Bus 3] P/Q/CMD -> V_in=1.0480 pu, I_in=360.1034 A, V_out=1.0480 pu, I_out=360.1034 A, V_DT=0.9963 pu, P=126.2930 MW, Q=31.6520 MVar
+[2026-05-12 23:29:40] [iter 96] [Bus 4] P/Q/CMD -> V_in=1.0040 pu, I_in=268.8621 A, V_out=1.0040 pu, I_out=268.8621 A, V_DT=0.9703 pu, P=100.6718 MW, Q=36.5390 MVar
+[2026-05-12 23:29:40] [Bus 4] Command breaker ke RTU: CLOSE
+[2026-05-12 23:29:40] [iter 96] [Bus 5] P/Q/CMD -> V_in=0.9680 pu, I_in=255.3793 A, V_out=0.9680 pu, I_out=255.3793 A, V_DT=0.9763 pu, P=81.8750 MW, Q=23.8802 MVar
+[2026-05-12 23:29:40] [Bus 5] Command breaker ke RTU: OPEN
+
+
+[2026-05-12 23:29:44] [iter 97] [Bus 1] P/Q/CMD -> V_in=1.0250 pu, I_in=1513.4828 A, V_out=1.0250 pu, I_out=1513.4828 A, V_DT=1.0075 pu, P=513.7971 MW, Q=149.8575 MVar
+[2026-05-12 23:29:44] [Bus 1] Command breaker ke RTU: CLOSE
+[2026-05-12 23:29:44] [iter 97] [Bus 2] P/Q/CMD -> V_in=1.0250 pu, I_in=1563.4483 A, V_out=1.0250 pu, I_out=1563.4483 A, V_DT=1.0259 pu, P=630.2768 MW, Q=207.1620 MVar
+[2026-05-12 23:29:44] [Bus 2] Command breaker ke RTU: OPEN
+[2026-05-12 23:29:44] [iter 97] [Bus 3] P/Q/CMD -> V_in=1.0040 pu, I_in=1500.2414 A, V_out=1.0040 pu, I_out=1500.2414 A, V_DT=1.0115 pu, P=504.0640 MW, Q=126.3303 MVar
+[2026-05-12 23:29:44] [iter 97] [Bus 4] P/Q/CMD -> V_in=0.9930 pu, I_in=1684.8966 A, V_out=0.9930 pu, I_out=1684.8966 A, V_DT=0.9919 pu, P=623.9751 MW, Q=226.4727 MVar
+[2026-05-12 23:29:44] [Bus 4] Command breaker ke RTU: OPEN
+[2026-05-12 23:29:44] [iter 97] [Bus 5] P/Q/CMD -> V_in=0.9620 pu, I_in=1553.6552 A, V_out=0.9620 pu, I_out=1553.6552 A, V_DT=0.9891 pu, P=495.0169 MW, Q=144.3799 MVar
+[2026-05-12 23:29:44] [Bus 5] Command breaker ke RTU: CLOSE
+
+
+[2026-05-12 23:29:48] [iter 98] [Bus 1] P/Q/CMD -> V_in=1.0100 pu, I_in=1526.6552 A, V_out=1.0100 pu, I_out=1526.6552 A, V_DT=1.0207 pu, P=510.6845 MW, Q=148.9496 MVar
+[2026-05-12 23:29:48] [Bus 1] Command breaker ke RTU: OPEN
+[2026-05-12 23:29:48] [iter 98] [Bus 2] P/Q/CMD -> V_in=0.9650 pu, I_in=342.3448 A, V_out=0.9650 pu, I_out=342.3448 A, V_DT=0.9769 pu, P=129.9317 MW, Q=42.7065 MVar
+[2026-05-12 23:29:48] [Bus 2] Command breaker ke RTU: CLOSE
+[2026-05-12 23:29:48] [iter 98] [Bus 3] P/Q/CMD -> V_in=1.0040 pu, I_in=1613.2414 A, V_out=1.0040 pu, I_out=1613.2414 A, V_DT=0.9784 pu, P=542.0307 MW, Q=135.8457 MVar
+[2026-05-12 23:29:48] [iter 98] [Bus 4] P/Q/CMD -> V_in=1.0490 pu, I_in=1529.0690 A, V_out=1.0490 pu, I_out=1529.0690 A, V_DT=0.9574 pu, P=598.2013 MW, Q=217.1181 MVar
+[2026-05-12 23:29:48] [Bus 4] Command breaker ke RTU: CLOSE
+[2026-05-12 23:29:48] [iter 98] [Bus 5] P/Q/CMD -> V_in=0.9960 pu, I_in=1516.5862 A, V_out=0.9960 pu, I_out=1516.5862 A, V_DT=0.9652 pu, P=500.2842 MW, Q=145.9162 MVar
+[2026-05-12 23:29:48] [Bus 5] Command breaker ke RTU: OPEN
+
+
+[2026-05-12 23:29:52] [iter 99] [Bus 1] P/Q/CMD -> V_in=1.0330 pu, I_in=297.6552 A, V_out=1.0330 pu, I_out=297.6552 A, V_DT=0.9968 pu, P=101.8366 MW, Q=29.7024 MVar
+[2026-05-12 23:29:52] [Bus 1] Command breaker ke RTU: CLOSE
+[2026-05-12 23:29:52] [iter 99] [Bus 2] P/Q/CMD -> V_in=1.0200 pu, I_in=305.5517 A, V_out=1.0200 pu, I_out=305.5517 A, V_DT=1.0078 pu, P=122.5770 MW, Q=40.2891 MVar
+[2026-05-12 23:29:52] [Bus 2] Command breaker ke RTU: OPEN
+[2026-05-12 23:29:52] [iter 99] [Bus 3] P/Q/CMD -> V_in=0.9770 pu, I_in=466.2414 A, V_out=0.9770 pu, I_out=466.2414 A, V_DT=0.9781 pu, P=152.4390 MW, Q=38.2048 MVar
+[2026-05-12 23:29:52] [iter 99] [Bus 4] P/Q/CMD -> V_in=1.0480 pu, I_in=186.4483 A, V_out=1.0480 pu, I_out=186.4483 A, V_DT=0.9277 pu, P=72.8726 MW, Q=26.4492 MVar
+[2026-05-12 23:29:52] [Bus 4] Command breaker ke RTU: OPEN
+[2026-05-12 23:29:52] [iter 99] [Bus 5] P/Q/CMD -> V_in=1.0040 pu, I_in=255.6897 A, V_out=1.0040 pu, I_out=255.6897 A, V_DT=0.9240 pu, P=85.0232 MW, Q=24.7984 MVar
+[2026-05-12 23:29:52] [Bus 5] Command breaker ke RTU: CLOSE
+
+
+[2026-05-12 23:29:56] [iter 100] [Bus 1] P/Q/CMD -> V_in=1.0330 pu, I_in=1675.6207 A, V_out=1.0330 pu, I_out=1675.6207 A, V_DT=1.0270 pu, P=573.2794 MW, Q=167.2065 MVar
+[2026-05-12 23:29:56] [Bus 1] Command breaker ke RTU: OPEN
+[2026-05-12 23:29:56] [iter 100] [Bus 2] P/Q/CMD -> V_in=1.0200 pu, I_in=1683.8966 A, V_out=1.0200 pu, I_out=1683.8966 A, V_DT=1.0037 pu, P=675.5220 MW, Q=222.0334 MVar
+[2026-05-12 23:29:56] [Bus 2] Command breaker ke RTU: CLOSE
+[2026-05-12 23:29:56] [iter 100] [Bus 3] P/Q/CMD -> V_in=0.9770 pu, I_in=466.2414 A, V_out=0.9770 pu, I_out=466.2414 A, V_DT=1.0034 pu, P=152.4390 MW, Q=38.2048 MVar
+[2026-05-12 23:29:56] [iter 100] [Bus 4] P/Q/CMD -> V_in=1.0480 pu, I_in=186.4483 A, V_out=1.0480 pu, I_out=186.4483 A, V_DT=0.9869 pu, P=72.8726 MW, Q=26.4492 MVar
+[2026-05-12 23:29:56] [Bus 4] Command breaker ke RTU: CLOSE
+[2026-05-12 23:29:56] [iter 100] [Bus 5] P/Q/CMD -> V_in=1.0040 pu, I_in=1561.0000 A, V_out=1.0040 pu, I_out=1561.0000 A, V_DT=0.9935 pu, P=519.0712 MW, Q=151.3958 MVar
+[2026-05-12 23:29:56] [Bus 5] Command breaker ke RTU: OPEN
+
+
+[2026-05-12 23:30:00] [iter 101] [Bus 1] P/Q/CMD -> V_in=1.0420 pu, I_in=1500.1724 A, V_out=1.0420 pu, I_out=1500.1724 A, V_DT=1.0003 pu, P=517.7251 MW, Q=151.0032 MVar
+[2026-05-12 23:30:00] [Bus 1] Command breaker ke RTU: CLOSE
+[2026-05-12 23:30:00] [iter 101] [Bus 2] P/Q/CMD -> V_in=1.0370 pu, I_in=1526.7586 A, V_out=1.0370 pu, I_out=1526.7586 A, V_DT=1.0173 pu, P=622.6917 MW, Q=204.6689 MVar
+[2026-05-12 23:30:00] [Bus 2] Command breaker ke RTU: OPEN
+[2026-05-12 23:30:00] [iter 101] [Bus 3] P/Q/CMD -> V_in=0.9770 pu, I_in=1541.2414 A, V_out=0.9770 pu, I_out=1541.2414 A, V_DT=1.0042 pu, P=503.9136 MW, Q=126.2926 MVar
+[2026-05-12 23:30:00] [iter 101] [Bus 4] P/Q/CMD -> V_in=0.9910 pu, I_in=1507.5517 A, V_out=0.9910 pu, I_out=1507.5517 A, V_DT=0.9747 pu, P=557.1738 MW, Q=202.2271 MVar
+[2026-05-12 23:30:00] [Bus 4] Command breaker ke RTU: OPEN
+[2026-05-12 23:30:00] [iter 101] [Bus 5] P/Q/CMD -> V_in=1.0000 pu, I_in=1527.1379 A, V_out=1.0000 pu, I_out=1527.1379 A, V_DT=0.9702 pu, P=505.7881 MW, Q=147.5215 MVar
+[2026-05-12 23:30:00] [Bus 5] Command breaker ke RTU: CLOSE
+
+
+[2026-05-12 23:30:04] [iter 102] [Bus 1] P/Q/CMD -> V_in=0.9780 pu, I_in=1614.5862 A, V_out=0.9780 pu, I_out=1614.5862 A, V_DT=1.0172 pu, P=522.9864 MW, Q=152.5377 MVar
+[2026-05-12 23:30:04] [Bus 1] Command breaker ke RTU: OPEN
+[2026-05-12 23:30:04] [iter 102] [Bus 2] P/Q/CMD -> V_in=1.0080 pu, I_in=523.4138 A, V_out=1.0080 pu, I_out=523.4138 A, V_DT=0.9647 pu, P=207.5055 MW, Q=68.2038 MVar
+[2026-05-12 23:30:04] [Bus 2] Command breaker ke RTU: CLOSE
+[2026-05-12 23:30:04] [iter 102] [Bus 3] P/Q/CMD -> V_in=0.9980 pu, I_in=153.6552 A, V_out=0.9980 pu, I_out=153.6552 A, V_DT=0.9696 pu, P=51.3179 MW, Q=12.8615 MVar
+[2026-05-12 23:30:04] [iter 102] [Bus 4] P/Q/CMD -> V_in=1.0020 pu, I_in=1564.4828 A, V_out=1.0020 pu, I_out=1564.4828 A, V_DT=0.9472 pu, P=584.6330 MW, Q=212.1934 MVar
+[2026-05-12 23:30:04] [Bus 4] Command breaker ke RTU: CLOSE
+[2026-05-12 23:30:04] [iter 102] [Bus 5] P/Q/CMD -> V_in=1.0040 pu, I_in=1536.0345 A, V_out=1.0040 pu, I_out=1536.0345 A, V_DT=0.9547 pu, P=510.7696 MW, Q=148.9745 MVar
+[2026-05-12 23:30:04] [Bus 5] Command breaker ke RTU: OPEN
+
+
+[2026-05-12 23:30:08] [iter 103] [Bus 1] P/Q/CMD -> V_in=0.9950 pu, I_in=230.7931 A, V_out=0.9950 pu, I_out=230.7931 A, V_DT=0.9929 pu, P=76.0565 MW, Q=22.1831 MVar
+[2026-05-12 23:30:08] [Bus 1] Command breaker ke RTU: CLOSE
+[2026-05-12 23:30:08] [iter 103] [Bus 2] P/Q/CMD -> V_in=0.9680 pu, I_in=407.9310 A, V_out=0.9680 pu, I_out=407.9310 A, V_DT=1.0071 pu, P=155.3052 MW, Q=51.0464 MVar
+[2026-05-12 23:30:08] [Bus 2] Command breaker ke RTU: OPEN
+[2026-05-12 23:30:08] [iter 103] [Bus 3] P/Q/CMD -> V_in=1.0060 pu, I_in=189.5517 A, V_out=1.0060 pu, I_out=189.5517 A, V_DT=0.9828 pu, P=63.8141 MW, Q=15.9933 MVar
+[2026-05-12 23:30:08] [iter 103] [Bus 4] P/Q/CMD -> V_in=1.0270 pu, I_in=104.4138 A, V_out=1.0270 pu, I_out=104.4138 A, V_DT=0.9246 pu, P=39.9920 MW, Q=14.5152 MVar
+[2026-05-12 23:30:08] [Bus 4] Command breaker ke RTU: OPEN
+[2026-05-12 23:30:08] [iter 103] [Bus 5] P/Q/CMD -> V_in=1.0240 pu, I_in=389.1034 A, V_out=1.0240 pu, I_out=389.1034 A, V_DT=0.9195 pu, P=131.9640 MW, Q=38.4895 MVar
+[2026-05-12 23:30:08] [Bus 5] Command breaker ke RTU: CLOSE
+
+
+[2026-05-12 23:30:12] [iter 104] [Bus 1] P/Q/CMD -> V_in=1.0310 pu, I_in=1639.1724 A, V_out=1.0310 pu, I_out=1639.1724 A, V_DT=1.0260 pu, P=559.7236 MW, Q=163.2527 MVar
+[2026-05-12 23:30:12] [Bus 1] Command breaker ke RTU: OPEN
+[2026-05-12 23:30:12] [iter 104] [Bus 2] P/Q/CMD -> V_in=1.0160 pu, I_in=1537.4138 A, V_out=1.0160 pu, I_out=1537.4138 A, V_DT=1.0033 pu, P=614.3395 MW, Q=201.9236 MVar
+[2026-05-12 23:30:12] [Bus 2] Command breaker ke RTU: CLOSE
+[2026-05-12 23:30:12] [iter 104] [Bus 3] P/Q/CMD -> V_in=1.0480 pu, I_in=1694.4483 A, V_out=1.0480 pu, I_out=1694.4483 A, V_DT=1.0082 pu, P=594.2654 MW, Q=148.9369 MVar
+[2026-05-12 23:30:12] [iter 104] [Bus 4] P/Q/CMD -> V_in=0.9530 pu, I_in=324.2759 A, V_out=0.9530 pu, I_out=324.2759 A, V_DT=0.9892 pu, P=115.2530 MW, Q=41.8313 MVar
+[2026-05-12 23:30:12] [Bus 4] Command breaker ke RTU: CLOSE
+[2026-05-12 23:30:12] [iter 104] [Bus 5] P/Q/CMD -> V_in=1.0080 pu, I_in=1639.1034 A, V_out=1.0080 pu, I_out=1639.1034 A, V_DT=0.9952 pu, P=547.2140 MW, Q=159.6041 MVar
+[2026-05-12 23:30:12] [Bus 5] Command breaker ke RTU: OPEN
+
+
+[2026-05-12 23:30:16] [iter 105] [Bus 1] P/Q/CMD -> V_in=1.0310 pu, I_in=250.2759 A, V_out=1.0310 pu, I_out=250.2759 A, V_DT=1.0000 pu, P=85.4610 MW, Q=24.9261 MVar
+[2026-05-12 23:30:16] [Bus 1] Command breaker ke RTU: CLOSE
+[2026-05-12 23:30:16] [iter 105] [Bus 2] P/Q/CMD -> V_in=1.0160 pu, I_in=1543.6207 A, V_out=1.0160 pu, I_out=1543.6207 A, V_DT=1.0138 pu, P=616.8197 MW, Q=202.7388 MVar
+[2026-05-12 23:30:16] [Bus 2] Command breaker ke RTU: OPEN
+[2026-05-12 23:30:16] [iter 105] [Bus 3] P/Q/CMD -> V_in=1.0480 pu, I_in=1520.3448 A, V_out=1.0480 pu, I_out=1520.3448 A, V_DT=0.9985 pu, P=533.2050 MW, Q=133.6338 MVar
+[2026-05-12 23:30:16] [iter 105] [Bus 4] P/Q/CMD -> V_in=0.9530 pu, I_in=1540.7586 A, V_out=0.9530 pu, I_out=1540.7586 A, V_DT=0.9671 pu, P=547.6112 MW, Q=198.7563 MVar
+[2026-05-12 23:30:16] [Bus 4] Command breaker ke RTU: OPEN
+[2026-05-12 23:30:16] [iter 105] [Bus 5] P/Q/CMD -> V_in=1.0080 pu, I_in=1678.8621 A, V_out=1.0080 pu, I_out=1678.8621 A, V_DT=0.9622 pu, P=560.4874 MW, Q=163.4755 MVar
+[2026-05-12 23:30:16] [Bus 5] Command breaker ke RTU: CLOSE
+
+
+[2026-05-12 23:30:20] [iter 106] [Bus 1] P/Q/CMD -> V_in=1.0370 pu, I_in=271.7931 A, V_out=1.0370 pu, I_out=271.7931 A, V_DT=1.0285 pu, P=93.3485 MW, Q=27.2267 MVar
+[2026-05-12 23:30:20] [iter 106] [Bus 2] P/Q/CMD -> V_in=1.0020 pu, I_in=288.5517 A, V_out=1.0020 pu, I_out=288.5517 A, V_DT=0.9627 pu, P=113.7144 MW, Q=37.3761 MVar
+[2026-05-12 23:30:20] [Bus 2] Command breaker ke RTU: CLOSE
+[2026-05-12 23:30:20] [iter 106] [Bus 3] P/Q/CMD -> V_in=1.0220 pu, I_in=262.7586 A, V_out=1.0220 pu, I_out=262.7586 A, V_DT=0.9684 pu, P=89.8667 MW, Q=22.5227 MVar
+[2026-05-12 23:30:20] [iter 106] [Bus 4] P/Q/CMD -> V_in=1.0140 pu, I_in=153.6552 A, V_out=1.0140 pu, I_out=153.6552 A, V_DT=0.9472 pu, P=58.1072 MW, Q=21.0901 MVar
+[2026-05-12 23:30:20] [Bus 4] Command breaker ke RTU: CLOSE
+[2026-05-12 23:30:20] [iter 106] [Bus 5] P/Q/CMD -> V_in=0.9960 pu, I_in=516.4483 A, V_out=0.9960 pu, I_out=516.4483 A, V_DT=0.9546 pu, P=170.3635 MW, Q=49.6893 MVar
+[2026-05-12 23:30:20] [Bus 5] Command breaker ke RTU: OPEN
+
+
+[2026-05-12 23:30:24] [iter 107] [Bus 1] P/Q/CMD -> V_in=0.9830 pu, I_in=399.5862 A, V_out=0.9830 pu, I_out=399.5862 A, V_DT=1.0322 pu, P=130.0931 MW, Q=37.9438 MVar
+[2026-05-12 23:30:24] [iter 107] [Bus 2] P/Q/CMD -> V_in=1.0140 pu, I_in=456.3448 A, V_out=1.0140 pu, I_out=456.3448 A, V_DT=1.0271 pu, P=181.9931 MW, Q=59.8183 MVar
+[2026-05-12 23:30:24] [iter 107] [Bus 3] P/Q/CMD -> V_in=1.0350 pu, I_in=1672.0345 A, V_out=1.0350 pu, I_out=1672.0345 A, V_DT=1.0192 pu, P=579.1305 MW, Q=145.1438 MVar
+[2026-05-12 23:30:24] [iter 107] [Bus 4] P/Q/CMD -> V_in=0.9880 pu, I_in=230.2759 A, V_out=0.9880 pu, I_out=230.2759 A, V_DT=1.0079 pu, P=84.8497 MW, Q=30.7963 MVar
+[2026-05-12 23:30:24] [Bus 4] Command breaker ke RTU: OPEN
+[2026-05-12 23:30:24] [iter 107] [Bus 5] P/Q/CMD -> V_in=1.0200 pu, I_in=1559.3448 A, V_out=1.0200 pu, I_out=1559.3448 A, V_DT=1.0068 pu, P=526.7841 MW, Q=153.6454 MVar
+[2026-05-12 23:30:24] [Bus 5] Command breaker ke RTU: CLOSE
+
+
+[2026-05-12 23:30:28] [iter 108] [Bus 1] P/Q/CMD -> V_in=1.0370 pu, I_in=100.1379 A, V_out=1.0370 pu, I_out=100.1379 A, V_DT=1.0344 pu, P=34.3928 MW, Q=10.0312 MVar
+[2026-05-12 23:30:28] [iter 108] [Bus 2] P/Q/CMD -> V_in=0.9560 pu, I_in=1504.2069 A, V_out=0.9560 pu, I_out=1504.2069 A, V_DT=1.0274 pu, P=565.5740 MW, Q=185.8952 MVar
+[2026-05-12 23:30:28] [iter 108] [Bus 3] P/Q/CMD -> V_in=1.0420 pu, I_in=1678.0690 A, V_out=1.0420 pu, I_out=1678.0690 A, V_DT=1.0150 pu, P=585.1515 MW, Q=146.6528 MVar
+[2026-05-12 23:30:28] [iter 108] [Bus 4] P/Q/CMD -> V_in=1.0240 pu, I_in=1597.2069 A, V_out=1.0240 pu, I_out=1597.2069 A, V_DT=0.9983 pu, P=609.9664 MW, Q=221.3882 MVar
+[2026-05-12 23:30:28] [Bus 4] Command breaker ke RTU: CLOSE
+[2026-05-12 23:30:28] [iter 108] [Bus 5] P/Q/CMD -> V_in=0.9590 pu, I_in=382.5172 A, V_out=0.9590 pu, I_out=382.5172 A, V_DT=1.0020 pu, P=121.4954 MW, Q=35.4362 MVar
+[2026-05-12 23:30:28] [Bus 5] Command breaker ke RTU: OPEN
+
+
+[2026-05-12 23:30:32] [iter 109] [Bus 1] P/Q/CMD -> V_in=1.0370 pu, I_in=1585.7931 A, V_out=1.0370 pu, I_out=1585.7931 A, V_DT=1.0376 pu, P=544.6476 MW, Q=158.8556 MVar
+[2026-05-12 23:30:32] [iter 109] [Bus 2] P/Q/CMD -> V_in=1.0180 pu, I_in=1607.6207 A, V_out=1.0180 pu, I_out=1607.6207 A, V_DT=1.0214 pu, P=643.6582 MW, Q=211.5602 MVar
+[2026-05-12 23:30:32] [iter 109] [Bus 3] P/Q/CMD -> V_in=0.9540 pu, I_in=459.5517 A, V_out=0.9540 pu, I_out=459.5517 A, V_DT=1.0089 pu, P=146.7147 MW, Q=36.7702 MVar
+[2026-05-12 23:30:32] [iter 109] [Bus 4] P/Q/CMD -> V_in=0.9790 pu, I_in=1640.3793 A, V_out=0.9790 pu, I_out=1640.3793 A, V_DT=0.9989 pu, P=598.9241 MW, Q=217.3804 MVar
+[2026-05-12 23:30:32] [Bus 4] Command breaker ke RTU: OPEN
+[2026-05-12 23:30:32] [iter 109] [Bus 5] P/Q/CMD -> V_in=0.9640 pu, I_in=1662.2759 A, V_out=0.9640 pu, I_out=1662.2759 A, V_DT=0.9993 pu, P=530.7261 MW, Q=154.7951 MVar
+[2026-05-12 23:30:32] [Bus 5] Command breaker ke RTU: CLOSE
+
+
+[2026-05-12 23:30:36] [iter 110] [Bus 1] P/Q/CMD -> V_in=1.0370 pu, I_in=273.2759 A, V_out=1.0370 pu, I_out=273.2759 A, V_DT=1.0256 pu, P=93.8578 MW, Q=27.3752 MVar
+[2026-05-12 23:30:36] [iter 110] [Bus 2] P/Q/CMD -> V_in=1.0180 pu, I_in=476.6552 A, V_out=1.0180 pu, I_out=476.6552 A, V_DT=1.0099 pu, P=190.8429 MW, Q=62.7270 MVar
+[2026-05-12 23:30:36] [iter 110] [Bus 3] P/Q/CMD -> V_in=0.9540 pu, I_in=459.5517 A, V_out=0.9540 pu, I_out=459.5517 A, V_DT=0.9943 pu, P=146.7147 MW, Q=36.7702 MVar
+[2026-05-12 23:30:36] [iter 110] [Bus 4] P/Q/CMD -> V_in=0.9790 pu, I_in=258.4828 A, V_out=0.9790 pu, I_out=258.4828 A, V_DT=0.9566 pu, P=94.3755 MW, Q=34.2537 MVar
+[2026-05-12 23:30:36] [Bus 4] Command breaker ke RTU: CLOSE
+[2026-05-12 23:30:36] [iter 110] [Bus 5] P/Q/CMD -> V_in=0.9640 pu, I_in=333.8276 A, V_out=0.9640 pu, I_out=333.8276 A, V_DT=0.9659 pu, P=106.5834 MW, Q=31.0868 MVar
+[2026-05-12 23:30:36] [Bus 5] Command breaker ke RTU: OPEN
+
+
+[2026-05-12 23:30:40] [iter 111] [Bus 1] P/Q/CMD -> V_in=1.0060 pu, I_in=1608.9655 A, V_out=1.0060 pu, I_out=1608.9655 A, V_DT=1.0330 pu, P=536.0867 MW, Q=156.3586 MVar
+[2026-05-12 23:30:40] [iter 111] [Bus 2] P/Q/CMD -> V_in=0.9660 pu, I_in=1593.9655 A, V_out=0.9660 pu, I_out=1593.9655 A, V_DT=1.0262 pu, P=605.5918 MW, Q=199.0484 MVar
+[2026-05-12 23:30:40] [iter 111] [Bus 3] P/Q/CMD -> V_in=1.0370 pu, I_in=1679.3793 A, V_out=1.0370 pu, I_out=1679.3793 A, V_DT=1.0190 pu, P=582.7984 MW, Q=146.0631 MVar
+[2026-05-12 23:30:40] [iter 111] [Bus 4] P/Q/CMD -> V_in=0.9740 pu, I_in=1693.0690 A, V_out=0.9740 pu, I_out=1693.0690 A, V_DT=1.0073 pu, P=615.0046 MW, Q=223.2169 MVar
+[2026-05-12 23:30:40] [Bus 4] Command breaker ke RTU: OPEN
+[2026-05-12 23:30:40] [iter 111] [Bus 5] P/Q/CMD -> V_in=0.9640 pu, I_in=1511.4828 A, V_out=0.9640 pu, I_out=1511.4828 A, V_DT=1.0075 pu, P=482.5814 MW, Q=140.7529 MVar
+[2026-05-12 23:30:40] [Bus 5] Command breaker ke RTU: CLOSE
+
+
+[2026-05-12 23:30:44] [iter 112] [Bus 1] P/Q/CMD -> V_in=0.9750 pu, I_in=1522.6552 A, V_out=0.9750 pu, I_out=1522.6552 A, V_DT=1.0223 pu, P=491.6958 MW, Q=143.4113 MVar
+[2026-05-12 23:30:44] [iter 112] [Bus 2] P/Q/CMD -> V_in=0.9500 pu, I_in=465.2414 A, V_out=0.9500 pu, I_out=465.2414 A, V_DT=1.0101 pu, P=173.8305 MW, Q=57.1353 MVar
+[2026-05-12 23:30:44] [iter 112] [Bus 3] P/Q/CMD -> V_in=1.0400 pu, I_in=371.5517 A, V_out=1.0400 pu, I_out=371.5517 A, V_DT=0.9938 pu, P=129.3134 MW, Q=32.4090 MVar
+[2026-05-12 23:30:44] [iter 112] [Bus 4] P/Q/CMD -> V_in=0.9650 pu, I_in=1597.4138 A, V_out=0.9650 pu, I_out=1597.4138 A, V_DT=0.9591 pu, P=574.8963 MW, Q=208.6595 MVar
+[2026-05-12 23:30:44] [Bus 4] Command breaker ke RTU: CLOSE
+[2026-05-12 23:30:44] [iter 112] [Bus 5] P/Q/CMD -> V_in=0.9840 pu, I_in=352.2759 A, V_out=0.9840 pu, I_out=352.2759 A, V_DT=0.9682 pu, P=114.8070 MW, Q=33.4854 MVar
+[2026-05-12 23:30:44] [Bus 5] Command breaker ke RTU: OPEN
+
+
+[2026-05-12 23:30:48] [iter 113] [Bus 1] P/Q/CMD -> V_in=1.0120 pu, I_in=271.1034 A, V_out=1.0120 pu, I_out=271.1034 A, V_DT=1.0195 pu, P=90.8669 MW, Q=26.5029 MVar
+[2026-05-12 23:30:48] [iter 113] [Bus 2] P/Q/CMD -> V_in=0.9750 pu, I_in=472.1379 A, V_out=0.9750 pu, I_out=472.1379 A, V_DT=1.0205 pu, P=181.0496 MW, Q=59.5081 MVar
+[2026-05-12 23:30:48] [iter 113] [Bus 3] P/Q/CMD -> V_in=0.9690 pu, I_in=265.4483 A, V_out=0.9690 pu, I_out=265.4483 A, V_DT=1.0087 pu, P=86.0785 MW, Q=21.5733 MVar
+[2026-05-12 23:30:48] [iter 113] [Bus 4] P/Q/CMD -> V_in=0.9980 pu, I_in=192.8621 A, V_out=0.9980 pu, I_out=192.8621 A, V_DT=0.9878 pu, P=71.7831 MW, Q=26.0538 MVar
+[2026-05-12 23:30:48] [Bus 4] Command breaker ke RTU: OPEN
+[2026-05-12 23:30:48] [iter 113] [Bus 5] P/Q/CMD -> V_in=1.0060 pu, I_in=338.7586 A, V_out=1.0060 pu, I_out=338.7586 A, V_DT=0.9892 pu, P=112.8700 MW, Q=32.9204 MVar
+[2026-05-12 23:30:48] [Bus 5] Command breaker ke RTU: CLOSE
+
+
+[2026-05-12 23:30:52] [iter 114] [Bus 1] P/Q/CMD -> V_in=1.0490 pu, I_in=1613.9310 A, V_out=1.0490 pu, I_out=1613.9310 A, V_DT=1.0287 pu, P=560.7261 MW, Q=163.5451 MVar
+[2026-05-12 23:30:52] [iter 114] [Bus 2] P/Q/CMD -> V_in=1.0470 pu, I_in=1501.0345 A, V_out=1.0470 pu, I_out=1501.0345 A, V_DT=1.0304 pu, P=618.1036 MW, Q=203.1608 MVar
+[2026-05-12 23:30:52] [iter 114] [Bus 3] P/Q/CMD -> V_in=0.9770 pu, I_in=345.0690 A, V_out=0.9770 pu, I_out=345.0690 A, V_DT=1.0227 pu, P=112.8214 MW, Q=28.2757 MVar
+[2026-05-12 23:30:52] [iter 114] [Bus 4] P/Q/CMD -> V_in=1.0180 pu, I_in=1636.3793 A, V_out=1.0180 pu, I_out=1636.3793 A, V_DT=1.0008 pu, P=621.2645 MW, Q=225.4889 MVar
+[2026-05-12 23:30:52] [Bus 4] Command breaker ke RTU: CLOSE
+[2026-05-12 23:30:52] [iter 114] [Bus 5] P/Q/CMD -> V_in=0.9540 pu, I_in=1507.1379 A, V_out=0.9540 pu, I_out=1507.1379 A, V_DT=1.0076 pu, P=476.2025 MW, Q=138.8924 MVar
+[2026-05-12 23:30:52] [Bus 5] Command breaker ke RTU: OPEN
+
+
+[2026-05-12 23:30:56] [iter 115] [Bus 1] P/Q/CMD -> V_in=1.0490 pu, I_in=1698.7241 A, V_out=1.0490 pu, I_out=1698.7241 A, V_DT=1.0200 pu, P=590.1857 MW, Q=172.1375 MVar
+[2026-05-12 23:30:56] [iter 115] [Bus 2] P/Q/CMD -> V_in=1.0470 pu, I_in=1625.2759 A, V_out=1.0470 pu, I_out=1625.2759 A, V_DT=1.0208 pu, P=669.2644 MW, Q=219.9766 MVar
+[2026-05-12 23:30:56] [iter 115] [Bus 3] P/Q/CMD -> V_in=0.9770 pu, I_in=1522.7586 A, V_out=0.9770 pu, I_out=1522.7586 A, V_DT=1.0132 pu, P=497.8706 MW, Q=124.7781 MVar
+[2026-05-12 23:30:56] [iter 115] [Bus 4] P/Q/CMD -> V_in=1.0180 pu, I_in=1511.6897 A, V_out=1.0180 pu, I_out=1511.6897 A, V_DT=0.9913 pu, P=573.9251 MW, Q=208.3070 MVar
+[2026-05-12 23:30:56] [Bus 4] Command breaker ke RTU: OPEN
+[2026-05-12 23:30:56] [iter 115] [Bus 5] P/Q/CMD -> V_in=0.9540 pu, I_in=1504.0345 A, V_out=0.9540 pu, I_out=1504.0345 A, V_DT=0.9919 pu, P=475.2220 MW, Q=138.6064 MVar
+[2026-05-12 23:30:56] [Bus 5] Command breaker ke RTU: CLOSE
+
+
+[2026-05-12 23:31:00] [iter 116] [Bus 1] P/Q/CMD -> V_in=0.9990 pu, I_in=1690.1724 A, V_out=0.9990 pu, I_out=1690.1724 A, V_DT=1.0113 pu, P=559.2253 MW, Q=163.1074 MVar
+[2026-05-12 23:31:00] [Bus 1] Command breaker ke RTU: OPEN
+[2026-05-12 23:31:00] [iter 116] [Bus 2] P/Q/CMD -> V_in=0.9780 pu, I_in=1659.0690 A, V_out=0.9780 pu, I_out=1659.0690 A, V_DT=1.0033 pu, P=638.1566 MW, Q=209.7519 MVar
+[2026-05-12 23:31:00] [iter 116] [Bus 3] P/Q/CMD -> V_in=1.0100 pu, I_in=1680.0690 A, V_out=1.0100 pu, I_out=1680.0690 A, V_DT=0.9861 pu, P=567.8574 MW, Q=142.3185 MVar
+[2026-05-12 23:31:00] [iter 116] [Bus 4] P/Q/CMD -> V_in=1.0120 pu, I_in=1559.0690 A, V_out=1.0120 pu, I_out=1559.0690 A, V_DT=0.9410 pu, P=588.4243 MW, Q=213.5695 MVar
+[2026-05-12 23:31:00] [Bus 4] Command breaker ke RTU: CLOSE
+[2026-05-12 23:31:00] [iter 116] [Bus 5] P/Q/CMD -> V_in=1.0160 pu, I_in=1630.6207 A, V_out=1.0160 pu, I_out=1630.6207 A, V_DT=0.9517 pu, P=548.7026 MW, Q=160.0382 MVar
+[2026-05-12 23:31:00] [Bus 5] Command breaker ke RTU: OPEN
+
+
+[2026-05-12 23:31:04] [iter 117] [Bus 1] P/Q/CMD -> V_in=1.0140 pu, I_in=450.1034 A, V_out=1.0140 pu, I_out=450.1034 A, V_DT=0.9909 pu, P=151.1613 MW, Q=44.0887 MVar
+[2026-05-12 23:31:04] [Bus 1] Command breaker ke RTU: CLOSE
+[2026-05-12 23:31:04] [iter 117] [Bus 2] P/Q/CMD -> V_in=1.0120 pu, I_in=479.7586 A, V_out=1.0120 pu, I_out=479.7586 A, V_DT=0.9865 pu, P=190.9533 MW, Q=62.7633 MVar
+[2026-05-12 23:31:04] [Bus 2] Command breaker ke RTU: OPEN
+[2026-05-12 23:31:04] [iter 117] [Bus 3] P/Q/CMD -> V_in=1.0140 pu, I_in=220.8621 A, V_out=1.0140 pu, I_out=220.8621 A, V_DT=0.9540 pu, P=74.9463 MW, Q=18.7833 MVar
+[2026-05-12 23:31:04] [iter 117] [Bus 4] P/Q/CMD -> V_in=0.9940 pu, I_in=345.3448 A, V_out=0.9940 pu, I_out=345.3448 A, V_DT=0.8866 pu, P=128.0219 MW, Q=46.4657 MVar
+[2026-05-12 23:31:04] [Bus 4] Command breaker ke RTU: OPEN
+[2026-05-12 23:31:04] [iter 117] [Bus 5] P/Q/CMD -> V_in=1.0220 pu, I_in=124.8621 A, V_out=1.0220 pu, I_out=124.8621 A, V_DT=0.8830 pu, P=42.2641 MW, Q=12.3270 MVar
+[2026-05-12 23:31:04] [Bus 5] Command breaker ke RTU: CLOSE
+
+
+[2026-05-12 23:31:08] [iter 118] [Bus 1] P/Q/CMD -> V_in=0.9790 pu, I_in=425.9655 A, V_out=0.9790 pu, I_out=425.9655 A, V_DT=1.0234 pu, P=138.1171 MW, Q=40.2842 MVar
+[2026-05-12 23:31:08] [Bus 1] Command breaker ke RTU: OPEN
+[2026-05-12 23:31:08] [iter 118] [Bus 2] P/Q/CMD -> V_in=0.9670 pu, I_in=1622.6207 A, V_out=0.9670 pu, I_out=1622.6207 A, V_DT=0.9821 pu, P=617.1169 MW, Q=202.8365 MVar
+[2026-05-12 23:31:08] [Bus 2] Command breaker ke RTU: CLOSE
+[2026-05-12 23:31:08] [iter 118] [Bus 3] P/Q/CMD -> V_in=1.0020 pu, I_in=1609.7586 A, V_out=1.0020 pu, I_out=1609.7586 A, V_DT=0.9894 pu, P=539.7831 MW, Q=135.2824 MVar
+[2026-05-12 23:31:08] [iter 118] [Bus 4] P/Q/CMD -> V_in=1.0020 pu, I_in=1602.0345 A, V_out=1.0020 pu, I_out=1602.0345 A, V_DT=0.9693 pu, P=598.6657 MW, Q=217.2866 MVar
+[2026-05-12 23:31:08] [Bus 4] Command breaker ke RTU: CLOSE
+[2026-05-12 23:31:08] [iter 118] [Bus 5] P/Q/CMD -> V_in=1.0330 pu, I_in=1663.1724 A, V_out=1.0330 pu, I_out=1663.1724 A, V_DT=0.9774 pu, P=569.0205 MW, Q=165.9643 MVar
+[2026-05-12 23:31:08] [Bus 5] Command breaker ke RTU: OPEN
+
+
+[2026-05-12 23:31:12] [iter 119] [Bus 1] P/Q/CMD -> V_in=1.0320 pu, I_in=1596.0345 A, V_out=1.0320 pu, I_out=1596.0345 A, V_DT=1.0133 pu, P=545.5220 MW, Q=159.1106 MVar
+[2026-05-12 23:31:12] [Bus 1] Command breaker ke RTU: CLOSE
+[2026-05-12 23:31:12] [iter 119] [Bus 2] P/Q/CMD -> V_in=1.0300 pu, I_in=1609.5172 A, V_out=1.0300 pu, I_out=1609.5172 A, V_DT=1.0052 pu, P=652.0138 MW, Q=214.3066 MVar
+[2026-05-12 23:31:12] [Bus 2] Command breaker ke RTU: OPEN
+[2026-05-12 23:31:12] [iter 119] [Bus 3] P/Q/CMD -> V_in=0.9830 pu, I_in=1535.8621 A, V_out=0.9830 pu, I_out=1535.8621 A, V_DT=0.9873 pu, P=505.2386 MW, Q=126.6247 MVar
+[2026-05-12 23:31:12] [iter 119] [Bus 4] P/Q/CMD -> V_in=1.0460 pu, I_in=1664.2759 A, V_out=1.0460 pu, I_out=1664.2759 A, V_DT=0.9503 pu, P=649.2348 MW, Q=235.6408 MVar
+[2026-05-12 23:31:12] [Bus 4] Command breaker ke RTU: OPEN
+[2026-05-12 23:31:12] [iter 119] [Bus 5] P/Q/CMD -> V_in=1.0460 pu, I_in=1666.1724 A, V_out=1.0460 pu, I_out=1666.1724 A, V_DT=0.9490 pu, P=577.2208 MW, Q=168.3561 MVar
+[2026-05-12 23:31:12] [Bus 5] Command breaker ke RTU: CLOSE
+
+
+[2026-05-12 23:31:16] [iter 120] [Bus 1] P/Q/CMD -> V_in=1.0320 pu, I_in=290.8276 A, V_out=1.0320 pu, I_out=290.8276 A, V_DT=1.0216 pu, P=99.4044 MW, Q=28.9930 MVar
+[2026-05-12 23:31:16] [Bus 1] Command breaker ke RTU: OPEN
+[2026-05-12 23:31:16] [iter 120] [Bus 2] P/Q/CMD -> V_in=1.0300 pu, I_in=404.4483 A, V_out=1.0300 pu, I_out=404.4483 A, V_DT=0.9338 pu, P=163.8416 MW, Q=53.8521 MVar
+[2026-05-12 23:31:16] [Bus 2] Command breaker ke RTU: CLOSE
+[2026-05-12 23:31:16] [iter 120] [Bus 3] P/Q/CMD -> V_in=0.9830 pu, I_in=141.0345 A, V_out=0.9830 pu, I_out=141.0345 A, V_DT=0.9350 pu, P=46.3948 MW, Q=11.6276 MVar
+[2026-05-12 23:31:16] [Bus 3] Command breaker ke RTU: OPEN
+[2026-05-12 23:31:16] [iter 120] [Bus 4] P/Q/CMD -> V_in=1.0460 pu, I_in=143.4138 A, V_out=1.0460 pu, I_out=143.4138 A, V_DT=0.8945 pu, P=55.9458 MW, Q=20.3056 MVar
+[2026-05-12 23:31:16] [Bus 4] Command breaker ke RTU: CLOSE
+[2026-05-12 23:31:16] [iter 120] [Bus 5] P/Q/CMD -> V_in=1.0460 pu, I_in=446.0345 A, V_out=1.0460 pu, I_out=446.0345 A, V_DT=0.9069 pu, P=154.5220 MW, Q=45.0689 MVar
+[2026-05-12 23:31:16] [Bus 5] Command breaker ke RTU: OPEN
+
+
+[2026-05-12 23:31:20] [iter 121] [Bus 1] P/Q/CMD -> V_in=1.0220 pu, I_in=1647.8966 A, V_out=1.0220 pu, I_out=1647.8966 A, V_DT=1.0142 pu, P=557.7906 MW, Q=162.6889 MVar
+[2026-05-12 23:31:20] [Bus 1] Command breaker ke RTU: CLOSE
+[2026-05-12 23:31:20] [iter 121] [Bus 2] P/Q/CMD -> V_in=1.0460 pu, I_in=1590.1034 A, V_out=1.0460 pu, I_out=1590.1034 A, V_DT=1.0238 pu, P=654.1555 MW, Q=215.0105 MVar
+[2026-05-12 23:31:20] [Bus 2] Command breaker ke RTU: OPEN
+[2026-05-12 23:31:20] [iter 121] [Bus 3] P/Q/CMD -> V_in=0.9860 pu, I_in=1669.0000 A, V_out=0.9860 pu, I_out=1669.0000 A, V_DT=0.9911 pu, P=550.7114 MW, Q=138.0213 MVar
+[2026-05-12 23:31:20] [Bus 3] Command breaker ke RTU: CLOSE
+[2026-05-12 23:31:20] [iter 121] [Bus 4] P/Q/CMD -> V_in=0.9510 pu, I_in=1642.9655 A, V_out=0.9510 pu, I_out=1642.9655 A, V_DT=0.9689 pu, P=582.7117 MW, Q=211.4961 MVar
+[2026-05-12 23:31:20] [Bus 4] Command breaker ke RTU: OPEN
+[2026-05-12 23:31:20] [iter 121] [Bus 5] P/Q/CMD -> V_in=0.9950 pu, I_in=386.1034 A, V_out=0.9950 pu, I_out=386.1034 A, V_DT=0.9674 pu, P=127.2381 MW, Q=37.1111 MVar
+[2026-05-12 23:31:20] [Bus 5] Command breaker ke RTU: CLOSE
+
+
+[2026-05-12 23:31:24] [iter 122] [Bus 1] P/Q/CMD -> V_in=1.0160 pu, I_in=1534.2414 A, V_out=1.0160 pu, I_out=1534.2414 A, V_DT=1.0229 pu, P=516.2710 MW, Q=150.5790 MVar
+[2026-05-12 23:31:24] [Bus 1] Command breaker ke RTU: OPEN
+[2026-05-12 23:31:24] [iter 122] [Bus 2] P/Q/CMD -> V_in=1.0320 pu, I_in=1697.1034 A, V_out=1.0320 pu, I_out=1697.1034 A, V_DT=0.9642 pu, P=688.8299 MW, Q=226.4074 MVar
+[2026-05-12 23:31:24] [Bus 2] Command breaker ke RTU: CLOSE
+[2026-05-12 23:31:24] [iter 122] [Bus 3] P/Q/CMD -> V_in=0.9600 pu, I_in=198.8276 A, V_out=0.9600 pu, I_out=198.8276 A, V_DT=0.9715 pu, P=63.8761 MW, Q=16.0089 MVar
+[2026-05-12 23:31:24] [iter 122] [Bus 4] P/Q/CMD -> V_in=0.9520 pu, I_in=1532.6207 A, V_out=0.9520 pu, I_out=1532.6207 A, V_DT=0.9512 pu, P=544.1472 MW, Q=197.4991 MVar
+[2026-05-12 23:31:24] [Bus 4] Command breaker ke RTU: CLOSE
+[2026-05-12 23:31:24] [iter 122] [Bus 5] P/Q/CMD -> V_in=1.0060 pu, I_in=1658.7586 A, V_out=1.0060 pu, I_out=1658.7586 A, V_DT=0.9608 pu, P=552.6771 MW, Q=161.1975 MVar
+[2026-05-12 23:31:24] [Bus 5] Command breaker ke RTU: OPEN
+
+
+[2026-05-12 23:31:28] [iter 123] [Bus 1] P/Q/CMD -> V_in=0.9720 pu, I_in=1628.7241 A, V_out=0.9720 pu, I_out=1628.7241 A, V_DT=0.9985 pu, P=524.3293 MW, Q=152.9294 MVar
+[2026-05-12 23:31:28] [Bus 1] Command breaker ke RTU: CLOSE
+[2026-05-12 23:31:28] [iter 123] [Bus 2] P/Q/CMD -> V_in=1.0320 pu, I_in=1661.8621 A, V_out=1.0320 pu, I_out=1661.8621 A, V_DT=0.9989 pu, P=674.5259 MW, Q=221.7059 MVar
+[2026-05-12 23:31:28] [Bus 2] Command breaker ke RTU: OPEN
+[2026-05-12 23:31:28] [iter 123] [Bus 3] P/Q/CMD -> V_in=0.9800 pu, I_in=273.2759 A, V_out=0.9800 pu, I_out=273.2759 A, V_DT=0.9803 pu, P=89.6227 MW, Q=22.4616 MVar
+[2026-05-12 23:31:28] [iter 123] [Bus 4] P/Q/CMD -> V_in=0.9630 pu, I_in=523.6552 A, V_out=0.9630 pu, I_out=523.6552 A, V_DT=0.9312 pu, P=188.0687 MW, Q=68.2598 MVar
+[2026-05-12 23:31:28] [Bus 4] Command breaker ke RTU: OPEN
+[2026-05-12 23:31:28] [iter 123] [Bus 5] P/Q/CMD -> V_in=0.9800 pu, I_in=311.1034 A, V_out=0.9800 pu, I_out=311.1034 A, V_DT=0.9286 pu, P=100.9767 MW, Q=29.4515 MVar
+[2026-05-12 23:31:28] [Bus 5] Command breaker ke RTU: CLOSE
+
+
+[2026-05-12 23:31:32] [iter 124] [Bus 1] P/Q/CMD -> V_in=0.9590 pu, I_in=1692.1724 A, V_out=0.9590 pu, I_out=1692.1724 A, V_DT=1.0168 pu, P=537.4692 MW, Q=156.7618 MVar
+[2026-05-12 23:31:32] [Bus 1] Command breaker ke RTU: OPEN
+[2026-05-12 23:31:32] [iter 124] [Bus 2] P/Q/CMD -> V_in=0.9630 pu, I_in=1696.4138 A, V_out=0.9630 pu, I_out=1696.4138 A, V_DT=0.9612 pu, P=642.5132 MW, Q=211.1839 MVar
+[2026-05-12 23:31:32] [Bus 2] Command breaker ke RTU: CLOSE
+[2026-05-12 23:31:32] [iter 124] [Bus 3] P/Q/CMD -> V_in=1.0160 pu, I_in=1630.1724 A, V_out=1.0160 pu, I_out=1630.1724 A, V_DT=0.9772 pu, P=554.2658 MW, Q=138.9121 MVar
+[2026-05-12 23:31:32] [Bus 3] Command breaker ke RTU: OPEN
+[2026-05-12 23:31:32] [iter 124] [Bus 4] P/Q/CMD -> V_in=1.0440 pu, I_in=1694.9655 A, V_out=1.0440 pu, I_out=1694.9655 A, V_DT=0.9604 pu, P=659.9426 MW, Q=239.5272 MVar
+[2026-05-12 23:31:32] [Bus 4] Command breaker ke RTU: CLOSE
+[2026-05-12 23:31:32] [iter 124] [Bus 5] P/Q/CMD -> V_in=1.0240 pu, I_in=1600.2069 A, V_out=1.0240 pu, I_out=1600.2069 A, V_DT=0.9685 pu, P=542.7082 MW, Q=158.2899 MVar
+[2026-05-12 23:31:32] [Bus 5] Command breaker ke RTU: OPEN
+
+
+[2026-05-12 23:31:36] [iter 125] [Bus 1] P/Q/CMD -> V_in=0.9910 pu, I_in=1606.7241 A, V_out=0.9910 pu, I_out=1606.7241 A, V_DT=0.9913 pu, P=527.3577 MW, Q=153.8127 MVar
+[2026-05-12 23:31:36] [Bus 1] Command breaker ke RTU: CLOSE
+[2026-05-12 23:31:36] [iter 125] [Bus 2] P/Q/CMD -> V_in=0.9980 pu, I_in=1525.1724 A, V_out=0.9980 pu, I_out=1525.1724 A, V_DT=1.0037 pu, P=598.6506 MW, Q=196.7669 MVar
+[2026-05-12 23:31:36] [Bus 2] Command breaker ke RTU: OPEN
+[2026-05-12 23:31:36] [iter 125] [Bus 3] P/Q/CMD -> V_in=1.0450 pu, I_in=1524.6207 A, V_out=1.0450 pu, I_out=1524.6207 A, V_DT=0.9448 pu, P=533.1740 MW, Q=133.6260 MVar
+[2026-05-12 23:31:36] [Bus 3] Command breaker ke RTU: CLOSE
+[2026-05-12 23:31:36] [iter 125] [Bus 4] P/Q/CMD -> V_in=0.9870 pu, I_in=1601.8621 A, V_out=0.9870 pu, I_out=1601.8621 A, V_DT=0.8984 pu, P=589.6402 MW, Q=214.0108 MVar
+[2026-05-12 23:31:36] [Bus 4] Command breaker ke RTU: OPEN
+[2026-05-12 23:31:36] [iter 125] [Bus 5] P/Q/CMD -> V_in=1.0450 pu, I_in=1648.2069 A, V_out=1.0450 pu, I_out=1648.2069 A, V_DT=0.8958 pu, P=570.4510 MW, Q=166.3815 MVar
+[2026-05-12 23:31:36] [Bus 5] Command breaker ke RTU: CLOSE
+
+
+[2026-05-12 23:31:41] [iter 126] [Bus 1] P/Q/CMD -> V_in=0.9910 pu, I_in=1563.6207 A, V_out=0.9910 pu, I_out=1563.6207 A, V_DT=1.0118 pu, P=513.2103 MW, Q=149.6863 MVar
+[2026-05-12 23:31:41] [Bus 1] Command breaker ke RTU: OPEN
+[2026-05-12 23:31:41] [iter 126] [Bus 2] P/Q/CMD -> V_in=0.9980 pu, I_in=1651.2069 A, V_out=0.9980 pu, I_out=1651.2069 A, V_DT=0.9180 pu, P=648.1208 MW, Q=213.0270 MVar
+[2026-05-12 23:31:41] [Bus 2] Command breaker ke RTU: CLOSE
+[2026-05-12 23:31:41] [iter 126] [Bus 3] P/Q/CMD -> V_in=1.0450 pu, I_in=1693.4483 A, V_out=1.0450 pu, I_out=1693.4483 A, V_DT=0.9199 pu, P=592.2145 MW, Q=148.4230 MVar
+[2026-05-12 23:31:41] [Bus 3] Command breaker ke RTU: OPEN
+[2026-05-12 23:31:41] [iter 126] [Bus 4] P/Q/CMD -> V_in=0.9870 pu, I_in=1501.2759 A, V_out=0.9870 pu, I_out=1501.2759 A, V_DT=0.8793 pu, P=552.6147 MW, Q=200.5724 MVar
+[2026-05-12 23:31:41] [Bus 4] Command breaker ke RTU: CLOSE
+[2026-05-12 23:31:41] [iter 126] [Bus 5] P/Q/CMD -> V_in=1.0450 pu, I_in=1539.6207 A, V_out=1.0450 pu, I_out=1539.6207 A, V_DT=0.8916 pu, P=532.8689 MW, Q=155.4201 MVar
+[2026-05-12 23:31:41] [Bus 5] Command breaker ke RTU: OPEN
+
+
+[2026-05-12 23:31:45] [iter 127] [Bus 1] P/Q/CMD -> V_in=0.9590 pu, I_in=406.3103 A, V_out=0.9590 pu, I_out=406.3103 A, V_DT=0.9891 pu, P=129.0526 MW, Q=37.6403 MVar
+[2026-05-12 23:31:45] [Bus 1] Command breaker ke RTU: CLOSE
+[2026-05-12 23:31:45] [iter 127] [Bus 2] P/Q/CMD -> V_in=1.0040 pu, I_in=516.3793 A, V_out=1.0040 pu, I_out=516.3793 A, V_DT=0.9971 pu, P=203.9044 MW, Q=67.0201 MVar
+[2026-05-12 23:31:45] [Bus 2] Command breaker ke RTU: OPEN
+[2026-05-12 23:31:45] [iter 127] [Bus 3] P/Q/CMD -> V_in=0.9850 pu, I_in=267.1379 A, V_out=0.9850 pu, I_out=267.1379 A, V_DT=0.8826 pu, P=88.0567 MW, Q=22.0691 MVar
+[2026-05-12 23:31:45] [Bus 3] Command breaker ke RTU: CLOSE
+[2026-05-12 23:31:45] [iter 127] [Bus 4] P/Q/CMD -> V_in=0.9680 pu, I_in=146.4138 A, V_out=0.9680 pu, I_out=146.4138 A, V_DT=0.8146 pu, P=52.8570 MW, Q=19.1845 MVar
+[2026-05-12 23:31:45] [Bus 4] Command breaker ke RTU: OPEN
+[2026-05-12 23:31:45] [iter 127] [Bus 5] P/Q/CMD -> V_in=1.0340 pu, I_in=278.6207 A, V_out=1.0340 pu, I_out=278.6207 A, V_DT=0.8117 pu, P=95.4167 MW, Q=27.8299 MVar
+[2026-05-12 23:31:45] [Bus 5] Command breaker ke RTU: CLOSE
+
+
+[2026-05-12 23:31:49] [iter 128] [Bus 1] P/Q/CMD -> V_in=1.0160 pu, I_in=364.7241 A, V_out=1.0160 pu, I_out=364.7241 A, V_DT=1.0233 pu, P=122.7294 MW, Q=35.7961 MVar
+[2026-05-12 23:31:49] [Bus 1] Command breaker ke RTU: OPEN
+[2026-05-12 23:31:49] [iter 128] [Bus 2] P/Q/CMD -> V_in=1.0080 pu, I_in=96.5172 A, V_out=1.0080 pu, I_out=96.5172 A, V_DT=0.9710 pu, P=38.2639 MW, Q=12.5767 MVar
+[2026-05-12 23:31:49] [Bus 2] Command breaker ke RTU: CLOSE
+[2026-05-12 23:31:49] [iter 128] [Bus 3] P/Q/CMD -> V_in=1.0280 pu, I_in=1601.4138 A, V_out=1.0280 pu, I_out=1601.4138 A, V_DT=0.9789 pu, P=550.9187 MW, Q=138.0732 MVar
+[2026-05-12 23:31:49] [iter 128] [Bus 4] P/Q/CMD -> V_in=0.9620 pu, I_in=1547.9310 A, V_out=0.9620 pu, I_out=1547.9310 A, V_DT=0.9606 pu, P=555.3560 MW, Q=201.5673 MVar
+[2026-05-12 23:31:49] [Bus 4] Command breaker ke RTU: CLOSE
+[2026-05-12 23:31:49] [iter 128] [Bus 5] P/Q/CMD -> V_in=0.9560 pu, I_in=1639.6207 A, V_out=0.9560 pu, I_out=1639.6207 A, V_DT=0.9683 pu, P=519.1485 MW, Q=151.4183 MVar
+[2026-05-12 23:31:49] [Bus 5] Command breaker ke RTU: OPEN
+
+
+[2026-05-12 23:31:53] [iter 129] [Bus 1] P/Q/CMD -> V_in=0.9700 pu, I_in=188.6897 A, V_out=0.9700 pu, I_out=188.6897 A, V_DT=1.0137 pu, P=60.6192 MW, Q=17.6806 MVar
+[2026-05-12 23:31:53] [Bus 1] Command breaker ke RTU: CLOSE
+[2026-05-12 23:31:53] [iter 129] [Bus 2] P/Q/CMD -> V_in=1.0360 pu, I_in=1697.6207 A, V_out=1.0360 pu, I_out=1697.6207 A, V_DT=1.0141 pu, P=691.7105 MW, Q=227.3542 MVar
+[2026-05-12 23:31:53] [Bus 2] Command breaker ke RTU: OPEN
+[2026-05-12 23:31:53] [iter 129] [Bus 3] P/Q/CMD -> V_in=0.9640 pu, I_in=1540.4138 A, V_out=0.9640 pu, I_out=1540.4138 A, V_DT=0.9930 pu, P=496.9415 MW, Q=124.5453 MVar
+[2026-05-12 23:31:53] [iter 129] [Bus 4] P/Q/CMD -> V_in=0.9500 pu, I_in=1505.5172 A, V_out=0.9500 pu, I_out=1505.5172 A, V_DT=0.9573 pu, P=533.4014 MW, Q=193.5988 MVar
+[2026-05-12 23:31:53] [Bus 4] Command breaker ke RTU: OPEN
+[2026-05-12 23:31:53] [iter 129] [Bus 5] P/Q/CMD -> V_in=0.9640 pu, I_in=1574.1379 A, V_out=0.9640 pu, I_out=1574.1379 A, V_DT=0.9553 pu, P=502.5857 MW, Q=146.5875 MVar
+[2026-05-12 23:31:53] [Bus 5] Command breaker ke RTU: CLOSE
+
+
+[2026-05-12 23:31:57] [iter 130] [Bus 1] P/Q/CMD -> V_in=0.9750 pu, I_in=169.1379 A, V_out=0.9750 pu, I_out=169.1379 A, V_DT=1.0347 pu, P=54.6180 MW, Q=15.9303 MVar
+[2026-05-12 23:31:57] [iter 130] [Bus 2] P/Q/CMD -> V_in=1.0160 pu, I_in=97.8276 A, V_out=1.0160 pu, I_out=97.8276 A, V_DT=0.9601 pu, P=39.0912 MW, Q=12.8487 MVar
+[2026-05-12 23:31:57] [Bus 2] Command breaker ke RTU: CLOSE
+[2026-05-12 23:31:57] [iter 130] [Bus 3] P/Q/CMD -> V_in=0.9510 pu, I_in=458.2069 A, V_out=0.9510 pu, I_out=458.2069 A, V_DT=0.9624 pu, P=145.8253 MW, Q=36.5473 MVar
+[2026-05-12 23:31:57] [iter 130] [Bus 4] P/Q/CMD -> V_in=0.9730 pu, I_in=236.8621 A, V_out=0.9730 pu, I_out=236.8621 A, V_DT=0.9317 pu, P=85.9514 MW, Q=31.1962 MVar
+[2026-05-12 23:31:57] [Bus 4] Command breaker ke RTU: CLOSE
+[2026-05-12 23:31:57] [iter 130] [Bus 5] P/Q/CMD -> V_in=0.9670 pu, I_in=114.8966 A, V_out=0.9670 pu, I_out=114.8966 A, V_DT=0.9421 pu, P=36.7980 MW, Q=10.7327 MVar
+[2026-05-12 23:31:57] [Bus 5] Command breaker ke RTU: OPEN
+
+
+[2026-05-12 23:32:01] [iter 131] [Bus 1] P/Q/CMD -> V_in=0.9750 pu, I_in=169.1379 A, V_out=0.9750 pu, I_out=169.1379 A, V_DT=1.0373 pu, P=54.6180 MW, Q=15.9303 MVar
+[2026-05-12 23:32:01] [iter 131] [Bus 2] P/Q/CMD -> V_in=1.0160 pu, I_in=1577.8966 A, V_out=1.0160 pu, I_out=1577.8966 A, V_DT=1.0287 pu, P=630.5161 MW, Q=207.2406 MVar
+[2026-05-12 23:32:01] [iter 131] [Bus 3] P/Q/CMD -> V_in=0.9510 pu, I_in=458.2069 A, V_out=0.9510 pu, I_out=458.2069 A, V_DT=1.0184 pu, P=145.8253 MW, Q=36.5473 MVar
+[2026-05-12 23:32:01] [iter 131] [Bus 4] P/Q/CMD -> V_in=0.9730 pu, I_in=1656.4138 A, V_out=0.9730 pu, I_out=1656.4138 A, V_DT=1.0060 pu, P=601.0720 MW, Q=218.1600 MVar
+[2026-05-12 23:32:01] [Bus 4] Command breaker ke RTU: OPEN
+[2026-05-12 23:32:01] [iter 131] [Bus 5] P/Q/CMD -> V_in=0.9670 pu, I_in=1651.5172 A, V_out=0.9670 pu, I_out=1651.5172 A, V_DT=1.0063 pu, P=528.9321 MW, Q=154.2719 MVar
+[2026-05-12 23:32:01] [Bus 5] Command breaker ke RTU: CLOSE
+
+
+[2026-05-12 23:32:05] [iter 132] [Bus 1] P/Q/CMD -> V_in=1.0240 pu, I_in=1568.7241 A, V_out=1.0240 pu, I_out=1568.7241 A, V_DT=1.0379 pu, P=532.0309 MW, Q=155.1757 MVar
+[2026-05-12 23:32:05] [iter 132] [Bus 2] P/Q/CMD -> V_in=1.0240 pu, I_in=1562.1724 A, V_out=1.0240 pu, I_out=1562.1724 A, V_DT=1.0196 pu, P=629.1481 MW, Q=206.7910 MVar
+[2026-05-12 23:32:05] [iter 132] [Bus 3] P/Q/CMD -> V_in=1.0270 pu, I_in=1570.2069 A, V_out=1.0270 pu, I_out=1570.2069 A, V_DT=1.0076 pu, P=539.6574 MW, Q=135.2509 MVar
+[2026-05-12 23:32:05] [iter 132] [Bus 4] P/Q/CMD -> V_in=0.9600 pu, I_in=1572.5172 A, V_out=0.9600 pu, I_out=1572.5172 A, V_DT=0.9709 pu, P=563.0039 MW, Q=204.3431 MVar
+[2026-05-12 23:32:05] [Bus 4] Command breaker ke RTU: CLOSE
+[2026-05-12 23:32:05] [iter 132] [Bus 5] P/Q/CMD -> V_in=1.0440 pu, I_in=1510.5862 A, V_out=1.0440 pu, I_out=1510.5862 A, V_DT=0.9800 pu, P=522.3196 MW, Q=152.3432 MVar
+[2026-05-12 23:32:05] [Bus 5] Command breaker ke RTU: OPEN
+
+
+[2026-05-12 23:32:09] [iter 133] [Bus 1] P/Q/CMD -> V_in=1.0280 pu, I_in=1630.6897 A, V_out=1.0280 pu, I_out=1630.6897 A, V_DT=1.0267 pu, P=555.2068 MW, Q=161.9353 MVar
+[2026-05-12 23:32:09] [iter 133] [Bus 2] P/Q/CMD -> V_in=1.0020 pu, I_in=1604.3793 A, V_out=1.0020 pu, I_out=1604.3793 A, V_DT=1.0091 pu, P=632.2644 MW, Q=207.8153 MVar
+[2026-05-12 23:32:09] [iter 133] [Bus 3] P/Q/CMD -> V_in=1.0460 pu, I_in=1663.4828 A, V_out=1.0460 pu, I_out=1663.4828 A, V_DT=0.9936 pu, P=582.2920 MW, Q=145.9361 MVar
+[2026-05-12 23:32:09] [iter 133] [Bus 4] P/Q/CMD -> V_in=0.9970 pu, I_in=265.4828 A, V_out=0.9970 pu, I_out=265.4828 A, V_DT=0.9671 pu, P=98.7134 MW, Q=35.8282 MVar
+[2026-05-12 23:32:09] [Bus 4] Command breaker ke RTU: OPEN
+[2026-05-12 23:32:09] [iter 133] [Bus 5] P/Q/CMD -> V_in=1.0180 pu, I_in=1641.7241 A, V_out=1.0180 pu, I_out=1641.7241 A, V_DT=0.9673 pu, P=553.5263 MW, Q=161.4452 MVar
+[2026-05-12 23:32:09] [Bus 5] Command breaker ke RTU: CLOSE
+
+
+[2026-05-12 23:32:13] [iter 134] [Bus 1] P/Q/CMD -> V_in=1.0400 pu, I_in=115.6897 A, V_out=1.0400 pu, I_out=115.6897 A, V_DT=1.0180 pu, P=39.8491 MW, Q=11.6226 MVar
+[2026-05-12 23:32:13] [iter 134] [Bus 2] P/Q/CMD -> V_in=0.9580 pu, I_in=371.5172 A, V_out=0.9580 pu, I_out=371.5172 A, V_DT=0.9998 pu, P=139.9808 MW, Q=46.0095 MVar
+[2026-05-12 23:32:13] [iter 134] [Bus 3] P/Q/CMD -> V_in=0.9560 pu, I_in=218.6897 A, V_out=0.9560 pu, I_out=218.6897 A, V_DT=0.9803 pu, P=69.9644 MW, Q=17.5347 MVar
+[2026-05-12 23:32:13] [iter 134] [Bus 4] P/Q/CMD -> V_in=1.0120 pu, I_in=325.2069 A, V_out=1.0120 pu, I_out=325.2069 A, V_DT=0.9462 pu, P=122.7397 MW, Q=44.5486 MVar
+[2026-05-12 23:32:13] [Bus 4] Command breaker ke RTU: CLOSE
+[2026-05-12 23:32:13] [iter 134] [Bus 5] P/Q/CMD -> V_in=0.9820 pu, I_in=535.4483 A, V_out=0.9820 pu, I_out=535.4483 A, V_DT=0.9537 pu, P=174.1483 MW, Q=50.7933 MVar
+[2026-05-12 23:32:13] [Bus 5] Command breaker ke RTU: OPEN
+
+
+[2026-05-12 23:32:17] [iter 135] [Bus 1] P/Q/CMD -> V_in=1.0020 pu, I_in=1608.4483 A, V_out=1.0020 pu, I_out=1608.4483 A, V_DT=1.0300 pu, P=533.7835 MW, Q=155.6869 MVar
+[2026-05-12 23:32:17] [iter 135] [Bus 2] P/Q/CMD -> V_in=1.0100 pu, I_in=1654.8276 A, V_out=1.0100 pu, I_out=1654.8276 A, V_DT=1.0230 pu, P=657.3521 MW, Q=216.0612 MVar
+[2026-05-12 23:32:17] [iter 135] [Bus 3] P/Q/CMD -> V_in=1.0200 pu, I_in=1600.7931 A, V_out=1.0200 pu, I_out=1600.7931 A, V_DT=1.0149 pu, P=546.4195 MW, Q=136.9456 MVar
+[2026-05-12 23:32:17] [iter 135] [Bus 4] P/Q/CMD -> V_in=1.0140 pu, I_in=420.3448 A, V_out=1.0140 pu, I_out=420.3448 A, V_DT=1.0027 pu, P=158.9602 MW, Q=57.6949 MVar
+[2026-05-12 23:32:17] [Bus 4] Command breaker ke RTU: OPEN
+[2026-05-12 23:32:17] [iter 135] [Bus 5] P/Q/CMD -> V_in=1.0220 pu, I_in=1655.8276 A, V_out=1.0220 pu, I_out=1655.8276 A, V_DT=1.0017 pu, P=560.4751 MW, Q=163.4719 MVar
+[2026-05-12 23:32:17] [Bus 5] Command breaker ke RTU: CLOSE
+
+
+[2026-05-12 23:32:21] [iter 136] [Bus 1] P/Q/CMD -> V_in=1.0020 pu, I_in=1540.6207 A, V_out=1.0020 pu, I_out=1540.6207 A, V_DT=1.0212 pu, P=511.2741 MW, Q=149.1216 MVar
+[2026-05-12 23:32:21] [iter 136] [Bus 2] P/Q/CMD -> V_in=1.0100 pu, I_in=1579.7241 A, V_out=1.0100 pu, I_out=1579.7241 A, V_DT=1.0110 pu, P=627.5186 MW, Q=206.2554 MVar
+[2026-05-12 23:32:21] [iter 136] [Bus 3] P/Q/CMD -> V_in=1.0200 pu, I_in=1597.6207 A, V_out=1.0200 pu, I_out=1597.6207 A, V_DT=0.9986 pu, P=545.3366 MW, Q=136.6742 MVar
+[2026-05-12 23:32:21] [iter 136] [Bus 4] P/Q/CMD -> V_in=1.0140 pu, I_in=1573.7586 A, V_out=1.0140 pu, I_out=1573.7586 A, V_DT=0.9776 pu, P=595.1424 MW, Q=216.0078 MVar
+[2026-05-12 23:32:21] [Bus 4] Command breaker ke RTU: CLOSE
+[2026-05-12 23:32:21] [iter 136] [Bus 5] P/Q/CMD -> V_in=1.0220 pu, I_in=1587.3448 A, V_out=1.0220 pu, I_out=1587.3448 A, V_DT=0.9823 pu, P=537.2946 MW, Q=156.7109 MVar
+[2026-05-12 23:32:21] [Bus 5] Command breaker ke RTU: OPEN
+
+
+[2026-05-12 23:32:25] [iter 137] [Bus 1] P/Q/CMD -> V_in=0.9950 pu, I_in=189.6207 A, V_out=0.9950 pu, I_out=189.6207 A, V_DT=1.0152 pu, P=62.4884 MW, Q=18.2258 MVar
+[2026-05-12 23:32:25] [iter 137] [Bus 2] P/Q/CMD -> V_in=0.9830 pu, I_in=292.4828 A, V_out=0.9830 pu, I_out=292.4828 A, V_DT=1.0009 pu, P=113.0779 MW, Q=37.1669 MVar
+[2026-05-12 23:32:25] [iter 137] [Bus 3] P/Q/CMD -> V_in=0.9910 pu, I_in=131.0345 A, V_out=0.9910 pu, I_out=131.0345 A, V_DT=0.9830 pu, P=43.4560 MW, Q=10.8911 MVar
+[2026-05-12 23:32:25] [iter 137] [Bus 4] P/Q/CMD -> V_in=0.9920 pu, I_in=383.7931 A, V_out=0.9920 pu, I_out=383.7931 A, V_DT=0.9610 pu, P=141.9886 MW, Q=51.5350 MVar
+[2026-05-12 23:32:25] [Bus 4] Command breaker ke RTU: OPEN
+[2026-05-12 23:32:25] [iter 137] [Bus 5] P/Q/CMD -> V_in=0.9870 pu, I_in=157.2414 A, V_out=0.9870 pu, I_out=157.2414 A, V_DT=0.9603 pu, P=51.4013 MW, Q=14.9921 MVar
+[2026-05-12 23:32:25] [Bus 5] Command breaker ke RTU: CLOSE
+
+
+[2026-05-12 23:32:29] [iter 138] [Bus 1] P/Q/CMD -> V_in=1.0420 pu, I_in=112.8621 A, V_out=1.0420 pu, I_out=112.8621 A, V_DT=1.0274 pu, P=38.9499 MW, Q=11.3604 MVar
+[2026-05-12 23:32:29] [iter 138] [Bus 2] P/Q/CMD -> V_in=1.0330 pu, I_in=1674.0345 A, V_out=1.0330 pu, I_out=1674.0345 A, V_DT=1.0224 pu, P=680.1249 MW, Q=223.5462 MVar
+[2026-05-12 23:32:29] [iter 138] [Bus 3] P/Q/CMD -> V_in=0.9590 pu, I_in=1652.0000 A, V_out=0.9590 pu, I_out=1652.0000 A, V_DT=1.0133 pu, P=530.1753 MW, Q=132.8745 MVar
+[2026-05-12 23:32:29] [iter 138] [Bus 4] P/Q/CMD -> V_in=1.0310 pu, I_in=323.0000 A, V_out=1.0310 pu, I_out=323.0000 A, V_DT=0.9922 pu, P=124.1955 MW, Q=45.0770 MVar
+[2026-05-12 23:32:29] [Bus 4] Command breaker ke RTU: CLOSE
+[2026-05-12 23:32:29] [iter 138] [Bus 5] P/Q/CMD -> V_in=1.0080 pu, I_in=1658.5517 A, V_out=1.0080 pu, I_out=1658.5517 A, V_DT=0.9980 pu, P=553.7068 MW, Q=161.4978 MVar
+[2026-05-12 23:32:29] [Bus 5] Command breaker ke RTU: OPEN
+
+
+[2026-05-12 23:32:33] [iter 139] [Bus 1] P/Q/CMD -> V_in=0.9820 pu, I_in=1636.2414 A, V_out=0.9820 pu, I_out=1636.2414 A, V_DT=1.0330 pu, P=532.1685 MW, Q=155.2158 MVar
+[2026-05-12 23:32:33] [iter 139] [Bus 2] P/Q/CMD -> V_in=0.9850 pu, I_in=386.7241 A, V_out=0.9850 pu, I_out=386.7241 A, V_DT=1.0170 pu, P=149.8171 MW, Q=49.2425 MVar
+[2026-05-12 23:32:33] [iter 139] [Bus 3] P/Q/CMD -> V_in=1.0250 pu, I_in=1619.5862 A, V_out=1.0250 pu, I_out=1619.5862 A, V_DT=1.0086 pu, P=555.5444 MW, Q=139.2325 MVar
+[2026-05-12 23:32:33] [iter 139] [Bus 4] P/Q/CMD -> V_in=1.0220 pu, I_in=1553.3103 A, V_out=1.0220 pu, I_out=1553.3103 A, V_DT=0.9994 pu, P=592.0439 MW, Q=214.8832 MVar
+[2026-05-12 23:32:33] [Bus 4] Command breaker ke RTU: OPEN
+[2026-05-12 23:32:33] [iter 139] [Bus 5] P/Q/CMD -> V_in=1.0100 pu, I_in=1507.3793 A, V_out=1.0100 pu, I_out=1507.3793 A, V_DT=0.9980 pu, P=504.2365 MW, Q=147.0690 MVar
+[2026-05-12 23:32:33] [Bus 5] Command breaker ke RTU: CLOSE
+
+
+[2026-05-12 23:32:37] [iter 140] [Bus 1] P/Q/CMD -> V_in=1.0060 pu, I_in=1615.2414 A, V_out=1.0060 pu, I_out=1615.2414 A, V_DT=1.0234 pu, P=538.1778 MW, Q=156.9685 MVar
+[2026-05-12 23:32:37] [iter 140] [Bus 2] P/Q/CMD -> V_in=1.0140 pu, I_in=1660.5517 A, V_out=1.0140 pu, I_out=1660.5517 A, V_DT=1.0138 pu, P=662.2383 MW, Q=217.6672 MVar
+[2026-05-12 23:32:37] [iter 140] [Bus 3] P/Q/CMD -> V_in=0.9600 pu, I_in=1640.1379 A, V_out=0.9600 pu, I_out=1640.1379 A, V_DT=0.9945 pu, P=526.9173 MW, Q=132.0579 MVar
+[2026-05-12 23:32:37] [iter 140] [Bus 4] P/Q/CMD -> V_in=0.9860 pu, I_in=1614.7241 A, V_out=0.9860 pu, I_out=1614.7241 A, V_DT=0.9614 pu, P=593.7724 MW, Q=215.5106 MVar
+[2026-05-12 23:32:37] [Bus 4] Command breaker ke RTU: CLOSE
+[2026-05-12 23:32:37] [iter 140] [Bus 5] P/Q/CMD -> V_in=1.0060 pu, I_in=1656.4828 A, V_out=1.0060 pu, I_out=1656.4828 A, V_DT=0.9690 pu, P=551.9189 MW, Q=160.9763 MVar
+[2026-05-12 23:32:37] [Bus 5] Command breaker ke RTU: OPEN
+
+
+[2026-05-12 23:32:41] [iter 141] [Bus 1] P/Q/CMD -> V_in=1.0340 pu, I_in=499.9655 A, V_out=1.0340 pu, I_out=499.9655 A, V_DT=1.0160 pu, P=171.2186 MW, Q=49.9388 MVar
+[2026-05-12 23:32:41] [iter 141] [Bus 2] P/Q/CMD -> V_in=1.0310 pu, I_in=347.2069 A, V_out=1.0310 pu, I_out=347.2069 A, V_DT=1.0021 pu, P=140.7897 MW, Q=46.2753 MVar
+[2026-05-12 23:32:41] [iter 141] [Bus 3] P/Q/CMD -> V_in=1.0140 pu, I_in=1688.3793 A, V_out=1.0140 pu, I_out=1688.3793 A, V_DT=0.9799 pu, P=572.9264 MW, Q=143.5889 MVar
+[2026-05-12 23:32:41] [iter 141] [Bus 4] P/Q/CMD -> V_in=1.0420 pu, I_in=1696.0000 A, V_out=1.0420 pu, I_out=1696.0000 A, V_DT=0.9520 pu, P=659.0803 MW, Q=239.2142 MVar
+[2026-05-12 23:32:41] [Bus 4] Command breaker ke RTU: OPEN
+[2026-05-12 23:32:41] [iter 141] [Bus 5] P/Q/CMD -> V_in=0.9760 pu, I_in=1583.1379 A, V_out=0.9760 pu, I_out=1583.1379 A, V_DT=0.9518 pu, P=511.7512 MW, Q=149.2608 MVar
+[2026-05-12 23:32:41] [Bus 5] Command breaker ke RTU: CLOSE
+
+
+[2026-05-12 23:32:45] [iter 142] [Bus 1] P/Q/CMD -> V_in=1.0340 pu, I_in=1632.3793 A, V_out=1.0340 pu, I_out=1632.3793 A, V_DT=1.0211 pu, P=559.0259 MW, Q=163.0492 MVar
+[2026-05-12 23:32:45] [iter 142] [Bus 2] P/Q/CMD -> V_in=1.0310 pu, I_in=347.2069 A, V_out=1.0310 pu, I_out=347.2069 A, V_DT=1.0043 pu, P=140.7897 MW, Q=46.2753 MVar
+[2026-05-12 23:32:45] [iter 142] [Bus 3] P/Q/CMD -> V_in=1.0140 pu, I_in=1666.0345 A, V_out=1.0140 pu, I_out=1666.0345 A, V_DT=0.9738 pu, P=565.3440 MW, Q=141.6886 MVar
+[2026-05-12 23:32:45] [iter 142] [Bus 4] P/Q/CMD -> V_in=1.0420 pu, I_in=1631.5517 A, V_out=1.0420 pu, I_out=1631.5517 A, V_DT=0.9199 pu, P=634.0352 MW, Q=230.1240 MVar
+[2026-05-12 23:32:45] [iter 142] [Bus 5] P/Q/CMD -> V_in=0.9760 pu, I_in=1516.9310 A, V_out=0.9760 pu, I_out=1516.9310 A, V_DT=0.9317 pu, P=490.3498 MW, Q=143.0187 MVar
+
+
+[2026-05-12 23:32:49] [iter 143] [Bus 1] P/Q/CMD -> V_in=1.0200 pu, I_in=1694.5862 A, V_out=1.0200 pu, I_out=1694.5862 A, V_DT=1.0211 pu, P=572.4719 MW, Q=166.9710 MVar
+[2026-05-12 23:32:49] [iter 143] [Bus 2] P/Q/CMD -> V_in=0.9830 pu, I_in=1682.3103 A, V_out=0.9830 pu, I_out=1682.3103 A, V_DT=1.0043 pu, P=650.4046 MW, Q=213.7776 MVar
+[2026-05-12 23:32:49] [iter 143] [Bus 3] P/Q/CMD -> V_in=1.0360 pu, I_in=325.4138 A, V_out=1.0360 pu, I_out=325.4138 A, V_DT=0.9738 pu, P=112.8201 MW, Q=28.2754 MVar
+[2026-05-12 23:32:49] [iter 143] [Bus 4] P/Q/CMD -> V_in=0.9900 pu, I_in=1628.3103 A, V_out=0.9900 pu, I_out=1628.3103 A, V_DT=0.9199 pu, P=601.1975 MW, Q=218.2056 MVar
+[2026-05-12 23:32:49] [Bus 4] Command breaker ke RTU: CLOSE
+[2026-05-12 23:32:49] [iter 143] [Bus 5] P/Q/CMD -> V_in=1.0120 pu, I_in=1678.2414 A, V_out=1.0120 pu, I_out=1678.2414 A, V_DT=0.9317 pu, P=562.5035 MW, Q=164.0635 MVar
+[2026-05-12 23:32:49] [Bus 5] Command breaker ke RTU: OPEN
+
+
+[2026-05-12 23:32:53] [iter 144] [Bus 1] P/Q/CMD -> V_in=1.0240 pu, I_in=178.4138 A, V_out=1.0240 pu, I_out=178.4138 A, V_DT=1.0142 pu, P=60.5088 MW, Q=17.6484 MVar
+[2026-05-12 23:32:53] [iter 144] [Bus 2] P/Q/CMD -> V_in=0.9910 pu, I_in=240.1034 A, V_out=0.9910 pu, I_out=240.1034 A, V_DT=1.0013 pu, P=93.5828 MW, Q=30.7592 MVar
+[2026-05-12 23:32:53] [iter 144] [Bus 3] P/Q/CMD -> V_in=0.9870 pu, I_in=411.1724 A, V_out=0.9870 pu, I_out=411.1724 A, V_DT=0.9778 pu, P=135.8101 MW, Q=34.0372 MVar
+[2026-05-12 23:32:53] [iter 144] [Bus 4] P/Q/CMD -> V_in=1.0270 pu, I_in=328.9310 A, V_out=1.0270 pu, I_out=328.9310 A, V_DT=0.9379 pu, P=125.9854 MW, Q=45.7266 MVar
+[2026-05-12 23:32:53] [Bus 4] Command breaker ke RTU: OPEN
+[2026-05-12 23:32:53] [iter 144] [Bus 5] P/Q/CMD -> V_in=0.9580 pu, I_in=116.0345 A, V_out=0.9580 pu, I_out=116.0345 A, V_DT=0.9379 pu, P=36.8165 MW, Q=10.7382 MVar
+[2026-05-12 23:32:53] [Bus 5] Command breaker ke RTU: CLOSE
+
+
+[2026-05-12 23:32:57] [iter 145] [Bus 1] P/Q/CMD -> V_in=0.9650 pu, I_in=1578.2414 A, V_out=0.9650 pu, I_out=1578.2414 A, V_DT=1.0269 pu, P=504.4186 MW, Q=147.1221 MVar
+[2026-05-12 23:32:57] [iter 145] [Bus 2] P/Q/CMD -> V_in=1.0160 pu, I_in=1658.3103 A, V_out=1.0160 pu, I_out=1658.3103 A, V_DT=1.0226 pu, P=662.6489 MW, Q=217.8022 MVar
+[2026-05-12 23:32:57] [iter 145] [Bus 3] P/Q/CMD -> V_in=1.0160 pu, I_in=297.1379 A, V_out=1.0160 pu, I_out=297.1379 A, V_DT=1.0092 pu, P=101.0282 MW, Q=25.3201 MVar
+[2026-05-12 23:32:57] [iter 145] [Bus 4] P/Q/CMD -> V_in=0.9940 pu, I_in=1664.6207 A, V_out=0.9940 pu, I_out=1664.6207 A, V_DT=0.9753 pu, P=617.0871 MW, Q=223.9727 MVar
+[2026-05-12 23:32:57] [Bus 4] Command breaker ke RTU: CLOSE
+[2026-05-12 23:32:57] [iter 145] [Bus 5] P/Q/CMD -> V_in=1.0250 pu, I_in=1553.6552 A, V_out=1.0250 pu, I_out=1553.6552 A, V_DT=0.9838 pu, P=527.4349 MW, Q=153.8352 MVar
+[2026-05-12 23:32:57] [Bus 5] Command breaker ke RTU: OPEN
+
+
+[2026-05-12 23:33:01] [iter 146] [Bus 1] P/Q/CMD -> V_in=0.9920 pu, I_in=214.3103 A, V_out=0.9920 pu, I_out=214.3103 A, V_DT=1.0200 pu, P=70.4117 MW, Q=20.5368 MVar
+[2026-05-12 23:33:01] [iter 146] [Bus 2] P/Q/CMD -> V_in=1.0160 pu, I_in=1581.7586 A, V_out=1.0160 pu, I_out=1581.7586 A, V_DT=1.0143 pu, P=632.0594 MW, Q=207.7479 MVar
+[2026-05-12 23:33:01] [iter 146] [Bus 3] P/Q/CMD -> V_in=1.0160 pu, I_in=1536.7586 A, V_out=1.0160 pu, I_out=1536.7586 A, V_DT=1.0026 pu, P=522.5047 MW, Q=130.9520 MVar
+[2026-05-12 23:33:01] [iter 146] [Bus 4] P/Q/CMD -> V_in=0.9890 pu, I_in=355.7241 A, V_out=0.9890 pu, I_out=355.7241 A, V_DT=0.9736 pu, P=131.2062 MW, Q=47.6215 MVar
+[2026-05-12 23:33:01] [Bus 4] Command breaker ke RTU: OPEN
+[2026-05-12 23:33:01] [iter 146] [Bus 5] P/Q/CMD -> V_in=0.9500 pu, I_in=1605.7586 A, V_out=0.9500 pu, I_out=1605.7586 A, V_DT=0.9735 pu, P=505.2359 MW, Q=147.3605 MVar
+[2026-05-12 23:33:01] [Bus 5] Command breaker ke RTU: CLOSE
+
+
+[2026-05-12 23:33:05] [iter 147] [Bus 1] P/Q/CMD -> V_in=0.9710 pu, I_in=152.8966 A, V_out=0.9710 pu, I_out=152.8966 A, V_DT=1.0271 pu, P=49.1708 MW, Q=14.3415 MVar
+[2026-05-12 23:33:05] [iter 147] [Bus 2] P/Q/CMD -> V_in=0.9750 pu, I_in=238.3793 A, V_out=0.9750 pu, I_out=238.3793 A, V_DT=1.0098 pu, P=91.4107 MW, Q=30.0453 MVar
+[2026-05-12 23:33:05] [iter 147] [Bus 3] P/Q/CMD -> V_in=0.9500 pu, I_in=438.6207 A, V_out=0.9500 pu, I_out=438.6207 A, V_DT=0.9965 pu, P=139.4452 MW, Q=34.9483 MVar
+[2026-05-12 23:33:05] [iter 147] [Bus 4] P/Q/CMD -> V_in=0.9670 pu, I_in=264.0690 A, V_out=0.9670 pu, I_out=264.0690 A, V_DT=0.9630 pu, P=95.2333 MW, Q=34.5651 MVar
+[2026-05-12 23:33:05] [Bus 4] Command breaker ke RTU: CLOSE
+[2026-05-12 23:33:05] [iter 147] [Bus 5] P/Q/CMD -> V_in=1.0200 pu, I_in=302.2069 A, V_out=1.0200 pu, I_out=302.2069 A, V_DT=0.9706 pu, P=102.0927 MW, Q=29.7770 MVar
+[2026-05-12 23:33:05] [Bus 5] Command breaker ke RTU: OPEN
+
+
+[2026-05-12 23:33:09] [iter 148] [Bus 1] P/Q/CMD -> V_in=1.0330 pu, I_in=1581.4138 A, V_out=1.0330 pu, I_out=1581.4138 A, V_DT=1.0352 pu, P=541.0485 MW, Q=157.8058 MVar
+[2026-05-12 23:33:09] [iter 148] [Bus 2] P/Q/CMD -> V_in=0.9570 pu, I_in=1572.5517 A, V_out=0.9570 pu, I_out=1572.5517 A, V_DT=1.0279 pu, P=591.8898 MW, Q=194.5448 MVar
+[2026-05-12 23:33:09] [iter 148] [Bus 3] P/Q/CMD -> V_in=0.9540 pu, I_in=1552.0345 A, V_out=0.9540 pu, I_out=1552.0345 A, V_DT=1.0213 pu, P=495.4965 MW, Q=124.1831 MVar
+[2026-05-12 23:33:09] [iter 148] [Bus 4] P/Q/CMD -> V_in=1.0420 pu, I_in=1655.0690 A, V_out=1.0420 pu, I_out=1655.0690 A, V_DT=1.0103 pu, P=643.1742 MW, Q=233.4411 MVar
+[2026-05-12 23:33:09] [Bus 4] Command breaker ke RTU: OPEN
+[2026-05-12 23:33:09] [iter 148] [Bus 5] P/Q/CMD -> V_in=1.0200 pu, I_in=302.2069 A, V_out=1.0200 pu, I_out=302.2069 A, V_DT=1.0097 pu, P=102.0927 MW, Q=29.7770 MVar
+[2026-05-12 23:33:09] [Bus 5] Command breaker ke RTU: CLOSE
+
+
+[2026-05-12 23:33:13] [iter 149] [Bus 1] P/Q/CMD -> V_in=1.0330 pu, I_in=1581.4138 A, V_out=1.0330 pu, I_out=1581.4138 A, V_DT=1.0248 pu, P=541.0485 MW, Q=157.8058 MVar
+[2026-05-12 23:33:13] [iter 149] [Bus 2] P/Q/CMD -> V_in=0.9570 pu, I_in=1572.5517 A, V_out=0.9570 pu, I_out=1572.5517 A, V_DT=1.0164 pu, P=591.8898 MW, Q=194.5448 MVar
+[2026-05-12 23:33:13] [iter 149] [Bus 3] P/Q/CMD -> V_in=0.9540 pu, I_in=1552.0345 A, V_out=0.9540 pu, I_out=1552.0345 A, V_DT=1.0054 pu, P=495.4965 MW, Q=124.1831 MVar
+[2026-05-12 23:33:13] [iter 149] [Bus 4] P/Q/CMD -> V_in=1.0420 pu, I_in=1655.0690 A, V_out=1.0420 pu, I_out=1655.0690 A, V_DT=0.9791 pu, P=643.1742 MW, Q=233.4411 MVar
+[2026-05-12 23:33:13] [Bus 4] Command breaker ke RTU: CLOSE
+[2026-05-12 23:33:13] [iter 149] [Bus 5] P/Q/CMD -> V_in=1.0060 pu, I_in=1664.9655 A, V_out=1.0060 pu, I_out=1664.9655 A, V_DT=0.9875 pu, P=554.7452 MW, Q=161.8007 MVar
+[2026-05-12 23:33:13] [Bus 5] Command breaker ke RTU: OPEN
+
+
+[2026-05-12 23:33:17] [iter 150] [Bus 1] P/Q/CMD -> V_in=1.0330 pu, I_in=1550.9655 A, V_out=1.0330 pu, I_out=1550.9655 A, V_DT=1.0171 pu, P=530.6312 MW, Q=154.7674 MVar
+[2026-05-12 23:33:17] [iter 150] [Bus 2] P/Q/CMD -> V_in=0.9570 pu, I_in=1634.0690 A, V_out=0.9570 pu, I_out=1634.0690 A, V_DT=1.0059 pu, P=615.0441 MW, Q=202.1552 MVar
+[2026-05-12 23:33:17] [iter 150] [Bus 3] P/Q/CMD -> V_in=0.9540 pu, I_in=1586.6897 A, V_out=0.9540 pu, I_out=1586.6897 A, V_DT=0.9896 pu, P=506.5604 MW, Q=126.9560 MVar
+[2026-05-12 23:33:17] [iter 150] [Bus 4] P/Q/CMD -> V_in=1.0420 pu, I_in=1635.6207 A, V_out=1.0420 pu, I_out=1635.6207 A, V_DT=0.9657 pu, P=635.6164 MW, Q=230.6980 MVar
+[2026-05-12 23:33:17] [Bus 4] Command breaker ke RTU: OPEN
+[2026-05-12 23:33:17] [iter 150] [Bus 5] P/Q/CMD -> V_in=1.0060 pu, I_in=1524.8966 A, V_out=1.0060 pu, I_out=1524.8966 A, V_DT=0.9669 pu, P=508.0760 MW, Q=148.1888 MVar
+[2026-05-12 23:33:17] [Bus 5] Command breaker ke RTU: CLOSE

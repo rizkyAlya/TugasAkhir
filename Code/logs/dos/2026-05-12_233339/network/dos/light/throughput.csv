@@ -1,0 +1,7 @@
+timestamp,run,fase,layer,source,destination,throughput_Mbps,status,error,raw_output_tail
+2026-05-12 23:36:00.994030,1,dos_light,field,h2,h3,2.97,ok,,
+2026-05-12 23:36:08.705209,2,dos_light,field,h2,h3,2.7,ok,,
+2026-05-12 23:36:16.659347,3,dos_light,field,h2,h3,2.95,ok,,
+2026-05-12 23:36:24.271624,1,dos_light,system,h3,h4,4.71,ok,,
+2026-05-12 23:36:31.683192,2,dos_light,system,h3,h4,4.89,ok,,
+2026-05-12 23:36:39.041929,3,dos_light,system,h3,h4,4.96,ok,,
