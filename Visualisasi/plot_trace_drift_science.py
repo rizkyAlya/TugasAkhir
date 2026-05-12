@@ -6,9 +6,12 @@ Masukan:
   - CSV agregat 34 baris (avg_drift_mitm, avg_drift_baseline, waktu)
 
 Keluaran (PNG, dpi tinggi):
-  1) fig_drift_mean_vs_waktu.png — mean drift vs waktu (MITM vs baseline)
-  2) fig_drift_mitm_pct_per_bus.png — bar chart mean drift MITM (%) per bus
-  3) fig_drift_share_by_bus_pie.png — kontribusi total drift_mitm per bus
+  1) fig_drift_mean_vs_waktu.png — mean drift vs waktu (MITM vs field, baseline vs field)
+  2) fig_drift_mean_abs_vdt_mitm_minus_baseline_vs_waktu.png — satu garis:
+     per waktu: rata-rata semua bus & iterasi dari $|V_{DT}^{mitm}-V_{DT}^{baseline}|$ (pu);
+     baseline sebagai acuan, tidak dibandingkan ke lapangan.
+  3) fig_drift_mitm_pct_per_bus.png — bar chart mean drift MITM (%) per bus
+  4) fig_drift_share_by_bus_pie.png — kontribusi total drift_mitm per bus
 
 Contoh:
   cd Visualisasi
@@ -35,6 +38,7 @@ C_BAR_EDGE = "#134e4a"  # teal-900
 C_GRID = "#e2e8f0"  # slate-200
 C_AXES_BG = "#f8fafc"  # slate-50
 PIE_COLORS = ["#4f46e5", "#7c3aed", "#db2777", "#059669", "#d97706"]  # indigo, violet, rose, emerald, amber
+C_VS_BASE = "#7c3aed"  # violet: |V_dt_mitm − V_dt_baseline|
 
 
 def apply_science_style() -> None:
@@ -102,6 +106,42 @@ def plot_mean_drift_vs_waktu(df34: pd.DataFrame, out: Path) -> None:
     ax.set_xlabel(r"Waktu $t$")
     ax.set_ylabel("Rata-rata drift (pu)")
     ax.set_title("Mean drift terhadap waktu")
+    ax.legend(loc="best")
+    fig.savefig(out)
+    plt.close(fig)
+
+
+def plot_mean_abs_vdt_mitm_minus_baseline_vs_waktu(df_lb: pd.DataFrame, out: Path) -> None:
+    """Satu garis: mean_{bus,iter} |V_DT^mitm - V_DT^baseline| per waktu (pu)."""
+    vm = pd.to_numeric(df_lb["v_dt_mitm"], errors="coerce")
+    vb = pd.to_numeric(df_lb["v_dt_baseline"], errors="coerce")
+    w = pd.to_numeric(df_lb["waktu"], errors="coerce")
+    d = (vm - vb).abs()
+    g = (
+        pd.DataFrame({"waktu": w, "abs_dv": d})
+        .dropna()
+        .groupby("waktu", as_index=False)["abs_dv"]
+        .mean()
+        .sort_values("waktu")
+    )
+    fig, ax = plt.subplots(figsize=(7.2, 4.2))
+    x = g["waktu"].astype(int)
+    y = g["abs_dv"].astype(float)
+    ax.plot(
+        x,
+        y,
+        marker="o",
+        ms=5,
+        lw=2.1,
+        color=C_VS_BASE,
+        markerfacecolor=C_VS_BASE,
+        markeredgecolor="white",
+        markeredgewidth=0.6,
+        label=r"mean (pu)",
+    )
+    ax.set_xlabel(r"Waktu $t$")
+    ax.set_ylabel("Rata-rata (pu)")
+    ax.set_title("Drift MITM vs baseline")
     ax.legend(loc="best")
     fig.savefig(out)
     plt.close(fig)
@@ -210,7 +250,7 @@ def main() -> int:
     df_lb = pd.read_csv(lb)
     df34 = pd.read_csv(m34)
 
-    need_lb = {"bus", "waktu", "drift_mitm", "drift_baseline", "v_field"}
+    need_lb = {"bus", "waktu", "drift_mitm", "drift_baseline", "v_field", "v_dt_mitm", "v_dt_baseline"}
     miss = need_lb - set(df_lb.columns)
     if miss:
         raise SystemExit(f"Kolom hilang di labeled: {miss}")
@@ -220,6 +260,9 @@ def main() -> int:
         raise SystemExit(f"Kolom hilang di mean34: {miss34}")
 
     plot_mean_drift_vs_waktu(df34, out_dir / "fig_drift_mean_vs_waktu.png")
+    plot_mean_abs_vdt_mitm_minus_baseline_vs_waktu(
+        df_lb, out_dir / "fig_drift_mean_abs_vdt_mitm_minus_baseline_vs_waktu.png"
+    )
     plot_drift_mitm_pct_per_bus(df_lb, out_dir / "fig_drift_mitm_pct_per_bus.png")
     plot_drift_share_pie(df_lb, out_dir / "fig_drift_share_by_bus_pie.png")
 
