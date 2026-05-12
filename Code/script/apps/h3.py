@@ -233,6 +233,7 @@ try:
         except Exception as e:
             print(f"[{ts}] DT_path_probe sync: {e}")
 
+        # Satu siklus ≈ satu inkremen kolom "waktu" di trace; selaras topology.j2: TRACE_BEFORE_NETWORK_GATEWAY_CYCLE_S
         time.sleep(4)
 
 except KeyboardInterrupt:
