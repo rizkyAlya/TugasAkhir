@@ -1,0 +1,15 @@
+metric,value
+mae_abs_delta_i_mitm,738.2508046199999
+mae_abs_delta_i_baseline,0.0
+mae_pct_i_inj_mitm_mean,310.0459164549796
+mae_abs_drift_v_dt,0.04442749333333333
+max_abs_drift_v_dt,0.15088899999999994
+max_drift_v_dt_bus,4.0
+max_drift_v_dt_waktu,82.0
+max_drift_v_dt_timestamp_m,2026-05-12 23:28:43
+max_pct_v_dt_vs_baseline_mag,14.529807521837405
+mean_v_dt_baseline,1.0412955066666667
+mean_v_dt_mitm,0.996898728888889
+filter_n_waktu_per_iter,30
+filter_iterasi_ke,"1,2,3"
+filter_n_rows_total,450
