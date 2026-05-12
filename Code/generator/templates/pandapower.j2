@@ -26,6 +26,9 @@ for bus in range(1, 6):
     v_dt_nodes[bus] = root.get_child(["0:Objects", f"{idx}:SENSORS", f"{idx}:V_DT_bus_{bus}"])
     command_nodes[bus] = root.get_child(["0:Objects", f"{idx}:COMMANDS", f"{idx}:CMD_bus_{bus}"])
 
+dt_path_probe_node = root.get_child(["0:Objects", f"{idx}:SENSORS", f"{idx}:DT_path_probe"])
+_last_dt_probe = -1
+
 # Map field bus -> pandapower bus yang memiliki elemen load
 # (dipilih dari set load_buses case39 agar update p_mw/q_mvar selalu masuk)
 bus_map = {
@@ -60,6 +63,14 @@ p_ema = {}
 q_ema = {}
 
 while True:
+    try:
+        probe = int(dt_path_probe_node.get_value())
+        if probe != _last_dt_probe:
+            print(f"DT_PATH_LAT,h4,{time.time():.6f},{probe}", flush=True)
+            _last_dt_probe = probe
+    except Exception as e:
+        print(f"DT_path_probe read: {e}")
+
     for bus in range(1, 6):
         p_in = float(p_nodes[bus].get_value())
         q_in = float(q_nodes[bus].get_value())

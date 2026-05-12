@@ -25,6 +25,7 @@ sys.path.append(OUTPUT_DIR)
 sys.path.append(BASE_DIR)
 
 from logger.collector import collect_data
+from logger.dt_path_latency import collect_dt_path_latency
 from logger.mitm_trace_logger import (
     MITM_PROXY_SNAPSHOT_FILE,
     RUN_ROOT_HOST_FILE,
@@ -450,6 +451,11 @@ def main():
                     measure_phase=phase_label,
                 )
                 print(f"DoS ({dos_mode}) collection complete.\n")
+                print(f"Menjalankan DoS ulang ({dos_mode}) untuk pengukuran delay field/RTU -> DT (h2->h4)...")
+                run_dos(net, dos_mode, host_log_dir)
+                lat_dir = os.path.join(path_dos, "dt_path_latency", dos_mode)
+                collect_dt_path_latency(net, lat_dir, dos_mode, host_log_dir)
+                print()
 
     if should_create_run_folder:
         publish_trace_enabled_on_hosts(net, False)

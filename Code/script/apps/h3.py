@@ -34,6 +34,7 @@ last_breaker = {}
 #   0-4   : V bus
 #   10-14 : I bus
 #   20-24 : breaker feedback dari RTU
+#   95    : counter batch RTU (sinkron pengukuran delay h2 -> DT / OPC)
 # - Coils:
 #   0-4   : breaker command ke RTU
 MODBUS_LISTEN_IP = "0.0.0.0"
@@ -42,6 +43,7 @@ V_BASE_ADDR = 0
 I_BASE_ADDR = 10
 BREAKER_FB_BASE_ADDR = 20
 BREAKER_CMD_BASE_ADDR = 0
+DT_PATH_PROBE_ADDR = 95
 V_SCALE = 1000
 I_SCALE = 29
 NUM_BUS = 5
@@ -145,6 +147,9 @@ for bus in range(1, 6):
 
     last_breaker[bus] = 1
 
+dt_path_probe_node = sensor_folder.add_variable(idx, "DT_path_probe", 0)
+dt_path_probe_node.set_writable()
+
 print("Memulai Server OPC UA")
 server.start()
 t = Thread(target=start_modbus_server, daemon=True)
@@ -221,6 +226,12 @@ try:
             if cmd_val != last_breaker[bus]:
                 print(f"[{ts}] [Bus {bus}] Command breaker ke RTU: {'CLOSE' if cmd_val==1 else 'OPEN'}")
                 last_breaker[bus] = cmd_val
+
+        try:
+            probe_reg = context[0x00].getValues(3, DT_PATH_PROBE_ADDR, count=1)[0]
+            dt_path_probe_node.set_value(int(probe_reg))
+        except Exception as e:
+            print(f"[{ts}] DT_path_probe sync: {e}")
 
         time.sleep(4)
 

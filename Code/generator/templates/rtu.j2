@@ -14,6 +14,8 @@ BREAKER_FB_BASE_ADDR = 20
 V_SCALE = 1000
 I_SCALE = 29
 NUM_BUS = 5
+DT_PATH_PROBE_ADDR = 95
+_dt_path_cycle = 0
 
 # Modbus clients
 field_client = ModbusTcpClient(FIELD_IP, port=MODBUS_PORT)
@@ -117,6 +119,20 @@ try:
                     f"I={i:.3f} A, "
                     f"Breaker={'CLOSE' if breaker_cmd[bus]==1 else 'OPEN'}"
                 )
+
+            _dt_path_cycle = (_dt_path_cycle + 1) & 0xFFFF
+            if _dt_path_cycle == 0:
+                _dt_path_cycle = 1
+            try:
+                gateway_client.write_register(
+                    DT_PATH_PROBE_ADDR, int(_dt_path_cycle), unit=1
+                )
+                print(
+                    f"DT_PATH_LAT,h2,{time.time():.6f},{_dt_path_cycle}",
+                    flush=True,
+                )
+            except Exception as e:
+                print(f"[{ts}] DT_path probe write failed: {e}")
         except ConnectionException as e:
             print(f"[{ts}] Koneksi Modbus terputus: {e}. Reconnecting...")
             try:
