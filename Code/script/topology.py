@@ -128,43 +128,6 @@ def escalate_attacker_to_field(net):
     print("[topology] Attacker eskalasi ke Field: h5-eth1 = 10.0.1.100/24")
 
 
-# --- Baseline & MITM: trace dulu (iterasi_ke 1..N), baru collect_data jaringan ---
-# Durasi sama di kedua skenario agar trace vs network comparable.
-# Satu tick kolom "waktu" = satu putaran loop gateway; selaras gateway.j2 (time.sleep akhir loop).
-TRACE_BEFORE_NETWORK_NUM_ITERATIONS = 3
-TRACE_BEFORE_NETWORK_MIN_WAKTU_PER_ITERATION = 35
-TRACE_BEFORE_NETWORK_GATEWAY_CYCLE_S = 4
-
-
-def _trace_iterations_before_network_collect(net, log_label):
-    from logger.mitm_trace_logger import publish_collect_run_on_hosts
-
-    wait_s = TRACE_BEFORE_NETWORK_MIN_WAKTU_PER_ITERATION * TRACE_BEFORE_NETWORK_GATEWAY_CYCLE_S
-    n = TRACE_BEFORE_NETWORK_NUM_ITERATIONS
-    for i in range(1, n + 1):
-        publish_collect_run_on_hosts(net, i)
-        print(
-            f"[topology] {log_label} trace: iterasi_ke={i}/{n}, "
-            f"menunggu {wait_s}s (target >= {TRACE_BEFORE_NETWORK_MIN_WAKTU_PER_ITERATION} waktu/iterasi)..."
-        )
-        time.sleep(wait_s)
-
-
-def baseline_trace_before_network_collect(net):
-    """
-    Fase normal (tanpa serangan MITM): kumpulkan trace baseline dulu, lalu orchestrator
-    memanggil collect_data. Folder trace: .../trace/baseline/ (flag serangan tidak aktif).
-    """
-    _trace_iterations_before_network_collect(net, "baseline")
-
-
-def mitm_trace_before_network_collect(net):
-    """
-    Selama serangan MITM: kumpulkan trace mitm dulu, lalu collect_data. Folder: .../trace/mitm/.
-    """
-    _trace_iterations_before_network_collect(net, "MITM")
-
-
 def CPS_topology():
     net = create_network()
     print("Starting network")

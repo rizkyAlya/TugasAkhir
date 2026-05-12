@@ -41,6 +41,26 @@ from logger.mitm_trace_logger import (
 # Jeda fase normal (tanpa pengumpulan baseline) sebelum serangan MITM.
 NORMAL_PHASE_PRE_ATTACK_S = 5
 
+# Trace sebelum collect_data jaringan (baseline & MITM, durasi sama agar comparable).
+# Satu tick kolom "waktu" ≈ satu putaran loop gateway — selaras generator/templates/gateway.j2 (time.sleep akhir loop).
+TRACE_BEFORE_NETWORK_NUM_ITERATIONS = 3
+TRACE_BEFORE_NETWORK_MIN_WAKTU_PER_ITERATION = 35
+TRACE_BEFORE_NETWORK_GATEWAY_CYCLE_S = 4
+
+
+def trace_phase_before_network_collect(net, log_label: str) -> None:
+    """Set iterasi_ke 1..N di host, tunggu agar gateway sempat mengisi trace, lalu collect_data dipanggil pemanggil."""
+    wait_s = TRACE_BEFORE_NETWORK_MIN_WAKTU_PER_ITERATION * TRACE_BEFORE_NETWORK_GATEWAY_CYCLE_S
+    n = TRACE_BEFORE_NETWORK_NUM_ITERATIONS
+    for i in range(1, n + 1):
+        publish_collect_run_on_hosts(net, i)
+        print(
+            f"[orchestrator] {log_label} trace: iterasi_ke={i}/{n}, "
+            f"menunggu {wait_s}s (target >= {TRACE_BEFORE_NETWORK_MIN_WAKTU_PER_ITERATION} waktu/iterasi)..."
+        )
+        time.sleep(wait_s)
+
+
 def reset_attack_flags():
     for flag_path in (ATTACK_ACTIVE_FLAG, MITM_RUN_ID_FILE):
         try:
@@ -413,9 +433,8 @@ def main():
         delay = max(0, args.collect_delay)
         print(f"Collecting baseline in {delay}s...")
         time.sleep(delay)
-        if hasattr(topology_mod, "baseline_trace_before_network_collect"):
-            print("Baseline: fase pengukuran trace (sebelum network)...")
-            topology_mod.baseline_trace_before_network_collect(net)
+        print("Baseline: fase pengukuran trace (sebelum network)...")
+        trace_phase_before_network_collect(net, "baseline")
         collect_data(
             net,
             mode="baseline",
@@ -435,9 +454,8 @@ def main():
             topology_mod.escalate_attacker_to_field(net)
             time.sleep(1)
         run_mitm(net, host_log_dir)
-        if hasattr(topology_mod, "mitm_trace_before_network_collect"):
-            print("MITM: fase pengukuran trace (sebelum network)...")
-            topology_mod.mitm_trace_before_network_collect(net)
+        print("MITM: fase pengukuran trace (sebelum network)...")
+        trace_phase_before_network_collect(net, "MITM")
         print("Collecting MITM metrics (attack phase)...")
         collect_data(
             net,
