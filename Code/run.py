@@ -413,6 +413,9 @@ def main():
         delay = max(0, args.collect_delay)
         print(f"Collecting baseline in {delay}s...")
         time.sleep(delay)
+        if hasattr(topology_mod, "baseline_trace_before_network_collect"):
+            print("Baseline: fase pengukuran trace (sebelum network)...")
+            topology_mod.baseline_trace_before_network_collect(net)
         collect_data(
             net,
             mode="baseline",
