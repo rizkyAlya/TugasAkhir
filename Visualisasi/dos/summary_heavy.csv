@@ -1,0 +1,7 @@
+metric,layer,source,destination,mean,std_dev
+RTT,field,h2,h3,37.57,26.63
+RTT,system,h3,h4,55.28,16.05
+Packet Loss,field,h2,h3,0.0,0.0
+Packet Loss,system,h3,h4,2.24,1.10
+Throughput,field,h2,h3,0.56,0.07
+Throughput,system,h3,h4,4.64,0.18
