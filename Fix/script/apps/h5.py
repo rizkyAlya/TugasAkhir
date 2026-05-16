@@ -65,7 +65,7 @@ def run_mitm_attack(
     L3: RTU arahkan subnet kontrol via Field attacker + ip_forward.
     Modbus ke gateway di-DNAT ke modbus_proxy (ubah I pada FC06/FC16).
     """
-    print("Running MITM (route + DNAT Modbus proxy + fixed-seed false I)...")
+    print("Running MITM (route + DNAT Modbus proxy; I scaled in-path, default x1.5)...")
     attacker = net.get(attacker_name)
     rtu = net.get(rtu_name)
     gateway = net.get(gateway_name)

