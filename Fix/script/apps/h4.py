@@ -1,6 +1,7 @@
 """
 Digital Twin (h4): 5-bus model (sama arsitektur field), sinkron via OPC UA gateway.
 """
+import math
 import os
 import time
 from datetime import datetime
@@ -77,6 +78,55 @@ def apply_pq_to_loads(net, loads, p_by_bus, q_by_bus):
         net.load.at[load_idx, "q_mvar"] = float(q_by_bus[bus])
 
 
+def _voltage_snapshot(net, bus_nums):
+    return [float(net.res_bus.vm_pu.at[bus_nums[b]]) for b in range(1, NUM_BUS + 1)]
+
+
+def _log_bus_cycle(
+    ts_row,
+    bus,
+    bus_nums,
+    switches_by_bus,
+    net,
+    brk_fb,
+    cmd,
+    p_in,
+    q_in,
+):
+    idx_pp = bus_nums[bus]
+    vm_raw = float(net.res_bus.vm_pu.at[idx_pp])
+    vm_pu = vm_raw if math.isfinite(vm_raw) else float("nan")
+
+    line_idx = LINE_BY_BUS.get(bus)
+    if line_idx is None:
+        print(
+            f"[h4] {ts_row} bus={bus} line=- pp_bus={idx_pp} | "
+            f"no_line_switch | brk_fb={brk_fb[bus]} cmd={cmd[bus]} | "
+            f"vm_pu={vm_pu:.4f} P_in={p_in:.4f} Q_in={q_in:.4f}",
+            flush=True,
+        )
+        return
+
+    sw_idx = switches_by_bus[bus]
+    i_from_ka = abs(float(net.res_line.i_from_ka.at[line_idx]))
+    i_to_ka = abs(float(net.res_line.i_to_ka.at[line_idx]))
+    i_line_ka = max(i_from_ka, i_to_ka)
+    max_i = float(net.line.max_i_ka.at[line_idx])
+    thr_open = max_i * OPEN_FACTOR
+    thr_close = max_i * CLOSE_FACTOR
+    was_closed = bool(net.switch.at[sw_idx, "closed"])
+    in_svc = bool(net.line.in_service.at[line_idx])
+
+    print(
+        f"[h4] {ts_row} bus={bus} line={line_idx} pp_bus={idx_pp} | "
+        f"i_from={i_from_ka:.4f} i_to={i_to_ka:.4f} i_line={i_line_ka:.4f} kA | "
+        f"max_i={max_i:.4f} thr_open={thr_open:.4f} thr_close={thr_close:.4f} | "
+        f"was_closed={was_closed} cmd={cmd[bus]} in_svc={in_svc} brk_fb={brk_fb[bus]} | "
+        f"vm_pu={vm_pu:.4f} P_in={p_in:.4f} Q_in={q_in:.4f}",
+        flush=True,
+    )
+
+
 def protection_commands(net, switches_by_bus, brk_fb):
     cmd = {bus: int(brk_fb.get(bus, 1)) for bus in range(1, NUM_BUS + 1)}
     for bus, sw_idx in switches_by_bus.items():
@@ -101,15 +151,16 @@ def connect_opcua():
     while True:
         try:
             client.connect()
-            print(f"OPC UA connected: {GATEWAY_OPC}")
+            print(f"OPC UA connected: {GATEWAY_OPC}", flush=True)
             return client
         except Exception as exc:
-            print(f"OPC connect failed: {exc}; retry 2s")
+            print(f"OPC connect failed: {exc}; retry 2s", flush=True)
             time.sleep(2)
 
 
 def get_opcua_nodes(client):
     idx = client.get_namespace_index("mininet-opcua")
+    print(f"Namespace index: {idx}", flush=True)
     root = client.get_root_node()
     p_nodes, q_nodes, v_dt_nodes, brk_fb_nodes, cmd_nodes = {}, {}, {}, {}, {}
     for bus in range(1, NUM_BUS + 1):
@@ -126,12 +177,14 @@ def main():
     net, bus_nums, loads, switches_by_bus = build_network()
     pp.runpp(net)
 
+    print("Field bus -> Pandapower bus mapping:", bus_nums, flush=True)
+    print("Unique bus->line mapping:", LINE_BY_BUS, flush=True)
+
     client = connect_opcua()
     p_nodes, q_nodes, v_dt_nodes, brk_fb_nodes, cmd_nodes, probe_node = get_opcua_nodes(client)
     _last_probe = -1
 
     while True:
-        ts = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         try:
             try:
                 probe = int(probe_node.get_value())
@@ -139,28 +192,47 @@ def main():
                     print(f"DT_PATH_LAT,h4,{time.time():.6f},{probe}", flush=True)
                     _last_probe = probe
             except Exception as exc:
-                print(f"DT_path_probe: {exc}")
+                print(f"DT_path_probe read: {exc}", flush=True)
 
-            brk_fb = {bus: (1 if int(brk_fb_nodes[bus].get_value()) == 1 else 0) for bus in range(1, NUM_BUS + 1)}
+            brk_fb = {
+                bus: (1 if int(brk_fb_nodes[bus].get_value()) == 1 else 0)
+                for bus in range(1, NUM_BUS + 1)
+            }
+            p_in = {bus: float(p_nodes[bus].get_value()) for bus in range(1, NUM_BUS + 1)}
+            q_in = {bus: float(q_nodes[bus].get_value()) for bus in range(1, NUM_BUS + 1)}
 
             apply_topology_from_feedback(net, switches_by_bus, brk_fb)
+            apply_pq_to_loads(net, loads, p_in, q_in)
 
-            p_by_bus = {bus: float(p_nodes[bus].get_value()) for bus in range(1, NUM_BUS + 1)}
-            q_by_bus = {bus: float(q_nodes[bus].get_value()) for bus in range(1, NUM_BUS + 1)}
-            apply_pq_to_loads(net, loads, p_by_bus, q_by_bus)
-            pp.runpp(net)
-
-            for bus in range(1, NUM_BUS + 1):
-                v_dt_nodes[bus].set_value(float(net.res_bus.vm_pu.at[bus_nums[bus]]))
+            ts_row = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+            try:
+                pp.runpp(net)
+                for bus in range(1, NUM_BUS + 1):
+                    vm = float(net.res_bus.vm_pu.at[bus_nums[bus]])
+                    if math.isfinite(vm):
+                        v_dt_nodes[bus].set_value(vm)
+                print("\n", ts_row, flush=True)
+                print(
+                    "Load flow sukses. Voltage snapshot (pu):",
+                    _voltage_snapshot(net, bus_nums),
+                    flush=True,
+                )
+            except Exception:
+                print("\n", ts_row, flush=True)
+                print("Load flow gagal", flush=True)
+                raise
 
             cmd = protection_commands(net, switches_by_bus, brk_fb)
             for bus in range(1, NUM_BUS + 1):
                 cmd_nodes[bus].set_value(int(cmd[bus]))
 
-            print(f"\n[{ts}] DT cycle OK", flush=True)
+            for bus in range(1, NUM_BUS + 1):
+                _log_bus_cycle(
+                    ts_row, bus, bus_nums, switches_by_bus, net, brk_fb, cmd, p_in[bus], q_in[bus]
+                )
 
         except Exception as exc:
-            print(f"[{ts}] DT cycle error: {exc}")
+            print(f"DT cycle error: {exc}", flush=True)
             try:
                 client.disconnect()
             except Exception:
@@ -175,4 +247,4 @@ if __name__ == "__main__":
     try:
         main()
     except KeyboardInterrupt:
-        print("DT dihentikan")
+        print("DT dihentikan", flush=True)
