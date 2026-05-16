@@ -304,7 +304,7 @@ def start_apps(net, host_log_dir):
             continue
         _start_host_app(host)
         started.add(name)
-        time.sleep(0.5)
+        time.sleep(2)
 
     # Start remaining host apps (stable deterministic order).
     for host in sorted(net.hosts, key=lambda h: h.name):
