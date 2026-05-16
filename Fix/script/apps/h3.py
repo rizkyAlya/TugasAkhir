@@ -172,7 +172,7 @@ try:
                 pf = min(1.0, max(1e-6, pf_raw))
                 v_real = v_out * V_BASE
                 s_va = math.sqrt(3) * v_real * i_out
-                
+
                 phi = math.acos(pf)
                 p_mw = s_va * math.cos(phi) / 1e6
                 q_mvar = s_va * math.sin(phi) / 1e6
