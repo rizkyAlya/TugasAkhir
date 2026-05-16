@@ -1,0 +1,224 @@
+import os
+import sys
+import time
+import math
+from datetime import datetime
+from threading import Thread
+
+from opcua import Server
+from pymodbus.server import StartTcpServer
+from pymodbus.datastore import ModbusSlaveContext, ModbusServerContext
+from pymodbus.datastore import ModbusSequentialDataBlock
+
+# Konfigurasi server OPC UA
+server = Server()
+server.set_endpoint("opc.tcp://10.0.2.2:4840/mininet/")
+
+uri = "mininet-opcua"
+idx = server.register_namespace(uri)
+
+objects = server.get_objects_node()
+
+sensor_folder = objects.add_folder(idx, "SENSORS")
+command_folder = objects.add_folder(idx, "COMMANDS")
+
+p_nodes = {}
+q_nodes = {}
+v_dt_nodes = {}
+brk_fb_nodes = {}
+command_nodes = {}
+
+last_breaker = {}
+
+# Modbus gateway datastore:
+# - Holding registers:
+#   0-4   : V bus
+#   10-14 : I bus
+#   20-24 : breaker feedback dari RTU (status switch field)
+#   30-34 : PF per bus dari field (via RTU)
+#   OPC BRK_FB_bus_* : diteruskan ke DT untuk sinkron topologi
+#   95    : counter batch RTU (sinkron pengukuran delay h2 -> DT / OPC)
+# - Coils:
+#   0-4   : breaker command ke RTU
+MODBUS_LISTEN_IP = "0.0.0.0"
+MODBUS_PORT = 5020
+V_BASE_ADDR = 0
+I_BASE_ADDR = 10
+BREAKER_FB_BASE_ADDR = 20
+PF_FB_BASE_ADDR = 30
+BREAKER_CMD_BASE_ADDR = 0
+DT_PATH_PROBE_ADDR = 95
+V_SCALE = 1000
+I_SCALE = 30
+PF_SCALE = 10000
+NUM_BUS = 5
+V_BASE = 345e3
+# Data V/I/PF dari holding register Modbus (RTU dari field).
+BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
+MITM_LOG_DIR = os.path.join(BASE_DIR, "logs", "mitm")
+TRACE_CSV = os.path.join(MITM_LOG_DIR, "trace.csv")
+sys.path.append(BASE_DIR)
+from logger.mitm_trace_logger import (
+    ATTACK_FLAG,
+    append_trace_row,
+    ensure_trace_csv,
+    get_run_id,
+    read_mitm_proxy_snapshot,
+)
+
+store = ModbusSlaveContext(
+    di=ModbusSequentialDataBlock(0, [0] * 100),
+    co=ModbusSequentialDataBlock(0, [1] * 100),
+    hr=ModbusSequentialDataBlock(0, [0] * 100),
+    ir=ModbusSequentialDataBlock(0, [0] * 100),
+)
+context = ModbusServerContext(slaves=store, single=True)
+
+ensure_trace_csv(TRACE_CSV)
+
+def start_modbus_server():
+    print(f"Memulai Modbus Gateway di {MODBUS_LISTEN_IP}:{MODBUS_PORT}")
+    StartTcpServer(context=context, identity=None, address=(MODBUS_LISTEN_IP, MODBUS_PORT))
+
+
+def log_h3_measurement(ts, waktu, bus, v_in, i_in, v_out, i_out, v_dt, breaker_cmd, breaker_fb):
+    """Satu baris per bus; waktu=indeks siklus gateway; iterasi_ke di CSV dari fase collect (sinkron kolom run)."""
+    if os.path.exists(ATTACK_FLAG):
+        snap = read_mitm_proxy_snapshot(bus) or {}
+        v_before = snap.get("v_before", f"{v_in:.6f}")
+        v_after = snap.get("v_after", f"{v_out:.6f}")
+        i_before = snap.get("i_before", f"{i_in:.6f}")
+        i_after = snap.get("i_after", f"{i_out:.6f}")
+    else:
+        v_before = f"{v_in:.6f}"
+        v_after = f"{v_out:.6f}"
+        i_before = f"{i_in:.6f}"
+        i_after = f"{i_out:.6f}"
+
+    append_trace_row(
+        TRACE_CSV,
+        [
+            ts,
+            waktu,
+            get_run_id(),
+            bus,
+            v_before,
+            v_after,
+            i_before,
+            i_after,
+            f"{v_dt:.6f}",
+            breaker_cmd,
+            breaker_fb,
+        ],
+    )
+
+
+for bus in range(1, 6):
+    p_nodes[bus] = sensor_folder.add_variable(idx, f"P_bus_{bus}", 0.0)   # MW
+    p_nodes[bus].set_writable()
+
+    q_nodes[bus] = sensor_folder.add_variable(idx, f"Q_bus_{bus}", 0.0)   # MVar
+    q_nodes[bus].set_writable()
+
+    # Diisi oleh DT (h4) agar gateway bisa logging V_DT per bus.
+    v_dt_nodes[bus] = sensor_folder.add_variable(idx, f"V_DT_bus_{bus}", 1.0)   # pu
+    v_dt_nodes[bus].set_writable()
+
+    brk_fb_nodes[bus] = sensor_folder.add_variable(idx, f"BRK_FB_bus_{bus}", 1)
+    brk_fb_nodes[bus].set_writable()
+
+    command_nodes[bus] = command_folder.add_variable(idx, f"CMD_bus_{bus}", 1)
+    command_nodes[bus].set_writable()
+
+    last_breaker[bus] = 1
+
+dt_path_probe_node = sensor_folder.add_variable(idx, "DT_path_probe", 0)
+dt_path_probe_node.set_writable()
+
+print("Memulai Server OPC UA")
+server.start()
+t = Thread(target=start_modbus_server, daemon=True)
+t.start()
+
+_gateway_measure_iter = 0
+
+try:
+    while True:
+        print("\n")
+        _gateway_measure_iter += 1
+        ts = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+
+        for bus in range(1, NUM_BUS + 1):
+            cmd_val = last_breaker[bus]
+            try:
+                # 1) Ambil data dari RTU melalui Modbus
+                addr_v = V_BASE_ADDR + (bus - 1)
+                addr_i = I_BASE_ADDR + (bus - 1)
+                addr_pf = PF_FB_BASE_ADDR + (bus - 1)
+                addr_b = BREAKER_FB_BASE_ADDR + (bus - 1)
+                v_raw_reg = context[0x00].getValues(3, addr_v, count=1)[0]
+                i_raw_reg = context[0x00].getValues(3, addr_i, count=1)[0]
+                pf_raw_reg = context[0x00].getValues(3, addr_pf, count=1)[0]
+                b_raw = context[0x00].getValues(3, addr_b, count=1)[0]
+                v_raw = float(v_raw_reg) / V_SCALE
+                i_raw = float(i_raw_reg) / I_SCALE
+                pf_raw = float(pf_raw_reg) / PF_SCALE
+
+                breaker_fb = 1 if int(b_raw) == 1 else 0
+                v_out = v_raw
+                i_out = i_raw
+
+                # 2) Konversi V/I/PF -> P/Q (PF dari RTU/field, bukan hardcoded)
+                pf = min(1.0, max(1e-6, pf_raw))
+                v_real = v_out * V_BASE
+                s_va = v_real * i_out
+                p_mw = (s_va * pf) / 1e6
+                q_mvar = (s_va * math.sqrt(max(0.0, 1 - pf**2))) / 1e6
+
+                p_nodes[bus].set_value(p_mw)
+                q_nodes[bus].set_value(q_mvar)
+                brk_fb_nodes[bus].set_value(int(breaker_fb))
+
+                # 3) Ambil command dari OPC UA lalu tulis ke Modbus coil untuk RTU
+                cmd = command_nodes[bus].get_value()
+                cmd_val = 1 if int(cmd) == 1 else 0
+                context[0x00].setValues(1, BREAKER_CMD_BASE_ADDR + (bus - 1), [cmd_val])
+                v_dt = float(v_dt_nodes[bus].get_value())
+                log_h3_measurement(
+                    ts,
+                    _gateway_measure_iter,
+                    bus,
+                    float(v_raw),
+                    float(i_raw),
+                    v_out,
+                    i_out,
+                    v_dt,
+                    cmd_val,
+                    breaker_fb,
+                )
+
+                print(
+                    f"[{ts}] [iter {_gateway_measure_iter}] [Bus {bus}] P/Q/CMD -> "
+                    f"V_in={v_raw:.4f} pu, I_in={i_raw:.4f} A, PF={pf:.4f}, "
+                    f"V_out={v_out:.4f} pu, I_out={i_out:.4f} A, "
+                    f"V_DT={v_dt:.4f} pu, P={p_mw:.4f} MW, Q={q_mvar:.4f} MVar"
+                )
+            except Exception as e:
+                print(f"[{ts}] [Bus {bus}] Gagal update: {e}")
+
+            if cmd_val != last_breaker[bus]:
+                print(f"[{ts}] [Bus {bus}] Command breaker ke RTU: {'CLOSE' if cmd_val==1 else 'OPEN'}")
+                last_breaker[bus] = cmd_val
+
+        try:
+            probe_reg = context[0x00].getValues(3, DT_PATH_PROBE_ADDR, count=1)[0]
+            dt_path_probe_node.set_value(int(probe_reg))
+        except Exception as e:
+            print(f"[{ts}] DT_path_probe sync: {e}")
+
+        # Satu siklus ≈ satu inkremen kolom "waktu" di trace; selaras run.py: TRACE_BEFORE_NETWORK_GATEWAY_CYCLE_S
+        time.sleep(4)
+
+except KeyboardInterrupt:
+    print("Server dihentikan oleh user")
+    server.stop()
