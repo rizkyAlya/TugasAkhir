@@ -130,6 +130,8 @@ def publish_measurements(net, bus_nums):
     for bus in range(1, NUM_BUS + 1):
         idx = bus_nums[bus]
         vm_pu = float(net.res_bus.at[idx, "vm_pu"])
+        p_mw = float(net.res_bus.at[idx, "p_mw"])
+        q_mvar = float(net.res_bus.at[idx, "q_mvar"])
         i_amp = bus_current_amp(net, idx)
         pf = bus_power_factor(net, idx)
         v_reg = int(round(vm_pu * V_SCALE))
@@ -145,7 +147,7 @@ def publish_measurements(net, bus_nums):
         )
         print(
             f"Bus {bus} | V={vm_pu:.3f} pu | I={i_amp:.1f} A | PF={pf:.4f} | "
-            f"Breaker={brk_note}"
+            f"P={p_mw:.4f} MW | Q={q_mvar:.4f} MVar | Breaker={brk_note}"
         )
 
 
