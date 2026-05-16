@@ -59,6 +59,7 @@ def apply_style() -> None:
             "axes.titleweight": "bold",
             "axes.linewidth": 0.9,
             "axes.grid": True,
+            "axes.axisbelow": True,
             "grid.alpha": 1.0,
             "grid.linewidth": 0.75,
             "xtick.labelsize": 9,
@@ -133,13 +134,14 @@ def plot_grouped_decision_error(rates: pd.DataFrame, out: Path) -> None:
             color=color,
             edgecolor="white",
             linewidth=0.6,
+            alpha=1.0,
+            zorder=3,
         )
     ax.set_xticks(x)
     ax.set_xticklabels([f"Bus {b}" for b in buses])
     ax.set_ylabel("Decision error rate (%)")
     ax.set_xlabel("Bus")
-    ax.set_title("Decision error rate vs referensi baseline\n(per baris waktu: "
-                 r"$breaker_{mitm} \neq breaker_{baseline}$)")
+    ax.set_title("Decision error rate vs referensi baseline")
     ax.legend(loc="upper right")
     ax.set_ylim(bottom=0)
     fig.savefig(out)
@@ -148,31 +150,49 @@ def plot_grouped_decision_error(rates: pd.DataFrame, out: Path) -> None:
 
 def plot_mean_sem_decision_error(rates: pd.DataFrame, out: Path) -> None:
     buses = sorted(rates["bus"].unique())
-    means, sems = [], []
+    means, stds = [], []
     for b in buses:
         sub = rates[rates["bus"] == b]["error_rate_pct"].to_numpy(dtype=float)
+        sub = sub[np.isfinite(sub)]
         means.append(float(np.mean(sub)) if len(sub) else 0.0)
-        sems.append(_sem(sub))
-    fig, ax = plt.subplots(figsize=(6.2, 4.0))
+        stds.append(float(np.std(sub, ddof=1)) if len(sub) > 1 else 0.0)
+
+    fig, ax = plt.subplots(figsize=(6.8, 4.4))
     x = np.arange(len(buses))
     ax.bar(
         x,
         means,
-        yerr=sems,
+        yerr=stds,
         capsize=4,
         color="#0d9488",
         edgecolor="#134e4a",
         linewidth=0.75,
-        error_kw={"elinewidth": 1.0, "ecolor": "#475569"},
-        label="Mean ± SEM (3 iterasi)",
+        error_kw={"elinewidth": 1.0, "ecolor": "#475569", "zorder": 4},
+        alpha=1.0,
+        zorder=3,
     )
+
+    y_top = max((m + s for m, s in zip(means, stds)), default=0.0)
+    pad = max(0.04 * y_top, 0.5)
+    for xi, m, s in zip(x, means, stds):
+        ax.text(
+            xi,
+            m + s + pad * 0.35,
+            f"$\\mu$={m:.2f}\n$\\sigma$={s:.2f}",
+            ha="center",
+            va="bottom",
+            fontsize=8.5,
+            color="#0f172a",
+            zorder=5,
+        )
+
     ax.set_xticks(x)
     ax.set_xticklabels([f"Bus {b}" for b in buses])
     ax.set_ylabel("Decision error rate (%)")
     ax.set_xlabel("Bus")
-    ax.set_title("Rata-rata decision error rate ± SEM\n(agregasi iterasi 1–3)")
+    ax.set_title("Rata-rata decision error rate")
     ax.legend(loc="upper right")
-    ax.set_ylim(bottom=0)
+    ax.set_ylim(bottom=0, top=y_top + pad * 3.5)
     fig.savefig(out)
     plt.close(fig)
 

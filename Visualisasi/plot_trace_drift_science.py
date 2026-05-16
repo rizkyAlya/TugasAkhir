@@ -85,11 +85,11 @@ def plot_mean_drift_vs_waktu(df34: pd.DataFrame, out: Path) -> None:
         marker="o",
         ms=5,
         lw=2.1,
-        color=C_MITM,
-        markerfacecolor=C_MITM,
+        color=C_BASE,
+        markerfacecolor=C_BASE,
         markeredgecolor="white",
         markeredgewidth=0.6,
-        label=r"MITM",
+        label=r"Baseline",
     )
     ax.plot(
         x,
@@ -97,11 +97,11 @@ def plot_mean_drift_vs_waktu(df34: pd.DataFrame, out: Path) -> None:
         marker="s",
         ms=4.5,
         lw=2.1,
-        color=C_BASE,
-        markerfacecolor=C_BASE,
+        color=C_MITM,
+        markerfacecolor=C_MITM,
         markeredgecolor="white",
         markeredgewidth=0.6,
-        label=r"Baseline",
+        label=r"MITM",
     )
     ax.set_xlabel(r"Waktu $t$")
     ax.set_ylabel("Rata-rata drift (pu)")

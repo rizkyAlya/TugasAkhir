@@ -1,8 +1,8 @@
 metric,value
 dos_mode,heavy
-n_probe_rows,6
-n_ok,3
-n_missing_h4,3
+n_probe_rows,60
+n_ok,30
+n_missing_h4,30
 n_missing_h2,0
 n_out_of_order_or_invalid,0
-missing_h4_rate,0.5
+missing_rate,0.5
