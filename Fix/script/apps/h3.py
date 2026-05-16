@@ -52,7 +52,7 @@ V_SCALE = 1000
 I_SCALE = 30
 PF_SCALE = 10000
 NUM_BUS = 5
-V_BASE = 345e3
+V_BASE = 110e3
 # Data V/I/PF dari holding register Modbus (RTU dari field).
 BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
 MITM_LOG_DIR = os.path.join(BASE_DIR, "logs", "mitm")
@@ -171,9 +171,11 @@ try:
                 # 2) Konversi V/I/PF -> P/Q (PF dari RTU/field, bukan hardcoded)
                 pf = min(1.0, max(1e-6, pf_raw))
                 v_real = v_out * V_BASE
-                s_va = v_real * i_out
-                p_mw = (s_va * pf) / 1e6
-                q_mvar = (s_va * math.sqrt(max(0.0, 1 - pf**2))) / 1e6
+                s_va = math.sqrt(3) * v_real * i_out
+                
+                phi = math.acos(pf)
+                p_mw = s_va * math.cos(phi) / 1e6
+                q_mvar = s_va * math.sin(phi) / 1e6
 
                 p_nodes[bus].set_value(p_mw)
                 q_nodes[bus].set_value(q_mvar)
