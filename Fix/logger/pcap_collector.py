@@ -24,13 +24,13 @@ CAPTURE_SPECS: List[Dict[str, str]] = [
         "host": "h2",
         "label": "rtu_modbus_5020",
         "iface": "h2-eth0",
-        "filter": "tcp port 5020",
+        "filter": "tcp port 5020 or udp port 5001",
     },
     {
         "host": "h3",
         "label": "gateway_modbus_opcua",
         "iface": "h3-eth0",
-        "filter": "tcp port 5020 or tcp port 4840",
+        "filter": "tcp port 5020 or tcp port 4840 or udp port 5001",
     },
     {
         "host": "h4",
@@ -55,7 +55,7 @@ CAPTURE_SPECS: List[Dict[str, str]] = [
         "host": "r0",
         "label": "router_ot_crosszone",
         "iface": "any",
-        "filter": "tcp port 5020 or tcp port 4840",
+        "filter": "tcp port 5020 or tcp port 4840 or udp port 5001",
     },
 ]
 

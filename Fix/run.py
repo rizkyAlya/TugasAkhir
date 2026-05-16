@@ -100,6 +100,44 @@ def trace_phase_before_network_collect(
                 )
 
 
+def dos_phase_with_pcap(
+    net,
+    dos_mode: str,
+    *,
+    pcap_dir=None,
+    pcap_manifest: list = None,
+    measure_fn,
+) -> None:
+    """
+    Satu capture iter01 per mode (dos_light / dos_heavy) selama serangan + pengukuran.
+    measure_fn: callable tanpa argumen (run_dos, collect_data, dt_path_latency, dll.).
+    """
+    phase_key = f"dos_{dos_mode}"
+    iter_entries = []
+    if pcap_dir:
+        iter_entries = start_trace_iteration_captures(
+            net,
+            pcap_dir,
+            phase_key,
+            1,
+            include_mitm_eth1=False,
+        )
+        print(f"[orchestrator] PCAP {phase_key} iter01 started -> {pcap_dir}")
+    try:
+        measure_fn()
+    finally:
+        if pcap_dir and iter_entries:
+            saved = stop_trace_iteration_captures(net, iter_entries)
+            if pcap_manifest is not None:
+                pcap_manifest.extend(saved)
+                write_pcap_manifest(
+                    pcap_dir,
+                    pcap_manifest,
+                    dos_modes=["light", "heavy"],
+                    aligned_with="DoS attack + network + dt_path_latency per mode",
+                )
+
+
 def reset_attack_flags():
     for flag_path in (ATTACK_ACTIVE_FLAG, MITM_RUN_ID_FILE):
         try:
@@ -551,24 +589,35 @@ def main():
                 publish_run_root_on_hosts(net, path_dos)
             # Satu kali jalankan serangan per mode; network lalu latensi tanpa restart DoS di antaranya.
             for dos_mode in ("light", "heavy"):
-                ok = run_dos(net, dos_mode, host_log_dir)
-                if ok:
-                    phase_label = f"dos_{dos_mode}"
-                    publish_measure_phase_on_hosts(net, phase_label)
-                    print(f"Collecting DoS ({dos_mode}) network metrics...")
+                phase_label = f"dos_{dos_mode}"
+
+                def _dos_measure(mode=dos_mode, label=phase_label):
+                    ok = run_dos(net, mode, host_log_dir)
+                    if not ok:
+                        return
+                    publish_measure_phase_on_hosts(net, label)
+                    print(f"Collecting DoS ({mode}) network metrics...")
                     collect_data(
                         net,
-                        mode=dos_mode,
+                        mode=mode,
                         logs_path=path_dos,
-                        measure_phase=phase_label,
+                        measure_phase=label,
                     )
                     print(
-                        f"Collecting DoS ({dos_mode}) DT path latency "
+                        f"Collecting DoS ({mode}) DT path latency "
                         "(serangan tetap aktif, tanpa run_dos ulang)..."
                     )
-                    lat_dir = os.path.join(path_dos, "dt_path_latency", dos_mode)
-                    collect_dt_path_latency(net, lat_dir, dos_mode, host_log_dir)
-                    print(f"DoS ({dos_mode}) network + latency complete.\n")
+                    lat_dir = os.path.join(path_dos, "dt_path_latency", mode)
+                    collect_dt_path_latency(net, lat_dir, mode, host_log_dir)
+                    print(f"DoS ({mode}) network + latency complete.\n")
+
+                dos_phase_with_pcap(
+                    net,
+                    dos_mode,
+                    pcap_dir=pcap_dir,
+                    pcap_manifest=pcap_manifest,
+                    measure_fn=_dos_measure,
+                )
             stop_dos_hping_on_net(net)
             print("DoS stopped (hping3 cleared).\n")
 
