@@ -14,7 +14,7 @@ MODBUS_PORT = 5020
 MITM_PROXY_PORT = 50201
 MITM_FIXED_SEED = 424242
 I_BASE_ADDR = 10
-# 30: arus max ~2185 A (65535/30); injeksi 1500–1700 A muat di register 16-bit.
+# 29: arus max ~2259 A (65535/29); injeksi 1800–2200 A muat di register 16-bit.
 I_SCALE = 30
 NUM_BUS = 5
 I_INJECT_MIN_A = 1500.0

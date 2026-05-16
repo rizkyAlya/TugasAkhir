@@ -28,9 +28,10 @@ from logger.collector import collect_data
 from logger.dt_path_latency import collect_dt_path_latency
 from logger.pcap_collector import (
     pcap_session_dir,
-    start_mitm_pcap_captures,
-    start_pcap_captures,
-    stop_pcap_captures,
+    start_trace_iteration_captures,
+    stop_any_running_captures,
+    stop_trace_iteration_captures,
+    write_pcap_manifest,
 )
 from logger.mitm_trace_logger import (
     MITM_PROXY_SNAPSHOT_FILE,
@@ -54,17 +55,49 @@ TRACE_BEFORE_NETWORK_MIN_WAKTU_PER_ITERATION = 35
 TRACE_BEFORE_NETWORK_GATEWAY_CYCLE_S = 4
 
 
-def trace_phase_before_network_collect(net, log_label: str) -> None:
-    """Set iterasi_ke 1..N di host, tunggu agar gateway sempat mengisi trace, lalu collect_data dipanggil pemanggil."""
+def trace_phase_before_network_collect(
+    net,
+    log_label: str,
+    *,
+    pcap_dir=None,
+    pcap_phase: str = None,
+    include_mitm_eth1: bool = False,
+    pcap_manifest: list = None,
+) -> None:
+    """
+    Set iterasi_ke 1..N di host, tunggu agar gateway mengisi trace.
+    Jika pcap_dir diisi: tcpdump per iterasi (selaras iterasi_ke trace CSV).
+    """
     wait_s = TRACE_BEFORE_NETWORK_MIN_WAKTU_PER_ITERATION * TRACE_BEFORE_NETWORK_GATEWAY_CYCLE_S
     n = TRACE_BEFORE_NETWORK_NUM_ITERATIONS
+    phase_key = (pcap_phase or log_label).lower()
+
     for i in range(1, n + 1):
         publish_collect_run_on_hosts(net, i)
+        iter_entries = []
+        if pcap_dir:
+            iter_entries = start_trace_iteration_captures(
+                net,
+                pcap_dir,
+                phase_key,
+                i,
+                include_mitm_eth1=include_mitm_eth1,
+            )
         print(
             f"[orchestrator] {log_label} trace: iterasi_ke={i}/{n}, "
             f"menunggu {wait_s}s (target >= {TRACE_BEFORE_NETWORK_MIN_WAKTU_PER_ITERATION} waktu/iterasi)..."
         )
         time.sleep(wait_s)
+        if pcap_dir and iter_entries:
+            saved = stop_trace_iteration_captures(net, iter_entries)
+            if pcap_manifest is not None:
+                pcap_manifest.extend(saved)
+                write_pcap_manifest(
+                    pcap_dir,
+                    pcap_manifest,
+                    trace_iterations=n,
+                    aligned_with="trace.csv iterasi_ke",
+                )
 
 
 def reset_attack_flags():
@@ -448,9 +481,11 @@ def main():
         # START APPS
         start_apps(net, host_log_dir)
 
+        pcap_manifest = [] if pcap_dir else None
         if pcap_dir:
-            print(f"Starting tcpdump captures -> {pcap_dir}")
-            pcap_manifest = start_pcap_captures(net, pcap_dir)
+            print(
+                f"PCAP per iterasi trace (N={TRACE_BEFORE_NETWORK_NUM_ITERATIONS}) -> {pcap_dir}"
+            )
 
         # Sesi pengukuran: iterasi_ke + fase host selaras trace / network (collector tidak menghapus marker di tengah).
         if should_create_run_folder:
@@ -464,7 +499,13 @@ def main():
             print(f"Collecting baseline in {delay}s...")
             time.sleep(delay)
             print("Baseline: fase pengukuran trace (sebelum network)...")
-            trace_phase_before_network_collect(net, "baseline")
+            trace_phase_before_network_collect(
+                net,
+                "baseline",
+                pcap_dir=pcap_dir,
+                pcap_phase="baseline",
+                pcap_manifest=pcap_manifest,
+            )
             collect_data(
                 net,
                 mode="baseline",
@@ -483,12 +524,16 @@ def main():
             if hasattr(topology_mod, "escalate_attacker_to_field"):
                 topology_mod.escalate_attacker_to_field(net)
                 time.sleep(1)
-            if pcap_dir and pcap_manifest is not None:
-                print("Starting MITM tcpdump on h5-eth1 (Field lateral)...")
-                start_mitm_pcap_captures(net, pcap_dir, pcap_manifest)
             run_mitm(net, host_log_dir)
             print("MITM: fase pengukuran trace (sebelum network)...")
-            trace_phase_before_network_collect(net, "MITM")
+            trace_phase_before_network_collect(
+                net,
+                "MITM",
+                pcap_dir=pcap_dir,
+                pcap_phase="mitm",
+                include_mitm_eth1=True,
+                pcap_manifest=pcap_manifest,
+            )
             print("Collecting MITM metrics (attack phase)...")
             collect_data(
                 net,
@@ -538,9 +583,8 @@ def main():
         if not args.no_cli:
             CLI(net)
     finally:
-        if net is not None and pcap_dir and pcap_manifest is not None:
-            print("Stopping tcpdump captures...")
-            stop_pcap_captures(net, pcap_dir, pcap_manifest)
+        if net is not None and pcap_dir and pcap_manifest:
+            stop_any_running_captures(net, pcap_manifest)
         if net is not None:
             print("Stopping network...")
             net.stop()
