@@ -1,0 +1,1365 @@
+Modbus TCP server on 0.0.0.0:5020
+Field random seed: 42
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+=== INITIAL POWER FLOW ===
+      vm_pu  va_degree        p_mw     q_mvar
+0  1.020000   0.000000 -141.110787 -26.780334
+1  1.011758  -0.715545   60.000000  15.000000
+2  1.009031  -0.998910   70.000000  20.000000
+3  1.010000  -1.119058  -80.000000 -40.933003
+4  1.007906  -1.265582   90.000000  30.000000
+       i_ka  loading_percent
+0  0.739078        73.907794
+1  0.419623        41.962293
+2  0.076273         7.627274
+3  0.494024        49.402395
+Bus 1 | V=1.020 pu | I=739.1 A | PF=0.9825 | P=-141.1108 MW | Q=-26.7803 MVar | Breaker=CLOSE
+Bus 2 | V=1.012 pu | I=320.8 A | PF=0.9701 | P=60.0000 MW | Q=15.0000 MVar | Breaker=CLOSE
+Bus 3 | V=1.009 pu | I=378.7 A | PF=0.9615 | P=70.0000 MW | Q=20.0000 MVar | Breaker=CLOSE
+Bus 4 | V=1.010 pu | I=467.0 A | PF=0.8902 | P=-80.0000 MW | Q=-40.9330 MVar | Breaker=CLOSE
+Bus 5 | V=1.008 pu | I=494.0 A | PF=0.9487 | P=90.0000 MW | Q=30.0000 MVar | Breaker=n/a
+
+ 2026-05-17 01:43:56
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+Bus 1 | V=1.020 pu | I=809.7 A | PF=0.9603 | P=-151.1086 MW | Q=-43.8948 MVar | Breaker=CLOSE
+Bus 2 | V=1.010 pu | I=398.7 A | PF=0.9020 | P=69.1828 MW | Q=33.1137 MVar | Breaker=CLOSE
+Bus 3 | V=1.007 pu | I=395.2 A | PF=0.9001 | P=68.2509 MW | Q=33.0382 MVar | Breaker=CLOSE
+Bus 4 | V=1.010 pu | I=478.5 A | PF=0.8689 | P=-80.0000 MW | Q=-45.5810 MVar | Breaker=CLOSE
+Bus 5 | V=1.008 pu | I=492.1 A | PF=0.9771 | P=92.3647 MW | Q=20.1286 MVar | Breaker=n/a
+
+ 2026-05-17 01:44:00
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+Bus 1 | V=1.020 pu | I=850.8 A | PF=0.9557 | P=-158.0150 MW | Q=-48.6605 MVar | Breaker=CLOSE
+Bus 2 | V=1.009 pu | I=440.3 A | PF=0.9070 | P=76.7654 MW | Q=35.6530 MVar | Breaker=CLOSE
+Bus 3 | V=1.006 pu | I=429.4 A | PF=0.8827 | P=72.6577 MW | Q=38.6855 MVar | Breaker=CLOSE
+Bus 4 | V=1.010 pu | I=492.7 A | PF=0.8439 | P=-80.0000 MW | Q=-50.8690 MVar | Breaker=CLOSE
+Bus 5 | V=1.008 pu | I=467.8 A | PF=0.9702 | P=87.1864 MW | Q=21.7692 MVar | Breaker=n/a
+
+ 2026-05-17 01:44:04
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+Bus 1 | V=1.020 pu | I=739.2 A | PF=0.9651 | P=-138.6389 MW | Q=-37.6139 MVar | Breaker=CLOSE
+Bus 2 | V=1.011 pu | I=288.0 A | PF=0.9159 | P=50.7961 MW | Q=22.2611 MVar | Breaker=CLOSE
+Bus 3 | V=1.008 pu | I=445.7 A | PF=0.9290 | P=79.4965 MW | Q=31.6574 MVar | Breaker=CLOSE
+Bus 4 | V=1.010 pu | I=463.8 A | PF=0.8964 | P=-80.0000 MW | Q=-39.5506 MVar | Breaker=CLOSE
+Bus 5 | V=1.008 pu | I=466.3 A | PF=0.9736 | P=87.2044 MW | Q=20.4569 MVar | Breaker=n/a
+
+ 2026-05-17 01:44:08
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+Bus 1 | V=1.020 pu | I=893.5 A | PF=0.9700 | P=-168.4331 MW | Q=-42.2096 MVar | Breaker=CLOSE
+Bus 2 | V=1.009 pu | I=429.0 A | PF=0.9005 | P=74.2829 MW | Q=35.8674 MVar | Breaker=CLOSE
+Bus 3 | V=1.007 pu | I=465.5 A | PF=0.9428 | P=84.1746 MW | Q=29.7535 MVar | Breaker=CLOSE
+Bus 4 | V=1.010 pu | I=502.4 A | PF=0.8274 | P=-80.0000 MW | Q=-54.2974 MVar | Breaker=CLOSE
+Bus 5 | V=1.008 pu | I=481.4 A | PF=0.9562 | P=88.4025 MW | Q=27.0556 MVar | Breaker=n/a
+
+ 2026-05-17 01:44:12
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+Bus 1 | V=1.020 pu | I=833.4 A | PF=0.9653 | P=-156.3286 MW | Q=-42.2994 MVar | Breaker=CLOSE
+Bus 2 | V=1.010 pu | I=441.5 A | PF=0.9269 | P=78.7164 MW | Q=31.8661 MVar | Breaker=CLOSE
+Bus 3 | V=1.007 pu | I=368.2 A | PF=0.8887 | P=62.7824 MW | Q=32.3893 MVar | Breaker=CLOSE
+Bus 4 | V=1.010 pu | I=482.0 A | PF=0.8625 | P=-80.0000 MW | Q=-46.9346 MVar | Breaker=CLOSE
+Bus 5 | V=1.008 pu | I=499.6 A | PF=0.9741 | P=93.4749 MW | Q=21.6769 MVar | Breaker=n/a
+
+ 2026-05-17 01:44:16
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+Bus 1 | V=1.020 pu | I=839.4 A | PF=0.9836 | P=-160.4519 MW | Q=-29.3804 MVar | Breaker=CLOSE
+Bus 2 | V=1.011 pu | I=402.1 A | PF=0.9584 | P=74.2138 MW | Q=22.1083 MVar | Breaker=CLOSE
+Bus 3 | V=1.008 pu | I=409.4 A | PF=0.9676 | P=76.0868 MW | Q=19.8606 MVar | Breaker=CLOSE
+Bus 4 | V=1.010 pu | I=458.8 A | PF=0.9061 | P=-80.0000 MW | Q=-37.3455 MVar | Breaker=CLOSE
+Bus 5 | V=1.008 pu | I=475.5 A | PF=0.9721 | P=88.7853 MW | Q=21.4312 MVar | Breaker=n/a
+
+ 2026-05-17 01:44:20
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+Bus 1 | V=1.020 pu | I=915.1 A | PF=0.9809 | P=-174.4536 MW | Q=-34.5594 MVar | Breaker=CLOSE
+Bus 2 | V=1.010 pu | I=410.0 A | PF=0.9495 | P=74.8821 MW | Q=24.7501 MVar | Breaker=CLOSE
+Bus 3 | V=1.007 pu | I=480.3 A | PF=0.9320 | P=85.8512 MW | Q=33.3983 MVar | Breaker=CLOSE
+Bus 4 | V=1.010 pu | I=511.4 A | PF=0.8129 | P=-80.0000 MW | Q=-57.3197 MVar | Breaker=CLOSE
+Bus 5 | V=1.008 pu | I=503.6 A | PF=0.9518 | P=92.0457 MW | Q=29.6510 MVar | Breaker=n/a
+
+ 2026-05-17 01:44:24
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+Bus 1 | V=1.020 pu | I=682.5 A | PF=0.9514 | P=-126.1804 MW | Q=-40.8648 MVar | Breaker=CLOSE
+Bus 2 | V=1.011 pu | I=319.6 A | PF=0.9232 | P=56.8369 MW | Q=23.6692 MVar | Breaker=CLOSE
+Bus 3 | V=1.008 pu | I=360.5 A | PF=0.9010 | P=62.3938 MW | Q=30.0504 MVar | Breaker=CLOSE
+Bus 4 | V=1.010 pu | I=464.5 A | PF=0.8950 | P=-80.0000 MW | Q=-39.8615 MVar | Breaker=CLOSE
+Bus 5 | V=1.008 pu | I=465.9 A | PF=0.9611 | P=86.0100 MW | Q=24.7111 MVar | Breaker=n/a
+
+ 2026-05-17 01:44:28
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+Bus 1 | V=1.020 pu | I=797.1 A | PF=0.9625 | P=-149.0950 MW | Q=-42.0454 MVar | Breaker=CLOSE
+Bus 2 | V=1.010 pu | I=386.3 A | PF=0.9292 | P=69.0705 MW | Q=27.4748 MVar | Breaker=CLOSE
+Bus 3 | V=1.007 pu | I=412.3 A | PF=0.8989 | P=71.1054 MW | Q=34.6681 MVar | Breaker=CLOSE
+Bus 4 | V=1.010 pu | I=458.4 A | PF=0.9070 | P=-80.0000 MW | Q=-37.1540 MVar | Breaker=CLOSE
+Bus 5 | V=1.008 pu | I=462.1 A | PF=0.9875 | P=87.6698 MW | Q=14.0126 MVar | Breaker=n/a
+
+ 2026-05-17 01:44:32
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+Bus 1 | V=1.020 pu | I=753.7 A | PF=0.9716 | P=-142.3091 MW | Q=-34.6851 MVar | Breaker=CLOSE
+Bus 2 | V=1.011 pu | I=380.0 A | PF=0.9487 | P=69.4411 MW | Q=23.1355 MVar | Breaker=CLOSE
+Bus 3 | V=1.008 pu | I=358.5 A | PF=0.9456 | P=65.1342 MW | Q=22.4045 MVar | Breaker=CLOSE
+Bus 4 | V=1.010 pu | I=458.1 A | PF=0.9076 | P=-80.0000 MW | Q=-37.0163 MVar | Breaker=CLOSE
+Bus 5 | V=1.008 pu | I=467.3 A | PF=0.9652 | P=86.6340 MW | Q=23.4805 MVar | Breaker=n/a
+
+ 2026-05-17 01:44:36
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+Bus 1 | V=1.020 pu | I=898.3 A | PF=0.9818 | P=-171.4000 MW | Q=-33.1246 MVar | Breaker=CLOSE
+Bus 2 | V=1.010 pu | I=435.4 A | PF=0.9512 | P=79.6857 MW | Q=25.8505 MVar | Breaker=CLOSE
+Bus 3 | V=1.007 pu | I=424.5 A | PF=0.9416 | P=76.7085 MW | Q=27.4284 MVar | Breaker=CLOSE
+Bus 4 | V=1.010 pu | I=470.6 A | PF=0.8833 | P=-80.0000 MW | Q=-42.4520 MVar | Breaker=CLOSE
+Bus 5 | V=1.008 pu | I=495.8 A | PF=0.9810 | P=93.4285 MW | Q=18.4569 MVar | Breaker=n/a
+
+ 2026-05-17 01:44:40
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+Bus 1 | V=1.020 pu | I=726.4 A | PF=0.9529 | P=-134.5142 MW | Q=-42.7972 MVar | Breaker=CLOSE
+Bus 2 | V=1.010 pu | I=327.3 A | PF=0.9026 | P=56.8714 MW | Q=27.1291 MVar | Breaker=CLOSE
+Bus 3 | V=1.008 pu | I=400.2 A | PF=0.9041 | P=69.4636 MW | Q=32.8325 MVar | Breaker=CLOSE
+Bus 4 | V=1.010 pu | I=450.8 A | PF=0.9222 | P=-80.0000 MW | Q=-33.5552 MVar | Breaker=CLOSE
+Bus 5 | V=1.008 pu | I=459.0 A | PF=0.9877 | P=87.1098 MW | Q=13.7808 MVar | Breaker=n/a
+
+ 2026-05-17 01:44:44
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+Bus 1 | V=1.020 pu | I=907.4 A | PF=0.9739 | P=-171.7457 MW | Q=-40.0244 MVar | Breaker=CLOSE
+Bus 2 | V=1.009 pu | I=428.8 A | PF=0.9252 | P=76.2910 MW | Q=31.2976 MVar | Breaker=CLOSE
+Bus 3 | V=1.006 pu | I=453.7 A | PF=0.9156 | P=79.6632 MW | Q=34.9829 MVar | Breaker=CLOSE
+Bus 4 | V=1.010 pu | I=503.1 A | PF=0.8263 | P=-80.0000 MW | Q=-54.5316 MVar | Breaker=CLOSE
+Bus 5 | V=1.008 pu | I=506.2 A | PF=0.9684 | P=94.1455 MW | Q=24.2647 MVar | Breaker=n/a
+
+ 2026-05-17 01:44:48
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+Bus 1 | V=1.020 pu | I=783.3 A | PF=0.9650 | P=-146.9032 MW | Q=-39.9217 MVar | Breaker=CLOSE
+Bus 2 | V=1.010 pu | I=327.3 A | PF=0.9197 | P=57.9464 MW | Q=24.7322 MVar | Breaker=CLOSE
+Bus 3 | V=1.007 pu | I=443.2 A | PF=0.9036 | P=76.8410 MW | Q=36.4184 MVar | Breaker=CLOSE
+Bus 4 | V=1.010 pu | I=464.2 A | PF=0.8956 | P=-80.0000 MW | Q=-39.7407 MVar | Breaker=CLOSE
+Bus 5 | V=1.008 pu | I=479.6 A | PF=0.9859 | P=90.8459 MW | Q=15.4119 MVar | Breaker=n/a
+
+ 2026-05-17 01:44:52
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+Bus 1 | V=1.020 pu | I=845.7 A | PF=0.9691 | P=-159.2753 MW | Q=-40.5070 MVar | Breaker=CLOSE
+Bus 2 | V=1.010 pu | I=351.1 A | PF=0.9175 | P=61.9820 MW | Q=26.8607 MVar | Breaker=CLOSE
+Bus 3 | V=1.006 pu | I=506.5 A | PF=0.9259 | P=89.9261 MW | Q=36.7018 MVar | Breaker=CLOSE
+Bus 4 | V=1.010 pu | I=502.4 A | PF=0.8276 | P=-80.0000 MW | Q=-54.2682 MVar | Breaker=CLOSE
+Bus 5 | V=1.008 pu | I=469.9 A | PF=0.9519 | P=85.9091 MW | Q=27.6582 MVar | Breaker=n/a
+
+ 2026-05-17 01:44:56
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+Bus 1 | V=1.020 pu | I=763.3 A | PF=0.9701 | P=-143.8986 MW | Q=-36.0009 MVar | Breaker=CLOSE
+Bus 2 | V=1.011 pu | I=291.2 A | PF=0.9502 | P=53.2895 MW | Q=17.4784 MVar | Breaker=CLOSE
+Bus 3 | V=1.007 pu | I=475.4 A | PF=0.9180 | P=83.7624 MW | Q=36.1872 MVar | Breaker=CLOSE
+Bus 4 | V=1.010 pu | I=474.0 A | PF=0.8771 | P=-80.0000 MW | Q=-43.8012 MVar | Breaker=CLOSE
+Bus 5 | V=1.008 pu | I=461.9 A | PF=0.9653 | P=85.6353 MW | Q=23.1794 MVar | Breaker=n/a
+
+ 2026-05-17 01:45:00
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+Bus 1 | V=1.020 pu | I=922.6 A | PF=0.9803 | P=-175.7664 MW | Q=-35.4028 MVar | Breaker=CLOSE
+Bus 2 | V=1.010 pu | I=440.7 A | PF=0.9423 | P=79.8836 MW | Q=28.3723 MVar | Breaker=CLOSE
+Bus 3 | V=1.007 pu | I=485.3 A | PF=0.9575 | P=89.1324 MW | Q=26.8599 MVar | Breaker=CLOSE
+Bus 4 | V=1.010 pu | I=468.6 A | PF=0.8872 | P=-80.0000 MW | Q=-41.6042 MVar | Breaker=CLOSE
+Bus 5 | V=1.008 pu | I=452.6 A | PF=0.9788 | P=85.1148 MW | Q=17.7981 MVar | Breaker=n/a
+
+ 2026-05-17 01:45:04
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+Bus 1 | V=1.020 pu | I=773.4 A | PF=0.9696 | P=-145.7280 MW | Q=-36.7576 MVar | Breaker=CLOSE
+Bus 2 | V=1.011 pu | I=388.0 A | PF=0.9430 | P=70.4513 MW | Q=24.8730 MVar | Breaker=CLOSE
+Bus 3 | V=1.008 pu | I=377.6 A | PF=0.9377 | P=68.0048 MW | Q=25.2008 MVar | Breaker=CLOSE
+Bus 4 | V=1.010 pu | I=461.8 A | PF=0.9003 | P=-80.0000 MW | Q=-38.6810 MVar | Breaker=CLOSE
+Bus 5 | V=1.008 pu | I=463.4 A | PF=0.9674 | P=86.1155 MW | Q=22.5474 MVar | Breaker=n/a
+
+ 2026-05-17 01:45:09
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+Bus 1 | V=1.020 pu | I=847.2 A | PF=0.9801 | P=-161.3707 MW | Q=-32.6773 MVar | Breaker=CLOSE
+Bus 2 | V=1.010 pu | I=338.5 A | PF=0.9763 | P=63.6117 MW | Q=14.0995 MVar | Breaker=CLOSE
+Bus 3 | V=1.007 pu | I=497.7 A | PF=0.9037 | P=86.2756 MW | Q=40.8755 MVar | Breaker=CLOSE
+Bus 4 | V=1.010 pu | I=499.1 A | PF=0.8330 | P=-80.0000 MW | Q=-53.1352 MVar | Breaker=CLOSE
+Bus 5 | V=1.008 pu | I=489.6 A | PF=0.9571 | P=90.0059 MW | Q=27.2333 MVar | Breaker=n/a
+
+ 2026-05-17 01:45:13
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+Bus 1 | V=1.020 pu | I=831.8 A | PF=0.9821 | P=-158.7650 MW | Q=-30.4464 MVar | Breaker=CLOSE
+Bus 2 | V=1.011 pu | I=414.4 A | PF=0.9696 | P=77.3788 MW | Q=19.5139 MVar | Breaker=CLOSE
+Bus 3 | V=1.008 pu | I=382.9 A | PF=0.9375 | P=68.9533 MW | Q=25.5932 MVar | Breaker=CLOSE
+Bus 4 | V=1.010 pu | I=479.2 A | PF=0.8676 | P=-80.0000 MW | Q=-45.8473 MVar | Breaker=CLOSE
+Bus 5 | V=1.008 pu | I=496.1 A | PF=0.9561 | P=91.0897 MW | Q=27.9140 MVar | Breaker=n/a
+
+ 2026-05-17 01:45:17
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+Bus 1 | V=1.020 pu | I=860.4 A | PF=0.9730 | P=-162.6869 MW | Q=-38.5774 MVar | Breaker=CLOSE
+Bus 2 | V=1.010 pu | I=401.6 A | PF=0.9432 | P=72.8753 MW | Q=25.6813 MVar | Breaker=CLOSE
+Bus 3 | V=1.007 pu | I=468.4 A | PF=0.9277 | P=83.3588 MW | Q=33.5371 MVar | Breaker=CLOSE
+Bus 4 | V=1.010 pu | I=484.7 A | PF=0.8577 | P=-80.0000 MW | Q=-47.9642 MVar | Breaker=CLOSE
+Bus 5 | V=1.008 pu | I=459.6 A | PF=0.9630 | P=85.0057 MW | Q=23.8008 MVar | Breaker=n/a
+
+ 2026-05-17 01:45:21
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+Bus 1 | V=1.020 pu | I=764.8 A | PF=0.9840 | P=-146.2560 MW | Q=-26.4597 MVar | Breaker=CLOSE
+Bus 2 | V=1.012 pu | I=269.4 A | PF=0.9743 | P=50.5843 MW | Q=11.6883 MVar | Breaker=CLOSE
+Bus 3 | V=1.008 pu | I=470.8 A | PF=0.9548 | P=86.3617 MW | Q=26.8703 MVar | Breaker=CLOSE
+Bus 4 | V=1.010 pu | I=472.8 A | PF=0.8793 | P=-80.0000 MW | Q=-43.3339 MVar | Breaker=CLOSE
+Bus 5 | V=1.008 pu | I=481.6 A | PF=0.9523 | P=88.0751 MW | Q=28.2182 MVar | Breaker=n/a
+
+ 2026-05-17 01:45:25
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+Bus 1 | V=1.020 pu | I=768.1 A | PF=0.9763 | P=-145.7179 MW | Q=-32.3274 MVar | Breaker=CLOSE
+Bus 2 | V=1.011 pu | I=406.2 A | PF=0.9758 | P=76.3403 MW | Q=17.1231 MVar | Breaker=CLOSE
+Bus 3 | V=1.008 pu | I=352.6 A | PF=0.9237 | P=62.5696 MW | Q=25.9441 MVar | Breaker=CLOSE
+Bus 4 | V=1.010 pu | I=445.2 A | PF=0.9337 | P=-80.0000 MW | Q=-30.6660 MVar | Breaker=CLOSE
+Bus 5 | V=1.008 pu | I=454.9 A | PF=0.9804 | P=85.6921 MW | Q=17.2095 MVar | Breaker=n/a
+
+ 2026-05-17 01:45:29
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+Bus 1 | V=1.020 pu | I=833.1 A | PF=0.9649 | P=-156.2333 MW | Q=-42.4932 MVar | Breaker=CLOSE
+Bus 2 | V=1.010 pu | I=416.8 A | PF=0.9103 | P=72.9750 MW | Q=33.1907 MVar | Breaker=CLOSE
+Bus 3 | V=1.007 pu | I=416.4 A | PF=0.9295 | P=74.2585 MW | Q=29.4696 MVar | Breaker=CLOSE
+Bus 4 | V=1.010 pu | I=462.2 A | PF=0.8995 | P=-80.0000 MW | Q=-38.8606 MVar | Breaker=CLOSE
+Bus 5 | V=1.008 pu | I=463.2 A | PF=0.9849 | P=87.6506 MW | Q=15.4085 MVar | Breaker=n/a
+
+ 2026-05-17 01:45:33
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+Bus 1 | V=1.020 pu | I=781.6 A | PF=0.9685 | P=-147.1056 MW | Q=-37.8503 MVar | Breaker=CLOSE
+Bus 2 | V=1.010 pu | I=355.2 A | PF=0.9169 | P=62.6941 MW | Q=27.2819 MVar | Breaker=CLOSE
+Bus 3 | V=1.008 pu | I=419.6 A | PF=0.9457 | P=76.1789 MW | Q=26.1846 MVar | Breaker=CLOSE
+Bus 4 | V=1.010 pu | I=472.3 A | PF=0.8802 | P=-80.0000 MW | Q=-43.1289 MVar | Breaker=CLOSE
+Bus 5 | V=1.008 pu | I=470.7 A | PF=0.9625 | P=87.0115 MW | Q=24.5351 MVar | Breaker=n/a
+
+ 2026-05-17 01:45:37
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+Bus 1 | V=1.020 pu | I=848.5 A | PF=0.9739 | P=-160.5807 MW | Q=-37.4363 MVar | Breaker=CLOSE
+Bus 2 | V=1.010 pu | I=435.9 A | PF=0.9520 | P=79.8545 MW | Q=25.6785 MVar | Breaker=CLOSE
+Bus 3 | V=1.007 pu | I=411.3 A | PF=0.9266 | P=73.1430 MW | Q=29.6882 MVar | Breaker=CLOSE
+Bus 4 | V=1.010 pu | I=481.5 A | PF=0.8634 | P=-80.0000 MW | Q=-46.7527 MVar | Breaker=CLOSE
+Bus 5 | V=1.008 pu | I=468.0 A | PF=0.9590 | P=86.2100 MW | Q=25.4810 MVar | Breaker=n/a
+
+ 2026-05-17 01:45:41
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+Bus 1 | V=1.020 pu | I=716.5 A | PF=0.9608 | P=-133.7824 MW | Q=-38.6259 MVar | Breaker=CLOSE
+Bus 2 | V=1.011 pu | I=329.7 A | PF=0.9471 | P=60.1426 MW | Q=20.3876 MVar | Breaker=CLOSE
+Bus 3 | V=1.008 pu | I=387.2 A | PF=0.8998 | P=66.9034 MW | Q=32.4370 MVar | Breaker=CLOSE
+Bus 4 | V=1.010 pu | I=456.2 A | PF=0.9113 | P=-80.0000 MW | Q=-36.1376 MVar | Breaker=CLOSE
+Bus 5 | V=1.008 pu | I=457.5 A | PF=0.9752 | P=85.7099 MW | Q=19.4342 MVar | Breaker=n/a
+
+ 2026-05-17 01:45:45
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+Bus 1 | V=1.020 pu | I=800.7 A | PF=0.9728 | P=-151.3747 MW | Q=-36.0435 MVar | Breaker=CLOSE
+Bus 2 | V=1.010 pu | I=303.8 A | PF=0.9724 | P=56.8683 MW | Q=13.6364 MVar | Breaker=CLOSE
+Bus 3 | V=1.007 pu | I=504.6 A | PF=0.8864 | P=85.7891 MW | Q=44.8085 MVar | Breaker=CLOSE
+Bus 4 | V=1.010 pu | I=476.6 A | PF=0.8723 | P=-80.0000 MW | Q=-44.8395 MVar | Breaker=CLOSE
+Bus 5 | V=1.008 pu | I=465.7 A | PF=0.9768 | P=87.3800 MW | Q=19.1747 MVar | Breaker=n/a
+
+ 2026-05-17 01:45:49
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+Bus 1 | V=1.020 pu | I=824.5 A | PF=0.9714 | P=-155.6358 MW | Q=-38.0634 MVar | Breaker=CLOSE
+Bus 2 | V=1.010 pu | I=322.0 A | PF=0.9106 | P=56.4271 MW | Q=25.6127 MVar | Breaker=CLOSE
+Bus 3 | V=1.007 pu | I=492.9 A | PF=0.9314 | P=88.0654 MW | Q=34.4183 MVar | Breaker=CLOSE
+Bus 4 | V=1.010 pu | I=471.9 A | PF=0.8809 | P=-80.0000 MW | Q=-42.9831 MVar | Breaker=CLOSE
+Bus 5 | V=1.008 pu | I=475.9 A | PF=0.9814 | P=89.7267 MW | Q=17.5590 MVar | Breaker=n/a
+
+ 2026-05-17 01:45:53
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+Bus 1 | V=1.020 pu | I=790.1 A | PF=0.9612 | P=-147.5742 MW | Q=-42.3673 MVar | Breaker=CLOSE
+Bus 2 | V=1.010 pu | I=421.5 A | PF=0.9152 | P=74.2249 MW | Q=32.6770 MVar | Breaker=CLOSE
+Bus 3 | V=1.008 pu | I=356.6 A | PF=0.9188 | P=62.9079 MW | Q=27.0267 MVar | Breaker=CLOSE
+Bus 4 | V=1.010 pu | I=472.3 A | PF=0.8801 | P=-80.0000 MW | Q=-43.1484 MVar | Breaker=CLOSE
+Bus 5 | V=1.008 pu | I=479.6 A | PF=0.9687 | P=89.2358 MW | Q=22.8744 MVar | Breaker=n/a
+
+ 2026-05-17 01:45:57
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+Bus 1 | V=1.020 pu | I=909.1 A | PF=0.9741 | P=-172.0939 MW | Q=-39.9549 MVar | Breaker=CLOSE
+Bus 2 | V=1.009 pu | I=391.8 A | PF=0.9539 | P=71.8723 MW | Q=22.6212 MVar | Breaker=CLOSE
+Bus 3 | V=1.006 pu | I=525.6 A | PF=0.8889 | P=89.5250 MW | Q=46.1478 MVar | Breaker=CLOSE
+Bus 4 | V=1.010 pu | I=512.3 A | PF=0.8116 | P=-80.0000 MW | Q=-57.5937 MVar | Breaker=CLOSE
+Bus 5 | V=1.008 pu | I=481.0 A | PF=0.9636 | P=89.0262 MW | Q=24.7101 MVar | Breaker=n/a
+
+ 2026-05-17 01:46:01
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+Bus 1 | V=1.020 pu | I=811.5 A | PF=0.9641 | P=-152.0475 MW | Q=-41.8594 MVar | Breaker=CLOSE
+Bus 2 | V=1.010 pu | I=428.6 A | PF=0.9199 | P=75.8502 MW | Q=32.3366 MVar | Breaker=CLOSE
+Bus 3 | V=1.007 pu | I=371.9 A | PF=0.9204 | P=65.7063 MW | Q=27.9164 MVar | Breaker=CLOSE
+Bus 4 | V=1.010 pu | I=482.5 A | PF=0.8617 | P=-80.0000 MW | Q=-47.1180 MVar | Breaker=CLOSE
+Bus 5 | V=1.008 pu | I=483.3 A | PF=0.9611 | P=89.2188 MW | Q=25.6251 MVar | Breaker=n/a
+
+ 2026-05-17 01:46:05
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+Bus 1 | V=1.020 pu | I=745.2 A | PF=0.9836 | P=-142.4350 MW | Q=-26.1375 MVar | Breaker=CLOSE
+Bus 2 | V=1.012 pu | I=306.3 A | PF=0.9739 | P=57.4942 MW | Q=13.4100 MVar | Breaker=CLOSE
+Bus 3 | V=1.009 pu | I=398.2 A | PF=0.9575 | P=73.2939 MW | Q=22.0728 MVar | Breaker=CLOSE
+Bus 4 | V=1.010 pu | I=467.7 A | PF=0.8889 | P=-80.0000 MW | Q=-41.2316 MVar | Breaker=CLOSE
+Bus 5 | V=1.008 pu | I=495.0 A | PF=0.9520 | P=90.5033 MW | Q=29.0920 MVar | Breaker=n/a
+
+ 2026-05-17 01:46:09
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+Bus 1 | V=1.020 pu | I=958.2 A | PF=0.9900 | P=-184.3477 MW | Q=-26.3074 MVar | Breaker=CLOSE
+Bus 2 | V=1.010 pu | I=429.8 A | PF=0.9669 | P=79.9785 MW | Q=21.1115 MVar | Breaker=CLOSE
+Bus 3 | V=1.007 pu | I=481.7 A | PF=0.9634 | P=89.0699 MW | Q=24.7935 MVar | Breaker=CLOSE
+Bus 4 | V=1.010 pu | I=497.2 A | PF=0.8362 | P=-80.0000 MW | Q=-52.4704 MVar | Breaker=CLOSE
+Bus 5 | V=1.008 pu | I=508.9 A | PF=0.9567 | P=93.4870 MW | Q=28.4601 MVar | Breaker=n/a
+
+ 2026-05-17 01:46:13
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+Bus 1 | V=1.020 pu | I=787.6 A | PF=0.9581 | P=-146.6348 MW | Q=-43.8610 MVar | Breaker=CLOSE
+Bus 2 | V=1.010 pu | I=365.9 A | PF=0.9171 | P=64.5692 MW | Q=28.0679 MVar | Breaker=CLOSE
+Bus 3 | V=1.007 pu | I=424.1 A | PF=0.8853 | P=72.0312 MW | Q=37.8402 MVar | Breaker=CLOSE
+Bus 4 | V=1.010 pu | I=460.5 A | PF=0.9028 | P=-80.0000 MW | Q=-38.1060 MVar | Breaker=CLOSE
+Bus 5 | V=1.008 pu | I=467.1 A | PF=0.9894 | P=88.7897 MW | Q=13.0241 MVar | Breaker=n/a
+
+ 2026-05-17 01:46:17
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+Bus 1 | V=1.020 pu | I=775.3 A | PF=0.9785 | P=-147.4350 MW | Q=-31.0917 MVar | Breaker=CLOSE
+Bus 2 | V=1.011 pu | I=312.5 A | PF=0.9627 | P=57.9561 MW | Q=16.2829 MVar | Breaker=CLOSE
+Bus 3 | V=1.008 pu | I=417.7 A | PF=0.9181 | P=73.6503 MW | Q=31.8017 MVar | Breaker=CLOSE
+Bus 4 | V=1.010 pu | I=451.0 A | PF=0.9217 | P=-80.0000 MW | Q=-33.6607 MVar | Breaker=CLOSE
+Bus 5 | V=1.008 pu | I=497.3 A | PF=0.9898 | P=94.5732 MW | Q=13.6006 MVar | Breaker=n/a
+
+ 2026-05-17 01:46:21
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+Bus 1 | V=1.020 pu | I=777.0 A | PF=0.9750 | P=-147.2272 MW | Q=-33.5829 MVar | Breaker=CLOSE
+Bus 2 | V=1.011 pu | I=361.6 A | PF=0.9575 | P=66.6730 MW | Q=20.0912 MVar | Breaker=CLOSE
+Bus 3 | V=1.008 pu | I=371.2 A | PF=0.9067 | P=64.6439 MW | Q=30.0702 MVar | Breaker=CLOSE
+Bus 4 | V=1.010 pu | I=469.4 A | PF=0.8856 | P=-80.0000 MW | Q=-41.9531 MVar | Breaker=CLOSE
+Bus 5 | V=1.008 pu | I=506.6 A | PF=0.9732 | P=94.6871 MW | Q=22.3881 MVar | Breaker=n/a
+
+ 2026-05-17 01:46:25
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+Bus 1 | V=1.020 pu | I=734.9 A | PF=0.9738 | P=-139.0748 MW | Q=-32.5090 MVar | Breaker=CLOSE
+Bus 2 | V=1.011 pu | I=358.3 A | PF=0.9598 | P=66.2659 MW | Q=19.3691 MVar | Breaker=CLOSE
+Bus 3 | V=1.009 pu | I=344.4 A | PF=0.9326 | P=61.7150 MW | Q=23.8881 MVar | Breaker=CLOSE
+Bus 4 | V=1.010 pu | I=443.3 A | PF=0.9379 | P=-80.0000 MW | Q=-29.5920 MVar | Breaker=CLOSE
+Bus 5 | V=1.008 pu | I=476.2 A | PF=0.9841 | P=90.0285 MW | Q=16.2442 MVar | Breaker=n/a
+
+ 2026-05-17 01:46:29
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+Bus 1 | V=1.020 pu | I=683.6 A | PF=0.9714 | P=-129.0491 MW | Q=-31.5239 MVar | Breaker=CLOSE
+Bus 2 | V=1.012 pu | I=290.6 A | PF=0.9769 | P=54.7230 MW | Q=11.9808 MVar | Breaker=CLOSE
+Bus 3 | V=1.009 pu | I=362.1 A | PF=0.8967 | P=62.4033 MW | Q=30.8000 MVar | Breaker=CLOSE
+Bus 4 | V=1.010 pu | I=450.7 A | PF=0.9225 | P=-80.0000 MW | Q=-33.4824 MVar | Breaker=CLOSE
+Bus 5 | V=1.008 pu | I=484.6 A | PF=0.9770 | P=90.9504 MW | Q=19.8470 MVar | Breaker=n/a
+
+ 2026-05-17 01:46:33
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+Bus 1 | V=1.020 pu | I=831.4 A | PF=0.9665 | P=-156.1641 MW | Q=-41.4630 MVar | Breaker=CLOSE
+Bus 2 | V=1.010 pu | I=326.1 A | PF=0.9096 | P=57.0561 MW | Q=26.0635 MVar | Breaker=CLOSE
+Bus 3 | V=1.006 pu | I=501.3 A | PF=0.9022 | P=86.7086 MW | Q=41.4631 MVar | Breaker=CLOSE
+Bus 4 | V=1.010 pu | I=491.5 A | PF=0.8459 | P=-80.0000 MW | Q=-50.4362 MVar | Breaker=CLOSE
+Bus 5 | V=1.008 pu | I=485.7 A | PF=0.9748 | P=90.9452 MW | Q=20.8232 MVar | Breaker=n/a
+
+ 2026-05-17 01:46:38
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+Bus 1 | V=1.020 pu | I=770.8 A | PF=0.9780 | P=-146.4838 MW | Q=-31.2760 MVar | Breaker=CLOSE
+Bus 2 | V=1.011 pu | I=343.1 A | PF=0.9467 | P=62.5767 MW | Q=21.2932 MVar | Breaker=CLOSE
+Bus 3 | V=1.008 pu | I=408.6 A | PF=0.9641 | P=75.6835 MW | Q=20.8381 MVar | Breaker=CLOSE
+Bus 4 | V=1.010 pu | I=447.8 A | PF=0.9284 | P=-80.0000 MW | Q=-32.0162 MVar | Breaker=CLOSE
+Bus 5 | V=1.008 pu | I=463.0 A | PF=0.9786 | P=87.0426 MW | Q=18.2815 MVar | Breaker=n/a
+
+ 2026-05-17 01:46:42
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+Bus 1 | V=1.020 pu | I=781.4 A | PF=0.9663 | P=-146.7322 MW | Q=-39.1024 MVar | Breaker=CLOSE
+Bus 2 | V=1.010 pu | I=318.7 A | PF=0.9317 | P=57.1606 MW | Q=22.2911 MVar | Breaker=CLOSE
+Bus 3 | V=1.007 pu | I=460.6 A | PF=0.9070 | P=80.1507 MW | Q=37.2150 MVar | Breaker=CLOSE
+Bus 4 | V=1.010 pu | I=468.0 A | PF=0.8884 | P=-80.0000 MW | Q=-41.3439 MVar | Breaker=CLOSE
+Bus 5 | V=1.008 pu | I=468.2 A | PF=0.9801 | P=88.1618 MW | Q=17.8676 MVar | Breaker=n/a
+
+ 2026-05-17 01:46:46
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+Bus 1 | V=1.020 pu | I=782.7 A | PF=0.9805 | P=-149.1346 MW | Q=-29.8805 MVar | Breaker=CLOSE
+Bus 2 | V=1.011 pu | I=289.2 A | PF=0.9367 | P=52.1763 MW | Q=19.5095 MVar | Breaker=CLOSE
+Bus 3 | V=1.008 pu | I=483.0 A | PF=0.9696 | P=89.9536 MW | Q=22.6823 MVar | Breaker=CLOSE
+Bus 4 | V=1.010 pu | I=466.9 A | PF=0.8904 | P=-80.0000 MW | Q=-40.9074 MVar | Breaker=CLOSE
+Bus 5 | V=1.008 pu | I=465.7 A | PF=0.9585 | P=85.7326 MW | Q=25.4914 MVar | Breaker=n/a
+
+ 2026-05-17 01:46:50
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+Bus 1 | V=1.020 pu | I=805.6 A | PF=0.9863 | P=-154.4135 MW | Q=-25.8684 MVar | Breaker=CLOSE
+Bus 2 | V=1.011 pu | I=308.6 A | PF=0.9747 | P=57.9560 MW | Q=13.3011 MVar | Breaker=CLOSE
+Bus 3 | V=1.008 pu | I=469.1 A | PF=0.9591 | P=86.4259 MW | Q=25.4962 MVar | Breaker=CLOSE
+Bus 4 | V=1.010 pu | I=472.7 A | PF=0.8794 | P=-80.0000 MW | Q=-43.3049 MVar | Breaker=CLOSE
+Bus 5 | V=1.008 pu | I=482.9 A | PF=0.9563 | P=88.6953 MW | Q=27.1152 MVar | Breaker=n/a
+
+ 2026-05-17 01:46:54
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+Bus 1 | V=1.020 pu | I=868.6 A | PF=0.9857 | P=-166.3849 MW | Q=-28.4911 MVar | Breaker=CLOSE
+Bus 2 | V=1.011 pu | I=407.4 A | PF=0.9563 | P=75.0123 MW | Q=22.9396 MVar | Breaker=CLOSE
+Bus 3 | V=1.008 pu | I=421.1 A | PF=0.9689 | P=78.3503 MW | Q=20.0268 MVar | Breaker=CLOSE
+Bus 4 | V=1.010 pu | I=485.0 A | PF=0.8571 | P=-80.0000 MW | Q=-48.0731 MVar | Breaker=CLOSE
+Bus 5 | V=1.008 pu | I=501.6 A | PF=0.9503 | P=91.5398 MW | Q=29.9859 MVar | Breaker=n/a
+
+ 2026-05-17 01:46:58
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+Bus 1 | V=1.020 pu | I=855.4 A | PF=0.9756 | P=-162.1739 MW | Q=-36.5322 MVar | Breaker=CLOSE
+Bus 2 | V=1.010 pu | I=419.1 A | PF=0.9240 | P=74.5131 MW | Q=30.8482 MVar | Breaker=CLOSE
+Bus 3 | V=1.008 pu | I=431.6 A | PF=0.9645 | P=79.9017 MW | Q=21.8761 MVar | Breaker=CLOSE
+Bus 4 | V=1.010 pu | I=481.1 A | PF=0.8642 | P=-80.0000 MW | Q=-46.5781 MVar | Breaker=CLOSE
+Bus 5 | V=1.008 pu | I=470.9 A | PF=0.9546 | P=86.3429 MW | Q=26.9385 MVar | Breaker=n/a
+
+ 2026-05-17 01:47:02
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+Bus 1 | V=1.020 pu | I=712.5 A | PF=0.9723 | P=-134.6249 MW | Q=-32.3411 MVar | Breaker=CLOSE
+Bus 2 | V=1.011 pu | I=292.4 A | PF=0.9443 | P=53.2111 MW | Q=18.5515 MVar | Breaker=CLOSE
+Bus 3 | V=1.009 pu | I=379.6 A | PF=0.9344 | P=68.1704 MW | Q=25.9813 MVar | Breaker=CLOSE
+Bus 4 | V=1.010 pu | I=470.4 A | PF=0.8838 | P=-80.0000 MW | Q=-42.3441 MVar | Breaker=CLOSE
+Bus 5 | V=1.008 pu | I=500.9 A | PF=0.9581 | P=92.1761 MW | Q=27.5416 MVar | Breaker=n/a
+
+ 2026-05-17 01:47:06
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+Bus 1 | V=1.020 pu | I=834.4 A | PF=0.9778 | P=-158.5417 MW | Q=-34.0038 MVar | Breaker=CLOSE
+Bus 2 | V=1.010 pu | I=389.3 A | PF=0.9211 | P=69.0271 MW | Q=29.1721 MVar | Breaker=CLOSE
+Bus 3 | V=1.008 pu | I=404.3 A | PF=0.9615 | P=74.6560 MW | Q=21.3431 MVar | Breaker=CLOSE
+Bus 4 | V=1.010 pu | I=488.6 A | PF=0.8509 | P=-80.0000 MW | Q=-49.3971 MVar | Breaker=CLOSE
+Bus 5 | V=1.008 pu | I=510.3 A | PF=0.9537 | P=93.4610 MW | Q=29.4767 MVar | Breaker=n/a
+
+ 2026-05-17 01:47:10
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+Bus 1 | V=1.020 pu | I=719.5 A | PF=0.9671 | P=-135.2236 MW | Q=-35.5586 MVar | Breaker=CLOSE
+Bus 2 | V=1.011 pu | I=353.0 A | PF=0.9221 | P=62.7073 MW | Q=26.3080 MVar | Breaker=CLOSE
+Bus 3 | V=1.009 pu | I=329.4 A | PF=0.9494 | P=60.1064 MW | Q=19.8835 MVar | Breaker=CLOSE
+Bus 4 | V=1.010 pu | I=464.0 A | PF=0.8960 | P=-80.0000 MW | Q=-39.6508 MVar | Breaker=CLOSE
+Bus 5 | V=1.008 pu | I=495.3 A | PF=0.9605 | P=91.3711 MW | Q=26.4802 MVar | Breaker=n/a
+
+ 2026-05-17 01:47:14
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+Bus 1 | V=1.020 pu | I=812.9 A | PF=0.9628 | P=-152.1081 MW | Q=-42.6831 MVar | Breaker=CLOSE
+Bus 2 | V=1.010 pu | I=397.7 A | PF=0.9441 | P=72.2369 MW | Q=25.2151 MVar | Breaker=CLOSE
+Bus 3 | V=1.007 pu | I=431.1 A | PF=0.8809 | P=72.8306 MW | Q=39.1374 MVar | Breaker=CLOSE
+Bus 4 | V=1.010 pu | I=464.0 A | PF=0.8959 | P=-80.0000 MW | Q=-39.6612 MVar | Breaker=CLOSE
+Bus 5 | V=1.008 pu | I=453.0 A | PF=0.9853 | P=85.7524 MW | Q=14.8554 MVar | Breaker=n/a
+
+ 2026-05-17 01:47:18
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+Bus 1 | V=1.020 pu | I=897.3 A | PF=0.9761 | P=-170.2060 MW | Q=-37.9259 MVar | Breaker=CLOSE
+Bus 2 | V=1.010 pu | I=424.9 A | PF=0.9436 | P=77.1179 MW | Q=27.0465 MVar | Breaker=CLOSE
+Bus 3 | V=1.007 pu | I=475.5 A | PF=0.9324 | P=85.0379 MW | Q=32.9564 MVar | Breaker=CLOSE
+Bus 4 | V=1.010 pu | I=497.9 A | PF=0.8350 | P=-80.0000 MW | Q=-52.7244 MVar | Breaker=CLOSE
+Bus 5 | V=1.008 pu | I=471.4 A | PF=0.9551 | P=86.4809 MW | Q=26.8281 MVar | Breaker=n/a
+
+ 2026-05-17 01:47:22
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+Bus 1 | V=1.020 pu | I=825.8 A | PF=0.9880 | P=-158.5427 MW | Q=-24.8244 MVar | Breaker=CLOSE
+Bus 2 | V=1.011 pu | I=316.4 A | PF=0.9719 | P=59.2478 MW | Q=14.3449 MVar | Breaker=CLOSE
+Bus 3 | V=1.008 pu | I=456.1 A | PF=0.9575 | P=83.8837 MW | Q=25.2804 MVar | Breaker=CLOSE
+Bus 4 | V=1.010 pu | I=480.2 A | PF=0.8657 | P=-80.0000 MW | Q=-46.2638 MVar | Breaker=CLOSE
+Bus 5 | V=1.008 pu | I=510.7 A | PF=0.9584 | P=93.9892 MW | Q=27.9906 MVar | Breaker=n/a
+
+ 2026-05-17 01:47:26
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+Bus 1 | V=1.020 pu | I=798.8 A | PF=0.9744 | P=-151.2621 MW | Q=-34.9195 MVar | Breaker=CLOSE
+Bus 2 | V=1.011 pu | I=328.7 A | PF=0.9082 | P=57.4859 MW | Q=26.4880 MVar | Breaker=CLOSE
+Bus 3 | V=1.008 pu | I=452.7 A | PF=0.9596 | P=83.4035 MW | Q=24.4640 MVar | Breaker=CLOSE
+Bus 4 | V=1.010 pu | I=463.9 A | PF=0.8962 | P=-80.0000 MW | Q=-39.5969 MVar | Breaker=CLOSE
+Bus 5 | V=1.008 pu | I=475.6 A | PF=0.9748 | P=89.0638 MW | Q=20.3709 MVar | Breaker=n/a
+
+ 2026-05-17 01:47:30
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+Bus 1 | V=1.020 pu | I=806.3 A | PF=0.9895 | P=-155.0475 MW | Q=-22.6756 MVar | Breaker=CLOSE
+Bus 2 | V=1.012 pu | I=290.9 A | PF=0.9744 | P=54.6366 MW | Q=12.6086 MVar | Breaker=CLOSE
+Bus 3 | V=1.009 pu | I=462.1 A | PF=0.9679 | P=85.9382 MW | Q=22.3308 MVar | Breaker=CLOSE
+Bus 4 | V=1.010 pu | I=447.3 A | PF=0.9294 | P=-80.0000 MW | Q=-31.7645 MVar | Breaker=CLOSE
+Bus 5 | V=1.008 pu | I=491.9 A | PF=0.9853 | P=93.1077 MW | Q=16.1675 MVar | Breaker=n/a
+
+ 2026-05-17 01:47:34
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+Bus 1 | V=1.020 pu | I=706.7 A | PF=0.9814 | P=-134.7873 MW | Q=-26.3663 MVar | Breaker=CLOSE
+Bus 2 | V=1.012 pu | I=274.4 A | PF=0.9589 | P=50.7436 MW | Q=15.0104 MVar | Breaker=CLOSE
+Bus 3 | V=1.009 pu | I=377.5 A | PF=0.9638 | P=69.9656 MW | Q=19.3628 MVar | Breaker=CLOSE
+Bus 4 | V=1.010 pu | I=439.0 A | PF=0.9470 | P=-80.0000 MW | Q=-27.1269 MVar | Breaker=CLOSE
+Bus 5 | V=1.008 pu | I=491.8 A | PF=0.9846 | P=93.0224 MW | Q=16.5373 MVar | Breaker=n/a
+
+ 2026-05-17 01:47:38
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+Bus 1 | V=1.020 pu | I=919.8 A | PF=0.9699 | P=-173.3767 MW | Q=-43.4924 MVar | Breaker=CLOSE
+Bus 2 | V=1.009 pu | I=419.7 A | PF=0.9213 | P=74.3225 MW | Q=31.3592 MVar | Breaker=CLOSE
+Bus 3 | V=1.006 pu | I=490.5 A | PF=0.8897 | P=83.6212 MW | Q=42.9032 MVar | Breaker=CLOSE
+Bus 4 | V=1.010 pu | I=495.1 A | PF=0.8398 | P=-80.0000 MW | Q=-51.7220 MVar | Breaker=CLOSE
+Bus 5 | V=1.008 pu | I=495.6 A | PF=0.9843 | P=93.7217 MW | Q=16.7821 MVar | Breaker=n/a
+
+ 2026-05-17 01:47:42
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+Bus 1 | V=1.020 pu | I=762.7 A | PF=0.9760 | P=-144.6578 MW | Q=-32.2842 MVar | Breaker=CLOSE
+Bus 2 | V=1.011 pu | I=304.8 A | PF=0.9653 | P=56.6730 MW | Q=15.3255 MVar | Breaker=CLOSE
+Bus 3 | V=1.008 pu | I=423.6 A | PF=0.9075 | P=73.8091 MW | Q=34.1708 MVar | Breaker=CLOSE
+Bus 4 | V=1.010 pu | I=483.8 A | PF=0.8592 | P=-80.0000 MW | Q=-47.6323 MVar | Breaker=CLOSE
+Bus 5 | V=1.008 pu | I=504.7 A | PF=0.9591 | P=92.9535 MW | Q=27.4328 MVar | Breaker=n/a
+
+ 2026-05-17 01:47:46
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+Bus 1 | V=1.020 pu | I=720.1 A | PF=0.9743 | P=-136.3347 MW | Q=-31.5311 MVar | Breaker=CLOSE
+Bus 2 | V=1.011 pu | I=287.4 A | PF=0.9155 | P=50.7099 MW | Q=22.2920 MVar | Breaker=CLOSE
+Bus 3 | V=1.009 pu | I=379.4 A | PF=0.9578 | P=69.8479 MW | Q=20.9635 MVar | Breaker=CLOSE
+Bus 4 | V=1.010 pu | I=468.6 A | PF=0.8871 | P=-80.0000 MW | Q=-41.6182 MVar | Breaker=CLOSE
+Bus 5 | V=1.008 pu | I=512.9 A | PF=0.9612 | P=94.6689 MW | Q=27.1818 MVar | Breaker=n/a
+
+ 2026-05-17 01:47:50
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+Bus 1 | V=1.020 pu | I=918.7 A | PF=0.9791 | P=-174.8061 MW | Q=-36.2868 MVar | Breaker=CLOSE
+Bus 2 | V=1.010 pu | I=386.3 A | PF=0.9320 | P=69.2445 MW | Q=26.9351 MVar | Breaker=CLOSE
+Bus 3 | V=1.006 pu | I=502.5 A | PF=0.9283 | P=89.4345 MW | Q=35.8345 MVar | Breaker=CLOSE
+Bus 4 | V=1.010 pu | I=520.2 A | PF=0.7992 | P=-80.0000 MW | Q=-60.1641 MVar | Breaker=CLOSE
+Bus 5 | V=1.008 pu | I=514.9 A | PF=0.9546 | P=94.3924 MW | Q=29.4511 MVar | Breaker=n/a
+
+ 2026-05-17 01:47:54
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+Bus 1 | V=1.020 pu | I=936.4 A | PF=0.9660 | P=-175.7921 MW | Q=-47.0270 MVar | Breaker=CLOSE
+Bus 2 | V=1.008 pu | I=450.4 A | PF=0.9143 | P=79.1120 MW | Q=35.0503 MVar | Breaker=CLOSE
+Bus 3 | V=1.005 pu | I=513.3 A | PF=0.9039 | P=88.8760 MW | Q=42.0600 MVar | Breaker=CLOSE
+Bus 4 | V=1.010 pu | I=509.9 A | PF=0.8153 | P=-80.0000 MW | Q=-56.8100 MVar | Breaker=CLOSE
+Bus 5 | V=1.008 pu | I=463.3 A | PF=0.9674 | P=86.0840 MW | Q=22.5421 MVar | Breaker=n/a
+
+ 2026-05-17 01:47:58
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+Bus 1 | V=1.020 pu | I=850.3 A | PF=0.9702 | P=-160.3202 MW | Q=-40.0280 MVar | Breaker=CLOSE
+Bus 2 | V=1.010 pu | I=403.8 A | PF=0.9251 | P=71.8564 MW | Q=29.4960 MVar | Breaker=CLOSE
+Bus 3 | V=1.007 pu | I=440.1 A | PF=0.9260 | P=78.1863 MW | Q=31.8692 MVar | Breaker=CLOSE
+Bus 4 | V=1.010 pu | I=479.2 A | PF=0.8676 | P=-80.0000 MW | Q=-45.8605 MVar | Breaker=CLOSE
+Bus 5 | V=1.008 pu | I=475.4 A | PF=0.9731 | P=88.8520 MW | Q=21.0507 MVar | Breaker=n/a
+
+ 2026-05-17 01:48:02
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+Bus 1 | V=1.020 pu | I=680.4 A | PF=0.9757 | P=-129.0164 MW | Q=-28.9794 MVar | Breaker=CLOSE
+Bus 2 | V=1.012 pu | I=312.5 A | PF=0.9567 | P=57.6417 MW | Q=17.5369 MVar | Breaker=CLOSE
+Bus 3 | V=1.010 pu | I=324.1 A | PF=0.9633 | P=60.0507 MW | Q=16.7329 MVar | Breaker=CLOSE
+Bus 4 | V=1.010 pu | I=438.0 A | PF=0.9492 | P=-80.0000 MW | Q=-26.5108 MVar | Breaker=CLOSE
+Bus 5 | V=1.008 pu | I=480.7 A | PF=0.9788 | P=90.3845 MW | Q=18.9239 MVar | Breaker=n/a
+
+ 2026-05-17 01:48:06
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+Bus 1 | V=1.020 pu | I=827.3 A | PF=0.9714 | P=-156.1909 MW | Q=-38.1519 MVar | Breaker=CLOSE
+Bus 2 | V=1.010 pu | I=393.7 A | PF=0.9537 | P=72.2585 MW | Q=22.8006 MVar | Breaker=CLOSE
+Bus 3 | V=1.007 pu | I=417.1 A | PF=0.8863 | P=70.9266 MW | Q=37.0612 MVar | Breaker=CLOSE
+Bus 4 | V=1.010 pu | I=491.9 A | PF=0.8451 | P=-80.0000 MW | Q=-50.6046 MVar | Breaker=CLOSE
+Bus 5 | V=1.008 pu | I=495.4 A | PF=0.9632 | P=91.6424 MW | Q=25.5703 MVar | Breaker=n/a
+
+ 2026-05-17 01:48:10
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+Bus 1 | V=1.020 pu | I=793.7 A | PF=0.9751 | P=-150.3983 MW | Q=-34.2157 MVar | Breaker=CLOSE
+Bus 2 | V=1.011 pu | I=318.8 A | PF=0.9678 | P=59.4175 MW | Q=15.4438 MVar | Breaker=CLOSE
+Bus 3 | V=1.007 pu | I=468.7 A | PF=0.9070 | P=81.5926 MW | Q=37.8776 MVar | Breaker=CLOSE
+Bus 4 | V=1.010 pu | I=478.8 A | PF=0.8682 | P=-80.0000 MW | Q=-45.7209 MVar | Breaker=CLOSE
+Bus 5 | V=1.008 pu | I=474.6 A | PF=0.9663 | P=88.0928 MW | Q=23.4545 MVar | Breaker=n/a
+
+ 2026-05-17 01:48:14
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+Bus 1 | V=1.020 pu | I=752.5 A | PF=0.9673 | P=-141.4522 MW | Q=-37.0688 MVar | Breaker=CLOSE
+Bus 2 | V=1.011 pu | I=349.0 A | PF=0.9237 | P=62.0720 MW | Q=25.7542 MVar | Breaker=CLOSE
+Bus 3 | V=1.008 pu | I=362.0 A | PF=0.9178 | P=63.8186 MW | Q=27.6005 MVar | Breaker=CLOSE
+Bus 4 | V=1.010 pu | I=464.1 A | PF=0.8959 | P=-80.0000 MW | Q=-39.6762 MVar | Breaker=CLOSE
+Bus 5 | V=1.008 pu | I=503.0 A | PF=0.9771 | P=94.4036 MW | Q=20.5614 MVar | Breaker=n/a
+
+ 2026-05-17 01:48:18
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+Bus 1 | V=1.020 pu | I=807.7 A | PF=0.9706 | P=-152.3566 MW | Q=-37.7899 MVar | Breaker=CLOSE
+Bus 2 | V=1.010 pu | I=421.9 A | PF=0.9492 | P=77.0842 MW | Q=25.5433 MVar | Breaker=CLOSE
+Bus 3 | V=1.008 pu | I=386.9 A | PF=0.9293 | P=69.0285 MW | Q=27.4304 MVar | Breaker=CLOSE
+Bus 4 | V=1.010 pu | I=470.8 A | PF=0.8831 | P=-80.0000 MW | Q=-42.5043 MVar | Breaker=CLOSE
+Bus 5 | V=1.008 pu | I=460.3 A | PF=0.9615 | P=85.0041 MW | Q=24.3027 MVar | Breaker=n/a
+
+ 2026-05-17 01:48:22
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+Bus 1 | V=1.020 pu | I=810.0 A | PF=0.9739 | P=-153.2944 MW | Q=-35.7462 MVar | Breaker=CLOSE
+Bus 2 | V=1.010 pu | I=345.2 A | PF=0.9464 | P=62.8966 MW | Q=21.4663 MVar | Breaker=CLOSE
+Bus 3 | V=1.007 pu | I=450.2 A | PF=0.9218 | P=79.6412 MW | Q=33.4815 MVar | Breaker=CLOSE
+Bus 4 | V=1.010 pu | I=487.6 A | PF=0.8526 | P=-80.0000 MW | Q=-49.0392 MVar | Breaker=CLOSE
+Bus 5 | V=1.008 pu | I=485.7 A | PF=0.9585 | P=89.4216 MW | Q=26.5808 MVar | Breaker=n/a
+
+ 2026-05-17 01:48:26
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+Bus 1 | V=1.020 pu | I=820.2 A | PF=0.9742 | P=-155.2841 MW | Q=-35.9981 MVar | Breaker=CLOSE
+Bus 2 | V=1.010 pu | I=343.1 A | PF=0.9721 | P=64.1956 MW | Q=15.4919 MVar | Breaker=CLOSE
+Bus 3 | V=1.007 pu | I=488.5 A | PF=0.8953 | P=83.8807 MW | Q=41.7421 MVar | Breaker=CLOSE
+Bus 4 | V=1.010 pu | I=479.1 A | PF=0.8677 | P=-80.0000 MW | Q=-45.8328 MVar | Breaker=CLOSE
+Bus 5 | V=1.008 pu | I=460.4 A | PF=0.9706 | P=85.8480 MW | Q=21.2825 MVar | Breaker=n/a
+
+ 2026-05-17 01:48:30
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+Bus 1 | V=1.020 pu | I=877.5 A | PF=0.9782 | P=-166.8219 MW | Q=-35.4057 MVar | Breaker=CLOSE
+Bus 2 | V=1.010 pu | I=386.9 A | PF=0.9268 | P=68.9882 MW | Q=27.9520 MVar | Breaker=CLOSE
+Bus 3 | V=1.007 pu | I=465.0 A | PF=0.9476 | P=84.5527 MW | Q=28.5041 MVar | Breaker=CLOSE
+Bus 4 | V=1.010 pu | I=495.7 A | PF=0.8387 | P=-80.0000 MW | Q=-51.9486 MVar | Breaker=CLOSE
+Bus 5 | V=1.008 pu | I=498.1 A | PF=0.9590 | P=91.7280 MW | Q=27.1127 MVar | Breaker=n/a
+
+ 2026-05-17 01:48:35
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+Bus 1 | V=1.020 pu | I=736.8 A | PF=0.9634 | P=-137.9532 MW | Q=-38.3848 MVar | Breaker=CLOSE
+Bus 2 | V=1.011 pu | I=322.3 A | PF=0.9020 | P=55.9739 MW | Q=26.7988 MVar | Breaker=CLOSE
+Bus 3 | V=1.008 pu | I=380.0 A | PF=0.9228 | P=67.3453 MW | Q=28.1252 MVar | Breaker=CLOSE
+Bus 4 | V=1.010 pu | I=487.7 A | PF=0.8524 | P=-80.0000 MW | Q=-49.0725 MVar | Breaker=CLOSE
+Bus 5 | V=1.008 pu | I=511.0 A | PF=0.9529 | P=93.4974 MW | Q=29.7535 MVar | Breaker=n/a
+
+ 2026-05-17 01:48:39
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+Bus 1 | V=1.020 pu | I=736.2 A | PF=0.9736 | P=-139.2990 MW | Q=-32.6361 MVar | Breaker=CLOSE
+Bus 2 | V=1.011 pu | I=341.0 A | PF=0.9504 | P=62.4332 MW | Q=20.4362 MVar | Breaker=CLOSE
+Bus 3 | V=1.009 pu | I=363.4 A | PF=0.9427 | P=65.8331 MW | Q=23.3060 MVar | Breaker=CLOSE
+Bus 4 | V=1.010 pu | I=465.0 A | PF=0.8941 | P=-80.0000 MW | Q=-40.0824 MVar | Breaker=CLOSE
+Bus 5 | V=1.008 pu | I=488.0 A | PF=0.9598 | P=89.9438 MW | Q=26.3174 MVar | Breaker=n/a
+
+ 2026-05-17 01:48:43
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+Bus 1 | V=1.020 pu | I=848.6 A | PF=0.9683 | P=-159.6923 MW | Q=-41.2050 MVar | Breaker=CLOSE
+Bus 2 | V=1.010 pu | I=402.3 A | PF=0.9004 | P=69.6817 MW | Q=33.6608 MVar | Breaker=CLOSE
+Bus 3 | V=1.007 pu | I=453.1 A | PF=0.9493 | P=82.5289 MW | Q=27.3292 MVar | Breaker=CLOSE
+Bus 4 | V=1.010 pu | I=479.3 A | PF=0.8673 | P=-80.0000 MW | Q=-45.9062 MVar | Breaker=CLOSE
+Bus 5 | V=1.008 pu | I=463.3 A | PF=0.9670 | P=86.0659 MW | Q=22.6737 MVar | Breaker=n/a
+
+ 2026-05-17 01:48:47
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+Bus 1 | V=1.020 pu | I=739.4 A | PF=0.9704 | P=-139.4407 MW | Q=-34.7179 MVar | Breaker=CLOSE
+Bus 2 | V=1.011 pu | I=293.8 A | PF=0.9766 | P=55.2766 MW | Q=12.1628 MVar | Breaker=CLOSE
+Bus 3 | V=1.008 pu | I=444.9 A | PF=0.8845 | P=75.5387 MW | Q=39.8397 MVar | Breaker=CLOSE
+Bus 4 | V=1.010 pu | I=455.7 A | PF=0.9122 | P=-80.0000 MW | Q=-35.9277 MVar | Breaker=CLOSE
+Bus 5 | V=1.008 pu | I=462.8 A | PF=0.9839 | P=87.4920 MW | Q=15.8755 MVar | Breaker=n/a
+
+ 2026-05-17 01:48:51
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+Bus 1 | V=1.020 pu | I=813.9 A | PF=0.9863 | P=-156.0094 MW | Q=-26.0937 MVar | Breaker=CLOSE
+Bus 2 | V=1.011 pu | I=342.9 A | PF=0.9641 | P=63.6939 MW | Q=17.5396 MVar | Breaker=CLOSE
+Bus 3 | V=1.008 pu | I=429.9 A | PF=0.9689 | P=80.0273 MW | Q=20.4351 MVar | Breaker=CLOSE
+Bus 4 | V=1.010 pu | I=442.8 A | PF=0.9388 | P=-80.0000 MW | Q=-29.3510 MVar | Breaker=CLOSE
+Bus 5 | V=1.008 pu | I=479.2 A | PF=0.9880 | P=90.9545 MW | Q=14.2179 MVar | Breaker=n/a
+
+ 2026-05-17 01:48:55
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+Bus 1 | V=1.020 pu | I=909.8 A | PF=0.9800 | P=-173.2718 MW | Q=-35.1891 MVar | Breaker=CLOSE
+Bus 2 | V=1.010 pu | I=420.4 A | PF=0.9490 | P=76.7428 MW | Q=25.4921 MVar | Breaker=CLOSE
+Bus 3 | V=1.007 pu | I=459.6 A | PF=0.9254 | P=81.5782 MW | Q=33.4023 MVar | Breaker=CLOSE
+Bus 4 | V=1.010 pu | I=491.1 A | PF=0.8465 | P=-80.0000 MW | Q=-50.3051 MVar | Breaker=CLOSE
+Bus 5 | V=1.008 pu | I=499.8 A | PF=0.9719 | P=93.3057 MW | Q=22.5924 MVar | Breaker=n/a
+
+ 2026-05-17 01:48:59
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+Bus 1 | V=1.020 pu | I=845.8 A | PF=0.9735 | P=-160.0136 MW | Q=-37.5981 MVar | Breaker=CLOSE
+Bus 2 | V=1.010 pu | I=416.6 A | PF=0.9595 | P=76.9162 MW | Q=22.5848 MVar | Breaker=CLOSE
+Bus 3 | V=1.007 pu | I=428.4 A | PF=0.9033 | P=74.2402 MW | Q=35.2536 MVar | Breaker=CLOSE
+Bus 4 | V=1.010 pu | I=472.8 A | PF=0.8793 | P=-80.0000 MW | Q=-43.3357 MVar | Breaker=CLOSE
+Bus 5 | V=1.008 pu | I=466.8 A | PF=0.9755 | P=87.4724 MW | Q=19.7245 MVar | Breaker=n/a
+
+ 2026-05-17 01:49:03
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+Bus 1 | V=1.020 pu | I=844.8 A | PF=0.9682 | P=-158.9495 MW | Q=-41.0965 MVar | Breaker=CLOSE
+Bus 2 | V=1.010 pu | I=402.8 A | PF=0.9417 | P=72.9744 MW | Q=26.0716 MVar | Breaker=CLOSE
+Bus 3 | V=1.007 pu | I=454.2 A | PF=0.9047 | P=78.8025 MW | Q=37.1072 MVar | Breaker=CLOSE
+Bus 4 | V=1.010 pu | I=490.3 A | PF=0.8479 | P=-80.0000 MW | Q=-50.0250 MVar | Breaker=CLOSE
+Bus 5 | V=1.008 pu | I=464.5 A | PF=0.9614 | P=85.7748 MW | Q=24.5391 MVar | Breaker=n/a
+
+ 2026-05-17 01:49:07
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+Bus 1 | V=1.020 pu | I=765.9 A | PF=0.9599 | P=-142.8691 MW | Q=-41.7118 MVar | Breaker=CLOSE
+Bus 2 | V=1.010 pu | I=326.4 A | PF=0.9256 | P=58.1515 MW | Q=23.7839 MVar | Breaker=CLOSE
+Bus 3 | V=1.007 pu | I=445.0 A | PF=0.8925 | P=76.2046 MW | Q=38.5217 MVar | Breaker=CLOSE
+Bus 4 | V=1.010 pu | I=470.2 A | PF=0.8842 | P=-80.0000 MW | Q=-42.2524 MVar | Breaker=CLOSE
+Bus 5 | V=1.008 pu | I=464.8 A | PF=0.9778 | P=87.3126 MW | Q=18.7292 MVar | Breaker=n/a
+
+ 2026-05-17 01:49:11
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+Bus 1 | V=1.020 pu | I=821.4 A | PF=0.9642 | P=-153.9056 MW | Q=-42.3478 MVar | Breaker=CLOSE
+Bus 2 | V=1.010 pu | I=408.8 A | PF=0.9051 | P=71.1926 MW | Q=33.4371 MVar | Breaker=CLOSE
+Bus 3 | V=1.007 pu | I=405.2 A | PF=0.9288 | P=72.2280 MW | Q=28.8103 MVar | Breaker=CLOSE
+Bus 4 | V=1.010 pu | I=489.5 A | PF=0.8493 | P=-80.0000 MW | Q=-49.7301 MVar | Breaker=CLOSE
+Bus 5 | V=1.008 pu | I=484.4 A | PF=0.9583 | P=89.1577 MW | Q=26.5958 MVar | Breaker=n/a
+
+ 2026-05-17 01:49:15
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+Bus 1 | V=1.020 pu | I=810.1 A | PF=0.9848 | P=-155.0384 MW | Q=-27.3118 MVar | Breaker=CLOSE
+Bus 2 | V=1.011 pu | I=334.2 A | PF=0.9724 | P=62.6043 MW | Q=15.0251 MVar | Breaker=CLOSE
+Bus 3 | V=1.008 pu | I=428.2 A | PF=0.9426 | P=77.5224 MW | Q=27.4637 MVar | Breaker=CLOSE
+Bus 4 | V=1.010 pu | I=458.4 A | PF=0.9070 | P=-80.0000 MW | Q=-37.1501 MVar | Breaker=CLOSE
+Bus 5 | V=1.008 pu | I=496.7 A | PF=0.9806 | P=93.5673 MW | Q=18.6921 MVar | Breaker=n/a
+
+ 2026-05-17 01:49:19
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+Bus 1 | V=1.020 pu | I=778.7 A | PF=0.9696 | P=-146.7349 MW | Q=-37.0451 MVar | Breaker=CLOSE
+Bus 2 | V=1.011 pu | I=354.2 A | PF=0.9005 | P=61.4114 MW | Q=29.6608 MVar | Breaker=CLOSE
+Bus 3 | V=1.008 pu | I=387.6 A | PF=0.9478 | P=70.5528 MW | Q=23.7327 MVar | Breaker=CLOSE
+Bus 4 | V=1.010 pu | I=451.5 A | PF=0.9207 | P=-80.0000 MW | Q=-33.9031 MVar | Breaker=CLOSE
+Bus 5 | V=1.008 pu | I=492.7 A | PF=0.9881 | P=93.5345 MW | Q=14.5369 MVar | Breaker=n/a
+
+ 2026-05-17 01:49:23
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+Bus 1 | V=1.020 pu | I=777.1 A | PF=0.9759 | P=-147.3732 MW | Q=-32.9828 MVar | Breaker=CLOSE
+Bus 2 | V=1.011 pu | I=338.5 A | PF=0.9598 | P=62.5706 MW | Q=18.2979 MVar | Breaker=CLOSE
+Bus 3 | V=1.008 pu | I=425.7 A | PF=0.9343 | P=76.3840 MW | Q=29.1465 MVar | Breaker=CLOSE
+Bus 4 | V=1.010 pu | I=472.6 A | PF=0.8796 | P=-80.0000 MW | Q=-43.2667 MVar | Breaker=CLOSE
+Bus 5 | V=1.008 pu | I=473.6 A | PF=0.9588 | P=87.2054 MW | Q=25.8457 MVar | Breaker=n/a
+
+ 2026-05-17 01:49:27
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+Bus 1 | V=1.020 pu | I=765.5 A | PF=0.9638 | P=-143.3759 MW | Q=-39.6668 MVar | Breaker=CLOSE
+Bus 2 | V=1.010 pu | I=363.1 A | PF=0.9023 | P=63.0751 MW | Q=30.1326 MVar | Breaker=CLOSE
+Bus 3 | V=1.008 pu | I=387.8 A | PF=0.9411 | P=70.0839 MW | Q=25.1752 MVar | Breaker=CLOSE
+Bus 4 | V=1.010 pu | I=478.6 A | PF=0.8686 | P=-80.0000 MW | Q=-45.6292 MVar | Breaker=CLOSE
+Bus 5 | V=1.008 pu | I=484.7 A | PF=0.9566 | P=89.0432 MW | Q=27.1242 MVar | Breaker=n/a
+
+ 2026-05-17 01:49:31
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+Bus 1 | V=1.020 pu | I=821.1 A | PF=0.9588 | P=-153.0019 MW | Q=-45.3075 MVar | Breaker=CLOSE
+Bus 2 | V=1.009 pu | I=365.7 A | PF=0.9102 | P=64.0217 MW | Q=29.1299 MVar | Breaker=CLOSE
+Bus 3 | V=1.006 pu | I=465.0 A | PF=0.8824 | P=78.6677 MW | Q=41.9402 MVar | Breaker=CLOSE
+Bus 4 | V=1.010 pu | I=491.3 A | PF=0.8462 | P=-80.0000 MW | Q=-50.3789 MVar | Breaker=CLOSE
+Bus 5 | V=1.008 pu | I=476.1 A | PF=0.9726 | P=88.9402 MW | Q=21.2696 MVar | Breaker=n/a
+
+ 2026-05-17 01:49:35
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+Bus 1 | V=1.020 pu | I=649.4 A | PF=0.9608 | P=-121.2566 MW | Q=-34.9856 MVar | Breaker=CLOSE
+Bus 2 | V=1.012 pu | I=277.1 A | PF=0.9514 | P=50.8131 MW | Q=16.4440 MVar | Breaker=CLOSE
+Bus 3 | V=1.009 pu | I=361.7 A | PF=0.9216 | P=64.0710 MW | Q=26.9933 MVar | Breaker=CLOSE
+Bus 4 | V=1.010 pu | I=451.2 A | PF=0.9213 | P=-80.0000 MW | Q=-33.7576 MVar | Breaker=CLOSE
+Bus 5 | V=1.008 pu | I=461.2 A | PF=0.9652 | P=85.5028 MW | Q=23.1789 MVar | Breaker=n/a
+
+ 2026-05-17 01:49:39
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+Bus 1 | V=1.020 pu | I=810.8 A | PF=0.9716 | P=-153.0893 MW | Q=-37.2653 MVar | Breaker=CLOSE
+Bus 2 | V=1.010 pu | I=316.1 A | PF=0.9261 | P=56.3498 MW | Q=22.9477 MVar | Breaker=CLOSE
+Bus 3 | V=1.007 pu | I=472.3 A | PF=0.9141 | P=82.8369 MW | Q=36.7407 MVar | Breaker=CLOSE
+Bus 4 | V=1.010 pu | I=471.8 A | PF=0.8811 | P=-80.0000 MW | Q=-42.9347 MVar | Breaker=CLOSE
+Bus 5 | V=1.008 pu | I=489.8 A | PF=0.9833 | P=92.5201 MW | Q=17.1360 MVar | Breaker=n/a
+
+ 2026-05-17 01:49:43
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+Bus 1 | V=1.020 pu | I=716.5 A | PF=0.9639 | P=-134.2168 MW | Q=-37.0630 MVar | Breaker=CLOSE
+Bus 2 | V=1.011 pu | I=329.7 A | PF=0.9066 | P=57.5681 MW | Q=26.8039 MVar | Breaker=CLOSE
+Bus 3 | V=1.009 pu | I=339.6 A | PF=0.9285 | P=60.5815 MW | Q=24.2192 MVar | Breaker=CLOSE
+Bus 4 | V=1.010 pu | I=471.4 A | PF=0.8818 | P=-80.0000 MW | Q=-42.7773 MVar | Breaker=CLOSE
+Bus 5 | V=1.008 pu | I=513.1 A | PF=0.9640 | P=94.9991 MW | Q=26.2044 MVar | Breaker=n/a
+
+ 2026-05-17 01:49:47
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+Bus 1 | V=1.020 pu | I=862.0 A | PF=0.9853 | P=-165.0567 MW | Q=-28.6413 MVar | Breaker=CLOSE
+Bus 2 | V=1.011 pu | I=375.0 A | PF=0.9625 | P=69.5043 MW | Q=19.5902 MVar | Breaker=CLOSE
+Bus 3 | V=1.008 pu | I=437.1 A | PF=0.9479 | P=79.5526 MW | Q=26.7411 MVar | Breaker=CLOSE
+Bus 4 | V=1.010 pu | I=489.3 A | PF=0.8496 | P=-80.0000 MW | Q=-49.6532 MVar | Breaker=CLOSE
+Bus 5 | V=1.008 pu | I=513.7 A | PF=0.9580 | P=94.4961 MW | Q=28.2957 MVar | Breaker=n/a
+
+ 2026-05-17 01:49:51
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+Bus 1 | V=1.020 pu | I=673.6 A | PF=0.9624 | P=-125.9905 MW | Q=-35.5599 MVar | Breaker=CLOSE
+Bus 2 | V=1.011 pu | I=287.9 A | PF=0.9122 | P=50.6114 MW | Q=22.7352 MVar | Breaker=CLOSE
+Bus 3 | V=1.009 pu | I=353.0 A | PF=0.9403 | P=63.7866 MW | Q=23.0982 MVar | Breaker=CLOSE
+Bus 4 | V=1.010 pu | I=463.6 A | PF=0.8967 | P=-80.0000 MW | Q=-39.4895 MVar | Breaker=CLOSE
+Bus 5 | V=1.008 pu | I=492.3 A | PF=0.9587 | P=90.6397 MW | Q=26.8838 MVar | Breaker=n/a
+
+ 2026-05-17 01:49:55
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+Bus 1 | V=1.020 pu | I=787.3 A | PF=0.9786 | P=-149.7246 MW | Q=-31.4980 MVar | Breaker=CLOSE
+Bus 2 | V=1.011 pu | I=383.3 A | PF=0.9614 | P=70.9839 MW | Q=20.3292 MVar | Breaker=CLOSE
+Bus 3 | V=1.008 pu | I=362.2 A | PF=0.9347 | P=65.0337 MW | Q=24.7403 MVar | Breaker=CLOSE
+Bus 4 | V=1.010 pu | I=478.1 A | PF=0.8696 | P=-80.0000 MW | Q=-45.4322 MVar | Breaker=CLOSE
+Bus 5 | V=1.008 pu | I=504.5 A | PF=0.9546 | P=92.4793 MW | Q=28.8653 MVar | Breaker=n/a
+
+ 2026-05-17 01:49:59
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+Bus 1 | V=1.020 pu | I=777.6 A | PF=0.9735 | P=-147.1101 MW | Q=-34.5596 MVar | Breaker=CLOSE
+Bus 2 | V=1.011 pu | I=396.3 A | PF=0.9772 | P=74.5790 MW | Q=16.2124 MVar | Breaker=CLOSE
+Bus 3 | V=1.008 pu | I=373.3 A | PF=0.8823 | P=63.2430 MW | Q=33.7368 MVar | Breaker=CLOSE
+Bus 4 | V=1.010 pu | I=459.0 A | PF=0.9058 | P=-80.0000 MW | Q=-37.4289 MVar | Breaker=CLOSE
+Bus 5 | V=1.008 pu | I=469.5 A | PF=0.9771 | P=88.1196 MW | Q=19.1922 MVar | Breaker=n/a
+
+ 2026-05-17 01:50:03
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+Bus 1 | V=1.020 pu | I=921.8 A | PF=0.9702 | P=-173.7895 MW | Q=-43.4220 MVar | Breaker=CLOSE
+Bus 2 | V=1.009 pu | I=439.7 A | PF=0.9317 | P=78.7452 MW | Q=30.6912 MVar | Breaker=CLOSE
+Bus 3 | V=1.006 pu | I=479.3 A | PF=0.8868 | P=81.4504 MW | Q=42.4388 MVar | Breaker=CLOSE
+Bus 4 | V=1.010 pu | I=503.7 A | PF=0.8254 | P=-80.0000 MW | Q=-54.7244 MVar | Breaker=CLOSE
+Bus 5 | V=1.008 pu | I=490.7 A | PF=0.9751 | P=91.9061 MW | Q=20.9066 MVar | Breaker=n/a
+
+ 2026-05-17 01:50:07
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+Bus 1 | V=1.020 pu | I=769.3 A | PF=0.9766 | P=-146.0038 MW | Q=-32.1825 MVar | Breaker=CLOSE
+Bus 2 | V=1.011 pu | I=286.4 A | PF=0.9618 | P=53.0570 MW | Q=15.1017 MVar | Breaker=CLOSE
+Bus 3 | V=1.008 pu | I=476.8 A | PF=0.9340 | P=85.5088 MW | Q=32.6986 MVar | Breaker=CLOSE
+Bus 4 | V=1.010 pu | I=446.4 A | PF=0.9313 | P=-80.0000 MW | Q=-31.2942 MVar | Breaker=CLOSE
+Bus 5 | V=1.009 pu | I=453.5 A | PF=0.9894 | P=86.2106 MW | Q=12.6813 MVar | Breaker=n/a
+
+ 2026-05-17 01:50:11
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+Bus 1 | V=1.020 pu | I=838.5 A | PF=0.9683 | P=-157.7735 MW | Q=-40.7194 MVar | Breaker=CLOSE
+Bus 2 | V=1.010 pu | I=411.7 A | PF=0.9278 | P=73.4791 MW | Q=29.5521 MVar | Breaker=CLOSE
+Bus 3 | V=1.007 pu | I=415.7 A | PF=0.9134 | P=72.8513 MW | Q=32.4771 MVar | Breaker=CLOSE
+Bus 4 | V=1.010 pu | I=489.3 A | PF=0.8497 | P=-80.0000 MW | Q=-49.6498 MVar | Breaker=CLOSE
+Bus 5 | V=1.008 pu | I=486.6 A | PF=0.9636 | P=90.0596 MW | Q=24.9689 MVar | Breaker=n/a
+
+ 2026-05-17 01:50:15
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+Bus 1 | V=1.020 pu | I=791.3 A | PF=0.9833 | P=-151.2149 MW | Q=-27.9565 MVar | Breaker=CLOSE
+Bus 2 | V=1.011 pu | I=405.7 A | PF=0.9658 | P=75.4873 MW | Q=20.2703 MVar | Breaker=CLOSE
+Bus 3 | V=1.009 pu | I=340.0 A | PF=0.9665 | P=63.1662 MW | Q=16.7823 MVar | Breaker=CLOSE
+Bus 4 | V=1.010 pu | I=442.2 A | PF=0.9401 | P=-80.0000 MW | Q=-29.0207 MVar | Breaker=CLOSE
+Bus 5 | V=1.008 pu | I=483.7 A | PF=0.9831 | P=91.3559 MW | Q=16.9870 MVar | Breaker=n/a
+
+ 2026-05-17 01:50:20
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+Bus 1 | V=1.020 pu | I=852.8 A | PF=0.9797 | P=-162.3562 MW | Q=-33.2598 MVar | Breaker=CLOSE
+Bus 2 | V=1.010 pu | I=395.8 A | PF=0.9348 | P=71.2193 MW | Q=27.0506 MVar | Breaker=CLOSE
+Bus 3 | V=1.008 pu | I=441.8 A | PF=0.9669 | P=82.0139 MW | Q=21.6452 MVar | Breaker=CLOSE
+Bus 4 | V=1.010 pu | I=455.1 A | PF=0.9136 | P=-80.0000 MW | Q=-35.6089 MVar | Breaker=CLOSE
+Bus 5 | V=1.008 pu | I=464.7 A | PF=0.9823 | P=87.7008 MW | Q=16.7101 MVar | Breaker=n/a
+
+ 2026-05-17 01:50:24
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+Bus 1 | V=1.020 pu | I=783.4 A | PF=0.9729 | P=-148.1058 MW | Q=-35.2291 MVar | Breaker=CLOSE
+Bus 2 | V=1.011 pu | I=366.0 A | PF=0.9387 | P=66.1452 MW | Q=24.2960 MVar | Breaker=CLOSE
+Bus 3 | V=1.008 pu | I=402.3 A | PF=0.9458 | P=73.0672 MW | Q=25.0903 MVar | Breaker=CLOSE
+Bus 4 | V=1.010 pu | I=449.6 A | PF=0.9247 | P=-80.0000 MW | Q=-32.9465 MVar | Breaker=CLOSE
+Bus 5 | V=1.008 pu | I=463.8 A | PF=0.9841 | P=87.6840 MW | Q=15.8417 MVar | Breaker=n/a
+
+ 2026-05-17 01:50:28
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+Bus 1 | V=1.020 pu | I=919.8 A | PF=0.9662 | P=-172.7069 MW | Q=-46.0858 MVar | Breaker=CLOSE
+Bus 2 | V=1.009 pu | I=429.9 A | PF=0.9069 | P=74.9219 MW | Q=34.8016 MVar | Breaker=CLOSE
+Bus 3 | V=1.006 pu | I=500.3 A | PF=0.9019 | P=86.4489 MW | Q=41.3911 MVar | Breaker=CLOSE
+Bus 4 | V=1.010 pu | I=504.2 A | PF=0.8245 | P=-80.0000 MW | Q=-54.8981 MVar | Breaker=CLOSE
+Bus 5 | V=1.008 pu | I=478.9 A | PF=0.9744 | P=89.6471 MW | Q=20.6785 MVar | Breaker=n/a
+
+ 2026-05-17 01:50:32
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+Bus 1 | V=1.020 pu | I=833.1 A | PF=0.9601 | P=-155.4398 MW | Q=-45.3063 MVar | Breaker=CLOSE
+Bus 2 | V=1.009 pu | I=353.7 A | PF=0.9023 | P=61.3697 MW | Q=29.3224 MVar | Breaker=CLOSE
+Bus 3 | V=1.006 pu | I=497.8 A | PF=0.8964 | P=85.5286 MW | Q=42.2999 MVar | Breaker=CLOSE
+Bus 4 | V=1.010 pu | I=481.1 A | PF=0.8642 | P=-80.0000 MW | Q=-46.5774 MVar | Breaker=CLOSE
+Bus 5 | V=1.008 pu | I=461.8 A | PF=0.9819 | P=87.1212 MW | Q=16.7986 MVar | Breaker=n/a
+
+ 2026-05-17 01:50:36
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+Bus 1 | V=1.020 pu | I=780.7 A | PF=0.9728 | P=-147.5803 MW | Q=-35.1652 MVar | Breaker=CLOSE
+Bus 2 | V=1.011 pu | I=322.2 A | PF=0.9704 | P=60.2102 MW | Q=14.9777 MVar | Breaker=CLOSE
+Bus 3 | V=1.007 pu | I=466.7 A | PF=0.9049 | P=81.0355 MW | Q=38.1238 MVar | Breaker=CLOSE
+Bus 4 | V=1.010 pu | I=452.3 A | PF=0.9191 | P=-80.0000 MW | Q=-34.2902 MVar | Breaker=CLOSE
+Bus 5 | V=1.009 pu | I=448.3 A | PF=0.9879 | P=85.1015 MW | Q=13.3476 MVar | Breaker=n/a
+
+ 2026-05-17 01:50:40
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+Bus 1 | V=1.020 pu | I=737.0 A | PF=0.9794 | P=-140.2736 MW | Q=-28.9391 MVar | Breaker=CLOSE
+Bus 2 | V=1.012 pu | I=284.8 A | PF=0.9576 | P=52.5684 MW | Q=15.8144 MVar | Breaker=CLOSE
+Bus 3 | V=1.009 pu | I=409.7 A | PF=0.9482 | P=74.6573 MW | Q=25.0032 MVar | Breaker=CLOSE
+Bus 4 | V=1.010 pu | I=454.3 A | PF=0.9151 | P=-80.0000 MW | Q=-35.2486 MVar | Breaker=CLOSE
+Bus 5 | V=1.008 pu | I=490.3 A | PF=0.9758 | P=91.9061 MW | Q=20.5791 MVar | Breaker=n/a
+
+ 2026-05-17 01:50:44
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+Bus 1 | V=1.020 pu | I=744.0 A | PF=0.9721 | P=-140.5514 MW | Q=-33.9273 MVar | Breaker=CLOSE
+Bus 2 | V=1.011 pu | I=348.7 A | PF=0.9634 | P=64.7246 MW | Q=18.0008 MVar | Breaker=CLOSE
+Bus 3 | V=1.008 pu | I=363.2 A | PF=0.8999 | P=62.7916 MW | Q=30.4214 MVar | Breaker=CLOSE
+Bus 4 | V=1.010 pu | I=472.5 A | PF=0.8798 | P=-80.0000 MW | Q=-43.2228 MVar | Breaker=CLOSE
+Bus 5 | V=1.008 pu | I=497.4 A | PF=0.9622 | P=91.9179 MW | Q=25.9991 MVar | Breaker=n/a
+
+ 2026-05-17 01:50:48
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+Bus 1 | V=1.020 pu | I=831.0 A | PF=0.9736 | P=-157.2310 MW | Q=-36.8465 MVar | Breaker=CLOSE
+Bus 2 | V=1.010 pu | I=373.7 A | PF=0.9379 | P=67.4467 MW | Q=24.9555 MVar | Breaker=CLOSE
+Bus 3 | V=1.007 pu | I=430.9 A | PF=0.9183 | P=75.9277 MW | Q=32.7340 MVar | Breaker=CLOSE
+Bus 4 | V=1.010 pu | I=490.4 A | PF=0.8478 | P=-80.0000 MW | Q=-50.0409 MVar | Breaker=CLOSE
+Bus 5 | V=1.008 pu | I=499.8 A | PF=0.9632 | P=92.4594 MW | Q=25.7895 MVar | Breaker=n/a
+
+ 2026-05-17 01:50:52
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+Bus 1 | V=1.020 pu | I=789.0 A | PF=0.9572 | P=-146.7702 MW | Q=-44.3562 MVar | Breaker=CLOSE
+Bus 2 | V=1.010 pu | I=400.9 A | PF=0.9217 | P=71.0856 MW | Q=29.9226 MVar | Breaker=CLOSE
+Bus 3 | V=1.007 pu | I=395.1 A | PF=0.8909 | P=67.5421 MW | Q=34.4421 MVar | Breaker=CLOSE
+Bus 4 | V=1.010 pu | I=490.4 A | PF=0.8478 | P=-80.0000 MW | Q=-50.0409 MVar | Breaker=CLOSE
+Bus 5 | V=1.008 pu | I=474.0 A | PF=0.9548 | P=86.9258 MW | Q=27.0675 MVar | Breaker=n/a
+
+ 2026-05-17 01:50:56
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+Bus 1 | V=1.020 pu | I=756.1 A | PF=0.9705 | P=-142.6108 MW | Q=-35.4286 MVar | Breaker=CLOSE
+Bus 2 | V=1.011 pu | I=357.0 A | PF=0.9610 | P=66.0759 MW | Q=19.0212 MVar | Breaker=CLOSE
+Bus 3 | V=1.008 pu | I=379.5 A | PF=0.8995 | P=65.5545 MW | Q=31.8470 MVar | Breaker=CLOSE
+Bus 4 | V=1.010 pu | I=457.9 A | PF=0.9079 | P=-80.0000 MW | Q=-36.9327 MVar | Breaker=CLOSE
+Bus 5 | V=1.008 pu | I=477.7 A | PF=0.9790 | P=89.8420 MW | Q=18.7157 MVar | Breaker=n/a
+
+ 2026-05-17 01:51:00
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+Bus 1 | V=1.020 pu | I=832.3 A | PF=0.9648 | P=-156.0575 MW | Q=-42.5308 MVar | Breaker=CLOSE
+Bus 2 | V=1.010 pu | I=437.6 A | PF=0.9420 | P=79.2982 MW | Q=28.2599 MVar | Breaker=CLOSE
+Bus 3 | V=1.007 pu | I=401.6 A | PF=0.8890 | P=68.4900 MW | Q=35.2689 MVar | Breaker=CLOSE
+Bus 4 | V=1.010 pu | I=490.0 A | PF=0.8485 | P=-80.0000 MW | Q=-49.8910 MVar | Breaker=CLOSE
+Bus 5 | V=1.008 pu | I=472.0 A | PF=0.9591 | P=86.9412 MW | Q=25.6599 MVar | Breaker=n/a
+
+ 2026-05-17 01:51:04
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+Bus 1 | V=1.020 pu | I=786.1 A | PF=0.9653 | P=-147.4621 MW | Q=-39.9016 MVar | Breaker=CLOSE
+Bus 2 | V=1.010 pu | I=319.3 A | PF=0.9011 | P=55.3832 MW | Q=26.6455 MVar | Breaker=CLOSE
+Bus 3 | V=1.007 pu | I=437.9 A | PF=0.9047 | P=76.0241 MW | Q=35.8045 MVar | Breaker=CLOSE
+Bus 4 | V=1.010 pu | I=486.4 A | PF=0.8546 | P=-80.0000 MW | Q=-48.6015 MVar | Breaker=CLOSE
+Bus 5 | V=1.008 pu | I=507.4 A | PF=0.9721 | P=94.7429 MW | Q=22.8467 MVar | Breaker=n/a
+
+ 2026-05-17 01:51:08
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+Bus 1 | V=1.020 pu | I=911.3 A | PF=0.9734 | P=-172.3916 MW | Q=-40.5386 MVar | Breaker=CLOSE
+Bus 2 | V=1.009 pu | I=405.3 A | PF=0.9101 | P=70.9225 MW | Q=32.2921 MVar | Breaker=CLOSE
+Bus 3 | V=1.006 pu | I=485.7 A | PF=0.9242 | P=86.0538 MW | Q=35.5657 MVar | Breaker=CLOSE
+Bus 4 | V=1.010 pu | I=500.7 A | PF=0.8304 | P=-80.0000 MW | Q=-53.6828 MVar | Breaker=CLOSE
+Bus 5 | V=1.008 pu | I=501.5 A | PF=0.9730 | P=93.7272 MW | Q=22.2491 MVar | Breaker=n/a
+
+ 2026-05-17 01:51:12
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+Bus 1 | V=1.020 pu | I=773.6 A | PF=0.9661 | P=-145.2502 MW | Q=-38.8044 MVar | Breaker=CLOSE
+Bus 2 | V=1.010 pu | I=355.9 A | PF=0.9352 | P=64.0819 MW | Q=24.2573 MVar | Breaker=CLOSE
+Bus 3 | V=1.008 pu | I=385.9 A | PF=0.8846 | P=65.5309 MW | Q=34.5428 MVar | Breaker=CLOSE
+Bus 4 | V=1.010 pu | I=482.2 A | PF=0.8621 | P=-80.0000 MW | Q=-47.0190 MVar | Breaker=CLOSE
+Bus 5 | V=1.008 pu | I=507.2 A | PF=0.9691 | P=94.4106 MW | Q=24.0269 MVar | Breaker=n/a
+
+ 2026-05-17 01:51:16
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+Bus 1 | V=1.020 pu | I=766.1 A | PF=0.9641 | P=-143.5370 MW | Q=-39.5462 MVar | Breaker=CLOSE
+Bus 2 | V=1.010 pu | I=416.1 A | PF=0.9321 | P=74.6635 MW | Q=29.0235 MVar | Breaker=CLOSE
+Bus 3 | V=1.008 pu | I=345.9 A | PF=0.9367 | P=62.2225 MW | Q=23.2685 MVar | Breaker=CLOSE
+Bus 4 | V=1.010 pu | I=468.9 A | PF=0.8867 | P=-80.0000 MW | Q=-41.7201 MVar | Breaker=CLOSE
+Bus 5 | V=1.008 pu | I=465.9 A | PF=0.9560 | P=85.5361 MW | Q=26.2586 MVar | Breaker=n/a
+
+ 2026-05-17 01:51:20
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+Bus 1 | V=1.020 pu | I=906.8 A | PF=0.9707 | P=-171.0504 MW | Q=-42.3724 MVar | Breaker=CLOSE
+Bus 2 | V=1.009 pu | I=376.4 A | PF=0.9243 | P=66.8852 MW | Q=27.6172 MVar | Breaker=CLOSE
+Bus 3 | V=1.006 pu | I=526.3 A | PF=0.8907 | P=89.8175 MW | Q=45.8505 MVar | Breaker=CLOSE
+Bus 4 | V=1.010 pu | I=509.5 A | PF=0.8159 | P=-80.0000 MW | Q=-56.6879 MVar | Breaker=CLOSE
+Bus 5 | V=1.008 pu | I=495.1 A | PF=0.9743 | P=92.6444 MW | Q=21.4395 MVar | Breaker=n/a
+
+ 2026-05-17 01:51:24
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+Bus 1 | V=1.020 pu | I=852.2 A | PF=0.9676 | P=-160.2502 MW | Q=-41.8073 MVar | Breaker=CLOSE
+Bus 2 | V=1.010 pu | I=417.5 A | PF=0.9181 | P=73.7222 MW | Q=31.8362 MVar | Breaker=CLOSE
+Bus 3 | V=1.007 pu | I=428.6 A | PF=0.9205 | P=75.6772 MW | Q=32.1136 MVar | Breaker=CLOSE
+Bus 4 | V=1.010 pu | I=468.6 A | PF=0.8873 | P=-80.0000 MW | Q=-41.5894 MVar | Breaker=CLOSE
+Bus 5 | V=1.008 pu | I=472.8 A | PF=0.9844 | P=89.4272 MW | Q=15.9801 MVar | Breaker=n/a
+
+ 2026-05-17 01:51:28
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+Bus 1 | V=1.020 pu | I=909.5 A | PF=0.9752 | P=-172.3496 MW | Q=-39.1529 MVar | Breaker=CLOSE
+Bus 2 | V=1.009 pu | I=448.3 A | PF=0.9244 | P=79.7009 MW | Q=32.8786 MVar | Breaker=CLOSE
+Bus 3 | V=1.007 pu | I=438.5 A | PF=0.9349 | P=78.6308 MW | Q=29.8586 MVar | Breaker=CLOSE
+Bus 4 | V=1.010 pu | I=469.6 A | PF=0.8853 | P=-80.0000 MW | Q=-42.0243 MVar | Breaker=CLOSE
+Bus 5 | V=1.008 pu | I=486.8 A | PF=0.9879 | P=92.4009 MW | Q=14.5040 MVar | Breaker=n/a
+
+ 2026-05-17 01:51:32
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+Bus 1 | V=1.020 pu | I=772.9 A | PF=0.9589 | P=-144.0220 MW | Q=-42.6305 MVar | Breaker=CLOSE
+Bus 2 | V=1.010 pu | I=318.7 A | PF=0.9169 | P=56.2336 MW | Q=24.4809 MVar | Breaker=CLOSE
+Bus 3 | V=1.007 pu | I=465.3 A | PF=0.8941 | P=79.8128 MW | Q=39.9716 MVar | Breaker=CLOSE
+Bus 4 | V=1.010 pu | I=497.0 A | PF=0.8364 | P=-80.0000 MW | Q=-52.4170 MVar | Breaker=CLOSE
+Bus 5 | V=1.008 pu | I=473.9 A | PF=0.9530 | P=86.7381 MW | Q=27.5743 MVar | Breaker=n/a
+
+ 2026-05-17 01:51:36
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+Bus 1 | V=1.020 pu | I=728.0 A | PF=0.9636 | P=-136.3240 MW | Q=-37.8265 MVar | Breaker=CLOSE
+Bus 2 | V=1.011 pu | I=277.8 A | PF=0.9360 | P=50.0803 MW | Q=18.8271 MVar | Breaker=CLOSE
+Bus 3 | V=1.008 pu | I=447.3 A | PF=0.9062 | P=77.8143 MW | Q=36.3066 MVar | Breaker=CLOSE
+Bus 4 | V=1.010 pu | I=461.4 A | PF=0.9009 | P=-80.0000 MW | Q=-38.5323 MVar | Breaker=CLOSE
+Bus 5 | V=1.008 pu | I=464.6 A | PF=0.9783 | P=87.3148 MW | Q=18.5019 MVar | Breaker=n/a
+
+ 2026-05-17 01:51:41
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+Bus 1 | V=1.020 pu | I=870.2 A | PF=0.9822 | P=-166.0995 MW | Q=-31.7316 MVar | Breaker=CLOSE
+Bus 2 | V=1.010 pu | I=394.4 A | PF=0.9363 | P=71.0896 MW | Q=26.6602 MVar | Breaker=CLOSE
+Bus 3 | V=1.008 pu | I=436.0 A | PF=0.9632 | P=80.6215 MW | Q=22.5134 MVar | Breaker=CLOSE
+Bus 4 | V=1.010 pu | I=470.2 A | PF=0.8841 | P=-80.0000 MW | Q=-42.2881 MVar | Breaker=CLOSE
+Bus 5 | V=1.008 pu | I=495.9 A | PF=0.9750 | P=92.8783 MW | Q=21.1662 MVar | Breaker=n/a
+
+ 2026-05-17 01:51:45
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+Bus 1 | V=1.020 pu | I=813.9 A | PF=0.9823 | P=-155.3802 MW | Q=-29.6146 MVar | Breaker=CLOSE
+Bus 2 | V=1.011 pu | I=372.0 A | PF=0.9747 | P=69.8355 MW | Q=16.0167 MVar | Breaker=CLOSE
+Bus 3 | V=1.008 pu | I=407.8 A | PF=0.9290 | P=72.7542 MW | Q=28.9802 MVar | Breaker=CLOSE
+Bus 4 | V=1.010 pu | I=451.4 A | PF=0.9209 | P=-80.0000 MW | Q=-33.8649 MVar | Breaker=CLOSE
+Bus 5 | V=1.008 pu | I=482.7 A | PF=0.9863 | P=91.4763 MW | Q=15.2789 MVar | Breaker=n/a
+
+ 2026-05-17 01:51:49
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+Bus 1 | V=1.020 pu | I=821.7 A | PF=0.9618 | P=-153.5909 MW | Q=-43.7265 MVar | Breaker=CLOSE
+Bus 2 | V=1.010 pu | I=429.3 A | PF=0.9057 | P=74.7989 MW | Q=35.0074 MVar | Breaker=CLOSE
+Bus 3 | V=1.007 pu | I=373.1 A | PF=0.9077 | P=64.9777 MW | Q=30.0413 MVar | Breaker=CLOSE
+Bus 4 | V=1.010 pu | I=481.1 A | PF=0.8641 | P=-80.0000 MW | Q=-46.5884 MVar | Breaker=CLOSE
+Bus 5 | V=1.008 pu | I=495.0 A | PF=0.9728 | P=92.4896 MW | Q=22.0373 MVar | Breaker=n/a
+
+ 2026-05-17 01:51:53
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+Bus 1 | V=1.020 pu | I=818.8 A | PF=0.9750 | P=-155.1470 MW | Q=-35.3618 MVar | Breaker=CLOSE
+Bus 2 | V=1.010 pu | I=334.9 A | PF=0.9099 | P=58.6583 MW | Q=26.7344 MVar | Breaker=CLOSE
+Bus 3 | V=1.007 pu | I=445.6 A | PF=0.9430 | P=80.6603 MW | Q=28.4723 MVar | Breaker=CLOSE
+Bus 4 | V=1.010 pu | I=482.0 A | PF=0.8626 | P=-80.0000 MW | Q=-46.9252 MVar | Breaker=CLOSE
+Bus 5 | V=1.008 pu | I=506.8 A | PF=0.9700 | P=94.4268 MW | Q=23.6578 MVar | Breaker=n/a
+
+ 2026-05-17 01:51:57
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+Bus 1 | V=1.020 pu | I=729.0 A | PF=0.9549 | P=-135.2816 MW | Q=-42.0483 MVar | Breaker=CLOSE
+Bus 2 | V=1.010 pu | I=371.4 A | PF=0.9064 | P=64.8139 MW | Q=30.1994 MVar | Breaker=CLOSE
+Bus 3 | V=1.008 pu | I=346.8 A | PF=0.9189 | P=61.1958 MW | Q=26.2750 MVar | Breaker=CLOSE
+Bus 4 | V=1.010 pu | I=471.3 A | PF=0.8821 | P=-80.0000 MW | Q=-42.7121 MVar | Breaker=CLOSE
+Bus 5 | V=1.008 pu | I=478.5 A | PF=0.9600 | P=88.2232 MW | Q=25.7267 MVar | Breaker=n/a
+
+ 2026-05-17 01:52:01
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+Bus 1 | V=1.020 pu | I=803.0 A | PF=0.9850 | P=-153.7055 MW | Q=-26.9202 MVar | Breaker=CLOSE
+Bus 2 | V=1.011 pu | I=280.2 A | PF=0.9770 | P=52.7398 MW | Q=11.5232 MVar | Breaker=CLOSE
+Bus 3 | V=1.008 pu | I=475.5 A | PF=0.9318 | P=85.0788 MW | Q=33.1501 MVar | Breaker=CLOSE
+Bus 4 | V=1.010 pu | I=453.0 A | PF=0.9178 | P=-80.0000 MW | Q=-34.6007 MVar | Breaker=CLOSE
+Bus 5 | V=1.008 pu | I=496.9 A | PF=0.9900 | P=94.5079 MW | Q=13.4783 MVar | Breaker=n/a
+
+ 2026-05-17 01:52:05
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+Bus 1 | V=1.020 pu | I=757.0 A | PF=0.9666 | P=-142.1935 MW | Q=-37.7112 MVar | Breaker=CLOSE
+Bus 2 | V=1.011 pu | I=395.4 A | PF=0.9216 | P=70.1684 MW | Q=29.5605 MVar | Breaker=CLOSE
+Bus 3 | V=1.008 pu | I=336.0 A | PF=0.9481 | P=61.2070 MW | Q=20.5352 MVar | Breaker=CLOSE
+Bus 4 | V=1.010 pu | I=454.0 A | PF=0.9158 | P=-80.0000 MW | Q=-35.0876 MVar | Breaker=CLOSE
+Bus 5 | V=1.008 pu | I=478.4 A | PF=0.9761 | P=89.7050 MW | Q=19.9894 MVar | Breaker=n/a
