@@ -17,7 +17,7 @@ MODBUS_PORT = 5020
 NUM_BUS = 5
 
 FIELD_RANDOM_SEED = int(os.environ.get("FIELD_RANDOM_SEED", "42"))
-LOOP_INTERVAL_S = float(os.environ.get("FIELD_LOOP_INTERVAL_S", "4"))
+LOOP_INTERVAL_S = float(os.environ.get("FIELD_LOOP_INTERVAL_S", "10"))
 
 V_SCALE = 1000
 I_SCALE = 30

@@ -17,12 +17,12 @@ I_BASE_ADDR = 10
 I_SCALE = 30
 NUM_BUS = 5
 # Perkalian terhadap I asli dari field/RTU (bukan nilai absolut).
-I_MANGLE_FACTOR = float(os.environ.get("MITM_I_FACTOR", "1.5"))
+I_MANGLE_FACTOR = float(os.environ.get("MITM_I_FACTOR", "1.25"))
 # Mekanisme realistis: manipulasi hanya aktif pada jendela waktu tertentu,
 # lalu masih disaring probabilitas per-write.
 ATTACK_ON_SECONDS = 10.0
 ATTACK_OFF_SECONDS = 4.0
-MODIFY_PROBABILITY = 0.8
+MODIFY_PROBABILITY = 0.7
 RUN_ID_FILE = "/tmp/mitm_run_id"
 
 BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
