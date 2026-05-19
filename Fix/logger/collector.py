@@ -9,7 +9,7 @@ import yaml
 
 from logger.mitm_trace_logger import publish_collect_run_on_hosts
 
-NUM_RUNS = 3
+NUM_RUNS = 1
 IPERF_PORT = 5001
 IPERF_DURATION_S = 5
 IPERF_CONNECT_TIMEOUT_S = 8
