@@ -20,6 +20,10 @@ OPEN_FACTOR = 1.00
 CLOSE_FACTOR = 0.95
 # field bus -> pandapower line index (bus 5 tanpa switch line di model ini)
 LINE_BY_BUS = {1: 0, 2: 1, 3: 2, 4: 3}
+# Beban nominal DT (bus dengan load di pandapower); dipakai jika P/Q OPC ~0.
+NOMINAL_LOAD_PQ = {2: (60.0, 15.0), 3: (70.0, 20.0), 5: (90.0, 30.0)}
+PQ_OPC_MIN_MW = float(os.environ.get("DT_PQ_OPC_MIN_MW", "0.5"))
+PQ_OPC_MIN_MVAR = float(os.environ.get("DT_PQ_OPC_MIN_MVAR", "0.5"))
 
 
 def build_network():
@@ -69,13 +73,36 @@ def build_network():
 
 def apply_topology_from_feedback(net, switches_by_bus, brk_fb):
     for bus, sw_idx in switches_by_bus.items():
-        net.switch.at[sw_idx, "closed"] = brk_fb.get(bus, 1) == 1
+        closed = brk_fb.get(bus, 1) == 1
+        net.switch.at[sw_idx, "closed"] = closed
+        line_idx = LINE_BY_BUS.get(bus)
+        if line_idx is not None:
+            net.line.at[line_idx, "in_service"] = closed
 
 
-def apply_pq_to_loads(net, loads, p_by_bus, q_by_bus):
+def apply_pq_to_loads(net, loads, p_by_bus, q_by_bus, load_pq_state):
+    """Terapkan P/Q ke load; abaikan OPC ~0 (V/I field invalid) — pakai nilai terakhir/nominal."""
     for bus, load_idx in loads.items():
-        net.load.at[load_idx, "p_mw"] = float(p_by_bus[bus])
-        net.load.at[load_idx, "q_mvar"] = float(q_by_bus[bus])
+        p_opc = float(p_by_bus[bus])
+        q_opc = float(q_by_bus[bus])
+        if abs(p_opc) < PQ_OPC_MIN_MW and abs(q_opc) < PQ_OPC_MIN_MVAR:
+            p_mw, q_mvar = load_pq_state[bus]
+        else:
+            p_mw, q_mvar = p_opc, q_opc
+            load_pq_state[bus] = (p_mw, q_mvar)
+        net.load.at[load_idx, "p_mw"] = p_mw
+        net.load.at[load_idx, "q_mvar"] = q_mvar
+
+
+def _line_i_ka_max(net, line_idx):
+    try:
+        i_from = float(net.res_line.i_from_ka.at[line_idx])
+        i_to = float(net.res_line.i_to_ka.at[line_idx])
+    except (KeyError, TypeError, ValueError):
+        return None
+    if not math.isfinite(i_from) or not math.isfinite(i_to):
+        return None
+    return max(abs(i_from), abs(i_to))
 
 
 def _voltage_snapshot(net, bus_nums):
@@ -108,9 +135,16 @@ def _log_bus_cycle(
         return
 
     sw_idx = switches_by_bus[bus]
-    i_from_ka = abs(float(net.res_line.i_from_ka.at[line_idx]))
-    i_to_ka = abs(float(net.res_line.i_to_ka.at[line_idx]))
-    i_line_ka = max(i_from_ka, i_to_ka)
+    i_line_ka = _line_i_ka_max(net, line_idx)
+    if i_line_ka is None:
+        i_from_ka = i_to_ka = 0.0
+        i_line_disp = 0.0
+        prot_note = "no_i"
+    else:
+        i_from_ka = abs(float(net.res_line.i_from_ka.at[line_idx]))
+        i_to_ka = abs(float(net.res_line.i_to_ka.at[line_idx]))
+        i_line_disp = i_line_ka
+        prot_note = "threshold"
     max_i = float(net.line.max_i_ka.at[line_idx])
     thr_open = max_i * OPEN_FACTOR
     thr_close = max_i * CLOSE_FACTOR
@@ -119,30 +153,51 @@ def _log_bus_cycle(
 
     print(
         f"[h4] {ts_row} bus={bus} line={line_idx} pp_bus={idx_pp} | "
-        f"i_from={i_from_ka:.4f} i_to={i_to_ka:.4f} i_line={i_line_ka:.4f} kA | "
+        f"i_from={i_from_ka:.4f} i_to={i_to_ka:.4f} i_line={i_line_disp:.4f} kA | "
         f"max_i={max_i:.4f} thr_open={thr_open:.4f} thr_close={thr_close:.4f} | "
-        f"was_closed={was_closed} cmd={cmd[bus]} in_svc={in_svc} brk_fb={brk_fb[bus]} | "
+        f"was_closed={was_closed} cmd={cmd[bus]} in_svc={in_svc} brk_fb={brk_fb[bus]} "
+        f"prot={prot_note} | "
         f"vm_pu={vm_pu:.4f} P_in={p_in:.4f} Q_in={q_in:.4f}",
         flush=True,
     )
 
 
 def protection_commands(net, switches_by_bus, brk_fb):
+    """
+    CMD: 1=CLOSE, 0=OPEN.
+    - brk_fb=0 (field open): CMD=OPEN.
+    - Arus line valid + switch tertutup: bandingkan i_line vs thr_open/thr_close.
+    - Arus line valid + switch terbuka: reclose jika i_line < thr_close.
+    - Arus tidak valid (island / PF): CMD ikuti brk_fb (tidak pakai NaN).
+    """
     cmd = {bus: int(brk_fb.get(bus, 1)) for bus in range(1, NUM_BUS + 1)}
+
     for bus, sw_idx in switches_by_bus.items():
         line_idx = LINE_BY_BUS[bus]
+
+        if brk_fb.get(bus, 1) == 0:
+            cmd[bus] = 0
+            continue
+
         was_closed = bool(net.switch.at[sw_idx, "closed"])
-        i_line = max(
-            abs(float(net.res_line.i_from_ka.at[line_idx])),
-            abs(float(net.res_line.i_to_ka.at[line_idx])),
-        )
+        if not was_closed:
+            cmd[bus] = 0
+            continue
+
+        i_line = _line_i_ka_max(net, line_idx)
+        if i_line is None:
+            cmd[bus] = int(brk_fb.get(bus, 1))
+            continue
+
         max_i = float(net.line.max_i_ka.at[line_idx])
         i_open = max_i * OPEN_FACTOR
         i_close = max_i * CLOSE_FACTOR
-        if was_closed:
-            cmd[bus] = 0 if i_line > i_open else 1
+        if i_line > i_open:
+            cmd[bus] = 0
+        elif i_line < i_close:
+            cmd[bus] = 1
         else:
-            cmd[bus] = 1 if i_line < i_close else 0
+            cmd[bus] = 1 if was_closed else 0
     return cmd
 
 
@@ -183,6 +238,9 @@ def main():
     client = connect_opcua()
     p_nodes, q_nodes, v_dt_nodes, brk_fb_nodes, cmd_nodes, probe_node = get_opcua_nodes(client)
     _last_probe = -1
+    load_pq_state = {
+        bus: NOMINAL_LOAD_PQ[bus] for bus in NOMINAL_LOAD_PQ
+    }
 
     while True:
         try:
@@ -202,7 +260,7 @@ def main():
             q_in = {bus: float(q_nodes[bus].get_value()) for bus in range(1, NUM_BUS + 1)}
 
             apply_topology_from_feedback(net, switches_by_bus, brk_fb)
-            apply_pq_to_loads(net, loads, p_in, q_in)
+            apply_pq_to_loads(net, loads, p_in, q_in, load_pq_state)
 
             ts_row = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
             try:
