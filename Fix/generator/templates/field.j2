@@ -87,23 +87,21 @@ def build_network():
     return net, bus_nums, loads, switches_by_bus
 
 
-def _finite_float(value, default=0.0):
+def _sanitize_reg_value(value):
     try:
         x = float(value)
     except (TypeError, ValueError):
-        return default
-    return x if math.isfinite(x) else default
-
-
-def _clamp_register(reg_value, reg_max=65535):
-    return max(0, min(reg_max, int(reg_value)))
+        return 0.0
+    return x if math.isfinite(x) else 0.0
 
 
 def bus_current_amp(net, bus_idx):
-    p_mw = _finite_float(net.res_bus.at[bus_idx, "p_mw"])
-    q_mvar = _finite_float(net.res_bus.at[bus_idx, "q_mvar"])
-    vm_pu = _finite_float(net.res_bus.at[bus_idx, "vm_pu"])
-    vn_kv = _finite_float(net.bus.at[bus_idx, "vn_kv"], default=110.0)
+    p_mw = float(net.res_bus.at[bus_idx, "p_mw"])
+    q_mvar = float(net.res_bus.at[bus_idx, "q_mvar"])
+    vm_pu = float(net.res_bus.at[bus_idx, "vm_pu"])
+    vn_kv = float(net.bus.at[bus_idx, "vn_kv"])
+    if not math.isfinite(vm_pu) or not math.isfinite(p_mw) or not math.isfinite(q_mvar):
+        return 0.0
     s_mva = math.hypot(p_mw, q_mvar)
     if vm_pu <= 1e-6 or vn_kv <= 0:
         return 0.0
@@ -113,13 +111,15 @@ def bus_current_amp(net, bus_idx):
 
 
 def bus_power_factor(net, bus_idx):
-    p_mw = _finite_float(net.res_bus.at[bus_idx, "p_mw"])
-    q_mvar = _finite_float(net.res_bus.at[bus_idx, "q_mvar"])
+    p_mw = float(net.res_bus.at[bus_idx, "p_mw"])
+    q_mvar = float(net.res_bus.at[bus_idx, "q_mvar"])
+    if not math.isfinite(p_mw) or not math.isfinite(q_mvar):
+        return 0.0
     s_mva = math.hypot(p_mw, q_mvar)
     if s_mva < 1e-6:
         return 1.0
     pf = min(1.0, abs(p_mw) / s_mva)
-    return pf if math.isfinite(pf) else 1.0
+    return pf if math.isfinite(pf) else 0.0
 
 
 def apply_breakers_to_network(net, switches_by_bus):
@@ -140,16 +140,25 @@ def sync_breakers_from_modbus():
         breaker_status[bus] = int(context[SLAVE_ID].getValues(FX_CO, addr, count=1)[0])
 
 
+def _clamp_register(reg_value, reg_max=65535):
+    return max(0, min(reg_max, int(reg_value)))
+
+
 def publish_measurements(net, bus_nums):
     for bus in range(1, NUM_BUS + 1):
         idx = bus_nums[bus]
-        vm_pu = _finite_float(net.res_bus.at[idx, "vm_pu"])
-        p_mw = _finite_float(net.res_bus.at[idx, "p_mw"])
-        q_mvar = _finite_float(net.res_bus.at[idx, "q_mvar"])
-        if vm_pu <= 1e-6:
-            i_amp = 0.0
-            pf = 0.0
+        raw_vm = net.res_bus.at[idx, "vm_pu"]
+        try:
+            vm_finite = math.isfinite(float(raw_vm))
+        except (TypeError, ValueError):
+            vm_finite = False
+
+        if not vm_finite:
+            vm_pu = p_mw = q_mvar = i_amp = pf = 0.0
         else:
+            vm_pu = float(raw_vm)
+            p_mw = _sanitize_reg_value(net.res_bus.at[idx, "p_mw"])
+            q_mvar = _sanitize_reg_value(net.res_bus.at[idx, "q_mvar"])
             i_amp = bus_current_amp(net, idx)
             pf = bus_power_factor(net, idx)
         v_reg = _clamp_register(round(vm_pu * V_SCALE))
