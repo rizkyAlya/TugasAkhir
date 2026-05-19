@@ -16,9 +16,8 @@ GATEWAY_OPC = os.environ.get(
 LOOP_INTERVAL_S = float(os.environ.get("DT_LOOP_INTERVAL_S", "4"))
 NUM_BUS = 5
 
-OPEN_FACTOR = 1.05
-CLOSE_FACTOR = 1.00
-
+OPEN_FACTOR = 1.1
+CLOSE_FACTOR = 1.05
 # field bus -> pandapower line index (bus 5 tanpa switch line di model ini)
 LINE_BY_BUS = {1: 0, 2: 1, 3: 2, 4: 3}
 
