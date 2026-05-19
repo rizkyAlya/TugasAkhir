@@ -1,0 +1,281 @@
+Memulai Server OPC UA
+Endpoints other than open requested but private key and certificate are not set.
+Listening on 10.0.2.2:4840
+
+
+Memulai Modbus Gateway di 0.0.0.0:5020[2026-05-19 14:30:54] [iter 1] [Bus 1] P/Q/CMD -> V_in=0.0000 pu, I_in=0.0000 A, PF=0.0000, V_out=0.0000 pu, I_out=0.0000 A, V_DT=1.0000 pu, P=0.0000 MW, Q=0.0000 MVar
+
+[2026-05-19 14:30:54] [iter 1] [Bus 2] P/Q/CMD -> V_in=0.0000 pu, I_in=0.0000 A, PF=0.0000, V_out=0.0000 pu, I_out=0.0000 A, V_DT=1.0000 pu, P=0.0000 MW, Q=0.0000 MVar
+[2026-05-19 14:30:54] [iter 1] [Bus 3] P/Q/CMD -> V_in=0.0000 pu, I_in=0.0000 A, PF=0.0000, V_out=0.0000 pu, I_out=0.0000 A, V_DT=1.0000 pu, P=0.0000 MW, Q=0.0000 MVar
+[2026-05-19 14:30:54] [iter 1] [Bus 4] P/Q/CMD -> V_in=0.0000 pu, I_in=0.0000 A, PF=0.0000, V_out=0.0000 pu, I_out=0.0000 A, V_DT=1.0000 pu, P=0.0000 MW, Q=0.0000 MVar
+[2026-05-19 14:30:54] [iter 1] [Bus 5] P/Q/CMD -> V_in=0.0000 pu, I_in=0.0000 A, PF=0.0000, V_out=0.0000 pu, I_out=0.0000 A, V_DT=1.0000 pu, P=0.0000 MW, Q=0.0000 MVar
+
+
+[2026-05-19 14:30:58] [iter 2] [Bus 1] P/Q/CMD -> V_in=1.0190 pu, I_in=810.4667 A, PF=0.9603, V_out=1.0190 pu, I_out=810.4667 A, V_DT=1.0000 pu, P=151.1018 MW, Q=43.8954 MVar
+[2026-05-19 14:30:58] [iter 2] [Bus 2] P/Q/CMD -> V_in=1.0090 pu, I_in=398.2000 A, PF=0.9020, V_out=1.0090 pu, I_out=398.2000 A, V_DT=1.0000 pu, P=69.0482 MW, Q=33.0494 MVar
+[2026-05-19 14:30:58] [iter 2] [Bus 3] P/Q/CMD -> V_in=1.0040 pu, I_in=394.8667 A, PF=0.9001, V_out=1.0040 pu, I_out=394.8667 A, V_DT=1.0000 pu, P=67.9874 MW, Q=32.9085 MVar
+[2026-05-19 14:30:58] [iter 2] [Bus 4] P/Q/CMD -> V_in=1.0130 pu, I_in=479.1000 A, PF=0.8689, V_out=1.0130 pu, I_out=479.1000 A, V_DT=1.0000 pu, P=80.3450 MW, Q=45.7703 MVar
+[2026-05-19 14:30:58] [iter 2] [Bus 5] P/Q/CMD -> V_in=1.0110 pu, I_in=492.5000 A, PF=0.9771, V_out=1.0110 pu, I_out=492.5000 A, V_DT=1.0000 pu, P=92.6936 MW, Q=20.1857 MVar
+
+
+[2026-05-19 14:31:02] [iter 3] [Bus 1] P/Q/CMD -> V_in=1.0210 pu, I_in=809.9667 A, PF=0.9603, V_out=1.0210 pu, I_out=809.9667 A, V_DT=1.0200 pu, P=151.3049 MW, Q=43.9544 MVar
+[2026-05-19 14:31:02] [iter 3] [Bus 2] P/Q/CMD -> V_in=1.0050 pu, I_in=399.9667 A, PF=0.9020, V_out=1.0050 pu, I_out=399.9667 A, V_DT=1.0097 pu, P=69.0796 MW, Q=33.0645 MVar
+[2026-05-19 14:31:02] [iter 3] [Bus 3] P/Q/CMD -> V_in=1.0080 pu, I_in=395.9333 A, PF=0.9001, V_out=1.0080 pu, I_out=395.9333 A, V_DT=1.0071 pu, P=68.4426 MW, Q=33.1289 MVar
+[2026-05-19 14:31:02] [iter 3] [Bus 4] P/Q/CMD -> V_in=1.0040 pu, I_in=475.8333 A, PF=0.8689, V_out=1.0040 pu, I_out=475.8333 A, V_DT=1.0100 pu, P=79.0882 MW, Q=45.0543 MVar
+[2026-05-19 14:31:02] [iter 3] [Bus 5] P/Q/CMD -> V_in=1.0050 pu, I_in=491.4000 A, PF=0.9771, V_out=1.0050 pu, I_out=491.4000 A, V_DT=1.0082 pu, P=91.9377 MW, Q=20.0210 MVar
+
+
+[2026-05-19 14:31:06] [iter 4] [Bus 1] P/Q/CMD -> V_in=1.0200 pu, I_in=850.6667 A, PF=0.9557, V_out=1.0200 pu, I_out=850.6667 A, V_DT=1.0200 pu, P=157.9918 MW, Q=48.6593 MVar
+[2026-05-19 14:31:06] [iter 4] [Bus 2] P/Q/CMD -> V_in=1.0100 pu, I_in=439.3333 A, PF=0.9070, V_out=1.0100 pu, I_out=439.3333 A, V_DT=1.0097 pu, P=76.6789 MW, Q=35.6029 MVar
+[2026-05-19 14:31:06] [iter 4] [Bus 3] P/Q/CMD -> V_in=1.0060 pu, I_in=429.9667 A, PF=0.8827, V_out=1.0060 pu, I_out=429.9667 A, V_DT=1.0070 pu, P=72.7443 MW, Q=38.7281 MVar
+[2026-05-19 14:31:06] [iter 4] [Bus 4] P/Q/CMD -> V_in=1.0080 pu, I_in=495.2333 A, PF=0.8439, V_out=1.0080 pu, I_out=495.2333 A, V_DT=1.0100 pu, P=80.2629 MW, Q=51.0263 MVar
+[2026-05-19 14:31:06] [iter 4] [Bus 5] P/Q/CMD -> V_in=1.0090 pu, I_in=469.6000 A, PF=0.9702, V_out=1.0090 pu, I_out=469.6000 A, V_DT=1.0082 pu, P=87.5858 MW, Q=21.8744 MVar
+
+
+[2026-05-19 14:31:10] [iter 5] [Bus 1] P/Q/CMD -> V_in=1.0180 pu, I_in=1274.4667 A, PF=0.9557, V_out=1.0180 pu, I_out=1274.4667 A, V_DT=1.0200 pu, P=236.2388 MW, Q=72.7583 MVar
+[2026-05-19 14:31:10] [iter 5] [Bus 2] P/Q/CMD -> V_in=1.0070 pu, I_in=660.2000 A, PF=0.9070, V_out=1.0070 pu, I_out=660.2000 A, V_DT=1.0090 pu, P=114.8856 MW, Q=53.3427 MVar
+[2026-05-19 14:31:10] [iter 5] [Bus 3] P/Q/CMD -> V_in=1.0070 pu, I_in=429.7667 A, PF=0.8827, V_out=1.0070 pu, I_out=429.7667 A, V_DT=1.0062 pu, P=72.7828 MW, Q=38.7485 MVar
+[2026-05-19 14:31:10] [iter 5] [Bus 4] P/Q/CMD -> V_in=1.0080 pu, I_in=736.8000 A, PF=0.8439, V_out=1.0080 pu, I_out=736.8000 A, V_DT=1.0100 pu, P=119.4138 MW, Q=75.9160 MVar
+[2026-05-19 14:31:10] [iter 5] [Bus 5] P/Q/CMD -> V_in=1.0060 pu, I_in=704.4667 A, PF=0.9702, V_out=1.0060 pu, I_out=704.4667 A, V_DT=1.0082 pu, P=131.0005 MW, Q=32.7171 MVar
+
+
+[2026-05-19 14:31:14] [iter 6] [Bus 1] P/Q/CMD -> V_in=1.0170 pu, I_in=739.5667 A, PF=0.9651, V_out=1.0170 pu, I_out=739.5667 A, V_DT=1.0200 pu, P=138.3006 MW, Q=37.5281 MVar
+[2026-05-19 14:31:14] [iter 6] [Bus 2] P/Q/CMD -> V_in=1.0120 pu, I_in=285.7000 A, PF=0.9159, V_out=1.0120 pu, I_out=285.7000 A, V_DT=1.0065 pu, P=50.4536 MW, Q=22.1120 MVar
+[2026-05-19 14:31:14] [iter 6] [Bus 3] P/Q/CMD -> V_in=1.0080 pu, I_in=447.6333 A, PF=0.9290, V_out=1.0080 pu, I_out=447.6333 A, V_DT=1.0044 pu, P=79.8642 MW, Q=31.8150 MVar
+[2026-05-19 14:31:14] [iter 6] [Bus 4] P/Q/CMD -> V_in=1.0030 pu, I_in=694.9000 A, PF=0.8964, V_out=1.0030 pu, I_out=694.9000 A, V_DT=1.0100 pu, P=119.0360 MW, Q=58.8602 MVar
+[2026-05-19 14:31:14] [iter 6] [Bus 5] P/Q/CMD -> V_in=1.0070 pu, I_in=697.5667 A, PF=0.9736, V_out=1.0070 pu, I_out=697.5667 A, V_DT=1.0073 pu, P=130.3014 MW, Q=30.5492 MVar
+
+
+[2026-05-19 14:31:19] [iter 7] [Bus 1] P/Q/CMD -> V_in=1.0210 pu, I_in=739.1000 A, PF=0.9651, V_out=1.0210 pu, I_out=739.1000 A, V_DT=1.0200 pu, P=138.7569 MW, Q=37.6519 MVar
+[2026-05-19 14:31:19] [iter 7] [Bus 2] P/Q/CMD -> V_in=1.0060 pu, I_in=289.2000 A, PF=0.9159, V_out=1.0060 pu, I_out=289.2000 A, V_DT=1.0106 pu, P=50.7689 MW, Q=22.2502 MVar
+[2026-05-19 14:31:19] [iter 7] [Bus 3] P/Q/CMD -> V_in=1.0100 pu, I_in=447.1000 A, PF=0.9290, V_out=1.0100 pu, I_out=447.1000 A, V_DT=1.0075 pu, P=79.9273 MW, Q=31.8401 MVar
+[2026-05-19 14:31:19] [iter 7] [Bus 4] P/Q/CMD -> V_in=1.0140 pu, I_in=464.3000 A, PF=0.8964, V_out=1.0140 pu, I_out=464.3000 A, V_DT=1.0100 pu, P=80.4066 MW, Q=39.7589 MVar
+[2026-05-19 14:31:19] [iter 7] [Bus 5] P/Q/CMD -> V_in=1.0080 pu, I_in=464.3000 A, PF=0.9736, V_out=1.0080 pu, I_out=464.3000 A, V_DT=1.0074 pu, P=86.8147 MW, Q=20.3537 MVar
+
+
+[2026-05-19 14:31:23] [iter 8] [Bus 1] P/Q/CMD -> V_in=1.0210 pu, I_in=1338.8667 A, PF=0.9700, V_out=1.0210 pu, I_out=1338.8667 A, V_DT=1.0200 pu, P=252.6319 MW, Q=63.3155 MVar
+[2026-05-19 14:31:23] [iter 8] [Bus 2] P/Q/CMD -> V_in=1.0070 pu, I_in=640.6667 A, PF=0.9005, V_out=1.0070 pu, I_out=640.6667 A, V_DT=1.0108 pu, P=110.6875 MW, Q=53.4516 MVar
+[2026-05-19 14:31:23] [iter 8] [Bus 3] P/Q/CMD -> V_in=1.0040 pu, I_in=464.7333 A, PF=0.9428, V_out=1.0040 pu, I_out=464.7333 A, V_DT=1.0076 pu, P=83.8128 MW, Q=29.6349 MVar
+[2026-05-19 14:31:23] [iter 8] [Bus 4] P/Q/CMD -> V_in=1.0130 pu, I_in=749.0667 A, PF=0.8274, V_out=1.0130 pu, I_out=749.0667 A, V_DT=1.0100 pu, P=119.6186 MW, Q=81.1933 MVar
+[2026-05-19 14:31:23] [iter 8] [Bus 5] P/Q/CMD -> V_in=1.0030 pu, I_in=722.5333 A, PF=0.9562, V_out=1.0030 pu, I_out=722.5333 A, V_DT=1.0083 pu, P=132.0264 MW, Q=40.4162 MVar
+
+
+[2026-05-19 14:31:27] [iter 9] [Bus 1] P/Q/CMD -> V_in=1.0240 pu, I_in=1341.5333 A, PF=0.9700, V_out=1.0240 pu, I_out=1341.5333 A, V_DT=1.0200 pu, P=253.8788 MW, Q=63.6280 MVar
+[2026-05-19 14:31:27] [iter 9] [Bus 2] P/Q/CMD -> V_in=1.0030 pu, I_in=637.8000 A, PF=0.9005, V_out=1.0030 pu, I_out=637.8000 A, V_DT=1.0067 pu, P=109.7545 MW, Q=53.0010 MVar
+[2026-05-19 14:31:27] [iter 9] [Bus 3] P/Q/CMD -> V_in=1.0080 pu, I_in=696.6000 A, PF=0.9428, V_out=1.0080 pu, I_out=696.6000 A, V_DT=1.0048 pu, P=126.1296 MW, Q=44.5974 MVar
+[2026-05-19 14:31:27] [iter 9] [Bus 4] P/Q/CMD -> V_in=1.0060 pu, I_in=755.8000 A, PF=0.8274, V_out=1.0060 pu, I_out=755.8000 A, V_DT=1.0100 pu, P=119.8598 MW, Q=81.3571 MVar
+[2026-05-19 14:31:27] [iter 9] [Bus 5] P/Q/CMD -> V_in=1.0110 pu, I_in=722.4000 A, PF=0.9562, V_out=1.0110 pu, I_out=722.4000 A, V_DT=1.0070 pu, P=133.0549 MW, Q=40.7311 MVar
+
+
+[2026-05-19 14:31:31] [iter 10] [Bus 1] P/Q/CMD -> V_in=1.0200 pu, I_in=834.0000 A, PF=0.9653, V_out=1.0200 pu, I_out=834.0000 A, V_DT=1.0200 pu, P=156.4523 MW, Q=42.3252 MVar
+[2026-05-19 14:31:31] [iter 10] [Bus 2] P/Q/CMD -> V_in=1.0030 pu, I_in=637.8000 A, PF=0.9005, V_out=1.0030 pu, I_out=637.8000 A, V_DT=1.0051 pu, P=109.7545 MW, Q=53.0010 MVar
+[2026-05-19 14:31:31] [iter 10] [Bus 3] P/Q/CMD -> V_in=1.0080 pu, I_in=696.6000 A, PF=0.9428, V_out=1.0080 pu, I_out=696.6000 A, V_DT=1.0022 pu, P=126.1296 MW, Q=44.5974 MVar
+[2026-05-19 14:31:31] [iter 10] [Bus 4] P/Q/CMD -> V_in=1.0060 pu, I_in=755.8000 A, PF=0.8274, V_out=1.0060 pu, I_out=755.8000 A, V_DT=1.0100 pu, P=119.8598 MW, Q=81.3571 MVar
+[2026-05-19 14:31:31] [iter 10] [Bus 5] P/Q/CMD -> V_in=1.0110 pu, I_in=722.4000 A, PF=0.9562, V_out=1.0110 pu, I_out=722.4000 A, V_DT=1.0070 pu, P=133.0549 MW, Q=40.7311 MVar
+
+
+[2026-05-19 14:31:35] [iter 11] [Bus 1] P/Q/CMD -> V_in=1.0200 pu, I_in=834.0000 A, PF=0.9653, V_out=1.0200 pu, I_out=834.0000 A, V_DT=1.0200 pu, P=156.4523 MW, Q=42.3252 MVar
+[2026-05-19 14:31:35] [iter 11] [Bus 2] P/Q/CMD -> V_in=1.0140 pu, I_in=442.3667 A, PF=0.9269, V_out=1.0140 pu, I_out=442.3667 A, V_DT=1.0051 pu, P=79.2148 MW, Q=32.0747 MVar
+[2026-05-19 14:31:35] [iter 11] [Bus 3] P/Q/CMD -> V_in=1.0080 pu, I_in=368.9667 A, PF=0.8887, V_out=1.0080 pu, I_out=368.9667 A, V_DT=1.0022 pu, P=62.9733 MW, Q=32.4885 MVar
+[2026-05-19 14:31:35] [iter 11] [Bus 4] P/Q/CMD -> V_in=1.0050 pu, I_in=483.9000 A, PF=0.8625, V_out=1.0050 pu, I_out=483.9000 A, V_DT=1.0100 pu, P=79.9161 MW, Q=46.8894 MVar
+[2026-05-19 14:31:35] [iter 11] [Bus 5] P/Q/CMD -> V_in=1.0100 pu, I_in=500.3333 A, PF=0.9741, V_out=1.0100 pu, I_out=500.3333 A, V_DT=1.0070 pu, P=93.7859 MW, Q=21.7705 MVar
+
+
+[2026-05-19 14:31:39] [iter 12] [Bus 1] P/Q/CMD -> V_in=1.0140 pu, I_in=1248.6000 A, PF=0.9653, V_out=1.0140 pu, I_out=1248.6000 A, V_DT=1.0200 pu, P=232.8504 MW, Q=62.9932 MVar
+[2026-05-19 14:31:39] [iter 12] [Bus 2] P/Q/CMD -> V_in=1.0120 pu, I_in=438.7333 A, PF=0.9269, V_out=1.0120 pu, I_out=438.7333 A, V_DT=1.0096 pu, P=78.4093 MW, Q=31.7485 MVar
+[2026-05-19 14:31:39] [iter 12] [Bus 3] P/Q/CMD -> V_in=1.0060 pu, I_in=554.5000 A, PF=0.8887, V_out=1.0060 pu, I_out=554.5000 A, V_DT=1.0071 pu, P=94.4513 MW, Q=48.7284 MVar
+[2026-05-19 14:31:39] [iter 12] [Bus 4] P/Q/CMD -> V_in=1.0060 pu, I_in=484.4000 A, PF=0.8625, V_out=1.0060 pu, I_out=484.4000 A, V_DT=1.0100 pu, P=80.0782 MW, Q=46.9845 MVar
+[2026-05-19 14:31:39] [iter 12] [Bus 5] P/Q/CMD -> V_in=1.0090 pu, I_in=749.0000 A, PF=0.9741, V_out=1.0090 pu, I_out=749.0000 A, V_DT=1.0081 pu, P=140.2587 MW, Q=32.5582 MVar
+
+
+[2026-05-19 14:31:43] [iter 13] [Bus 1] P/Q/CMD -> V_in=1.0200 pu, I_in=1260.5000 A, PF=0.9836, V_out=1.0200 pu, I_out=1260.5000 A, V_DT=1.0200 pu, P=240.9433 MW, Q=44.1820 MVar
+[2026-05-19 14:31:43] [iter 13] [Bus 2] P/Q/CMD -> V_in=1.0110 pu, I_in=403.8333 A, PF=0.9584, V_out=1.0110 pu, I_out=403.8333 A, V_DT=1.0080 pu, P=74.5510 MW, Q=22.2026 MVar
+[2026-05-19 14:31:43] [iter 13] [Bus 3] P/Q/CMD -> V_in=1.0060 pu, I_in=613.1000 A, PF=0.9676, V_out=1.0060 pu, I_out=613.1000 A, V_DT=1.0046 pu, P=113.7047 MW, Q=29.6704 MVar
+[2026-05-19 14:31:43] [iter 13] [Bus 4] P/Q/CMD -> V_in=1.0130 pu, I_in=688.2667 A, PF=0.9061, V_out=1.0130 pu, I_out=688.2667 A, V_DT=1.0100 pu, P=120.3637 MW, Q=56.1986 MVar
+[2026-05-19 14:31:43] [iter 13] [Bus 5] P/Q/CMD -> V_in=1.0050 pu, I_in=476.9000 A, PF=0.9721, V_out=1.0050 pu, I_out=476.9000 A, V_DT=1.0072 pu, P=88.7682 MW, Q=21.4197 MVar
+
+
+[2026-05-19 14:31:47] [iter 14] [Bus 1] P/Q/CMD -> V_in=1.0240 pu, I_in=914.4333 A, PF=0.9809, V_out=1.0240 pu, I_out=914.4333 A, V_DT=1.0200 pu, P=174.9968 MW, Q=34.7019 MVar
+[2026-05-19 14:31:47] [iter 14] [Bus 2] P/Q/CMD -> V_in=1.0050 pu, I_in=409.7333 A, PF=0.9495, V_out=1.0050 pu, I_out=409.7333 A, V_DT=1.0094 pu, P=74.4930 MW, Q=24.6166 MVar
+[2026-05-19 14:31:47] [iter 14] [Bus 3] P/Q/CMD -> V_in=1.0060 pu, I_in=479.8333 A, PF=0.9320, V_out=1.0060 pu, I_out=479.8333 A, V_DT=1.0062 pu, P=85.7152 MW, Q=33.3349 MVar
+[2026-05-19 14:31:47] [iter 14] [Bus 4] P/Q/CMD -> V_in=1.0140 pu, I_in=509.8667 A, PF=0.8129, V_out=1.0140 pu, I_out=509.8667 A, V_DT=1.0100 pu, P=80.0728 MW, Q=57.3683 MVar
+[2026-05-19 14:31:47] [iter 14] [Bus 5] P/Q/CMD -> V_in=1.0110 pu, I_in=501.6667 A, PF=0.9518, V_out=1.0110 pu, I_out=501.6667 A, V_DT=1.0082 pu, P=91.9741 MW, Q=29.6388 MVar
+
+
+[2026-05-19 14:31:51] [iter 15] [Bus 1] P/Q/CMD -> V_in=1.0170 pu, I_in=1374.1000 A, PF=0.9809, V_out=1.0170 pu, I_out=1374.1000 A, V_DT=1.0200 pu, P=261.1664 MW, Q=51.7894 MVar
+[2026-05-19 14:31:51] [iter 15] [Bus 2] P/Q/CMD -> V_in=1.0130 pu, I_in=411.2333 A, PF=0.9495, V_out=1.0130 pu, I_out=411.2333 A, V_DT=1.0097 pu, P=75.3609 MW, Q=24.9034 MVar
+[2026-05-19 14:31:51] [iter 15] [Bus 3] P/Q/CMD -> V_in=1.0080 pu, I_in=480.5000 A, PF=0.9320, V_out=1.0080 pu, I_out=480.5000 A, V_DT=1.0067 pu, P=86.0049 MW, Q=33.4476 MVar
+[2026-05-19 14:31:51] [iter 15] [Bus 4] P/Q/CMD -> V_in=1.0100 pu, I_in=768.4000 A, PF=0.8129, V_out=1.0100 pu, I_out=768.4000 A, V_DT=1.0100 pu, P=120.1985 MW, Q=86.1164 MVar
+[2026-05-19 14:31:51] [iter 15] [Bus 5] P/Q/CMD -> V_in=1.0070 pu, I_in=756.0000 A, PF=0.9518, V_out=1.0070 pu, I_out=756.0000 A, V_DT=1.0079 pu, P=138.0544 MW, Q=44.4883 MVar
+
+
+[2026-05-19 14:31:55] [iter 16] [Bus 1] P/Q/CMD -> V_in=1.0210 pu, I_in=1023.7333 A, PF=0.9514, V_out=1.0210 pu, I_out=1023.7333 A, V_DT=1.0200 pu, P=189.4650 MW, Q=61.3278 MVar
+[2026-05-19 14:31:55] [iter 16] [Bus 2] P/Q/CMD -> V_in=1.0130 pu, I_in=320.4667 A, PF=0.9232, V_out=1.0130 pu, I_out=320.4667 A, V_DT=1.0095 pu, P=57.1007 MW, Q=23.7705 MVar
+[2026-05-19 14:31:55] [iter 16] [Bus 3] P/Q/CMD -> V_in=1.0140 pu, I_in=541.5000 A, PF=0.9010, V_out=1.0140 pu, I_out=541.5000 A, V_DT=1.0065 pu, P=94.2572 MW, Q=45.3835 MVar
+[2026-05-19 14:31:55] [iter 16] [Bus 4] P/Q/CMD -> V_in=1.0080 pu, I_in=695.8333 A, PF=0.8950, V_out=1.0080 pu, I_out=695.8333 A, V_DT=1.0100 pu, P=119.6030 MW, Q=59.6099 MVar
+[2026-05-19 14:31:55] [iter 16] [Bus 5] P/Q/CMD -> V_in=1.0070 pu, I_in=700.9000 A, PF=0.9611, V_out=1.0070 pu, I_out=700.9000 A, V_DT=1.0068 pu, P=129.2431 MW, Q=37.1418 MVar
+
+
+[2026-05-19 14:31:59] [iter 17] [Bus 1] P/Q/CMD -> V_in=1.0180 pu, I_in=1024.6000 A, PF=0.9514, V_out=1.0180 pu, I_out=1024.6000 A, V_DT=1.0200 pu, P=189.0682 MW, Q=61.1993 MVar
+[2026-05-19 14:31:59] [iter 17] [Bus 2] P/Q/CMD -> V_in=1.0160 pu, I_in=315.7667 A, PF=0.9232, V_out=1.0160 pu, I_out=315.7667 A, V_DT=1.0094 pu, P=56.4299 MW, Q=23.4913 MVar
+[2026-05-19 14:31:59] [iter 17] [Bus 3] P/Q/CMD -> V_in=1.0040 pu, I_in=360.8667 A, PF=0.9010, V_out=1.0040 pu, I_out=360.8667 A, V_DT=1.0057 pu, P=62.1954 MW, Q=29.9463 MVar
+[2026-05-19 14:31:59] [iter 17] [Bus 4] P/Q/CMD -> V_in=1.0110 pu, I_in=697.2000 A, PF=0.8950, V_out=1.0110 pu, I_out=697.2000 A, V_DT=1.0100 pu, P=120.1946 MW, Q=59.9047 MVar
+[2026-05-19 14:31:59] [iter 17] [Bus 5] P/Q/CMD -> V_in=1.0060 pu, I_in=700.3000 A, PF=0.9611, V_out=1.0060 pu, I_out=700.3000 A, V_DT=1.0072 pu, P=129.0042 MW, Q=37.0732 MVar
+
+
+[2026-05-19 14:32:03] [iter 18] [Bus 1] P/Q/CMD -> V_in=1.0200 pu, I_in=796.3333 A, PF=0.9625, V_out=1.0200 pu, I_out=796.3333 A, V_DT=1.0200 pu, P=148.9530 MW, Q=41.9826 MVar
+[2026-05-19 14:32:03] [iter 18] [Bus 2] P/Q/CMD -> V_in=1.0170 pu, I_in=386.8000 A, PF=0.9292, V_out=1.0170 pu, I_out=386.8000 A, V_DT=1.0109 pu, P=69.6418 MW, Q=27.6991 MVar
+[2026-05-19 14:32:03] [iter 18] [Bus 3] P/Q/CMD -> V_in=1.0050 pu, I_in=412.1000 A, PF=0.8989, V_out=1.0050 pu, I_out=412.1000 A, V_DT=1.0081 pu, P=70.9306 MW, Q=34.5739 MVar
+[2026-05-19 14:32:03] [iter 18] [Bus 4] P/Q/CMD -> V_in=1.0090 pu, I_in=458.2667 A, PF=0.9070, V_out=1.0090 pu, I_out=458.2667 A, V_DT=1.0100 pu, P=79.9043 MW, Q=37.1005 MVar
+[2026-05-19 14:32:03] [iter 18] [Bus 5] P/Q/CMD -> V_in=0.9990 pu, I_in=461.3333 A, PF=0.9875, V_out=0.9990 pu, I_out=461.3333 A, V_DT=1.0072 pu, P=86.7103 MW, Q=13.8402 MVar
+
+
+[2026-05-19 14:32:07] [iter 19] [Bus 1] P/Q/CMD -> V_in=1.0230 pu, I_in=1193.0667 A, PF=0.9625, V_out=1.0230 pu, I_out=1193.0667 A, V_DT=1.0200 pu, P=223.8177 MW, Q=63.0833 MVar
+[2026-05-19 14:32:07] [iter 19] [Bus 2] P/Q/CMD -> V_in=1.0090 pu, I_in=387.7000 A, PF=0.9292, V_out=1.0090 pu, I_out=387.7000 A, V_DT=1.0099 pu, P=69.2547 MW, Q=27.5452 MVar
+[2026-05-19 14:32:07] [iter 19] [Bus 3] P/Q/CMD -> V_in=1.0090 pu, I_in=621.7333 A, PF=0.8989, V_out=1.0090 pu, I_out=621.7333 A, V_DT=1.0071 pu, P=107.4385 MW, Q=52.3691 MVar
+[2026-05-19 14:32:07] [iter 19] [Bus 4] P/Q/CMD -> V_in=1.0040 pu, I_in=686.7333 A, PF=0.9070, V_out=1.0040 pu, I_out=686.7333 A, V_DT=1.0100 pu, P=119.1468 MW, Q=55.3212 MVar
+[2026-05-19 14:32:07] [iter 19] [Bus 5] P/Q/CMD -> V_in=1.0060 pu, I_in=463.0000 A, PF=0.9875, V_out=1.0060 pu, I_out=463.0000 A, V_DT=1.0085 pu, P=87.6333 MW, Q=13.9875 MVar
+
+
+[2026-05-19 14:32:11] [iter 20] [Bus 1] P/Q/CMD -> V_in=1.0230 pu, I_in=1124.5667 A, PF=0.9716, V_out=1.0230 pu, I_out=1124.5667 A, V_DT=1.0200 pu, P=212.9618 MW, Q=51.8660 MVar
+[2026-05-19 14:32:11] [iter 20] [Bus 2] P/Q/CMD -> V_in=1.0140 pu, I_in=566.7000 A, PF=0.9487, V_out=1.0140 pu, I_out=566.7000 A, V_DT=1.0083 pu, P=103.8660 MW, Q=34.6159 MVar
+[2026-05-19 14:32:11] [iter 20] [Bus 3] P/Q/CMD -> V_in=1.0100 pu, I_in=356.2333 A, PF=0.9456, V_out=1.0100 pu, I_out=356.2333 A, V_DT=1.0045 pu, P=64.8211 MW, Q=22.3016 MVar
+[2026-05-19 14:32:11] [iter 20] [Bus 4] P/Q/CMD -> V_in=1.0100 pu, I_in=689.7333 A, PF=0.9076, V_out=1.0100 pu, I_out=689.7333 A, V_DT=1.0100 pu, P=120.4621 MW, Q=55.7231 MVar
+[2026-05-19 14:32:11] [iter 20] [Bus 5] P/Q/CMD -> V_in=1.0070 pu, I_in=701.3333 A, PF=0.9652, V_out=1.0070 pu, I_out=701.3333 A, V_DT=1.0085 pu, P=129.8747 MW, Q=35.1885 MVar
+
+
+[2026-05-19 14:32:15] [iter 21] [Bus 1] P/Q/CMD -> V_in=1.0220 pu, I_in=753.9333 A, PF=0.9716, V_out=1.0220 pu, I_out=753.9333 A, V_DT=1.0200 pu, P=142.6345 MW, Q=34.7381 MVar
+[2026-05-19 14:32:15] [iter 21] [Bus 2] P/Q/CMD -> V_in=1.0100 pu, I_in=382.2667 A, PF=0.9487, V_out=1.0100 pu, I_out=382.2667 A, V_DT=1.0090 pu, P=69.7863 MW, Q=23.2580 MVar
+[2026-05-19 14:32:15] [iter 21] [Bus 3] P/Q/CMD -> V_in=1.0110 pu, I_in=358.0333 A, PF=0.9456, V_out=1.0110 pu, I_out=358.0333 A, V_DT=1.0071 pu, P=65.2132 MW, Q=22.4365 MVar
+[2026-05-19 14:32:15] [iter 21] [Bus 4] P/Q/CMD -> V_in=1.0180 pu, I_in=456.3333 A, PF=0.9076, V_out=1.0180 pu, I_out=456.3333 A, V_DT=1.0100 pu, P=80.3300 MW, Q=37.1589 MVar
+[2026-05-19 14:32:15] [iter 21] [Bus 5] P/Q/CMD -> V_in=1.0100 pu, I_in=466.9000 A, PF=0.9652, V_out=1.0100 pu, I_out=466.9000 A, V_DT=1.0072 pu, P=86.7193 MW, Q=23.4959 MVar
+
+
+[2026-05-19 14:32:19] [iter 22] [Bus 1] P/Q/CMD -> V_in=1.0200 pu, I_in=899.3333 A, PF=0.9818, V_out=1.0200 pu, I_out=899.3333 A, V_DT=1.0200 pu, P=171.5921 MW, Q=33.1925 MVar
+[2026-05-19 14:32:19] [iter 22] [Bus 2] P/Q/CMD -> V_in=1.0100 pu, I_in=436.3000 A, PF=0.9512, V_out=1.0100 pu, I_out=436.3000 A, V_DT=1.0109 pu, P=79.8604 MW, Q=25.9072 MVar
+[2026-05-19 14:32:19] [iter 22] [Bus 3] P/Q/CMD -> V_in=1.0020 pu, I_in=633.3000 A, PF=0.9416, V_out=1.0020 pu, I_out=633.3000 A, V_DT=1.0084 pu, P=113.8405 MW, Q=40.7115 MVar
+[2026-05-19 14:32:19] [iter 22] [Bus 4] P/Q/CMD -> V_in=1.0110 pu, I_in=469.1667 A, PF=0.8833, V_out=1.0110 pu, I_out=469.1667 A, V_DT=1.0100 pu, P=79.8252 MW, Q=42.3669 MVar
+[2026-05-19 14:32:19] [iter 22] [Bus 5] P/Q/CMD -> V_in=1.0040 pu, I_in=740.3000 A, PF=0.9810, V_out=1.0040 pu, I_out=740.3000 A, V_DT=1.0082 pu, P=138.9197 MW, Q=27.4735 MVar
+
+
+[2026-05-19 14:32:23] [iter 23] [Bus 1] P/Q/CMD -> V_in=1.0230 pu, I_in=899.4000 A, PF=0.9818, V_out=1.0230 pu, I_out=899.4000 A, V_DT=1.0200 pu, P=172.1095 MW, Q=33.2926 MVar
+[2026-05-19 14:32:23] [iter 23] [Bus 2] P/Q/CMD -> V_in=1.0140 pu, I_in=433.9333 A, PF=0.9512, V_out=1.0140 pu, I_out=433.9333 A, V_DT=1.0109 pu, P=79.7418 MW, Q=25.8687 MVar
+[2026-05-19 14:32:23] [iter 23] [Bus 3] P/Q/CMD -> V_in=1.0070 pu, I_in=422.7333 A, PF=0.9416, V_out=1.0070 pu, I_out=422.7333 A, V_DT=1.0084 pu, P=76.3688 MW, Q=27.3109 MVar
+[2026-05-19 14:32:23] [iter 23] [Bus 4] P/Q/CMD -> V_in=1.0120 pu, I_in=709.5000 A, PF=0.8833, V_out=1.0120 pu, I_out=709.5000 A, V_DT=1.0100 pu, P=120.8355 MW, Q=64.1330 MVar
+[2026-05-19 14:32:23] [iter 23] [Bus 5] P/Q/CMD -> V_in=1.0050 pu, I_in=747.1667 A, PF=0.9810, V_out=1.0050 pu, I_out=747.1667 A, V_DT=1.0082 pu, P=140.3479 MW, Q=27.7559 MVar
+
+
+[2026-05-19 14:32:27] [iter 24] [Bus 1] P/Q/CMD -> V_in=1.0220 pu, I_in=1089.1000 A, PF=0.9529, V_out=1.0220 pu, I_out=1089.1000 A, V_DT=1.0200 pu, P=202.0781 MW, Q=64.3165 MVar
+[2026-05-19 14:32:27] [iter 24] [Bus 2] P/Q/CMD -> V_in=1.0040 pu, I_in=494.1000 A, PF=0.9026, V_out=1.0040 pu, I_out=494.1000 A, V_DT=1.0098 pu, P=85.3095 MW, Q=40.6869 MVar
+[2026-05-19 14:32:27] [iter 24] [Bus 3] P/Q/CMD -> V_in=1.0070 pu, I_in=598.9333 A, PF=0.9041, V_out=1.0070 pu, I_out=598.9333 A, V_DT=1.0072 pu, P=103.8910 MW, Q=49.1038 MVar
+[2026-05-19 14:32:27] [iter 24] [Bus 4] P/Q/CMD -> V_in=1.0110 pu, I_in=677.1333 A, PF=0.9222, V_out=1.0110 pu, I_out=677.1333 A, V_DT=1.0100 pu, P=120.2829 MW, Q=50.4391 MVar
+[2026-05-19 14:32:27] [iter 24] [Bus 5] P/Q/CMD -> V_in=1.0120 pu, I_in=686.2000 A, PF=0.9877, V_out=1.0120 pu, I_out=686.2000 A, V_DT=1.0074 pu, P=130.6801 MW, Q=20.6877 MVar
+
+
+[2026-05-19 14:32:31] [iter 25] [Bus 1] P/Q/CMD -> V_in=1.0230 pu, I_in=728.5667 A, PF=0.9529, V_out=1.0230 pu, I_out=728.5667 A, V_DT=1.0200 pu, P=135.3149 MW, Q=43.0674 MVar
+[2026-05-19 14:32:31] [iter 25] [Bus 2] P/Q/CMD -> V_in=1.0140 pu, I_in=327.0000 A, PF=0.9026, V_out=1.0140 pu, I_out=327.0000 A, V_DT=1.0070 pu, P=57.0209 MW, Q=27.1952 MVar
+[2026-05-19 14:32:31] [iter 25] [Bus 3] P/Q/CMD -> V_in=1.0050 pu, I_in=401.7333 A, PF=0.9041, V_out=1.0050 pu, I_out=401.7333 A, V_DT=1.0037 pu, P=69.5462 MW, Q=32.8709 MVar
+[2026-05-19 14:32:31] [iter 25] [Bus 4] P/Q/CMD -> V_in=1.0100 pu, I_in=451.0000 A, PF=0.9222, V_out=1.0100 pu, I_out=451.0000 A, V_DT=1.0100 pu, P=80.0343 MW, Q=33.5614 MVar
+[2026-05-19 14:32:31] [iter 25] [Bus 5] P/Q/CMD -> V_in=1.0120 pu, I_in=458.6000 A, PF=0.9877, V_out=1.0120 pu, I_out=458.6000 A, V_DT=1.0077 pu, P=87.3359 MW, Q=13.8260 MVar
+
+
+[2026-05-19 14:32:35] [iter 26] [Bus 1] P/Q/CMD -> V_in=1.0130 pu, I_in=906.8333 A, PF=0.9739, V_out=1.0130 pu, I_out=906.8333 A, V_DT=1.0200 pu, P=170.4530 MW, Q=39.7258 MVar
+[2026-05-19 14:32:35] [iter 26] [Bus 2] P/Q/CMD -> V_in=1.0030 pu, I_in=645.0667 A, PF=0.9252, V_out=1.0030 pu, I_out=645.0667 A, V_DT=1.0104 pu, P=114.0498 MW, Q=46.7786 MVar
+[2026-05-19 14:32:35] [iter 26] [Bus 3] P/Q/CMD -> V_in=1.0060 pu, I_in=679.2000 A, PF=0.9156, V_out=1.0060 pu, I_out=679.2000 A, V_DT=1.0075 pu, P=119.1941 MW, Q=52.3447 MVar
+[2026-05-19 14:32:35] [iter 26] [Bus 4] P/Q/CMD -> V_in=1.0090 pu, I_in=504.3667 A, PF=0.8263, V_out=1.0090 pu, I_out=504.3667 A, V_DT=1.0100 pu, P=80.1177 MW, Q=54.6106 MVar
+[2026-05-19 14:32:35] [iter 26] [Bus 5] P/Q/CMD -> V_in=1.0080 pu, I_in=762.2667 A, PF=0.9684, V_out=1.0080 pu, I_out=762.2667 A, V_DT=1.0085 pu, P=141.7671 MW, Q=36.5108 MVar
+
+
+[2026-05-19 14:32:39] [iter 27] [Bus 1] P/Q/CMD -> V_in=1.0190 pu, I_in=1363.4667 A, PF=0.9739, V_out=1.0190 pu, I_out=1363.4667 A, V_DT=1.0200 pu, P=257.8021 MW, Q=60.0834 MVar
+[2026-05-19 14:32:39] [iter 27] [Bus 2] P/Q/CMD -> V_in=1.0130 pu, I_in=646.8667 A, PF=0.9252, V_out=1.0130 pu, I_out=646.8667 A, V_DT=1.0051 pu, P=115.5083 MW, Q=47.3769 MVar
+[2026-05-19 14:32:39] [iter 27] [Bus 3] P/Q/CMD -> V_in=1.0030 pu, I_in=682.5667 A, PF=0.9156, V_out=1.0030 pu, I_out=682.5667 A, V_DT=1.0020 pu, P=119.4277 MW, Q=52.4473 MVar
+[2026-05-19 14:32:39] [iter 27] [Bus 4] P/Q/CMD -> V_in=1.0040 pu, I_in=752.2667 A, PF=0.8263, V_out=1.0040 pu, I_out=752.2667 A, V_DT=1.0100 pu, P=118.9040 MW, Q=81.0485 MVar
+[2026-05-19 14:32:39] [iter 27] [Bus 5] P/Q/CMD -> V_in=1.0020 pu, I_in=761.7000 A, PF=0.9684, V_out=1.0020 pu, I_out=761.7000 A, V_DT=1.0070 pu, P=140.8185 MW, Q=36.2665 MVar
+
+
+[2026-05-19 14:32:43] [iter 28] [Bus 1] P/Q/CMD -> V_in=1.0160 pu, I_in=783.3000 A, PF=0.9650, V_out=1.0160 pu, I_out=783.3000 A, V_DT=1.0200 pu, P=146.3196 MW, Q=39.7640 MVar
+[2026-05-19 14:32:43] [iter 28] [Bus 2] P/Q/CMD -> V_in=1.0090 pu, I_in=327.2667 A, PF=0.9197, V_out=1.0090 pu, I_out=327.2667 A, V_DT=1.0051 pu, P=57.8619 MW, Q=24.7014 MVar
+[2026-05-19 14:32:43] [iter 28] [Bus 3] P/Q/CMD -> V_in=1.0050 pu, I_in=443.5000 A, PF=0.9036, V_out=1.0050 pu, I_out=443.5000 A, V_DT=1.0019 pu, P=76.7342 MW, Q=36.3780 MVar
+[2026-05-19 14:32:43] [iter 28] [Bus 4] P/Q/CMD -> V_in=1.0150 pu, I_in=464.2333 A, PF=0.8956, V_out=1.0150 pu, I_out=464.2333 A, V_DT=1.0100 pu, P=80.4025 MW, Q=39.9374 MVar
+[2026-05-19 14:32:43] [iter 28] [Bus 5] P/Q/CMD -> V_in=1.0090 pu, I_in=481.1000 A, PF=0.9859, V_out=1.0090 pu, I_out=481.1000 A, V_DT=1.0071 pu, P=91.1828 MW, Q=15.4763 MVar
+
+
+[2026-05-19 14:32:47] [iter 29] [Bus 1] P/Q/CMD -> V_in=1.0190 pu, I_in=1172.1333 A, PF=0.9650, V_out=1.0190 pu, I_out=1172.1333 A, V_DT=1.0200 pu, P=219.5997 MW, Q=59.6788 MVar
+[2026-05-19 14:32:47] [iter 29] [Bus 2] P/Q/CMD -> V_in=1.0080 pu, I_in=493.4000 A, PF=0.9197, V_out=1.0080 pu, I_out=493.4000 A, V_DT=1.0103 pu, P=87.1484 MW, Q=37.2038 MVar
+[2026-05-19 14:32:47] [iter 29] [Bus 3] P/Q/CMD -> V_in=1.0020 pu, I_in=663.4000 A, PF=0.9036, V_out=1.0020 pu, I_out=663.4000 A, V_DT=1.0071 pu, P=114.4386 MW, Q=54.2529 MVar
+[2026-05-19 14:32:47] [iter 29] [Bus 4] P/Q/CMD -> V_in=1.0130 pu, I_in=698.0667 A, PF=0.8956, V_out=1.0130 pu, I_out=698.0667 A, V_DT=1.0100 pu, P=120.6629 MW, Q=59.9354 MVar
+[2026-05-19 14:32:47] [iter 29] [Bus 5] P/Q/CMD -> V_in=1.0080 pu, I_in=721.2000 A, PF=0.9859, V_out=1.0080 pu, I_out=721.2000 A, V_DT=1.0084 pu, P=136.5534 MW, Q=23.1770 MVar
+
+
+[2026-05-19 14:32:51] [iter 30] [Bus 1] P/Q/CMD -> V_in=1.0200 pu, I_in=1265.8000 A, PF=0.9691, V_out=1.0200 pu, I_out=1265.8000 A, V_DT=1.0200 pu, P=238.3895 MW, Q=60.6781 MVar
+[2026-05-19 14:32:51] [iter 30] [Bus 2] P/Q/CMD -> V_in=1.0050 pu, I_in=525.2667 A, PF=0.9175, V_out=1.0050 pu, I_out=525.2667 A, V_DT=1.0067 pu, P=92.2795 MW, Q=40.0031 MVar
+[2026-05-19 14:32:51] [iter 30] [Bus 3] P/Q/CMD -> V_in=1.0080 pu, I_in=505.6333 A, PF=0.9259, V_out=1.0080 pu, I_out=505.6333 A, V_DT=1.0031 pu, P=89.9112 MW, Q=36.6839 MVar
+[2026-05-19 14:32:51] [iter 30] [Bus 4] P/Q/CMD -> V_in=1.0070 pu, I_in=751.8000 A, PF=0.8276, V_out=1.0070 pu, I_out=751.8000 A, V_DT=1.0100 pu, P=119.3729 MW, Q=80.9644 MVar
+[2026-05-19 14:32:51] [iter 30] [Bus 5] P/Q/CMD -> V_in=1.0030 pu, I_in=469.7333 A, PF=0.9519, V_out=1.0030 pu, I_out=469.7333 A, V_DT=1.0076 pu, P=85.4470 MW, Q=27.5047 MVar
+
+
+[2026-05-19 14:32:55] [iter 31] [Bus 1] P/Q/CMD -> V_in=1.0160 pu, I_in=846.2000 A, PF=0.9691, V_out=1.0160 pu, I_out=846.2000 A, V_DT=1.0200 pu, P=158.7408 MW, Q=40.4048 MVar
+[2026-05-19 14:32:55] [iter 31] [Bus 2] P/Q/CMD -> V_in=1.0020 pu, I_in=351.6000 A, PF=0.9175, V_out=1.0020 pu, I_out=351.6000 A, V_DT=1.0079 pu, P=61.5851 MW, Q=26.6971 MVar
+[2026-05-19 14:32:55] [iter 31] [Bus 3] P/Q/CMD -> V_in=1.0040 pu, I_in=503.5667 A, PF=0.9259, V_out=1.0040 pu, I_out=503.5667 A, V_DT=1.0052 pu, P=89.1883 MW, Q=36.3890 MVar
+[2026-05-19 14:32:55] [iter 31] [Bus 4] P/Q/CMD -> V_in=1.0120 pu, I_in=501.9333 A, PF=0.8276, V_out=1.0120 pu, I_out=501.9333 A, V_DT=1.0100 pu, P=80.0941 MW, Q=54.3237 MVar
+[2026-05-19 14:32:55] [iter 31] [Bus 5] P/Q/CMD -> V_in=1.0010 pu, I_in=468.6000 A, PF=0.9519, V_out=1.0010 pu, I_out=468.6000 A, V_DT=1.0080 pu, P=85.0709 MW, Q=27.3836 MVar
+
+
+[2026-05-19 14:32:59] [iter 32] [Bus 1] P/Q/CMD -> V_in=1.0200 pu, I_in=1143.9000 A, PF=0.9701, V_out=1.0200 pu, I_out=1143.9000 A, V_DT=1.0200 pu, P=215.6543 MW, Q=53.9537 MVar
+[2026-05-19 14:32:59] [iter 32] [Bus 2] P/Q/CMD -> V_in=1.0130 pu, I_in=438.5000 A, PF=0.9502, V_out=1.0130 pu, I_out=438.5000 A, V_DT=1.0098 pu, P=80.4169 MW, Q=26.3746 MVar
+[2026-05-19 14:32:59] [iter 32] [Bus 3] P/Q/CMD -> V_in=1.0080 pu, I_in=713.8333 A, PF=0.9180, V_out=1.0080 pu, I_out=713.8333 A, V_DT=1.0065 pu, P=125.8500 MW, Q=54.3678 MVar
+[2026-05-19 14:32:59] [iter 32] [Bus 4] P/Q/CMD -> V_in=1.0140 pu, I_in=712.4000 A, PF=0.8771, V_out=1.0140 pu, I_out=712.4000 A, V_DT=1.0100 pu, P=120.7158 MW, Q=66.1051 MVar
+[2026-05-19 14:32:59] [iter 32] [Bus 5] P/Q/CMD -> V_in=1.0090 pu, I_in=688.1000 A, PF=0.9653, V_out=1.0090 pu, I_out=688.1000 A, V_DT=1.0081 pu, P=127.6904 MW, Q=34.5442 MVar
+
+
+[2026-05-19 14:33:03] [iter 33] [Bus 1] P/Q/CMD -> V_in=1.0220 pu, I_in=1147.8667 A, PF=0.9701, V_out=1.0220 pu, I_out=1147.8667 A, V_DT=1.0200 pu, P=216.8264 MW, Q=54.2470 MVar
+[2026-05-19 14:33:03] [iter 33] [Bus 2] P/Q/CMD -> V_in=1.0100 pu, I_in=290.5000 A, PF=0.9502, V_out=1.0100 pu, I_out=290.5000 A, V_DT=1.0074 pu, P=53.1173 MW, Q=17.4211 MVar
+[2026-05-19 14:33:03] [iter 33] [Bus 3] P/Q/CMD -> V_in=1.0120 pu, I_in=709.1333 A, PF=0.9180, V_out=1.0120 pu, I_out=709.1333 A, V_DT=1.0033 pu, P=125.5175 MW, Q=54.2242 MVar
+[2026-05-19 14:33:03] [iter 33] [Bus 4] P/Q/CMD -> V_in=1.0110 pu, I_in=477.6000 A, PF=0.8771, V_out=1.0110 pu, I_out=477.6000 A, V_DT=1.0100 pu, P=80.6897 MW, Q=44.1864 MVar
+[2026-05-19 14:33:03] [iter 33] [Bus 5] P/Q/CMD -> V_in=1.0050 pu, I_in=462.9000 A, PF=0.9653, V_out=1.0050 pu, I_out=462.9000 A, V_DT=1.0073 pu, P=85.5596 MW, Q=23.1465 MVar
+
+
+[2026-05-19 14:33:07] [iter 34] [Bus 1] P/Q/CMD -> V_in=1.0250 pu, I_in=922.4000 A, PF=0.9803, V_out=1.0250 pu, I_out=922.4000 A, V_DT=1.0200 pu, P=176.5857 MW, Q=35.5791 MVar
+[2026-05-19 14:33:07] [iter 34] [Bus 2] P/Q/CMD -> V_in=1.0110 pu, I_in=663.1000 A, PF=0.9423, V_out=1.0110 pu, I_out=663.1000 A, V_DT=1.0090 pu, P=120.3574 MW, Q=42.7592 MVar
+[2026-05-19 14:33:07] [iter 34] [Bus 3] P/Q/CMD -> V_in=1.0040 pu, I_in=727.7000 A, PF=0.9575, V_out=1.0040 pu, I_out=727.7000 A, V_DT=1.0045 pu, P=133.2841 MW, Q=40.1499 MVar
+[2026-05-19 14:33:07] [iter 34] [Bus 4] P/Q/CMD -> V_in=1.0100 pu, I_in=704.7333 A, PF=0.8872, V_out=1.0100 pu, I_out=704.7333 A, V_DT=1.0100 pu, P=120.3153 MW, Q=62.5695 MVar
+[2026-05-19 14:33:07] [iter 34] [Bus 5] P/Q/CMD -> V_in=1.0070 pu, I_in=678.4667 A, PF=0.9788, V_out=1.0070 pu, I_out=678.4667 A, V_DT=1.0082 pu, P=127.4105 MW, Q=26.6612 MVar
+
+
+[2026-05-19 14:33:11] [iter 35] [Bus 1] P/Q/CMD -> V_in=1.0160 pu, I_in=922.0333 A, PF=0.9803, V_out=1.0160 pu, I_out=922.0333 A, V_DT=1.0200 pu, P=174.9656 MW, Q=35.2527 MVar
+[2026-05-19 14:33:11] [Bus 1] Command breaker ke RTU: OPEN
+[2026-05-19 14:33:11] [iter 35] [Bus 2] P/Q/CMD -> V_in=1.0120 pu, I_in=440.8667 A, PF=0.9423, V_out=1.0120 pu, I_out=440.8667 A, V_DT=1.0055 pu, P=80.0996 MW, Q=28.4569 MVar
+[2026-05-19 14:33:11] [iter 35] [Bus 3] P/Q/CMD -> V_in=1.0040 pu, I_in=484.0333 A, PF=0.9575, V_out=1.0040 pu, I_out=484.0333 A, V_DT=1.0026 pu, P=88.6546 MW, Q=26.7059 MVar
+[2026-05-19 14:33:11] [iter 35] [Bus 4] P/Q/CMD -> V_in=1.0180 pu, I_in=470.3000 A, PF=0.8872, V_out=1.0180 pu, I_out=470.3000 A, V_DT=1.0100 pu, P=80.9278 MW, Q=42.0862 MVar
+[2026-05-19 14:33:11] [iter 35] [Bus 5] P/Q/CMD -> V_in=1.0090 pu, I_in=448.7000 A, PF=0.9788, V_out=1.0090 pu, I_out=448.7000 A, V_DT=1.0076 pu, P=84.4296 MW, Q=17.6673 MVar
+
+
+[2026-05-19 14:33:15] [iter 36] [Bus 1] P/Q/CMD -> V_in=1.0210 pu, I_in=1161.1000 A, PF=0.9696, V_out=1.0210 pu, I_out=1161.1000 A, V_DT=1.0200 pu, P=218.9986 MW, Q=55.2681 MVar
+[2026-05-19 14:33:15] [Bus 1] Command breaker ke RTU: CLOSE
+[2026-05-19 14:33:15] [iter 36] [Bus 2] P/Q/CMD -> V_in=1.0160 pu, I_in=583.0000 A, PF=0.9430, V_out=1.0160 pu, I_out=583.0000 A, V_DT=1.0096 pu, P=106.4210 MW, Q=37.5569 MVar
+[2026-05-19 14:33:15] [iter 36] [Bus 3] P/Q/CMD -> V_in=1.0070 pu, I_in=567.6000 A, PF=0.9377, V_out=1.0070 pu, I_out=567.6000 A, V_DT=1.0069 pu, P=102.1149 MW, Q=37.8366 MVar
+[2026-05-19 14:33:15] [iter 36] [Bus 4] P/Q/CMD -> V_in=1.0040 pu, I_in=694.9333 A, PF=0.9003, V_out=1.0040 pu, I_out=694.9333 A, V_DT=1.0100 pu, P=119.6789 MW, Q=57.8614 MVar
+[2026-05-19 14:33:15] [iter 36] [Bus 5] P/Q/CMD -> V_in=1.0080 pu, I_in=693.5333 A, PF=0.9674, V_out=1.0080 pu, I_out=693.5333 A, V_DT=1.0084 pu, P=128.8508 MW, Q=33.7316 MVar
+
+
+[2026-05-19 14:33:19] [iter 37] [Bus 1] P/Q/CMD -> V_in=1.0230 pu, I_in=1164.1000 A, PF=0.9696, V_out=1.0230 pu, I_out=1164.1000 A, V_DT=1.0200 pu, P=219.9945 MW, Q=55.5194 MVar
+[2026-05-19 14:33:19] [iter 37] [Bus 2] P/Q/CMD -> V_in=1.0060 pu, I_in=580.5667 A, PF=0.9430, V_out=1.0060 pu, I_out=580.5667 A, V_DT=1.0072 pu, P=104.9337 MW, Q=37.0320 MVar
+[2026-05-19 14:33:19] [iter 37] [Bus 3] P/Q/CMD -> V_in=1.0080 pu, I_in=566.8333 A, PF=0.9377, V_out=1.0080 pu, I_out=566.8333 A, V_DT=1.0044 pu, P=102.0782 MW, Q=37.8230 MVar
+[2026-05-19 14:33:19] [iter 37] [Bus 4] P/Q/CMD -> V_in=1.0080 pu, I_in=690.4667 A, PF=0.9003, V_out=1.0080 pu, I_out=690.4667 A, V_DT=1.0100 pu, P=119.3834 MW, Q=57.7185 MVar
+[2026-05-19 14:33:19] [iter 37] [Bus 5] P/Q/CMD -> V_in=1.0140 pu, I_in=697.4333 A, PF=0.9674, V_out=1.0140 pu, I_out=697.4333 A, V_DT=1.0073 pu, P=130.3467 MW, Q=34.1231 MVar
+
+
+[2026-05-19 14:33:23] [iter 38] [Bus 1] P/Q/CMD -> V_in=1.0160 pu, I_in=845.2000 A, PF=0.9801, V_out=1.0160 pu, I_out=845.2000 A, V_DT=1.0200 pu, P=160.3529 MW, Q=32.4771 MVar
+[2026-05-19 14:33:23] [Bus 1] Command breaker ke RTU: OPEN
+[2026-05-19 14:33:23] [iter 38] [Bus 2] P/Q/CMD -> V_in=1.0150 pu, I_in=339.9333 A, PF=0.9763, V_out=1.0150 pu, I_out=339.9333 A, V_DT=1.0072 pu, P=64.1795 MW, Q=14.2270 MVar
+[2026-05-19 14:33:23] [iter 38] [Bus 3] P/Q/CMD -> V_in=1.0120 pu, I_in=498.8667 A, PF=0.9037, V_out=1.0120 pu, I_out=498.8667 A, V_DT=1.0044 pu, P=86.9246 MW, Q=41.1842 MVar
+[2026-05-19 14:33:23] [iter 38] [Bus 4] P/Q/CMD -> V_in=1.0070 pu, I_in=499.4333 A, PF=0.8330, V_out=1.0070 pu, I_out=499.4333 A, V_DT=1.0100 pu, P=79.8188 MW, Q=53.0151 MVar
+[2026-05-19 14:33:23] [iter 38] [Bus 5] P/Q/CMD -> V_in=1.0010 pu, I_in=488.5000 A, PF=0.9571, V_out=1.0010 pu, I_out=488.5000 A, V_DT=1.0073 pu, P=89.1681 MW, Q=26.9952 MVar
+
+
+[2026-05-19 14:33:27] [iter 39] [Bus 1] P/Q/CMD -> V_in=1.0190 pu, I_in=1272.0000 A, PF=0.9801, V_out=1.0190 pu, I_out=1272.0000 A, V_DT=1.0200 pu, P=242.0388 MW, Q=49.0213 MVar
+[2026-05-19 14:33:27] [Bus 1] Command breaker ke RTU: CLOSE
+[2026-05-19 14:33:27] [iter 39] [Bus 2] P/Q/CMD -> V_in=1.0070 pu, I_in=338.2667 A, PF=0.9763, V_out=1.0070 pu, I_out=338.2667 A, V_DT=1.0103 pu, P=63.3615 MW, Q=14.0457 MVar
+[2026-05-19 14:33:27] [iter 39] [Bus 3] P/Q/CMD -> V_in=1.0080 pu, I_in=747.3000 A, PF=0.9037, V_out=1.0080 pu, I_out=747.3000 A, V_DT=1.0068 pu, P=129.6979 MW, Q=61.4499 MVar
+[2026-05-19 14:33:27] [iter 39] [Bus 4] P/Q/CMD -> V_in=1.0110 pu, I_in=749.0667 A, PF=0.8330, V_out=1.0110 pu, I_out=749.0667 A, V_DT=1.0100 pu, P=120.1904 MW, Q=79.8297 MVar
+[2026-05-19 14:33:27] [iter 39] [Bus 5] P/Q/CMD -> V_in=1.0070 pu, I_in=736.2000 A, PF=0.9571, V_out=1.0070 pu, I_out=736.2000 A, V_DT=1.0080 pu, P=135.1873 MW, Q=40.9274 MVar

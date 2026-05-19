@@ -1,0 +1,1 @@
+[modbus-proxy] listen 0.0.0.0:50201 -> 10.0.2.2:5020 I regs 10..14 factor=1.5 fixed_seed=424242 on=10.0s off=4.0s p=0.7
