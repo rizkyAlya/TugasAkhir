@@ -30,6 +30,11 @@ command_nodes = {}
 
 last_breaker = {}
 
+
+def _measurement_trusted(v_pu, i_amp):
+    return v_pu >= V_MIN_PU_OPC and i_amp >= I_MIN_A_OPC
+
+
 # Modbus gateway datastore:
 # - Holding registers:
 #   0-4   : V bus
@@ -53,6 +58,11 @@ I_SCALE = 30
 PF_SCALE = 10000
 NUM_BUS = 5
 V_BASE = 110e3
+# Di bawah ambang ini V/I dianggap tidak valid; P/Q OPC tidak di-overwrite (tahan nilai terakhir).
+V_MIN_PU_OPC = float(os.environ.get("GATEWAY_V_MIN_PU_OPC", "0.05"))
+I_MIN_A_OPC = float(os.environ.get("GATEWAY_I_MIN_A_OPC", "5.0"))
+last_pq_mw = {bus: 0.0 for bus in range(1, NUM_BUS + 1)}
+last_q_mvar = {bus: 0.0 for bus in range(1, NUM_BUS + 1)}
 # Data V/I/PF dari holding register Modbus (RTU dari field).
 BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
 MITM_LOG_DIR = os.path.join(BASE_DIR, "logs", "mitm")
@@ -174,8 +184,17 @@ try:
                 s_va = math.sqrt(3) * v_real * i_out
 
                 phi = math.acos(pf)
-                p_mw = s_va * math.cos(phi) / 1e6
-                q_mvar = s_va * math.sin(phi) / 1e6
+                p_calc = s_va * math.cos(phi) / 1e6
+                q_calc = s_va * math.sin(phi) / 1e6
+
+                if _measurement_trusted(v_out, i_out):
+                    p_mw = p_calc
+                    q_mvar = q_calc
+                    last_pq_mw[bus] = p_mw
+                    last_q_mvar[bus] = q_mvar
+                else:
+                    p_mw = last_pq_mw[bus]
+                    q_mvar = last_q_mvar[bus]
 
                 p_nodes[bus].set_value(p_mw)
                 q_nodes[bus].set_value(q_mvar)
