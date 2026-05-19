@@ -16,14 +16,64 @@ GATEWAY_OPC = os.environ.get(
 LOOP_INTERVAL_S = float(os.environ.get("DT_LOOP_INTERVAL_S", "4"))
 NUM_BUS = 5
 
-OPEN_FACTOR = 1.00
-CLOSE_FACTOR = 0.95
+OPEN_FACTOR = 1.05
+CLOSE_FACTOR = 1.00
+
 # field bus -> pandapower line index (bus 5 tanpa switch line di model ini)
 LINE_BY_BUS = {1: 0, 2: 1, 3: 2, 4: 3}
-# Beban nominal DT (bus dengan load di pandapower); dipakai jika P/Q OPC ~0.
-NOMINAL_LOAD_PQ = {2: (60.0, 15.0), 3: (70.0, 20.0), 5: (90.0, 30.0)}
-PQ_OPC_MIN_MW = float(os.environ.get("DT_PQ_OPC_MIN_MW", "0.5"))
-PQ_OPC_MIN_MVAR = float(os.environ.get("DT_PQ_OPC_MIN_MVAR", "0.5"))
+
+
+def energized_from_slack(brk_fb):
+    """
+    Bus teraliri dari slack (bus 1) sepanjang radial: edge b -> b+1 hanya jika switch b tertutup.
+    brk_fb[b]=1 berarti field/CB tertutup untuk line b -> b+1.
+    """
+    live = {1}
+    changed = True
+    while changed:
+        changed = False
+        for b in range(1, NUM_BUS):
+            if b in live and brk_fb.get(b, 1) == 1 and (b + 1) not in live:
+                live.add(b + 1)
+                changed = True
+    return live
+
+
+def _pp_bus_to_logical(bus_nums):
+    return {int(bus_nums[k]): k for k in bus_nums}
+
+
+def apply_blackout_model(net, bus_nums, loads, energized):
+    """
+    Blackout hilir: bus tidak teraliri slack -> out of service, beban/gen 0, line mati.
+    Menghindari island tanpa slack di PF (sumber NaN).
+    """
+    pp_to_log = _pp_bus_to_logical(bus_nums)
+
+    for b in range(1, NUM_BUS + 1):
+        idx_pp = bus_nums[b]
+        net.bus.at[idx_pp, "in_service"] = b in energized
+
+    for bus, load_idx in loads.items():
+        if bus not in energized:
+            net.load.at[load_idx, "p_mw"] = 0.0
+            net.load.at[load_idx, "q_mvar"] = 0.0
+
+    for gi in net.gen.index:
+        gen_bus_pp = int(net.gen.at[gi, "bus"])
+        log_bus = pp_to_log.get(gen_bus_pp, 4)
+        net.gen.at[gi, "in_service"] = log_bus in energized
+        if log_bus not in energized:
+            net.gen.at[gi, "p_mw"] = 0.0
+
+    for li in net.line.index:
+        fb = int(net.line.at[li, "from_bus"])
+        tb = int(net.line.at[li, "to_bus"])
+        b_from = pp_to_log.get(fb)
+        b_to = pp_to_log.get(tb)
+        if b_from is None or b_to is None:
+            continue
+        net.line.at[li, "in_service"] = (b_from in energized) and (b_to in energized)
 
 
 def build_network():
@@ -56,7 +106,7 @@ def build_network():
     )
     line4 = pp.create_line_from_parameters(
         net, from_bus=bus4, to_bus=bus5, length_km=5,
-        r_ohm_per_km=0.03, x_ohm_per_km=0.08, c_nf_per_km=0, max_i_ka=0.8, name="Line 4",
+        r_ohm_per_km=0.03, x_ohm_per_km=0.08, c_nf_per_km=0, max_i_ka=0.7, name="Line 4",
     )
 
     switches_by_bus = {
@@ -73,40 +123,48 @@ def build_network():
 
 def apply_topology_from_feedback(net, switches_by_bus, brk_fb):
     for bus, sw_idx in switches_by_bus.items():
-        closed = brk_fb.get(bus, 1) == 1
-        net.switch.at[sw_idx, "closed"] = closed
-        line_idx = LINE_BY_BUS.get(bus)
-        if line_idx is not None:
-            net.line.at[line_idx, "in_service"] = closed
+        net.switch.at[sw_idx, "closed"] = brk_fb.get(bus, 1) == 1
 
 
-def apply_pq_to_loads(net, loads, p_by_bus, q_by_bus, load_pq_state):
-    """Terapkan P/Q ke load; abaikan OPC ~0 (V/I field invalid) — pakai nilai terakhir/nominal."""
+def apply_pq_to_loads(net, loads, p_by_bus, q_by_bus, energized):
+    """P/Q dari OPC hanya untuk bus teraliri; bus blackout -> 0."""
     for bus, load_idx in loads.items():
-        p_opc = float(p_by_bus[bus])
-        q_opc = float(q_by_bus[bus])
-        if abs(p_opc) < PQ_OPC_MIN_MW and abs(q_opc) < PQ_OPC_MIN_MVAR:
-            p_mw, q_mvar = load_pq_state[bus]
+        if bus not in energized:
+            net.load.at[load_idx, "p_mw"] = 0.0
+            net.load.at[load_idx, "q_mvar"] = 0.0
         else:
-            p_mw, q_mvar = p_opc, q_opc
-            load_pq_state[bus] = (p_mw, q_mvar)
-        net.load.at[load_idx, "p_mw"] = p_mw
-        net.load.at[load_idx, "q_mvar"] = q_mvar
+            net.load.at[load_idx, "p_mw"] = float(p_by_bus[bus])
+            net.load.at[load_idx, "q_mvar"] = float(q_by_bus[bus])
 
 
-def _line_i_ka_max(net, line_idx):
+def _finite_or_zero(x):
+    try:
+        v = float(x)
+    except (TypeError, ValueError):
+        return 0.0
+    return v if math.isfinite(v) else 0.0
+
+
+def _voltage_snapshot(net, bus_nums, energized):
+    out = []
+    for b in range(1, NUM_BUS + 1):
+        vm = _finite_or_zero(net.res_bus.vm_pu.at[bus_nums[b]])
+        if b not in energized:
+            vm = 0.0
+        out.append(vm)
+    return out
+
+
+def _line_i_ka_safe(net, line_idx):
     try:
         i_from = float(net.res_line.i_from_ka.at[line_idx])
         i_to = float(net.res_line.i_to_ka.at[line_idx])
     except (KeyError, TypeError, ValueError):
-        return None
+        return 0.0, 0.0, 0.0
     if not math.isfinite(i_from) or not math.isfinite(i_to):
-        return None
-    return max(abs(i_from), abs(i_to))
-
-
-def _voltage_snapshot(net, bus_nums):
-    return [float(net.res_bus.vm_pu.at[bus_nums[b]]) for b in range(1, NUM_BUS + 1)]
+        return 0.0, 0.0, 0.0
+    a, b = abs(i_from), abs(i_to)
+    return a, b, max(a, b)
 
 
 def _log_bus_cycle(
@@ -119,32 +177,24 @@ def _log_bus_cycle(
     cmd,
     p_in,
     q_in,
+    energized,
 ):
     idx_pp = bus_nums[bus]
-    vm_raw = float(net.res_bus.vm_pu.at[idx_pp])
-    vm_pu = vm_raw if math.isfinite(vm_raw) else float("nan")
+    dead = bus not in energized
+    vm_pu = 0.0 if dead else _finite_or_zero(net.res_bus.vm_pu.at[idx_pp])
 
     line_idx = LINE_BY_BUS.get(bus)
     if line_idx is None:
         print(
             f"[h4] {ts_row} bus={bus} line=- pp_bus={idx_pp} | "
-            f"no_line_switch | brk_fb={brk_fb[bus]} cmd={cmd[bus]} | "
+            f"no_line_switch | dead={dead} brk_fb={brk_fb[bus]} cmd={cmd[bus]} | "
             f"vm_pu={vm_pu:.4f} P_in={p_in:.4f} Q_in={q_in:.4f}",
             flush=True,
         )
         return
 
     sw_idx = switches_by_bus[bus]
-    i_line_ka = _line_i_ka_max(net, line_idx)
-    if i_line_ka is None:
-        i_from_ka = i_to_ka = 0.0
-        i_line_disp = 0.0
-        prot_note = "no_i"
-    else:
-        i_from_ka = abs(float(net.res_line.i_from_ka.at[line_idx]))
-        i_to_ka = abs(float(net.res_line.i_to_ka.at[line_idx]))
-        i_line_disp = i_line_ka
-        prot_note = "threshold"
+    i_from_ka, i_to_ka, i_line_ka = _line_i_ka_safe(net, line_idx)
     max_i = float(net.line.max_i_ka.at[line_idx])
     thr_open = max_i * OPEN_FACTOR
     thr_close = max_i * CLOSE_FACTOR
@@ -153,42 +203,35 @@ def _log_bus_cycle(
 
     print(
         f"[h4] {ts_row} bus={bus} line={line_idx} pp_bus={idx_pp} | "
-        f"i_from={i_from_ka:.4f} i_to={i_to_ka:.4f} i_line={i_line_disp:.4f} kA | "
+        f"i_from={i_from_ka:.4f} i_to={i_to_ka:.4f} i_line={i_line_ka:.4f} kA | "
         f"max_i={max_i:.4f} thr_open={thr_open:.4f} thr_close={thr_close:.4f} | "
-        f"was_closed={was_closed} cmd={cmd[bus]} in_svc={in_svc} brk_fb={brk_fb[bus]} "
-        f"prot={prot_note} | "
+        f"was_closed={was_closed} cmd={cmd[bus]} in_svc={in_svc} brk_fb={brk_fb[bus]} dead={dead} | "
         f"vm_pu={vm_pu:.4f} P_in={p_in:.4f} Q_in={q_in:.4f}",
         flush=True,
     )
 
 
-def protection_commands(net, switches_by_bus, brk_fb):
+def protection_commands(net, switches_by_bus, brk_fb, energized):
     """
-    CMD: 1=CLOSE, 0=OPEN.
-    - brk_fb=0 (field open): CMD=OPEN.
-    - Arus line valid + switch tertutup: bandingkan i_line vs thr_open/thr_close.
-    - Arus line valid + switch terbuka: reclose jika i_line < thr_close.
-    - Arus tidak valid (island / PF): CMD ikuti brk_fb (tidak pakai NaN).
+    O/C pada line yang teraliri; bus mati / arus tidak valid -> CMD ikut brk_fb (topologi).
     """
     cmd = {bus: int(brk_fb.get(bus, 1)) for bus in range(1, NUM_BUS + 1)}
 
     for bus, sw_idx in switches_by_bus.items():
         line_idx = LINE_BY_BUS[bus]
-
-        if brk_fb.get(bus, 1) == 0:
-            cmd[bus] = 0
+        if bus not in energized:
+            cmd[bus] = int(brk_fb.get(bus, 1))
             continue
 
         was_closed = bool(net.switch.at[sw_idx, "closed"])
         if not was_closed:
-            cmd[bus] = 0
+            _ifr, _ito, i_line = _line_i_ka_safe(net, line_idx)
+            max_i = float(net.line.max_i_ka.at[line_idx])
+            i_close = max_i * CLOSE_FACTOR
+            cmd[bus] = 1 if i_line < i_close else 0
             continue
 
-        i_line = _line_i_ka_max(net, line_idx)
-        if i_line is None:
-            cmd[bus] = int(brk_fb.get(bus, 1))
-            continue
-
+        _ifr, _ito, i_line = _line_i_ka_safe(net, line_idx)
         max_i = float(net.line.max_i_ka.at[line_idx])
         i_open = max_i * OPEN_FACTOR
         i_close = max_i * CLOSE_FACTOR
@@ -197,7 +240,7 @@ def protection_commands(net, switches_by_bus, brk_fb):
         elif i_line < i_close:
             cmd[bus] = 1
         else:
-            cmd[bus] = 1 if was_closed else 0
+            cmd[bus] = 1
     return cmd
 
 
@@ -238,9 +281,6 @@ def main():
     client = connect_opcua()
     p_nodes, q_nodes, v_dt_nodes, brk_fb_nodes, cmd_nodes, probe_node = get_opcua_nodes(client)
     _last_probe = -1
-    load_pq_state = {
-        bus: NOMINAL_LOAD_PQ[bus] for bus in NOMINAL_LOAD_PQ
-    }
 
     while True:
         try:
@@ -260,19 +300,28 @@ def main():
             q_in = {bus: float(q_nodes[bus].get_value()) for bus in range(1, NUM_BUS + 1)}
 
             apply_topology_from_feedback(net, switches_by_bus, brk_fb)
-            apply_pq_to_loads(net, loads, p_in, q_in, load_pq_state)
+            energized = energized_from_slack(brk_fb)
+            dead = sorted(set(range(1, NUM_BUS + 1)) - energized)
+            apply_pq_to_loads(net, loads, p_in, q_in, energized)
+            apply_blackout_model(net, bus_nums, loads, energized)
 
             ts_row = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
             try:
                 pp.runpp(net)
                 for bus in range(1, NUM_BUS + 1):
-                    vm = float(net.res_bus.vm_pu.at[bus_nums[bus]])
-                    if math.isfinite(vm):
-                        v_dt_nodes[bus].set_value(vm)
+                    if bus in energized:
+                        vm = _finite_or_zero(net.res_bus.vm_pu.at[bus_nums[bus]])
+                    else:
+                        vm = 0.0
+                    v_dt_nodes[bus].set_value(vm)
                 print("\n", ts_row, flush=True)
                 print(
+                    f"Island: energized={sorted(energized)} dead={dead}",
+                    flush=True,
+                )
+                print(
                     "Load flow sukses. Voltage snapshot (pu):",
-                    _voltage_snapshot(net, bus_nums),
+                    _voltage_snapshot(net, bus_nums, energized),
                     flush=True,
                 )
             except Exception:
@@ -280,13 +329,22 @@ def main():
                 print("Load flow gagal", flush=True)
                 raise
 
-            cmd = protection_commands(net, switches_by_bus, brk_fb)
+            cmd = protection_commands(net, switches_by_bus, brk_fb, energized)
             for bus in range(1, NUM_BUS + 1):
                 cmd_nodes[bus].set_value(int(cmd[bus]))
 
             for bus in range(1, NUM_BUS + 1):
                 _log_bus_cycle(
-                    ts_row, bus, bus_nums, switches_by_bus, net, brk_fb, cmd, p_in[bus], q_in[bus]
+                    ts_row,
+                    bus,
+                    bus_nums,
+                    switches_by_bus,
+                    net,
+                    brk_fb,
+                    cmd,
+                    p_in[bus],
+                    q_in[bus],
+                    energized,
                 )
 
         except Exception as exc:
