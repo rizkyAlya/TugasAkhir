@@ -17,7 +17,8 @@ MODBUS_PORT = 5020
 NUM_BUS = 5
 
 FIELD_RANDOM_SEED = int(os.environ.get("FIELD_RANDOM_SEED", "42"))
-LOOP_INTERVAL_S = float(os.environ.get("FIELD_LOOP_INTERVAL_S", "25"))
+CYCLE_INTERVAL_S = float(os.environ.get("FIELD_LOOP_INTERVAL_S", "4"))
+POLL_INTERVAL_S = float(os.environ.get("FIELD_POLL_INTERVAL_S", "0.2"))
 
 V_SCALE = 1000
 I_SCALE = 30
@@ -26,6 +27,7 @@ V_BASE_ADDR = 0
 I_BASE_ADDR = 10
 PF_BASE_ADDR = 30
 BREAKER_BASE_ADDR = 0
+MEAS_EPOCH_ADDR = 97
 
 store = ModbusSlaveContext(
     di=ModbusSequentialDataBlock(0, [0] * 100),
@@ -39,6 +41,7 @@ FX_HR = 3
 FX_CO = 1
 
 breaker_status = {bus: 1 for bus in range(1, NUM_BUS + 1)}
+_meas_epoch = 0
 
 
 def build_network():
@@ -59,7 +62,7 @@ def build_network():
 
     line1 = pp.create_line_from_parameters(
         net, from_bus=bus1, to_bus=bus2, length_km=10,
-        r_ohm_per_km=0.05, x_ohm_per_km=0.12, c_nf_per_km=0, max_i_ka=1.2, name="Line 1",
+        r_ohm_per_km=0.05, x_ohm_per_km=0.12, c_nf_per_km=0, max_i_ka=1.6, name="Line 1",
     )
     line2 = pp.create_line_from_parameters(
         net, from_bus=bus2, to_bus=bus3, length_km=5,
@@ -127,6 +130,11 @@ def sync_breakers_from_modbus():
 
 
 def publish_measurements(net, bus_nums):
+    global _meas_epoch
+    _meas_epoch = (_meas_epoch + 1) & 0xFFFF
+    if _meas_epoch == 0:
+        _meas_epoch = 1
+    context[SLAVE_ID].setValues(FX_HR, MEAS_EPOCH_ADDR, [_meas_epoch])
     for bus in range(1, NUM_BUS + 1):
         idx = bus_nums[bus]
         vm_pu = float(net.res_bus.at[idx, "vm_pu"])
@@ -163,7 +171,10 @@ def start_modbus_server():
 
 def main_loop(net, bus_nums, loads, switches_by_bus):
     rng = random.Random(FIELD_RANDOM_SEED)
-    print(f"Field random seed: {FIELD_RANDOM_SEED}")
+    print(
+        f"Field random seed: {FIELD_RANDOM_SEED} "
+        f"cycle={CYCLE_INTERVAL_S}s poll={POLL_INTERVAL_S}s"
+    )
 
     pp.runpp(net)
     print("=== INITIAL POWER FLOW ===")
@@ -177,27 +188,45 @@ def main_loop(net, bus_nums, loads, switches_by_bus):
         5: (85, 95, 0.95, 0.99),
     }
 
+    prev_breakers = dict(breaker_status)
+    next_load_update = time.monotonic() + CYCLE_INTERVAL_S
+
     while True:
-        print("\n", datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
         sync_breakers_from_modbus()
-        apply_breakers_to_network(net, switches_by_bus)
+        breakers_changed = any(
+            breaker_status[b] != prev_breakers.get(b) for b in range(1, NUM_BUS + 1)
+        )
+        prev_breakers = dict(breaker_status)
+        now = time.monotonic()
+        refresh_loads = now >= next_load_update
 
-        for load_bus, (p_lo, p_hi, pf_lo, pf_hi) in load_specs.items():
-            p_mw, q_mvar = random_load_mw_mvar(rng, p_lo, p_hi, pf_lo, pf_hi)
-            load_idx = loads[load_bus]
-            net.load.at[load_idx, "p_mw"] = p_mw
-            net.load.at[load_idx, "q_mvar"] = q_mvar
+        if breakers_changed or refresh_loads:
+            if refresh_loads:
+                next_load_update = now + CYCLE_INTERVAL_S
+                print("\n", datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
+                for load_bus, (p_lo, p_hi, pf_lo, pf_hi) in load_specs.items():
+                    p_mw, q_mvar = random_load_mw_mvar(rng, p_lo, p_hi, pf_lo, pf_hi)
+                    load_idx = loads[load_bus]
+                    net.load.at[load_idx, "p_mw"] = p_mw
+                    net.load.at[load_idx, "q_mvar"] = q_mvar
+            elif breakers_changed:
+                print(
+                    "\n",
+                    datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+                    "(breaker dari DT/RTU)",
+                )
 
-        try:
-            pp.runpp(net)
-            publish_measurements(net, bus_nums)
-        except Exception as exc:
-            if "onverg" in type(exc).__name__ or "onverg" in str(exc).lower():
-                print("Power flow tidak konvergen; register tidak diperbarui")
-            else:
-                print(f"Power flow error: {exc}")
+            apply_breakers_to_network(net, switches_by_bus)
+            try:
+                pp.runpp(net)
+                publish_measurements(net, bus_nums)
+            except Exception as exc:
+                if "onverg" in type(exc).__name__ or "onverg" in str(exc).lower():
+                    print("Power flow tidak konvergen; register tidak diperbarui")
+                else:
+                    print(f"Power flow error: {exc}")
 
-        time.sleep(LOOP_INTERVAL_S)
+        time.sleep(POLL_INTERVAL_S)
 
 
 if __name__ == "__main__":

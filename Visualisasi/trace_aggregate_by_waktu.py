@@ -37,7 +37,7 @@ def aggregate_per_bus(df: pd.DataFrame) -> pd.DataFrame:
     df["waktu"] = pd.to_numeric(df["waktu"], errors="coerce")
     df["iterasi_ke"] = pd.to_numeric(df["iterasi_ke"], errors="coerce")
 
-    exclude = set(KEYS) | {"bus", "i_path"}
+    exclude = set(KEYS) | {"line", "i_path"}
     num_cols = [c for c in df.columns if c not in exclude]
     for c in num_cols:
         df[c] = pd.to_numeric(df[c], errors="coerce")
@@ -45,7 +45,7 @@ def aggregate_per_bus(df: pd.DataFrame) -> pd.DataFrame:
     gmean = df.groupby(list(KEYS), as_index=False)[num_cols].mean()
     gmean.columns = [c if c in KEYS else f"avg_{c}" for c in gmean.columns]
 
-    nbus = df.groupby(list(KEYS), as_index=False).agg(n_bus=("bus", "count"))
+    nbus = df.groupby(list(KEYS), as_index=False).agg(n_bus=("line", "count"))
 
     out_df = nbus.merge(gmean, on=list(KEYS))
 
@@ -127,7 +127,7 @@ def main() -> int:
             out = args.out.resolve()
     else:
         raw = pd.read_csv(inp)
-        if "bus" not in raw.columns:
+        if "line" not in raw.columns:
             raise SystemExit("Tanpa --collapse-only, CSV masukan harus punya kolom bus")
         out_df = aggregate_per_bus(raw)
         if args.collapse_iterations:
@@ -146,7 +146,7 @@ def main() -> int:
     if "n_iter_combined" in out_df.columns:
         msg += " - mean iterasi 1-3 per waktu"
     elif "iterasi_ke" in out_df.columns:
-        msg += " - mean 5 bus per iterasi_ke+waktu"
+        msg += " - mean 4 line per iterasi_ke+waktu"
     print(msg)
     return 0
 

@@ -153,10 +153,10 @@ def plot_drift_mitm_pct_per_bus(df_lb: pd.DataFrame, out: Path) -> None:
     df["drift_mitm_pct"] = 100.0 * df["drift_mitm"].astype(float) / (
         df["v_field"].astype(float).abs() + EPS
     )
-    g = df.groupby("bus", as_index=False)["drift_mitm_pct"].mean().sort_values("bus")
-    buses = g["bus"].astype(int).to_numpy()
+    g = df.groupby("line", as_index=False)["drift_mitm_pct"].mean().sort_values("line")
+    buses = g["line"].astype(int).to_numpy()
     means = g["drift_mitm_pct"].to_numpy()
-    sem = df.groupby("bus")["drift_mitm_pct"].sem().reindex(buses).fillna(0).to_numpy()
+    sem = df.groupby("line")["drift_mitm_pct"].sem().reindex(buses).fillna(0).to_numpy()
 
     fig, ax = plt.subplots(figsize=(5.8, 4.2))
     x = np.arange(len(buses))
@@ -176,12 +176,12 @@ def plot_drift_mitm_pct_per_bus(df_lb: pd.DataFrame, out: Path) -> None:
         label="Mean $\\pm$ SEM",
     )
     ax.set_xticks(x)
-    ax.set_xticklabels([f"Bus {b}" for b in buses])
+    ax.set_xticklabels([f"Line {b}" for b in buses])
     ax.set_ylabel(
         r"Mean drift MITM (\%)"
     )
-    ax.set_xlabel("Bus")
-    ax.set_title("Drift MITM per bus")
+    ax.set_xlabel("Line")
+    ax.set_title("Drift MITM per Line")
     ax.legend(loc="upper right")
     fig.savefig(out)
     plt.close(fig)
@@ -189,8 +189,8 @@ def plot_drift_mitm_pct_per_bus(df_lb: pd.DataFrame, out: Path) -> None:
 
 def plot_drift_share_pie(df_lb: pd.DataFrame, out: Path) -> None:
     """Proporsi total drift MITM (jumlah $|V_{DT}^{mitm}-V_{field}|$) per bus."""
-    tot = df_lb.groupby("bus", as_index=False)["drift_mitm"].sum().sort_values("bus")
-    labels = [f"Bus {int(b)}" for b in tot["bus"]]
+    tot = df_lb.groupby("line", as_index=False)["drift_mitm"].sum().sort_values("line")
+    labels = [f"Line {int(b)}" for b in tot["line"]]
     sizes = tot["drift_mitm"].to_numpy(dtype=float)
     if sizes.sum() <= 0:
         sizes = np.ones_like(sizes)
@@ -207,7 +207,7 @@ def plot_drift_share_pie(df_lb: pd.DataFrame, out: Path) -> None:
         startangle=90,
     )
     ax.set_title(
-        "Kontribusi total drift MITM per bus"
+        "Kontribusi total drift MITM per line"
     )
     fig.savefig(out)
     plt.close(fig)
@@ -250,7 +250,7 @@ def main() -> int:
     df_lb = pd.read_csv(lb)
     df34 = pd.read_csv(m34)
 
-    need_lb = {"bus", "waktu", "drift_mitm", "drift_baseline", "v_field", "v_dt_mitm", "v_dt_baseline"}
+    need_lb = {"line", "waktu", "drift_mitm", "drift_baseline", "v_field", "v_dt_mitm", "v_dt_baseline"}
     miss = need_lb - set(df_lb.columns)
     if miss:
         raise SystemExit(f"Kolom hilang di labeled: {miss}")

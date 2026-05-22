@@ -268,7 +268,8 @@ def get_opcua_nodes(client):
         brk_fb_nodes[bus] = root.get_child(["0:Objects", f"{idx}:SENSORS", f"{idx}:BRK_FB_bus_{bus}"])
         cmd_nodes[bus] = root.get_child(["0:Objects", f"{idx}:COMMANDS", f"{idx}:CMD_bus_{bus}"])
     probe = root.get_child(["0:Objects", f"{idx}:SENSORS", f"{idx}:DT_path_probe"])
-    return p_nodes, q_nodes, v_dt_nodes, brk_fb_nodes, cmd_nodes, probe
+    dt_ack = root.get_child(["0:Objects", f"{idx}:SENSORS", f"{idx}:DT_cycle_ack"])
+    return p_nodes, q_nodes, v_dt_nodes, brk_fb_nodes, cmd_nodes, probe, dt_ack
 
 
 def main():
@@ -279,18 +280,25 @@ def main():
     print("Unique bus->line mapping:", LINE_BY_BUS, flush=True)
 
     client = connect_opcua()
-    p_nodes, q_nodes, v_dt_nodes, brk_fb_nodes, cmd_nodes, probe_node = get_opcua_nodes(client)
+    p_nodes, q_nodes, v_dt_nodes, brk_fb_nodes, cmd_nodes, probe_node, dt_ack_node = get_opcua_nodes(client)
     _last_probe = -1
 
     while True:
         try:
             try:
                 probe = int(probe_node.get_value())
-                if probe != _last_probe:
-                    print(f"DT_PATH_LAT,h4,{time.time():.6f},{probe}", flush=True)
-                    _last_probe = probe
             except Exception as exc:
                 print(f"DT_path_probe read: {exc}", flush=True)
+                time.sleep(LOOP_INTERVAL_S)
+                continue
+
+            if probe <= 0 or probe == _last_probe:
+                time.sleep(0.2)
+                continue
+
+            print(f"DT_PATH_LAT,h4,{time.time():.6f},{probe}", flush=True)
+            _last_probe = probe
+            dt_ack_node.set_value(0)
 
             brk_fb = {
                 bus: (1 if int(brk_fb_nodes[bus].get_value()) == 1 else 0)
@@ -333,6 +341,9 @@ def main():
             for bus in range(1, NUM_BUS + 1):
                 cmd_nodes[bus].set_value(int(cmd[bus]))
 
+            dt_ack_node.set_value(int(probe))
+            print(f"[h4] DT_cycle_ack={probe} (siklus selesai, CMD siap ke RTU)", flush=True)
+
             for bus in range(1, NUM_BUS + 1):
                 _log_bus_cycle(
                     ts_row,
@@ -354,9 +365,9 @@ def main():
             except Exception:
                 pass
             client = connect_opcua()
-            p_nodes, q_nodes, v_dt_nodes, brk_fb_nodes, cmd_nodes, probe_node = get_opcua_nodes(client)
+            p_nodes, q_nodes, v_dt_nodes, brk_fb_nodes, cmd_nodes, probe_node, dt_ack_node = get_opcua_nodes(client)
 
-        time.sleep(LOOP_INTERVAL_S)
+        time.sleep(0.2)
 
 
 if __name__ == "__main__":

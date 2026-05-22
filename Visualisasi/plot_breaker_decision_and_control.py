@@ -83,16 +83,16 @@ def _sem(a: np.ndarray) -> float:
 
 def load_labeled(path: Path) -> pd.DataFrame:
     df = pd.read_csv(path)
-    need = {"waktu", "iterasi_ke", "bus", "breaker_mitm", "breaker_baseline"}
+    need = {"waktu", "iterasi_ke", "line", "breaker_mitm", "breaker_baseline"}
     miss = need - set(df.columns)
     if miss:
         raise SystemExit(f"Kolom hilang di CSV: {miss}")
-    for c in ("waktu", "iterasi_ke", "bus", "breaker_mitm", "breaker_baseline"):
+    for c in ("waktu", "iterasi_ke", "line", "breaker_mitm", "breaker_baseline"):
         df[c] = pd.to_numeric(df[c], errors="coerce")
     df = df.dropna(subset=list(need))
     df["waktu"] = df["waktu"].astype(int)
     df["iterasi_ke"] = df["iterasi_ke"].astype(int)
-    df["bus"] = df["bus"].astype(int)
+    df["line"] = df["line"].astype(int)
     df["breaker_mitm"] = df["breaker_mitm"].astype(int)
     df["breaker_baseline"] = df["breaker_baseline"].astype(int)
     return df
@@ -106,23 +106,23 @@ def rates_by_bus_iter(df: pd.DataFrame) -> pd.DataFrame:
     """Persentase decision error per (bus, iterasi_ke)."""
     m = decision_error_mask(df)
     tmp = df.assign(_err=m.astype(int))
-    g = tmp.groupby(["bus", "iterasi_ke"], as_index=False).agg(
+    g = tmp.groupby(["line", "iterasi_ke"], as_index=False).agg(
         n_steps=("waktu", "count"),
         n_mismatch=("_err", "sum"),
     )
     g["error_rate_pct"] = 100.0 * g["n_mismatch"] / (g["n_steps"] + EPS)
-    return g.sort_values(["bus", "iterasi_ke"])
+    return g.sort_values(["line", "iterasi_ke"])
 
 
 def plot_grouped_decision_error(rates: pd.DataFrame, out: Path) -> None:
-    buses = sorted(rates["bus"].unique())
+    buses = sorted(rates["line"].unique())
     iters = sorted(rates["iterasi_ke"].unique())
     fig, ax = plt.subplots(figsize=(7.5, 4.2))
     x = np.arange(len(buses))
     n_it = len(iters)
     width = 0.8 / max(n_it, 1)
     for j, it in enumerate(iters):
-        sub = rates[rates["iterasi_ke"] == it].set_index("bus").reindex(buses)
+        sub = rates[rates["iterasi_ke"] == it].set_index("line").reindex(buses)
         vals = sub["error_rate_pct"].to_numpy(dtype=float)
         offset = (j - (n_it - 1) / 2.0) * width
         color = C_ITER[j % len(C_ITER)]
@@ -138,9 +138,9 @@ def plot_grouped_decision_error(rates: pd.DataFrame, out: Path) -> None:
             zorder=3,
         )
     ax.set_xticks(x)
-    ax.set_xticklabels([f"Bus {b}" for b in buses])
+    ax.set_xticklabels([f"Line {b}" for b in buses])
     ax.set_ylabel("Decision error rate (%)")
-    ax.set_xlabel("Bus")
+    ax.set_xlabel("Line")
     ax.set_title("Decision error rate vs referensi baseline")
     ax.legend(loc="upper right")
     ax.set_ylim(bottom=0)
@@ -149,10 +149,10 @@ def plot_grouped_decision_error(rates: pd.DataFrame, out: Path) -> None:
 
 
 def plot_mean_sem_decision_error(rates: pd.DataFrame, out: Path) -> None:
-    buses = sorted(rates["bus"].unique())
+    buses = sorted(rates["line"].unique())
     means, stds = [], []
     for b in buses:
-        sub = rates[rates["bus"] == b]["error_rate_pct"].to_numpy(dtype=float)
+        sub = rates[rates["line"] == b]["error_rate_pct"].to_numpy(dtype=float)
         sub = sub[np.isfinite(sub)]
         means.append(float(np.mean(sub)) if len(sub) else 0.0)
         stds.append(float(np.std(sub, ddof=1)) if len(sub) > 1 else 0.0)
@@ -187,9 +187,9 @@ def plot_mean_sem_decision_error(rates: pd.DataFrame, out: Path) -> None:
         )
 
     ax.set_xticks(x)
-    ax.set_xticklabels([f"Bus {b}" for b in buses])
+    ax.set_xticklabels([f"Line {b}" for b in buses])
     ax.set_ylabel("Decision error rate (%)")
-    ax.set_xlabel("Bus")
+    ax.set_xlabel("Line")
     ax.set_title("Rata-rata decision error rate")
     ax.legend(loc="upper right")
     ax.set_ylim(bottom=0, top=y_top + pad * 3.5)
@@ -198,12 +198,12 @@ def plot_mean_sem_decision_error(rates: pd.DataFrame, out: Path) -> None:
 
 
 def _series_for_bus_iter(df: pd.DataFrame, bus: int, it: int) -> pd.DataFrame:
-    s = df[(df["bus"] == bus) & (df["iterasi_ke"] == it)].sort_values("waktu")
+    s = df[(df["line"] == bus) & (df["iterasi_ke"] == it)].sort_values("waktu")
     return s[["waktu", "breaker_mitm", "breaker_baseline"]]
 
 
 def plot_timeline_actual(df: pd.DataFrame, out: Path, iterasi: int) -> None:
-    buses = sorted(df["bus"].unique())
+    buses = sorted(df["line"].unique())
     fig, axes = plt.subplots(len(buses), 1, figsize=(8.5, 2.0 * len(buses)), sharex=True)
     if len(buses) == 1:
         axes = [axes]
@@ -215,7 +215,7 @@ def plot_timeline_actual(df: pd.DataFrame, out: Path, iterasi: int) -> None:
         ax.fill_between(t, y, step="post", alpha=0.12, color=C_ACTUAL)
         ax.set_yticks([0, 1])
         ax.set_yticklabels(["OPEN", "CLOSE"])
-        ax.set_ylabel(f"Bus {bus}", fontweight="bold")
+        ax.set_ylabel(f"Line {bus}", fontweight="bold")
         ax.set_ylim(-0.15, 1.15)
         ax.legend(loc="upper right", fontsize=8)
     fig.suptitle(
@@ -230,7 +230,7 @@ def plot_timeline_actual(df: pd.DataFrame, out: Path, iterasi: int) -> None:
 
 
 def plot_timeline_overlay(df: pd.DataFrame, out: Path, iterasi: int) -> None:
-    buses = sorted(df["bus"].unique())
+    buses = sorted(df["line"].unique())
     fig, axes = plt.subplots(len(buses), 1, figsize=(8.5, 2.0 * len(buses)), sharex=True)
     if len(buses) == 1:
         axes = [axes]
@@ -258,7 +258,7 @@ def plot_timeline_overlay(df: pd.DataFrame, out: Path, iterasi: int) -> None:
         )
         ax.set_yticks([0, 1])
         ax.set_yticklabels(["OPEN", "CLOSE"])
-        ax.set_ylabel(f"Bus {bus}", fontweight="bold")
+        ax.set_ylabel(f"Line {bus}", fontweight="bold")
         ax.set_ylim(-0.15, 1.15)
         ax.legend(loc="upper right", fontsize=8)
     fig.suptitle(
@@ -282,12 +282,12 @@ def build_mismatch_summary(df: pd.DataFrame) -> pd.DataFrame:
     m = decision_error_mask(df)
     tmp = df.assign(_mismatch=m.astype(int))
     rows = []
-    for (bus, it), g in tmp.groupby(["bus", "iterasi_ke"]):
+    for (bus, it), g in tmp.groupby(["line", "iterasi_ke"]):
         g = g.sort_values("waktu")
         y_m = g["breaker_mitm"].to_numpy(dtype=int)
         rows.append(
             {
-                "bus": int(bus),
+                "line": int(bus),
                 "iterasi_ke": int(it),
                 "n_timesteps": len(g),
                 "n_mismatch": int(g["_mismatch"].sum()),
@@ -295,7 +295,7 @@ def build_mismatch_summary(df: pd.DataFrame) -> pd.DataFrame:
                 "n_transitions_mitm": count_transitions(y_m),
             }
         )
-    return pd.DataFrame(rows).sort_values(["bus", "iterasi_ke"])
+    return pd.DataFrame(rows).sort_values(["line", "iterasi_ke"])
 
 
 def main() -> int:
@@ -340,7 +340,7 @@ def main() -> int:
     plot_grouped_decision_error(rates, out_dir / "fig_breaker_decision_error_grouped.png")
     plot_mean_sem_decision_error(rates, out_dir / "fig_breaker_decision_error_mean_sem.png")
 
-    pivot = rates.pivot(index="bus", columns="iterasi_ke", values="error_rate_pct")
+    pivot = rates.pivot(index="line", columns="iterasi_ke", values="error_rate_pct")
     pivot.to_csv(out_dir / "breaker_decision_error_pivot_bus_by_iter.csv")
 
     iters_timeline = sorted(df["iterasi_ke"].unique())
