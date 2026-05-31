@@ -4,6 +4,7 @@ Field device: ground-truth grid via pandapower, exposed to RTU over Modbus TCP.
 import math
 import os
 import random
+import sys
 import time
 from datetime import datetime
 from threading import Thread
@@ -26,6 +27,13 @@ V_BASE_ADDR = 0
 I_BASE_ADDR = 10
 PF_BASE_ADDR = 30
 BREAKER_BASE_ADDR = 0
+DATA_CYCLE_ADDR = 90
+CMD_ID_ADDR = 91
+ORIGIN_CYCLE_ADDR = 92
+
+BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
+sys.path.append(BASE_DIR)
+from logger.host_csv_logger import breaker_state, log_control_plane, log_data_plane, timestamp
 
 store = ModbusSlaveContext(
     di=ModbusSequentialDataBlock(0, [0] * 100),
@@ -39,6 +47,7 @@ FX_HR = 3
 FX_CO = 1
 
 breaker_status = {bus: 1 for bus in range(1, NUM_BUS + 1)}
+_field_cycle_id = 0
 
 def build_network():
     net = pp.create_empty_network()
@@ -118,8 +127,26 @@ def sync_breakers_from_modbus():
     for bus in range(1, NUM_BUS + 1):
         addr = BREAKER_BASE_ADDR + (bus - 1)
         breaker_status[bus] = int(context[SLAVE_ID].getValues(FX_CO, addr, count=1)[0])
+    cmd_id = int(context[SLAVE_ID].getValues(FX_HR, CMD_ID_ADDR, count=1)[0])
+    origin_cycle = int(context[SLAVE_ID].getValues(FX_HR, ORIGIN_CYCLE_ADDR, count=1)[0])
+    log_control_plane(
+        "{{ host.name }}",
+        {
+            "cmd_id": cmd_id,
+            "origin_cycle": origin_cycle,
+            "ts_received": timestamp(),
+            "breaker_DT": breaker_state(breaker_status),
+        },
+    )
 
-def publish_measurements(net, bus_nums):
+def next_cycle_id():
+    global _field_cycle_id
+    _field_cycle_id = ((_field_cycle_id + 1) & 0xFFFF) or 1
+    return _field_cycle_id
+
+def publish_measurements(net, bus_nums, cycle_id):
+    ts_sent = timestamp()
+    context[SLAVE_ID].setValues(FX_HR, DATA_CYCLE_ADDR, [int(cycle_id)])
     for bus in range(1, NUM_BUS + 1):
         idx = bus_nums[bus]
         vm_pu = float(net.res_bus.at[idx, "vm_pu"])
@@ -133,6 +160,20 @@ def publish_measurements(net, bus_nums):
         context[SLAVE_ID].setValues(FX_HR, V_BASE_ADDR + (bus - 1), [v_reg])
         context[SLAVE_ID].setValues(FX_HR, I_BASE_ADDR + (bus - 1), [i_reg])
         context[SLAVE_ID].setValues(FX_HR, PF_BASE_ADDR + (bus - 1), [pf_reg])
+        log_data_plane(
+            "{{ host.name }}",
+            {
+                "cycle_id": cycle_id,
+                "ts_sent": ts_sent,
+                "bus": bus,
+                "V_sent": f"{vm_pu:.6f}",
+                "I_sent": f"{i_amp:.6f}",
+                "P_bus": f"{p_mw:.6f}",
+                "Q_bus": f"{q_mvar:.6f}",
+                "power_factor": f"{pf:.6f}",
+                "breaker_actual": breaker_status[bus],
+            },
+        )
         brk_note = (
             "n/a"
             if bus == 5
@@ -159,7 +200,7 @@ def main_loop(net, bus_nums, loads, switches_by_bus):
     print("=== INITIAL POWER FLOW ===")
     print(net.res_bus[["vm_pu", "va_degree", "p_mw", "q_mvar"]])
     print(net.res_line[["i_ka", "loading_percent"]])
-    publish_measurements(net, bus_nums)
+    publish_measurements(net, bus_nums, next_cycle_id())
 
     load_specs = {
         2: (50, 80, 0.90, 0.98),
@@ -180,7 +221,7 @@ def main_loop(net, bus_nums, loads, switches_by_bus):
         apply_breakers_to_network(net, switches_by_bus)
         try:
             pp.runpp(net)
-            publish_measurements(net, bus_nums)
+            publish_measurements(net, bus_nums, next_cycle_id())
         except Exception as exc:
             if "onverg" in type(exc).__name__ or "onverg" in str(exc).lower():
                 print("Power flow tidak konvergen; register tidak diperbarui")

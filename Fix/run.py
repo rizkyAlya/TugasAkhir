@@ -25,32 +25,36 @@ sys.path.append(OUTPUT_DIR)
 sys.path.append(BASE_DIR)
 
 from logger.collector import collect_data
-from logger.pcap_collector import (
-    pcap_session_dir,
-    start_trace_iteration_captures,
-    stop_any_running_captures,
-    stop_trace_iteration_captures,
-    write_pcap_manifest,
-)
-from logger.mitm_trace_logger import (
-    MITM_PROXY_SNAPSHOT_FILE,
-    RUN_ROOT_HOST_FILE,
-    TRACE_COLLECT_RUN_FILE,
-    MEASURE_PHASE_FILE,
-    TRACE_ENABLED_FILE,
-    publish_collect_run_on_hosts,
-    publish_measure_phase_on_hosts,
-    publish_trace_enabled_on_hosts,
-    clear_measure_session_markers_on_hosts,
-)
+from logger.host_csv_logger import RUN_ROOT_HOST_FILE
+# PCAP sementara dinonaktifkan agar fokus ke host_csv_logger.
+# from logger.pcap_collector import (
+#     pcap_session_dir,
+#     start_trace_iteration_captures,
+#     stop_any_running_captures,
+#     stop_trace_iteration_captures,
+#     write_pcap_manifest,
+# )
+# mitm_trace_logger sementara dinonaktifkan agar fokus ke host_csv_logger.
+# from logger.mitm_trace_logger import (
+#     MITM_PROXY_SNAPSHOT_FILE,
+#     TRACE_COLLECT_RUN_FILE,
+#     MEASURE_PHASE_FILE,
+#     TRACE_ENABLED_FILE,
+#     publish_collect_run_on_hosts,
+#     publish_measure_phase_on_hosts,
+#     publish_trace_enabled_on_hosts,
+#     clear_measure_session_markers_on_hosts,
+# )
+
+MITM_PROXY_SNAPSHOT_FILE = "/tmp/mitm_proxy_snapshot.json"
 
 # Jeda fase normal (tanpa pengumpulan baseline) sebelum serangan MITM.
 NORMAL_PHASE_PRE_ATTACK_S = 5
 
 # Trace sebelum collect_data jaringan (baseline & MITM, durasi sama agar comparable).
 # Satu tick kolom "waktu" ≈ satu putaran loop gateway — selaras generator/templates/gateway.j2 (time.sleep akhir loop).
-TRACE_BEFORE_NETWORK_NUM_ITERATIONS = 3
-TRACE_BEFORE_NETWORK_MIN_WAKTU_PER_ITERATION = 35
+TRACE_BEFORE_NETWORK_NUM_ITERATIONS = 0
+TRACE_BEFORE_NETWORK_MIN_WAKTU_PER_ITERATION = 0
 TRACE_BEFORE_NETWORK_GATEWAY_CYCLE_S = 1
 
 
@@ -63,40 +67,7 @@ def trace_phase_before_network_collect(
     include_mitm_eth1: bool = False,
     pcap_manifest: list = None,
 ) -> None:
-    """
-    Set iterasi_ke 1..N di host, tunggu agar gateway mengisi trace.
-    Jika pcap_dir diisi: tcpdump per iterasi (selaras iterasi_ke trace CSV).
-    """
-    wait_s = TRACE_BEFORE_NETWORK_MIN_WAKTU_PER_ITERATION * TRACE_BEFORE_NETWORK_GATEWAY_CYCLE_S
-    n = TRACE_BEFORE_NETWORK_NUM_ITERATIONS
-    phase_key = (pcap_phase or log_label).lower()
-
-    for i in range(1, n + 1):
-        publish_collect_run_on_hosts(net, i)
-        iter_entries = []
-        if pcap_dir:
-            iter_entries = start_trace_iteration_captures(
-                net,
-                pcap_dir,
-                phase_key,
-                i,
-                include_mitm_eth1=include_mitm_eth1,
-            )
-        print(
-            f"[orchestrator] {log_label} trace: iterasi_ke={i}/{n}, "
-            f"menunggu {wait_s}s (target >= {TRACE_BEFORE_NETWORK_MIN_WAKTU_PER_ITERATION} waktu/iterasi)..."
-        )
-        time.sleep(wait_s)
-        if pcap_dir and iter_entries:
-            saved = stop_trace_iteration_captures(net, iter_entries)
-            if pcap_manifest is not None:
-                pcap_manifest.extend(saved)
-                write_pcap_manifest(
-                    pcap_dir,
-                    pcap_manifest,
-                    trace_iterations=n,
-                    aligned_with="trace.csv iterasi_ke",
-                )
+    del net, log_label, pcap_dir, pcap_phase, include_mitm_eth1, pcap_manifest
 
 
 def dos_phase_with_pcap(
@@ -107,34 +78,8 @@ def dos_phase_with_pcap(
     pcap_manifest: list = None,
     measure_fn,
 ) -> None:
-    """
-    Satu capture iter01 per mode (dos_light / dos_heavy) selama serangan + pengukuran.
-    measure_fn: callable tanpa argumen (run_dos, collect_data, dll.).
-    """
-    phase_key = f"dos_{dos_mode}"
-    iter_entries = []
-    if pcap_dir:
-        iter_entries = start_trace_iteration_captures(
-            net,
-            pcap_dir,
-            phase_key,
-            1,
-            include_mitm_eth1=False,
-        )
-        print(f"[orchestrator] PCAP {phase_key} iter01 started -> {pcap_dir}")
-    try:
-        measure_fn()
-    finally:
-        if pcap_dir and iter_entries:
-            saved = stop_trace_iteration_captures(net, iter_entries)
-            if pcap_manifest is not None:
-                pcap_manifest.extend(saved)
-                write_pcap_manifest(
-                    pcap_dir,
-                    pcap_manifest,
-                    dos_modes=["light", "heavy"],
-                    aligned_with="DoS attack + network metrics per mode",
-                )
+    del net, dos_mode, pcap_dir, pcap_manifest
+    measure_fn()
 
 
 def reset_attack_flags():
@@ -152,8 +97,7 @@ def clear_mininet_mitm_trace_state(net):
     """
     extras = (
         f"{ATTACK_ACTIVE_FLAG} {MITM_RUN_ID_FILE} {RUN_ROOT_HOST_FILE} "
-        f"{MITM_PROXY_SNAPSHOT_FILE} {TRACE_COLLECT_RUN_FILE} "
-        f"{MEASURE_PHASE_FILE} {TRACE_ENABLED_FILE}"
+        f"{MITM_PROXY_SNAPSHOT_FILE}"
     )
     for host in net.hosts:
         try:
@@ -459,8 +403,9 @@ def main():
     pcap_dir = None
     if should_create_run_folder:
         run_id_str = datetime.now().strftime("%Y-%m-%d_%H%M%S")
-        if not args.no_pcap:
-            pcap_dir = pcap_session_dir(BASE_DIR, run_id_str)
+        # PCAP sementara dinonaktifkan agar fokus ke host_csv_logger.
+        # if not args.no_pcap:
+        #     pcap_dir = pcap_session_dir(BASE_DIR, run_id_str)
         if args.baseline:
             path_baseline = os.path.join(BASE_DIR, "logs", "baseline", run_id_str)
             write_session_meta(path_baseline, run_id_str, args, pcap_dir)
@@ -484,9 +429,7 @@ def main():
     print(f"Baseline: {'ON' if should_collect_baseline else 'OFF'}")
     print(f"MITM: {'ON' if args.mitm else 'OFF'}")
     print(f"DoS : {'ON' if args.dos else 'OFF'}")
-    print(
-        f"PCAP: {'OFF (--no-pcap)' if args.no_pcap else ('ON -> ' + pcap_dir if pcap_dir else 'OFF (no scenario flags)')}"
-    )
+    print("PCAP: OFF (sementara dinonaktifkan)")
     print("==============================\n")
 
     # Ensure phase markers do not leak from previous runs.
@@ -518,24 +461,20 @@ def main():
         # START APPS
         start_apps(net, host_log_dir)
 
-        pcap_manifest = [] if pcap_dir else None
-        if pcap_dir:
-            print(
-                f"PCAP per iterasi trace (N={TRACE_BEFORE_NETWORK_NUM_ITERATIONS}) -> {pcap_dir}"
-            )
+        pcap_manifest = None
 
-        # Sesi pengukuran: iterasi_ke + fase host selaras trace / network (collector tidak menghapus marker di tengah).
-        if should_create_run_folder:
-            publish_trace_enabled_on_hosts(net, True)
-            publish_measure_phase_on_hosts(net, "normal")
-            publish_collect_run_on_hosts(net, 1)
+        # Marker mitm_trace_logger sementara dinonaktifkan; host_csv_logger memakai RUN_ROOT saja.
+        # if should_create_run_folder:
+        #     publish_trace_enabled_on_hosts(net, True)
+        #     publish_measure_phase_on_hosts(net, "normal")
+        #     publish_collect_run_on_hosts(net, 1)
 
         # Collect baseline only when enabled (explicitly or as part of a scenario).
         if should_collect_baseline:
             delay = max(0, args.collect_delay)
             print(f"Collecting baseline in {delay}s...")
             time.sleep(delay)
-            print("Baseline: fase pengukuran trace (sebelum network)...")
+            print("Baseline: old mitm_trace_logger/PCAP phase skipped.")
             trace_phase_before_network_collect(
                 net,
                 "baseline",
@@ -555,14 +494,14 @@ def main():
             if not should_collect_baseline:
                 print(f"Normal phase (pre-attack, {NORMAL_PHASE_PRE_ATTACK_S}s)...")
                 time.sleep(NORMAL_PHASE_PRE_ATTACK_S)
-            publish_measure_phase_on_hosts(net, "attack")
+            # publish_measure_phase_on_hosts(net, "attack")
             prime_mitm_phase_on_hosts(net)
             # Topologi: attacker foothold di Control dulu; eskalasi ke Field saat skenario MITM.
             if hasattr(topology_mod, "escalate_attacker_to_field"):
                 topology_mod.escalate_attacker_to_field(net)
                 time.sleep(1)
             run_mitm(net, host_log_dir)
-            print("MITM: fase pengukuran trace (sebelum network)...")
+            print("MITM: old mitm_trace_logger/PCAP phase skipped.")
             trace_phase_before_network_collect(
                 net,
                 "MITM",
@@ -580,7 +519,7 @@ def main():
             )
             print("Stopping MITM attack...")
             clear_mitm_attack_flag_on_hosts(net)
-            publish_measure_phase_on_hosts(net, "normal")
+            # publish_measure_phase_on_hosts(net, "normal")
             print("MITM collection complete.\n")
 
         if args.dos:
@@ -594,7 +533,7 @@ def main():
                     ok = run_dos(net, mode, host_log_dir)
                     if not ok:
                         return
-                    publish_measure_phase_on_hosts(net, label)
+                    # publish_measure_phase_on_hosts(net, label)
                     print(f"Collecting DoS ({mode}) network metrics...")
                     collect_data(
                         net,
@@ -614,10 +553,10 @@ def main():
             stop_dos_hping_on_net(net)
             print("DoS stopped (hping3 cleared).\n")
 
-        if should_create_run_folder:
-            publish_trace_enabled_on_hosts(net, False)
-            clear_measure_session_markers_on_hosts(net)
-            print("DT trace logger stopped; measurement session markers cleared on hosts.\n")
+        # if should_create_run_folder:
+        #     publish_trace_enabled_on_hosts(net, False)
+        #     clear_measure_session_markers_on_hosts(net)
+        #     print("DT trace logger stopped; measurement session markers cleared on hosts.\n")
 
         print("System ready\n")
 
@@ -625,8 +564,8 @@ def main():
         if not args.no_cli:
             CLI(net)
     finally:
-        if net is not None and pcap_dir and pcap_manifest:
-            stop_any_running_captures(net, pcap_manifest)
+        # if net is not None and pcap_dir and pcap_manifest:
+        #     stop_any_running_captures(net, pcap_manifest)
         if net is not None:
             print("Stopping network...")
             net.stop()

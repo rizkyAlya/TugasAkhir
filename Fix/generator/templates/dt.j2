@@ -3,6 +3,7 @@ Digital Twin (h4): 5-bus model (sama arsitektur field), sinkron via OPC UA gatew
 """
 import math
 import os
+import sys
 import time
 from datetime import datetime
 
@@ -21,6 +22,10 @@ CLOSE_FACTOR = 0.95
 
 # field bus -> pandapower line index (bus 5 tanpa switch line di model ini)
 LINE_BY_BUS = {1: 0, 2: 1, 3: 2, 4: 3}
+
+BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
+sys.path.append(BASE_DIR)
+from logger.host_csv_logger import breaker_state, log_control_plane, log_data_plane, timestamp
 
 
 def energized_from_slack(brk_fb):
@@ -267,7 +272,10 @@ def get_opcua_nodes(client):
         v_dt_nodes[bus] = root.get_child(["0:Objects", f"{idx}:SENSORS", f"{idx}:V_DT_bus_{bus}"])
         brk_fb_nodes[bus] = root.get_child(["0:Objects", f"{idx}:SENSORS", f"{idx}:BRK_FB_bus_{bus}"])
         cmd_nodes[bus] = root.get_child(["0:Objects", f"{idx}:COMMANDS", f"{idx}:CMD_bus_{bus}"])
-    return p_nodes, q_nodes, v_dt_nodes, brk_fb_nodes, cmd_nodes
+    data_cycle_node = root.get_child(["0:Objects", f"{idx}:SENSORS", f"{idx}:DATA_cycle"])
+    cmd_id_node = root.get_child(["0:Objects", f"{idx}:COMMANDS", f"{idx}:CMD_id"])
+    origin_cycle_node = root.get_child(["0:Objects", f"{idx}:COMMANDS", f"{idx}:ORIGIN_cycle"])
+    return p_nodes, q_nodes, v_dt_nodes, brk_fb_nodes, cmd_nodes, data_cycle_node, cmd_id_node, origin_cycle_node
 
 
 def main():
@@ -278,11 +286,23 @@ def main():
     print("Unique bus->line mapping:", LINE_BY_BUS, flush=True)
 
     client = connect_opcua()
-    p_nodes, q_nodes, v_dt_nodes, brk_fb_nodes, cmd_nodes = get_opcua_nodes(client)
+    (
+        p_nodes,
+        q_nodes,
+        v_dt_nodes,
+        brk_fb_nodes,
+        cmd_nodes,
+        data_cycle_node,
+        cmd_id_node,
+        origin_cycle_node,
+    ) = get_opcua_nodes(client)
+    cmd_id = 0
 
     while True:
         try:
             t_iter = time.monotonic()
+            ts_received = timestamp()
+            cycle_id = int(data_cycle_node.get_value())
             brk_fb = {
                 bus: (1 if int(brk_fb_nodes[bus].get_value()) == 1 else 0)
                 for bus in range(1, NUM_BUS + 1)
@@ -321,12 +341,46 @@ def main():
                 raise
 
             cmd = protection_commands(net, switches_by_bus, brk_fb, energized)
+            cmd_id = ((cmd_id + 1) & 0xFFFF) or 1
             for bus in range(1, NUM_BUS + 1):
                 cmd_nodes[bus].set_value(int(cmd[bus]))
+            cmd_id_node.set_value(int(cmd_id))
+            origin_cycle_node.set_value(int(cycle_id))
+            log_control_plane(
+                "{{ host.name }}",
+                {
+                    "cmd_id": cmd_id,
+                    "origin_cycle": cycle_id,
+                    "ts_sent": timestamp(),
+                    "breaker_DT": breaker_state(cmd),
+                },
+            )
 
             print("[h4] Siklus selesai, CMD siap ke gateway", flush=True)
 
             for bus in range(1, NUM_BUS + 1):
+                line_idx = LINE_BY_BUS.get(bus)
+                if line_idx is None or bus not in energized:
+                    i_line = 0.0
+                else:
+                    _ifr, _ito, i_line_ka = _line_i_ka_safe(net, line_idx)
+                    i_line = i_line_ka * 1000.0
+                if bus in energized:
+                    v_dt = _finite_or_zero(net.res_bus.vm_pu.at[bus_nums[bus]])
+                else:
+                    v_dt = 0.0
+                log_data_plane(
+                    "{{ host.name }}",
+                    {
+                        "cycle_id": cycle_id,
+                        "ts_received": ts_received,
+                        "bus": bus,
+                        "line": "" if line_idx is None else line_idx,
+                        "V_DT": f"{v_dt:.6f}",
+                        "I_line": f"{i_line:.6f}",
+                        "breaker_actual": brk_fb[bus],
+                    },
+                )
                 _log_bus_cycle(
                     ts_row,
                     bus,
@@ -347,7 +401,16 @@ def main():
             except Exception:
                 pass
             client = connect_opcua()
-            p_nodes, q_nodes, v_dt_nodes, brk_fb_nodes, cmd_nodes = get_opcua_nodes(client)
+            (
+                p_nodes,
+                q_nodes,
+                v_dt_nodes,
+                brk_fb_nodes,
+                cmd_nodes,
+                data_cycle_node,
+                cmd_id_node,
+                origin_cycle_node,
+            ) = get_opcua_nodes(client)
 
         elapsed = time.monotonic() - t_iter
         remain = LOOP_INTERVAL_S - elapsed
