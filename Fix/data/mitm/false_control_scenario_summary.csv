@@ -1,0 +1,5 @@
+scenario (-),iteration_count (count),matched_decisions_sum (count),false_control_count_sum (count),missing_field_decision_count_sum (count),decision_error_rate_mean (%),decision_error_rate_std_dev (%)
+baseline,3,1170,0,0,0.000000,0.000000
+dos_light,3,958,96,147,15.763547,27.303264
+dos_heavy,3,674,161,276,29.117399,25.248254
+mitm,3,651,308,539,47.365194,3.809284
