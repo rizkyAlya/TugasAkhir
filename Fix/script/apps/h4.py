@@ -13,11 +13,11 @@ GATEWAY_OPC = os.environ.get(
     "GATEWAY_OPC",
     "opc.tcp://10.0.2.2:4840/mininet/",
 )
-LOOP_INTERVAL_S = float(os.environ.get("DT_LOOP_INTERVAL_S", "4"))
+LOOP_INTERVAL_S = float(os.environ.get("DT_LOOP_INTERVAL_S", "1"))
 NUM_BUS = 5
 
-OPEN_FACTOR = 1.05
-CLOSE_FACTOR = 1.00
+OPEN_FACTOR = 1.00
+CLOSE_FACTOR = 0.95
 
 # field bus -> pandapower line index (bus 5 tanpa switch line di model ini)
 LINE_BY_BUS = {1: 0, 2: 1, 3: 2, 4: 3}
@@ -94,7 +94,7 @@ def build_network():
 
     line1 = pp.create_line_from_parameters(
         net, from_bus=bus1, to_bus=bus2, length_km=10,
-        r_ohm_per_km=0.05, x_ohm_per_km=0.12, c_nf_per_km=0, max_i_ka=1.2, name="Line 1",
+        r_ohm_per_km=0.05, x_ohm_per_km=0.12, c_nf_per_km=0, max_i_ka=1.6, name="Line 1",
     )
     line2 = pp.create_line_from_parameters(
         net, from_bus=bus2, to_bus=bus3, length_km=8,
@@ -106,7 +106,7 @@ def build_network():
     )
     line4 = pp.create_line_from_parameters(
         net, from_bus=bus4, to_bus=bus5, length_km=5,
-        r_ohm_per_km=0.03, x_ohm_per_km=0.08, c_nf_per_km=0, max_i_ka=0.7, name="Line 4",
+        r_ohm_per_km=0.03, x_ohm_per_km=0.08, c_nf_per_km=0, max_i_ka=0.8, name="Line 4",
     )
 
     switches_by_bus = {
@@ -267,8 +267,7 @@ def get_opcua_nodes(client):
         v_dt_nodes[bus] = root.get_child(["0:Objects", f"{idx}:SENSORS", f"{idx}:V_DT_bus_{bus}"])
         brk_fb_nodes[bus] = root.get_child(["0:Objects", f"{idx}:SENSORS", f"{idx}:BRK_FB_bus_{bus}"])
         cmd_nodes[bus] = root.get_child(["0:Objects", f"{idx}:COMMANDS", f"{idx}:CMD_bus_{bus}"])
-    probe = root.get_child(["0:Objects", f"{idx}:SENSORS", f"{idx}:DT_path_probe"])
-    return p_nodes, q_nodes, v_dt_nodes, brk_fb_nodes, cmd_nodes, probe
+    return p_nodes, q_nodes, v_dt_nodes, brk_fb_nodes, cmd_nodes
 
 
 def main():
@@ -279,19 +278,11 @@ def main():
     print("Unique bus->line mapping:", LINE_BY_BUS, flush=True)
 
     client = connect_opcua()
-    p_nodes, q_nodes, v_dt_nodes, brk_fb_nodes, cmd_nodes, probe_node = get_opcua_nodes(client)
-    _last_probe = -1
+    p_nodes, q_nodes, v_dt_nodes, brk_fb_nodes, cmd_nodes = get_opcua_nodes(client)
 
     while True:
         try:
-            try:
-                probe = int(probe_node.get_value())
-                if probe != _last_probe:
-                    print(f"DT_PATH_LAT,h4,{time.time():.6f},{probe}", flush=True)
-                    _last_probe = probe
-            except Exception as exc:
-                print(f"DT_path_probe read: {exc}", flush=True)
-
+            t_iter = time.monotonic()
             brk_fb = {
                 bus: (1 if int(brk_fb_nodes[bus].get_value()) == 1 else 0)
                 for bus in range(1, NUM_BUS + 1)
@@ -333,6 +324,8 @@ def main():
             for bus in range(1, NUM_BUS + 1):
                 cmd_nodes[bus].set_value(int(cmd[bus]))
 
+            print("[h4] Siklus selesai, CMD siap ke gateway", flush=True)
+
             for bus in range(1, NUM_BUS + 1):
                 _log_bus_cycle(
                     ts_row,
@@ -354,9 +347,12 @@ def main():
             except Exception:
                 pass
             client = connect_opcua()
-            p_nodes, q_nodes, v_dt_nodes, brk_fb_nodes, cmd_nodes, probe_node = get_opcua_nodes(client)
+            p_nodes, q_nodes, v_dt_nodes, brk_fb_nodes, cmd_nodes = get_opcua_nodes(client)
 
-        time.sleep(LOOP_INTERVAL_S)
+        elapsed = time.monotonic() - t_iter
+        remain = LOOP_INTERVAL_S - elapsed
+        if remain > 0:
+            time.sleep(remain)
 
 
 if __name__ == "__main__":

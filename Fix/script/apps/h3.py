@@ -42,7 +42,6 @@ def _measurement_trusted(v_pu, i_amp):
 #   20-24 : breaker feedback dari RTU (status switch field)
 #   30-34 : PF per bus dari field (via RTU)
 #   OPC BRK_FB_bus_* : diteruskan ke DT untuk sinkron topologi
-#   95    : counter batch RTU (sinkron pengukuran delay h2 -> DT / OPC)
 # - Coils:
 #   0-4   : breaker command ke RTU
 MODBUS_LISTEN_IP = "0.0.0.0"
@@ -52,7 +51,7 @@ I_BASE_ADDR = 10
 BREAKER_FB_BASE_ADDR = 20
 PF_FB_BASE_ADDR = 30
 BREAKER_CMD_BASE_ADDR = 0
-DT_PATH_PROBE_ADDR = 95
+LOOP_INTERVAL_S = float(os.environ.get("GATEWAY_LOOP_INTERVAL_S", "1"))
 V_SCALE = 1000
 I_SCALE = 30
 PF_SCALE = 10000
@@ -142,9 +141,6 @@ for bus in range(1, 6):
 
     last_breaker[bus] = 1
 
-dt_path_probe_node = sensor_folder.add_variable(idx, "DT_path_probe", 0)
-dt_path_probe_node.set_writable()
-
 print("Memulai Server OPC UA")
 server.start()
 t = Thread(target=start_modbus_server, daemon=True)
@@ -154,14 +150,14 @@ _gateway_measure_iter = 0
 
 try:
     while True:
-        print("\n")
         _gateway_measure_iter += 1
         ts = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        t_iter = time.monotonic()
 
+        print(f"\n[{ts}] [iter {_gateway_measure_iter}] realtime transfer")
         for bus in range(1, NUM_BUS + 1):
             cmd_val = last_breaker[bus]
             try:
-                # 1) Ambil data dari RTU melalui Modbus
                 addr_v = V_BASE_ADDR + (bus - 1)
                 addr_i = I_BASE_ADDR + (bus - 1)
                 addr_pf = PF_FB_BASE_ADDR + (bus - 1)
@@ -173,21 +169,16 @@ try:
                 v_raw = float(v_raw_reg) / V_SCALE
                 i_raw = float(i_raw_reg) / I_SCALE
                 pf_raw = float(pf_raw_reg) / PF_SCALE
-
                 breaker_fb = 1 if int(b_raw) == 1 else 0
-                v_out = v_raw
-                i_out = i_raw
 
-                # 2) Konversi V/I/PF -> P/Q (PF dari RTU/field, bukan hardcoded)
                 pf = min(1.0, max(1e-6, pf_raw))
-                v_real = v_out * V_BASE
-                s_va = math.sqrt(3) * v_real * i_out
-
+                v_real = v_raw * V_BASE
+                s_va = math.sqrt(3) * v_real * i_raw
                 phi = math.acos(pf)
                 p_calc = s_va * math.cos(phi) / 1e6
                 q_calc = s_va * math.sin(phi) / 1e6
 
-                if _measurement_trusted(v_out, i_out):
+                if _measurement_trusted(v_raw, i_raw):
                     p_mw = p_calc
                     q_mvar = q_calc
                     last_pq_mw[bus] = p_mw
@@ -200,45 +191,42 @@ try:
                 q_nodes[bus].set_value(q_mvar)
                 brk_fb_nodes[bus].set_value(int(breaker_fb))
 
-                # 3) Ambil command dari OPC UA lalu tulis ke Modbus coil untuk RTU
                 cmd = command_nodes[bus].get_value()
                 cmd_val = 1 if int(cmd) == 1 else 0
                 context[0x00].setValues(1, BREAKER_CMD_BASE_ADDR + (bus - 1), [cmd_val])
                 v_dt = float(v_dt_nodes[bus].get_value())
+
                 log_h3_measurement(
                     ts,
                     _gateway_measure_iter,
                     bus,
-                    float(v_raw),
-                    float(i_raw),
-                    v_out,
-                    i_out,
+                    v_raw,
+                    i_raw,
+                    v_raw,
+                    i_raw,
                     v_dt,
                     cmd_val,
                     breaker_fb,
                 )
-
                 print(
-                    f"[{ts}] [iter {_gateway_measure_iter}] [Bus {bus}] P/Q/CMD -> "
-                    f"V_in={v_raw:.4f} pu, I_in={i_raw:.4f} A, PF={pf:.4f}, "
-                    f"V_out={v_out:.4f} pu, I_out={i_out:.4f} A, "
-                    f"V_DT={v_dt:.4f} pu, P={p_mw:.4f} MW, Q={q_mvar:.4f} MVar"
+                    f"[{ts}] [Bus {bus}] P={p_mw:.4f} MW Q={q_mvar:.4f} MVar "
+                    f"BRK_FB={breaker_fb} CMD={'CLOSE' if cmd_val == 1 else 'OPEN'} "
+                    f"V_DT={v_dt:.4f} pu"
                 )
             except Exception as e:
-                print(f"[{ts}] [Bus {bus}] Gagal update: {e}")
+                print(f"[{ts}] [Bus {bus}] transfer gagal: {e}")
 
             if cmd_val != last_breaker[bus]:
-                print(f"[{ts}] [Bus {bus}] Command breaker ke RTU: {'CLOSE' if cmd_val==1 else 'OPEN'}")
+                print(
+                    f"[{ts}] [Bus {bus}] Command breaker ke RTU: "
+                    f"{'CLOSE' if cmd_val == 1 else 'OPEN'}"
+                )
                 last_breaker[bus] = cmd_val
 
-        try:
-            probe_reg = context[0x00].getValues(3, DT_PATH_PROBE_ADDR, count=1)[0]
-            dt_path_probe_node.set_value(int(probe_reg))
-        except Exception as e:
-            print(f"[{ts}] DT_path_probe sync: {e}")
-
-        # Satu siklus ≈ satu inkremen kolom "waktu" di trace; selaras run.py: TRACE_BEFORE_NETWORK_GATEWAY_CYCLE_S
-        time.sleep(4)
+        elapsed = time.monotonic() - t_iter
+        remain = LOOP_INTERVAL_S - elapsed
+        if remain > 0:
+            time.sleep(remain)
 
 except KeyboardInterrupt:
     print("Server dihentikan oleh user")
