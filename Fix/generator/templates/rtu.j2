@@ -15,18 +15,12 @@ PF_BASE_ADDR = 30
 BREAKER_BASE_ADDR = 0
 BREAKER_FB_BASE_ADDR = 20
 PF_FB_BASE_ADDR = 30
-MEAS_EPOCH_ADDR = 97
-DT_PATH_PROBE_ADDR = 95
-DT_CYCLE_ACK_ADDR = 96
 V_SCALE = 1000
 I_SCALE = 30
 PF_SCALE = 10000
 NUM_BUS = 5
-_dt_path_cycle = 0
 
-LOOP_INTERVAL_S = float(os.environ.get("RTU_LOOP_INTERVAL_S", "4"))
-FIELD_SETTLE_TIMEOUT_S = float(os.environ.get("RTU_FIELD_SETTLE_TIMEOUT_S", "3.0"))
-DT_ACK_TIMEOUT_S = float(os.environ.get("RTU_DT_ACK_TIMEOUT_S", "8.0"))
+LOOP_INTERVAL_S = float(os.environ.get("RTU_LOOP_INTERVAL_S", "1"))
 
 RTU_NOISE_SEED = int(os.environ.get("RTU_NOISE_SEED", "7"))
 V_NOISE_SIGMA = float(os.environ.get("RTU_V_NOISE_SIGMA", "0.003"))
@@ -90,15 +84,8 @@ def read_modbus_bus(bus):
     return v, i, pf
 
 
-def read_meas_epoch():
-    rr = field_client.read_holding_registers(MEAS_EPOCH_ADDR, 1, unit=1)
-    if rr.isError() or not rr.registers:
-        return None
-    return int(rr.registers[0])
-
-
 def read_breaker_field(bus):
-    """Status switch aktual di field setelah PF siklus terakhir."""
+    """Status switch aktual di field."""
     addr = BREAKER_BASE_ADDR + (bus - 1)
     rr = field_client.read_coils(addr, 1, unit=0)
     if rr.isError() or not rr.bits:
@@ -112,13 +99,6 @@ def read_breaker_command(bus):
     if rr_cmd.isError() or not rr_cmd.bits:
         return None
     return 1 if rr_cmd.bits[0] else 0
-
-
-def read_dt_cycle_ack():
-    rr = gateway_client.read_holding_registers(DT_CYCLE_ACK_ADDR, 1, unit=1)
-    if rr.isError() or not rr.registers:
-        return None
-    return int(rr.registers[0])
 
 
 def update_breaker_field(bus, status):
@@ -144,31 +124,17 @@ def send_to_gateway_modbus(bus, v, i, pf, breaker_fb):
 
 
 def apply_dt_commands(ts):
-    """Fase 1: terapkan perintah breaker DT siklus sebelumnya ke field."""
+    """Terapkan perintah breaker terbaru dari gateway ke field."""
     for bus in range(1, NUM_BUS + 1):
         cmd = read_breaker_command(bus)
         if cmd in (0, 1):
             breaker_cmd[bus] = cmd
         update_breaker_field(bus, breaker_cmd[bus])
-    print(f"[{ts}] Siklus fase-1: CMD DT diterapkan ke field")
-
-
-def wait_field_meas_refresh(epoch_before):
-    """Fase 2: tunggu field selesai PF setelah breaker diubah."""
-    deadline = time.monotonic() + FIELD_SETTLE_TIMEOUT_S
-    while time.monotonic() < deadline:
-        epoch_now = read_meas_epoch()
-        if epoch_now is not None and epoch_before is not None and epoch_now != epoch_before:
-            return True
-        if epoch_before is None and epoch_now is not None:
-            return True
-        time.sleep(0.05)
-    print(f"[WARN] Field meas epoch tidak refresh dalam {FIELD_SETTLE_TIMEOUT_S}s")
-    return False
+    print(f"[{ts}] CMD DT diterapkan ke field")
 
 
 def upload_measurements(ts):
-    """Fase 3: baca pengukuran baru (pasca-breaker) dan kirim ke gateway."""
+    """Baca pengukuran field dan kirim ke gateway."""
     ok = True
     for bus in range(1, NUM_BUS + 1):
         v, i, pf = read_modbus_bus(bus)
@@ -195,40 +161,13 @@ def upload_measurements(ts):
     return ok
 
 
-def bump_dt_path_probe(ts):
-    global _dt_path_cycle
-    _dt_path_cycle = ((_dt_path_cycle + 1) & 0xFFFF) or 1
-    try:
-        gateway_client.write_register(DT_PATH_PROBE_ADDR, int(_dt_path_cycle), unit=1)
-        print(f"DT_PATH_LAT,h2,{time.time():.6f},{_dt_path_cycle}", flush=True)
-        print(f"[{ts}] Siklus fase-4: batch probe={_dt_path_cycle}")
-    except Exception as e:
-        print(f"[{ts}] DT_path probe write failed: {e}")
-    return _dt_path_cycle
-
-
-def wait_dt_cycle_ack(probe):
-    """Fase 5: tunggu DT selesai memproses batch ini (gateway mirror ack)."""
-    deadline = time.monotonic() + DT_ACK_TIMEOUT_S
-    while time.monotonic() < deadline:
-        ack = read_dt_cycle_ack()
-        if ack is not None and ack == probe:
-            return True
-        time.sleep(0.1)
-    print(f"[WARN] DT ack probe={probe} tidak diterima dalam {DT_ACK_TIMEOUT_S}s")
-    return False
-
-
 try:
     ensure_connections()
     print(
         f"RTU measurement noise: seed={RTU_NOISE_SEED} V_sigma={V_NOISE_SIGMA} "
         f"I_sigma={I_NOISE_SIGMA}"
     )
-    print(
-        f"Siklus terpadu: interval={LOOP_INTERVAL_S}s "
-        f"field_settle={FIELD_SETTLE_TIMEOUT_S}s dt_ack={DT_ACK_TIMEOUT_S}s"
-    )
+    print(f"Siklus realtime RTU: interval={LOOP_INTERVAL_S}s")
 
     while True:
         print("\n")
@@ -238,16 +177,11 @@ try:
         try:
             ensure_connections()
 
-            epoch_before = read_meas_epoch()
             apply_dt_commands(ts)
-            wait_field_meas_refresh(epoch_before)
 
             if not upload_measurements(ts):
                 time.sleep(1)
                 continue
-
-            probe = bump_dt_path_probe(ts)
-            wait_dt_cycle_ack(probe)
 
         except ConnectionException as e:
             print(f"[{ts}] Koneksi Modbus terputus: {e}. Reconnecting...")

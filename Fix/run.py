@@ -25,7 +25,6 @@ sys.path.append(OUTPUT_DIR)
 sys.path.append(BASE_DIR)
 
 from logger.collector import collect_data
-from logger.dt_path_latency import collect_dt_path_latency
 from logger.pcap_collector import (
     pcap_session_dir,
     start_trace_iteration_captures,
@@ -52,7 +51,7 @@ NORMAL_PHASE_PRE_ATTACK_S = 5
 # Satu tick kolom "waktu" ≈ satu putaran loop gateway — selaras generator/templates/gateway.j2 (time.sleep akhir loop).
 TRACE_BEFORE_NETWORK_NUM_ITERATIONS = 3
 TRACE_BEFORE_NETWORK_MIN_WAKTU_PER_ITERATION = 35
-TRACE_BEFORE_NETWORK_GATEWAY_CYCLE_S = 4
+TRACE_BEFORE_NETWORK_GATEWAY_CYCLE_S = 1
 
 
 def trace_phase_before_network_collect(
@@ -110,7 +109,7 @@ def dos_phase_with_pcap(
 ) -> None:
     """
     Satu capture iter01 per mode (dos_light / dos_heavy) selama serangan + pengukuran.
-    measure_fn: callable tanpa argumen (run_dos, collect_data, dt_path_latency, dll.).
+    measure_fn: callable tanpa argumen (run_dos, collect_data, dll.).
     """
     phase_key = f"dos_{dos_mode}"
     iter_entries = []
@@ -134,7 +133,7 @@ def dos_phase_with_pcap(
                     pcap_dir,
                     pcap_manifest,
                     dos_modes=["light", "heavy"],
-                    aligned_with="DoS attack + network + dt_path_latency per mode",
+                    aligned_with="DoS attack + network metrics per mode",
                 )
 
 
@@ -587,7 +586,7 @@ def main():
         if args.dos:
             if path_dos:
                 publish_run_root_on_hosts(net, path_dos)
-            # Satu kali jalankan serangan per mode; network lalu latensi tanpa restart DoS di antaranya.
+            # Satu kali jalankan serangan per mode lalu ambil metrik jaringan.
             for dos_mode in ("light", "heavy"):
                 phase_label = f"dos_{dos_mode}"
 
@@ -603,13 +602,7 @@ def main():
                         logs_path=path_dos,
                         measure_phase=label,
                     )
-                    print(
-                        f"Collecting DoS ({mode}) DT path latency "
-                        "(serangan tetap aktif, tanpa run_dos ulang)..."
-                    )
-                    lat_dir = os.path.join(path_dos, "dt_path_latency", mode)
-                    collect_dt_path_latency(net, lat_dir, mode, host_log_dir)
-                    print(f"DoS ({mode}) network + latency complete.\n")
+                    print(f"DoS ({mode}) network metrics complete.\n")
 
                 dos_phase_with_pcap(
                     net,

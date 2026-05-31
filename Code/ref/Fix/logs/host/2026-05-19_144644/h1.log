@@ -1,0 +1,105 @@
+Modbus TCP server on 0.0.0.0:5020
+Field random seed: 42
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+=== INITIAL POWER FLOW ===
+      vm_pu  va_degree        p_mw     q_mvar
+0  1.020000   0.000000 -141.110787 -26.780334
+1  1.011758  -0.715545   60.000000  15.000000
+2  1.009031  -0.998910   70.000000  20.000000
+3  1.010000  -1.119058  -80.000000 -40.933003
+4  1.007906  -1.265582   90.000000  30.000000
+       i_ka  loading_percent
+0  0.739078        61.589828
+1  0.419623        41.962293
+2  0.076273         9.534092
+3  0.494024        49.402395
+Bus 1 | V=1.020 pu | I=739.1 A | PF=0.9825 | P=-141.1108 MW | Q=-26.7803 MVar | Breaker=CLOSE
+Bus 2 | V=1.012 pu | I=320.8 A | PF=0.9701 | P=60.0000 MW | Q=15.0000 MVar | Breaker=CLOSE
+Bus 3 | V=1.009 pu | I=378.7 A | PF=0.9615 | P=70.0000 MW | Q=20.0000 MVar | Breaker=CLOSE
+Bus 4 | V=1.010 pu | I=467.0 A | PF=0.8902 | P=-80.0000 MW | Q=-40.9330 MVar | Breaker=CLOSE
+Bus 5 | V=1.008 pu | I=494.0 A | PF=0.9487 | P=90.0000 MW | Q=30.0000 MVar | Breaker=n/a
+
+ 2026-05-19 14:47:00
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+Bus 1 | V=1.020 pu | I=809.7 A | PF=0.9603 | P=-151.1086 MW | Q=-43.8948 MVar | Breaker=CLOSE
+Bus 2 | V=1.010 pu | I=398.7 A | PF=0.9020 | P=69.1828 MW | Q=33.1137 MVar | Breaker=CLOSE
+Bus 3 | V=1.007 pu | I=395.2 A | PF=0.9001 | P=68.2509 MW | Q=33.0382 MVar | Breaker=CLOSE
+Bus 4 | V=1.010 pu | I=478.5 A | PF=0.8689 | P=-80.0000 MW | Q=-45.5810 MVar | Breaker=CLOSE
+Bus 5 | V=1.008 pu | I=492.1 A | PF=0.9771 | P=92.3647 MW | Q=20.1286 MVar | Breaker=n/a
+
+ 2026-05-19 14:47:08
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+Bus 1 | V=1.020 pu | I=850.8 A | PF=0.9557 | P=-158.0150 MW | Q=-48.6605 MVar | Breaker=CLOSE
+Bus 2 | V=1.009 pu | I=440.3 A | PF=0.9070 | P=76.7654 MW | Q=35.6530 MVar | Breaker=CLOSE
+Bus 3 | V=1.006 pu | I=429.4 A | PF=0.8827 | P=72.6577 MW | Q=38.6855 MVar | Breaker=CLOSE
+Bus 4 | V=1.010 pu | I=492.7 A | PF=0.8439 | P=-80.0000 MW | Q=-50.8690 MVar | Breaker=CLOSE
+Bus 5 | V=1.008 pu | I=467.8 A | PF=0.9702 | P=87.1864 MW | Q=21.7692 MVar | Breaker=n/a
+
+ 2026-05-19 14:47:16
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+Bus 1 | V=1.020 pu | I=739.2 A | PF=0.9651 | P=-138.6389 MW | Q=-37.6139 MVar | Breaker=CLOSE
+Bus 2 | V=1.011 pu | I=288.0 A | PF=0.9159 | P=50.7961 MW | Q=22.2611 MVar | Breaker=CLOSE
+Bus 3 | V=1.008 pu | I=445.7 A | PF=0.9290 | P=79.4965 MW | Q=31.6574 MVar | Breaker=CLOSE
+Bus 4 | V=1.010 pu | I=463.8 A | PF=0.8964 | P=-80.0000 MW | Q=-39.5506 MVar | Breaker=CLOSE
+Bus 5 | V=1.008 pu | I=466.3 A | PF=0.9736 | P=87.2044 MW | Q=20.4569 MVar | Breaker=n/a
+
+ 2026-05-19 14:47:24
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+Bus 1 | V=1.020 pu | I=893.5 A | PF=0.9700 | P=-168.4331 MW | Q=-42.2096 MVar | Breaker=CLOSE
+Bus 2 | V=1.009 pu | I=429.0 A | PF=0.9005 | P=74.2829 MW | Q=35.8674 MVar | Breaker=CLOSE
+Bus 3 | V=1.007 pu | I=465.5 A | PF=0.9428 | P=84.1746 MW | Q=29.7535 MVar | Breaker=CLOSE
+Bus 4 | V=1.010 pu | I=502.4 A | PF=0.8274 | P=-80.0000 MW | Q=-54.2974 MVar | Breaker=CLOSE
+Bus 5 | V=1.008 pu | I=481.4 A | PF=0.9562 | P=88.4025 MW | Q=27.0556 MVar | Breaker=n/a
+
+ 2026-05-19 14:47:32
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+Bus 1 | V=1.020 pu | I=833.4 A | PF=0.9653 | P=-156.3286 MW | Q=-42.2994 MVar | Breaker=CLOSE
+Bus 2 | V=1.010 pu | I=441.5 A | PF=0.9269 | P=78.7164 MW | Q=31.8661 MVar | Breaker=CLOSE
+Bus 3 | V=1.007 pu | I=368.2 A | PF=0.8887 | P=62.7824 MW | Q=32.3893 MVar | Breaker=CLOSE
+Bus 4 | V=1.010 pu | I=482.0 A | PF=0.8625 | P=-80.0000 MW | Q=-46.9346 MVar | Breaker=CLOSE
+Bus 5 | V=1.008 pu | I=499.6 A | PF=0.9741 | P=93.4749 MW | Q=21.6769 MVar | Breaker=n/a
+
+ 2026-05-19 14:47:40
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+Bus 1 | V=1.020 pu | I=0.0 A | PF=1.0000 | P=0.0000 MW | Q=0.0000 MVar | Breaker=OPEN
+Power flow error: cannot convert float NaN to integer
+
+ 2026-05-19 14:47:48
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+Bus 1 | V=1.020 pu | I=915.1 A | PF=0.9809 | P=-174.4536 MW | Q=-34.5594 MVar | Breaker=CLOSE
+Bus 2 | V=1.010 pu | I=410.0 A | PF=0.9495 | P=74.8821 MW | Q=24.7501 MVar | Breaker=CLOSE
+Bus 3 | V=1.007 pu | I=480.3 A | PF=0.9320 | P=85.8512 MW | Q=33.3983 MVar | Breaker=CLOSE
+Bus 4 | V=1.010 pu | I=511.4 A | PF=0.8129 | P=-80.0000 MW | Q=-57.3197 MVar | Breaker=CLOSE
+Bus 5 | V=1.008 pu | I=503.6 A | PF=0.9518 | P=92.0457 MW | Q=29.6510 MVar | Breaker=n/a
+
+ 2026-05-19 14:47:56
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+Bus 1 | V=1.020 pu | I=0.0 A | PF=1.0000 | P=0.0000 MW | Q=0.0000 MVar | Breaker=OPEN
+Power flow error: cannot convert float NaN to integer

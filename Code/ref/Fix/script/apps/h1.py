@@ -1,0 +1,237 @@
+"""
+Field device: ground-truth grid via pandapower, exposed to RTU over Modbus TCP.
+"""
+import math
+import os
+import random
+import time
+from datetime import datetime
+from threading import Thread
+
+import pandapower as pp
+from pymodbus.datastore import ModbusSequentialDataBlock, ModbusServerContext, ModbusSlaveContext
+from pymodbus.server import StartTcpServer
+
+MODBUS_LISTEN_IP = "0.0.0.0"
+MODBUS_PORT = 5020
+NUM_BUS = 5
+
+FIELD_RANDOM_SEED = int(os.environ.get("FIELD_RANDOM_SEED", "42"))
+CYCLE_INTERVAL_S = float(os.environ.get("FIELD_LOOP_INTERVAL_S", "4"))
+POLL_INTERVAL_S = float(os.environ.get("FIELD_POLL_INTERVAL_S", "0.2"))
+
+V_SCALE = 1000
+I_SCALE = 30
+PF_SCALE = 10000
+V_BASE_ADDR = 0
+I_BASE_ADDR = 10
+PF_BASE_ADDR = 30
+BREAKER_BASE_ADDR = 0
+MEAS_EPOCH_ADDR = 97
+
+store = ModbusSlaveContext(
+    di=ModbusSequentialDataBlock(0, [0] * 100),
+    co=ModbusSequentialDataBlock(0, [0] * 100),
+    hr=ModbusSequentialDataBlock(0, [0] * 100),
+    ir=ModbusSequentialDataBlock(0, [0] * 100),
+)
+context = ModbusServerContext(slaves=store, single=True)
+SLAVE_ID = 0x00
+FX_HR = 3
+FX_CO = 1
+
+breaker_status = {bus: 1 for bus in range(1, NUM_BUS + 1)}
+_meas_epoch = 0
+
+
+def build_network():
+    net = pp.create_empty_network()
+
+    bus1 = pp.create_bus(net, vn_kv=110, name="Slack Bus")
+    bus2 = pp.create_bus(net, vn_kv=110, name="Load Bus 1")
+    bus3 = pp.create_bus(net, vn_kv=110, name="Load Bus 2")
+    bus4 = pp.create_bus(net, vn_kv=110, name="Generator Bus")
+    bus5 = pp.create_bus(net, vn_kv=110, name="Critical Load")
+
+    pp.create_ext_grid(net, bus=bus1, vm_pu=1.02, name="Grid Connection")
+    pp.create_gen(net, bus=bus4, p_mw=80, vm_pu=1.01, name="Generator")
+
+    load2 = pp.create_load(net, bus=bus2, p_mw=60, q_mvar=15, name="Load 2")
+    load3 = pp.create_load(net, bus=bus3, p_mw=70, q_mvar=20, name="Load 3")
+    load5 = pp.create_load(net, bus=bus5, p_mw=90, q_mvar=30, name="Critical Load")
+
+    line1 = pp.create_line_from_parameters(
+        net, from_bus=bus1, to_bus=bus2, length_km=10,
+        r_ohm_per_km=0.05, x_ohm_per_km=0.12, c_nf_per_km=0, max_i_ka=1.6, name="Line 1",
+    )
+    line2 = pp.create_line_from_parameters(
+        net, from_bus=bus2, to_bus=bus3, length_km=5,
+        r_ohm_per_km=0.04, x_ohm_per_km=0.10, c_nf_per_km=0, max_i_ka=0.8, name="Line 2",
+    )
+    line3 = pp.create_line_from_parameters(
+        net, from_bus=bus3, to_bus=bus4, length_km=5,
+        r_ohm_per_km=0.06, x_ohm_per_km=0.15, c_nf_per_km=0, max_i_ka=0.4, name="Line 3",
+    )
+    line4 = pp.create_line_from_parameters(
+        net, from_bus=bus4, to_bus=bus5, length_km=8,
+        r_ohm_per_km=0.03, x_ohm_per_km=0.08, c_nf_per_km=0, max_i_ka=0.8, name="Line 4",
+    )
+
+    # Satu breaker per line; bus N mengontrol Line N (bus N -> bus N+1)
+    switches_by_bus = {
+        1: pp.create_switch(net, bus=bus1, element=line1, et="l", closed=True, type="CB"),
+        2: pp.create_switch(net, bus=bus2, element=line2, et="l", closed=True, type="CB"),
+        3: pp.create_switch(net, bus=bus3, element=line3, et="l", closed=True, type="CB"),
+        4: pp.create_switch(net, bus=bus4, element=line4, et="l", closed=True, type="CB"),
+    }
+
+    bus_nums = {1: bus1, 2: bus2, 3: bus3, 4: bus4, 5: bus5}
+    loads = {2: load2, 3: load3, 5: load5}
+    return net, bus_nums, loads, switches_by_bus
+
+
+def bus_current_amp(net, bus_idx):
+    p_mw = float(net.res_bus.at[bus_idx, "p_mw"])
+    q_mvar = float(net.res_bus.at[bus_idx, "q_mvar"])
+    vm_pu = float(net.res_bus.at[bus_idx, "vm_pu"])
+    vn_kv = float(net.bus.at[bus_idx, "vn_kv"])
+    s_mva = math.hypot(p_mw, q_mvar)
+    if vm_pu <= 1e-6 or vn_kv <= 0:
+        return 0.0
+    i_ka = s_mva / (math.sqrt(3) * vm_pu * vn_kv)
+    return i_ka * 1000.0
+
+
+def bus_power_factor(net, bus_idx):
+    p_mw = float(net.res_bus.at[bus_idx, "p_mw"])
+    q_mvar = float(net.res_bus.at[bus_idx, "q_mvar"])
+    s_mva = math.hypot(p_mw, q_mvar)
+    if s_mva < 1e-6:
+        return 1.0
+    return min(1.0, abs(p_mw) / s_mva)
+
+
+def apply_breakers_to_network(net, switches_by_bus):
+    for bus, switch_idx in switches_by_bus.items():
+        net.switch.at[switch_idx, "closed"] = breaker_status[bus] == 1
+
+
+def random_load_mw_mvar(rng, p_lo, p_hi, pf_lo, pf_hi):
+    p_mw = rng.uniform(p_lo, p_hi)
+    pf = rng.uniform(pf_lo, pf_hi)
+    q_mvar = p_mw * math.tan(math.acos(pf))
+    return p_mw, q_mvar
+
+
+def sync_breakers_from_modbus():
+    for bus in range(1, NUM_BUS + 1):
+        addr = BREAKER_BASE_ADDR + (bus - 1)
+        breaker_status[bus] = int(context[SLAVE_ID].getValues(FX_CO, addr, count=1)[0])
+
+
+def publish_measurements(net, bus_nums):
+    global _meas_epoch
+    _meas_epoch = (_meas_epoch + 1) & 0xFFFF
+    if _meas_epoch == 0:
+        _meas_epoch = 1
+    context[SLAVE_ID].setValues(FX_HR, MEAS_EPOCH_ADDR, [_meas_epoch])
+    for bus in range(1, NUM_BUS + 1):
+        idx = bus_nums[bus]
+        vm_pu = float(net.res_bus.at[idx, "vm_pu"])
+        p_mw = float(net.res_bus.at[idx, "p_mw"])
+        q_mvar = float(net.res_bus.at[idx, "q_mvar"])
+        i_amp = bus_current_amp(net, idx)
+        pf = bus_power_factor(net, idx)
+        v_reg = int(round(vm_pu * V_SCALE))
+        i_reg = int(round(i_amp * I_SCALE))
+        pf_reg = int(round(pf * PF_SCALE))
+        context[SLAVE_ID].setValues(FX_HR, V_BASE_ADDR + (bus - 1), [v_reg])
+        context[SLAVE_ID].setValues(FX_HR, I_BASE_ADDR + (bus - 1), [i_reg])
+        context[SLAVE_ID].setValues(FX_HR, PF_BASE_ADDR + (bus - 1), [pf_reg])
+        brk_note = (
+            "n/a"
+            if bus == 5
+            else ("CLOSE" if breaker_status[bus] == 1 else "OPEN")
+        )
+        print(
+            f"Bus {bus} | V={vm_pu:.3f} pu | I={i_amp:.1f} A | PF={pf:.4f} | "
+            f"P={p_mw:.4f} MW | Q={q_mvar:.4f} MVar | Breaker={brk_note}"
+        )
+
+
+def init_modbus_coils():
+    for bus in range(1, NUM_BUS + 1):
+        context[SLAVE_ID].setValues(FX_CO, BREAKER_BASE_ADDR + (bus - 1), [breaker_status[bus]])
+
+
+def start_modbus_server():
+    print(f"Modbus TCP server on {MODBUS_LISTEN_IP}:{MODBUS_PORT}")
+    StartTcpServer(context=context, identity=None, address=(MODBUS_LISTEN_IP, MODBUS_PORT))
+
+
+def main_loop(net, bus_nums, loads, switches_by_bus):
+    rng = random.Random(FIELD_RANDOM_SEED)
+    print(
+        f"Field random seed: {FIELD_RANDOM_SEED} "
+        f"cycle={CYCLE_INTERVAL_S}s poll={POLL_INTERVAL_S}s"
+    )
+
+    pp.runpp(net)
+    print("=== INITIAL POWER FLOW ===")
+    print(net.res_bus[["vm_pu", "va_degree", "p_mw", "q_mvar"]])
+    print(net.res_line[["i_ka", "loading_percent"]])
+    publish_measurements(net, bus_nums)
+
+    load_specs = {
+        2: (50, 80, 0.90, 0.98),
+        3: (60, 90, 0.88, 0.97),
+        5: (85, 95, 0.95, 0.99),
+    }
+
+    prev_breakers = dict(breaker_status)
+    next_load_update = time.monotonic() + CYCLE_INTERVAL_S
+
+    while True:
+        sync_breakers_from_modbus()
+        breakers_changed = any(
+            breaker_status[b] != prev_breakers.get(b) for b in range(1, NUM_BUS + 1)
+        )
+        prev_breakers = dict(breaker_status)
+        now = time.monotonic()
+        refresh_loads = now >= next_load_update
+
+        if breakers_changed or refresh_loads:
+            if refresh_loads:
+                next_load_update = now + CYCLE_INTERVAL_S
+                print("\n", datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
+                for load_bus, (p_lo, p_hi, pf_lo, pf_hi) in load_specs.items():
+                    p_mw, q_mvar = random_load_mw_mvar(rng, p_lo, p_hi, pf_lo, pf_hi)
+                    load_idx = loads[load_bus]
+                    net.load.at[load_idx, "p_mw"] = p_mw
+                    net.load.at[load_idx, "q_mvar"] = q_mvar
+            elif breakers_changed:
+                print(
+                    "\n",
+                    datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+                    "(breaker dari DT/RTU)",
+                )
+
+            apply_breakers_to_network(net, switches_by_bus)
+            try:
+                pp.runpp(net)
+                publish_measurements(net, bus_nums)
+            except Exception as exc:
+                if "onverg" in type(exc).__name__ or "onverg" in str(exc).lower():
+                    print("Power flow tidak konvergen; register tidak diperbarui")
+                else:
+                    print(f"Power flow error: {exc}")
+
+        time.sleep(POLL_INTERVAL_S)
+
+
+if __name__ == "__main__":
+    net, bus_nums, loads, switches_by_bus = build_network()
+    init_modbus_coils()
+    Thread(target=start_modbus_server, daemon=True).start()
+    time.sleep(0.5)
+    main_loop(net, bus_nums, loads, switches_by_bus)
