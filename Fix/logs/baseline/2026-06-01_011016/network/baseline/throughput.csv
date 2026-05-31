@@ -1,0 +1,7 @@
+timestamp,run,fase,layer,source,destination,throughput_Mbps,status,error,raw_output_tail
+2026-06-01 01:12:01.551980,1,normal,field,h2,h3,4.56,ok,,
+2026-06-01 01:12:09.015420,1,normal,system,h3,h4,4.86,ok,,
+2026-06-01 01:13:33.038294,2,normal,field,h2,h3,4.56,ok,,
+2026-06-01 01:13:41.031755,2,normal,system,h3,h4,4.54,ok,,
+2026-06-01 01:15:03.047047,3,normal,field,h2,h3,4.71,ok,,
+2026-06-01 01:15:10.411883,3,normal,system,h3,h4,4.58,ok,,
