@@ -92,7 +92,6 @@ def run_mitm_attack(
 
     _iptables_dnat_modbus(attacker, attacker_name, gateway_ip, enable=True)
 
-    attacker.cmd(f"mkdir -p {os.path.dirname(host_log_q)}")
     attacker.cmd(
         "if [ -f /tmp/h5_modbus_inject.pid ]; then kill $(cat /tmp/h5_modbus_inject.pid) 2>/dev/null; rm -f /tmp/h5_modbus_inject.pid; fi; "
         "if [ -f /tmp/h5_modbus_mitm_proxy.pid ]; then kill $(cat /tmp/h5_modbus_mitm_proxy.pid) 2>/dev/null; rm -f /tmp/h5_modbus_mitm_proxy.pid; fi"
@@ -111,7 +110,6 @@ def run_dos_attack(net, mode="light", host_log_dir=None):
     h5 = net.get('h5')
     target_ip = "10.0.2.2"
     target_port = 5001
-
     host_log = _resolve_host_log("h5", host_log_dir)
     host_log_q = host_log.replace("\\", "/")
     h5.cmd(f"mkdir -p {os.path.dirname(host_log_q)}")

@@ -7,8 +7,6 @@ import shlex
 import statistics
 import yaml
 
-from logger.mitm_trace_logger import publish_collect_run_on_hosts
-
 NUM_RUNS = 1
 IPERF_PORT = 5001
 IPERF_DURATION_S = 5
@@ -88,12 +86,58 @@ def _extract_throughput_mbps(output: str):
     return value
 
 
+def _write_header_if_needed(writer, path, header):
+    if not os.path.exists(path) or os.path.getsize(path) == 0:
+        writer.writerow(header)
+
+
+def _group_metric_values(path, value_column, *, throughput=False):
+    grouped = {}
+    if not os.path.exists(path) or os.path.getsize(path) == 0:
+        return grouped
+
+    with open(path, "r", newline="") as f:
+        reader = csv.DictReader(f)
+        for row in reader:
+            try:
+                value = float(row.get(value_column, ""))
+            except (TypeError, ValueError):
+                continue
+            if throughput and row.get("status") != "ok":
+                continue
+            key = (row.get("layer", ""), row.get("source", ""), row.get("destination", ""))
+            grouped.setdefault(key, []).append(value)
+    return grouped
+
+
+def _write_summary_from_metric_csvs(summary_path, rtt_path, loss_path, th_path):
+    groups = [
+        ("RTT", _group_metric_values(rtt_path, "latency_ms")),
+        ("Packet Loss", _group_metric_values(loss_path, "packet_loss_percent")),
+        ("Throughput", _group_metric_values(th_path, "throughput_Mbps", throughput=True)),
+    ]
+
+    with open(summary_path, "w", newline="") as sum_file:
+        sum_writer = csv.writer(sum_file)
+        sum_writer.writerow(["metric","layer","source","destination","mean","std_dev"])
+
+        for metric, grouped in groups:
+            for key, values in grouped.items():
+                if values:
+                    layer, src, dst = key
+                    mean = round(statistics.mean(values), 2)
+                    std = round(statistics.stdev(values), 2) if len(values) > 1 else 0
+                    sum_writer.writerow([metric, layer, src, dst, mean, std])
+
+
 def collect_data(
     net,
     mode="baseline",
     logs_path=None,
     config_path=None,
     measure_phase=None,
+    iteration=None,
+    num_runs=NUM_RUNS,
 ):
     """
     Collect RTT, packet loss, and throughput data.
@@ -102,6 +146,7 @@ def collect_data(
     .../network/baseline|mitm|dos/...
 
     measure_phase: jika diisi, kolom fase ditambahkan pada CSV (selaras trace).
+    iteration: jika diisi, kolom run memakai N dan data di-append ke CSV mode yang sama.
 
     Legacy flat timestamp (logs_path = logs/<timestamp>/): seperti semula,
     langsung di bawah logs_path tanpa subfolder network/.
@@ -154,6 +199,7 @@ def collect_data(
     print(f"Saving to: {log_dir}")
 
     use_fase = measure_phase is not None
+    file_mode = "a" if iteration is not None else "w"
     rtt_header = ["timestamp", "run", "layer", "source", "destination", "latency_ms"]
     loss_header = ["timestamp", "run", "layer", "source", "destination", "packet_loss_percent"]
     th_header = [
@@ -173,25 +219,19 @@ def collect_data(
         th_header.insert(2, "fase")
 
     # RTT & Packet Loss
-    with open(rtt_path, "w", newline="") as rtt_file, \
-         open(loss_path, "w", newline="") as loss_file:
+    with open(rtt_path, file_mode, newline="") as rtt_file, \
+         open(loss_path, file_mode, newline="") as loss_file:
 
         rtt_writer = csv.writer(rtt_file)
         loss_writer = csv.writer(loss_file)
 
-        rtt_writer.writerow(rtt_header)
-        loss_writer.writerow(loss_header)
-
-        rtt_summary = {}
-        loss_summary = {}
+        _write_header_if_needed(rtt_writer, rtt_path, rtt_header)
+        _write_header_if_needed(loss_writer, loss_path, loss_header)
 
         for layer, host, dest_ip, dest_host in links:
-            rtt_summary[(layer, host, dest_host)] = []
-            loss_summary[(layer, host, dest_host)] = []
-
-            for run in range(NUM_RUNS):
-                publish_collect_run_on_hosts(net, run + 1)
-                print(f"[{datetime.datetime.now()}] {mode.upper()} - RTT & Loss: {layer} (Run {run+1})")
+            for run in range(num_runs):
+                run_id = int(iteration) if iteration is not None else run + 1
+                print(f"[{datetime.datetime.now()}] {mode.upper()} - RTT & Loss: {layer} (Run {run_id})")
 
                 output = net.get(host).cmd(f"ping -c 20 {dest_ip}")
 
@@ -203,7 +243,7 @@ def collect_data(
                             value = float(latency.group(1))
                             row_rtt = [
                                 datetime.datetime.now(),
-                                run + 1,
+                                run_id,
                                 layer,
                                 host,
                                 dest_host,
@@ -212,7 +252,6 @@ def collect_data(
                             if use_fase:
                                 row_rtt.insert(2, measure_phase)
                             rtt_writer.writerow(row_rtt)
-                            rtt_summary[(layer, host, dest_host)].append(value)
 
                 # Packet loss parsing
                 for line in output.split("\n"):
@@ -222,7 +261,7 @@ def collect_data(
                             value = float(loss.group(1))
                             row_loss = [
                                 datetime.datetime.now(),
-                                run + 1,
+                                run_id,
                                 layer,
                                 host,
                                 dest_host,
@@ -231,25 +270,19 @@ def collect_data(
                             if use_fase:
                                 row_loss.insert(2, measure_phase)
                             loss_writer.writerow(row_loss)
-                            loss_summary[(layer, host, dest_host)].append(value)
 
                 time.sleep(1)
 
     # Throughput
-    with open(th_path, "w", newline="") as th_file:
+    with open(th_path, file_mode, newline="") as th_file:
 
         th_writer = csv.writer(th_file)
-        th_writer.writerow(th_header)
-
-        th_summary = {}
+        _write_header_if_needed(th_writer, th_path, th_header)
 
         for layer, host, dest_ip, dest_host in links:
-            th_summary[(layer, host, dest_host)] = []
-
-            for run in range(NUM_RUNS):
-                publish_collect_run_on_hosts(net, run + 1)
-
-                print(f"[{datetime.datetime.now()}] {mode.upper()} - Throughput: {layer} (Run {run+1})")
+            for run in range(num_runs):
+                run_id = int(iteration) if iteration is not None else run + 1
+                print(f"[{datetime.datetime.now()}] {mode.upper()} - Throughput: {layer} (Run {run_id})")
                 server_host = dest_host
 
                 throughput = 0.0
@@ -272,7 +305,6 @@ def collect_data(
                         throughput = parsed_value
                         status = "ok"
                         error = ""
-                        th_summary[(layer, host, dest_host)].append(throughput)
                         break
 
                     text = (output or "").lower()
@@ -289,7 +321,7 @@ def collect_data(
 
                 row_th = [
                     datetime.datetime.now(),
-                    run + 1,
+                    run_id,
                     layer,
                     host,
                     dest_host,
@@ -305,35 +337,7 @@ def collect_data(
                 net.get(server_host).cmd("killall -9 iperf >/dev/null 2>&1 || true")
                 time.sleep(1)
 
-    # Summary
-    with open(summary_path, "w", newline="") as sum_file:
-
-        sum_writer = csv.writer(sum_file)
-        sum_writer.writerow(["metric","layer","source","destination","mean","std_dev"])
-
-        # RTT
-        for key, values in rtt_summary.items():
-            if values:
-                layer, src, dst = key
-                mean = round(statistics.mean(values), 2)
-                std = round(statistics.stdev(values), 2) if len(values) > 1 else 0
-                sum_writer.writerow(["RTT", layer, src, dst, mean, std])
-
-        # Packet Loss
-        for key, values in loss_summary.items():
-            if values:
-                layer, src, dst = key
-                mean = round(statistics.mean(values), 2)
-                std = round(statistics.stdev(values), 2) if len(values) > 1 else 0
-                sum_writer.writerow(["Packet Loss", layer, src, dst, mean, std])
-
-        # Throughput
-        for key, values in th_summary.items():
-            if values:
-                layer, src, dst = key
-                mean = round(statistics.mean(values), 2)
-                std = round(statistics.stdev(values), 2) if len(values) > 1 else 0
-                sum_writer.writerow(["Throughput", layer, src, dst, mean, std])
+    _write_summary_from_metric_csvs(summary_path, rtt_path, loss_path, th_path)
 
     print(f"\nData collection ({mode}) complete")
     print(f"CSVs saved in {log_dir}")

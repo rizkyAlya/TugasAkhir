@@ -3,6 +3,7 @@ import os
 import time
 
 RUN_ROOT_HOST_FILE = "/tmp/cyber_range_run_root"
+MEASURE_ITER_HOST_FILE = "/tmp/cyber_range_measure_iter"
 
 DATA_HEADERS = {
     "h1": [
@@ -78,6 +79,18 @@ def _read_run_root():
     return None
 
 
+def _read_measure_iteration():
+    try:
+        if os.path.exists(MEASURE_ITER_HOST_FILE):
+            with open(MEASURE_ITER_HOST_FILE, "r", encoding="utf-8") as f:
+                value = f.read().strip()
+            if value:
+                return max(0, int(value))
+    except Exception:
+        pass
+    return 0
+
+
 def _fallback_root():
     base_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
     return os.path.join(base_dir, "logs")
@@ -85,7 +98,9 @@ def _fallback_root():
 
 def _csv_path(plane, host):
     root = _read_run_root() or _fallback_root()
-    return os.path.join(root, "host_csv", plane, f"{host}.csv")
+    iteration = _read_measure_iteration()
+    iter_dir = f"iteration_{iteration}" if iteration > 0 else "iteration_0"
+    return os.path.join(root, "host_csv", iter_dir, plane, f"{host}.csv")
 
 
 def _append_row(path, headers, row):

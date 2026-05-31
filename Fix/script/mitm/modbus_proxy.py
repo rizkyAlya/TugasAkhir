@@ -4,7 +4,6 @@ import os
 import random
 import select
 import socket
-import sys
 import threading
 import time
 from typing import Optional
@@ -24,13 +23,6 @@ ATTACK_ON_SECONDS = 10.0
 ATTACK_OFF_SECONDS = 4.0
 MODIFY_PROBABILITY = 0.7
 RUN_ID_FILE = "/tmp/mitm_run_id"
-
-BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
-MITM_LOG_DIR = os.path.join(BASE_DIR, "logs", "mitm")
-TRACE_CSV = os.path.join(MITM_LOG_DIR, "trace.csv")
-
-sys.path.append(BASE_DIR)
-from logger.mitm_trace_logger import write_mitm_proxy_snapshot  # noqa: E402
 
 # Kunci RNG: beberapa koneksi TCP paralel tidak merusak state random global.
 _rng_lock = threading.Lock()
@@ -52,7 +44,7 @@ def _should_modify_now() -> bool:
         return random.random() < MODIFY_PROBABILITY
 
 def _log_mitm_proxy_i(bus: int, i_orig: float, i_new: float, v_before: Optional[float], v_after: Optional[float]):
-    write_mitm_proxy_snapshot(bus, v_before, v_after, i_orig, i_new)
+    del bus, i_orig, i_new, v_before, v_after
 
 def _pop_modbus_tcp_frame(buf: bytearray) -> Optional[bytes]:
     if len(buf) < 6:
