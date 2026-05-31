@@ -1,0 +1,7 @@
+timestamp,run,fase,layer,source,destination,throughput_Mbps,status,error,raw_output_tail
+2026-06-01 01:32:12.041616,1,attack,field,h2,h3,4.82,ok,,
+2026-06-01 01:32:19.344401,1,attack,system,h3,h4,4.81,ok,,
+2026-06-01 01:33:43.680941,2,attack,field,h2,h3,4.5,ok,,
+2026-06-01 01:33:52.075254,2,attack,system,h3,h4,4.45,ok,,
+2026-06-01 01:35:16.016314,3,attack,field,h2,h3,2.96,ok,,
+2026-06-01 01:35:23.407371,3,attack,system,h3,h4,4.59,ok,,
