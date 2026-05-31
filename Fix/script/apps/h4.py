@@ -14,7 +14,7 @@ GATEWAY_OPC = os.environ.get(
     "GATEWAY_OPC",
     "opc.tcp://10.0.2.2:4840/mininet/",
 )
-LOOP_INTERVAL_S = float(os.environ.get("DT_LOOP_INTERVAL_S", "1"))
+LOOP_INTERVAL_S = float(os.environ.get("DT_LOOP_INTERVAL_S", "0.2"))
 NUM_BUS = 5
 
 OPEN_FACTOR = 1.00
@@ -297,12 +297,19 @@ def main():
         origin_cycle_node,
     ) = get_opcua_nodes(client)
     cmd_id = 0
+    last_processed_cycle = None
 
     while True:
         try:
             t_iter = time.monotonic()
             ts_received = timestamp()
             cycle_id = int(data_cycle_node.get_value())
+            if cycle_id <= 0 or cycle_id == last_processed_cycle:
+                elapsed = time.monotonic() - t_iter
+                remain = LOOP_INTERVAL_S - elapsed
+                if remain > 0:
+                    time.sleep(remain)
+                continue
             brk_fb = {
                 bus: (1 if int(brk_fb_nodes[bus].get_value()) == 1 else 0)
                 for bus in range(1, NUM_BUS + 1)
@@ -393,6 +400,7 @@ def main():
                     q_in[bus],
                     energized,
                 )
+            last_processed_cycle = cycle_id
 
         except Exception as exc:
             print(f"DT cycle error: {exc}", flush=True)
