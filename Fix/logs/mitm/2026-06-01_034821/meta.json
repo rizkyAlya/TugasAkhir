@@ -1,0 +1,14 @@
+{
+  "run_id": "2026-06-01_034821",
+  "created_at": "2026-06-01T03:48:21",
+  "modes": {
+    "baseline": false,
+    "mitm": true,
+    "dos": false
+  },
+  "collect_delay_s": null,
+  "measurement_iterations": 3,
+  "measurement_window_s": 20,
+  "measurement_app_warmup_s": 5.0,
+  "pcap_dir": "/home/aliyah/TugasAkhir/Fix/logs/pcap/2026-06-01_034821"
+}
