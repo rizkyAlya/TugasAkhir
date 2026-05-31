@@ -81,6 +81,7 @@ def run_measurement_iterations(
     try:
         for i in range(1, n + 1):
             publish_measure_iteration_on_hosts(net, i)
+            restart_apps(net, reason=f"{log_label} iteration {i}/{n}")
             iter_entries = []
             try:
                 if pcap_dir:
@@ -294,6 +295,29 @@ def load_generated_attacker_module():
     spec.loader.exec_module(module)
     return module
 
+def _app_path_for_host(name, app_map):
+    app_filename = app_map.get(name, f"{name}.py")
+    app_path = os.path.join(APPS_DIR, app_filename)
+    if not os.path.exists(app_path):
+        return None, app_filename
+    return app_path, app_filename
+
+
+def stop_apps(net):
+    print("Stopping host apps...")
+    app_map = load_app_map()
+    for host in sorted(net.hosts, key=lambda h: h.name):
+        # h5.py is attack helper/proxy launcher, so leave attack processes alive.
+        if host.name == "h5":
+            continue
+        app_path, app_filename = _app_path_for_host(host.name, app_map)
+        if app_path is None:
+            continue
+        host.cmd(f"pkill -TERM -f {shlex.quote(app_path)} >/dev/null 2>&1 || true")
+        print(f" {host.name} stopped ({app_filename})")
+    time.sleep(0.5)
+
+
 # UTIL: START APPS
 def start_apps(net):
     print("Starting apps...")
@@ -306,12 +330,11 @@ def start_apps(net):
             print(" h5 skipped (attack helper)")
             return
 
-        app_filename = app_map.get(name, f"{name}.py")
-        app_path = os.path.join(APPS_DIR, app_filename)
-        if not os.path.exists(app_path):
+        app_path, app_filename = _app_path_for_host(name, app_map)
+        if app_path is None:
             return
 
-        host.cmd(f"python3 -u {app_path} >/dev/null 2>&1 &")
+        host.cmd(f"python3 -u {shlex.quote(app_path)} >/dev/null 2>&1 &")
         print(f" {name} started ({app_filename})")
 
     # Priority order mengikuti config role: field -> gateway -> rtu -> dt.
@@ -336,6 +359,13 @@ def start_apps(net):
         _start_host_app(host)
 
     print("All apps started\n")
+
+
+def restart_apps(net, reason: str = ""):
+    label = f" ({reason})" if reason else ""
+    print(f"Restarting host apps{label}...")
+    stop_apps(net)
+    start_apps(net)
 
 def run_mitm(net, attacker_log_dir):
     print("Starting MITM attack...")
