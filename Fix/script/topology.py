@@ -111,7 +111,6 @@ def post_start_setup(net):
     net.get('h5').cmd('ip route replace default via 10.0.2.1 dev h5-eth0')
     print("  (manual CLI: panggil escalate_attacker_to_field(net) untuk lateral ke Field)")
 
-    print("\nWaiting for network stabilization...")
     time.sleep(5)
     print("Network ready")
 

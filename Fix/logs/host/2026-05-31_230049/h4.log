@@ -1,0 +1,1604 @@
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+Field bus -> Pandapower bus mapping: {1: 0, 2: 1, 3: 2, 4: 3, 5: 4}
+Unique bus->line mapping: {1: 0, 2: 1, 3: 2, 4: 3}
+OPC UA connected: opc.tcp://10.0.2.2:4840/mininet/
+Namespace index: 2
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-31 23:01:06
+Island: energized=[1, 2, 3, 4, 5] dead=[]
+Load flow sukses. Voltage snapshot (pu): [1.02, 1.0096423798105607, 1.007123872275896, 1.0099999999999996, 1.0081268032584756]
+[h4] Siklus selesai, CMD siap ke gateway
+[h4] 2026-05-31 23:01:06 bus=1 line=0 pp_bus=0 | i_from=0.8354 i_to=0.8354 i_line=0.8354 kA | max_i=1.6000 thr_open=1.6000 thr_close=1.5200 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0200 P_in=156.2844 Q_in=38.5496
+[h4] 2026-05-31 23:01:06 bus=2 line=1 pp_bus=1 | i_from=0.4029 i_to=0.4029 i_line=0.4029 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0096 P_in=78.6174 Q_in=31.8328
+[h4] 2026-05-31 23:01:06 bus=3 line=2 pp_bus=2 | i_from=0.1497 i_to=0.1497 i_line=0.1497 kA | max_i=0.4000 thr_open=0.4000 thr_close=0.3800 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0071 P_in=62.9048 Q_in=32.4532
+[h4] 2026-05-31 23:01:06 bus=4 line=3 pp_bus=3 | i_from=0.5018 i_to=0.5018 i_line=0.5018 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0100 P_in=80.2539 Q_in=50.7894
+[h4] 2026-05-31 23:01:06 bus=5 line=- pp_bus=4 | no_line_switch | dead=False brk_fb=1 cmd=1 | vm_pu=1.0081 P_in=93.8933 Q_in=21.7954
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-31 23:01:07
+Island: energized=[1, 2, 3, 4, 5] dead=[]
+Load flow sukses. Voltage snapshot (pu): [1.02, 1.0107496168435133, 1.008220933274747, 1.0099999999999998, 1.008199318537688]
+[h4] Siklus selesai, CMD siap ke gateway
+[h4] 2026-05-31 23:01:07 bus=1 line=0 pp_bus=0 | i_from=0.8399 i_to=0.8399 i_line=0.8399 kA | max_i=1.6000 thr_open=1.6000 thr_close=1.5200 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0200 P_in=159.8963 Q_in=28.7658
+[h4] 2026-05-31 23:01:07 bus=2 line=1 pp_bus=1 | i_from=0.4445 i_to=0.4445 i_line=0.4445 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0107 P_in=74.0535 Q_in=22.0544
+[h4] 2026-05-31 23:01:07 bus=3 line=2 pp_bus=2 | i_from=0.0942 i_to=0.0942 i_line=0.0942 kA | max_i=0.4000 thr_open=0.4000 thr_close=0.3800 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0082 P_in=76.2163 Q_in=19.8881
+[h4] 2026-05-31 23:01:07 bus=4 line=3 pp_bus=3 | i_from=0.4763 i_to=0.4763 i_line=0.4763 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0100 P_in=79.5842 Q_in=37.6381
+[h4] 2026-05-31 23:01:07 bus=5 line=- pp_bus=4 | no_line_switch | dead=False brk_fb=1 cmd=1 | vm_pu=1.0082 P_in=88.9358 Q_in=21.4601
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-31 23:01:08
+Island: energized=[1, 2, 3, 4, 5] dead=[]
+Load flow sukses. Voltage snapshot (pu): [1.02, 1.0096993220523236, 1.0066858172497306, 1.0099999999999998, 1.0078980159558666]
+[h4] Siklus selesai, CMD siap ke gateway
+[h4] 2026-05-31 23:01:08 bus=1 line=0 pp_bus=0 | i_from=0.9136 i_to=0.9136 i_line=0.9136 kA | max_i=1.6000 thr_open=1.6000 thr_close=1.5200 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0200 P_in=173.9466 Q_in=30.3683
+[h4] 2026-05-31 23:01:08 bus=2 line=1 pp_bus=1 | i_from=0.5125 i_to=0.5125 i_line=0.5125 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0097 P_in=74.5354 Q_in=24.6306
+[h4] 2026-05-31 23:01:08 bus=3 line=2 pp_bus=2 | i_from=0.1547 i_to=0.1547 i_line=0.1547 kA | max_i=0.4000 thr_open=0.4000 thr_close=0.3800 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0067 P_in=86.1660 Q_in=33.5103
+[h4] 2026-05-31 23:01:08 bus=4 line=3 pp_bus=3 | i_from=0.5021 i_to=0.5021 i_line=0.5021 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0100 P_in=79.3659 Q_in=60.8278
+[h4] 2026-05-31 23:01:08 bus=5 line=- pp_bus=4 | no_line_switch | dead=False brk_fb=1 cmd=1 | vm_pu=1.0079 P_in=91.7624 Q_in=29.5706
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-31 23:01:09
+Island: energized=[1, 2, 3, 4, 5] dead=[]
+Load flow sukses. Voltage snapshot (pu): [1.02, 1.0109603863826377, 1.0081473189688581, 1.01, 1.008136655240882]
+[h4] Siklus selesai, CMD siap ke gateway
+[h4] 2026-05-31 23:01:09 bus=1 line=0 pp_bus=0 | i_from=0.6824 i_to=0.6824 i_line=0.6824 kA | max_i=1.6000 thr_open=1.6000 thr_close=1.5200 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0200 P_in=126.2902 Q_in=40.7427
+[h4] 2026-05-31 23:01:09 bus=2 line=1 pp_bus=1 | i_from=0.3655 i_to=0.3655 i_line=0.3655 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0110 P_in=56.7769 Q_in=23.6357
+[h4] 2026-05-31 23:01:09 bus=3 line=2 pp_bus=2 | i_from=0.0829 i_to=0.0829 i_line=0.0829 kA | max_i=0.4000 thr_open=0.4000 thr_close=0.3800 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0081 P_in=62.7506 Q_in=30.2135
+[h4] 2026-05-31 23:01:09 bus=4 line=3 pp_bus=3 | i_from=0.4639 i_to=0.4639 i_line=0.4639 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0100 P_in=80.4083 Q_in=40.2327
+[h4] 2026-05-31 23:01:09 bus=5 line=- pp_bus=4 | no_line_switch | dead=False brk_fb=1 cmd=1 | vm_pu=1.0081 P_in=85.6458 Q_in=24.6129
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-31 23:01:10
+Island: energized=[1, 2, 3, 4, 5] dead=[]
+Load flow sukses. Voltage snapshot (pu): [1.02, 1.0099959293606513, 1.0071332610903803, 1.0099999999999996, 1.0084657843893516]
+[h4] Siklus selesai, CMD siap ke gateway
+[h4] 2026-05-31 23:01:10 bus=1 line=0 pp_bus=0 | i_from=0.7914 i_to=0.7914 i_line=0.7914 kA | max_i=1.6000 thr_open=1.6000 thr_close=1.5200 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0200 P_in=149.0386 Q_in=38.8274
+[h4] 2026-05-31 23:01:10 bus=2 line=1 pp_bus=1 | i_from=0.4127 i_to=0.4127 i_line=0.4127 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0100 P_in=68.5794 Q_in=27.2766
+[h4] 2026-05-31 23:01:10 bus=3 line=2 pp_bus=2 | i_from=0.1229 i_to=0.1229 i_line=0.1229 kA | max_i=0.4000 thr_open=0.4000 thr_close=0.3800 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0071 P_in=70.7886 Q_in=34.5047
+[h4] 2026-05-31 23:01:10 bus=4 line=3 pp_bus=3 | i_from=0.4603 i_to=0.4603 i_line=0.4603 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0100 P_in=79.7130 Q_in=40.1296
+[h4] 2026-05-31 23:01:10 bus=5 line=- pp_bus=4 | no_line_switch | dead=False brk_fb=1 cmd=1 | vm_pu=1.0085 P_in=87.3406 Q_in=13.9408
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-31 23:01:11
+Island: energized=[1, 2, 3, 4, 5] dead=[]
+Load flow sukses. Voltage snapshot (pu): [1.02, 1.0110002222114196, 1.0084911673681518, 1.01, 1.0081553870521265]
+[h4] Siklus selesai, CMD siap ke gateway
+[h4] 2026-05-31 23:01:11 bus=1 line=0 pp_bus=0 | i_from=0.7485 i_to=0.7485 i_line=0.7485 kA | max_i=1.6000 thr_open=1.6000 thr_close=1.5200 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0200 P_in=143.0295 Q_in=34.9621
+[h4] 2026-05-31 23:01:11 bus=2 line=1 pp_bus=1 | i_from=0.3779 i_to=0.3779 i_line=0.3779 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0110 P_in=68.3388 Q_in=22.7756
+[h4] 2026-05-31 23:01:11 bus=3 line=2 pp_bus=2 | i_from=0.0771 i_to=0.0771 i_line=0.0771 kA | max_i=0.4000 thr_open=0.4000 thr_close=0.3800 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0085 P_in=64.9667 Q_in=22.3517
+[h4] 2026-05-31 23:01:11 bus=4 line=3 pp_bus=3 | i_from=0.4689 i_to=0.4689 i_line=0.4689 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0100 P_in=79.9284 Q_in=36.9269
+[h4] 2026-05-31 23:01:11 bus=5 line=- pp_bus=4 | no_line_switch | dead=False brk_fb=1 cmd=1 | vm_pu=1.0082 P_in=86.9360 Q_in=23.5546
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-31 23:01:12
+Island: energized=[1, 2, 3, 4, 5] dead=[]
+Load flow sukses. Voltage snapshot (pu): [1.02, 1.0099176156040586, 1.0072800502482575, 1.01, 1.0082355667929899]
+[h4] Siklus selesai, CMD siap ke gateway
+[h4] 2026-05-31 23:01:12 bus=1 line=0 pp_bus=0 | i_from=0.9035 i_to=0.9035 i_line=0.9035 kA | max_i=1.6000 thr_open=1.6000 thr_close=1.5200 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0200 P_in=171.4831 Q_in=30.1430
+[h4] 2026-05-31 23:01:12 bus=2 line=1 pp_bus=1 | i_from=0.4738 i_to=0.4738 i_line=0.4738 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0099 P_in=80.1461 Q_in=25.9999
+[h4] 2026-05-31 23:01:12 bus=3 line=2 pp_bus=2 | i_from=0.1442 i_to=0.1442 i_line=0.1442 kA | max_i=0.4000 thr_open=0.4000 thr_close=0.3800 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0073 P_in=76.9526 Q_in=27.5197
+[h4] 2026-05-31 23:01:12 bus=4 line=3 pp_bus=3 | i_from=0.4974 i_to=0.4974 i_line=0.4974 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0100 P_in=79.9224 Q_in=45.2941
+[h4] 2026-05-31 23:01:12 bus=5 line=- pp_bus=4 | no_line_switch | dead=False brk_fb=1 cmd=1 | vm_pu=1.0082 P_in=93.7407 Q_in=18.5387
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-31 23:01:13
+Island: energized=[1, 2, 3, 4, 5] dead=[]
+Load flow sukses. Voltage snapshot (pu): [1.02, 1.0104655903906534, 1.0075523767258754, 1.01, 1.0084721577224647]
+[h4] Siklus selesai, CMD siap ke gateway
+[h4] 2026-05-31 23:01:13 bus=1 line=0 pp_bus=0 | i_from=0.7259 i_to=0.7259 i_line=0.7259 kA | max_i=1.6000 thr_open=1.6000 thr_close=1.5200 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0200 P_in=133.5224 Q_in=40.7243
+[h4] 2026-05-31 23:01:13 bus=2 line=1 pp_bus=1 | i_from=0.4070 i_to=0.4070 i_line=0.4070 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0105 P_in=56.5292 Q_in=26.9607
+[h4] 2026-05-31 23:01:13 bus=3 line=2 pp_bus=2 | i_from=0.1084 i_to=0.1084 i_line=0.1084 kA | max_i=0.4000 thr_open=0.4000 thr_close=0.3800 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0076 P_in=69.6612 Q_in=32.9252
+[h4] 2026-05-31 23:01:13 bus=4 line=3 pp_bus=3 | i_from=0.4594 i_to=0.4594 i_line=0.4594 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0100 P_in=80.1063 Q_in=35.3215
+[h4] 2026-05-31 23:01:13 bus=5 line=- pp_bus=4 | no_line_switch | dead=False brk_fb=1 cmd=1 | vm_pu=1.0085 P_in=87.1910 Q_in=13.8030
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-31 23:01:14
+Island: energized=[1, 2, 3, 4, 5] dead=[]
+Load flow sukses. Voltage snapshot (pu): [1.02, 1.009257415221288, 1.006441891226635, 1.0099999999999993, 1.0080433381239702]
+[h4] Siklus selesai, CMD siap ke gateway
+[h4] 2026-05-31 23:01:14 bus=1 line=0 pp_bus=0 | i_from=0.9076 i_to=0.9076 i_line=0.9076 kA | max_i=1.6000 thr_open=1.6000 thr_close=1.5200 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0200 P_in=171.8552 Q_in=34.8967
+[h4] 2026-05-31 23:01:14 bus=2 line=1 pp_bus=1 | i_from=0.4893 i_to=0.4893 i_line=0.4893 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0093 P_in=76.6153 Q_in=31.4245
+[h4] 2026-05-31 23:01:14 bus=3 line=2 pp_bus=2 | i_from=0.1722 i_to=0.1722 i_line=0.1722 kA | max_i=0.4000 thr_open=0.4000 thr_close=0.3800 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0064 P_in=79.3750 Q_in=34.8579
+[h4] 2026-05-31 23:01:14 bus=4 line=3 pp_bus=3 | i_from=0.5062 i_to=0.5062 i_line=0.5062 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0100 P_in=80.2421 Q_in=59.7637
+[h4] 2026-05-31 23:01:14 bus=5 line=- pp_bus=4 | no_line_switch | dead=False brk_fb=1 cmd=1 | vm_pu=1.0080 P_in=94.1405 Q_in=24.2450
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-31 23:01:15
+Island: energized=[1, 2, 3, 4, 5] dead=[]
+Load flow sukses. Voltage snapshot (pu): [1.02, 1.0102694290560137, 1.0071277997800567, 1.0099999999999998, 1.0083762591709546]
+[h4] Siklus selesai, CMD siap ke gateway
+[h4] 2026-05-31 23:01:15 bus=1 line=0 pp_bus=0 | i_from=0.7805 i_to=0.7805 i_line=0.7805 kA | max_i=1.6000 thr_open=1.6000 thr_close=1.5200 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0200 P_in=147.3094 Q_in=37.3678
+[h4] 2026-05-31 23:01:15 bus=2 line=1 pp_bus=1 | i_from=0.4610 i_to=0.4610 i_line=0.4610 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0103 P_in=57.6428 Q_in=24.6078
+[h4] 2026-05-31 23:01:15 bus=3 line=2 pp_bus=2 | i_from=0.1361 i_to=0.1361 i_line=0.1361 kA | max_i=0.4000 thr_open=0.4000 thr_close=0.3800 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0071 P_in=76.7088 Q_in=36.3660
+[h4] 2026-05-31 23:01:15 bus=4 line=3 pp_bus=3 | i_from=0.4789 i_to=0.4789 i_line=0.4789 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0100 P_in=80.0491 Q_in=42.3106
+[h4] 2026-05-31 23:01:15 bus=5 line=- pp_bus=4 | no_line_switch | dead=False brk_fb=1 cmd=1 | vm_pu=1.0084 P_in=90.7103 Q_in=15.3961
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-31 23:01:16
+Island: energized=[1, 2, 3, 4, 5] dead=[]
+Load flow sukses. Voltage snapshot (pu): [1.02, 1.0096764175736923, 1.006454222011795, 1.0099999999999998, 1.0080335764436203]
+[h4] Siklus selesai, CMD siap ke gateway
+[h4] 2026-05-31 23:01:16 bus=1 line=0 pp_bus=0 | i_from=0.8483 i_to=0.8483 i_line=0.8483 kA | max_i=1.6000 thr_open=1.6000 thr_close=1.5200 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0200 P_in=158.9110 Q_in=36.1409
+[h4] 2026-05-31 23:01:16 bus=2 line=1 pp_bus=1 | i_from=0.5040 i_to=0.5040 i_line=0.5040 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0097 P_in=62.3793 Q_in=27.0414
+[h4] 2026-05-31 23:01:16 bus=3 line=2 pp_bus=2 | i_from=0.1412 i_to=0.1412 i_line=0.1412 kA | max_i=0.4000 thr_open=0.4000 thr_close=0.3800 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0065 P_in=90.0300 Q_in=36.7324
+[h4] 2026-05-31 23:01:16 bus=4 line=3 pp_bus=3 | i_from=0.4699 i_to=0.4699 i_line=0.4699 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0100 P_in=80.1335 Q_in=58.5364
+[h4] 2026-05-31 23:01:16 bus=5 line=- pp_bus=4 | no_line_switch | dead=False brk_fb=1 cmd=1 | vm_pu=1.0080 P_in=85.9094 Q_in=27.6535
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-31 23:01:18
+Island: energized=[1, 2, 3, 4, 5] dead=[]
+Load flow sukses. Voltage snapshot (pu): [1.02, 1.0107087706954032, 1.0072901763752027, 1.01, 1.0081807557100828]
+[h4] Siklus selesai, CMD siap ke gateway
+[h4] 2026-05-31 23:01:18 bus=1 line=0 pp_bus=0 | i_from=0.7685 i_to=0.7685 i_line=0.7685 kA | max_i=1.6000 thr_open=1.6000 thr_close=1.5200 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0200 P_in=144.0058 Q_in=34.5531
+[h4] 2026-05-31 23:01:18 bus=2 line=1 pp_bus=1 | i_from=0.4775 i_to=0.4775 i_line=0.4775 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0107 P_in=53.5563 Q_in=17.5651
+[h4] 2026-05-31 23:01:18 bus=3 line=2 pp_bus=2 | i_from=0.1122 i_to=0.1122 i_line=0.1122 kA | max_i=0.4000 thr_open=0.4000 thr_close=0.3800 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0073 P_in=84.3604 Q_in=36.4441
+[h4] 2026-05-31 23:01:18 bus=4 line=3 pp_bus=3 | i_from=0.4627 i_to=0.4627 i_line=0.4627 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0100 P_in=79.7442 Q_in=45.0221
+[h4] 2026-05-31 23:01:18 bus=5 line=- pp_bus=4 | no_line_switch | dead=False brk_fb=1 cmd=1 | vm_pu=1.0082 P_in=85.7989 Q_in=23.2113
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-31 23:01:19
+Island: energized=[1, 2, 3, 4, 5] dead=[]
+Load flow sukses. Voltage snapshot (pu): [1.02, 1.0095871027207048, 1.0068699399476206, 1.0099999999999998, 1.0083668346589167]
+[h4] Siklus selesai, CMD siap ke gateway
+[h4] 2026-05-31 23:01:19 bus=1 line=0 pp_bus=0 | i_from=0.9192 i_to=0.9192 i_line=0.9192 kA | max_i=1.6000 thr_open=1.6000 thr_close=1.5200 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0200 P_in=175.4679 Q_in=31.1555
+[h4] 2026-05-31 23:01:19 bus=2 line=1 pp_bus=1 | i_from=0.4905 i_to=0.4905 i_line=0.4905 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0096 P_in=79.5717 Q_in=28.2693
+[h4] 2026-05-31 23:01:19 bus=3 line=2 pp_bus=2 | i_from=0.1243 i_to=0.1243 i_line=0.1243 kA | max_i=0.4000 thr_open=0.4000 thr_close=0.3800 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0069 P_in=88.8011 Q_in=26.7501
+[h4] 2026-05-31 23:01:19 bus=4 line=3 pp_bus=3 | i_from=0.4525 i_to=0.4525 i_line=0.4525 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0100 P_in=80.1346 Q_in=45.7576
+[h4] 2026-05-31 23:01:19 bus=5 line=- pp_bus=4 | no_line_switch | dead=False brk_fb=1 cmd=1 | vm_pu=1.0084 P_in=85.0944 Q_in=17.8064
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-31 23:01:20
+Island: energized=[1, 2, 3, 4, 5] dead=[]
+Load flow sukses. Voltage snapshot (pu): [1.02, 1.010580070994344, 1.008020782520764, 1.01, 1.0082178684569085]
+[h4] Siklus selesai, CMD siap ke gateway
+[h4] 2026-05-31 23:01:20 bus=1 line=0 pp_bus=0 | i_from=0.7714 i_to=0.7714 i_line=0.7714 kA | max_i=1.6000 thr_open=1.6000 thr_close=1.5200 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0200 P_in=145.5746 Q_in=35.7140
+[h4] 2026-05-31 23:01:20 bus=2 line=1 pp_bus=1 | i_from=0.3841 i_to=0.3841 i_line=0.3841 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0106 P_in=71.0565 Q_in=25.0764
+[h4] 2026-05-31 23:01:20 bus=3 line=2 pp_bus=2 | i_from=0.0855 i_to=0.0855 i_line=0.0855 kA | max_i=0.4000 thr_open=0.4000 thr_close=0.3800 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0080 P_in=67.8307 Q_in=25.1333
+[h4] 2026-05-31 23:01:20 bus=4 line=3 pp_bus=3 | i_from=0.4585 i_to=0.4585 i_line=0.4585 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0100 P_in=79.9024 Q_in=39.6217
+[h4] 2026-05-31 23:01:20 bus=5 line=- pp_bus=4 | no_line_switch | dead=False brk_fb=1 cmd=1 | vm_pu=1.0082 P_in=85.2037 Q_in=22.3053
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-31 23:01:21
+Island: energized=[1, 2, 3, 4, 5] dead=[]
+Load flow sukses. Voltage snapshot (pu): [1.02, 1.0103513063341922, 1.0067784396470572, 1.01, 1.0079958813968324]
+[h4] Siklus selesai, CMD siap ke gateway
+[h4] 2026-05-31 23:01:21 bus=1 line=0 pp_bus=0 | i_from=0.8515 i_to=0.8515 i_line=0.8515 kA | max_i=1.6000 thr_open=1.6000 thr_close=1.5200 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0200 P_in=161.4410 Q_in=30.0630
+[h4] 2026-05-31 23:01:21 bus=2 line=1 pp_bus=1 | i_from=0.5122 i_to=0.5122 i_line=0.5122 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0104 P_in=63.8320 Q_in=14.1500
+[h4] 2026-05-31 23:01:21 bus=3 line=2 pp_bus=2 | i_from=0.1448 i_to=0.1448 i_line=0.1448 kA | max_i=0.4000 thr_open=0.4000 thr_close=0.3800 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0068 P_in=86.8735 Q_in=41.1600
+[h4] 2026-05-31 23:01:21 bus=4 line=3 pp_bus=3 | i_from=0.4897 i_to=0.4897 i_line=0.4897 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0100 P_in=79.4413 Q_in=55.2852
+[h4] 2026-05-31 23:01:21 bus=5 line=- pp_bus=4 | no_line_switch | dead=False brk_fb=1 cmd=1 | vm_pu=1.0080 P_in=90.0131 Q_in=27.2511
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-31 23:01:22
+Island: energized=[1, 2, 3, 4, 5] dead=[]
+Load flow sukses. Voltage snapshot (pu): [1.02, 1.0107256681931749, 1.0080881209245427, 1.0099999999999996, 1.007961017885266]
+[h4] Siklus selesai, CMD siap ke gateway
+[h4] 2026-05-31 23:01:22 bus=1 line=0 pp_bus=0 | i_from=0.8294 i_to=0.8294 i_line=0.8294 kA | max_i=1.6000 thr_open=1.6000 thr_close=1.5200 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0200 P_in=158.4484 Q_in=29.5951
+[h4] 2026-05-31 23:01:22 bus=2 line=1 pp_bus=1 | i_from=0.4180 i_to=0.4180 i_line=0.4180 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0107 P_in=77.2070 Q_in=19.4845
+[h4] 2026-05-31 23:01:22 bus=3 line=2 pp_bus=2 | i_from=0.1078 i_to=0.1078 i_line=0.1078 kA | max_i=0.4000 thr_open=0.4000 thr_close=0.3800 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0081 P_in=68.6695 Q_in=25.4890
+[h4] 2026-05-31 23:01:22 bus=4 line=3 pp_bus=3 | i_from=0.4960 i_to=0.4960 i_line=0.4960 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0100 P_in=80.2908 Q_in=46.7677
+[h4] 2026-05-31 23:01:22 bus=5 line=- pp_bus=4 | no_line_switch | dead=False brk_fb=1 cmd=1 | vm_pu=1.0080 P_in=91.0714 Q_in=27.9130
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-31 23:01:23
+Island: energized=[1, 2, 3, 4, 5] dead=[]
+Load flow sukses. Voltage snapshot (pu): [1.02, 1.0097365078459721, 1.0067604444326934, 1.0099999999999998, 1.0081696509384863]
+[h4] Siklus selesai, CMD siap ke gateway
+[h4] 2026-05-31 23:01:23 bus=1 line=0 pp_bus=0 | i_from=0.8632 i_to=0.8632 i_line=0.8632 kA | max_i=1.6000 thr_open=1.6000 thr_close=1.5200 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0200 P_in=162.9919 Q_in=34.7658
+[h4] 2026-05-31 23:01:23 bus=2 line=1 pp_bus=1 | i_from=0.4652 i_to=0.4652 i_line=0.4652 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0097 P_in=73.2054 Q_in=25.7853
+[h4] 2026-05-31 23:01:23 bus=3 line=2 pp_bus=2 | i_from=0.1281 i_to=0.1281 i_line=0.1281 kA | max_i=0.4000 thr_open=0.4000 thr_close=0.3800 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0068 P_in=83.4862 Q_in=33.5967
+[h4] 2026-05-31 23:01:23 bus=4 line=3 pp_bus=3 | i_from=0.4600 i_to=0.4600 i_line=0.4600 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0100 P_in=80.3571 Q_in=51.9685
+[h4] 2026-05-31 23:01:23 bus=5 line=- pp_bus=4 | no_line_switch | dead=False brk_fb=1 cmd=1 | vm_pu=1.0082 P_in=85.0969 Q_in=23.8149
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-31 23:01:24
+Island: energized=[1, 2, 3, 4, 5] dead=[]
+Load flow sukses. Voltage snapshot (pu): [1.02, 1.0116138046884016, 1.0083451207968606, 1.0099999999999998, 1.0080048707225087]
+[h4] Siklus selesai, CMD siap ke gateway
+[h4] 2026-05-31 23:01:24 bus=1 line=0 pp_bus=0 | i_from=0.7576 i_to=0.7576 i_line=0.7576 kA | max_i=1.6000 thr_open=1.6000 thr_close=1.5200 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0200 P_in=146.4198 Q_in=27.5950
+[h4] 2026-05-31 23:01:24 bus=2 line=1 pp_bus=1 | i_from=0.4881 i_to=0.4881 i_line=0.4881 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0116 P_in=50.7337 Q_in=11.7294
+[h4] 2026-05-31 23:01:24 bus=3 line=2 pp_bus=2 | i_from=0.0834 i_to=0.0834 i_line=0.0834 kA | max_i=0.4000 thr_open=0.4000 thr_close=0.3800 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0083 P_in=85.4823 Q_in=26.6124
+[h4] 2026-05-31 23:01:24 bus=4 line=3 pp_bus=3 | i_from=0.4776 i_to=0.4776 i_line=0.4776 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0100 P_in=79.8267 Q_in=42.0618
+[h4] 2026-05-31 23:01:24 bus=5 line=- pp_bus=4 | no_line_switch | dead=False brk_fb=1 cmd=1 | vm_pu=1.0080 P_in=87.3391 Q_in=27.9877
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-31 23:01:25
+Island: energized=[1, 2, 3, 4, 5] dead=[]
+Load flow sukses. Voltage snapshot (pu): [1.02, 1.0110475516041517, 1.0084172042929658, 1.0099999999999998, 1.008375910598202]
+[h4] Siklus selesai, CMD siap ke gateway
+[h4] 2026-05-31 23:01:25 bus=1 line=0 pp_bus=0 | i_from=0.7672 i_to=0.7672 i_line=0.7672 kA | max_i=1.6000 thr_open=1.6000 thr_close=1.5200 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0200 P_in=146.3629 Q_in=32.6573
+[h4] 2026-05-31 23:01:25 bus=2 line=1 pp_bus=1 | i_from=0.3610 i_to=0.3610 i_line=0.3610 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0110 P_in=76.3746 Q_in=17.1146
+[h4] 2026-05-31 23:01:25 bus=3 line=2 pp_bus=2 | i_from=0.0749 i_to=0.0749 i_line=0.0749 kA | max_i=0.4000 thr_open=0.4000 thr_close=0.3800 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0084 P_in=62.2391 Q_in=25.8145
+[h4] 2026-05-31 23:01:25 bus=4 line=3 pp_bus=3 | i_from=0.4557 i_to=0.4557 i_line=0.4557 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0100 P_in=80.5837 Q_in=30.6954
+[h4] 2026-05-31 23:01:25 bus=5 line=- pp_bus=4 | no_line_switch | dead=False brk_fb=1 cmd=1 | vm_pu=1.0084 P_in=85.8363 Q_in=17.2493
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-31 23:01:26
+Island: energized=[1, 2, 3, 4, 5] dead=[]
+Load flow sukses. Voltage snapshot (pu): [1.02, 1.0096418167688597, 1.0070599361169201, 1.0099999999999998, 1.0084135617674401]
+[h4] Siklus selesai, CMD siap ke gateway
+[h4] 2026-05-31 23:01:26 bus=1 line=0 pp_bus=0 | i_from=0.8318 i_to=0.8318 i_line=0.8318 kA | max_i=1.6000 thr_open=1.6000 thr_close=1.5200 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0200 P_in=156.4389 Q_in=38.7261
+[h4] 2026-05-31 23:01:26 bus=2 line=1 pp_bus=1 | i_from=0.4279 i_to=0.4279 i_line=0.4279 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0096 P_in=72.9079 Q_in=33.1541
+[h4] 2026-05-31 23:01:26 bus=3 line=2 pp_bus=2 | i_from=0.1266 i_to=0.1266 i_line=0.1266 kA | max_i=0.4000 thr_open=0.4000 thr_close=0.3800 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0071 P_in=74.0520 Q_in=29.3836
+[h4] 2026-05-31 23:01:26 bus=4 line=3 pp_bus=3 | i_from=0.4633 i_to=0.4633 i_line=0.4633 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0100 P_in=80.1835 Q_in=42.7323
+[h4] 2026-05-31 23:01:26 bus=5 line=- pp_bus=4 | no_line_switch | dead=False brk_fb=1 cmd=1 | vm_pu=1.0084 P_in=87.6663 Q_in=15.4098
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-31 23:01:27
+Island: energized=[1, 2, 3, 4, 5] dead=[]
+Load flow sukses. Voltage snapshot (pu): [1.02, 1.010425274328445, 1.0077091483094112, 1.0099999999999998, 1.0081166933540042]
+[h4] Siklus selesai, CMD siap ke gateway
+[h4] 2026-05-31 23:01:27 bus=1 line=0 pp_bus=0 | i_from=0.7843 i_to=0.7843 i_line=0.7843 kA | max_i=1.6000 thr_open=1.6000 thr_close=1.5200 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0200 P_in=147.9283 Q_in=36.4229
+[h4] 2026-05-31 23:01:27 bus=2 line=1 pp_bus=1 | i_from=0.4375 i_to=0.4375 i_line=0.4375 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0104 P_in=62.9108 Q_in=27.3844
+[h4] 2026-05-31 23:01:27 bus=3 line=2 pp_bus=2 | i_from=0.1036 i_to=0.1036 i_line=0.1036 kA | max_i=0.4000 thr_open=0.4000 thr_close=0.3800 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0077 P_in=76.2263 Q_in=26.1993
+[h4] 2026-05-31 23:01:27 bus=4 line=3 pp_bus=3 | i_from=0.4721 i_to=0.4721 i_line=0.4721 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0100 P_in=80.0314 Q_in=44.7113
+[h4] 2026-05-31 23:01:27 bus=5 line=- pp_bus=4 | no_line_switch | dead=False brk_fb=1 cmd=1 | vm_pu=1.0081 P_in=87.2854 Q_in=24.6015
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-31 23:01:28
+Island: energized=[1, 2, 3, 4, 5] dead=[]
+Load flow sukses. Voltage snapshot (pu): [1.02, 1.0099721597575375, 1.0072983730516412, 1.0099999999999998, 1.008093230557349]
+[h4] Siklus selesai, CMD siap ke gateway
+[h4] 2026-05-31 23:01:28 bus=1 line=0 pp_bus=0 | i_from=0.8480 i_to=0.8480 i_line=0.8480 kA | max_i=1.6000 thr_open=1.6000 thr_close=1.5200 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0200 P_in=159.3470 Q_in=34.1477
+[h4] 2026-05-31 23:01:28 bus=2 line=1 pp_bus=1 | i_from=0.4177 i_to=0.4177 i_line=0.4177 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0100 P_in=79.5803 Q_in=25.5876
+[h4] 2026-05-31 23:01:28 bus=3 line=2 pp_bus=2 | i_from=0.1147 i_to=0.1147 i_line=0.1147 kA | max_i=0.4000 thr_open=0.4000 thr_close=0.3800 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0073 P_in=72.9976 Q_in=29.6251
+[h4] 2026-05-31 23:01:28 bus=4 line=3 pp_bus=3 | i_from=0.4700 i_to=0.4700 i_line=0.4700 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0100 P_in=80.1204 Q_in=49.7805
+[h4] 2026-05-31 23:01:28 bus=5 line=- pp_bus=4 | no_line_switch | dead=False brk_fb=1 cmd=1 | vm_pu=1.0081 P_in=86.5749 Q_in=25.5848
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-31 23:01:29
+Island: energized=[1, 2, 3, 4, 5] dead=[]
+Load flow sukses. Voltage snapshot (pu): [1.02, 1.010854243767747, 1.0078951425583116, 1.01, 1.0083100308545678]
+[h4] Siklus selesai, CMD siap ke gateway
+[h4] 2026-05-31 23:01:29 bus=1 line=0 pp_bus=0 | i_from=0.7191 i_to=0.7191 i_line=0.7191 kA | max_i=1.6000 thr_open=1.6000 thr_close=1.5200 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0200 P_in=133.9222 Q_in=38.1177
+[h4] 2026-05-31 23:01:29 bus=2 line=1 pp_bus=1 | i_from=0.3866 i_to=0.3866 i_line=0.3866 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0109 P_in=60.8253 Q_in=20.6115
+[h4] 2026-05-31 23:01:29 bus=3 line=2 pp_bus=2 | i_from=0.0906 i_to=0.0906 i_line=0.0906 kA | max_i=0.4000 thr_open=0.4000 thr_close=0.3800 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0079 P_in=66.9216 Q_in=32.4495
+[h4] 2026-05-31 23:01:29 bus=4 line=3 pp_bus=3 | i_from=0.4562 i_to=0.4562 i_line=0.4562 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0100 P_in=79.2431 Q_in=36.3347
+[h4] 2026-05-31 23:01:29 bus=5 line=- pp_bus=4 | no_line_switch | dead=False brk_fb=1 cmd=1 | vm_pu=1.0083 P_in=85.4669 Q_in=19.3971
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-31 23:01:30
+Island: energized=[1, 2, 3, 4, 5] dead=[]
+Load flow sukses. Voltage snapshot (pu): [1.02, 1.0104579111276597, 1.0067140780951476, 1.0099999999999998, 1.008287290115673]
+[h4] Siklus selesai, CMD siap ke gateway
+[h4] 2026-05-31 23:01:30 bus=1 line=0 pp_bus=0 | i_from=0.8013 i_to=0.8013 i_line=0.8013 kA | max_i=1.6000 thr_open=1.6000 thr_close=1.5200 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0200 P_in=150.7188 Q_in=33.1908
+[h4] 2026-05-31 23:01:30 bus=2 line=1 pp_bus=1 | i_from=0.4979 i_to=0.4979 i_line=0.4979 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0105 P_in=56.8158 Q_in=13.6325
+[h4] 2026-05-31 23:01:30 bus=3 line=2 pp_bus=2 | i_from=0.1384 i_to=0.1384 i_line=0.1384 kA | max_i=0.4000 thr_open=0.4000 thr_close=0.3800 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0067 P_in=85.6385 Q_in=44.7245
+[h4] 2026-05-31 23:01:30 bus=4 line=3 pp_bus=3 | i_from=0.4675 i_to=0.4675 i_line=0.4675 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0100 P_in=80.4038 Q_in=47.6236
+[h4] 2026-05-31 23:01:30 bus=5 line=- pp_bus=4 | no_line_switch | dead=False brk_fb=1 cmd=1 | vm_pu=1.0083 P_in=87.7316 Q_in=19.2343
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-31 23:01:31
+Island: energized=[1, 2, 3, 4, 5] dead=[]
+Load flow sukses. Voltage snapshot (pu): [1.02, 1.0100985473187756, 1.0069080305861817, 1.01, 1.008313967014099]
+[h4] Siklus selesai, CMD siap ke gateway
+[h4] 2026-05-31 23:01:31 bus=1 line=0 pp_bus=0 | i_from=0.8233 i_to=0.8233 i_line=0.8233 kA | max_i=1.6000 thr_open=1.6000 thr_close=1.5200 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0200 P_in=155.0563 Q_in=34.7462
+[h4] 2026-05-31 23:01:31 bus=2 line=1 pp_bus=1 | i_from=0.5109 i_to=0.5109 i_line=0.5109 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0101 P_in=56.5739 Q_in=25.6769
+[h4] 2026-05-31 23:01:31 bus=3 line=2 pp_bus=2 | i_from=0.1401 i_to=0.1401 i_line=0.1401 kA | max_i=0.4000 thr_open=0.4000 thr_close=0.3800 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0069 P_in=87.5089 Q_in=34.1991
+[h4] 2026-05-31 23:01:31 bus=4 line=3 pp_bus=3 | i_from=0.4770 i_to=0.4770 i_line=0.4770 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0100 P_in=80.4352 Q_in=46.2731
+[h4] 2026-05-31 23:01:31 bus=5 line=- pp_bus=4 | no_line_switch | dead=False brk_fb=1 cmd=1 | vm_pu=1.0083 P_in=89.9276 Q_in=17.5910
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-31 23:01:32
+Island: energized=[1, 2, 3, 4, 5] dead=[]
+Load flow sukses. Voltage snapshot (pu): [1.02, 1.01001582862244, 1.0076331192892478, 1.0099999999999998, 1.0081594369229196]
+[h4] Siklus selesai, CMD siap ke gateway
+[h4] 2026-05-31 23:01:32 bus=1 line=0 pp_bus=0 | i_from=0.7848 i_to=0.7848 i_line=0.7848 kA | max_i=1.6000 thr_open=1.6000 thr_close=1.5200 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0200 P_in=147.2309 Q_in=39.6487
+[h4] 2026-05-31 23:01:32 bus=2 line=1 pp_bus=1 | i_from=0.3759 i_to=0.3759 i_line=0.3759 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0100 P_in=73.6654 Q_in=32.4379
+[h4] 2026-05-31 23:01:32 bus=3 line=2 pp_bus=2 | i_from=0.1119 i_to=0.1119 i_line=0.1119 kA | max_i=0.4000 thr_open=0.4000 thr_close=0.3800 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0076 P_in=62.8871 Q_in=27.0168
+[h4] 2026-05-31 23:01:32 bus=4 line=3 pp_bus=3 | i_from=0.4770 i_to=0.4770 i_line=0.4770 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0100 P_in=79.5715 Q_in=45.4786
+[h4] 2026-05-31 23:01:32 bus=5 line=- pp_bus=4 | no_line_switch | dead=False brk_fb=1 cmd=1 | vm_pu=1.0082 P_in=88.7547 Q_in=22.7438
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-31 23:01:33
+Island: energized=[1, 2, 3, 4, 5] dead=[]
+Load flow sukses. Voltage snapshot (pu): [1.02, 1.0098305135559675, 1.007405363913301, 1.01, 1.0080692360835037]
+[h4] Siklus selesai, CMD siap ke gateway
+[h4] 2026-05-31 23:01:33 bus=1 line=0 pp_bus=0 | i_from=0.8119 i_to=0.8119 i_line=0.8119 kA | max_i=1.6000 thr_open=1.6000 thr_close=1.5200 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0200 P_in=151.9016 Q_in=38.7950
+[h4] 2026-05-31 23:01:33 bus=2 line=1 pp_bus=1 | i_from=0.3911 i_to=0.3911 i_line=0.3911 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0098 P_in=76.1853 Q_in=32.4778
+[h4] 2026-05-31 23:01:33 bus=3 line=2 pp_bus=2 | i_from=0.1192 i_to=0.1192 i_line=0.1192 kA | max_i=0.4000 thr_open=0.4000 thr_close=0.3800 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0074 P_in=65.8744 Q_in=27.9829
+[h4] 2026-05-31 23:01:33 bus=4 line=3 pp_bus=3 | i_from=0.4807 i_to=0.4807 i_line=0.4807 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0100 P_in=80.4793 Q_in=50.4047
+[h4] 2026-05-31 23:01:33 bus=5 line=- pp_bus=4 | no_line_switch | dead=False brk_fb=1 cmd=1 | vm_pu=1.0081 P_in=88.7333 Q_in=25.5002
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-31 23:01:34
+Island: energized=[1, 2, 3, 4, 5] dead=[]
+Load flow sukses. Voltage snapshot (pu): [1.02, 1.0117810947027672, 1.0088947091684095, 1.0099999999999998, 1.007930423850971]
+[h4] Siklus selesai, CMD siap ke gateway
+[h4] 2026-05-31 23:01:34 bus=1 line=0 pp_bus=0 | i_from=0.7435 i_to=0.7435 i_line=0.7435 kA | max_i=1.6000 thr_open=1.6000 thr_close=1.5200 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0200 P_in=143.0703 Q_in=28.3709
+[h4] 2026-05-31 23:01:34 bus=2 line=1 pp_bus=1 | i_from=0.4390 i_to=0.4390 i_line=0.4390 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0118 P_in=57.3287 Q_in=13.3611
+[h4] 2026-05-31 23:01:34 bus=3 line=2 pp_bus=2 | i_from=0.0821 i_to=0.0821 i_line=0.0821 kA | max_i=0.4000 thr_open=0.4000 thr_close=0.3800 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0089 P_in=73.1833 Q_in=22.0454
+[h4] 2026-05-31 23:01:34 bus=4 line=3 pp_bus=3 | i_from=0.4947 i_to=0.4947 i_line=0.4947 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0100 P_in=80.7046 Q_in=39.4975
+[h4] 2026-05-31 23:01:34 bus=5 line=- pp_bus=4 | no_line_switch | dead=False brk_fb=1 cmd=1 | vm_pu=1.0079 P_in=90.4459 Q_in=29.0812
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-31 23:01:35
+Island: energized=[1, 2, 3, 4, 5] dead=[]
+Load flow sukses. Voltage snapshot (pu): [1.02, 1.0101110972814857, 1.0073230766543975, 1.01, 1.0079160667622924]
+[h4] Siklus selesai, CMD siap ke gateway
+[h4] 2026-05-31 23:01:35 bus=1 line=0 pp_bus=0 | i_from=0.9578 i_to=0.9578 i_line=0.9578 kA | max_i=1.6000 thr_open=1.6000 thr_close=1.5200 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0200 P_in=185.1515 Q_in=23.7102
+[h4] 2026-05-31 23:01:35 bus=2 line=1 pp_bus=1 | i_from=0.5333 i_to=0.5333 i_line=0.5333 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0101 P_in=80.2781 Q_in=21.1846
+[h4] 2026-05-31 23:01:35 bus=3 line=2 pp_bus=2 | i_from=0.1413 i_to=0.1413 i_line=0.1413 kA | max_i=0.4000 thr_open=0.4000 thr_close=0.3800 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0073 P_in=88.7999 Q_in=24.7088
+[h4] 2026-05-31 23:01:35 bus=4 line=3 pp_bus=3 | i_from=0.5083 i_to=0.5083 i_line=0.5083 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0100 P_in=80.1914 Q_in=55.1612
+[h4] 2026-05-31 23:01:35 bus=5 line=- pp_bus=4 | no_line_switch | dead=False brk_fb=1 cmd=1 | vm_pu=1.0079 P_in=93.3779 Q_in=28.4102
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-31 23:01:36
+Island: energized=[1, 2, 3, 4, 5] dead=[]
+Load flow sukses. Voltage snapshot (pu): [1.02, 1.0098873263037051, 1.0069023862106847, 1.01, 1.0084882675059597]
+[h4] Siklus selesai, CMD siap ke gateway
+[h4] 2026-05-31 23:01:36 bus=1 line=0 pp_bus=0 | i_from=0.7832 i_to=0.7832 i_line=0.7832 kA | max_i=1.6000 thr_open=1.6000 thr_close=1.5200 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0200 P_in=145.9210 Q_in=40.0722
+[h4] 2026-05-31 23:01:36 bus=2 line=1 pp_bus=1 | i_from=0.4221 i_to=0.4221 i_line=0.4221 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0099 P_in=64.7072 Q_in=28.1278
+[h4] 2026-05-31 23:01:36 bus=3 line=2 pp_bus=2 | i_from=0.1337 i_to=0.1337 i_line=0.1337 kA | max_i=0.4000 thr_open=0.4000 thr_close=0.3800 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0069 P_in=71.5695 Q_in=37.5932
+[h4] 2026-05-31 23:01:36 bus=4 line=3 pp_bus=3 | i_from=0.4638 i_to=0.4638 i_line=0.4638 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0100 P_in=80.9278 Q_in=42.0862
+[h4] 2026-05-31 23:01:36 bus=5 line=- pp_bus=4 | no_line_switch | dead=False brk_fb=1 cmd=1 | vm_pu=1.0085 P_in=88.1716 Q_in=12.9411
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-31 23:01:37
+Island: energized=[1, 2, 3, 4, 5] dead=[]
+Load flow sukses. Voltage snapshot (pu): [1.02, 1.0110680491028967, 1.0079438672229437, 1.01, 1.0083910046961753]
+[h4] Siklus selesai, CMD siap ke gateway
+[h4] 2026-05-31 23:01:37 bus=1 line=0 pp_bus=0 | i_from=0.7765 i_to=0.7765 i_line=0.7765 kA | max_i=1.6000 thr_open=1.6000 thr_close=1.5200 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0200 P_in=147.6803 Q_in=30.9779
+[h4] 2026-05-31 23:01:37 bus=2 line=1 pp_bus=1 | i_from=0.4635 i_to=0.4635 i_line=0.4635 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0111 P_in=58.3536 Q_in=16.4005
+[h4] 2026-05-31 23:01:37 bus=3 line=2 pp_bus=2 | i_from=0.1272 i_to=0.1272 i_line=0.1272 kA | max_i=0.4000 thr_open=0.4000 thr_close=0.3800 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0079 P_in=73.7021 Q_in=31.8176
+[h4] 2026-05-31 23:01:37 bus=4 line=3 pp_bus=3 | i_from=0.4960 i_to=0.4960 i_line=0.4960 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0100 P_in=79.7926 Q_in=33.6780
+[h4] 2026-05-31 23:01:37 bus=5 line=- pp_bus=4 | no_line_switch | dead=False brk_fb=1 cmd=1 | vm_pu=1.0084 P_in=94.3308 Q_in=13.5772
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-31 23:01:38
+Island: energized=[1, 2, 3, 4, 5] dead=[]
+Load flow sukses. Voltage snapshot (pu): [1.02, 1.0108746741349686, 1.0080542966694526, 1.01, 1.0080805809543456]
+[h4] Siklus selesai, CMD siap ke gateway
+[h4] 2026-05-31 23:01:38 bus=1 line=0 pp_bus=0 | i_from=0.7786 i_to=0.7786 i_line=0.7786 kA | max_i=1.6000 thr_open=1.6000 thr_close=1.5200 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0200 P_in=148.1626 Q_in=33.2725
+[h4] 2026-05-31 23:01:38 bus=2 line=1 pp_bus=1 | i_from=0.4222 i_to=0.4222 i_line=0.4222 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0109 P_in=66.1661 Q_in=19.9316
+[h4] 2026-05-31 23:01:38 bus=3 line=2 pp_bus=2 | i_from=0.1301 i_to=0.1301 i_line=0.1301 kA | max_i=0.4000 thr_open=0.4000 thr_close=0.3800 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0081 P_in=64.6785 Q_in=30.0870
+[h4] 2026-05-31 23:01:38 bus=4 line=3 pp_bus=3 | i_from=0.5112 i_to=0.5112 i_line=0.5112 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0100 P_in=79.5973 Q_in=42.2242
+[h4] 2026-05-31 23:01:38 bus=5 line=- pp_bus=4 | no_line_switch | dead=False brk_fb=1 cmd=1 | vm_pu=1.0081 P_in=95.5491 Q_in=22.5776
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-31 23:01:39
+Island: energized=[1, 2, 3, 4, 5] dead=[]
+Load flow sukses. Voltage snapshot (pu): [1.02, 1.0112301826737327, 1.0086204320575773, 1.0099999999999998, 1.008372761901053]
+[h4] Siklus selesai, CMD siap ke gateway
+[h4] 2026-05-31 23:01:39 bus=1 line=0 pp_bus=0 | i_from=0.7367 i_to=0.7367 i_line=0.7367 kA | max_i=1.6000 thr_open=1.6000 thr_close=1.5200 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0200 P_in=138.1539 Q_in=33.2116
+[h4] 2026-05-31 23:01:39 bus=2 line=1 pp_bus=1 | i_from=0.3767 i_to=0.3767 i_line=0.3767 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0112 P_in=66.8543 Q_in=19.5509
+[h4] 2026-05-31 23:01:39 bus=3 line=2 pp_bus=2 | i_from=0.0833 i_to=0.0833 i_line=0.0833 kA | max_i=0.4000 thr_open=0.4000 thr_close=0.3800 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0086 P_in=62.2686 Q_in=24.0977
+[h4] 2026-05-31 23:01:39 bus=4 line=3 pp_bus=3 | i_from=0.4716 i_to=0.4716 i_line=0.4716 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0100 P_in=79.8264 Q_in=28.6008
+[h4] 2026-05-31 23:01:39 bus=5 line=- pp_bus=4 | no_line_switch | dead=False brk_fb=1 cmd=1 | vm_pu=1.0084 P_in=89.1545 Q_in=16.0910
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-31 23:01:40
+Island: energized=[1, 2, 3, 4, 5] dead=[]
+Load flow sukses. Voltage snapshot (pu): [1.02, 1.011769445424321, 1.0086796727803362, 1.01, 1.0082248988948033]
+[h4] Siklus selesai, CMD siap ke gateway
+[h4] 2026-05-31 23:01:40 bus=1 line=0 pp_bus=0 | i_from=0.6841 i_to=0.6841 i_line=0.6841 kA | max_i=1.6000 thr_open=1.6000 thr_close=1.5200 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0200 P_in=129.0731 Q_in=33.4068
+[h4] 2026-05-31 23:01:40 bus=2 line=1 pp_bus=1 | i_from=0.3945 i_to=0.3945 i_line=0.3945 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0118 P_in=54.5495 Q_in=11.9327
+[h4] 2026-05-31 23:01:40 bus=3 line=2 pp_bus=2 | i_from=0.0909 i_to=0.0909 i_line=0.0909 kA | max_i=0.4000 thr_open=0.4000 thr_close=0.3800 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0087 P_in=62.5835 Q_in=30.8932
+[h4] 2026-05-31 23:01:40 bus=4 line=3 pp_bus=3 | i_from=0.4852 i_to=0.4852 i_line=0.4852 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0100 P_in=80.1284 Q_in=31.6688
+[h4] 2026-05-31 23:01:40 bus=5 line=- pp_bus=4 | no_line_switch | dead=False brk_fb=1 cmd=1 | vm_pu=1.0082 P_in=91.0647 Q_in=19.8757
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-31 23:01:41
+Island: energized=[1, 2, 3, 4, 5] dead=[]
+Load flow sukses. Voltage snapshot (pu): [1.02, 1.0097446697870904, 1.0063485233214342, 1.01, 1.008204661201375]
+[h4] Siklus selesai, CMD siap ke gateway
+[h4] 2026-05-31 23:01:41 bus=1 line=0 pp_bus=0 | i_from=0.8283 i_to=0.8283 i_line=0.8283 kA | max_i=1.6000 thr_open=1.6000 thr_close=1.5200 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0200 P_in=155.8535 Q_in=36.9700
+[h4] 2026-05-31 23:01:41 bus=2 line=1 pp_bus=1 | i_from=0.5116 i_to=0.5116 i_line=0.5116 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0097 P_in=56.9310 Q_in=26.0048
+[h4] 2026-05-31 23:01:41 bus=3 line=2 pp_bus=2 | i_from=0.1608 i_to=0.1608 i_line=0.1608 kA | max_i=0.4000 thr_open=0.4000 thr_close=0.3800 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0063 P_in=86.6458 Q_in=41.4231
+[h4] 2026-05-31 23:01:41 bus=4 line=3 pp_bus=3 | i_from=0.4833 i_to=0.4833 i_line=0.4833 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0100 P_in=79.9555 Q_in=54.6663
+[h4] 2026-05-31 23:01:41 bus=5 line=- pp_bus=4 | no_line_switch | dead=False brk_fb=1 cmd=1 | vm_pu=1.0082 P_in=90.4922 Q_in=20.7089
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-31 23:01:43
+Island: energized=[1, 2, 3, 4, 5] dead=[]
+Load flow sukses. Voltage snapshot (pu): [1.02, 1.0111155819876878, 1.008449190070771, 1.0099999999999998, 1.0083280353766941]
+[h4] Siklus selesai, CMD siap ke gateway
+[h4] 2026-05-31 23:01:43 bus=1 line=0 pp_bus=0 | i_from=0.7692 i_to=0.7692 i_line=0.7692 kA | max_i=1.6000 thr_open=1.6000 thr_close=1.5200 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0200 P_in=146.9010 Q_in=31.7727
+[h4] 2026-05-31 23:01:43 bus=2 line=1 pp_bus=1 | i_from=0.4313 i_to=0.4313 i_line=0.4313 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0111 P_in=62.5791 Q_in=21.2927
+[h4] 2026-05-31 23:01:43 bus=3 line=2 pp_bus=2 | i_from=0.0785 i_to=0.0785 i_line=0.0785 kA | max_i=0.4000 thr_open=0.4000 thr_close=0.3800 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0084 P_in=75.4582 Q_in=20.7833
+[h4] 2026-05-31 23:01:43 bus=4 line=3 pp_bus=3 | i_from=0.4625 i_to=0.4625 i_line=0.4625 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0100 P_in=79.5321 Q_in=31.4331
+[h4] 2026-05-31 23:01:43 bus=5 line=- pp_bus=4 | no_line_switch | dead=False brk_fb=1 cmd=1 | vm_pu=1.0083 P_in=86.9579 Q_in=18.2848
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-31 23:01:44
+Island: energized=[1, 2, 3, 4, 5] dead=[]
+Load flow sukses. Voltage snapshot (pu): [1.02, 1.010342562286631, 1.0070968612099702, 1.01, 1.0083251867210976]
+[h4] Siklus selesai, CMD siap ke gateway
+[h4] 2026-05-31 23:01:44 bus=1 line=0 pp_bus=0 | i_from=0.7805 i_to=0.7805 i_line=0.7805 kA | max_i=1.6000 thr_open=1.6000 thr_close=1.5200 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0200 P_in=145.3702 Q_in=36.2421
+[h4] 2026-05-31 23:01:44 bus=2 line=1 pp_bus=1 | i_from=0.4647 i_to=0.4647 i_line=0.4647 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0103 P_in=57.3804 Q_in=22.3701
+[h4] 2026-05-31 23:01:44 bus=3 line=2 pp_bus=2 | i_from=0.1276 i_to=0.1276 i_line=0.1276 kA | max_i=0.4000 thr_open=0.4000 thr_close=0.3800 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0071 P_in=79.6589 Q_in=36.9865
+[h4] 2026-05-31 23:01:44 bus=4 line=3 pp_bus=3 | i_from=0.4688 i_to=0.4688 i_line=0.4688 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0100 P_in=79.8894 Q_in=43.7049
+[h4] 2026-05-31 23:01:44 bus=5 line=- pp_bus=4 | no_line_switch | dead=False brk_fb=1 cmd=1 | vm_pu=1.0083 P_in=88.2664 Q_in=17.8770
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-31 23:01:45
+Island: energized=[1, 2, 3, 4, 5] dead=[]
+Load flow sukses. Voltage snapshot (pu): [1.02, 1.0111138980409726, 1.0080754476356182, 1.0100000000000002, 1.0081039996680436]
+[h4] Siklus selesai, CMD siap ke gateway
+[h4] 2026-05-31 23:01:45 bus=1 line=0 pp_bus=0 | i_from=0.7868 i_to=0.7868 i_line=0.7868 kA | max_i=1.6000 thr_open=1.6000 thr_close=1.5200 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0200 P_in=149.8761 Q_in=30.1185
+[h4] 2026-05-31 23:01:45 bus=2 line=1 pp_bus=1 | i_from=0.5040 i_to=0.5040 i_line=0.5040 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0111 P_in=52.2785 Q_in=19.5414
+[h4] 2026-05-31 23:01:45 bus=3 line=2 pp_bus=2 | i_from=0.0860 i_to=0.0860 i_line=0.0860 kA | max_i=0.4000 thr_open=0.4000 thr_close=0.3800 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0081 P_in=90.5547 Q_in=22.8531
+[h4] 2026-05-31 23:01:45 bus=4 line=3 pp_bus=3 | i_from=0.4663 i_to=0.4663 i_line=0.4663 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0100 P_in=79.9556 Q_in=40.7187
+[h4] 2026-05-31 23:01:45 bus=5 line=- pp_bus=4 | no_line_switch | dead=False brk_fb=1 cmd=1 | vm_pu=1.0081 P_in=85.8437 Q_in=25.5330
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-31 23:01:46
+Island: energized=[1, 2, 3, 4, 5] dead=[]
+Load flow sukses. Voltage snapshot (pu): [1.02, 1.011289474671106, 1.0081328713161541, 1.0099999999999998, 1.0080003280961445]
+[h4] Siklus selesai, CMD siap ke gateway
+[h4] 2026-05-31 23:01:46 bus=1 line=0 pp_bus=0 | i_from=0.8137 i_to=0.8137 i_line=0.8137 kA | max_i=1.6000 thr_open=1.6000 thr_close=1.5200 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0200 P_in=154.5243 Q_in=26.4166
+[h4] 2026-05-31 23:01:46 bus=2 line=1 pp_bus=1 | i_from=0.5050 i_to=0.5050 i_line=0.5050 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0113 P_in=58.2532 Q_in=13.3586
+[h4] 2026-05-31 23:01:46 bus=3 line=2 pp_bus=2 | i_from=0.0990 i_to=0.0990 i_line=0.0990 kA | max_i=0.4000 thr_open=0.4000 thr_close=0.3800 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0081 P_in=87.0137 Q_in=25.6811
+[h4] 2026-05-31 23:01:46 bus=4 line=3 pp_bus=3 | i_from=0.4869 i_to=0.4869 i_line=0.4869 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0100 P_in=80.1809 Q_in=42.8185
+[h4] 2026-05-31 23:01:46 bus=5 line=- pp_bus=4 | no_line_switch | dead=False brk_fb=1 cmd=1 | vm_pu=1.0080 P_in=89.4196 Q_in=27.3399
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-31 23:01:47
+Island: energized=[1, 2, 3, 4, 5] dead=[]
+Load flow sukses. Voltage snapshot (pu): [1.02, 1.009980276904704, 1.0075368631123658, 1.0099999999999998, 1.008047202123585]
+[h4] Siklus selesai, CMD siap ke gateway
+[h4] 2026-05-31 23:01:47 bus=1 line=0 pp_bus=0 | i_from=0.8557 i_to=0.8557 i_line=0.8557 kA | max_i=1.6000 thr_open=1.6000 thr_close=1.5200 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0200 P_in=162.0667 Q_in=33.8305
+[h4] 2026-05-31 23:01:47 bus=2 line=1 pp_bus=1 | i_from=0.4498 i_to=0.4498 i_line=0.4498 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0100 P_in=74.6483 Q_in=30.8928
+[h4] 2026-05-31 23:01:47 bus=3 line=2 pp_bus=2 | i_from=0.1065 i_to=0.1065 i_line=0.1065 kA | max_i=0.4000 thr_open=0.4000 thr_close=0.3800 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0075 P_in=79.6466 Q_in=21.8075
+[h4] 2026-05-31 23:01:47 bus=4 line=3 pp_bus=3 | i_from=0.4720 i_to=0.4720 i_line=0.4720 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0100 P_in=80.3529 Q_in=49.4180
+[h4] 2026-05-31 23:01:47 bus=5 line=- pp_bus=4 | no_line_switch | dead=False brk_fb=1 cmd=1 | vm_pu=1.0080 P_in=86.5323 Q_in=27.0031
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-31 23:01:48
+Island: energized=[1, 2, 3, 4, 5] dead=[]
+Load flow sukses. Voltage snapshot (pu): [1.02, 1.0114659065961071, 1.0085834111369707, 1.01, 1.0079674929055524]
+[h4] Siklus selesai, CMD siap ke gateway
+[h4] 2026-05-31 23:01:48 bus=1 line=0 pp_bus=0 | i_from=0.7114 i_to=0.7114 i_line=0.7114 kA | max_i=1.6000 thr_open=1.6000 thr_close=1.5200 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0200 P_in=135.0312 Q_in=33.6645
+[h4] 2026-05-31 23:01:48 bus=2 line=1 pp_bus=1 | i_from=0.4220 i_to=0.4220 i_line=0.4220 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0115 P_in=53.2096 Q_in=18.5434
+[h4] 2026-05-31 23:01:48 bus=3 line=2 pp_bus=2 | i_from=0.0971 i_to=0.0971 i_line=0.0971 kA | max_i=0.4000 thr_open=0.4000 thr_close=0.3800 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0086 P_in=68.3130 Q_in=26.0433
+[h4] 2026-05-31 23:01:48 bus=4 line=3 pp_bus=3 | i_from=0.4989 i_to=0.4989 i_line=0.4989 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0100 P_in=79.5187 Q_in=40.8706
+[h4] 2026-05-31 23:01:48 bus=5 line=- pp_bus=4 | no_line_switch | dead=False brk_fb=1 cmd=1 | vm_pu=1.0080 P_in=91.7938 Q_in=27.4427
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-31 23:01:49
+Island: energized=[1, 2, 3, 4, 5] dead=[]
+Load flow sukses. Voltage snapshot (pu): [1.02, 1.0103659646988046, 1.0079133407059957, 1.0099999999999996, 1.0078654197295263]
+[h4] Siklus selesai, CMD siap ke gateway
+[h4] 2026-05-31 23:01:49 bus=1 line=0 pp_bus=0 | i_from=0.8376 i_to=0.8376 i_line=0.8376 kA | max_i=1.6000 thr_open=1.6000 thr_close=1.5200 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0200 P_in=157.6261 Q_in=32.2539
+[h4] 2026-05-31 23:01:49 bus=2 line=1 pp_bus=1 | i_from=0.4634 i_to=0.4634 i_line=0.4634 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0104 P_in=69.0016 Q_in=29.1653
+[h4] 2026-05-31 23:01:49 bus=3 line=2 pp_bus=2 | i_from=0.1271 i_to=0.1271 i_line=0.1271 kA | max_i=0.4000 thr_open=0.4000 thr_close=0.3800 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0079 P_in=74.7120 Q_in=21.3533
+[h4] 2026-05-31 23:01:49 bus=4 line=3 pp_bus=3 | i_from=0.5139 i_to=0.5139 i_line=0.5139 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0100 P_in=79.5774 Q_in=50.6321
+[h4] 2026-05-31 23:01:49 bus=5 line=- pp_bus=4 | no_line_switch | dead=False brk_fb=1 cmd=1 | vm_pu=1.0079 P_in=94.1061 Q_in=29.6774
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-31 23:01:50
+Island: energized=[1, 2, 3, 4, 5] dead=[]
+Load flow sukses. Voltage snapshot (pu): [1.02, 1.0111496436227065, 1.0087817422818948, 1.01, 1.0080129488254754]
+[h4] Siklus selesai, CMD siap ke gateway
+[h4] 2026-05-31 23:01:50 bus=1 line=0 pp_bus=0 | i_from=0.7168 i_to=0.7168 i_line=0.7168 kA | max_i=1.6000 thr_open=1.6000 thr_close=1.5200 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0200 P_in=135.3758 Q_in=36.4003
+[h4] 2026-05-31 23:01:50 bus=2 line=1 pp_bus=1 | i_from=0.3746 i_to=0.3746 i_line=0.3746 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0111 P_in=62.1574 Q_in=26.0838
+[h4] 2026-05-31 23:01:50 bus=3 line=2 pp_bus=2 | i_from=0.0878 i_to=0.0878 i_line=0.0878 kA | max_i=0.4000 thr_open=0.4000 thr_close=0.3800 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0088 P_in=60.5060 Q_in=20.0159
+[h4] 2026-05-31 23:01:50 bus=4 line=3 pp_bus=3 | i_from=0.4933 i_to=0.4933 i_line=0.4933 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0100 P_in=79.5131 Q_in=38.6450
+[h4] 2026-05-31 23:01:50 bus=5 line=- pp_bus=4 | no_line_switch | dead=False brk_fb=1 cmd=1 | vm_pu=1.0080 P_in=90.9899 Q_in=26.3620
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-31 23:01:51
+Island: energized=[1, 2, 3, 4, 5] dead=[]
+Load flow sukses. Voltage snapshot (pu): [1.02, 1.0097969963619766, 1.006745440998345, 1.0099999999999998, 1.0084422923118455]
+[h4] Siklus selesai, CMD siap ke gateway
+[h4] 2026-05-31 23:01:51 bus=1 line=0 pp_bus=0 | i_from=0.8135 i_to=0.8135 i_line=0.8135 kA | max_i=1.6000 thr_open=1.6000 thr_close=1.5200 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0200 P_in=150.8739 Q_in=38.4675
+[h4] 2026-05-31 23:01:51 bus=2 line=1 pp_bus=1 | i_from=0.4211 i_to=0.4211 i_line=0.4211 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0098 P_in=71.6916 Q_in=25.0332
+[h4] 2026-05-31 23:01:51 bus=3 line=2 pp_bus=2 | i_from=0.1330 i_to=0.1330 i_line=0.1330 kA | max_i=0.4000 thr_open=0.4000 thr_close=0.3800 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0067 P_in=72.8644 Q_in=39.1496
+[h4] 2026-05-31 23:01:51 bus=4 line=3 pp_bus=3 | i_from=0.4567 i_to=0.4567 i_line=0.4567 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0100 P_in=80.2579 Q_in=43.6238
+[h4] 2026-05-31 23:01:51 bus=5 line=- pp_bus=4 | no_line_switch | dead=False brk_fb=1 cmd=1 | vm_pu=1.0084 P_in=86.4588 Q_in=14.9904
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-31 23:01:52
+Island: energized=[1, 2, 3, 4, 5] dead=[]
+Load flow sukses. Voltage snapshot (pu): [1.02, 1.0097969963619766, 1.006745440998345, 1.0099999999999998, 1.0084422923118455]
+[h4] Siklus selesai, CMD siap ke gateway
+[h4] 2026-05-31 23:01:52 bus=1 line=0 pp_bus=0 | i_from=0.8135 i_to=0.8135 i_line=0.8135 kA | max_i=1.6000 thr_open=1.6000 thr_close=1.5200 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0200 P_in=150.8739 Q_in=38.4675
+[h4] 2026-05-31 23:01:52 bus=2 line=1 pp_bus=1 | i_from=0.4211 i_to=0.4211 i_line=0.4211 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0098 P_in=71.6916 Q_in=25.0332
+[h4] 2026-05-31 23:01:52 bus=3 line=2 pp_bus=2 | i_from=0.1330 i_to=0.1330 i_line=0.1330 kA | max_i=0.4000 thr_open=0.4000 thr_close=0.3800 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0067 P_in=72.8644 Q_in=39.1496
+[h4] 2026-05-31 23:01:52 bus=4 line=3 pp_bus=3 | i_from=0.4567 i_to=0.4567 i_line=0.4567 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0100 P_in=80.2579 Q_in=43.6238
+[h4] 2026-05-31 23:01:52 bus=5 line=- pp_bus=4 | no_line_switch | dead=False brk_fb=1 cmd=1 | vm_pu=1.0084 P_in=86.4588 Q_in=14.9904
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-31 23:01:53
+Island: energized=[1, 2, 3, 4, 5] dead=[]
+Load flow sukses. Voltage snapshot (pu): [1.02, 1.0095651173499862, 1.0066450716984685, 1.01, 1.0080614010439175]
+[h4] Siklus selesai, CMD siap ke gateway
+[h4] 2026-05-31 23:01:53 bus=1 line=0 pp_bus=0 | i_from=0.8920 i_to=0.8920 i_line=0.8920 kA | max_i=1.6000 thr_open=1.6000 thr_close=1.5200 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0200 P_in=169.3441 Q_in=33.2173
+[h4] 2026-05-31 23:01:53 bus=2 line=1 pp_bus=1 | i_from=0.4772 i_to=0.4772 i_line=0.4772 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0096 P_in=76.5153 Q_in=26.8475
+[h4] 2026-05-31 23:01:53 bus=3 line=2 pp_bus=2 | i_from=0.1354 i_to=0.1354 i_line=0.1354 kA | max_i=0.4000 thr_open=0.4000 thr_close=0.3800 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0066 P_in=84.9248 Q_in=32.9196
+[h4] 2026-05-31 23:01:53 bus=4 line=3 pp_bus=3 | i_from=0.4696 i_to=0.4696 i_line=0.4696 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0100 P_in=79.6989 Q_in=56.8933
+[h4] 2026-05-31 23:01:53 bus=5 line=- pp_bus=4 | no_line_switch | dead=False brk_fb=1 cmd=1 | vm_pu=1.0081 P_in=86.1358 Q_in=26.7204
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-31 23:01:54
+Island: energized=[1, 2, 3, 4, 5] dead=[]
+Load flow sukses. Voltage snapshot (pu): [1.02, 1.0105050294730595, 1.0077002969437714, 1.01, 1.0081802681690426]
+[h4] Siklus selesai, CMD siap ke gateway
+[h4] 2026-05-31 23:01:54 bus=1 line=0 pp_bus=0 | i_from=0.8289 i_to=0.8289 i_line=0.8289 kA | max_i=1.6000 thr_open=1.6000 thr_close=1.5200 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0200 P_in=158.2543 Q_in=33.4263
+[h4] 2026-05-31 23:01:54 bus=2 line=1 pp_bus=1 | i_from=0.5079 i_to=0.5079 i_line=0.5079 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0105 P_in=58.9561 Q_in=26.3898
+[h4] 2026-05-31 23:01:54 bus=3 line=2 pp_bus=2 | i_from=0.1290 i_to=0.1290 i_line=0.1290 kA | max_i=0.4000 thr_open=0.4000 thr_close=0.3800 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0077 P_in=84.1208 Q_in=24.3442
+[h4] 2026-05-31 23:01:54 bus=4 line=3 pp_bus=3 | i_from=0.4966 i_to=0.4966 i_line=0.4966 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0100 P_in=79.7465 Q_in=40.7913
+[h4] 2026-05-31 23:01:54 bus=5 line=- pp_bus=4 | no_line_switch | dead=False brk_fb=1 cmd=1 | vm_pu=1.0082 P_in=93.1764 Q_in=20.4373
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-31 23:01:55
+Island: energized=[1, 2, 3, 4, 5] dead=[]
+Load flow sukses. Voltage snapshot (pu): [1.02, 1.0105903826839586, 1.007781707294293, 1.01, 1.0082282943112928]
+[h4] Siklus selesai, CMD siap ke gateway
+[h4] 2026-05-31 23:01:55 bus=1 line=0 pp_bus=0 | i_from=0.7969 i_to=0.7969 i_line=0.7969 kA | max_i=1.6000 thr_open=1.6000 thr_close=1.5200 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0200 P_in=150.7892 Q_in=33.4263
+[h4] 2026-05-31 23:01:55 bus=2 line=1 pp_bus=1 | i_from=0.4824 i_to=0.4824 i_line=0.4824 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0106 P_in=57.2644 Q_in=26.3898
+[h4] 2026-05-31 23:01:55 bus=3 line=2 pp_bus=2 | i_from=0.1095 i_to=0.1095 i_line=0.1095 kA | max_i=0.4000 thr_open=0.4000 thr_close=0.3800 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0078 P_in=83.0255 Q_in=24.3442
+[h4] 2026-05-31 23:01:55 bus=4 line=3 pp_bus=3 | i_from=0.4769 i_to=0.4769 i_line=0.4769 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0100 P_in=79.8373 Q_in=40.7913
+[h4] 2026-05-31 23:01:55 bus=5 line=- pp_bus=4 | no_line_switch | dead=False brk_fb=1 cmd=1 | vm_pu=1.0082 P_in=89.3055 Q_in=20.4373
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-31 23:01:56
+Island: energized=[1, 2, 3, 4, 5] dead=[]
+Load flow sukses. Voltage snapshot (pu): [1.02, 1.0120513096956825, 1.009263896784738, 1.01, 1.0083056370854262]
+[h4] Siklus selesai, CMD siap ke gateway
+[h4] 2026-05-31 23:01:56 bus=1 line=0 pp_bus=0 | i_from=0.7075 i_to=0.7075 i_line=0.7075 kA | max_i=1.6000 thr_open=1.6000 thr_close=1.5200 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0200 P_in=134.2209 Q_in=29.2289
+[h4] 2026-05-31 23:01:56 bus=2 line=1 pp_bus=1 | i_from=0.4360 i_to=0.4360 i_line=0.4360 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0121 P_in=50.6759 Q_in=14.9953
+[h4] 2026-05-31 23:01:56 bus=3 line=2 pp_bus=2 | i_from=0.0882 i_to=0.0882 i_line=0.0882 kA | max_i=0.4000 thr_open=0.4000 thr_close=0.3800 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0093 P_in=69.9276 Q_in=19.3448
+[h4] 2026-05-31 23:01:56 bus=4 line=3 pp_bus=3 | i_from=0.4933 i_to=0.4933 i_line=0.4933 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0100 P_in=80.3828 Q_in=24.2446
+[h4] 2026-05-31 23:01:56 bus=5 line=- pp_bus=4 | no_line_switch | dead=False brk_fb=1 cmd=1 | vm_pu=1.0083 P_in=93.3064 Q_in=16.5672
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-31 23:01:57
+Island: energized=[1, 2, 3, 4, 5] dead=[]
+Load flow sukses. Voltage snapshot (pu): [1.02, 1.0102741264558983, 1.0080339297112713, 1.0099999999999998, 1.0083056370854262]
+[h4] Siklus selesai, CMD siap ke gateway
+[h4] 2026-05-31 23:01:57 bus=1 line=0 pp_bus=0 | i_from=0.8360 i_to=0.8360 i_line=0.8360 kA | max_i=1.6000 thr_open=1.6000 thr_close=1.5200 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0200 P_in=173.1181 Q_in=36.7518
+[h4] 2026-05-31 23:01:57 bus=2 line=1 pp_bus=1 | i_from=0.4334 i_to=0.4334 i_line=0.4334 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0103 P_in=74.1979 Q_in=31.3167
+[h4] 2026-05-31 23:01:57 bus=3 line=2 pp_bus=2 | i_from=0.1198 i_to=0.1198 i_line=0.1198 kA | max_i=0.4000 thr_open=0.4000 thr_close=0.3800 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0080 P_in=69.7893 Q_in=19.3065
+[h4] 2026-05-31 23:01:57 bus=4 line=3 pp_bus=3 | i_from=0.4933 i_to=0.4933 i_line=0.4933 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0100 P_in=80.3828 Q_in=24.2446
+[h4] 2026-05-31 23:01:57 bus=5 line=- pp_bus=4 | no_line_switch | dead=False brk_fb=1 cmd=1 | vm_pu=1.0083 P_in=93.3064 Q_in=16.5672
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-31 23:01:58
+Island: energized=[1, 2, 3, 4, 5] dead=[]
+Load flow sukses. Voltage snapshot (pu): [1.02, 1.0088356565156211, 1.0056739329421962, 1.01, 1.0079429759530105]
+[h4] Siklus selesai, CMD siap ke gateway
+[h4] 2026-05-31 23:01:58 bus=1 line=0 pp_bus=0 | i_from=0.9214 i_to=0.9214 i_line=0.9214 kA | max_i=1.6000 thr_open=1.6000 thr_close=1.5200 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0200 P_in=173.1181 Q_in=36.7518
+[h4] 2026-05-31 23:01:58 bus=2 line=1 pp_bus=1 | i_from=0.5131 i_to=0.5131 i_line=0.5131 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0088 P_in=74.1979 Q_in=31.3167
+[h4] 2026-05-31 23:01:58 bus=3 line=2 pp_bus=2 | i_from=0.1943 i_to=0.1943 i_line=0.1943 kA | max_i=0.4000 thr_open=0.4000 thr_close=0.3800 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0057 P_in=84.3152 Q_in=43.2659
+[h4] 2026-05-31 23:01:58 bus=4 line=3 pp_bus=3 | i_from=0.5072 i_to=0.5072 i_line=0.5072 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0100 P_in=80.3168 Q_in=48.0611
+[h4] 2026-05-31 23:01:58 bus=5 line=- pp_bus=4 | no_line_switch | dead=False brk_fb=1 cmd=1 | vm_pu=1.0079 P_in=93.4242 Q_in=27.5731
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-31 23:01:59
+Island: energized=[1, 2, 3, 4, 5] dead=[]
+Load flow sukses. Voltage snapshot (pu): [1.02, 1.0114993047776846, 1.0088094890796642, 1.01, 1.0079420997237474]
+[h4] Siklus selesai, CMD siap ke gateway
+[h4] 2026-05-31 23:01:59 bus=1 line=0 pp_bus=0 | i_from=0.7182 i_to=0.7182 i_line=0.7182 kA | max_i=1.6000 thr_open=1.6000 thr_close=1.5200 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0200 P_in=144.7184 Q_in=32.0103
+[h4] 2026-05-31 23:01:59 bus=2 line=1 pp_bus=1 | i_from=0.4414 i_to=0.4414 i_line=0.4414 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0115 P_in=50.4551 Q_in=22.1726
+[h4] 2026-05-31 23:01:59 bus=3 line=2 pp_bus=2 | i_from=0.1056 i_to=0.1056 i_line=0.1056 kA | max_i=0.4000 thr_open=0.4000 thr_close=0.3800 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0088 P_in=69.8023 Q_in=20.9476
+[h4] 2026-05-31 23:01:59 bus=4 line=3 pp_bus=3 | i_from=0.5125 i_to=0.5125 i_line=0.5125 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0100 P_in=80.5418 Q_in=40.4345
+[h4] 2026-05-31 23:01:59 bus=5 line=- pp_bus=4 | no_line_switch | dead=False brk_fb=1 cmd=1 | vm_pu=1.0079 P_in=94.6093 Q_in=27.1517
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-31 23:02:00
+Island: energized=[1, 2, 3, 4, 5] dead=[]
+Load flow sukses. Voltage snapshot (pu): [1.02, 1.009506917246997, 1.0063749450404171, 1.0099999999999996, 1.0079420997237467]
+[h4] Siklus selesai, CMD siap ke gateway
+[h4] 2026-05-31 23:02:00 bus=1 line=0 pp_bus=0 | i_from=0.9203 i_to=0.9203 i_line=0.9203 kA | max_i=1.6000 thr_open=1.6000 thr_close=1.5200 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0200 P_in=175.2542 Q_in=31.5287
+[h4] 2026-05-31 23:02:00 bus=2 line=1 pp_bus=1 | i_from=0.5457 i_to=0.5457 i_line=0.5457 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0095 P_in=69.1052 Q_in=26.8753
+[h4] 2026-05-31 23:02:00 bus=3 line=2 pp_bus=2 | i_from=0.1763 i_to=0.1763 i_line=0.1763 kA | max_i=0.4000 thr_open=0.4000 thr_close=0.3800 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0064 P_in=89.6923 Q_in=35.9264
+[h4] 2026-05-31 23:02:00 bus=4 line=3 pp_bus=3 | i_from=0.5125 i_to=0.5125 i_line=0.5125 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0100 P_in=80.5418 Q_in=40.4345
+[h4] 2026-05-31 23:02:00 bus=5 line=- pp_bus=4 | no_line_switch | dead=False brk_fb=1 cmd=1 | vm_pu=1.0079 P_in=94.6093 Q_in=27.1517
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-31 23:02:01
+Island: energized=[1, 2, 3, 4, 5] dead=[]
+Load flow sukses. Voltage snapshot (pu): [1.02, 1.0084091654888263, 1.0053479637960594, 1.01, 1.0081924848049966]
+[h4] Siklus selesai, CMD siap ke gateway
+[h4] 2026-05-31 23:02:01 bus=1 line=0 pp_bus=0 | i_from=0.9389 i_to=0.9389 i_line=0.9389 kA | max_i=1.6000 thr_open=1.6000 thr_close=1.5200 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0200 P_in=175.5784 Q_in=39.0913
+[h4] 2026-05-31 23:02:01 bus=2 line=1 pp_bus=1 | i_from=0.5006 i_to=0.5006 i_line=0.5006 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0084 P_in=79.2256 Q_in=35.0972
+[h4] 2026-05-31 23:02:01 bus=3 line=2 pp_bus=2 | i_from=0.1810 i_to=0.1810 i_line=0.1810 kA | max_i=0.4000 thr_open=0.4000 thr_close=0.3800 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0053 P_in=88.9578 Q_in=42.0966
+[h4] 2026-05-31 23:02:01 bus=4 line=3 pp_bus=3 | i_from=0.4650 i_to=0.4650 i_line=0.4650 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0100 P_in=79.9186 Q_in=64.4532
+[h4] 2026-05-31 23:02:01 bus=5 line=- pp_bus=4 | no_line_switch | dead=False brk_fb=1 cmd=1 | vm_pu=1.0082 P_in=86.4130 Q_in=22.6218
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-31 23:02:02
+Island: energized=[1, 2, 3, 4, 5] dead=[]
+Load flow sukses. Voltage snapshot (pu): [1.02, 1.0096858380802476, 1.006878891624746, 1.0099999999999998, 1.0082100573351565]
+[h4] Siklus selesai, CMD siap ke gateway
+[h4] 2026-05-31 23:02:02 bus=1 line=0 pp_bus=0 | i_from=0.8542 i_to=0.8542 i_line=0.8542 kA | max_i=1.6000 thr_open=1.6000 thr_close=1.5200 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0200 P_in=160.0409 Q_in=36.0932
+[h4] 2026-05-31 23:02:02 bus=2 line=1 pp_bus=1 | i_from=0.4601 i_to=0.4601 i_line=0.4601 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0097 P_in=71.8539 Q_in=29.4937
+[h4] 2026-05-31 23:02:02 bus=3 line=2 pp_bus=2 | i_from=0.1378 i_to=0.1378 i_line=0.1378 kA | max_i=0.4000 thr_open=0.4000 thr_close=0.3800 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0069 P_in=78.7557 Q_in=32.1081
+[h4] 2026-05-31 23:02:02 bus=4 line=3 pp_bus=3 | i_from=0.4765 i_to=0.4765 i_line=0.4765 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0100 P_in=80.3983 Q_in=49.8475
+[h4] 2026-05-31 23:02:02 bus=5 line=- pp_bus=4 | no_line_switch | dead=False brk_fb=1 cmd=1 | vm_pu=1.0082 P_in=89.0613 Q_in=21.0854
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-31 23:02:04
+Island: energized=[1, 2, 3, 4, 5] dead=[]
+Load flow sukses. Voltage snapshot (pu): [1.02, 1.0120147794192471, 1.0095432254286825, 1.0099999999999998, 1.0082626337094955]
+[h4] Siklus selesai, CMD siap ke gateway
+[h4] 2026-05-31 23:02:04 bus=1 line=0 pp_bus=0 | i_from=0.6813 i_to=0.6813 i_line=0.6813 kA | max_i=1.6000 thr_open=1.6000 thr_close=1.5200 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0200 P_in=128.7620 Q_in=32.1581
+[h4] 2026-05-31 23:02:04 bus=2 line=1 pp_bus=1 | i_from=0.3701 i_to=0.3701 i_line=0.3701 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0120 P_in=57.8042 Q_in=17.5869
+[h4] 2026-05-31 23:02:04 bus=3 line=2 pp_bus=2 | i_from=0.0671 i_to=0.0671 i_line=0.0671 kA | max_i=0.4000 thr_open=0.4000 thr_close=0.3800 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0095 P_in=59.9437 Q_in=16.7035
+[h4] 2026-05-31 23:02:04 bus=4 line=3 pp_bus=3 | i_from=0.4813 i_to=0.4813 i_line=0.4813 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0100 P_in=79.1546 Q_in=23.0561
+[h4] 2026-05-31 23:02:04 bus=5 line=- pp_bus=4 | no_line_switch | dead=False brk_fb=1 cmd=1 | vm_pu=1.0083 P_in=90.5028 Q_in=18.9381
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-31 23:02:05
+Island: energized=[1, 2, 3, 4, 5] dead=[]
+Load flow sukses. Voltage snapshot (pu): [1.02, 1.0112765298569235, 1.0090399494571118, 1.0099999999999998, 1.0082626337094955]
+[h4] Siklus selesai, CMD siap ke gateway
+[h4] 2026-05-31 23:02:05 bus=1 line=0 pp_bus=0 | i_from=0.7534 i_to=0.7534 i_line=0.7534 kA | max_i=1.6000 thr_open=1.6000 thr_close=1.5200 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0200 P_in=155.9181 Q_in=35.0142
+[h4] 2026-05-31 23:02:05 bus=2 line=1 pp_bus=1 | i_from=0.3668 i_to=0.3668 i_line=0.3668 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0113 P_in=71.8630 Q_in=22.6628
+[h4] 2026-05-31 23:02:05 bus=3 line=2 pp_bus=2 | i_from=0.0786 i_to=0.0786 i_line=0.0786 kA | max_i=0.4000 thr_open=0.4000 thr_close=0.3800 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0090 P_in=59.6481 Q_in=16.6212
+[h4] 2026-05-31 23:02:05 bus=4 line=3 pp_bus=3 | i_from=0.4813 i_to=0.4813 i_line=0.4813 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0100 P_in=79.1546 Q_in=23.0561
+[h4] 2026-05-31 23:02:05 bus=5 line=- pp_bus=4 | no_line_switch | dead=False brk_fb=1 cmd=1 | vm_pu=1.0083 P_in=90.5028 Q_in=18.9381
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-31 23:02:06
+Island: energized=[1, 2, 3, 4, 5] dead=[]
+Load flow sukses. Voltage snapshot (pu): [1.02, 1.0109280547041986, 1.0076704132771117, 1.0099999999999996, 1.0081436132147854]
+[h4] Siklus selesai, CMD siap ke gateway
+[h4] 2026-05-31 23:02:06 bus=1 line=0 pp_bus=0 | i_from=0.7421 i_to=0.7421 i_line=0.7421 kA | max_i=1.6000 thr_open=1.6000 thr_close=1.5200 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0200 P_in=149.9554 Q_in=32.4333
+[h4] 2026-05-31 23:02:06 bus=2 line=1 pp_bus=1 | i_from=0.4217 i_to=0.4217 i_line=0.4217 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0109 P_in=59.7407 Q_in=15.5383
+[h4] 2026-05-31 23:02:06 bus=3 line=2 pp_bus=2 | i_from=0.1081 i_to=0.1081 i_line=0.1081 kA | max_i=0.4000 thr_open=0.4000 thr_close=0.3800 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0077 P_in=70.7237 Q_in=36.9547
+[h4] 2026-05-31 23:02:06 bus=4 line=3 pp_bus=3 | i_from=0.4747 i_to=0.4747 i_line=0.4747 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0100 P_in=79.9950 Q_in=47.3178
+[h4] 2026-05-31 23:02:06 bus=5 line=- pp_bus=4 | no_line_switch | dead=False brk_fb=1 cmd=1 | vm_pu=1.0081 P_in=88.1061 Q_in=23.4711
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-31 23:02:07
+Island: energized=[1, 2, 3, 4, 5] dead=[]
+Load flow sukses. Voltage snapshot (pu): [1.02, 1.0098338825146964, 1.006658163077962, 1.01, 1.0081685686707238]
+[h4] Siklus selesai, CMD siap ke gateway
+[h4] 2026-05-31 23:02:07 bus=1 line=0 pp_bus=0 | i_from=0.8471 i_to=0.8471 i_line=0.8471 kA | max_i=1.6000 thr_open=1.6000 thr_close=1.5200 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0200 P_in=141.5875 Q_in=36.4039
+[h4] 2026-05-31 23:02:07 bus=2 line=1 pp_bus=1 | i_from=0.5027 i_to=0.5027 i_line=0.5027 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0098 P_in=62.7091 Q_in=26.0094
+[h4] 2026-05-31 23:02:07 bus=3 line=2 pp_bus=2 | i_from=0.1648 i_to=0.1648 i_line=0.1648 kA | max_i=0.4000 thr_open=0.4000 thr_close=0.3800 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0067 P_in=81.7340 Q_in=37.9501
+[h4] 2026-05-31 23:02:07 bus=4 line=3 pp_bus=3 | i_from=0.5010 i_to=0.5010 i_line=0.5010 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0100 P_in=79.6530 Q_in=40.1660
+[h4] 2026-05-31 23:02:07 bus=5 line=- pp_bus=4 | no_line_switch | dead=False brk_fb=1 cmd=1 | vm_pu=1.0082 P_in=94.0206 Q_in=20.4746
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-31 23:02:08
+Island: energized=[1, 2, 3, 4, 5] dead=[]
+Load flow sukses. Voltage snapshot (pu): [1.02, 1.0103531501269734, 1.0078323591358138, 1.01, 1.0081577693662156]
+[h4] Siklus selesai, CMD siap ke gateway
+[h4] 2026-05-31 23:02:08 bus=1 line=0 pp_bus=0 | i_from=0.7810 i_to=0.7810 i_line=0.7810 kA | max_i=1.6000 thr_open=1.6000 thr_close=1.5200 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0200 P_in=152.4619 Q_in=35.7448
+[h4] 2026-05-31 23:02:08 bus=2 line=1 pp_bus=1 | i_from=0.3617 i_to=0.3617 i_line=0.3617 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0104 P_in=77.0651 Q_in=25.5482
+[h4] 2026-05-31 23:02:08 bus=3 line=2 pp_bus=2 | i_from=0.0906 i_to=0.0906 i_line=0.0906 kA | max_i=0.4000 thr_open=0.4000 thr_close=0.3800 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0078 P_in=63.6162 Q_in=27.5206
+[h4] 2026-05-31 23:02:08 bus=4 line=3 pp_bus=3 | i_from=0.4596 i_to=0.4596 i_line=0.4596 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0100 P_in=80.1482 Q_in=44.6255
+[h4] 2026-05-31 23:02:08 bus=5 line=- pp_bus=4 | no_line_switch | dead=False brk_fb=1 cmd=1 | vm_pu=1.0082 P_in=84.8791 Q_in=24.2592
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-31 23:02:08
+Island: energized=[1, 2, 3, 4, 5] dead=[]
+Load flow sukses. Voltage snapshot (pu): [1.02, 1.0103917970086844, 1.0072820602270964, 1.0099999999999998, 1.0080328670909195]
+[h4] Siklus selesai, CMD siap ke gateway
+[h4] 2026-05-31 23:02:08 bus=1 line=0 pp_bus=0 | i_from=0.8097 i_to=0.8097 i_line=0.8097 kA | max_i=1.6000 thr_open=1.6000 thr_close=1.5200 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0200 P_in=152.8296 Q_in=33.5063
+[h4] 2026-05-31 23:02:08 bus=2 line=1 pp_bus=1 | i_from=0.4679 i_to=0.4679 i_line=0.4679 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0104 P_in=62.9681 Q_in=21.4904
+[h4] 2026-05-31 23:02:08 bus=3 line=2 pp_bus=2 | i_from=0.1245 i_to=0.1245 i_line=0.1245 kA | max_i=0.4000 thr_open=0.4000 thr_close=0.3800 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0073 P_in=79.8554 Q_in=33.5834
+[h4] 2026-05-31 23:02:08 bus=4 line=3 pp_bus=3 | i_from=0.4838 i_to=0.4838 i_line=0.4838 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0100 P_in=79.3135 Q_in=50.6510
+[h4] 2026-05-31 23:02:08 bus=5 line=- pp_bus=4 | no_line_switch | dead=False brk_fb=1 cmd=1 | vm_pu=1.0080 P_in=89.0525 Q_in=26.4874
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-31 23:02:09
+Island: energized=[1, 2, 3, 4, 5] dead=[]
+Load flow sukses. Voltage snapshot (pu): [1.02, 1.0103917970086844, 1.0072820602270964, 1.0099999999999998, 1.0080328670909195]
+[h4] Siklus selesai, CMD siap ke gateway
+[h4] 2026-05-31 23:02:09 bus=1 line=0 pp_bus=0 | i_from=0.8097 i_to=0.8097 i_line=0.8097 kA | max_i=1.6000 thr_open=1.6000 thr_close=1.5200 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0200 P_in=152.8296 Q_in=33.5063
+[h4] 2026-05-31 23:02:09 bus=2 line=1 pp_bus=1 | i_from=0.4679 i_to=0.4679 i_line=0.4679 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0104 P_in=62.9681 Q_in=21.4904
+[h4] 2026-05-31 23:02:09 bus=3 line=2 pp_bus=2 | i_from=0.1245 i_to=0.1245 i_line=0.1245 kA | max_i=0.4000 thr_open=0.4000 thr_close=0.3800 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0073 P_in=79.8554 Q_in=33.5834
+[h4] 2026-05-31 23:02:09 bus=4 line=3 pp_bus=3 | i_from=0.4838 i_to=0.4838 i_line=0.4838 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0100 P_in=79.3135 Q_in=50.6510
+[h4] 2026-05-31 23:02:09 bus=5 line=- pp_bus=4 | no_line_switch | dead=False brk_fb=1 cmd=1 | vm_pu=1.0080 P_in=89.0525 Q_in=26.4874
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-31 23:02:10
+Island: energized=[1, 2, 3, 4, 5] dead=[]
+Load flow sukses. Voltage snapshot (pu): [1.02, 1.0102998384721227, 1.0067788980229715, 1.0099999999999998, 1.0082445160465952]
+[h4] Siklus selesai, CMD siap ke gateway
+[h4] 2026-05-31 23:02:10 bus=1 line=0 pp_bus=0 | i_from=0.8201 i_to=0.8201 i_line=0.8201 kA | max_i=1.6000 thr_open=1.6000 thr_close=1.5200 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0200 P_in=155.2289 Q_in=33.1099
+[h4] 2026-05-31 23:02:10 bus=2 line=1 pp_bus=1 | i_from=0.4763 i_to=0.4763 i_line=0.4763 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0103 P_in=64.3618 Q_in=15.5304
+[h4] 2026-05-31 23:02:10 bus=3 line=2 pp_bus=2 | i_from=0.1296 i_to=0.1296 i_line=0.1296 kA | max_i=0.4000 thr_open=0.4000 thr_close=0.3800 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0068 P_in=83.7552 Q_in=41.6731
+[h4] 2026-05-31 23:02:10 bus=4 line=3 pp_bus=3 | i_from=0.4601 i_to=0.4601 i_line=0.4601 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0100 P_in=80.2623 Q_in=48.7492
+[h4] 2026-05-31 23:02:10 bus=5 line=- pp_bus=4 | no_line_switch | dead=False brk_fb=1 cmd=1 | vm_pu=1.0082 P_in=85.7847 Q_in=21.2737
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-31 23:02:11
+Island: energized=[1, 2, 3, 4, 5] dead=[]
+Load flow sukses. Voltage snapshot (pu): [1.02, 1.009914251686951, 1.0070951416993756, 1.01, 1.0079854999454554]
+[h4] Siklus selesai, CMD siap ke gateway
+[h4] 2026-05-31 23:02:11 bus=1 line=0 pp_bus=0 | i_from=0.8756 i_to=0.8756 i_line=0.8756 kA | max_i=1.6000 thr_open=1.6000 thr_close=1.5200 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0200 P_in=167.5104 Q_in=32.2195
+[h4] 2026-05-31 23:02:11 bus=2 line=1 pp_bus=1 | i_from=0.5013 i_to=0.5013 i_line=0.5013 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0099 P_in=68.9179 Q_in=27.9267
+[h4] 2026-05-31 23:02:11 bus=3 line=2 pp_bus=2 | i_from=0.1402 i_to=0.1402 i_line=0.1402 kA | max_i=0.4000 thr_open=0.4000 thr_close=0.3800 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0071 P_in=84.4963 Q_in=28.4858
+[h4] 2026-05-31 23:02:11 bus=4 line=3 pp_bus=3 | i_from=0.4965 i_to=0.4965 i_line=0.4965 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0100 P_in=79.8609 Q_in=55.0376
+[h4] 2026-05-31 23:02:11 bus=5 line=- pp_bus=4 | no_line_switch | dead=False brk_fb=1 cmd=1 | vm_pu=1.0080 P_in=91.4479 Q_in=27.0249
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-31 23:02:12
+Island: energized=[1, 2, 3, 4, 5] dead=[]
+Load flow sukses. Voltage snapshot (pu): [1.02, 1.0107580145656114, 1.008029665662095, 1.01, 1.0078866363401053]
+[h4] Siklus selesai, CMD siap ke gateway
+[h4] 2026-05-31 23:02:12 bus=1 line=0 pp_bus=0 | i_from=0.7325 i_to=0.7325 i_line=0.7325 kA | max_i=1.6000 thr_open=1.6000 thr_close=1.5200 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0200 P_in=138.1653 Q_in=37.7174
+[h4] 2026-05-31 23:02:12 bus=2 line=1 pp_bus=1 | i_from=0.4188 i_to=0.4188 i_line=0.4188 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0108 P_in=56.1344 Q_in=26.8683
+[h4] 2026-05-31 23:02:12 bus=3 line=2 pp_bus=2 | i_from=0.1175 i_to=0.1175 i_line=0.1175 kA | max_i=0.4000 thr_open=0.4000 thr_close=0.3800 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0080 P_in=66.9483 Q_in=27.9516
+[h4] 2026-05-31 23:02:12 bus=4 line=3 pp_bus=3 | i_from=0.5071 i_to=0.5071 i_line=0.5071 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0100 P_in=80.1788 Q_in=49.9010
+[h4] 2026-05-31 23:02:12 bus=5 line=- pp_bus=4 | no_line_switch | dead=False brk_fb=1 cmd=1 | vm_pu=1.0079 P_in=92.7842 Q_in=29.5309
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-31 23:02:13
+Island: energized=[1, 2, 3, 4, 5] dead=[]
+Load flow sukses. Voltage snapshot (pu): [1.02, 1.0112141644775665, 1.008559755363131, 1.0099999999999998, 1.0080222499941491]
+[h4] Siklus selesai, CMD siap ke gateway
+[h4] 2026-05-31 23:02:13 bus=1 line=0 pp_bus=0 | i_from=0.7425 i_to=0.7425 i_line=0.7425 kA | max_i=1.6000 thr_open=1.6000 thr_close=1.5200 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0200 P_in=138.8440 Q_in=33.3775
+[h4] 2026-05-31 23:02:13 bus=2 line=1 pp_bus=1 | i_from=0.4024 i_to=0.4024 i_line=0.4024 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0112 P_in=62.8512 Q_in=20.5688
+[h4] 2026-05-31 23:02:13 bus=3 line=2 pp_bus=2 | i_from=0.0900 i_to=0.0900 i_line=0.0900 kA | max_i=0.4000 thr_open=0.4000 thr_close=0.3800 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0086 P_in=66.4069 Q_in=23.5028
+[h4] 2026-05-31 23:02:13 bus=4 line=3 pp_bus=3 | i_from=0.4893 i_to=0.4893 i_line=0.4893 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0100 P_in=79.6649 Q_in=39.0785
+[h4] 2026-05-31 23:02:13 bus=5 line=- pp_bus=4 | no_line_switch | dead=False brk_fb=1 cmd=1 | vm_pu=1.0080 P_in=90.1985 Q_in=26.3777
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-31 23:02:14
+Island: energized=[1, 2, 3, 4, 5] dead=[]
+Load flow sukses. Voltage snapshot (pu): [1.02, 1.0110616052727635, 1.0075581315618998, 1.0099999999999998, 1.0084027018210466]
+[h4] Siklus selesai, CMD siap ke gateway
+[h4] 2026-05-31 23:02:14 bus=1 line=0 pp_bus=0 | i_from=0.7372 i_to=0.7372 i_line=0.7372 kA | max_i=1.6000 thr_open=1.6000 thr_close=1.5200 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0200 P_in=138.5354 Q_in=33.8017
+[h4] 2026-05-31 23:02:14 bus=2 line=1 pp_bus=1 | i_from=0.4431 i_to=0.4431 i_line=0.4431 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0111 P_in=55.3369 Q_in=12.1861
+[h4] 2026-05-31 23:02:14 bus=3 line=2 pp_bus=2 | i_from=0.1088 i_to=0.1088 i_line=0.1088 kA | max_i=0.4000 thr_open=0.4000 thr_close=0.3800 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0076 P_in=75.1857 Q_in=39.6576
+[h4] 2026-05-31 23:02:14 bus=4 line=3 pp_bus=3 | i_from=0.4620 i_to=0.4620 i_line=0.4620 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0100 P_in=79.9549 Q_in=36.5216
+[h4] 2026-05-31 23:02:14 bus=5 line=- pp_bus=4 | no_line_switch | dead=False brk_fb=1 cmd=1 | vm_pu=1.0084 P_in=87.3390 Q_in=15.8646
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-31 23:02:15
+Island: energized=[1, 2, 3, 4, 5] dead=[]
+Load flow sukses. Voltage snapshot (pu): [1.02, 1.0112369804751364, 1.0084659183224332, 1.0099999999999998, 1.0084082691706955]
+[h4] Siklus selesai, CMD siap ke gateway
+[h4] 2026-05-31 23:02:15 bus=1 line=0 pp_bus=0 | i_from=0.8151 i_to=0.8151 i_line=0.8151 kA | max_i=1.6000 thr_open=1.6000 thr_close=1.5200 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0200 P_in=155.9692 Q_in=26.7587
+[h4] 2026-05-31 23:02:15 bus=2 line=1 pp_bus=1 | i_from=0.4756 i_to=0.4756 i_line=0.4756 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0112 P_in=63.8250 Q_in=17.5791
+[h4] 2026-05-31 23:02:15 bus=3 line=2 pp_bus=2 | i_from=0.0972 i_to=0.0972 i_line=0.0972 kA | max_i=0.4000 thr_open=0.4000 thr_close=0.3800 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0085 P_in=79.9340 Q_in=20.4148
+[h4] 2026-05-31 23:02:15 bus=4 line=3 pp_bus=3 | i_from=0.4802 i_to=0.4802 i_line=0.4802 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0100 P_in=80.1995 Q_in=28.7077
+[h4] 2026-05-31 23:02:15 bus=5 line=- pp_bus=4 | no_line_switch | dead=False brk_fb=1 cmd=1 | vm_pu=1.0084 P_in=91.1584 Q_in=14.2508
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-31 23:02:16
+Island: energized=[1, 2, 3, 4, 5] dead=[]
+Load flow sukses. Voltage snapshot (pu): [1.02, 1.0097036674806528, 1.0067846251354473, 1.0099999999999998, 1.0081062844990598]
+[h4] Siklus selesai, CMD siap ke gateway
+[h4] 2026-05-31 23:02:16 bus=1 line=0 pp_bus=0 | i_from=0.9072 i_to=0.9072 i_line=0.9072 kA | max_i=1.6000 thr_open=1.6000 thr_close=1.5200 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0200 P_in=173.1025 Q_in=31.0405
+[h4] 2026-05-31 23:02:16 bus=2 line=1 pp_bus=1 | i_from=0.4960 i_to=0.4960 i_line=0.4960 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0097 P_in=76.3557 Q_in=25.3668
+[h4] 2026-05-31 23:02:16 bus=3 line=2 pp_bus=2 | i_from=0.1581 i_to=0.1581 i_line=0.1581 kA | max_i=0.4000 thr_open=0.4000 thr_close=0.3800 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0068 P_in=81.3911 Q_in=33.3332
+[h4] 2026-05-31 23:02:16 bus=4 line=3 pp_bus=3 | i_from=0.5002 i_to=0.5002 i_line=0.5002 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0100 P_in=79.2121 Q_in=53.7254
+[h4] 2026-05-31 23:02:16 bus=5 line=- pp_bus=4 | no_line_switch | dead=False brk_fb=1 cmd=1 | vm_pu=1.0081 P_in=93.3770 Q_in=22.6159
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-31 23:02:17
+Island: energized=[1, 2, 3, 4, 5] dead=[]
+Load flow sukses. Voltage snapshot (pu): [1.02, 1.0099856556999491, 1.0070402443632855, 1.0099999999999998, 1.0082722655927194]
+[h4] Siklus selesai, CMD siap ke gateway
+[h4] 2026-05-31 23:02:17 bus=1 line=0 pp_bus=0 | i_from=0.8433 i_to=0.8433 i_line=0.8433 kA | max_i=1.6000 thr_open=1.6000 thr_close=1.5200 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0200 P_in=159.9022 Q_in=34.3464
+[h4] 2026-05-31 23:02:17 bus=2 line=1 pp_bus=1 | i_from=0.4301 i_to=0.4301 i_line=0.4301 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0100 P_in=76.6470 Q_in=22.5035
+[h4] 2026-05-31 23:02:17 bus=3 line=2 pp_bus=2 | i_from=0.1269 i_to=0.1269 i_line=0.1269 kA | max_i=0.4000 thr_open=0.4000 thr_close=0.3800 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0070 P_in=73.9326 Q_in=35.1132
+[h4] 2026-05-31 23:02:17 bus=4 line=3 pp_bus=3 | i_from=0.4673 i_to=0.4673 i_line=0.4673 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0100 P_in=79.7540 Q_in=46.3913
+[h4] 2026-05-31 23:02:17 bus=5 line=- pp_bus=4 | no_line_switch | dead=False brk_fb=1 cmd=1 | vm_pu=1.0083 P_in=87.5767 Q_in=19.7507
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-31 23:02:18
+Island: energized=[1, 2, 3, 4, 5] dead=[]
+Load flow sukses. Voltage snapshot (pu): [1.02, 1.0096193243285054, 1.0065913693608666, 1.0099999999999998, 1.0081310749536572]
+[h4] Siklus selesai, CMD siap ke gateway
+[h4] 2026-05-31 23:02:18 bus=1 line=0 pp_bus=0 | i_from=0.8502 i_to=0.8502 i_line=0.8502 kA | max_i=1.6000 thr_open=1.6000 thr_close=1.5200 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0200 P_in=158.7115 Q_in=36.8417
+[h4] 2026-05-31 23:02:18 bus=2 line=1 pp_bus=1 | i_from=0.4492 i_to=0.4492 i_line=0.4492 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0096 P_in=73.4151 Q_in=26.2300
+[h4] 2026-05-31 23:02:18 bus=3 line=2 pp_bus=2 | i_from=0.1369 i_to=0.1369 i_line=0.1369 kA | max_i=0.4000 thr_open=0.4000 thr_close=0.3800 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0066 P_in=79.1489 Q_in=37.2735
+[h4] 2026-05-31 23:02:18 bus=4 line=3 pp_bus=3 | i_from=0.4660 i_to=0.4660 i_line=0.4660 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0100 P_in=79.8416 Q_in=54.0486
+[h4] 2026-05-31 23:02:18 bus=5 line=- pp_bus=4 | no_line_switch | dead=False brk_fb=1 cmd=1 | vm_pu=1.0081 P_in=86.0537 Q_in=24.6287
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-31 23:02:19
+Island: energized=[1, 2, 3, 4, 5] dead=[]
+Load flow sukses. Voltage snapshot (pu): [1.02, 1.0101780424730118, 1.0069447018037863, 1.0099999999999998, 1.0083047741228723]
+[h4] Siklus selesai, CMD siap ke gateway
+[h4] 2026-05-31 23:02:19 bus=1 line=0 pp_bus=0 | i_from=0.7725 i_to=0.7725 i_line=0.7725 kA | max_i=1.6000 thr_open=1.6000 thr_close=1.5200 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0200 P_in=141.6825 Q_in=38.6197
+[h4] 2026-05-31 23:02:19 bus=2 line=1 pp_bus=1 | i_from=0.4484 i_to=0.4484 i_line=0.4484 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0102 P_in=58.4478 Q_in=23.9009
+[h4] 2026-05-31 23:02:19 bus=3 line=2 pp_bus=2 | i_from=0.1301 i_to=0.1301 i_line=0.1301 kA | max_i=0.4000 thr_open=0.4000 thr_close=0.3800 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0069 P_in=76.9873 Q_in=38.9075
+[h4] 2026-05-31 23:02:19 bus=4 line=3 pp_bus=3 | i_from=0.4662 i_to=0.4662 i_line=0.4662 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0100 P_in=80.0592 Q_in=44.9636
+[h4] 2026-05-31 23:02:19 bus=5 line=- pp_bus=4 | no_line_switch | dead=False brk_fb=1 cmd=1 | vm_pu=1.0083 P_in=87.5639 Q_in=18.7647
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-31 23:02:20
+Island: energized=[1, 2, 3, 4, 5] dead=[]
+Load flow sukses. Voltage snapshot (pu): [1.02, 1.0097953925895018, 1.0072230313671746, 1.0099999999999998, 1.0080314571293438]
+[h4] Siklus selesai, CMD siap ke gateway
+[h4] 2026-05-31 23:02:20 bus=1 line=0 pp_bus=0 | i_from=0.8155 i_to=0.8155 i_line=0.8155 kA | max_i=1.6000 thr_open=1.6000 thr_close=1.5200 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0200 P_in=154.1271 Q_in=38.8967
+[h4] 2026-05-31 23:02:20 bus=2 line=1 pp_bus=1 | i_from=0.4258 i_to=0.4258 i_line=0.4258 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0098 P_in=70.1381 Q_in=32.9495
+[h4] 2026-05-31 23:02:20 bus=3 line=2 pp_bus=2 | i_from=0.1263 i_to=0.1263 i_line=0.1263 kA | max_i=0.4000 thr_open=0.4000 thr_close=0.3800 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0072 P_in=72.2962 Q_in=28.8454
+[h4] 2026-05-31 23:02:20 bus=4 line=3 pp_bus=3 | i_from=0.4837 i_to=0.4837 i_line=0.4837 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0100 P_in=80.6723 Q_in=53.6240
+[h4] 2026-05-31 23:02:20 bus=5 line=- pp_bus=4 | no_line_switch | dead=False brk_fb=1 cmd=1 | vm_pu=1.0080 P_in=89.0156 Q_in=26.5444
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-31 23:02:21
+Island: energized=[1, 2, 3, 4, 5] dead=[]
+Load flow sukses. Voltage snapshot (pu): [1.02, 1.0111585934266973, 1.0081348590250097, 1.01, 1.0082317333526738]
+[h4] Siklus selesai, CMD siap ke gateway
+[h4] 2026-05-31 23:02:21 bus=1 line=0 pp_bus=0 | i_from=0.8104 i_to=0.8104 i_line=0.8104 kA | max_i=1.6000 thr_open=1.6000 thr_close=1.5200 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0200 P_in=154.4644 Q_in=27.3349
+[h4] 2026-05-31 23:02:21 bus=2 line=1 pp_bus=1 | i_from=0.4776 i_to=0.4776 i_line=0.4776 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0112 P_in=62.6480 Q_in=15.0319
+[h4] 2026-05-31 23:02:21 bus=3 line=2 pp_bus=2 | i_from=0.1183 i_to=0.1183 i_line=0.1183 kA | max_i=0.4000 thr_open=0.4000 thr_close=0.3800 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0081 P_in=77.5138 Q_in=27.4599
+[h4] 2026-05-31 23:02:21 bus=4 line=3 pp_bus=3 | i_from=0.4969 i_to=0.4969 i_line=0.4969 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0100 P_in=80.1581 Q_in=37.0098
+[h4] 2026-05-31 23:02:21 bus=5 line=- pp_bus=4 | no_line_switch | dead=False brk_fb=1 cmd=1 | vm_pu=1.0082 P_in=93.5970 Q_in=18.7098
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-31 23:02:22
+Island: energized=[1, 2, 3, 4, 5] dead=[]
+Load flow sukses. Voltage snapshot (pu): [1.02, 1.0105329189540866, 1.0080051232928706, 1.01, 1.0083695815968048]
+[h4] Siklus selesai, CMD siap ke gateway
+[h4] 2026-05-31 23:02:22 bus=1 line=0 pp_bus=0 | i_from=0.7783 i_to=0.7783 i_line=0.7783 kA | max_i=1.6000 thr_open=1.6000 thr_close=1.5200 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0200 P_in=146.8118 Q_in=35.8867
+[h4] 2026-05-31 23:02:22 bus=2 line=1 pp_bus=1 | i_from=0.4379 i_to=0.4379 i_line=0.4379 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0105 P_in=61.5635 Q_in=29.7293
+[h4] 2026-05-31 23:02:22 bus=3 line=2 pp_bus=2 | i_from=0.1214 i_to=0.1214 i_line=0.1214 kA | max_i=0.4000 thr_open=0.4000 thr_close=0.3800 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0080 P_in=70.3463 Q_in=23.6664
+[h4] 2026-05-31 23:02:22 bus=4 line=3 pp_bus=3 | i_from=0.4924 i_to=0.4924 i_line=0.4924 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0100 P_in=80.3246 Q_in=35.1557
+[h4] 2026-05-31 23:02:22 bus=5 line=- pp_bus=4 | no_line_switch | dead=False brk_fb=1 cmd=1 | vm_pu=1.0084 P_in=93.4811 Q_in=14.5518
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-31 23:02:23
+Island: energized=[1, 2, 3, 4, 5] dead=[]
+Load flow sukses. Voltage snapshot (pu): [1.02, 1.0109129545617948, 1.0079157394016187, 1.0099999999999998, 1.0080746089393522]
+[h4] Siklus selesai, CMD siap ke gateway
+[h4] 2026-05-31 23:02:23 bus=1 line=0 pp_bus=0 | i_from=0.7768 i_to=0.7768 i_line=0.7768 kA | max_i=1.6000 thr_open=1.6000 thr_close=1.5200 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0200 P_in=147.7433 Q_in=32.5356
+[h4] 2026-05-31 23:02:23 bus=2 line=1 pp_bus=1 | i_from=0.4403 i_to=0.4403 i_line=0.4403 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0109 P_in=62.5319 Q_in=18.2869
+[h4] 2026-05-31 23:02:23 bus=3 line=2 pp_bus=2 | i_from=0.0970 i_to=0.0970 i_line=0.0970 kA | max_i=0.4000 thr_open=0.4000 thr_close=0.3800 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0079 P_in=76.2539 Q_in=29.0951
+[h4] 2026-05-31 23:02:23 bus=4 line=3 pp_bus=3 | i_from=0.4742 i_to=0.4742 i_line=0.4742 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0100 P_in=79.9270 Q_in=43.7471
+[h4] 2026-05-31 23:02:23 bus=5 line=- pp_bus=4 | no_line_switch | dead=False brk_fb=1 cmd=1 | vm_pu=1.0081 P_in=87.3179 Q_in=25.8713
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-31 23:02:24
+Island: energized=[1, 2, 3, 4, 5] dead=[]
+Load flow sukses. Voltage snapshot (pu): [1.02, 1.0104435594231582, 1.0078793950215217, 1.0099999999999998, 1.0080038923791688]
+[h4] Siklus selesai, CMD siap ke gateway
+[h4] 2026-05-31 23:02:24 bus=1 line=0 pp_bus=0 | i_from=0.7642 i_to=0.7642 i_line=0.7642 kA | max_i=1.6000 thr_open=1.6000 thr_close=1.5200 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0200 P_in=143.5334 Q_in=38.1770
+[h4] 2026-05-31 23:02:24 bus=2 line=1 pp_bus=1 | i_from=0.4165 i_to=0.4165 i_line=0.4165 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0104 P_in=62.4780 Q_in=29.8513
+[h4] 2026-05-31 23:02:24 bus=3 line=2 pp_bus=2 | i_from=0.1068 i_to=0.1068 i_line=0.1068 kA | max_i=0.4000 thr_open=0.4000 thr_close=0.3800 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0079 P_in=70.1230 Q_in=25.1945
+[h4] 2026-05-31 23:02:24 bus=4 line=3 pp_bus=3 | i_from=0.4867 i_to=0.4867 i_line=0.4867 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0100 P_in=80.2258 Q_in=47.2628
+[h4] 2026-05-31 23:02:24 bus=5 line=- pp_bus=4 | no_line_switch | dead=False brk_fb=1 cmd=1 | vm_pu=1.0080 P_in=89.4077 Q_in=27.2358
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-31 23:02:25
+Island: energized=[1, 2, 3, 4, 5] dead=[]
+Load flow sukses. Voltage snapshot (pu): [1.02, 1.009458008616882, 1.0062721178430056, 1.0099999999999998, 1.0081996526197659]
+[h4] Siklus selesai, CMD siap ke gateway
+[h4] 2026-05-31 23:02:25 bus=1 line=0 pp_bus=0 | i_from=0.8244 i_to=0.8244 i_line=0.8244 kA | max_i=1.6000 thr_open=1.6000 thr_close=1.5200 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0200 P_in=153.0038 Q_in=40.3762
+[h4] 2026-05-31 23:02:25 bus=2 line=1 pp_bus=1 | i_from=0.4646 i_to=0.4646 i_line=0.4646 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0095 P_in=64.3462 Q_in=29.2795
+[h4] 2026-05-31 23:02:25 bus=3 line=2 pp_bus=2 | i_from=0.1587 i_to=0.1587 i_line=0.1587 kA | max_i=0.4000 thr_open=0.4000 thr_close=0.3800 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0063 P_in=78.7070 Q_in=41.9670
+[h4] 2026-05-31 23:02:25 bus=4 line=3 pp_bus=3 | i_from=0.4777 i_to=0.4777 i_line=0.4777 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0100 P_in=79.9807 Q_in=55.1618
+[h4] 2026-05-31 23:02:25 bus=5 line=- pp_bus=4 | no_line_switch | dead=False brk_fb=1 cmd=1 | vm_pu=1.0082 P_in=89.2457 Q_in=21.3328
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-31 23:02:26
+Island: energized=[1, 2, 3, 4, 5] dead=[]
+Load flow sukses. Voltage snapshot (pu): [1.02, 1.0117412924742115, 1.0088159463756587, 1.0099999999999998, 1.0081933913702572]
+[h4] Siklus selesai, CMD siap ke gateway
+[h4] 2026-05-31 23:02:26 bus=1 line=0 pp_bus=0 | i_from=0.6476 i_to=0.6476 i_line=0.6476 kA | max_i=1.6000 thr_open=1.6000 thr_close=1.5200 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0200 P_in=121.9151 Q_in=37.1384
+[h4] 2026-05-31 23:02:26 bus=2 line=1 pp_bus=1 | i_from=0.3707 i_to=0.3707 i_line=0.3707 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0117 P_in=50.8715 Q_in=16.4665
+[h4] 2026-05-31 23:02:26 bus=3 line=2 pp_bus=2 | i_from=0.0593 i_to=0.0593 i_line=0.0593 kA | max_i=0.4000 thr_open=0.4000 thr_close=0.3800 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0088 P_in=63.9738 Q_in=26.9432
+[h4] 2026-05-31 23:02:26 bus=4 line=3 pp_bus=3 | i_from=0.4593 i_to=0.4593 i_line=0.4593 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0100 P_in=79.9998 Q_in=31.8189
+[h4] 2026-05-31 23:02:26 bus=5 line=- pp_bus=4 | no_line_switch | dead=False brk_fb=1 cmd=1 | vm_pu=1.0082 P_in=85.1512 Q_in=23.0710
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-31 23:02:28
+Island: energized=[1, 2, 3, 4, 5] dead=[]
+Load flow sukses. Voltage snapshot (pu): [1.02, 1.0117412924742115, 1.0088159463756587, 1.0099999999999998, 1.0081933913702572]
+[h4] Siklus selesai, CMD siap ke gateway
+[h4] 2026-05-31 23:02:28 bus=1 line=0 pp_bus=0 | i_from=0.6476 i_to=0.6476 i_line=0.6476 kA | max_i=1.6000 thr_open=1.6000 thr_close=1.5200 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0200 P_in=121.9151 Q_in=37.1384
+[h4] 2026-05-31 23:02:28 bus=2 line=1 pp_bus=1 | i_from=0.3707 i_to=0.3707 i_line=0.3707 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0117 P_in=50.8715 Q_in=16.4665
+[h4] 2026-05-31 23:02:28 bus=3 line=2 pp_bus=2 | i_from=0.0593 i_to=0.0593 i_line=0.0593 kA | max_i=0.4000 thr_open=0.4000 thr_close=0.3800 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0088 P_in=63.9738 Q_in=26.9432
+[h4] 2026-05-31 23:02:28 bus=4 line=3 pp_bus=3 | i_from=0.4593 i_to=0.4593 i_line=0.4593 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0100 P_in=79.9998 Q_in=31.8189
+[h4] 2026-05-31 23:02:28 bus=5 line=- pp_bus=4 | no_line_switch | dead=False brk_fb=1 cmd=1 | vm_pu=1.0082 P_in=85.1512 Q_in=23.0710
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-31 23:02:29
+Island: energized=[1, 2, 3, 4, 5] dead=[]
+Load flow sukses. Voltage snapshot (pu): [1.02, 1.0103415732419347, 1.0071485775050881, 1.0099999999999998, 1.0079675253717006]
+[h4] Siklus selesai, CMD siap ke gateway
+[h4] 2026-05-31 23:02:29 bus=1 line=0 pp_bus=0 | i_from=0.8304 i_to=0.8304 i_line=0.8304 kA | max_i=1.6000 thr_open=1.6000 thr_close=1.5200 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0200 P_in=153.1323 Q_in=34.5351
+[h4] 2026-05-31 23:02:29 bus=2 line=1 pp_bus=1 | i_from=0.5215 i_to=0.5215 i_line=0.5215 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0103 P_in=56.6090 Q_in=23.0616
+[h4] 2026-05-31 23:02:29 bus=3 line=2 pp_bus=2 | i_from=0.1540 i_to=0.1540 i_line=0.1540 kA | max_i=0.4000 thr_open=0.4000 thr_close=0.3800 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0071 P_in=84.5024 Q_in=33.7948
+[h4] 2026-05-31 23:02:29 bus=4 line=3 pp_bus=3 | i_from=0.5134 i_to=0.5134 i_line=0.5134 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0100 P_in=79.9568 Q_in=42.4805
+[h4] 2026-05-31 23:02:29 bus=5 line=- pp_bus=4 | no_line_switch | dead=False brk_fb=1 cmd=1 | vm_pu=1.0080 P_in=95.0388 Q_in=26.2148
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-31 23:02:30
+Island: energized=[1, 2, 3, 4, 5] dead=[]
+Load flow sukses. Voltage snapshot (pu): [1.02, 1.0106467776089059, 1.007764783181904, 1.01, 1.0079194472456325]
+[h4] Siklus selesai, CMD siap ke gateway
+[h4] 2026-05-31 23:02:30 bus=1 line=0 pp_bus=0 | i_from=0.8588 i_to=0.8588 i_line=0.8588 kA | max_i=1.6000 thr_open=1.6000 thr_close=1.5200 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0200 P_in=165.5354 Q_in=27.4793
+[h4] 2026-05-31 23:02:30 bus=2 line=1 pp_bus=1 | i_from=0.4900 i_to=0.4900 i_line=0.4900 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0106 P_in=69.1530 Q_in=19.4908
+[h4] 2026-05-31 23:02:30 bus=3 line=2 pp_bus=2 | i_from=0.1304 i_to=0.1304 i_line=0.1304 kA | max_i=0.4000 thr_open=0.4000 thr_close=0.3800 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0078 P_in=79.8326 Q_in=26.8300
+[h4] 2026-05-31 23:02:30 bus=4 line=3 pp_bus=3 | i_from=0.5104 i_to=0.5104 i_line=0.5104 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0100 P_in=79.4255 Q_in=50.4316
+[h4] 2026-05-31 23:02:30 bus=5 line=- pp_bus=4 | no_line_switch | dead=False brk_fb=1 cmd=1 | vm_pu=1.0079 P_in=93.9026 Q_in=28.1088
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-31 23:02:31
+Island: energized=[1, 2, 3, 4, 5] dead=[]
+Load flow sukses. Voltage snapshot (pu): [1.02, 1.0115157715557213, 1.008845557145164, 1.01, 1.007995116301145]
+[h4] Siklus selesai, CMD siap ke gateway
+[h4] 2026-05-31 23:02:31 bus=1 line=0 pp_bus=0 | i_from=0.6724 i_to=0.6724 i_line=0.6724 kA | max_i=1.6000 thr_open=1.6000 thr_close=1.5200 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0200 P_in=125.7456 Q_in=37.0157
+[h4] 2026-05-31 23:02:31 bus=2 line=1 pp_bus=1 | i_from=0.3916 i_to=0.3916 i_line=0.3916 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0115 P_in=50.4550 Q_in=22.6635
+[h4] 2026-05-31 23:02:31 bus=3 line=2 pp_bus=2 | i_from=0.0854 i_to=0.0854 i_line=0.0854 kA | max_i=0.4000 thr_open=0.4000 thr_close=0.3800 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0088 P_in=63.5147 Q_in=22.9895
+[h4] 2026-05-31 23:02:31 bus=4 line=3 pp_bus=3 | i_from=0.4935 i_to=0.4935 i_line=0.4935 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0100 P_in=79.7462 Q_in=37.8743
+[h4] 2026-05-31 23:02:31 bus=5 line=- pp_bus=4 | no_line_switch | dead=False brk_fb=1 cmd=1 | vm_pu=1.0080 P_in=90.8580 Q_in=26.9550
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-31 23:02:32
+Island: energized=[1, 2, 3, 4, 5] dead=[]
+Load flow sukses. Voltage snapshot (pu): [1.02, 1.0109779093792242, 1.0083653836295825, 1.01, 1.007918190555926]
+[h4] Siklus selesai, CMD siap ke gateway
+[h4] 2026-05-31 23:02:32 bus=1 line=0 pp_bus=0 | i_from=0.7843 i_to=0.7843 i_line=0.7843 kA | max_i=1.6000 thr_open=1.6000 thr_close=1.5200 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0200 P_in=150.6502 Q_in=31.6775
+[h4] 2026-05-31 23:02:32 bus=2 line=1 pp_bus=1 | i_from=0.4053 i_to=0.4053 i_line=0.4053 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0110 P_in=70.6605 Q_in=20.2232
+[h4] 2026-05-31 23:02:32 bus=3 line=2 pp_bus=2 | i_from=0.1053 i_to=0.1053 i_line=0.1053 kA | max_i=0.4000 thr_open=0.4000 thr_close=0.3800 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0084 P_in=65.0063 Q_in=24.7199
+[h4] 2026-05-31 23:02:32 bus=4 line=3 pp_bus=3 | i_from=0.5031 i_to=0.5031 i_line=0.5031 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0100 P_in=79.7499 Q_in=45.2818
+[h4] 2026-05-31 23:02:32 bus=5 line=- pp_bus=4 | no_line_switch | dead=False brk_fb=1 cmd=1 | vm_pu=1.0079 P_in=92.2276 Q_in=28.7804
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-31 23:02:33
+Island: energized=[1, 2, 3, 4, 5] dead=[]
+Load flow sukses. Voltage snapshot (pu): [1.02, 1.0106201402652808, 1.0077534598961855, 1.0099999999999998, 1.0082803646238878]
+[h4] Siklus selesai, CMD siap ke gateway
+[h4] 2026-05-31 23:02:33 bus=1 line=0 pp_bus=0 | i_from=0.7610 i_to=0.7610 i_line=0.7610 kA | max_i=1.6000 thr_open=1.6000 thr_close=1.5200 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0200 P_in=149.8607 Q_in=31.5115
+[h4] 2026-05-31 23:02:33 bus=2 line=1 pp_bus=1 | i_from=0.3798 i_to=0.3798 i_line=0.3798 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0106 P_in=70.6465 Q_in=20.2192
+[h4] 2026-05-31 23:02:33 bus=3 line=2 pp_bus=2 | i_from=0.1062 i_to=0.1062 i_line=0.1062 kA | max_i=0.4000 thr_open=0.4000 thr_close=0.3800 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0078 P_in=62.9436 Q_in=33.5790
+[h4] 2026-05-31 23:02:33 bus=4 line=3 pp_bus=3 | i_from=0.4704 i_to=0.4704 i_line=0.4704 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0100 P_in=80.2071 Q_in=38.4134
+[h4] 2026-05-31 23:02:33 bus=5 line=- pp_bus=4 | no_line_switch | dead=False brk_fb=1 cmd=1 | vm_pu=1.0083 P_in=88.3027 Q_in=19.2295
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-31 23:02:34
+Island: energized=[1, 2, 3, 4, 5] dead=[]
+Load flow sukses. Voltage snapshot (pu): [1.02, 1.0094971464163414, 1.0065701912084115, 1.0099999999999996, 1.0082252131763074]
+[h4] Siklus selesai, CMD siap ke gateway
+[h4] 2026-05-31 23:02:34 bus=1 line=0 pp_bus=0 | i_from=0.7785 i_to=0.7785 i_line=0.7785 kA | max_i=1.6000 thr_open=1.6000 thr_close=1.5200 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0200 P_in=149.8607 Q_in=36.8823
+[h4] 2026-05-31 23:02:34 bus=2 line=1 pp_bus=1 | i_from=0.3813 i_to=0.3813 i_line=0.3813 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0095 P_in=70.6465 Q_in=30.7289
+[h4] 2026-05-31 23:02:34 bus=3 line=2 pp_bus=2 | i_from=0.1453 i_to=0.1453 i_line=0.1453 kA | max_i=0.4000 thr_open=0.4000 thr_close=0.3800 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0066 P_in=62.9436 Q_in=42.4268
+[h4] 2026-05-31 23:02:34 bus=4 line=3 pp_bus=3 | i_from=0.4724 i_to=0.4724 i_line=0.4724 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0100 P_in=80.2071 Q_in=61.4491
+[h4] 2026-05-31 23:02:34 bus=5 line=- pp_bus=4 | no_line_switch | dead=False brk_fb=1 cmd=1 | vm_pu=1.0082 P_in=88.3027 Q_in=20.9103
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-31 23:02:35
+Island: energized=[1, 2, 3, 4, 5] dead=[]
+Load flow sukses. Voltage snapshot (pu): [1.02, 1.0110177693341464, 1.0076459229950205, 1.01, 1.0085270506243702]
+[h4] Siklus selesai, CMD siap ke gateway
+[h4] 2026-05-31 23:02:35 bus=1 line=0 pp_bus=0 | i_from=0.7704 i_to=0.7704 i_line=0.7704 kA | max_i=1.6000 thr_open=1.6000 thr_close=1.5200 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0200 P_in=145.1577 Q_in=31.4674
+[h4] 2026-05-31 23:02:35 bus=2 line=1 pp_bus=1 | i_from=0.4838 i_to=0.4838 i_line=0.4838 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0110 P_in=53.3126 Q_in=15.1741
+[h4] 2026-05-31 23:02:35 bus=3 line=2 pp_bus=2 | i_from=0.1006 i_to=0.1006 i_line=0.1006 kA | max_i=0.4000 thr_open=0.4000 thr_close=0.3800 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0076 P_in=85.7254 Q_in=32.7916
+[h4] 2026-05-31 23:02:35 bus=4 line=3 pp_bus=3 | i_from=0.4519 i_to=0.4519 i_line=0.4519 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0100 P_in=80.2756 Q_in=31.8782
+[h4] 2026-05-31 23:02:35 bus=5 line=- pp_bus=4 | no_line_switch | dead=False brk_fb=1 cmd=1 | vm_pu=1.0085 P_in=85.9182 Q_in=12.6104
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-31 23:02:36
+Island: energized=[1, 2, 3, 4, 5] dead=[]
+Load flow sukses. Voltage snapshot (pu): [1.02, 1.009750007870326, 1.0070108953015702, 1.0099999999999998, 1.0080665254223864]
+[h4] Siklus selesai, CMD siap ke gateway
+[h4] 2026-05-31 23:02:36 bus=1 line=0 pp_bus=0 | i_from=0.8385 i_to=0.8385 i_line=0.8385 kA | max_i=1.6000 thr_open=1.6000 thr_close=1.5200 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0200 P_in=158.0527 Q_in=37.1285
+[h4] 2026-05-31 23:02:36 bus=2 line=1 pp_bus=1 | i_from=0.4364 i_to=0.4364 i_line=0.4364 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0098 P_in=73.2467 Q_in=29.4533
+[h4] 2026-05-31 23:02:36 bus=3 line=2 pp_bus=2 | i_from=0.1379 i_to=0.1379 i_line=0.1379 kA | max_i=0.4000 thr_open=0.4000 thr_close=0.3800 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0070 P_in=72.9799 Q_in=32.5240
+[h4] 2026-05-31 23:02:36 bus=4 line=3 pp_bus=3 | i_from=0.4874 i_to=0.4874 i_line=0.4874 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0100 P_in=79.7842 Q_in=53.1168
+[h4] 2026-05-31 23:02:36 bus=5 line=- pp_bus=4 | no_line_switch | dead=False brk_fb=1 cmd=1 | vm_pu=1.0081 P_in=90.2040 Q_in=25.0269
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-31 23:02:37
+Island: energized=[1, 2, 3, 4, 5] dead=[]
+Load flow sukses. Voltage snapshot (pu): [1.02, 1.0112374866206466, 1.0089249540527994, 1.01, 1.0083088392217239]
+[h4] Siklus selesai, CMD siap ke gateway
+[h4] 2026-05-31 23:02:37 bus=1 line=0 pp_bus=0 | i_from=0.7946 i_to=0.7946 i_line=0.7946 kA | max_i=1.6000 thr_open=1.6000 thr_close=1.5200 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0200 P_in=150.8335 Q_in=29.0945
+[h4] 2026-05-31 23:02:37 bus=2 line=1 pp_bus=1 | i_from=0.3936 i_to=0.3936 i_line=0.3936 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0112 P_in=75.3063 Q_in=20.2175
+[h4] 2026-05-31 23:02:37 bus=3 line=2 pp_bus=2 | i_from=0.0876 i_to=0.0876 i_line=0.0876 kA | max_i=0.4000 thr_open=0.4000 thr_close=0.3800 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0089 P_in=63.6829 Q_in=16.9118
+[h4] 2026-05-31 23:02:37 bus=4 line=3 pp_bus=3 | i_from=0.4855 i_to=0.4855 i_line=0.4855 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0100 P_in=79.8815 Q_in=27.8112
+[h4] 2026-05-31 23:02:37 bus=5 line=- pp_bus=4 | no_line_switch | dead=False brk_fb=1 cmd=1 | vm_pu=1.0083 P_in=91.7019 Q_in=17.0764
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-31 23:02:38
+Island: energized=[1, 2, 3, 4, 5] dead=[]
+Load flow sukses. Voltage snapshot (pu): [1.02, 1.0102980838598155, 1.007727772869029, 1.0099999999999998, 1.008375924424773]
+[h4] Siklus selesai, CMD siap ke gateway
+[h4] 2026-05-31 23:02:38 bus=1 line=0 pp_bus=0 | i_from=0.8504 i_to=0.8504 i_line=0.8504 kA | max_i=1.6000 thr_open=1.6000 thr_close=1.5200 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0200 P_in=162.3412 Q_in=31.3142
+[h4] 2026-05-31 23:02:38 bus=2 line=1 pp_bus=1 | i_from=0.4654 i_to=0.4654 i_line=0.4654 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0103 P_in=71.2547 Q_in=27.0730
+[h4] 2026-05-31 23:02:38 bus=3 line=2 pp_bus=2 | i_from=0.1034 i_to=0.1034 i_line=0.1034 kA | max_i=0.4000 thr_open=0.4000 thr_close=0.3800 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0077 P_in=81.7924 Q_in=21.5842
+[h4] 2026-05-31 23:02:38 bus=4 line=3 pp_bus=3 | i_from=0.4630 i_to=0.4630 i_line=0.4630 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0100 P_in=79.9658 Q_in=37.4285
+[h4] 2026-05-31 23:02:38 bus=5 line=- pp_bus=4 | no_line_switch | dead=False brk_fb=1 cmd=1 | vm_pu=1.0084 P_in=87.3853 Q_in=16.6635
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-31 23:02:39
+Island: energized=[1, 2, 3, 4, 5] dead=[]
+Load flow sukses. Voltage snapshot (pu): [1.02, 1.0106667462947092, 1.0079900170561267, 1.01, 1.0083949399922196]
+[h4] Siklus selesai, CMD siap ke gateway
+[h4] 2026-05-31 23:02:39 bus=1 line=0 pp_bus=0 | i_from=0.7835 i_to=0.7835 i_line=0.7835 kA | max_i=1.6000 thr_open=1.6000 thr_close=1.5200 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0200 P_in=148.9716 Q_in=34.5113
+[h4] 2026-05-31 23:02:39 bus=2 line=1 pp_bus=1 | i_from=0.4239 i_to=0.4239 i_line=0.4239 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0107 P_in=66.0664 Q_in=24.2627
+[h4] 2026-05-31 23:02:39 bus=3 line=2 pp_bus=2 | i_from=0.0972 i_to=0.0972 i_line=0.0972 kA | max_i=0.4000 thr_open=0.4000 thr_close=0.3800 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0080 P_in=72.9345 Q_in=25.0428
+[h4] 2026-05-31 23:02:39 bus=4 line=3 pp_bus=3 | i_from=0.4651 i_to=0.4651 i_line=0.4651 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0100 P_in=79.8753 Q_in=33.8096
+[h4] 2026-05-31 23:02:39 bus=5 line=- pp_bus=4 | no_line_switch | dead=False brk_fb=1 cmd=1 | vm_pu=1.0084 P_in=87.9440 Q_in=15.8726
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-31 23:02:40
+Island: energized=[1, 2, 3, 4, 5] dead=[]
+Load flow sukses. Voltage snapshot (pu): [1.02, 1.008611769928305, 1.0055667673296662, 1.0099999999999998, 1.0082303748258208]
+[h4] Siklus selesai, CMD siap ke gateway
+[h4] 2026-05-31 23:02:40 bus=1 line=0 pp_bus=0 | i_from=0.9184 i_to=0.9184 i_line=0.9184 kA | max_i=1.6000 thr_open=1.6000 thr_close=1.5200 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0200 P_in=171.3001 Q_in=38.4685
+[h4] 2026-05-31 23:02:40 bus=2 line=1 pp_bus=1 | i_from=0.5003 i_to=0.5003 i_line=0.5003 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0086 P_in=75.3069 Q_in=34.9876
+[h4] 2026-05-31 23:02:40 bus=3 line=2 pp_bus=2 | i_from=0.1815 i_to=0.1815 i_line=0.1815 kA | max_i=0.4000 thr_open=0.4000 thr_close=0.3800 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0056 P_in=86.4277 Q_in=41.3926
+[h4] 2026-05-31 23:02:40 bus=4 line=3 pp_bus=3 | i_from=0.4751 i_to=0.4751 i_line=0.4751 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0100 P_in=80.2245 Q_in=62.1562
+[h4] 2026-05-31 23:02:40 bus=5 line=- pp_bus=4 | no_line_switch | dead=False brk_fb=1 cmd=1 | vm_pu=1.0082 P_in=88.9255 Q_in=20.5176
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-31 23:02:41
+Island: energized=[1, 2, 3, 4, 5] dead=[]
+Load flow sukses. Voltage snapshot (pu): [1.02, 1.0094122103996228, 1.006094990018836, 1.01, 1.0083767409396809]
+[h4] Siklus selesai, CMD siap ke gateway
+[h4] 2026-05-31 23:02:41 bus=1 line=0 pp_bus=0 | i_from=0.8305 i_to=0.8305 i_line=0.8305 kA | max_i=1.6000 thr_open=1.6000 thr_close=1.5200 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0200 P_in=155.8832 Q_in=40.0795
+[h4] 2026-05-31 23:02:41 bus=2 line=1 pp_bus=1 | i_from=0.4890 i_to=0.4890 i_line=0.4890 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0094 P_in=60.8504 Q_in=29.0736
+[h4] 2026-05-31 23:02:41 bus=3 line=2 pp_bus=2 | i_from=0.1571 i_to=0.1571 i_line=0.1571 kA | max_i=0.4000 thr_open=0.4000 thr_close=0.3800 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0061 P_in=85.6521 Q_in=42.3527
+[h4] 2026-05-31 23:02:41 bus=4 line=3 pp_bus=3 | i_from=0.4612 i_to=0.4612 i_line=0.4612 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0100 P_in=80.3270 Q_in=51.9491
+[h4] 2026-05-31 23:02:41 bus=5 line=- pp_bus=4 | no_line_switch | dead=False brk_fb=1 cmd=1 | vm_pu=1.0084 P_in=87.0046 Q_in=16.7824
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-31 23:02:42
+Island: energized=[1, 2, 3, 4, 5] dead=[]
+Load flow sukses. Voltage snapshot (pu): [1.02, 1.0106917109316897, 1.0072686344508581, 1.01, 1.0085140804706096]
+[h4] Siklus selesai, CMD siap ke gateway
+[h4] 2026-05-31 23:02:42 bus=1 line=0 pp_bus=0 | i_from=0.7795 i_to=0.7795 i_line=0.7795 kA | max_i=1.6000 thr_open=1.6000 thr_close=1.5200 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0200 P_in=147.7077 Q_in=33.5228
+[h4] 2026-05-31 23:02:42 bus=2 line=1 pp_bus=1 | i_from=0.4576 i_to=0.4576 i_line=0.4576 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0107 P_in=60.1730 Q_in=14.9753
+[h4] 2026-05-31 23:02:42 bus=3 line=2 pp_bus=2 | i_from=0.1103 i_to=0.1103 i_line=0.1103 kA | max_i=0.4000 thr_open=0.4000 thr_close=0.3800 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0073 P_in=80.9196 Q_in=38.0609
+[h4] 2026-05-31 23:02:42 bus=4 line=3 pp_bus=3 | i_from=0.4479 i_to=0.4479 i_line=0.4479 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0100 P_in=79.8158 Q_in=35.7583
+[h4] 2026-05-31 23:02:42 bus=5 line=- pp_bus=4 | no_line_switch | dead=False brk_fb=1 cmd=1 | vm_pu=1.0085 P_in=85.0161 Q_in=13.3468
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-31 23:02:43
+Island: energized=[1, 2, 3, 4, 5] dead=[]
+Load flow sukses. Voltage snapshot (pu): [1.02, 1.0115781980987677, 1.0085989668677966, 1.0099999999999998, 1.0082064331067604]
+[h4] Siklus selesai, CMD siap ke gateway
+[h4] 2026-05-31 23:02:43 bus=1 line=0 pp_bus=0 | i_from=0.7334 i_to=0.7334 i_line=0.7334 kA | max_i=1.6000 thr_open=1.6000 thr_close=1.5200 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0200 P_in=140.0964 Q_in=30.3010
+[h4] 2026-05-31 23:02:43 bus=2 line=1 pp_bus=1 | i_from=0.4495 i_to=0.4495 i_line=0.4495 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0116 P_in=52.8154 Q_in=15.8899
+[h4] 2026-05-31 23:02:43 bus=3 line=2 pp_bus=2 | i_from=0.0933 i_to=0.0933 i_line=0.0933 kA | max_i=0.4000 thr_open=0.4000 thr_close=0.3800 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0086 P_in=74.4360 Q_in=24.9382
+[h4] 2026-05-31 23:02:43 bus=4 line=3 pp_bus=3 | i_from=0.4861 i_to=0.4861 i_line=0.4861 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0100 P_in=80.2160 Q_in=33.8810
+[h4] 2026-05-31 23:02:43 bus=5 line=- pp_bus=4 | no_line_switch | dead=False brk_fb=1 cmd=1 | vm_pu=1.0082 P_in=91.1178 Q_in=20.4184
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-31 23:02:44
+Island: energized=[1, 2, 3, 4, 5] dead=[]
+Load flow sukses. Voltage snapshot (pu): [1.02, 1.0110923399592513, 1.0082319629427758, 1.0099999999999998, 1.0080202377629863]
+[h4] Siklus selesai, CMD siap ke gateway
+[h4] 2026-05-31 23:02:44 bus=1 line=0 pp_bus=0 | i_from=0.7413 i_to=0.7413 i_line=0.7413 kA | max_i=1.6000 thr_open=1.6000 thr_close=1.5200 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0200 P_in=141.0502 Q_in=34.1623
+[h4] 2026-05-31 23:02:44 bus=2 line=1 pp_bus=1 | i_from=0.3936 i_to=0.3936 i_line=0.3936 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0111 P_in=64.6345 Q_in=17.9847
+[h4] 2026-05-31 23:02:44 bus=3 line=2 pp_bus=2 | i_from=0.1059 i_to=0.1059 i_line=0.1059 kA | max_i=0.4000 thr_open=0.4000 thr_close=0.3800 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0082 P_in=62.6538 Q_in=30.3623
+[h4] 2026-05-31 23:02:44 bus=4 line=3 pp_bus=3 | i_from=0.4955 i_to=0.4955 i_line=0.4955 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0100 P_in=79.4924 Q_in=42.8406
+[h4] 2026-05-31 23:02:44 bus=5 line=- pp_bus=4 | no_line_switch | dead=False brk_fb=1 cmd=1 | vm_pu=1.0080 P_in=91.5736 Q_in=25.9192
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-31 23:02:45
+Island: energized=[1, 2, 3, 4, 5] dead=[]
+Load flow sukses. Voltage snapshot (pu): [1.02, 1.0101576505869654, 1.0072365249689867, 1.01, 1.00801849507618]
+[h4] Siklus selesai, CMD siap ke gateway
+[h4] 2026-05-31 23:02:45 bus=1 line=0 pp_bus=0 | i_from=0.8282 i_to=0.8282 i_line=0.8282 kA | max_i=1.6000 thr_open=1.6000 thr_close=1.5200 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0200 P_in=156.7447 Q_in=34.0567
+[h4] 2026-05-31 23:02:45 bus=2 line=1 pp_bus=1 | i_from=0.4615 i_to=0.4615 i_line=0.4615 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0102 P_in=67.3284 Q_in=24.9031
+[h4] 2026-05-31 23:02:45 bus=3 line=2 pp_bus=2 | i_from=0.1389 i_to=0.1389 i_line=0.1389 kA | max_i=0.4000 thr_open=0.4000 thr_close=0.3800 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0072 P_in=75.7378 Q_in=32.6510
+[h4] 2026-05-31 23:02:45 bus=4 line=3 pp_bus=3 | i_from=0.4985 i_to=0.4985 i_line=0.4985 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0100 P_in=80.3654 Q_in=52.9175
+[h4] 2026-05-31 23:02:45 bus=5 line=- pp_bus=4 | no_line_switch | dead=False brk_fb=1 cmd=1 | vm_pu=1.0080 P_in=92.2101 Q_in=25.7317
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-31 23:02:46
+Island: energized=[1, 2, 3, 4, 5] dead=[]
+Load flow sukses. Voltage snapshot (pu): [1.02, 1.0098284358455925, 1.0070837168833042, 1.0099999999999998, 1.0080325531916303]
+[h4] Siklus selesai, CMD siap ke gateway
+[h4] 2026-05-31 23:02:46 bus=1 line=0 pp_bus=0 | i_from=0.7895 i_to=0.7895 i_line=0.7895 kA | max_i=1.6000 thr_open=1.6000 thr_close=1.5200 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0200 P_in=146.2562 Q_in=40.7548
+[h4] 2026-05-31 23:02:46 bus=2 line=1 pp_bus=1 | i_from=0.3949 i_to=0.3949 i_line=0.3949 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0098 P_in=70.9760 Q_in=29.8707
+[h4] 2026-05-31 23:02:46 bus=3 line=2 pp_bus=2 | i_from=0.1244 i_to=0.1244 i_line=0.1244 kA | max_i=0.4000 thr_open=0.4000 thr_close=0.3800 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0071 P_in=67.4537 Q_in=34.3893
+[h4] 2026-05-31 23:02:46 bus=4 line=3 pp_bus=3 | i_from=0.4759 i_to=0.4759 i_line=0.4759 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0100 P_in=80.3389 Q_in=53.6953
+[h4] 2026-05-31 23:02:46 bus=5 line=- pp_bus=4 | no_line_switch | dead=False brk_fb=1 cmd=1 | vm_pu=1.0080 P_in=87.2724 Q_in=27.1697
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-31 23:02:47
+Island: energized=[1, 2, 3, 4, 5] dead=[]
+Load flow sukses. Voltage snapshot (pu): [1.02, 1.0108859894575595, 1.0079896952382768, 1.01, 1.0082841812749073]
+[h4] Siklus selesai, CMD siap ke gateway
+[h4] 2026-05-31 23:02:47 bus=1 line=0 pp_bus=0 | i_from=0.7513 i_to=0.7513 i_line=0.7513 kA | max_i=1.6000 thr_open=1.6000 thr_close=1.5200 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0200 P_in=142.4590 Q_in=34.7590
+[h4] 2026-05-31 23:02:47 bus=2 line=1 pp_bus=1 | i_from=0.3959 i_to=0.3959 i_line=0.3959 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0109 P_in=65.9261 Q_in=18.9717
+[h4] 2026-05-31 23:02:47 bus=3 line=2 pp_bus=2 | i_from=0.1040 i_to=0.1040 i_line=0.1040 kA | max_i=0.4000 thr_open=0.4000 thr_close=0.3800 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0080 P_in=65.0342 Q_in=31.5895
+[h4] 2026-05-31 23:02:47 bus=4 line=3 pp_bus=3 | i_from=0.4761 i_to=0.4761 i_line=0.4761 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0100 P_in=79.9142 Q_in=37.4733
+[h4] 2026-05-31 23:02:47 bus=5 line=- pp_bus=4 | no_line_switch | dead=False brk_fb=1 cmd=1 | vm_pu=1.0083 P_in=89.5403 Q_in=18.6453
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-31 23:02:48
+Island: energized=[1, 2, 3, 4, 5] dead=[]
+Load flow sukses. Voltage snapshot (pu): [1.02, 1.0096735759969793, 1.0069410871149915, 1.0099999999999998, 1.0081007139232723]
+[h4] Siklus selesai, CMD siap ke gateway
+[h4] 2026-05-31 23:02:48 bus=1 line=0 pp_bus=0 | i_from=0.8251 i_to=0.8251 i_line=0.8251 kA | max_i=1.6000 thr_open=1.6000 thr_close=1.5200 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0200 P_in=156.1417 Q_in=38.5144
+[h4] 2026-05-31 23:02:48 bus=2 line=1 pp_bus=1 | i_from=0.3922 i_to=0.3922 i_line=0.3922 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0097 P_in=79.0534 Q_in=28.1649
+[h4] 2026-05-31 23:02:48 bus=3 line=2 pp_bus=2 | i_from=0.1257 i_to=0.1257 i_line=0.1257 kA | max_i=0.4000 thr_open=0.4000 thr_close=0.3800 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0069 P_in=67.9125 Q_in=34.9804
+[h4] 2026-05-31 23:02:48 bus=4 line=3 pp_bus=3 | i_from=0.4684 i_to=0.4684 i_line=0.4684 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0100 P_in=80.7942 Q_in=54.3781
+[h4] 2026-05-31 23:02:48 bus=5 line=- pp_bus=4 | no_line_switch | dead=False brk_fb=1 cmd=1 | vm_pu=1.0081 P_in=86.2855 Q_in=25.4662
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-31 23:02:49
+Island: energized=[1, 2, 3, 4, 5] dead=[]
+Load flow sukses. Voltage snapshot (pu): [1.02, 1.0102490111795244, 1.0071393448708832, 1.0099999999999998, 1.0080820971649374]
+[h4] Siklus selesai, CMD siap ke gateway
+[h4] 2026-05-31 23:02:49 bus=1 line=0 pp_bus=0 | i_from=0.7843 i_to=0.7843 i_line=0.7843 kA | max_i=1.6000 thr_open=1.6000 thr_close=1.5200 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0200 P_in=147.4676 Q_in=37.2801
+[h4] 2026-05-31 23:02:49 bus=2 line=1 pp_bus=1 | i_from=0.4783 i_to=0.4783 i_line=0.4783 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0102 P_in=54.8253 Q_in=26.3821
+[h4] 2026-05-31 23:02:49 bus=3 line=2 pp_bus=2 | i_from=0.1528 i_to=0.1528 i_line=0.1528 kA | max_i=0.4000 thr_open=0.4000 thr_close=0.3800 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0071 P_in=76.2930 Q_in=35.9286
+[h4] 2026-05-31 23:02:49 bus=4 line=3 pp_bus=3 | i_from=0.5072 i_to=0.5072 i_line=0.5072 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0100 P_in=79.8564 Q_in=51.0603
+[h4] 2026-05-31 23:02:49 bus=5 line=- pp_bus=4 | no_line_switch | dead=False brk_fb=1 cmd=1 | vm_pu=1.0081 P_in=94.7024 Q_in=22.8516
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-31 23:02:50
+Island: energized=[1, 2, 3, 4, 5] dead=[]
+Load flow sukses. Voltage snapshot (pu): [1.02, 1.0092089171230045, 1.0062452895425635, 1.0099999999999998, 1.00811178131938]
+[h4] Siklus selesai, CMD siap ke gateway
+[h4] 2026-05-31 23:02:50 bus=1 line=0 pp_bus=0 | i_from=0.9103 i_to=0.9103 i_line=0.9103 kA | max_i=1.6000 thr_open=1.6000 thr_close=1.5200 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0200 P_in=172.1662 Q_in=34.9598
+[h4] 2026-05-31 23:02:50 bus=2 line=1 pp_bus=1 | i_from=0.5237 i_to=0.5237 i_line=0.5237 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0092 P_in=70.4366 Q_in=32.0713
+[h4] 2026-05-31 23:02:50 bus=3 line=2 pp_bus=2 | i_from=0.1773 i_to=0.1773 i_line=0.1773 kA | max_i=0.4000 thr_open=0.4000 thr_close=0.3800 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0062 P_in=86.2436 Q_in=35.6386
+[h4] 2026-05-31 23:02:50 bus=4 line=3 pp_bus=3 | i_from=0.5022 i_to=0.5022 i_line=0.5022 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0100 P_in=79.7479 Q_in=58.8769
+[h4] 2026-05-31 23:02:50 bus=5 line=- pp_bus=4 | no_line_switch | dead=False brk_fb=1 cmd=1 | vm_pu=1.0081 P_in=93.8620 Q_in=22.2650
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-31 23:02:51
+Island: energized=[1, 2, 3, 4, 5] dead=[]
+Load flow sukses. Voltage snapshot (pu): [1.02, 1.01043435453145, 1.0075080663156744, 1.01, 1.0080549205022304]
+[h4] Siklus selesai, CMD siap ke gateway
+[h4] 2026-05-31 23:02:51 bus=1 line=0 pp_bus=0 | i_from=0.7710 i_to=0.7710 i_line=0.7710 kA | max_i=1.6000 thr_open=1.6000 thr_close=1.5200 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0200 P_in=146.2184 Q_in=37.1543
+[h4] 2026-05-31 23:02:51 bus=2 line=1 pp_bus=1 | i_from=0.4229 i_to=0.4229 i_line=0.4229 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0104 P_in=63.3946 Q_in=24.0048
+[h4] 2026-05-31 23:02:51 bus=3 line=2 pp_bus=2 | i_from=0.1386 i_to=0.1386 i_line=0.1386 kA | max_i=0.4000 thr_open=0.4000 thr_close=0.3800 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0075 P_in=66.0556 Q_in=34.8237
+[h4] 2026-05-31 23:02:51 bus=4 line=3 pp_bus=3 | i_from=0.5052 i_to=0.5052 i_line=0.5052 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0100 P_in=80.3571 Q_in=49.0609
+[h4] 2026-05-31 23:02:51 bus=5 line=- pp_bus=4 | no_line_switch | dead=False brk_fb=1 cmd=1 | vm_pu=1.0081 P_in=94.0302 Q_in=23.9338
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-31 23:02:52
+Island: energized=[1, 2, 3, 4, 5] dead=[]
+Load flow sukses. Voltage snapshot (pu): [1.02, 1.0104177465448987, 1.0080631339841488, 1.0099999999999998, 1.0080887840527248]
+[h4] Siklus selesai, CMD siap ke gateway
+[h4] 2026-05-31 23:02:52 bus=1 line=0 pp_bus=0 | i_from=0.7664 i_to=0.7664 i_line=0.7664 kA | max_i=1.6000 thr_open=1.6000 thr_close=1.5200 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0200 P_in=143.5538 Q_in=38.3019
+[h4] 2026-05-31 23:02:52 bus=2 line=1 pp_bus=1 | i_from=0.3599 i_to=0.3599 i_line=0.3599 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0104 P_in=73.9906 Q_in=28.7517
+[h4] 2026-05-31 23:02:52 bus=3 line=2 pp_bus=2 | i_from=0.0845 i_to=0.0845 i_line=0.0845 kA | max_i=0.4000 thr_open=0.4000 thr_close=0.3800 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0081 P_in=63.1661 Q_in=23.6111
+[h4] 2026-05-31 23:02:52 bus=4 line=3 pp_bus=3 | i_from=0.4648 i_to=0.4648 i_line=0.4648 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0100 P_in=79.5772 Q_in=42.7780
+[h4] 2026-05-31 23:02:52 bus=5 line=- pp_bus=4 | no_line_switch | dead=False brk_fb=1 cmd=1 | vm_pu=1.0081 P_in=85.3380 Q_in=26.1876
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-31 23:02:53
+Island: energized=[1, 2, 3, 4, 5] dead=[]
+Load flow sukses. Voltage snapshot (pu): [1.02, 1.009060971572004, 1.005615880926173, 1.01, 1.0081585705399434]
+[h4] Siklus selesai, CMD siap ke gateway
+[h4] 2026-05-31 23:02:53 bus=1 line=0 pp_bus=0 | i_from=0.9058 i_to=0.9058 i_line=0.9058 kA | max_i=1.6000 thr_open=1.6000 thr_close=1.5200 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0200 P_in=171.4214 Q_in=36.0451
+[h4] 2026-05-31 23:02:53 bus=2 line=1 pp_bus=1 | i_from=0.5374 i_to=0.5374 i_line=0.5374 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0091 P_in=66.9840 Q_in=27.6594
+[h4] 2026-05-31 23:02:53 bus=3 line=2 pp_bus=2 | i_from=0.1925 i_to=0.1925 i_line=0.1925 kA | max_i=0.4000 thr_open=0.4000 thr_close=0.3800 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0056 P_in=89.7130 Q_in=45.7873
+[h4] 2026-05-31 23:02:53 bus=4 line=3 pp_bus=3 | i_from=0.4940 i_to=0.4940 i_line=0.4940 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0100 P_in=79.8519 Q_in=62.7864
+[h4] 2026-05-31 23:02:53 bus=5 line=- pp_bus=4 | no_line_switch | dead=False brk_fb=1 cmd=1 | vm_pu=1.0082 P_in=92.4486 Q_in=21.3738
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-31 23:02:54
+Island: energized=[1, 2, 3, 4, 5] dead=[]
+Load flow sukses. Voltage snapshot (pu): [1.02, 1.0095730478552039, 1.0068606267408011, 1.0099999999999998, 1.0083821082495321]
+[h4] Siklus selesai, CMD siap ke gateway
+[h4] 2026-05-31 23:02:54 bus=1 line=0 pp_bus=0 | i_from=0.8468 i_to=0.8468 i_line=0.8468 kA | max_i=1.6000 thr_open=1.6000 thr_close=1.5200 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0200 P_in=158.6311 Q_in=37.1911
+[h4] 2026-05-31 23:02:54 bus=2 line=1 pp_bus=1 | i_from=0.4428 i_to=0.4428 i_line=0.4428 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0096 P_in=73.2333 Q_in=31.6152
+[h4] 2026-05-31 23:02:54 bus=3 line=2 pp_bus=2 | i_from=0.1379 i_to=0.1379 i_line=0.1379 kA | max_i=0.4000 thr_open=0.4000 thr_close=0.3800 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0069 P_in=75.5758 Q_in=32.0811
+[h4] 2026-05-31 23:02:54 bus=4 line=3 pp_bus=3 | i_from=0.4702 i_to=0.4702 i_line=0.4702 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0100 P_in=80.1069 Q_in=45.8061
+[h4] 2026-05-31 23:02:54 bus=5 line=- pp_bus=4 | no_line_switch | dead=False brk_fb=1 cmd=1 | vm_pu=1.0084 P_in=88.9232 Q_in=15.8935
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-31 23:02:55
+Island: energized=[1, 2, 3, 4, 5] dead=[]
+Load flow sukses. Voltage snapshot (pu): [1.02, 1.0093166892377103, 1.0067311342262932, 1.01, 1.0083790564110169]
+[h4] Siklus selesai, CMD siap ke gateway
+[h4] 2026-05-31 23:02:55 bus=1 line=0 pp_bus=0 | i_from=0.9114 i_to=0.9114 i_line=0.9114 kA | max_i=1.6000 thr_open=1.6000 thr_close=1.5200 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0200 P_in=171.0690 Q_in=34.1054
+[h4] 2026-05-31 23:02:55 bus=2 line=1 pp_bus=1 | i_from=0.4764 i_to=0.4764 i_line=0.4764 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0093 P_in=79.9308 Q_in=32.9809
+[h4] 2026-05-31 23:02:55 bus=3 line=2 pp_bus=2 | i_from=0.1570 i_to=0.1570 i_line=0.1570 kA | max_i=0.4000 thr_open=0.4000 thr_close=0.3800 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0067 P_in=78.4800 Q_in=29.7930
+[h4] 2026-05-31 23:02:55 bus=4 line=3 pp_bus=3 | i_from=0.4885 i_to=0.4885 i_line=0.4885 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0100 P_in=80.1610 Q_in=46.7561
+[h4] 2026-05-31 23:02:55 bus=5 line=- pp_bus=4 | no_line_switch | dead=False brk_fb=1 cmd=1 | vm_pu=1.0084 P_in=92.7098 Q_in=14.5547
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-31 23:02:56
+Island: energized=[1, 2, 3, 4, 5] dead=[]
+Load flow sukses. Voltage snapshot (pu): [1.02, 1.0101296725178432, 1.0068302556163735, 1.0099999999999998, 1.0080220661942088]
+[h4] Siklus selesai, CMD siap ke gateway
+[h4] 2026-05-31 23:02:56 bus=1 line=0 pp_bus=0 | i_from=0.7699 i_to=0.7699 i_line=0.7699 kA | max_i=1.6000 thr_open=1.6000 thr_close=1.5200 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0200 P_in=144.3416 Q_in=39.4623
+[h4] 2026-05-31 23:02:56 bus=2 line=1 pp_bus=1 | i_from=0.4574 i_to=0.4574 i_line=0.4574 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0101 P_in=56.0026 Q_in=24.3774
+[h4] 2026-05-31 23:02:56 bus=3 line=2 pp_bus=2 | i_from=0.1316 i_to=0.1316 i_line=0.1316 kA | max_i=0.4000 thr_open=0.4000 thr_close=0.3800 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0068 P_in=79.3287 Q_in=39.7369
+[h4] 2026-05-31 23:02:56 bus=4 line=3 pp_bus=3 | i_from=0.4748 i_to=0.4748 i_line=0.4748 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0100 P_in=80.7363 Q_in=56.0815
+[h4] 2026-05-31 23:02:56 bus=5 line=- pp_bus=4 | no_line_switch | dead=False brk_fb=1 cmd=1 | vm_pu=1.0080 P_in=86.9047 Q_in=27.6281
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-31 23:02:57
+Island: energized=[1, 2, 3, 4, 5] dead=[]
+Load flow sukses. Voltage snapshot (pu): [1.02, 1.010879978488726, 1.0075372357705057, 1.0099999999999998, 1.0083242216166213]
+[h4] Siklus selesai, CMD siap ke gateway
+[h4] 2026-05-31 23:02:57 bus=1 line=0 pp_bus=0 | i_from=0.7251 i_to=0.7251 i_line=0.7251 kA | max_i=1.6000 thr_open=1.6000 thr_close=1.5200 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0200 P_in=136.9143 Q_in=36.9832
+[h4] 2026-05-31 23:02:57 bus=2 line=1 pp_bus=1 | i_from=0.4505 i_to=0.4505 i_line=0.4505 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0109 P_in=49.8846 Q_in=18.7600
+[h4] 2026-05-31 23:02:57 bus=3 line=2 pp_bus=2 | i_from=0.1079 i_to=0.1079 i_line=0.1079 kA | max_i=0.4000 thr_open=0.4000 thr_close=0.3800 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0075 P_in=77.7805 Q_in=36.2938
+[h4] 2026-05-31 23:02:57 bus=4 line=3 pp_bus=3 | i_from=0.4625 i_to=0.4625 i_line=0.4625 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0100 P_in=80.3411 Q_in=39.6589
+[h4] 2026-05-31 23:02:57 bus=5 line=- pp_bus=4 | no_line_switch | dead=False brk_fb=1 cmd=1 | vm_pu=1.0083 P_in=86.9313 Q_in=18.4111
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-31 23:02:58
+Island: energized=[1, 2, 3, 4, 5] dead=[]
+Load flow sukses. Voltage snapshot (pu): [1.02, 1.0102707856851612, 1.0076676106648204, 1.0099999999999998, 1.0081616139001768]
+[h4] Siklus selesai, CMD siap ke gateway
+[h4] 2026-05-31 23:02:58 bus=1 line=0 pp_bus=0 | i_from=0.8732 i_to=0.8732 i_line=0.8732 kA | max_i=1.6000 thr_open=1.6000 thr_close=1.5200 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0200 P_in=165.4871 Q_in=29.6750
+[h4] 2026-05-31 23:02:58 bus=2 line=1 pp_bus=1 | i_from=0.4906 i_to=0.4906 i_line=0.4906 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0103 P_in=71.1608 Q_in=26.6920
+[h4] 2026-05-31 23:02:58 bus=3 line=2 pp_bus=2 | i_from=0.1282 i_to=0.1282 i_line=0.1282 kA | max_i=0.4000 thr_open=0.4000 thr_close=0.3800 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0077 P_in=81.2261 Q_in=22.6665
+[h4] 2026-05-31 23:02:58 bus=4 line=3 pp_bus=3 | i_from=0.4955 i_to=0.4955 i_line=0.4955 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0100 P_in=80.3223 Q_in=44.3109
+[h4] 2026-05-31 23:02:58 bus=5 line=- pp_bus=4 | no_line_switch | dead=False brk_fb=1 cmd=1 | vm_pu=1.0082 P_in=92.7980 Q_in=21.1489
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-31 23:02:59
+Island: energized=[1, 2, 3, 4, 5] dead=[]
+Load flow sukses. Voltage snapshot (pu): [1.02, 1.0102707856851612, 1.0076676106648204, 1.0099999999999998, 1.0081616139001768]
+[h4] Siklus selesai, CMD siap ke gateway
+[h4] 2026-05-31 23:02:59 bus=1 line=0 pp_bus=0 | i_from=0.8732 i_to=0.8732 i_line=0.8732 kA | max_i=1.6000 thr_open=1.6000 thr_close=1.5200 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0200 P_in=165.4871 Q_in=29.6750
+[h4] 2026-05-31 23:02:59 bus=2 line=1 pp_bus=1 | i_from=0.4906 i_to=0.4906 i_line=0.4906 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0103 P_in=71.1608 Q_in=26.6920
+[h4] 2026-05-31 23:02:59 bus=3 line=2 pp_bus=2 | i_from=0.1282 i_to=0.1282 i_line=0.1282 kA | max_i=0.4000 thr_open=0.4000 thr_close=0.3800 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0077 P_in=81.2261 Q_in=22.6665
+[h4] 2026-05-31 23:02:59 bus=4 line=3 pp_bus=3 | i_from=0.4955 i_to=0.4955 i_line=0.4955 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0100 P_in=80.3223 Q_in=44.3109
+[h4] 2026-05-31 23:02:59 bus=5 line=- pp_bus=4 | no_line_switch | dead=False brk_fb=1 cmd=1 | vm_pu=1.0082 P_in=92.7980 Q_in=21.1489
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-31 23:03:00
+Island: energized=[1, 2, 3, 4, 5] dead=[]
+Load flow sukses. Voltage snapshot (pu): [1.02, 1.0109127836403498, 1.0079839601324982, 1.0099999999999998, 1.0083790962173989]
+[h4] Siklus selesai, CMD siap ke gateway
+[h4] 2026-05-31 23:03:00 bus=1 line=0 pp_bus=0 | i_from=0.8127 i_to=0.8127 i_line=0.8127 kA | max_i=1.6000 thr_open=1.6000 thr_close=1.5200 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0200 P_in=156.1423 Q_in=29.3399
+[h4] 2026-05-31 23:03:00 bus=2 line=1 pp_bus=1 | i_from=0.4403 i_to=0.4403 i_line=0.4403 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0109 P_in=70.0684 Q_in=16.0680
+[h4] 2026-05-31 23:03:00 bus=3 line=2 pp_bus=2 | i_from=0.1104 i_to=0.1104 i_line=0.1104 kA | max_i=0.4000 thr_open=0.4000 thr_close=0.3800 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0080 P_in=72.7527 Q_in=28.9820
+[h4] 2026-05-31 23:03:00 bus=4 line=3 pp_bus=3 | i_from=0.4800 i_to=0.4800 i_line=0.4800 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0100 P_in=80.4283 Q_in=34.4318
+[h4] 2026-05-31 23:03:00 bus=5 line=- pp_bus=4 | no_line_switch | dead=False brk_fb=1 cmd=1 | vm_pu=1.0084 P_in=90.9635 Q_in=15.2139
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-31 23:03:01
+Island: energized=[1, 2, 3, 4, 5] dead=[]
+Load flow sukses. Voltage snapshot (pu): [1.02, 1.0095777909455217, 1.0071281885140806, 1.0099999999999998, 1.0081269893811846]
+[h4] Siklus selesai, CMD siap ke gateway
+[h4] 2026-05-31 23:03:01 bus=1 line=0 pp_bus=0 | i_from=0.8275 i_to=0.8275 i_line=0.8275 kA | max_i=1.6000 thr_open=1.6000 thr_close=1.5200 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0200 P_in=153.4093 Q_in=39.9011
+[h4] 2026-05-31 23:03:01 bus=2 line=1 pp_bus=1 | i_from=0.4111 i_to=0.4111 i_line=0.4111 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0096 P_in=74.9262 Q_in=35.0697
+[h4] 2026-05-31 23:03:01 bus=3 line=2 pp_bus=2 | i_from=0.1456 i_to=0.1456 i_line=0.1456 kA | max_i=0.4000 thr_open=0.4000 thr_close=0.3800 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0071 P_in=65.5562 Q_in=30.3059
+[h4] 2026-05-31 23:03:01 bus=4 line=3 pp_bus=3 | i_from=0.4976 i_to=0.4976 i_line=0.4976 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0100 P_in=79.6151 Q_in=50.0514
+[h4] 2026-05-31 23:03:01 bus=5 line=- pp_bus=4 | no_line_switch | dead=False brk_fb=1 cmd=1 | vm_pu=1.0081 P_in=92.9709 Q_in=22.1386
+numba cannot be imported and numba functions are disabled.
+Probably the execution is slow.
+Please install numba to gain a massive speedup.
+(or if you prefer slow execution, set the flag numba=False to avoid this warning!)
+
+ 2026-05-31 23:03:02
+Island: energized=[1, 2, 3, 4, 5] dead=[]
+Load flow sukses. Voltage snapshot (pu): [1.02, 1.0103825311554788, 1.0074863167199932, 1.0099999999999998, 1.0080562672890514]
+[h4] Siklus selesai, CMD siap ke gateway
+[h4] 2026-05-31 23:03:02 bus=1 line=0 pp_bus=0 | i_from=0.8183 i_to=0.8183 i_line=0.8183 kA | max_i=1.6000 thr_open=1.6000 thr_close=1.5200 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0200 P_in=154.6242 Q_in=33.2127
+[h4] 2026-05-31 23:03:02 bus=2 line=1 pp_bus=1 | i_from=0.4984 i_to=0.4984 i_line=0.4984 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0104 P_in=58.3293 Q_in=26.5926
+[h4] 2026-05-31 23:03:02 bus=3 line=2 pp_bus=2 | i_from=0.1416 i_to=0.1416 i_line=0.1416 kA | max_i=0.4000 thr_open=0.4000 thr_close=0.3800 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0075 P_in=80.7977 Q_in=28.5142
+[h4] 2026-05-31 23:03:02 bus=4 line=3 pp_bus=3 | i_from=0.5075 i_to=0.5075 i_line=0.5075 kA | max_i=0.8000 thr_open=0.8000 thr_close=0.7600 | was_closed=True cmd=1 in_svc=True brk_fb=1 dead=False | vm_pu=1.0100 P_in=80.0669 Q_in=48.8837
+[h4] 2026-05-31 23:03:02 bus=5 line=- pp_bus=4 | no_line_switch | dead=False brk_fb=1 cmd=1 | vm_pu=1.0081 P_in=94.5496 Q_in=23.6964

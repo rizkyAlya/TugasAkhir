@@ -51,6 +51,9 @@ I_BASE_ADDR = 10
 BREAKER_FB_BASE_ADDR = 20
 PF_FB_BASE_ADDR = 30
 BREAKER_CMD_BASE_ADDR = 0
+DATA_CYCLE_ADDR = 90
+CMD_ID_ADDR = 91
+ORIGIN_CYCLE_ADDR = 92
 LOOP_INTERVAL_S = float(os.environ.get("GATEWAY_LOOP_INTERVAL_S", "1"))
 V_SCALE = 1000
 I_SCALE = 30
@@ -64,16 +67,8 @@ last_pq_mw = {bus: 0.0 for bus in range(1, NUM_BUS + 1)}
 last_q_mvar = {bus: 0.0 for bus in range(1, NUM_BUS + 1)}
 # Data V/I/PF dari holding register Modbus (RTU dari field).
 BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
-MITM_LOG_DIR = os.path.join(BASE_DIR, "logs", "mitm")
-TRACE_CSV = os.path.join(MITM_LOG_DIR, "trace.csv")
 sys.path.append(BASE_DIR)
-from logger.mitm_trace_logger import (
-    ATTACK_FLAG,
-    append_trace_row,
-    ensure_trace_csv,
-    get_run_id,
-    read_mitm_proxy_snapshot,
-)
+from logger.host_csv_logger import breaker_state, log_control_plane, log_data_plane, timestamp
 
 store = ModbusSlaveContext(
     di=ModbusSequentialDataBlock(0, [0] * 100),
@@ -83,43 +78,9 @@ store = ModbusSlaveContext(
 )
 context = ModbusServerContext(slaves=store, single=True)
 
-ensure_trace_csv(TRACE_CSV)
-
 def start_modbus_server():
     print(f"Memulai Modbus Gateway di {MODBUS_LISTEN_IP}:{MODBUS_PORT}")
     StartTcpServer(context=context, identity=None, address=(MODBUS_LISTEN_IP, MODBUS_PORT))
-
-
-def log_h3_measurement(ts, waktu, bus, v_in, i_in, v_out, i_out, v_dt, breaker_cmd, breaker_fb):
-    """Satu baris per bus; waktu=indeks siklus gateway; iterasi_ke di CSV dari fase collect (sinkron kolom run)."""
-    if os.path.exists(ATTACK_FLAG):
-        snap = read_mitm_proxy_snapshot(bus) or {}
-        v_before = snap.get("v_before", f"{v_in:.6f}")
-        v_after = snap.get("v_after", f"{v_out:.6f}")
-        i_before = snap.get("i_before", f"{i_in:.6f}")
-        i_after = snap.get("i_after", f"{i_out:.6f}")
-    else:
-        v_before = f"{v_in:.6f}"
-        v_after = f"{v_out:.6f}"
-        i_before = f"{i_in:.6f}"
-        i_after = f"{i_out:.6f}"
-
-    append_trace_row(
-        TRACE_CSV,
-        [
-            ts,
-            waktu,
-            get_run_id(),
-            bus,
-            v_before,
-            v_after,
-            i_before,
-            i_after,
-            f"{v_dt:.6f}",
-            breaker_cmd,
-            breaker_fb,
-        ],
-    )
 
 
 for bus in range(1, 6):
@@ -141,6 +102,15 @@ for bus in range(1, 6):
 
     last_breaker[bus] = 1
 
+data_cycle_node = sensor_folder.add_variable(idx, "DATA_cycle", 0)
+data_cycle_node.set_writable()
+
+cmd_id_node = command_folder.add_variable(idx, "CMD_id", 0)
+cmd_id_node.set_writable()
+
+origin_cycle_node = command_folder.add_variable(idx, "ORIGIN_cycle", 0)
+origin_cycle_node.set_writable()
+
 print("Memulai Server OPC UA")
 server.start()
 t = Thread(target=start_modbus_server, daemon=True)
@@ -155,9 +125,16 @@ try:
         t_iter = time.monotonic()
 
         print(f"\n[{ts}] [iter {_gateway_measure_iter}] realtime transfer")
+        cycle_id = int(context[0x00].getValues(3, DATA_CYCLE_ADDR, count=1)[0])
+        data_cycle_node.set_value(int(cycle_id))
+        control_ts_received = timestamp()
+        cmd_id = int(cmd_id_node.get_value())
+        origin_cycle = int(origin_cycle_node.get_value())
+        breaker_cmd = dict(last_breaker)
         for bus in range(1, NUM_BUS + 1):
             cmd_val = last_breaker[bus]
             try:
+                ts_received = timestamp()
                 addr_v = V_BASE_ADDR + (bus - 1)
                 addr_i = I_BASE_ADDR + (bus - 1)
                 addr_pf = PF_FB_BASE_ADDR + (bus - 1)
@@ -193,20 +170,24 @@ try:
 
                 cmd = command_nodes[bus].get_value()
                 cmd_val = 1 if int(cmd) == 1 else 0
+                breaker_cmd[bus] = cmd_val
+                ts_sent = timestamp()
                 context[0x00].setValues(1, BREAKER_CMD_BASE_ADDR + (bus - 1), [cmd_val])
                 v_dt = float(v_dt_nodes[bus].get_value())
 
-                log_h3_measurement(
-                    ts,
-                    _gateway_measure_iter,
-                    bus,
-                    v_raw,
-                    i_raw,
-                    v_raw,
-                    i_raw,
-                    v_dt,
-                    cmd_val,
-                    breaker_fb,
+                log_data_plane(
+                    "h3",
+                    {
+                        "cycle_id": cycle_id,
+                        "ts_received": ts_received,
+                        "ts_sent": ts_sent,
+                        "bus": bus,
+                        "V_received": f"{v_raw:.6f}",
+                        "I_received": f"{i_raw:.6f}",
+                        "P_sent": f"{p_mw:.6f}",
+                        "Q_sent": f"{q_mvar:.6f}",
+                        "breaker_actual": breaker_fb,
+                    },
                 )
                 print(
                     f"[{ts}] [Bus {bus}] P={p_mw:.4f} MW Q={q_mvar:.4f} MVar "
@@ -222,6 +203,22 @@ try:
                     f"{'CLOSE' if cmd_val == 1 else 'OPEN'}"
                 )
                 last_breaker[bus] = cmd_val
+
+        try:
+            context[0x00].setValues(3, CMD_ID_ADDR, [int(cmd_id)])
+            context[0x00].setValues(3, ORIGIN_CYCLE_ADDR, [int(origin_cycle)])
+            log_control_plane(
+                "h3",
+                {
+                    "cmd_id": cmd_id,
+                    "origin_cycle": origin_cycle,
+                    "ts_received": control_ts_received,
+                    "ts_sent": timestamp(),
+                    "breaker_DT": breaker_state(breaker_cmd),
+                },
+            )
+        except Exception as e:
+            print(f"[{ts}] command metadata transfer gagal: {e}")
 
         elapsed = time.monotonic() - t_iter
         remain = LOOP_INTERVAL_S - elapsed

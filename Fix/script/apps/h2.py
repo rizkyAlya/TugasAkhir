@@ -2,6 +2,7 @@ from pymodbus.client import ModbusTcpClient
 from pymodbus.exceptions import ConnectionException
 import os
 import random
+import sys
 import time
 from datetime import datetime
 
@@ -15,6 +16,9 @@ PF_BASE_ADDR = 30
 BREAKER_BASE_ADDR = 0
 BREAKER_FB_BASE_ADDR = 20
 PF_FB_BASE_ADDR = 30
+DATA_CYCLE_ADDR = 90
+CMD_ID_ADDR = 91
+ORIGIN_CYCLE_ADDR = 92
 V_SCALE = 1000
 I_SCALE = 30
 PF_SCALE = 10000
@@ -26,6 +30,10 @@ RTU_NOISE_SEED = int(os.environ.get("RTU_NOISE_SEED", "7"))
 V_NOISE_SIGMA = float(os.environ.get("RTU_V_NOISE_SIGMA", "0.003"))
 I_NOISE_SIGMA = float(os.environ.get("RTU_I_NOISE_SIGMA", "1.5"))
 _noise_rng = random.Random(RTU_NOISE_SEED)
+
+BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
+sys.path.append(BASE_DIR)
+from logger.host_csv_logger import breaker_state, log_control_plane, log_data_plane, timestamp
 
 field_client = ModbusTcpClient(FIELD_IP, port=MODBUS_PORT)
 gateway_client = ModbusTcpClient(GATEWAY_IP, port=MODBUS_PORT)
@@ -84,6 +92,13 @@ def read_modbus_bus(bus):
     return v, i, pf
 
 
+def read_data_cycle():
+    rr = field_client.read_holding_registers(DATA_CYCLE_ADDR, 1, unit=1)
+    if rr.isError() or not rr.registers:
+        return 0
+    return int(rr.registers[0])
+
+
 def read_breaker_field(bus):
     """Status switch aktual di field."""
     addr = BREAKER_BASE_ADDR + (bus - 1)
@@ -101,6 +116,14 @@ def read_breaker_command(bus):
     return 1 if rr_cmd.bits[0] else 0
 
 
+def read_command_meta():
+    rr_cmd = gateway_client.read_holding_registers(CMD_ID_ADDR, 1, unit=1)
+    rr_origin = gateway_client.read_holding_registers(ORIGIN_CYCLE_ADDR, 1, unit=1)
+    cmd_id = 0 if rr_cmd.isError() or not rr_cmd.registers else int(rr_cmd.registers[0])
+    origin_cycle = 0 if rr_origin.isError() or not rr_origin.registers else int(rr_origin.registers[0])
+    return cmd_id, origin_cycle
+
+
 def update_breaker_field(bus, status):
     addr_brk = BREAKER_BASE_ADDR + (bus - 1)
     try:
@@ -109,12 +132,21 @@ def update_breaker_field(bus, status):
         print(f"Error update breaker FIELD bus {bus}: {e}")
 
 
+def update_field_command_meta(cmd_id, origin_cycle):
+    try:
+        field_client.write_register(CMD_ID_ADDR, int(cmd_id), unit=0)
+        field_client.write_register(ORIGIN_CYCLE_ADDR, int(origin_cycle), unit=0)
+    except Exception as e:
+        print(f"Error update command metadata FIELD: {e}")
+
+
 def send_to_gateway_modbus(bus, v, i, pf, breaker_fb):
     addr_v = V_BASE_ADDR + (bus - 1)
     addr_i = I_BASE_ADDR + (bus - 1)
     addr_pf = PF_FB_BASE_ADDR + (bus - 1)
     addr_b = BREAKER_FB_BASE_ADDR + (bus - 1)
     try:
+        gateway_client.write_register(DATA_CYCLE_ADDR, int(read_data_cycle()), unit=1)
         gateway_client.write_register(addr_v, int(v * V_SCALE), unit=1)
         gateway_client.write_register(addr_i, int(i * I_SCALE), unit=1)
         gateway_client.write_register(addr_pf, int(pf * PF_SCALE), unit=1)
@@ -125,19 +157,34 @@ def send_to_gateway_modbus(bus, v, i, pf, breaker_fb):
 
 def apply_dt_commands(ts):
     """Terapkan perintah breaker terbaru dari gateway ke field."""
+    ts_received = timestamp()
+    cmd_id, origin_cycle = read_command_meta()
     for bus in range(1, NUM_BUS + 1):
         cmd = read_breaker_command(bus)
         if cmd in (0, 1):
             breaker_cmd[bus] = cmd
         update_breaker_field(bus, breaker_cmd[bus])
+    update_field_command_meta(cmd_id, origin_cycle)
+    log_control_plane(
+        "h2",
+        {
+            "cmd_id": cmd_id,
+            "origin_cycle": origin_cycle,
+            "ts_received": ts_received,
+            "ts_sent": timestamp(),
+            "breaker_DT": breaker_state(breaker_cmd),
+        },
+    )
     print(f"[{ts}] CMD DT diterapkan ke field")
 
 
 def upload_measurements(ts):
     """Baca pengukuran field dan kirim ke gateway."""
     ok = True
+    cycle_id = read_data_cycle()
     for bus in range(1, NUM_BUS + 1):
         v, i, pf = read_modbus_bus(bus)
+        ts_received = timestamp()
         if v is None or i is None or pf is None:
             print(f"Error baca Modbus bus {bus}")
             ok = False
@@ -150,7 +197,21 @@ def upload_measurements(ts):
         if brk_fb is None:
             brk_fb = breaker_cmd[bus]
 
+        ts_sent = timestamp()
         send_to_gateway_modbus(bus, v, i, pf, brk_fb)
+        log_data_plane(
+            "h2",
+            {
+                "cycle_id": cycle_id,
+                "ts_received": ts_received,
+                "ts_sent": ts_sent,
+                "bus": bus,
+                "V_sent": f"{v:.6f}",
+                "I_sent": f"{i:.6f}",
+                "power_factor": f"{pf:.6f}",
+                "breaker_actual": brk_fb,
+            },
+        )
 
         print(
             f"[{ts}] Bus {bus}: V={v:.3f} pu (raw {v_raw:.3f}) "
