@@ -39,7 +39,7 @@ NORMAL_PHASE_PRE_ATTACK_S = 5
 # PCAP sebelum collect_data jaringan (baseline & MITM, durasi sama agar comparable).
 # Satu tick kolom "waktu" ≈ satu putaran loop gateway — selaras generator/templates/gateway.j2 (time.sleep akhir loop).
 MEASUREMENT_ITERATIONS = 3
-MEASUREMENT_WINDOW_S = 35
+MEASUREMENT_WINDOW_S = 20
 
 
 def publish_measure_iteration_on_hosts(net, iteration: int):
