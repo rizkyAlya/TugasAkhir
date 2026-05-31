@@ -1,0 +1,4 @@
+﻿Skenario,Mean Control Latency (s),Matched Control Rows (count),Missing H1 Rows (count)
+Baseline,2.29 ± 0.18,1045,150
+DoS Light,2.39 ± 0.31,1040,80
+DoS Heavy,2.38 ± 0.36,760,245

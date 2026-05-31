@@ -1,0 +1,4 @@
+scenario (-),threshold (s),iteration_count (count),total_cycle_id_sum (count),received_count_sum (count),fresh_count_sum (count),stale_count_sum (count),missing_count_sum (count),aoi_mean_mean (s),aoi_mean_std_dev (s),aoi_std_dev_mean (s),aoi_std_dev_std_dev (s),fresh_pct_mean (%),fresh_pct_std_dev (%),stale_pct_mean (%),stale_pct_std_dev (%),missing_pct_mean (%),missing_pct_std_dev (%)
+baseline,3.000,3,150,150,150,0,0,1.247536,0.317969,0.127153,0.061373,100.000000,0.000000,0.000000,0.000000,0.000000,0.000000
+dos_light,3.000,3,150,146,146,0,4,0.569421,0.321818,0.152593,0.150844,97.333333,4.618802,0.000000,0.000000,2.666667,4.618802
+dos_heavy,3.000,3,150,137,130,7,13,1.103274,0.131585,0.761013,0.547401,86.666667,11.547005,4.666667,4.163332,8.666667,7.571878

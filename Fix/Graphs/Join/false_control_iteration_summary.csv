@@ -1,0 +1,13 @@
+scenario (-),iteration (-),matched_decisions (count),false_control_count (count),missing_field_decision_count (count),decision_error_rate (%)
+baseline,iteration_1,395,0,0,0.000000
+baseline,iteration_2,385,0,0,0.000000
+baseline,iteration_3,390,0,0,0.000000
+dos_light,iteration_1,375,0,0,0.000000
+dos_light,iteration_2,380,0,0,0.000000
+dos_light,iteration_3,203,96,147,47.290640
+dos_heavy,iteration_1,305,0,0,0.000000
+dos_heavy,iteration_2,191,81,149,42.408377
+dos_heavy,iteration_3,178,80,127,44.943820
+mitm,iteration_1,218,95,177,43.577982
+mitm,iteration_2,209,107,186,51.196172
+mitm,iteration_3,224,106,176,47.321429

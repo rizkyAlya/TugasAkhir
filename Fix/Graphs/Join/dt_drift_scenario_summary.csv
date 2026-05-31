@@ -1,0 +1,5 @@
+scenario (-),iteration_count (count),matched_points_sum (count),missing_h4_points_sum (count),drift_abs_mean_mean (pu),drift_abs_mean_std_dev (pu),drift_abs_std_dev_mean (pu),drift_abs_std_dev_std_dev (pu),drift_abs_max_max (pu),drift_mean_mean (%),drift_mean_std_dev (%)
+baseline,3,1180,25,0.000032,0.000007,0.000123,0.000029,0.001421,0.003192,0.000714
+dos_light,3,958,83,0.043278,0.074877,0.112705,0.194954,1.011755,4.289263,7.421051
+dos_heavy,3,674,207,0.102188,0.089018,0.241411,0.209044,1.015396,10.131586,8.825155
+mitm,3,651,14,0.206651,0.026399,0.406310,0.019515,1.016041,20.473735,2.619879

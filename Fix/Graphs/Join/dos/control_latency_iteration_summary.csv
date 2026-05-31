@@ -1,0 +1,10 @@
+scenario (-),iteration (-),matched_control_rows (count),missing_h1_rows (count),control_latency_mean (s),control_latency_std_dev (s),control_latency_min (s),control_latency_max (s)
+baseline,iteration_1,345,55,2.469904,0.602144,1.027956,3.592857
+baseline,iteration_2,350,45,2.100539,0.450369,1.298491,3.369624
+baseline,iteration_3,350,50,2.288287,0.594477,1.158802,3.069607
+dos_light,iteration_1,365,15,2.459234,0.750591,1.080954,7.541754
+dos_light,iteration_2,350,35,2.667124,0.737883,2.146169,8.570019
+dos_light,iteration_3,325,30,2.054054,0.766179,1.372911,6.732802
+dos_heavy,iteration_1,230,80,2.698721,2.034978,1.311351,10.534831
+dos_heavy,iteration_2,280,85,1.990970,1.468101,1.022267,9.542528
+dos_heavy,iteration_3,250,80,2.458439,1.855745,0.782247,12.375859

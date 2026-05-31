@@ -1,0 +1,4 @@
+scenario (-),iteration_count (count),matched_control_rows_sum (count),missing_h1_rows_sum (count),control_latency_mean_mean (s),control_latency_mean_std_dev (s),control_latency_std_dev_mean (s),control_latency_std_dev_std_dev (s),control_latency_min_min (s),control_latency_max_max (s)
+baseline,3,1045,150,2.286243,0.184691,0.548997,0.085500,1.027956,3.592857
+dos_light,3,1040,80,2.393471,0.311781,0.751551,0.014172,1.080954,8.570019
+dos_heavy,3,760,245,2.382710,0.359901,1.786275,0.289753,0.782247,12.375859

@@ -1,0 +1,3 @@
+scenario (-),iteration_count (count),matched_samples_sum (count),manipulated_count_sum (count),manipulation_rate_mean (%),manipulation_rate_std_dev (%),diff_abs_mean_mean (A),diff_abs_mean_std_dev (A),diff_abs_max_max (A),diff_mean_mean (%),diff_mean_std_dev (%)
+baseline,3,931,0,0.000000,0.000000,0.213558,0.051436,36.885912,0.053701,0.018962
+mitm,3,1090,254,23.289447,0.625887,55.288116,2.116143,483.882776,12.125265,0.117471

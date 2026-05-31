@@ -1,0 +1,25 @@
+scenario (-),metric (-),layer (-),source (-),destination (-),mean (metric_unit),std_dev (metric_unit)
+baseline,RTT,field,h2,h3,2.38,4.88
+baseline,RTT,system,h3,h4,2.52,6.45
+baseline,Packet Loss,field,h2,h3,0.0,0.0
+baseline,Packet Loss,system,h3,h4,0.0,0.0
+baseline,Throughput,field,h2,h3,4.73,0.07
+baseline,Throughput,system,h3,h4,3.97,0.14
+dos_light,RTT,field,h2,h3,3.19,10.34
+dos_light,RTT,system,h3,h4,7.47,8.05
+dos_light,Packet Loss,field,h2,h3,0.0,0.0
+dos_light,Packet Loss,system,h3,h4,0.0,0.0
+dos_light,Throughput,field,h2,h3,3.3,0.44
+dos_light,Throughput,system,h3,h4,4.09,0.27
+dos_heavy,RTT,field,h2,h3,27.81,24.27
+dos_heavy,RTT,system,h3,h4,40.93,39.24
+dos_heavy,Packet Loss,field,h2,h3,0.0,0.0
+dos_heavy,Packet Loss,system,h3,h4,0.0,0.0
+dos_heavy,Throughput,field,h2,h3,0.86,0.06
+dos_heavy,Throughput,system,h3,h4,4.63,0.34
+mitm,RTT,field,h2,h3,1.32,2.83
+mitm,RTT,system,h3,h4,0.64,1.74
+mitm,Packet Loss,field,h2,h3,0.0,0.0
+mitm,Packet Loss,system,h3,h4,0.0,0.0
+mitm,Throughput,field,h2,h3,4.23,1.05
+mitm,Throughput,system,h3,h4,4.14,0.16

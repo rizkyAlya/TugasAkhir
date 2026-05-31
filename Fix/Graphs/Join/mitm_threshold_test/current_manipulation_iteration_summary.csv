@@ -1,0 +1,7 @@
+scenario (-),iteration (-),matched_samples (count),manipulated_count (count),manipulation_rate (%),diff_abs_mean (A),diff_abs_std_dev (A),diff_abs_max (A),diff_mean (%),diff_std_dev (%)
+baseline,iteration_1,296,0,0.000000,0.265692,3.019601,36.885912,0.073843,0.859383
+baseline,iteration_2,325,0,0.000000,0.212131,1.999889,25.957375,0.051064,0.513631
+baseline,iteration_3,310,0,0.000000,0.162850,2.139166,36.742625,0.036195,0.516869
+mitm,iteration_1,371,88,23.719677,55.196692,103.047994,458.520448,12.117179,21.402602
+mitm,iteration_2,350,79,22.571429,53.219167,104.291910,456.346983,12.246571,21.907432
+mitm,iteration_3,369,87,23.577236,57.448489,109.925880,483.882776,12.012046,21.321873
