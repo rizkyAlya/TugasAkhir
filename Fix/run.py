@@ -44,6 +44,7 @@ NORMAL_PHASE_PRE_ATTACK_S = 5
 # Satu tick kolom "waktu" ≈ satu putaran loop gateway — selaras generator/templates/gateway.j2 (time.sleep akhir loop).
 MEASUREMENT_ITERATIONS = 3
 MEASUREMENT_WINDOW_S = 20
+MEASUREMENT_APP_WARMUP_S = float(os.environ.get("MEASUREMENT_APP_WARMUP_S", "5"))
 
 
 def publish_measure_iteration_on_hosts(net, iteration: int):
@@ -102,6 +103,7 @@ def run_measurement_iterations(
     collect_fn=None,
 ) -> None:
     wait_s = MEASUREMENT_WINDOW_S
+    warmup_s = MEASUREMENT_APP_WARMUP_S
     n = MEASUREMENT_ITERATIONS
     phase_key = (pcap_phase or log_label).lower()
 
@@ -111,8 +113,15 @@ def run_measurement_iterations(
                 publish_measure_phase_on_hosts(net, host_csv_phase)
             else:
                 clear_measure_phase_on_hosts(net)
-            publish_measure_iteration_on_hosts(net, i)
+            clear_measure_iteration_on_hosts(net)
             restart_apps(net, reason=f"{log_label} iteration {i}/{n}")
+            if warmup_s > 0:
+                print(
+                    f"[orchestrator] Warm-up {log_label}: iterasi={i}/{n}, "
+                    f"menunggu app sinkron {warmup_s}s sebelum logging iteration..."
+                )
+                time.sleep(warmup_s)
+            publish_measure_iteration_on_hosts(net, i)
             iter_entries = []
             try:
                 if pcap_dir:
@@ -226,6 +235,7 @@ def write_session_meta(
                 "collect_delay_s": args.collect_delay if args.baseline else None,
                 "measurement_iterations": MEASUREMENT_ITERATIONS,
                 "measurement_window_s": MEASUREMENT_WINDOW_S,
+                "measurement_app_warmup_s": MEASUREMENT_APP_WARMUP_S,
                 "pcap_dir": pcap_dir,
             },
             f,

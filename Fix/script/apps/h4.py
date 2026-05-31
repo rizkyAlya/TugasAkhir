@@ -2,6 +2,7 @@
 Digital Twin (h4): 5-bus model (sama arsitektur field), sinkron via OPC UA gateway.
 """
 import math
+import json
 import os
 import sys
 import time
@@ -273,9 +274,10 @@ def get_opcua_nodes(client):
         brk_fb_nodes[bus] = root.get_child(["0:Objects", f"{idx}:SENSORS", f"{idx}:BRK_FB_bus_{bus}"])
         cmd_nodes[bus] = root.get_child(["0:Objects", f"{idx}:COMMANDS", f"{idx}:CMD_bus_{bus}"])
     data_cycle_node = root.get_child(["0:Objects", f"{idx}:SENSORS", f"{idx}:DATA_cycle"])
+    data_queue_node = root.get_child(["0:Objects", f"{idx}:SENSORS", f"{idx}:DATA_queue"])
     cmd_id_node = root.get_child(["0:Objects", f"{idx}:COMMANDS", f"{idx}:CMD_id"])
     origin_cycle_node = root.get_child(["0:Objects", f"{idx}:COMMANDS", f"{idx}:ORIGIN_cycle"])
-    return p_nodes, q_nodes, v_dt_nodes, brk_fb_nodes, cmd_nodes, data_cycle_node, cmd_id_node, origin_cycle_node
+    return p_nodes, q_nodes, v_dt_nodes, brk_fb_nodes, cmd_nodes, data_cycle_node, data_queue_node, cmd_id_node, origin_cycle_node
 
 
 def main():
@@ -293,29 +295,61 @@ def main():
         brk_fb_nodes,
         cmd_nodes,
         data_cycle_node,
+        data_queue_node,
         cmd_id_node,
         origin_cycle_node,
     ) = get_opcua_nodes(client)
     cmd_id = 0
-    last_processed_cycle = None
+    processed_cycles = set()
 
     while True:
         try:
             t_iter = time.monotonic()
             ts_received = timestamp()
-            cycle_id = int(data_cycle_node.get_value())
-            if cycle_id <= 0 or cycle_id == last_processed_cycle:
+            try:
+                snapshots = json.loads(data_queue_node.get_value() or "[]")
+            except Exception:
+                snapshots = []
+
+            snapshot = None
+            for candidate in snapshots:
+                candidate_cycle = int(candidate.get("cycle_id", 0))
+                if candidate_cycle > 0 and candidate_cycle not in processed_cycles:
+                    snapshot = candidate
+                    break
+
+            if snapshot is not None:
+                cycle_id = int(snapshot["cycle_id"])
+                p_raw = snapshot.get("p", {})
+                q_raw = snapshot.get("q", {})
+                brk_raw = snapshot.get("brk", {})
+                brk_fb = {
+                    bus: (1 if int(brk_raw.get(str(bus), 1)) == 1 else 0)
+                    for bus in range(1, NUM_BUS + 1)
+                }
+                p_in = {bus: float(p_raw.get(str(bus), 0.0)) for bus in range(1, NUM_BUS + 1)}
+                q_in = {bus: float(q_raw.get(str(bus), 0.0)) for bus in range(1, NUM_BUS + 1)}
+            else:
+                cycle_id = int(data_cycle_node.get_value())
+                if cycle_id <= 0 or cycle_id in processed_cycles:
+                    elapsed = time.monotonic() - t_iter
+                    remain = LOOP_INTERVAL_S - elapsed
+                    if remain > 0:
+                        time.sleep(remain)
+                    continue
+                brk_fb = {
+                    bus: (1 if int(brk_fb_nodes[bus].get_value()) == 1 else 0)
+                    for bus in range(1, NUM_BUS + 1)
+                }
+                p_in = {bus: float(p_nodes[bus].get_value()) for bus in range(1, NUM_BUS + 1)}
+                q_in = {bus: float(q_nodes[bus].get_value()) for bus in range(1, NUM_BUS + 1)}
+
+            if cycle_id <= 0:
                 elapsed = time.monotonic() - t_iter
                 remain = LOOP_INTERVAL_S - elapsed
                 if remain > 0:
                     time.sleep(remain)
                 continue
-            brk_fb = {
-                bus: (1 if int(brk_fb_nodes[bus].get_value()) == 1 else 0)
-                for bus in range(1, NUM_BUS + 1)
-            }
-            p_in = {bus: float(p_nodes[bus].get_value()) for bus in range(1, NUM_BUS + 1)}
-            q_in = {bus: float(q_nodes[bus].get_value()) for bus in range(1, NUM_BUS + 1)}
 
             apply_topology_from_feedback(net, switches_by_bus, brk_fb)
             energized = energized_from_slack(brk_fb)
@@ -400,7 +434,7 @@ def main():
                     q_in[bus],
                     energized,
                 )
-            last_processed_cycle = cycle_id
+            processed_cycles.add(cycle_id)
 
         except Exception as exc:
             print(f"DT cycle error: {exc}", flush=True)
@@ -416,6 +450,7 @@ def main():
                 brk_fb_nodes,
                 cmd_nodes,
                 data_cycle_node,
+                data_queue_node,
                 cmd_id_node,
                 origin_cycle_node,
             ) = get_opcua_nodes(client)

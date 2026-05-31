@@ -2,6 +2,7 @@ import os
 import sys
 import time
 import math
+import json
 from datetime import datetime
 from threading import Thread
 
@@ -105,6 +106,9 @@ for bus in range(1, 6):
 data_cycle_node = sensor_folder.add_variable(idx, "DATA_cycle", 0)
 data_cycle_node.set_writable()
 
+data_queue_node = sensor_folder.add_variable(idx, "DATA_queue", "[]")
+data_queue_node.set_writable()
+
 cmd_id_node = command_folder.add_variable(idx, "CMD_id", 0)
 cmd_id_node.set_writable()
 
@@ -117,6 +121,9 @@ t = Thread(target=start_modbus_server, daemon=True)
 t.start()
 
 _gateway_measure_iter = 0
+data_history = []
+last_snapshot_cycle = None
+DATA_HISTORY_MAX = int(os.environ.get("GATEWAY_DATA_HISTORY_MAX", "200"))
 
 try:
     while True:
@@ -131,6 +138,9 @@ try:
         cmd_id = int(cmd_id_node.get_value())
         origin_cycle = int(origin_cycle_node.get_value())
         breaker_cmd = dict(last_breaker)
+        snapshot_p = {}
+        snapshot_q = {}
+        snapshot_brk = {}
         for bus in range(1, NUM_BUS + 1):
             cmd_val = last_breaker[bus]
             try:
@@ -167,6 +177,9 @@ try:
                 p_nodes[bus].set_value(p_mw)
                 q_nodes[bus].set_value(q_mvar)
                 brk_fb_nodes[bus].set_value(int(breaker_fb))
+                snapshot_p[bus] = p_mw
+                snapshot_q[bus] = q_mvar
+                snapshot_brk[bus] = breaker_fb
 
                 cmd = command_nodes[bus].get_value()
                 cmd_val = 1 if int(cmd) == 1 else 0
@@ -205,6 +218,19 @@ try:
                 last_breaker[bus] = cmd_val
 
         try:
+            if cycle_id > 0 and cycle_id != last_snapshot_cycle and len(snapshot_p) == NUM_BUS:
+                data_history.append(
+                    {
+                        "cycle_id": int(cycle_id),
+                        "p": {str(bus): snapshot_p[bus] for bus in range(1, NUM_BUS + 1)},
+                        "q": {str(bus): snapshot_q[bus] for bus in range(1, NUM_BUS + 1)},
+                        "brk": {str(bus): snapshot_brk[bus] for bus in range(1, NUM_BUS + 1)},
+                    }
+                )
+                del data_history[:-DATA_HISTORY_MAX]
+                data_queue_node.set_value(json.dumps(data_history, separators=(",", ":")))
+                last_snapshot_cycle = cycle_id
+
             context[0x00].setValues(3, CMD_ID_ADDR, [int(cmd_id)])
             context[0x00].setValues(3, ORIGIN_CYCLE_ADDR, [int(origin_cycle)])
             log_control_plane(
