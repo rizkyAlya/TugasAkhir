@@ -7,7 +7,7 @@ import shlex
 import statistics
 import yaml
 
-NUM_RUNS = 3
+NUM_RUNS = 1
 IPERF_PORT = 5001
 IPERF_DURATION_S = 5
 IPERF_CONNECT_TIMEOUT_S = 8

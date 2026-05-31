@@ -19,8 +19,8 @@ NUM_BUS = 5
 I_MANGLE_FACTOR = float(os.environ.get("MITM_I_FACTOR", "1.5"))
 # Mekanisme realistis: manipulasi hanya aktif pada jendela waktu tertentu,
 # lalu masih disaring probabilitas per-write.
-ATTACK_ON_SECONDS = 8.0
-ATTACK_OFF_SECONDS = 2.0
+ATTACK_ON_SECONDS = 5.0
+ATTACK_OFF_SECONDS = 5.0
 MODIFY_PROBABILITY = 0.5
 RUN_ID_FILE = "/tmp/mitm_run_id"
 
