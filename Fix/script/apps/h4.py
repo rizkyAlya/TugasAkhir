@@ -99,19 +99,19 @@ def build_network():
 
     line1 = pp.create_line_from_parameters(
         net, from_bus=bus1, to_bus=bus2, length_km=10,
-        r_ohm_per_km=0.05, x_ohm_per_km=0.12, c_nf_per_km=0, max_i_ka=1.6, name="Line 1",
+        r_ohm_per_km=0.05, x_ohm_per_km=0.12, c_nf_per_km=0, max_i_ka=1.176, name="Line 1",
     )
     line2 = pp.create_line_from_parameters(
-        net, from_bus=bus2, to_bus=bus3, length_km=8,
-        r_ohm_per_km=0.04, x_ohm_per_km=0.10, c_nf_per_km=0, max_i_ka=0.8, name="Line 2",
+        net, from_bus=bus2, to_bus=bus3, length_km=5,
+        r_ohm_per_km=0.04, x_ohm_per_km=0.10, c_nf_per_km=0, max_i_ka=0.682, name="Line 2",
     )
     line3 = pp.create_line_from_parameters(
-        net, from_bus=bus3, to_bus=bus4, length_km=12,
-        r_ohm_per_km=0.06, x_ohm_per_km=0.15, c_nf_per_km=0, max_i_ka=0.4, name="Line 3",
+        net, from_bus=bus3, to_bus=bus4, length_km=5,
+        r_ohm_per_km=0.06, x_ohm_per_km=0.15, c_nf_per_km=0, max_i_ka=0.227, name="Line 3",
     )
     line4 = pp.create_line_from_parameters(
-        net, from_bus=bus4, to_bus=bus5, length_km=5,
-        r_ohm_per_km=0.03, x_ohm_per_km=0.08, c_nf_per_km=0, max_i_ka=0.8, name="Line 4",
+        net, from_bus=bus4, to_bus=bus5, length_km=8,
+        r_ohm_per_km=0.03, x_ohm_per_km=0.08, c_nf_per_km=0, max_i_ka=0.646, name="Line 4",
     )
 
     switches_by_bus = {
@@ -375,7 +375,7 @@ def main():
                         "cycle_id": cycle_id,
                         "ts_received": ts_received,
                         "bus": bus,
-                        "line": "" if line_idx is None else line_idx,
+                        "line": "" if line_idx is None else line_idx+1,
                         "V_DT": f"{v_dt:.6f}",
                         "I_line": f"{i_line:.6f}",
                         "breaker_actual": brk_fb[bus],
