@@ -1,0 +1,406 @@
+%-----------------------------------------------------------------------------%
+\chapter{\babTiga}
+\label{cha:perancangansistem}
+%-----------------------------------------------------------------------------%
+
+\section{Tujuan dan Ruang Lingkup Perancangan Sistem}
+\label{sec:tujuan_ruang_lingkup_perancangan_sistem}
+
+\subsection{Tujuan Perancangan Sistem}
+\label{subsec:tujuan_perancangan_sistem}
+Untuk membangun lingkungan \ac{DT} berbasis ko-simulasi pada sistem tenaga listrik cerdas, penelitian ini menetapkan beberapa tujuan perancangan sebagai berikut:
+
+\begin{enumerate}
+    \item Merancang arsitektur \ac{DT} terintegrasi yang menggabungkan simulasi jaringan komunikasi menggunakan Mininet dan simulasi sistem tenaga menggunakan PandaPower melalui protokol OPC UA dan Modbus TCP.
+
+    \item Menentukan peran dan interaksi setiap komponen sistem sehingga terbentuk mekanisme pertukaran data dan sinkronisasi antara domain siber dan fisik.
+
+    \item Menyusun alur operasi sistem yang mencakup proses inisialisasi, pembacaan data, pertukaran data antar komponen, sinkronisasi status sistem, dan pemrosesan data secara siklik.
+
+    \item Merancang generator dan orkestrator untuk otomasi pembangkitan topologi, eksekusi host, pengelolaan eksperimen, serta pengumpulan data berdasarkan konfigurasi terpusat.
+
+    \item Merancang mekanisme komunikasi antar komponen, termasuk format data, frekuensi pembaruan, dan pengendalian alur pertukaran data dalam lingkungan ko-simulasi.
+
+    \item Menyusun skenario gangguan dan serangan siber, meliputi \ac{DoS} dan \ac{MITM}, untuk mengevaluasi pengaruh kondisi jaringan terhadap sinkronisasi dan konsistensi sistem.
+
+    \item Menyediakan dasar perancangan untuk tahap implementasi dan pengujian sistem sehingga parameter kinerja seperti \textit{latency}, \textit{throughput}, \textit{packet loss}, dan konsistensi sinkronisasi dapat dievaluasi secara sistematis.
+\end{enumerate}
+
+\subsection{Ruang Lingkup Perancangan Sistem}
+\label{subsec:ruang_lingkup_perancangan_sistem}
+Ruang lingkup perancangan sistem pada penelitian ini dibatasi agar berfokus pada pengembangan lingkungan \ac{DT} berbasis ko-simulasi serta evaluasi pengaruh kondisi jaringan dan serangan siber terhadap sinkronisasi sistem. Batasan penelitian meliputi:
+
+\begin{itemize}
+    \item Sistem dikembangkan pada lingkungan simulasi perangkat lunak (\textit{software-in-the-loop}) menggunakan Mininet sebagai simulator jaringan komunikasi dan PandaPower sebagai simulator sistem tenaga, tanpa melibatkan perangkat keras fisik (\textit{hardware-in-the-loop}).
+
+    \item Simulasi sistem tenaga difokuskan pada representasi kondisi operasional jaringan distribusi dan sinkronisasi status sistem, serta tidak mencakup analisis transien elektromagnetik maupun proteksi sistem tenaga secara detail.
+
+    \item \textit{Middleware} dan protokol komunikasi yang digunakan dibatasi pada OPC UA dan Modbus TCP sebagai representasi komunikasi industri pada sistem SCADA.
+
+    \item Mekanisme ko-simulasi difokuskan pada pertukaran data, sinkronisasi status, dan pengaruh kondisi jaringan komunikasi terhadap konsistensi antara \ac{DT} dan representasi sistem lapangan (\textit{field}).
+
+    \item Jenis serangan siber yang diuji dibatasi pada serangan \ac{DoS} berupa pembanjiran trafik terkendali menuju titik agregasi (\textit{gateway}), serta serangan \ac{MITM} pada jalur Modbus TCP antara RTU dan \textit{gateway}.
+
+    \item Evaluasi keamanan difokuskan pada dampak serangan terhadap komunikasi dan sinkronisasi data, serta tidak mencakup analisis forensik, deteksi intrusi, maupun mekanisme mitigasi otomatis.
+
+    \item Pengujian dilakukan pada skenario topologi dan jumlah node terbatas sesuai kebutuhan evaluasi penelitian, sehingga belum ditujukan untuk merepresentasikan sistem smart grid berskala besar.
+\end{itemize}
+%-----------------------------------------------------------------------------%
+\section{Perancangan Arsitektur \textit{Cyber Range} dan DT}
+\label{sec:rancangan_arsitektur_cyber_range_dan_digital_twin}
+
+\subsection{Gambaran Umum Arsitektur Sistem}
+\label{subsec:gambaran_umum_arsitektur_sistem}
+
+Arsitektur sistem dirancang dengan mengintegrasikan lingkungan \textit{Cyber Range} berbasis Mininet dan \textit{Digital Twin} (\ac{DT}) berbasis PandaPower untuk merepresentasikan hubungan antara domain komunikasi dan sistem tenaga listrik. Lingkungan \textit{Cyber Range} digunakan untuk membangun jaringan komunikasi virtual, segmentasi antar zona, serta pelaksanaan skenario serangan siber, sedangkan \ac{DT} digunakan untuk merepresentasikan kondisi dan perilaku sistem tenaga secara digital.
+
+Lingkungan \textit{Cyber Range} dibangun menggunakan Mininet dengan beberapa \textit{host} yang ditempatkan pada tiga zona jaringan, yaitu \textit{field}, \textit{control}, dan \textit{IT}. Setiap zona dihubungkan melalui router virtual yang menerapkan aturan segmentasi komunikasi tertentu. Pendekatan ini memungkinkan pengujian kondisi jaringan, pengamatan pengaruh gangguan komunikasi, serta pelaksanaan eksperimen serangan siber secara terisolasi dan berulang.
+
+Gambar~\ref{fig:cyber_range_topology} menunjukkan topologi virtual dan segmentasi jaringan pada lingkungan \textit{Cyber Range} yang digunakan dalam penelitian ini.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.8\textwidth]{assets/pdfs/cyber_range_topology.pdf}
+    \caption{Topologi virtual dan segmentasi jaringan pada lingkungan \textit{Cyber Range}}
+    \label{fig:cyber_range_topology}
+\end{figure}
+
+Pada arsitektur ini, empat \textit{host} utama (h1--h4) merepresentasikan lapisan Purdue Model Level~0 hingga Level~3. Selain itu, sistem juga menyediakan satu \textit{host} tambahan (h5) sebagai \textit{node} penyerang untuk menjalankan skenario serangan seperti \ac{DoS} dan \ac{MITM}. Dengan demikian, lingkungan \textit{Cyber Range} tidak hanya digunakan untuk menjalankan komunikasi antar komponen, tetapi juga sebagai media evaluasi keamanan dan ketahanan sistem terhadap gangguan siber.
+
+Komunikasi antar lapisan menggunakan Modbus TCP dan OPC UA untuk membentuk alur pertukaran data antara sistem lapangan dan \textit{digital twin}. Modbus TCP digunakan pada komunikasi antara lapisan lapangan dan kontrol, sedangkan OPC UA digunakan sebagai komunikasi antara \textit{gateway} dan \textit{digital twin}.
+
+Aliran data dimulai dari simulasi proses fisik pada Level~0, diteruskan ke RTU pada Level~1 menggunakan Modbus TCP, kemudian dikirim ke \textit{gateway} pada Level~2. Selanjutnya data dipublikasikan melalui OPC UA ke \textit{digital twin} pada Level~3 untuk dilakukan analisis dan pengambilan keputusan. Hasil keputusan berupa status \textit{breaker} dikirim kembali ke lapisan bawah melalui jalur komunikasi yang sama sehingga membentuk siklus sinkronisasi tertutup (\textit{closed-loop}).
+
+Gambar~\ref{fig:custom_arch} menunjukkan arsitektur \ac{DT} dan alur pertukaran data berdasarkan pemetaan Purdue Model Level~0 hingga Level~3.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.75\textwidth]{assets/pdfs/ArsitekturDT.pdf}
+    \caption{Arsitektur DT dan alur pertukaran data berdasarkan Purdue Model (Level~0--3)}
+    \label{fig:custom_arch}
+\end{figure}
+
+Rancangan ini mengadopsi Purdue Model sebagai acuan konseptual (Bab~\ref{cha:studiliteratur}) dan difokuskan pada lapisan teknologi operasional (Level~0 hingga Level~3). Berikut pemetaan fungsi setiap \textit{host}:
+
+\begin{itemize}
+    \item \textbf{Level 0 (\textit{Virtual Process}).} 
+    \textit{Host} h1 merepresentasikan proses fisik dan menjalankan simulasi sistem tenaga listrik menggunakan PandaPower. Host ini bertindak sebagai \textit{Modbus TCP Server} yang menyediakan data pengukuran sistem seperti tegangan, arus, dan status \textit{breaker}.
+
+    \item \textbf{Level 1 (\textit{Basic Control}).} 
+    \textit{Host} h2 berperan sebagai RTU/IED dan bertindak sebagai \textit{Modbus Client}. Host ini melakukan pembacaan data dari h1 secara periodik, kemudian meneruskan data tersebut ke \textit{gateway}. Selain itu, h2 juga menerima status \textit{breaker} dari lapisan atas untuk diterapkan kembali pada sistem lapangan di h1.
+
+    \item \textbf{Level 2 (\textit{Area Supervisory Control}).} 
+    \textit{Host} h3 berperan sebagai \textit{gateway} sekaligus penghubung antara protokol Modbus TCP dan OPC UA. Host ini menerima data dari h2 melalui Modbus TCP, kemudian mempublikasikannya melalui \textit{OPC UA Server}. Selain itu, h3 juga menerima hasil keputusan dari \textit{digital twin} dan meneruskannya kembali ke lapisan bawah melalui Modbus TCP.
+
+    \item \textbf{Level 3 (\textit{Operation \& Control}).} 
+    \textit{Host} h4 menjalankan PandaPower sebagai \textit{digital twin} dan bertindak sebagai \textit{OPC UA Client}. Host ini membaca data sistem dari server OPC UA pada h3, menjalankan analisis aliran daya, menentukan status operasi \textit{breaker}, kemudian mengirimkan hasil keputusan kembali ke h3 melalui OPC UA.
+\end{itemize}
+
+Dengan rancangan tersebut, sistem membentuk lingkungan ko-simulasi antara domain komunikasi jaringan dan sistem tenaga listrik. PandaPower digunakan untuk merepresentasikan proses kelistrikan pada sisi lapangan dan \textit{digital twin}, sedangkan Mininet digunakan untuk merepresentasikan jaringan komunikasi dan lingkungan \textit{Cyber Range}. Struktur ini memungkinkan evaluasi pengaruh kondisi jaringan dan serangan siber terhadap sinkronisasi data dan konsistensi sistem antara lapangan dan \ac{DT}.
+
+\subsection{Komponen dan Peran}
+\label{subsec:komponen_dan_peran}
+Arsitektur \ac{DT} terdiri dari beberapa \textit{host} yang direalisasikan pada lingkungan Mininet. Setiap \textit{host} memiliki fungsi tertentu dalam proses pertukaran data, mulai dari simulasi sistem lapangan hingga analisis pada sisi \textit{digital twin}. Komunikasi antar-komponen menggunakan protokol Modbus TCP dan OPC UA sesuai kebutuhan tiap lapisan sistem.
+
+\subsubsection*{\textit{Host} h1 (\textit{Field Process})}
+\textit{Host} h1 merepresentasikan proses lapangan pada Level~0 Purdue Model dan menjalankan simulasi sistem tenaga menggunakan PandaPower sebagai \textit{ground-truth}. Host ini menyediakan data pengukuran seperti tegangan, arus, dan status \textit{breaker} melalui layanan Modbus TCP untuk dibaca oleh RTU.
+
+\subsubsection*{\textit{Host} h2 (\textit{RTU/IED})}
+\textit{Host} h2 berperan sebagai RTU/IED pada Level~1 yang melakukan pembacaan data dari h1 menggunakan Modbus TCP. Data tersebut diteruskan ke \textit{gateway} pada h3, sekaligus menerima dan menerapkan perintah \textit{breaker} dari lapisan atas ke sistem lapangan.
+
+\subsubsection*{\textit{Host} h3 (\textit{Gateway})}
+\textit{Host} h3 berfungsi sebagai \textit{gateway} dan penghubung antara komunikasi Modbus TCP dan OPC UA. Host ini menerima data dari RTU, kemudian mempublikasikannya melalui server OPC UA agar dapat diakses oleh \textit{digital twin}. Selain itu, h3 juga meneruskan perintah kontrol dari \textit{digital twin} ke RTU melalui Modbus TCP.
+
+\subsubsection*{\textit{Host} h4 (\textit{Digital Twin})}
+\textit{Host} h4 menjalankan PandaPower sebagai \textit{digital twin} pada Level~3. Host ini bertindak sebagai klien OPC UA yang membaca data sistem dari h3, menjalankan analisis aliran daya, menentukan status operasi \textit{breaker}, dan mengirimkan hasil keputusan kembali ke \textit{gateway}.
+
+\subsubsection*{\textit{Host} h5 (\textit{Attacker})}
+\textit{Host} h5 digunakan untuk menjalankan skenario serangan siber seperti \ac{DoS} dan \ac{MITM}. Host ini tidak terlibat dalam operasi normal sistem, tetapi digunakan untuk mengevaluasi pengaruh serangan terhadap komunikasi dan sinkronisasi data pada lingkungan \textit{Cyber Range}.
+
+Ringkasan komponen dan peran masing-masing \textit{host} dalam arsitektur \ac{DT} ditunjukkan pada Tabel~\ref{tab:komponen_peran}.
+
+\renewcommand{\arraystretch}{1.3}
+\begin{table}[htbp]
+    \centering
+    \caption{Komponen utama, zona, dan perannya dalam arsitektur \textit{Cyber Range} + DT.}
+    \label{tab:komponen_peran}
+    \begin{tabular}{|c|c|p{4cm}|p{6cm}|}
+        \hline
+        \textbf{\textit{Host}} & \textbf{Zona} & \textbf{Komponen layanan} & \textbf{Peran utama} \\
+        \hline
+        h1 & \textit{Field} & PandaPower Field, Server Modbus TCP & Simulasi sistem tenaga dan sumber data lapangan. \\
+        
+        h2 & \textit{Field} & Klien Modbus TCP & Akuisisi data lapangan dan penerusan data kontrol. \\
+        
+        h3 & \textit{Control} & Server Modbus TCP, Server OPC UA & Agregasi data dan penghubung Modbus TCP--OPC UA. \\
+        
+        h4 & \textit{IT} & PandaPower DT, Klien OPC UA & Analisis DT dan pengambilan keputusan kontrol. \\
+        
+        h5 & \textit{Control} & Skrip serangan & Simulasi serangan siber (\ac{DoS}/\ac{MITM}). \\
+        \hline
+    \end{tabular}
+\end{table}
+
+\subsection{Rancangan Otomasi dan Orkestrasi Sistem}
+\label{subsec:rancangan_otomasi_dan_orkestrasi_sistem}
+Selain merancang arsitektur logis \ac{DT}, penelitian ini juga memisahkan konfigurasi sistem dari proses pelaksanaan eksperimen. Konfigurasi topologi, daftar \textit{host}, peran sistem, dan parameter jaringan disentralisasikan dalam satu berkas konfigurasi sehingga perubahan skenario tidak memerlukan modifikasi langsung pada skrip aplikasi maupun topologi.
+
+Berdasarkan konfigurasi tersebut, sistem secara otomatis menghasilkan skrip aplikasi setiap \textit{host} dan topologi jaringan Mininet menggunakan template berbasis Jinja2. Selanjutnya, orkestrator membangun jaringan virtual, menjalankan layanan sesuai dependensi komunikasi, serta mengelola pelaksanaan eksperimen. Pendekatan ini bertujuan meningkatkan konsistensi konfigurasi, reproduktibilitas eksperimen, dan kemudahan pengembangan sistem.
+
+Gambar~\ref{fig:automation_flow} menunjukkan alur otomasi sistem, mulai dari pembacaan konfigurasi, proses generasi topologi dan aplikasi, hingga orkestrasi eksperimen pada lingkungan \textit{Cyber Range}.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=1\textwidth]{assets/pdfs/FlowOtomasi.pdf}
+    \caption{Alur otomasi generasi konfigurasi dan orkestrasi eksperimen}
+    \label{fig:automation_flow}
+\end{figure}
+
+\subsubsection{Rancangan Generator Topologi dan Aplikasi}
+\label{subsubsec:rancangan_generator_topologi_dan_aplikasi}
+Modul generator membaca berkas konfigurasi berformat YAML yang mendefinisikan zona jaringan, daftar \textit{host}, parameter \textit{link}, serta hubungan komunikasi antar-komponen. Berdasarkan konfigurasi tersebut, template Jinja2 digunakan untuk menghasilkan skrip aplikasi sesuai peran masing-masing \textit{host}, seperti perangkat lapangan, RTU, \textit{gateway}, \textit{digital twin}, dan \textit{node} penyerang.
+
+Selain menghasilkan skrip aplikasi, generator juga menghasilkan skrip topologi Mininet yang digunakan untuk membentuk jaringan virtual beserta konfigurasi komunikasi antar-\textit{host}. Informasi hasil generasi disimpan dalam berkas pemetaan aplikasi agar orkestrator dapat menentukan layanan yang dijalankan pada setiap \textit{host} secara dinamis.
+
+Dengan pendekatan ini, perubahan jumlah \textit{host}, topologi jaringan, maupun skenario eksperimen dapat dilakukan melalui file konfigurasi tanpa perlu mengubah struktur utama sistem.
+
+\subsubsection{Rancangan Orkestrasi Sistem}
+\label{subsubsec:rancangan_orkestrasi_sistem}
+Orkestrator bertugas membangun dan mengelola lingkungan eksperimen berdasarkan hasil generasi konfigurasi. Proses orkestrasi dimulai dengan pembentukan jaringan virtual Mininet, dilanjutkan dengan inisialisasi layanan pada setiap \textit{host} sesuai urutan dependensi komunikasi. Urutan startup disusun agar layanan pada lapisan bawah aktif terlebih dahulu sebelum layanan pada lapisan atas melakukan komunikasi. Dengan mekanisme tersebut, RTU dapat melakukan pembacaan data dari lapangan setelah server tersedia, dan \textit{digital twin} dapat terhubung ke server OPC UA setelah \textit{gateway} aktif.
+
+Selain mengelola startup sistem, orkestrator juga menangani perpindahan skenario eksperimen, termasuk operasi normal maupun pengujian serangan siber. Pendekatan ini memungkinkan pelaksanaan eksperimen dilakukan secara konsisten dan terotomasi.
+
+\subsubsection{Rancangan Manajemen Eksperimen}
+\label{subsubsec:rancangan_manajemen_eksperimen}
+Sistem mendukung beberapa skenario eksperimen, meliputi operasi normal, serangan \ac{MITM}, dan serangan \ac{DoS}. Orkestrator mengatur jalannya setiap fase eksperimen, termasuk inisialisasi layanan, aktivasi skenario serangan, dan pengumpulan data pengujian. Selama eksperimen berlangsung, sistem mengumpulkan parameter jaringan dan sinkronisasi yang digunakan untuk evaluasi performa \ac{DT}, seperti \textit{latency}, \textit{throughput}, \textit{packet loss}, dan konsistensi pertukaran data antar-komponen.
+
+Dengan mekanisme tersebut, eksperimen dapat dijalankan secara berulang dengan konfigurasi yang konsisten sehingga hasil pengujian lebih mudah dibandingkan dan dianalisis.
+
+%-----------------------------------------------------------------------------%
+\section{Perancangan Komunikasi dan Sinkronisasi Data}
+\label{sec:rancangan_infrastruktur_komunikasi}
+Perancangan komunikasi dan sinkronisasi data bertujuan untuk membangun mekanisme pertukaran data antara sistem lapangan, \textit{gateway}, dan \textit{digital twin} pada lingkungan \textit{Cyber Range}. Pada penelitian ini, komunikasi dibagi menjadi dua lapisan utama, yaitu komunikasi Modbus TCP pada sisi lapangan dan komunikasi OPC UA pada sisi aplikasi \textit{digital twin}.
+
+\subsection{Rancangan Komunikasi Modbus TCP}
+\label{subsec:rancangan_komunikasi_modbus_tcp}
+Modbus TCP digunakan pada komunikasi antara lapisan lapangan dan \textit{gateway}. Mekanisme komunikasi dirancang menggunakan pola \textit{polling request-response}, di mana RTU membaca data pengukuran dari simulasi lapangan secara periodik dan meneruskannya menuju \textit{gateway}.
+
+Data yang dipertukarkan melalui Modbus TCP meliputi:
+\begin{itemize}
+    \item tegangan dan arus sistem,
+    \item faktor daya,
+    \item serta status \textit{breaker}
+\end{itemize}
+
+Nilai pengukuran direpresentasikan menggunakan \textit{holding register}, sedangkan status kontrol menggunakan \textit{coil}. Perintah kontrol dari \textit{digital twin} diteruskan kembali ke lapangan melalui jalur komunikasi yang sama sehingga membentuk mekanisme umpan balik tertutup (\textit{closed-loop}).
+
+Modbus TCP dipilih karena sederhana, ringan, dan umum digunakan pada lingkungan SCADA industri. Selain itu, tidak adanya mekanisme keamanan bawaan seperti enkripsi dan autentikasi menjadikan protokol ini sesuai untuk evaluasi dampak gangguan dan serangan siber pada sistem.
+
+\subsection{Rancangan Komunikasi OPC UA}
+\label{subsec:rancangan_komunikasi_opc_ua}
+OPC UA digunakan sebagai komunikasi antara \textit{gateway} dan \textit{digital twin}. Berbeda dengan Modbus TCP yang berbasis register, OPC UA menyediakan model data terstruktur sehingga lebih sesuai untuk integrasi aplikasi dan pertukaran data analitik.
+
+Data hasil agregasi dari lapisan bawah dipublikasikan ke dalam variabel OPC UA yang dikelompokkan ke dalam dua bagian utama:
+\begin{itemize}
+    \item \texttt{SENSORS}, yang menyimpan data pengukuran dan kondisi sistem,
+    \item \texttt{COMMANDS}, yang menyimpan hasil keputusan dan perintah kontrol dari \textit{digital twin}.
+\end{itemize}
+
+\textit{Digital twin} membaca data pada folder \texttt{SENSORS} untuk memperbarui model sistem tenaga dan menjalankan analisis aliran daya. Hasil keputusan kemudian dikirim kembali melalui folder \texttt{COMMANDS} untuk diteruskan ke lapangan.
+
+Pemilihan OPC UA didasarkan pada kemampuannya dalam menyediakan interoperabilitas, struktur data yang fleksibel, dan dukungan keamanan komunikasi. Meskipun demikian, penelitian ini difokuskan pada mekanisme pertukaran data dan pengaruh gangguan jaringan sehingga fitur keamanan OPC UA tidak menjadi fokus utama implementasi.
+
+\subsection{Rancangan Sinkronisasi dan \textit{Closed-Loop}}
+\label{subsec:rancangan_sinkronisasi_closed_loop}
+
+Sinkronisasi dan mekanisme \textit{closed-loop} dirancang untuk menjaga konsistensi antara sistem lapangan dan \textit{digital twin} melalui pertukaran data yang berlangsung secara periodik. Pada penelitian ini, sinkronisasi dilakukan dengan mengintegrasikan komunikasi Modbus TCP, OPC UA, dan simulasi sistem tenaga dalam satu siklus operasi berulang.
+
+Mekanisme ini memungkinkan kondisi sistem pada lapangan direpresentasikan pada \textit{digital twin} secara kontinu, sekaligus memungkinkan hasil analisis dan keputusan kontrol dari \textit{digital twin} diterapkan kembali pada sistem lapangan. Dengan demikian, perubahan kondisi jaringan komunikasi maupun gangguan siber dapat diamati pengaruhnya terhadap keterlambatan sinkronisasi, konsistensi data, dan respons sistem secara keseluruhan.
+
+\subsubsection{Alur Pertukaran Data \textit{Closed-Loop}}
+\label{subsubsec:alur_pertukaran_data_closed_loop}
+
+Alur pertukaran data dimulai dari sistem lapangan yang menghasilkan data pengukuran sistem tenaga, seperti tegangan, arus, dan status topologi. Data tersebut dibaca secara periodik oleh RTU menggunakan Modbus TCP dan diteruskan menuju \textit{gateway}.
+
+Pada \textit{gateway}, data hasil pembacaan dikonversi ke dalam variabel OPC UA dan dipublikasikan agar dapat diakses oleh \textit{digital twin}. Selanjutnya, \textit{digital twin} membaca data tersebut untuk memperbarui model sistem tenaga dan menjalankan analisis aliran daya.
+
+Berdasarkan hasil analisis, \textit{digital twin} menghasilkan keputusan kontrol berupa perubahan status \textit{breaker}. Keputusan tersebut kemudian dikirim kembali menuju \textit{gateway} melalui OPC UA dan diteruskan ke lapangan menggunakan Modbus TCP. Setelah perubahan diterapkan pada sistem lapangan, kondisi terbaru sistem kembali dibaca dan dikirim ke \textit{digital twin}, sehingga membentuk mekanisme umpan balik tertutup (\textit{closed-loop}).
+
+Urutan pertukaran data dan proses sinkronisasi antar komponen ditunjukkan pada Gambar~\ref{fig:sequence_diagram_dt}.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.95\textwidth]{assets/pdfs/sequence_diagram_dt.pdf}
+    \caption{Diagram urutan pertukaran data dan sinkronisasi \textit{closed-loop}}
+    \label{fig:sequence_diagram_dt}
+\end{figure}
+
+Siklus sinkronisasi berlangsung secara periodik mengikuti interval komunikasi dan pembaruan model yang telah ditentukan pada masing-masing komponen sistem. Dengan pendekatan ini, perubahan kondisi jaringan seperti peningkatan latensi, kehilangan paket, maupun gangguan komunikasi dapat memengaruhi waktu sinkronisasi dan konsistensi antara sistem lapangan dan \textit{digital twin}.
+
+\subsubsection{Konsistensi Sistem melalui Feedback}
+\label{subsubsec:konsistensi_sistem_feedback}
+
+Konsistensi antara sistem lapangan dan \textit{digital twin} dijaga melalui mekanisme feedback tertutup. Setiap keputusan kontrol yang dihasilkan oleh \textit{digital twin} dikirim kembali ke lapangan dan diterapkan pada simulasi sistem tenaga sehingga kondisi sistem lapangan dapat mengikuti hasil analisis pada \textit{digital twin}.
+
+Mekanisme feedback ini memungkinkan evaluasi terhadap beberapa aspek, antara lain:
+\begin{itemize}
+    \item keterlambatan antara keputusan kontrol dan penerapannya pada sistem lapangan,
+    \item kehilangan atau perubahan data akibat gangguan komunikasi,
+    \item konsistensi status topologi antara lapangan dan \textit{digital twin},
+    \item serta pengaruh serangan siber terhadap proses sinkronisasi sistem.
+\end{itemize}
+
+Melalui mekanisme tersebut, arsitektur yang dirancang dapat digunakan untuk mengevaluasi hubungan antara kondisi jaringan komunikasi, gangguan siber, dan dampaknya terhadap sinkronisasi sistem tenaga dalam lingkungan \textit{Cyber Range}.
+
+Detail implementasi dan hasil pengukuran sinkronisasi akan dibahas pada Bab~\ref{cha:Pengujian dan Evaluasi}.
+
+%-----------------------------------------------------------------------------%
+
+\section{Rancangan Skenario Keamanan Siber}
+\label{sec:rancangan_skenario_keamanan_siber}
+
+\subsection{Kerentanan Infrastruktur}
+\label{subsec:kerentanan_infrastruktur}
+
+Operasi \ac{CPS} dan \textit{Smart Grid} modern menghadirkan tantangan keamanan yang kompleks karena mengintegrasikan perangkat lapangan, jaringan kontrol, dan akses pemeliharaan dalam satu ekosistem yang saling terhubung. Permukaan serangan pada sistem seperti ini tidak hanya berasal dari satu protokol atau satu segmen jaringan, tetapi merupakan kombinasi dari kebijakan jaringan, pengelolaan identitas, serta penggunaan protokol industri yang masih memiliki kelemahan bawaan \citep{dennis2022implementation}.
+
+Pada rancangan \ac{DT} dalam penelitian ini, kerentanan dimodelkan secara sederhana namun tetap merepresentasikan pola yang umum dijumpai pada lingkungan industri. Kerentanan tersebut meliputi:
+
+\begin{itemize}
+
+    \item \textbf{Perangkat \textit{dual-homed} dan segmentasi yang tidak ketat.}  
+    Perangkat seperti \textit{jump host}, \textit{work station}, atau mesin pemeliharaan dapat memiliki lebih dari satu antarmuka jaringan sehingga berpotensi menjembatani zona yang seharusnya terpisah, misalnya antara zona lapangan dan zona kontrol. Apabila pengaturan rute dan \textit{forwarding} tidak dikendalikan dengan baik, trafik dapat melewati jalur yang tidak semestinya tanpa langsung terdeteksi.
+
+    \item \textbf{Autentikasi yang lemah pada komunikasi lapangan.}  
+    Modbus TCP pada umumnya tidak menyediakan mekanisme autentikasi maupun enkripsi end-to-end secara bawaan. Validitas komunikasi lebih bergantung pada kemampuan perangkat untuk menjangkau alamat IP dan \textit{port} layanan. Konfigurasi yang masih menggunakan komunikasi tanpa \textit{TLS} atau mekanisme validasi tambahan meningkatkan risiko penyadapan dan manipulasi data pada jalur komunikasi tersebut \citep{mckinney2022mitm}.
+
+    \item \textbf{Kebijakan \textit{firewall} yang longgar pada komunikasi internal (\textit{east-west traffic}).}  
+    Setelah penyerang berhasil memasuki zona kontrol, komunikasi menuju layanan lain dalam jaringan internal sering kali masih diizinkan untuk mendukung operasional sistem. Kondisi ini memungkinkan satu \textit{host} yang berhasil dikompromikan digunakan untuk menyerang layanan lain tanpa harus melewati perimeter jaringan utama.
+
+    \item \textbf{Minimnya pemantauan dan korelasi log komunikasi.}  
+    Tanpa baseline komunikasi yang jelas, seperti pola \textit{polling}, jenis \textit{function code}, atau karakteristik trafik normal, anomali jaringan seperti lonjakan trafik maupun pengalihan jalur komunikasi cenderung sulit terdeteksi sebelum menimbulkan dampak operasional.
+
+    \item \textbf{Penggunaan layanan atau kredensial secara bersama.}  
+    Penggunaan ulang akun, layanan, atau \textit{endpoint} pada beberapa komponen dapat memperluas dampak kompromi keamanan. Kebocoran pada satu layanan atau kredensial dapat memengaruhi beberapa jalur komunikasi sekaligus.
+
+\end{itemize}
+
+Kerentanan tersebut menjadi dasar dalam perancangan skenario serangan pada penelitian ini, yaitu serangan \ac{DoS} untuk mengganggu ketersediaan layanan serta serangan \ac{MITM} yang memanfaatkan kelemahan komunikasi dan segmentasi jaringan \citep{mckinney2022mitm}.
+
+\subsection{Skenario Serangan DoS}
+\label{subsec:skenario_serangan_dos}
+Skenario \ac{DoS} dirancang untuk menguji ketahanan komunikasi dan respons sistem ketika terjadi lonjakan trafik pada jaringan. Serangan difokuskan pada jalur komunikasi menuju \textit{gateway} sebagai titik agregasi utama dalam arsitektur \ac{DT}. Pada rancangan ini, \textit{host} penyerang mengirimkan trafik UDP secara terus-menerus menuju layanan pada \textit{gateway} dengan dua tingkat intensitas, yaitu \textit{light} dan \textit{heavy}. Variasi tersebut digunakan untuk membandingkan dampak beban jaringan secara bertahap terhadap proses komunikasi dan sinkronisasi sistem.
+
+Gambar~\ref{fig:dos_attack} menunjukkan alur umum simulasi serangan DoS.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=1\textwidth]{assets/pdfs/alurDOS.pdf}
+    \caption{Alur Skenario DoS}
+    \label{fig:dos_attack}
+\end{figure}
+
+Tujuan utama skenario ini bukan untuk merusak model sistem tenaga listrik secara langsung, melainkan untuk mengamati pengaruh kepadatan trafik terhadap performa komunikasi, pembaruan data pada \textit{gateway}, pertukaran data OPC UA, serta respons \textit{digital twin}. Dengan pendekatan ini, pengaruh gangguan jaringan terhadap keterlambatan sinkronisasi dan stabilitas operasi sistem dapat dianalisis secara terukur. Pengumpulan metrik komunikasi dan pengukuran latensi dilakukan selama fase serangan berlangsung sehingga hasil antar tingkat intensitas dapat dibandingkan secara konsisten.
+
+\subsection{Skenario Serangan MITM}
+\label{subsec:skenario_serangan_mitm}
+Berbeda dengan skenario \ac{DoS} yang berfokus pada aspek ketersediaan layanan, skenario \ac{MITM} dirancang untuk menguji integritas data pada komunikasi antara RTU dan \textit{gateway}. Skenario ini memodelkan kondisi ketika penyerang telah memperoleh akses ke zona \textit{field} dan mampu mengintersepsi jalur komunikasi Modbus TCP.
+
+Mekanisme serangan dilakukan melalui tiga tahap utama. Pertama, jalur komunikasi RTU diarahkan melewati \textit{host} penyerang melalui proses \textit{route hijacking}. Kedua, penyerang mengaktifkan \textit{IP forwarding} dan melakukan pengalihan trafik menggunakan aturan \ac{DNAT} sehingga komunikasi Modbus TCP diteruskan ke \textit{proxy} lokal. Ketiga, \textit{proxy} melakukan intersepsi dan modifikasi terhadap nilai \textit{register} sebelum data diteruskan kembali ke \textit{gateway} asli.
+
+Gambar~\ref{fig:mitm_attack} menunjukkan alur umum simulasi serangan MITM.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=1\textwidth]{assets/pdfs/alurMITM.pdf}
+    \caption{Alur Skenario MITM}
+    \label{fig:mitm_attack}
+\end{figure}
+
+Melalui mekanisme tersebut, data yang diterima \textit{gateway} dapat berubah tanpa perlu akses langsung ke server Modbus lapangan \citep{mckinney2022mitm}. Skenario ini digunakan untuk mengevaluasi pengaruh manipulasi data terhadap sinkronisasi, konsistensi status sistem, dan keputusan operasi yang dihasilkan oleh \textit{digital twin}.
+
+\subsection{Alur Simulasi Serangan}
+\label{subsec:alur_simulasi_serangan}
+Pelaksanaan pengujian dan simulasi serangan dikendalikan oleh orkestrator sistem. Skenario eksperimen dapat ditentukan menggunakan kombinasi parameter pengujian, seperti \textit{baseline}, \ac{DoS}, dan \ac{MITM}. Pendekatan ini memungkinkan setiap skenario dijalankan secara terpisah maupun digabungkan dalam satu sesi eksperimen.
+
+Secara umum, tahapan pengujian berlangsung sebagai berikut:
+\begin{enumerate}
+    \item Orkestrator membangun topologi Mininet dan menjalankan layanan pada setiap \textit{host} sesuai konfigurasi eksperimen.
+
+    \item Sistem dijalankan pada kondisi normal hingga komunikasi dan pertukaran data berada pada kondisi stabil.
+
+    \item Jika opsi \texttt{--baseline} diaktifkan, sistem melakukan pengumpulan metrik operasi normal sebagai data pembanding.
+
+    \item Jika opsi \texttt{--dos} diaktifkan, orkestrator menjalankan serangan \ac{DoS} dengan intensitas tertentu sambil tetap melakukan pengukuran komunikasi dan sinkronisasi sistem.
+    
+    \item Jika opsi \texttt{--mitm} diaktifkan, orkestrator menjalankan skenario \ac{MITM} dan mengumpulkan metrik selama proses intersepsi berlangsung.
+
+    \item Setelah seluruh skenario selesai, proses serangan dan pengumpulan data dihentikan secara otomatis oleh orkestrator, sementara komunikasi normal antar-\textit{host} tetap berjalan. CLI Mininet dapat diakses untuk observasi lanjutan sebelum topologi dimatikan secara manual.
+\end{enumerate}
+
+Dengan mekanisme tersebut, seluruh skenario pengujian dapat berjalan secara otonom dan konsisten sehingga memudahkan proses reproduksi eksperimen dan analisis hasil pengujian.
+
+\subsection{Perancangan Pengukuran dan Evaluasi Sistem}
+\label{subsec:pengukuran_evaluasi_sistem}
+Pengukuran dan evaluasi performa sistem \textit{Cyber Range} dilakukan pada tiga skenario, yaitu kondisi normal (\textit{baseline}), serangan DoS, dan serangan MITM. Evaluasi difokuskan pada aspek performa jaringan, konsistensi data, serta dampak serangan terhadap sinkronisasi sistem pada arsitektur DT.
+
+\subsubsection{Metrik Performa Jaringan}
+Untuk mengevaluasi kinerja komunikasi sistem, digunakan tiga metrik utama, yaitu \ac{RTT}, \textit{packet loss}, dan \textit{throughput}.
+
+\renewcommand{\arraystretch}{1.3}
+\begin{table}[htbp]
+    \centering
+    \caption{Metrik performa jaringan pada sistem Cyber Range berbasis DT.}
+    \label{tab:metrik_performa_jaringan}
+    \begin{tabular}{|l|p{10cm}|}
+        \hline
+        \textbf{Metrik} & \textbf{Definisi} \\
+        \hline
+        RTT & Mengukur latensi komunikasi antar komponen sistem. \\
+        \hline
+        \textit{Packet loss} & Mengidentifikasi kehilangan paket pada jalur komunikasi. \\
+        \hline
+        \textit{Throughput} & Mengukur kapasitas laju pengiriman data dalam sistem. \\
+        \hline
+    \end{tabular}
+\end{table}
+
+Pengukuran metrik dilakukan pada dua titik komunikasi utama, yaitu:
+\begin{enumerate}
+    \item \textbf{RTU--Gateway (Field Layer)} sebagai representasi komunikasi antara perangkat lapangan dan \textit{middleware}.
+    \item \textbf{Gateway--Digital Twin (System Layer)} sebagai representasi komunikasi antara \textit{middleware} dan DT.
+\end{enumerate}
+
+\subsubsection{Perancangan Evaluasi Skenario DoS}
+Pada skenario DoS, evaluasi dirancang untuk menganalisis degradasi performa komunikasi akibat gangguan atau peningkatan beban jaringan.
+
+Selain metrik performa jaringan, digunakan metrik tambahan sebagai berikut:
+\begin{itemize}
+    \item \textbf{End-to-end latency (field $\rightarrow$ DT)} untuk mengukur waktu tempuh data dari \textit{field} hingga diterima oleh DT, yang digunakan untuk menilai apakah sistem masih bekerja secara \textit{real-time} atau mengalami keterlambatan.
+    
+    \item \textbf{End-to-end packet loss} untuk mengamati kehilangan paket pada jalur komunikasi end-to-end, baik pada lapisan field--gateway maupun gateway--DT.
+\end{itemize}
+
+Metrik ini digunakan untuk mengevaluasi dampak DoS terhadap konsistensi sinkronisasi data dalam sistem \textit{closed-loop}.
+
+\subsubsection{Perancangan Evaluasi Skenario MITM}
+Pada skenario MITM, evaluasi difokuskan pada aspek integritas data dan dampaknya terhadap sistem kontrol.
+
+Metrik yang diukur meliputi:
+\renewcommand{\arraystretch}{1.3}
+\begin{table}[htbp]
+    \centering
+    \caption{Metrik evaluasi skenario serangan pada sistem Cyber Range berbasis DT.}
+    \label{tab:metrik_serangan}
+    \begin{tabular}{|l|p{9cm}|}
+        \hline
+        \textbf{Metrik} & \textbf{Definisi} \\
+        \hline
+        Jumlah paket termanipulasi & Mengukur banyaknya paket yang dimodifikasi oleh penyerang sebelum mencapai \textit{gateway}. \\
+        \hline
+        \textit{False control action} & Mengukur jumlah aksi kontrol yang salah akibat manipulasi data pada jalur komunikasi. \\
+        \hline
+        \textit{Drift} DT & Mengukur perbedaan antara kondisi sistem fisik dan representasi pada DT akibat adanya manipulasi data. \\
+        \hline
+    \end{tabular}
+\end{table}

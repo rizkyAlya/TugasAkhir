@@ -1,0 +1,430 @@
+%-----------------------------------------------------------------------------%
+\chapter{\babEmpat}
+\label{cha:Pengujian dan Evaluasi}
+%-----------------------------------------------------------------------------%
+
+\section{Implementasi Sistem}
+\label{sec:implementasi_sistem}
+
+\subsection{Lingkungan Implementasi}
+\label{subsec:lingkungan_implementasi}
+Eksperimen dijalankan pada Linux dengan hak akses \textit{root} karena Mininet membutuhkan \textit{network namespace}, \textit{virtual interface}, dan konfigurasi \texttt{iptables}. Seluruh komponen kontrol eksperimen ditulis dalam Python~3. Pustaka yang digunakan dirangkum pada Tabel~\ref{tab:lingkungan_pustaka}.
+
+\renewcommand{\arraystretch}{1.3}
+\begin{table}[htbp]
+    \centering
+    \caption{Pustaka utama yang digunakan pada implementasi}
+    \label{tab:lingkungan_pustaka}
+    \begin{tabular}{|l|p{8.5cm}|}
+        \hline
+        \textbf{Pustaka} & \textbf{Peran} \\ \hline
+        Mininet & Membangun jaringan virtual, \textit{switch} OVS, dan \textit{link} dengan \texttt{TCLink}. \\ \hline
+        \texttt{pymodbus} & Server dan klien Modbus TCP pada h1, h2, dan h3. \\ \hline
+        \texttt{opcua} (\texttt{python-opcua}) & Server OPC UA pada h3 dan klien OPC UA pada h4. \\ \hline
+        \texttt{pandapower} & Model jaringan listrik 5-bus, aliran daya, dan evaluasi \textit{breaker}. \\ \hline
+        \texttt{Jinja2}, \texttt{PyYAML} & Pembacaan konfigurasi YAML dan pembuatan skrip aplikasi/topologi secara otomatis. \\ \hline
+        \texttt{iptables}, \texttt{hping3} & \ac{DNAT} untuk \ac{MITM} dan pembangkit trafik \ac{DoS}. \\ \hline
+        \texttt{iperf} (v2) & Pengukuran \textit{throughput} antar-titik \ac{DT}. \\ \hline
+    \end{tabular}
+\end{table}
+
+\subsection{Implementasi Arsitektur Cyber Range}
+\label{subsec:implementasi_arsitektur_cyber_range}
+Topologi Mininet dibagi menjadi tiga zona, yaitu \textit{field} (\texttt{10.0.1.0/24}), \textit{control} (\texttt{10.0.2.0/24}), dan \textit{IT} (\texttt{10.0.3.0/24}). Setiap \textit{link} menggunakan \texttt{TCLink} dengan \textit{bandwidth} 5~Mbps. Router \texttt{r0} menjadi penghubung antarzona dan menerapkan kebijakan \textit{default-deny}: jalur \textit{field}--\textit{control} dan \textit{control}--IT diizinkan, sedangkan komunikasi langsung \textit{field}--IT diblok.
+
+\begin{table}[htbp]
+\centering
+\caption{Pemetaan \textit{host}, zona, dan peran pada implementasi}
+\begin{tabular}{|c|c|l|l|}
+    \hline
+    \textbf{\textit{Host}} & \textbf{Zona} & \textbf{Alamat IP} & \textbf{Peran / layanan utama} \\ \hline
+    h1 & \textit{Field} & \texttt{10.0.1.2/24} & Server Modbus lapangan \\ \hline
+    h2 & \textit{Field} & \texttt{10.0.1.3/24} & RTU (klien Modbus ke h1 dan h3) \\ \hline
+    h3 & \textit{Control} & \texttt{10.0.2.2/24} & \textit{Gateway} Modbus + server OPC UA \\ \hline
+    h5 & \textit{Control} & \texttt{10.0.2.3/24} & Penyerang / \textit{attack helper} \\ \hline
+    h4 & \textit{IT} & \texttt{10.0.3.2/24} & PandaPower + klien OPC UA \\ \hline
+\end{tabular}
+\label{tab:host_list_impl}
+\end{table}
+
+Pada kondisi awal, h5 hanya aktif di zona \textit{control}. Antarmuka kedua h5 ke zona \textit{field} dibuat oleh topologi tetapi dimatikan pada kondisi awal. Antarmuka ini baru diaktifkan oleh fungsi \texttt{escalate\_attacker\_to\_field()} saat skenario \ac{MITM} dijalankan, dengan alamat \texttt{10.0.1.100/24}. Dengan mekanisme ini, posisi penyerang tetap sesuai fase eksperimen: \textit{foothold} awal di zona \textit{control}, lalu eskalasi lateral ke zona \textit{field} ketika diperlukan.
+
+\subsection{Implementasi Model Sistem Tenaga dan Digital Twin}
+\label{subsec:implementasi_digital_twin}
+Simulasi sistem tenaga dijalankan pada dua \textit{host}. h1 berperan sebagai sistem lapangan (\textit{ground truth}) dan h4 berperan sebagai \ac{DT}. Keduanya memakai model PandaPower 5-bus radial kustom dengan bus~1 sebagai \textit{slack}, bus~4 sebagai bus generator, dan beban pada bus~2, bus~3, serta bus~5. Susunan koneksi kelistrikannya ditunjukkan pada Tabel~\ref{tab:line_model_5bus}. Setiap \textit{breaker} mengendalikan satu \textit{line} sehingga perubahan keputusan \ac{DT} dapat mengubah topologi aliran daya pada siklus berikutnya.
+
+\renewcommand{\arraystretch}{1.3}
+\begin{table}[htbp]
+    \centering
+    \caption{Koneksi \textit{line} dan \textit{breaker} pada model 5-bus}
+    \label{tab:line_model_5bus}
+    \begin{tabular}{|c|c|c|c|}
+        \hline
+        \textbf{\textit{Line}} & \textbf{Koneksi} & \textbf{Peran} \\ \hline
+        1 & bus~1--bus~2 & Menghubungkan \textit{slack} ke beban awal. \\ \hline
+        2 & bus~2--bus~3 & Menghubungkan cabang beban menengah. \\ \hline
+        3 & bus~3--bus~4 & Menghubungkan cabang beban ke bus generator. \\ \hline
+        4 & bus~4--bus~5 & Menghubungkan generator ke beban kritis. \\ \hline
+    \end{tabular}
+\end{table}
+
+Pada h1, beban diperbarui setiap 4~detik menggunakan \textit{seed} tetap agar eksperimen dapat diulang. Rentang beban yang digunakan adalah 50--80~MW pada bus~2, 60--90~MW pada bus~3, dan 85--95~MW pada bus~5. \ac{PF} masing-masing dibangkitkan pada rentang 0{,}90--0{,}98, 0{,}88--0{,}97, dan 0{,}95--0{,}99. Hasil aliran daya dipublikasikan ke Modbus sebagai tegangan, arus, faktor daya, dan status \textit{breaker}. Nilai analog diskalakan menjadi HR 16-bit dengan \texttt{V\_SCALE}=1000, \texttt{I\_SCALE}=30, dan \texttt{PF\_SCALE}=10000.
+
+\begin{algorithm}[H]
+\caption{Siklus simulasi lapangan pada h1}
+\begin{compactalgorithmic}[1]
+\Require Model 5-bus, status \textit{breaker}, rentang beban, skala register
+\Ensure Register Modbus berisi $V$, $I$, PF, dan \textit{measurement epoch}
+\State Inisialisasi model PandaPower 5-bus dan \textit{datastore} Modbus
+\Loop
+    \State Baca status \textit{coil breaker} dari Modbus
+    \If{status \textit{breaker} berubah atau periode pembaruan beban tercapai}
+        \State Perbarui beban pada bus~2, bus~3, dan bus~5
+        \State Terapkan status \textit{breaker} ke \textit{switch} PandaPower
+        \State Jalankan aliran daya
+        \State Tulis $V$, $I$, PF, dan \textit{measurement epoch} ke register Modbus
+    \EndIf
+    \State Tunggu interval \textit{polling} singkat
+\EndLoop
+\end{compactalgorithmic}
+\end{algorithm}
+
+Pada h4, \ac{DT} membaca $P$, $Q$, dan \textit{breaker feedback} dari OPC UA h3 setiap 4~detik. Status \textit{breaker feedback} digunakan untuk menentukan bus yang masih teraliri dari bus \textit{slack}. Bus yang tidak teraliri dianggap \textit{blackout}: bus dibuat \textit{out-of-service}, beban/generator pada \textit{island} tersebut dinolkan, dan tegangan keluarannya ditulis sebagai 0~pu. Setelah \texttt{pp.runpp(net)} berhasil, h4 menulis nilai \texttt{V\_DT\_bus\_<n>} dan perintah \textit{breaker} ke OPC UA.
+
+Keputusan \textit{breaker} pada h4 berbasis arus maksimum di kedua ujung \textit{line}. Jika \textit{line} tertutup dan arus melebihi $1{,}05 \times \texttt{max\_i\_ka}$, perintah diubah menjadi \texttt{OPEN}. Jika \textit{line} terbuka dan arus turun di bawah $1{,}00 \times \texttt{max\_i\_ka}$, perintah dapat kembali menjadi \texttt{CLOSE}. Mekanisme ini membuat keputusan proteksi bergantung pada hasil aliran daya, bukan hanya nilai sensor mentah.
+
+\begin{algorithm}[H]
+\caption{Siklus \textit{digital twin} pada h4}
+\begin{compactalgorithmic}[1]
+\Require Variabel OPC UA $P$, $Q$, dan \textit{breaker feedback}
+\Ensure $V_{DT}$ dan perintah \textit{breaker} pada OPC UA
+\Loop
+    \State Baca $P$, $Q$, dan \textit{breaker feedback} dari OPC UA
+    \State Tentukan bus yang masih teraliri dari bus \textit{slack}
+    \State Nolkan beban/generator pada bus yang mengalami \textit{blackout}
+    \State Jalankan aliran daya dengan PandaPower
+    \State Hitung perintah \textit{breaker} berdasarkan ambang arus \textit{line}
+    \State Tulis $V_{DT}$ dan perintah \textit{breaker} ke OPC UA
+\EndLoop
+\end{compactalgorithmic}
+\end{algorithm}
+
+\subsection{Implementasi Siklus Data per Host}
+\label{subsec:implementasi_siklus_data_per_host}
+Setiap \textit{host} memiliki siklus kerja yang berbeda. h1 berfungsi sebagai sumber kondisi fisik, h2 sebagai RTU yang menjaga urutan umpan balik, h3 sebagai \textit{gateway} protokol, h4 sebagai pengambil keputusan, dan h5 sebagai komponen serangan yang hanya aktif pada skenario tertentu.
+
+Pada h2, siklus RTU dibuat berurutan agar perintah \textit{breaker} dari \ac{DT} diterapkan terlebih dahulu sebelum pengukuran baru dikirim kembali. Dengan demikian, data yang dibaca dari h1 sudah merepresentasikan kondisi lapangan setelah kontrol siklus sebelumnya. Sebelum data dikirim ke h3, nilai tegangan dan arus diberi \textit{noise} Gaussian kecil dengan $\sigma_V=0{,}003$~pu dan $\sigma_I=1{,}5$~A. \textit{Noise} ini digunakan untuk membuat data lapangan tidak sepenuhnya ideal, tetapi tetap berada pada rentang operasi normal.
+
+\begin{algorithm}[H]
+\caption{Siklus RTU pada h2}
+\begin{compactalgorithmic}[1]
+\Require Register Modbus h1 dan h3, parameter \textit{noise} pengukuran
+\Ensure Data sensor dan \textit{breaker feedback} terkirim ke h3
+\Loop
+    \State Baca perintah \textit{breaker} dari \textit{gateway}
+    \State Tulis perintah tersebut ke \textit{coil breaker} h1
+    \State Tunggu \textit{measurement epoch} h1 berubah
+    \For{setiap bus}
+        \State Baca $V$, $I$, PF, dan \textit{breaker feedback} dari h1
+        \State Tambahkan \textit{noise} pada $V$ dan $I$
+        \State Tulis hasil pengukuran dan \textit{feedback} ke register h3
+    \EndFor
+    \State Naikkan \textit{probe} latensi jalur \ac{DT}
+    \State Tunggu hingga periode siklus berikutnya
+\EndLoop
+\end{compactalgorithmic}
+\end{algorithm}
+
+Pada h3, data yang diterima dari RTU masih berbentuk register Modbus. Gateway membaca $V$, $I$, PF, dan \textit{breaker feedback}, lalu menghitung daya semu tiga fasa untuk mendapatkan $P$ dan $Q$. Nilai tersebut dipublikasikan ke OPC UA agar dapat dibaca oleh \ac{DT}. Pada arah sebaliknya, h3 membaca perintah \textit{breaker} dari folder \texttt{COMMANDS} OPC UA dan menuliskannya ke \textit{coil} Modbus agar dapat diambil oleh h2.
+
+\begin{algorithm}[H]
+\caption{Siklus gateway Modbus--OPC UA pada h3}
+\begin{compactalgorithmic}[1]
+\Require Register Modbus dari RTU dan variabel OPC UA
+\Ensure Variabel $P/Q$, $V_{DT}$, perintah, dan trace siklus diperbarui
+\Loop
+    \For{setiap bus}
+        \State Baca $V$, $I$, PF, dan \textit{breaker feedback} dari register Modbus
+        \State Hitung $P$ dan $Q$ dari $V$, $I$, dan PF
+        \If{pengukuran berada di bawah ambang validasi}
+            \State Gunakan nilai $P/Q$ terakhir yang valid
+        \EndIf
+        \State Tulis $P$, $Q$, dan \textit{breaker feedback} ke OPC UA
+        \State Baca perintah \textit{breaker} dari OPC UA dan tulis ke Modbus
+        \State Catat trace $V/I$, $V_{DT}$, perintah, dan \textit{feedback}
+    \EndFor
+    \State Salin \textit{probe} latensi dari Modbus ke OPC UA
+    \State Tunggu 4~detik
+\EndLoop
+\end{compactalgorithmic}
+\end{algorithm}
+
+\subsection{Implementasi Komunikasi dan Middleware}
+\label{subsec:implementasi_komunikasi_dan_middleware}
+
+Implementasi komunikasi memakai rantai Modbus TCP h1--h2--h3 dan OPC UA h3--h4. h2 bertindak sebagai RTU yang membaca data lapangan dari h1, menambahkan \textit{noise} pengukuran kecil, mengirimkan data ke \textit{gateway} h3, lalu meneruskan perintah \textit{breaker} dari h3 kembali ke h1.
+
+\begin{table}[htbp]
+\centering
+\caption{Ringkasan peran \textit{middleware} Modbus dan OPC UA pada setiap \textit{host}}
+\label{tab:middleware_hosts_impl}
+
+\begin{tabularx}{\textwidth}{|c|l|X|}
+\hline
+\textbf{\textit{Host}} &
+\textbf{Protokol} &
+\textbf{Peran} \\ \hline
+
+h1 &
+Modbus TCP &
+Simulasi PandaPower \textit{ground-truth} dan server Modbus lapangan. \\ \hline
+
+h2 &
+Modbus TCP &
+RTU; membaca data h1, menambahkan \textit{noise} kecil, dan meneruskan data/perintah kontrol. \\ \hline
+
+h3 &
+Modbus TCP, OPC UA &
+Gateway; mengonversi $V/I/PF$ menjadi $P/Q$ dan menjembatani Modbus TCP--OPC UA. \\ \hline
+
+h4 &
+OPC UA &
+Klien OPC UA dan \ac{DT}; menjalankan aliran daya dan logika proteksi. \\ \hline
+
+h5 &
+--- &
+Node bantu untuk aktivasi serangan. \\ \hline
+
+\end{tabularx}
+\end{table}
+
+Server Modbus h1 dan h3 berjalan pada \texttt{port} 5020. Pada h1, \ac{HR} alamat 0--4 menyimpan tegangan, alamat 10--14 menyimpan arus, alamat 30--34 menyimpan faktor daya, dan \textit{coil} 0--4 menyimpan status \textit{breaker}. Pada h3, alamat 0--4, 10--14, 20--24, dan 30--34 masing-masing dipakai untuk tegangan, arus, \textit{breaker feedback}, dan faktor daya dari RTU. Register 95 dipakai sebagai \textit{probe} latensi jalur \ac{DT}.
+
+Gateway h3 menyediakan OPC UA pada \texttt{opc.tcp://10.0.2.2:4840/mininet/}. Struktur OPC UA terdiri atas folder \texttt{SENSORS} dan \texttt{COMMANDS}. Folder \texttt{SENSORS} berisi \texttt{P\_bus\_<n>}, \texttt{Q\_bus\_<n>}, \texttt{V\_DT\_bus\_<n>}, \texttt{BRK\_FB\_bus\_<n>}, dan \texttt{DT\_path\_probe}; sedangkan folder \texttt{COMMANDS} berisi \texttt{CMD\_bus\_<n>}. Nilai $P$ dan $Q$ dihitung dari $V$, $I$, dan faktor daya menggunakan persamaan daya tiga fasa. Jika nilai tegangan atau arus berada di bawah ambang validasi, h3 mempertahankan nilai $P/Q$ terakhir agar masukan \ac{DT} tidak langsung menjadi nol akibat pembacaan sesaat yang tidak valid.
+
+\subsection{Implementasi Otomasi dan Orkestrasi}
+\label{subsec:implementasi_otomasi_dan_orkestrasi}
+Orkestrator mengendalikan eksperimen dari tahap pembentukan topologi hingga pengumpulan data. Urutan \textit{startup} dibuat eksplisit agar layanan server aktif sebelum klien mencoba terhubung: \textit{field}~$\rightarrow$~\textit{gateway}~$\rightarrow$~RTU~$\rightarrow$~\ac{DT}. h5 tidak dijalankan sebagai layanan tetap karena hanya dipanggil ketika skenario serangan aktif.
+
+\begin{algorithm}[H]
+\caption{Alur orkestrasi eksperimen}
+\begin{compactalgorithmic}[1]
+\Require Mode eksperimen: \texttt{baseline}, \texttt{mitm}, dan/atau \texttt{dos}
+\Ensure Log, metrik jaringan, trace, dan \textit{pcap} tersimpan per sesi
+\State Bangun topologi Mininet dan jalankan konfigurasi pasca-\textit{start}
+\State Aktifkan aplikasi h1, h3, h2, dan h4 sesuai urutan dependensi
+\If{mode \texttt{baseline} aktif}
+    \State Tunggu stabilisasi, lalu kumpulkan metrik operasi normal
+\EndIf
+\If{mode \texttt{mitm} aktif}
+    \State Aktifkan antarmuka \textit{field} penyerang, ubah rute RTU, dan jalankan \textit{proxy}
+    \State Kumpulkan trace, metrik jaringan, dan \textit{pcap}
+\EndIf
+\If{mode \texttt{dos} aktif}
+    \For{mode serangan \texttt{light}, \texttt{heavy}}
+        \State Jalankan trafik \ac{DoS}
+        \State Kumpulkan metrik jaringan dan latensi jalur \ac{DT}
+        \State Hentikan proses \texttt{hping3}
+    \EndFor
+\EndIf
+\State Hentikan penanda pengukuran dan simpan metadata sesi
+\end{compactalgorithmic}
+\end{algorithm}
+
+%-----------------------------------------------------------------------------%
+\section{Implementasi Skenario Pengujian}
+\label{sec:implementasi_skenario_serangan}
+Skenario pengujian terdiri atas operasi normal, serangan \ac{DoS}, dan serangan \ac{MITM}. Setiap sesi eksperimen diberi \textit{run id} berbasis waktu agar data jaringan, log \textit{host}, trace \ac{DT}, dan \textit{packet capture} dapat dikorelasikan.
+
+\subsection{Implementasi Operasi Normal}
+\label{subsec:skenario_operasi_normal}
+Operasi normal dijalankan sebagai kondisi pembanding. Setelah topologi aktif, orkestrator menunggu stabilisasi layanan, kemudian menjalankan alur tertutup h1~$\rightarrow$~h2~$\rightarrow$~h3~$\rightarrow$~h4~$\rightarrow$~h3~$\rightarrow$~h2~$\rightarrow$~h1. Pada alur ini, h1 menghasilkan data sistem tenaga, h2 melakukan \textit{polling} Modbus, h3 mengonversi data ke OPC UA, h4 menghitung kondisi \ac{DT}, dan perintah \textit{breaker} dikirim kembali ke lapangan.
+
+Pada fase ini tidak ada trafik serangan. Data yang dikumpulkan menjadi pembanding untuk skenario \ac{DoS} dan \ac{MITM}, terutama metrik \ac{RTT}, \textit{packet loss}, \textit{throughput}, latensi jalur \ac{DT}, serta trace $V/I/V_{DT}$ per \textit{line}.
+
+\subsection{Implementasi Serangan DoS}
+\label{subsec:implementasi_serangan_dos}
+Serangan \ac{DoS} dijalankan oleh fungsi \texttt{run\_dos\_attack()}. Target serangan adalah \texttt{10.0.2.2:5001}, yaitu alamat h3 dan \textit{port} yang juga digunakan untuk pengukuran \texttt{iperf}. Dengan demikian, trafik serangan bersaing langsung dengan trafik pengukuran pada jalur menuju \textit{gateway}.
+
+Mode \texttt{light} memakai paket UDP berukuran 128~B dengan interval 200~$\mu$s:
+\begin{verbatim}
+hping3 --udp -q -p 5001 -d 128 -i u200 10.0.2.2
+\end{verbatim}
+
+Mode \texttt{heavy} memakai \texttt{-{}-flood} sehingga laju pengiriman dibatasi oleh kemampuan \textit{host} dan \textit{link}:
+\begin{verbatim}
+hping3 --udp --flood -p 5001 -d 128 10.0.2.2
+\end{verbatim}
+
+Kedua mode dijalankan secara berurutan. Pada setiap mode, sistem mengukur \ac{RTT}, \textit{packet loss}, \textit{throughput}, dan latensi jalur h2~$\rightarrow$~h4 saat trafik serangan masih aktif. Setelah pengukuran selesai, proses \texttt{hping3} dihentikan agar mode berikutnya dimulai dari kondisi yang terkendali.
+
+\subsection{Implementasi Serangan MITM}
+\label{subsec:implementasi_serangan_mitm}
+Serangan \ac{MITM} dijalankan oleh fungsi \texttt{run\_mitm\_attack()}. Pertama, orkestrator mengaktifkan antarmuka \textit{field} milik h5 melalui \texttt{escalate\_attacker\_to\_field()} sehingga h5 memiliki alamat \texttt{10.0.1.100/24}. Kedua, rute h2 menuju subnet kontrol diganti menjadi \texttt{10.0.2.0/24 via 10.0.1.100}. Ketiga, h5 mengaktifkan \textit{IP forwarding} dan aturan \texttt{iptables} \ac{DNAT} agar trafik Modbus TCP menuju \texttt{10.0.2.2:5020} dialihkan ke \textit{proxy} lokal pada \texttt{10.0.1.100:50201}.
+
+\textit{Proxy} Modbus meneruskan koneksi TCP ke \textit{gateway} asli, tetapi memeriksa paket arah klien ke server. Paket dengan \textit{function code} \texttt{FC06} dan \texttt{FC16} yang menulis register arus alamat 10--14 dapat dimodifikasi. Nilai arus dikalikan faktor 1{,}5, dibatasi agar tetap muat pada register 16-bit, lalu ditulis kembali ke frame Modbus. Manipulasi tidak dilakukan pada semua paket. Implementasi memakai \textit{fixed seed} \texttt{424242}, jendela aktif 10~detik, jendela nonaktif 4~detik, dan probabilitas modifikasi 0{,}7 pada saat jendela aktif. 
+
+\begin{algorithm}[H]
+\caption{Logika manipulasi paket Modbus pada skenario \ac{MITM}}
+\begin{compactalgorithmic}[1]
+\Require Frame Modbus arah RTU ke gateway
+\Ensure Frame diteruskan; register arus dapat termodifikasi saat kondisi serangan terpenuhi
+\If{\textit{function code} adalah \texttt{FC06} atau \texttt{FC16}}
+    \If{alamat register berada pada rentang arus 10--14}
+        \If{jendela serangan aktif \textbf{and} nilai acak $< 0{,}7$}
+            \State $I_{\text{baru}} \leftarrow 1{,}5 \times I_{\text{asli}}$
+            \State Tulis kembali nilai arus ke frame Modbus
+        \EndIf
+        \State Simpan \textit{snapshot} sebelum/sesudah manipulasi
+    \EndIf
+\EndIf
+\State Teruskan frame ke \textit{gateway}
+\end{compactalgorithmic}
+\end{algorithm}
+
+\subsection{Implementasi Monitoring dan Logging}
+\label{subsec:implementasi_monitoring_dan_logging}
+Pengumpulan data dilakukan pada dua jalur utama, yaitu jalur \textit{field} (h2~$\rightarrow$~h3) dan jalur \textit{system} (h3~$\rightarrow$~h4). \ac{RTT} dan \textit{packet loss} diukur menggunakan \texttt{ping -c 20}, sedangkan \textit{throughput} diukur menggunakan \texttt{iperf} selama 5~detik. Pengukuran \texttt{iperf} memakai \textit{port} 5001 dan memiliki tiga percobaan ulang apabila koneksi gagal atau \textit{timeout}.
+
+Latensi jalur \ac{DT} diukur dengan mencocokkan \textit{probe} pada log h2 dan h4. Probe tersebut dikirim melalui Modbus register 95 dan dipublikasikan ulang oleh h3 sebagai variabel OPC UA \texttt{DT\_path\_probe}. Pada skenario \ac{DoS}, sampling dilakukan dalam 3 jendela, masing-masing 20~detik. Untuk skenario \ac{MITM}, trace mencatat nilai $V/I$ sebelum dan sesudah manipulasi, nilai $V_{DT}$, perintah \textit{breaker}, dan \textit{breaker feedback} per \textit{line}.
+
+Selain metrik CSV, orkestrator juga dapat menjalankan \texttt{tcpdump}. \textit{Packet capture} dilakukan pada antarmuka h1, h2, h3, h4, h5, dan r0 dengan filter \texttt{tcp port 5020}, \texttt{tcp port 4840}, dan \texttt{udp port 5001}. Antarmuka h5 ke zona \textit{field} hanya ditangkap pada fase \ac{MITM}, karena antarmuka tersebut baru aktif setelah eskalasi lateral.
+
+%-----------------------------------------------------------------------------%
+\section{Hasil Pengujian}
+\label{sec:hasil_pengujian}
+Pengujian dilakukan pada lingkungan yang sama, yaitu Mininet dengan kapasitas 5~Mbps per \textit{link} dan jadwal siklus 4~detik. Evaluasi mencakup empat fase, yaitu \textit{baseline} tanpa serangan, \ac{DoS} \texttt{light}, \ac{DoS} \texttt{heavy}, dan \ac{MITM}.
+
+\subsection{Hasil Pengujian Komunikasi Jaringan}
+\label{subsec:hasil_pengujian_komunikasi_jaringan}
+Ringkasan metrik komunikasi pada dua jalur ditampilkan pada Tabel~\ref{tab:hasil_komunikasi}. Pada kondisi \textit{baseline}, RTT kedua jalur berada di bawah 0{,}4~ms, \textit{packet loss} bernilai 0\%, dan \textit{throughput} mendekati kapasitas \textit{link} 5~Mbps, yaitu 4{,}70~Mbps pada jalur \textit{field} dan 4{,}61~Mbps pada jalur \textit{system}. Kondisi ini digunakan sebagai acuan untuk menilai dampak setiap skenario serangan.
+
+\renewcommand{\arraystretch}{1.3}
+\begin{table}[htbp]
+    \centering
+    \caption{Ringkasan metrik komunikasi pada empat fase pengujian}
+    \label{tab:hasil_komunikasi}
+    \begin{tabular}{|l|c|c|c|c|c|c|}
+        \hline
+        \multirow{2}{*}{\textbf{Fase}} & \multicolumn{2}{c|}{\textbf{RTT (ms)}} & \multicolumn{2}{c|}{\textbf{Loss (\%)}} & \multicolumn{2}{c|}{\textbf{Throughput (Mbps)}} \\ \cline{2-7}
+         & \textit{field} & \textit{system} & \textit{field} & \textit{system} & \textit{field} & \textit{system} \\ \hline
+        \textit{Baseline}     & 0{,}36  & 0{,}28  & 0{,}0  & 0{,}0  & 4{,}70 & 4{,}61 \\ \hline
+        \ac{DoS} \texttt{light} & 0{,}24  & 0{,}15  & 1{,}0  & 0{,}0  & 2{,}87 & 4{,}85 \\ \hline
+        \ac{DoS} \texttt{heavy} & 37{,}57 & 55{,}28 & 0{,}0  & 2{,}24 & 0{,}56 & 4{,}64 \\ \hline
+        \ac{MITM}             & 1{,}77  & 0{,}27  & 0{,}0  & 0{,}0  & 5{,}11 & 4{,}71 \\ \hline
+    \end{tabular}
+\end{table}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.78\textwidth]{assets/pics/fig_dos_network_rtt.png}
+    \caption{Perbandingan RTT antar fase pengujian pada jalur \textit{field} (h2--h3) dan \textit{system} (h3--h4)}
+    \label{fig:hasil_komunikasi_rtt}
+\end{figure}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.78\textwidth]{assets/pics/fig_dos_network_packet_loss.png}
+    \caption{Perbandingan \textit{packet loss} antar fase pengujian}
+    \label{fig:hasil_komunikasi_loss}
+\end{figure}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.78\textwidth]{assets/pics/fig_dos_network_throughput.png}
+    \caption{Perbandingan \textit{throughput} antar fase pengujian}
+    \label{fig:hasil_komunikasi_throughput}
+\end{figure}
+
+Gambar~\ref{fig:hasil_komunikasi_rtt}--\ref{fig:hasil_komunikasi_throughput} menunjukkan tiga pola utama. Pada \ac{DoS} \texttt{light}, RTT tidak banyak berubah karena laju paket sekitar 500~pps belum cukup besar untuk membebani antrean \textit{kernel}. Namun, \textit{throughput} jalur \textit{field} sudah turun hampir 40\% dan mulai muncul \textit{packet loss}. Hal ini terjadi karena trafik UDP serangan memperebutkan kapasitas \textit{link} 5~Mbps dengan sesi pengukuran \texttt{iperf}. Pada \ac{DoS} \texttt{heavy}, mode \texttt{-{}-flood} membuat \textit{link} jenuh, sehingga RTT melonjak dua hingga tiga kali lipat dalam skala eksponensial dan \textit{throughput} jalur \textit{field} turun hingga 0{,}56~Mbps. Hasil ini sesuai dengan dasar teori \ac{DoS} sebagai \textit{availability attack} (Bab~\ref{cha:studiliteratur}), karena paket sah ikut tertunda atau ter-\textit{drop} ketika kapasitas dan antrean perangkat jaringan dipenuhi trafik palsu. 
+
+Sebaliknya, pada \ac{MITM}, ketiga metrik komunikasi tetap mendekati \textit{baseline}. Hal ini terjadi karena penyerang hanya meneruskan dan memodifikasi paket pada lapisan aplikasi tanpa menambahkan beban trafik yang signifikan. Temuan ini menegaskan karakteristik \ac{MITM} sebagai \textit{integrity attack}, bukan \textit{availability attack}.
+
+\subsection{Hasil Pengujian Sinkronisasi Digital Twin}
+\label{subsec:hasil_pengujian_sinkronisasi_digital_twin}
+Sinkronisasi \ac{DT} ditinjau dari dua aspek, yaitu keterlambatan pengiriman data pada skenario \ac{DoS} dan \textit{state mismatch} antara $V_{DT}$ dengan kondisi \textit{baseline} pada skenario \ac{MITM}. Tabel~\ref{tab:hasil_dt_path} merangkum latensi \textit{path} \ac{DT} untuk skenario \ac{DoS}. Pada \texttt{light}, rata-rata latensi berada di sekitar 4{,}5~detik dengan \textit{stdev} kecil. Pada \texttt{heavy}, rata-rata latensi meningkat dan \textit{stdev} menjadi lebih besar daripada nilai rata-ratanya. Kondisi ini menunjukkan bahwa pengiriman data menjadi tidak stabil ketika antrean \textit{switch} dan kernel mulai penuh. Akibatnya, sebagian \textit{probe} tidak sempat terbaca oleh h4 sebelum digantikan oleh \textit{counter} baru pada iterasi berikutnya.
+
+\renewcommand{\arraystretch}{1.3}
+\begin{table}[htbp]
+    \centering
+    \caption{Hasil pengukuran latensi \textit{path} \ac{DT} (h2~$\rightarrow$~h4)}
+    \label{tab:hasil_dt_path}
+    \begin{tabular}{|l|c|c|c|c|c|}
+        \hline
+        \textbf{Fase} & \textbf{Mean (ms)} & \textbf{Stdev (ms)} & \textbf{n\_OK} & \textbf{n\_Missing\_h4} & \textbf{n\_Missing\_h2} \\ \hline
+        \ac{DoS} \texttt{light} & 4484{,}13 & 247{,}07  & 80 & 6 & 2 \\ \hline
+        \ac{DoS} \texttt{heavy} & 5324{,}70 & 5726{,}99 & 60  & 30 & 0 \\ \hline
+    \end{tabular}
+\end{table}
+
+Pada skenario \ac{MITM}, ketidaksinkronan antara jalur \textit{baseline} dan jalur manipulasi tidak disebabkan oleh keterlambatan komunikasi, melainkan oleh perubahan nilai pengukuran yang memengaruhi proses estimasi keadaan sistem. Gambar~\ref{fig:hasil_drift_vdt} menunjukkan rata-rata absolut selisih tegangan $V_{DT}$ pada jalur \ac{MITM} terhadap jalur \textit{baseline} pada setiap siklus waktu.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.85\textwidth]{assets/pics/fig_drift_mean_abs_vdt_mitm_minus_baseline_vs_waktu.png}
+    \caption{Rata-rata absolut selisih $V_{DT}$ jalur \ac{MITM} terhadap \textit{baseline} sepanjang waktu siklus}
+    \label{fig:hasil_drift_vdt}
+\end{figure}
+
+Nilai drift yang mendekati nol menunjukkan bahwa estimasi \textit{state} pada jalur \ac{MITM} masih konsisten terhadap kondisi referensi. Hal ini terjadi ketika manipulasi data tidak cukup signifikan untuk mengubah hasil perhitungan aliran daya maupun keputusan kontrol diskrit, sehingga sistem masih berada pada kondisi operasi yang ekuivalen dengan \textit{baseline}.
+
+Sebaliknya, peningkatan nilai drift menunjukkan terjadinya divergensi antara kedua jalur. Lonjakan ini muncul akibat perubahan topologi jaringan yang diinduksi oleh keputusan \textit{breaker} yang dihitung berdasarkan data hasil manipulasi. Ketika nilai pengukuran yang dimodifikasi menyebabkan status \textit{breaker} berubah menjadi \texttt{OPEN}, maka \textit{node} pada jalur tersebut dianggap terisolasi dan direpresentasikan sebagai nilai nol ($V_{DT} = 0$). Kondisi ini menimbulkan diskontinuitas terhadap nilai tegangan pada \textit{baseline}, sehingga menghasilkan peningkatan selisih yang signifikan.
+
+Pola puncak yang berulang mengindikasikan bahwa dampak \ac{MITM} tidak bersifat statis, melainkan mengikuti dinamika sistem kontrol yang bersifat siklik. Setiap siklus perhitungan ulang (\textit{closed-loop control}) memungkinkan manipulasi data memengaruhi estimasi \textit{state}, keputusan \textit{switching}, dan pembaruan topologi jaringan secara berulang. Akibatnya, sistem mengalami kondisi bergantian antara fase konsisten (\textit{drift} rendah) dan fase divergen (\textit{drift} tinggi).
+
+Secara keseluruhan, hasil ini menunjukkan bahwa protokol \textit{Modbus TCP} tanpa mekanisme autentikasi dan integritas pesan memungkinkan \textit{attacker} untuk memodifikasi nilai pengukuran secara tidak terdeteksi. Dampaknya tidak hanya terbatas pada perubahan nilai lokal, tetapi juga dapat memicu perubahan keputusan yang berakibat pada perubahan topologi sistem tenaga.
+
+\subsection{Hasil Pengujian Keputusan Sistem}
+\label{subsec:hasil_pengujian_keputusan_sistem}
+Keputusan kontrol diuji dengan membandingkan status \textit{breaker} pada jalur \ac{MITM} dan jalur \textit{baseline} untuk waktu siklus yang sama. Gambar~\ref{fig:hasil_breaker_error} menampilkan laju \textit{decision error}, yaitu persentase kondisi ketika \texttt{breaker\_mitm} tidak sama dengan \texttt{breaker\_baseline}, sebagai rata-rata tiga iterasi $\pm$ \textit{stdev} untuk setiap \textit{line}. Hasilnya menunjukkan bahwa kesalahan keputusan paling dominan terjadi pada \textit{line}~2 dan \textit{line}~3, dengan rata-rata sekitar 45\% dan 42\%. \textit{Line}~4 berada pada tingkat menengah, sedangkan \textit{line}~1 memiliki laju kesalahan paling rendah. Pola ini menunjukkan bahwa dampak manipulasi data tidak merata pada seluruh jalur, tetapi lebih kuat pada \textit{line} yang status \textit{breaker}-nya lebih sering berubah selama skenario \ac{MITM}.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.78\textwidth]{assets/pics/fig_breaker_decision_error_mean_sem.png}
+    \caption{Laju \textit{decision error} \textit{breaker} per \textit{line} pada skenario \ac{MITM}}
+    \label{fig:hasil_breaker_error}
+\end{figure}
+
+Jika ditinjau dari struktur topologi, setiap \textit{line} merepresentasikan koneksi antar bus dengan karakteristik operasi yang berbeda. \textit{Line}~1 menghubungkan bus~1 (\textit{slack}) dan bus~2 (\textit{load}), sehingga perubahan arus yang terjadi cenderung lebih stabil karena \textit{slack bus} berfungsi sebagai penyeimbang daya sistem. Hal ini menyebabkan sensitivitas keputusan proteksi pada jalur ini relatif lebih rendah, sehingga laju \textit{decision error} juga paling kecil.
+
+Sebaliknya, \textit{line}~2 yang menghubungkan bus~2 dan bus~3 (keduanya \textit{load bus}) cenderung memiliki fluktuasi arus yang lebih dinamis akibat variasi konsumsi beban. Kondisi ini membuat nilai arus lebih sering berada di sekitar ambang keputusan $I_{open}$ dan $I_{close}$, sehingga sedikit manipulasi data pada skenario \ac{MITM} dapat menggeser hasil evaluasi status \textit{breaker} secara signifikan.
+
+Pada \textit{line}~3, yang menghubungkan bus~3 (\textit{load}) dan bus~4 (\textit{generator}), aliran daya bersifat lebih kompleks karena dipengaruhi oleh interaksi antara injeksi daya dari generator dan variasi beban di sisi penerima. Kombinasi ini meningkatkan sensitivitas sistem terhadap perubahan kecil pada nilai pengukuran arus, sehingga menghasilkan tingkat kesalahan keputusan yang tetap tinggi meskipun tidak setinggi \textit{line}~2.
+
+Sementara itu, \textit{line}~4 yang menghubungkan bus~4 (generator) dan bus~5 (load) menunjukkan karakteristik transisi daya yang lebih terkontrol karena adanya sumber pembangkitan langsung pada salah satu ujungnya. Hal ini membuat sistem lebih mampu mempertahankan margin operasi terhadap ambang proteksi, sehingga laju \textit{decision error} berada pada tingkat menengah.
+
+Secara keseluruhan, variasi laju kesalahan pada setiap \textit{line} tidak hanya dipengaruhi oleh efek \textit{false data injection}, tetapi juga oleh peran topologis masing-masing bus. \textit{Slack bus} memberikan stabilitas referensi sistem, load bus meningkatkan variabilitas konsumsi, sedangkan generator bus memperkenalkan dinamika injeksi daya. Kombinasi ketiga peran ini menyebabkan sensitivitas terhadap manipulasi \ac{MITM} menjadi tidak homogen, sehingga dampaknya terhadap logika proteksi berbeda pada setiap \textit{line}.
+
+%-----------------------------------------------------------------------------%
+\section{Analisis Hasil}
+\label{sec:analisis_hasil}
+
+\subsection{Analisis Dampak DoS terhadap Komunikasi dan Sinkronisasi DT}
+\label{subsec:analisis_dampak_dos}
+Pada \ac{DoS} \texttt{light}, RTT pada kedua jalur sedikit lebih rendah daripada \textit{baseline} (0{,}24 dibanding 0{,}36~ms dan 0{,}15 dibanding 0{,}28~ms). Namun, \textit{throughput} jalur \textit{field} turun hampir 40\%, dari 4{,}70 menjadi 2{,}87~Mbps, dan mulai muncul \textit{packet loss} sebesar 1\%. Kondisi ini konsisten dengan karakteristik \texttt{hping3} pada laju sekitar 500~pps. Trafik UDP belum cukup besar untuk membebani antrean kernel hingga meningkatkan latensi \texttt{ping}, tetapi sudah cukup untuk berebut kapasitas \textit{link} 5~Mbps dengan sesi \texttt{iperf}. 
+
+Pada \ac{DoS} \texttt{heavy}, RTT melonjak dua hingga tiga kali lipat, yaitu 37{,}57~ms pada jalur \textit{field} dan 55{,}28~ms pada jalur \textit{system}. \textit{Throughput} jalur \textit{field} turun tajam hingga 0{,}56~Mbps, sementara \textit{packet loss} jalur \textit{system} mencapai 2{,}24\%. Dampaknya terhadap sinkronisasi \ac{DT} juga terlihat jelas. Latensi \textit{path} \ac{DT} naik dari sekitar 4{,}5~detik pada \texttt{light} menjadi 5{,}3~detik pada \texttt{heavy}, dengan \textit{stdev} yang lebih besar daripada rerata (Tabel~\ref{tab:hasil_dt_path}). Selain itu, separuh \textit{probe} hilang sebelum mencapai h4. Artinya, ketika kapasitas \textit{link} jenuh, beberapa siklus \textit{gateway} tidak terbaca oleh \ac{DT}, sehingga model bekerja dengan masukan yang sudah terlambat.
+
+Dari sisi pengambilan keputusan, h4 menjalankan \texttt{runpp(net)} berdasarkan nilai \texttt{P\_bus\_<n>} dan \texttt{Q\_bus\_<n>} terakhir yang berhasil dibaca dari OPC UA. Oleh karena itu, kondisi \texttt{heavy} memperlambat pembaruan masukan \ac{DT}. Akibatnya, perintah \textit{breaker} berisiko dihitung dari keadaan sistem yang sudah tidak mutakhir.
+
+\subsection{Analisis Dampak MITM terhadap Integritas Data dan Keputusan Sistem}
+\label{subsec:analisis_dampak_mitm}
+Pada \ac{MITM}, metrik jaringan tetap terlihat sehat. RTT jalur \textit{field} berada pada 1{,}77~ms, \textit{throughput} mencapai 5{,}11~Mbps, dan \textit{packet loss} tetap 0\%. Dengan kondisi tersebut, serangan ini sulit dikenali hanya dari metrik komunikasi. Bukti serangan justru muncul pada lapisan data, yaitu MAE $|\Delta I|$ sebesar 738{,}25~A relatif terhadap \textit{baseline}. Karena \textit{proxy} mengalikan arus Modbus dengan faktor 1{,}5 pada paket yang termodifikasi, beban semu pada PandaPower meningkat, tegangan model menurun, dan keputusan \textit{breaker} dapat berubah pada \textit{line} yang beroperasi dekat ambang.
+
+Distribusi \textit{drift} dan kesalahan keputusan per \textit{line} tidak seragam. Pada hasil pengujian, \textit{line}~2 dan \textit{line}~3 menjadi jalur yang paling sering menghasilkan keputusan \textit{breaker} berbeda dari \textit{baseline}, sedangkan \textit{line}~1 memiliki tingkat kesalahan paling rendah. Ketimpangan ini muncul karena perubahan arus yang dipalsukan tidak memberikan dampak yang sama pada setiap bagian jaringan. \textit{Line} yang kondisi operasinya lebih dekat dengan ambang proteksi akan lebih mudah berpindah status dibandingkan \textit{line} yang masih memiliki \textit{margin} operasi lebih besar. 
+
+\subsection{Analisis Hubungan Gangguan Siber dan Dampak Sistem Fisik}
+\label{subsec:analisis_hubungan_gangguan_siber}
+Kombinasi hasil tersebut menunjukkan dua pola gangguan yang berbeda. \ac{DoS} merupakan gangguan ketersediaan: lapisan komunikasi memburuk, terlihat dari pergeseran RTT, \textit{throughput}, dan \textit{packet loss} dari kondisi \textit{baseline}. Dampak fisiknya bersifat tidak langsung, yaitu \ac{DT} kehilangan masukan terbaru sehingga keputusan \textit{breaker} dapat terlambat. Sebaliknya, \ac{MITM} merupakan gangguan integritas: metrik komunikasi tampak normal, tetapi nilai pengukuran yang masuk ke \ac{DT} sudah dipalsukan. Akibatnya, keputusan kontrol diturunkan dari data yang tidak benar. 
+
+Secara praktis, deteksi pada lingkungan \ac{CPS} seperti ini tidak cukup mengandalkan satu lapisan saja. Metrik jaringan efektif untuk menangkap \ac{DoS}, sedangkan deteksi \ac{MITM} membutuhkan pembandingan antara nilai pengukuran dan perilaku yang diharapkan, misalnya melalui \textit{baseline} arus per \textit{line} atau \textit{drift} $V_{DT}$ yang berlebihan.
+
+Dari sisi rancangan sistem, hasil ini juga memperlihatkan manfaat segmentasi. Lintasan langsung \textit{field}~$\leftrightarrow$~\textit{IT} yang diblok oleh \texttt{r0} mencegah penyerang menyerang h4 secara langsung dari zona \textit{field}. Dengan demikian, jalur serangan harus melewati \textit{gateway} h3, yang lebih mudah dipantau. Namun, kerentanan \ac{MITM} pada Modbus tanpa autentikasi tetap muncul selama \textit{proxy} mampu menempatkan diri pada rute h2~$\rightarrow$~h3. Hal ini menjelaskan mengapa eskalasi lateral dari zona \textit{control} ke \textit{field} menjadi langkah penting dalam skenario penyerangan.
+
+\subsection{Keterbatasan Sistem dan Evaluasi Arsitektur}
+\label{subsec:keterbatasan_sistem}
+Evaluasi pada penelitian ini masih memiliki beberapa batasan. Pertama, seluruh eksperimen dijalankan pada lingkungan virtual Mininet dan PandaPower. Oleh karena itu, hasil yang diperoleh merepresentasikan perilaku sistem pada skala laboratorium, bukan performa jaringan listrik fisik. Kedua, model sistem tenaga yang digunakan adalah model 5-bus radial. Model ini cukup untuk mengamati sinkronisasi \ac{DT} dan efek gangguan data, tetapi belum mewakili kompleksitas jaringan transmisi atau distribusi yang lebih besar.
+
+Ketiga, skenario serangan dibatasi pada \ac{DoS} berbasis trafik UDP dan \ac{MITM} pada register arus Modbus. Variasi serangan lain, seperti manipulasi tegangan, perubahan perintah \textit{breaker}, \textit{replay attack}, atau gangguan pada OPC UA, belum diuji. Selain itu, implementasi sistem belum memasukkan mekanisme pertahanan seperti autentikasi Modbus, enkripsi kanal, deteksi anomali, atau validasi silang berbasis model.
+
+Meskipun demikian, arsitektur yang diimplementasikan sudah memenuhi kebutuhan evaluasi penelitian. Sistem mampu menjalankan siklus tertutup h1--h2--h3--h4, mengaktifkan skenario serangan secara terkontrol, serta merekam metrik komunikasi dan respons \ac{DT} dalam format yang dapat dibandingkan antar fase. Hasil pengujian juga menunjukkan bahwa arsitektur ini dapat membedakan dampak gangguan \textit{availability} pada \ac{DoS} dan gangguan \textit{integrity} pada \ac{MITM}. Dengan kemampuan tersebut, arsitektur ini dapat digunakan sebagai dasar untuk mengembangkan eksperimen keamanan \ac{CPS} yang lebih kompleks.
