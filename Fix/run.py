@@ -25,7 +25,11 @@ sys.path.append(OUTPUT_DIR)
 sys.path.append(BASE_DIR)
 
 from logger.collector import collect_data
-from logger.host_csv_logger import MEASURE_ITER_HOST_FILE, RUN_ROOT_HOST_FILE
+from logger.host_csv_logger import (
+    MEASURE_ITER_HOST_FILE,
+    MEASURE_PHASE_HOST_FILE,
+    RUN_ROOT_HOST_FILE,
+)
 from logger.pcap_collector import (
     pcap_session_dir,
     start_trace_iteration_captures,
@@ -56,6 +60,28 @@ def publish_measure_iteration_on_hosts(net, iteration: int):
             pass
 
 
+def publish_measure_phase_on_hosts(net, phase: str):
+    """Tulis penanda fase agar host_csv_logger memisahkan subfolder host_csv."""
+    value = str(phase).strip()
+    snippet = (
+        f"open({repr(MEASURE_PHASE_HOST_FILE)},'w',encoding='utf-8').write({repr(value)})"
+    )
+    arg = shlex.quote(snippet)
+    for host in net.hosts:
+        try:
+            host.cmd(f"python3 -c {arg}")
+        except Exception:
+            pass
+
+
+def clear_measure_phase_on_hosts(net):
+    for host in net.hosts:
+        try:
+            host.cmd(f"rm -f {MEASURE_PHASE_HOST_FILE} 2>/dev/null || true")
+        except Exception:
+            pass
+
+
 def clear_measure_iteration_on_hosts(net):
     for host in net.hosts:
         try:
@@ -72,6 +98,7 @@ def run_measurement_iterations(
     pcap_phase: str = None,
     include_mitm_eth1: bool = False,
     pcap_manifest: list = None,
+    host_csv_phase: str = None,
     collect_fn=None,
 ) -> None:
     wait_s = MEASUREMENT_WINDOW_S
@@ -80,6 +107,10 @@ def run_measurement_iterations(
 
     try:
         for i in range(1, n + 1):
+            if host_csv_phase:
+                publish_measure_phase_on_hosts(net, host_csv_phase)
+            else:
+                clear_measure_phase_on_hosts(net)
             publish_measure_iteration_on_hosts(net, i)
             restart_apps(net, reason=f"{log_label} iteration {i}/{n}")
             iter_entries = []
@@ -123,6 +154,7 @@ def run_measurement_iterations(
                         )
     finally:
         clear_measure_iteration_on_hosts(net)
+        clear_measure_phase_on_hosts(net)
 
 
 def reset_attack_flags():
@@ -140,7 +172,7 @@ def clear_mininet_mitm_trace_state(net):
     """
     extras = (
         f"{ATTACK_ACTIVE_FLAG} {MITM_RUN_ID_FILE} "
-        f"{RUN_ROOT_HOST_FILE} {MEASURE_ITER_HOST_FILE}"
+        f"{RUN_ROOT_HOST_FILE} {MEASURE_ITER_HOST_FILE} {MEASURE_PHASE_HOST_FILE}"
     )
     for host in net.hosts:
         try:
@@ -610,6 +642,7 @@ def main():
                     pcap_dir=pcap_dir,
                     pcap_phase=phase_label,
                     pcap_manifest=pcap_manifest,
+                    host_csv_phase=phase_label,
                     collect_fn=lambda iteration, mode=dos_mode, label=phase_label: collect_data(
                         net,
                         mode=mode,
