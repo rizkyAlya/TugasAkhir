@@ -1,17 +1,6 @@
 #!/usr/bin/env python3
-r"""
-Create a MITM-only decision error rate chart per line.
-
-Run from project root:
-    python .\Fix\Graphs\Script\plot_mitm_decision_error_per_line.py
-
-Input:
-- Graphs/Join/false_control_detail.csv
-
-Outputs:
-- Graphs/Graph/mitm/mitm_decision_error_rate_per_line.png
-- Graphs/Join/mitm/mitm_decision_error_rate_per_line.csv
-"""
+# Membuat grafik decision error rate per line khusus skenario MITM.
+# Input berasal dari false_control_detail.csv dan outputnya berupa PNG serta CSV summary.
 import argparse
 import csv
 import statistics
@@ -30,6 +19,7 @@ DEFAULT_JOIN_DIR = GRAPHS_DIR / "Join"
 DEFAULT_GRAPH_DIR = GRAPHS_DIR / "Graph" / "mitm"
 DEFAULT_SUMMARY_DIR = GRAPHS_DIR / "Join" / "mitm"
 
+# File detail dari analyze_dt_drift_control.py yang menjadi sumber agregasi per line.
 DETAIL_FILE = "false_control_detail.csv"
 SCENARIO = "mitm"
 
@@ -51,10 +41,12 @@ HEADER_LABELS = {
     "decision_error_rate_std_dev_pct": "decision_error_rate_std_dev (%)",
 }
 
+# Warna sengaja seragam agar fokus pembaca pada besar error rate per line.
 LINE_COLORS = ["#14B8A6", "#14B8A6", "#14B8A6", "#14B8A6", "#14B8A6"]
 
 
 def get_csv_value(row, column):
+    """Ambil nilai kolom, termasuk CSV yang memakai label dengan satuan."""
     if column in row:
         return row[column]
     prefix = f"{column} ("
@@ -65,18 +57,22 @@ def get_csv_value(row, column):
 
 
 def fmt_float(value, digits=6):
+    """Format angka float untuk CSV summary."""
     return f"{float(value):.{digits}f}"
 
 
 def mean(values):
+    """Rata-rata aman untuk list kosong."""
     return statistics.fmean(values) if values else 0.0
 
 
 def std_dev(values):
+    """Standar deviasi sample; nol bila data kurang dari dua."""
     return statistics.stdev(values) if len(values) > 1 else 0.0
 
 
 def read_mitm_false_control(path):
+    """Baca detail false control MITM dan kelompokkan per line/iterasi."""
     grouped = defaultdict(list)
 
     with path.open("r", newline="", encoding="utf-8-sig") as f:
@@ -99,6 +95,7 @@ def read_mitm_false_control(path):
 
 
 def summarize_per_line(grouped):
+    """Hitung total keputusan dan rata-rata error rate untuk tiap line."""
     rates_by_line = defaultdict(list)
     matched_by_line = defaultdict(int)
     false_by_line = defaultdict(int)
@@ -128,6 +125,7 @@ def summarize_per_line(grouped):
 
 
 def write_summary(path, rows):
+    """Tulis CSV summary per line dengan label kolom bersatuan."""
     path.parent.mkdir(parents=True, exist_ok=True)
     with path.open("w", newline="", encoding="utf-8") as f:
         writer = csv.DictWriter(
@@ -145,6 +143,7 @@ def write_summary(path, rows):
 
 
 def draw_chart(rows, output_path):
+    """Gambar bar chart decision error rate per line."""
     if not rows:
         raise ValueError("No MITM false-control rows found.")
 
@@ -221,6 +220,7 @@ def draw_chart(rows, output_path):
 
 
 def parse_args():
+    """Argumen folder Join, folder Graph, dan folder summary."""
     parser = argparse.ArgumentParser(
         description="Plot MITM decision error rate per line from false_control_detail.csv."
     )
@@ -246,6 +246,7 @@ def parse_args():
 
 
 def main():
+    """Entry point plotting decision error MITM per line."""
     args = parse_args()
     detail_path = args.join_dir.resolve() / DETAIL_FILE
     graph_path = args.graph_dir.resolve() / "mitm_decision_error_rate_per_line.png"

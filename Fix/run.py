@@ -1,3 +1,5 @@
+# Orchestrator utama cyber range: membangun topologi Mininet, menjalankan app host,
+# mengaktifkan skenario baseline/MITM/DoS, lalu menyimpan CSV dan PCAP per iterasi.
 import os
 import sys
 import time
@@ -11,7 +13,7 @@ from datetime import datetime
 from mininet.cli import CLI
 from mininet.log import setLogLevel
 
-# PATH SETUP
+# Path inti proyek dan marker /tmp yang dibaca oleh host di dalam namespace Mininet.
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 OUTPUT_DIR = os.path.join(BASE_DIR, "script")
 APPS_DIR = os.path.join(OUTPUT_DIR, "apps")
@@ -76,6 +78,7 @@ def publish_measure_phase_on_hosts(net, phase: str):
 
 
 def clear_measure_phase_on_hosts(net):
+    """Bersihkan marker fase agar logging berikutnya kembali ke folder default."""
     for host in net.hosts:
         try:
             host.cmd(f"rm -f {MEASURE_PHASE_HOST_FILE} 2>/dev/null || true")
@@ -84,6 +87,7 @@ def clear_measure_phase_on_hosts(net):
 
 
 def clear_measure_iteration_on_hosts(net):
+    """Bersihkan marker iterasi setelah window pengukuran selesai."""
     for host in net.hosts:
         try:
             host.cmd(f"rm -f {MEASURE_ITER_HOST_FILE} 2>/dev/null || true")
@@ -102,6 +106,10 @@ def run_measurement_iterations(
     host_csv_phase: str = None,
     collect_fn=None,
 ) -> None:
+    """
+    Jalankan window pengukuran yang sinkron:
+    restart app, warm-up, pasang marker iterasi, lalu kumpulkan PCAP/CSV/network metric.
+    """
     wait_s = MEASUREMENT_WINDOW_S
     warmup_s = MEASUREMENT_APP_WARMUP_S
     n = MEASUREMENT_ITERATIONS
@@ -167,6 +175,7 @@ def run_measurement_iterations(
 
 
 def reset_attack_flags():
+    """Pastikan flag serangan lokal host orchestration bersih sebelum run baru."""
     for flag_path in (ATTACK_ACTIVE_FLAG, MITM_RUN_ID_FILE):
         try:
             if os.path.exists(flag_path):
@@ -220,6 +229,7 @@ def write_session_meta(
     args,
     pcap_dir=None,
 ) -> None:
+    """Simpan metadata sesi agar hasil CSV/PCAP bisa ditelusuri ke mode dan parameter run."""
     os.makedirs(session_root, exist_ok=True)
     meta_path = os.path.join(session_root, "meta.json")
     with open(meta_path, "w", encoding="utf-8") as f:
@@ -255,6 +265,7 @@ def initial_trace_session_root(path_baseline, path_mitm, path_dos, args):
 
 
 def load_app_map():
+    """Baca pemetaan host -> file app yang dibuat generator; fallback kosong bila belum ada."""
     app_map_path = os.path.join(APPS_DIR, "app_map.json")
     if not os.path.exists(app_map_path):
         return {}
@@ -293,6 +304,7 @@ def load_start_order_from_config(config_path=CONFIG_PATH):
 
 
 def load_topology_module():
+    """Import topology.py hasil generator tanpa mengandalkan paket Python."""
     if not os.path.exists(TOPOLOGY_PATH):
         raise FileNotFoundError(f"Generated topology not found: {TOPOLOGY_PATH}")
 
@@ -316,6 +328,7 @@ def create_network_from_generated_topology():
     return topology_mod.create_network(), topology_mod
 
 def load_generated_attacker_module():
+    """Muat helper attacker h5.py yang berisi fungsi run_mitm_attack dan run_dos_attack."""
     app_map = load_app_map()
     attacker_filename_candidates = []
     if "h5" in app_map:
@@ -338,6 +351,7 @@ def load_generated_attacker_module():
     return module
 
 def _app_path_for_host(name, app_map):
+    """Resolusi file app host dari app_map, dengan fallback nama host."""
     app_filename = app_map.get(name, f"{name}.py")
     app_path = os.path.join(APPS_DIR, app_filename)
     if not os.path.exists(app_path):
@@ -349,7 +363,7 @@ def stop_apps(net):
     print("Stopping host apps...")
     app_map = load_app_map()
     for host in sorted(net.hosts, key=lambda h: h.name):
-        # h5.py is attack helper/proxy launcher, so leave attack processes alive.
+        # h5 adalah helper/proxy attacker, bukan service host reguler yang perlu direstart di sini.
         if host.name == "h5":
             continue
         app_path, app_filename = _app_path_for_host(host.name, app_map)
@@ -362,12 +376,13 @@ def stop_apps(net):
 
 # UTIL: START APPS
 def start_apps(net):
+    """Start service h1-h4 sesuai urutan role agar dependency Modbus/OPC UA siap."""
     print("Starting apps...")
     app_map = load_app_map()
 
     def _start_host_app(host):
         name = host.name
-        # h5.py is attack helper (function-based), not a long-running host app.
+        # h5 adalah helper berbasis fungsi; prosesnya dinyalakan hanya saat skenario attack.
         if name == "h5":
             print(" h5 skipped (attack helper)")
             return
@@ -394,7 +409,7 @@ def start_apps(net):
         started.add(name)
         time.sleep(2)
 
-    # Start remaining host apps (stable deterministic order).
+    # Host yang tidak ada di config tetap dinyalakan secara deterministik.
     for host in sorted(net.hosts, key=lambda h: h.name):
         if host.name in started:
             continue
@@ -404,12 +419,14 @@ def start_apps(net):
 
 
 def restart_apps(net, reason: str = ""):
+    """Restart app host untuk mengawali tiap iterasi dari kondisi yang konsisten."""
     label = f" ({reason})" if reason else ""
     print(f"Restarting host apps{label}...")
     stop_apps(net)
     start_apps(net)
 
 def run_mitm(net, attacker_log_dir):
+    """Aktifkan skenario MITM melalui helper attacker dan laporkan sukses/gagalnya."""
     print("Starting MITM attack...")
     attacker_module = load_generated_attacker_module()
 
@@ -432,6 +449,7 @@ def run_mitm(net, attacker_log_dir):
 
 # UTIL: RUN DOS
 def run_dos(net, mode, attacker_log_dir):
+    """Aktifkan trafik DoS light/heavy dari host attacker."""
     print(f"Starting DoS attack ({mode})...")
     attacker_module = load_generated_attacker_module()
 
@@ -474,6 +492,7 @@ def clear_mitm_attack_flag_on_hosts(net):
 
 # MAIN
 def main():
+    """Parse argumen, siapkan folder run, jalankan skenario, lalu cleanup Mininet."""
     parser = argparse.ArgumentParser(description="Cyber Range Orchestrator")
     parser.add_argument(
         "--baseline",
@@ -547,13 +566,13 @@ def main():
     )
     print("==============================\n")
 
-    # Ensure phase markers do not leak from previous runs.
+    # Hindari marker fase/attack lama ikut terbaca oleh logger pada run baru.
     reset_attack_flags()
     attacker_log_run_key = run_id_str or datetime.now().strftime("%Y-%m-%d_%H%M%S")
     attacker_log_dir = os.path.join(ATTACKER_LOG_DIR, attacker_log_run_key)
     print(f"Attacker log path: {os.path.join(attacker_log_dir, 'h5.log')}")
 
-    # START NETWORK FROM GENERATED TOPOLOGY
+    # Topologi selalu berasal dari script/topology.py hasil generator atau file statis saat ini.
     print("Starting generated topology...")
     net = None
     pcap_manifest = None
@@ -572,7 +591,7 @@ def main():
         if trace_root0:
             publish_run_root_on_hosts(net, trace_root0)
 
-        # START APPS
+        # Service host harus hidup sebelum baseline/attack karena logger berada di app masing-masing.
         start_apps(net)
 
         pcap_manifest = [] if pcap_dir else None
@@ -581,7 +600,7 @@ def main():
                 f"PCAP per iterasi (N={MEASUREMENT_ITERATIONS}) -> {pcap_dir}"
             )
 
-        # Collect baseline only when enabled (explicitly or as part of a scenario).
+        # Baseline hanya dikumpulkan bila diminta eksplisit.
         if should_collect_baseline:
             delay = max(0, args.collect_delay)
             print(f"Collecting baseline in {delay}s...")
@@ -610,7 +629,7 @@ def main():
                 print(f"Normal phase (pre-attack, {NORMAL_PHASE_PRE_ATTACK_S}s)...")
                 time.sleep(NORMAL_PHASE_PRE_ATTACK_S)
             prime_mitm_phase_on_hosts(net)
-            # Topologi: attacker foothold di Control dulu; eskalasi ke Field saat skenario MITM.
+            # Topologi: attacker foothold di Control dulu; eskalasi ke Field hanya saat MITM.
             if hasattr(topology_mod, "escalate_attacker_to_field"):
                 topology_mod.escalate_attacker_to_field(net)
                 time.sleep(1)
@@ -640,7 +659,7 @@ def main():
         if args.dos:
             if path_dos:
                 publish_run_root_on_hosts(net, path_dos)
-            # Satu kali jalankan serangan per mode lalu ambil metrik jaringan.
+            # Untuk DoS, tiap mode attack dinyalakan lalu metrik diambil dalam window iterasi.
             for dos_mode in ("light", "heavy"):
                 phase_label = f"dos_{dos_mode}"
                 ok = run_dos(net, dos_mode, attacker_log_dir)
@@ -669,7 +688,7 @@ def main():
 
         print("System ready\n")
 
-        # CLI
+        # CLI tetap tersedia untuk inspeksi manual setelah skenario otomatis selesai.
         if not args.no_cli:
             CLI(net)
     finally:
@@ -679,7 +698,7 @@ def main():
             print("Stopping network...")
             net.stop()
 
-# ENTRY POINT
+# Entry point CLI.
 if __name__ == "__main__":
     setLogLevel("info")
     main()

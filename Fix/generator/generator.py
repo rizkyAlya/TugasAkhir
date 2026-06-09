@@ -1,3 +1,5 @@
+# Generator membaca config.yaml dan membuat script/topology.py serta app host dari template Jinja.
+# Folder templates sengaja tidak diberi komentar sesuai permintaan.
 import os
 import yaml
 import argparse
@@ -8,6 +10,7 @@ BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 TEMPLATE_DIR = os.path.join(BASE_DIR, "generator", "templates")
 OUTPUT_DIR = os.path.join(BASE_DIR, "script")
 
+# Environment Jinja diarahkan hanya ke generator/templates.
 env = Environment(loader=FileSystemLoader(TEMPLATE_DIR))
 
 ROLE_TEMPLATE = {
@@ -18,13 +21,13 @@ ROLE_TEMPLATE = {
     "attacker": "attacker.j2",
 }
 
-# LOAD CONFIG
 def load_config(path):
+    """Baca konfigurasi topologi YAML."""
     with open(path, "r") as f:
         return yaml.safe_load(f)
 
-# PARSE HOSTS + IP ASSIGN
 def parse_topology(config):
+    """Ubah config zona menjadi daftar host, IP, link, dan indeks role."""
     zones = config["topology"]["zones"]
     bandwidth = config.get("network", {}).get("bandwidth", 5)
     links = config.get("topology", {}).get("links", [])
@@ -55,8 +58,8 @@ def parse_topology(config):
 
     return all_hosts, zone_map, links, bandwidth, hosts_by_name, hosts_by_role
 
-# GENERATE APPS
 def generate_apps(hosts, app_mode="host"):
+    """Render app host dari template berdasarkan role dan simpan app_map.json."""
     app_dir = os.path.join(OUTPUT_DIR, "apps")
     os.makedirs(app_dir, exist_ok=True)
     app_map = {}
@@ -67,8 +70,7 @@ def generate_apps(hosts, app_mode="host"):
         template_name = ROLE_TEMPLATE[role]
         template = env.get_template(template_name)
 
-        # Keep templates simple: pass host plus computed role/name maps.
-        # Templates may use these to reference other hosts' IPs/endpoints.
+        # Template diberi konteks host, daftar host, dan map role untuk resolve endpoint.
         output = template.render(
             host=host,
             all_hosts=hosts,
@@ -87,13 +89,13 @@ def generate_apps(hosts, app_mode="host"):
         with open(os.path.join(app_dir, script_name), "w") as f:
             f.write(output)
 
-    # Save host -> script mapping so run.py can resolve generated filenames.
+    # app_map dipakai run.py untuk menemukan file app walau mode nama berubah.
     with open(os.path.join(app_dir, "app_map.json"), "w", encoding="utf-8") as f:
         json.dump(app_map, f, indent=2)
     return app_map
 
-# GENERATE TOPOLOGY FILE
 def generate_topology(hosts, zone_map, links, bandwidth, hosts_by_role):
+    """Render file topology.py dan pastikan minimal ada satu attacker."""
     template = env.get_template("topology.j2")
     attacker_hosts = hosts_by_role.get("attacker", [])
     if not attacker_hosts:
@@ -115,8 +117,8 @@ def generate_topology(hosts, zone_map, links, bandwidth, hosts_by_role):
     with open(os.path.join(OUTPUT_DIR, "topology.py"), "w") as f:
         f.write(output)
 
-# MAIN
 def main():
+    """Entry point CLI generator."""
     parser = argparse.ArgumentParser()
     parser.add_argument("-C", "--config", required=True)
     parser.add_argument(

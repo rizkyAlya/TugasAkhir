@@ -1,0 +1,4 @@
+comparison (-),iteration (-),matched_decisions (count),missing_baseline_decisions (count),correct_count (count),false_control_count (count),false_open_count (count),false_close_count (count),false_open_pct_of_false (%),false_close_pct_of_false (%),decision_error_rate (%)
+mitm_vs_baseline,iteration_1,395,5,277,118,118,0,100.000000,0.000000,29.873418
+mitm_vs_baseline,iteration_2,385,15,262,123,123,0,100.000000,0.000000,31.948052
+mitm_vs_baseline,iteration_3,395,10,276,119,119,0,100.000000,0.000000,30.126582

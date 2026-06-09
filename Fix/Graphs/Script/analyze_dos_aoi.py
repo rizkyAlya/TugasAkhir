@@ -1,21 +1,6 @@
 #!/usr/bin/env python3
-r"""
-Analyze Age of Information (AoI) from DoS host CSV logs.
-
-Run from project root:
-    python .\Fix\Graphs\Script\analyze_dos_aoi.py
-
-Optional threshold override:
-    python .\Fix\Graphs\Script\analyze_dos_aoi.py --threshold 3
-
-From cycle 14 and first 50 cycle_id values:
-    python .\Fix\Graphs\Script\analyze_dos_aoi.py --start-cycle 14 --limit-cycles 50
-
-Outputs:
-- Graphs/Join/dos/dos_aoi_cycle_classification.csv
-- Graphs/Join/dos/dos_aoi_iteration_summary.csv
-- Graphs/Join/dos/dos_aoi_scenario_summary.csv
-"""
+# Analisis AoI khusus skenario DoS light/heavy dari host_csv DoS.
+# Output berisi klasifikasi per cycle, ringkasan per iterasi, dan ringkasan skenario.
 import argparse
 import csv
 import statistics
@@ -27,6 +12,7 @@ GRAPHS_DIR = SCRIPT_DIR.parent
 DEFAULT_HOST_CSV_DIR = GRAPHS_DIR / "Data" / "DoS" / "host_csv"
 DEFAULT_OUTPUT_DIR = GRAPHS_DIR / "Join" / "dos"
 
+# Skenario DoS yang dibandingkan.
 SCENARIOS = ["dos_light", "dos_heavy"]
 DEFAULT_THRESHOLD_S = 3.0
 
@@ -116,30 +102,31 @@ HEADER_LABELS = {
 
 
 def display_header(column):
+    """Ubah nama kolom internal menjadi label CSV dengan satuan."""
     return HEADER_LABELS.get(column, column)
 
 
 def fmt_float(value, digits=6):
+    """Format angka float; kosong bila nilai tidak tersedia."""
     if value == "":
         return ""
     return f"{float(value):.{digits}f}"
 
 
 def mean(values):
+    """Rata-rata aman untuk list kosong."""
     return statistics.fmean(values) if values else 0.0
 
 
 def std_dev(values):
+    """Standar deviasi sample; nol bila data kurang dari dua."""
     return statistics.stdev(values) if len(values) > 1 else 0.0
 
 
 def read_cycle_timestamps(path, ts_column):
     """
-    Return one timestamp per cycle_id.
-
-    H1 and H4 data_plane logs contain one row per bus for each cycle_id.
-    The timestamp is identical for those bus rows in normal output, but min()
-    keeps the aggregation deterministic if small differences appear.
+    Ambil satu timestamp per cycle_id.
+    H1/H4 punya satu baris per bus, sehingga min() menjaga agregasi tetap deterministik.
     """
     timestamps = {}
     with path.open("r", newline="", encoding="utf-8-sig") as f:
@@ -159,6 +146,7 @@ def read_cycle_timestamps(path, ts_column):
 
 
 def read_cycle_timestamp_lists(path, ts_column):
+    """Baca semua timestamp penerimaan per cycle_id."""
     timestamps = {}
     with path.open("r", newline="", encoding="utf-8-sig") as f:
         reader = csv.DictReader(f)
@@ -180,6 +168,7 @@ def read_cycle_timestamp_lists(path, ts_column):
 
 
 def first_received_at_or_after(received_by_cycle, cycle_id, ts_sent):
+    """Pilih penerimaan pertama yang terjadi setelah data dikirim."""
     for ts_received in received_by_cycle.get(cycle_id, []):
         if ts_received >= ts_sent:
             return ts_received
@@ -187,6 +176,7 @@ def first_received_at_or_after(received_by_cycle, cycle_id, ts_sent):
 
 
 def iteration_sort_key(path):
+    """Urutkan folder iteration_N secara numerik."""
     name = path.name
     try:
         return int(name.split("_", 1)[1])
@@ -195,6 +185,7 @@ def iteration_sort_key(path):
 
 
 def selected_cycle_ids(cycle_ids, start_cycle=None, limit_cycles=None):
+    """Filter cycle_id berdasarkan start dan limit dari argumen CLI."""
     selected = sorted(cycle_ids)
     if start_cycle is not None:
         selected = [cycle_id for cycle_id in selected if cycle_id >= start_cycle]
@@ -210,6 +201,7 @@ def analyze_iteration(
     start_cycle=None,
     limit_cycles=None,
 ):
+    """Hitung AoI per cycle dan summary satu iterasi DoS."""
     h1_path = iteration_dir / "data_plane" / "h1.csv"
     h4_path = iteration_dir / "data_plane" / "h4.csv"
     if not h1_path.exists():
@@ -278,6 +270,7 @@ def analyze_iteration(
 
 
 def summarize_scenario(scenario, iteration_summaries, threshold_s):
+    """Gabungkan ringkasan iterasi menjadi summary skenario DoS."""
     rows = [row for row in iteration_summaries if row["scenario"] == scenario]
     if not rows:
         return None
@@ -311,6 +304,7 @@ def summarize_scenario(scenario, iteration_summaries, threshold_s):
 
 
 def write_csv(path, columns, rows):
+    """Tulis CSV output dengan header display."""
     path.parent.mkdir(parents=True, exist_ok=True)
     with path.open("w", newline="", encoding="utf-8") as f:
         fieldnames = [display_header(column) for column in columns]
@@ -321,6 +315,7 @@ def write_csv(path, columns, rows):
 
 
 def parse_args():
+    """Argumen folder input/output, threshold, dan filter cycle."""
     parser = argparse.ArgumentParser(
         description="Analyze AoI synchronization from DoS H1/H4 host CSV logs."
     )
@@ -358,6 +353,7 @@ def parse_args():
 
 
 def main():
+    """Entry point analisis AoI DoS."""
     args = parse_args()
     host_csv_dir = args.host_csv_dir.resolve()
     output_dir = args.output_dir.resolve()

@@ -1,3 +1,5 @@
+# Topologi Mininet statis untuk cyber range: Field, Control, IT, router r0,
+# dan attacker h5 yang awalnya hanya aktif di Control.
 from mininet.net import Mininet
 from mininet.node import Controller, OVSSwitch, Node
 from mininet.cli import CLI
@@ -7,11 +9,13 @@ from mininet.log import setLogLevel
 import time
 
 def addRouter(net, name):
+    """Tambahkan host router Linux dan aktifkan IP forwarding."""
     r = net.addHost(name, cls=Node)
     r.cmd('sysctl -w net.ipv4.ip_forward=1')
     return r
 
 def create_network():
+    """Buat host, switch, router, dan link fisik/virtual Mininet."""
     net = Mininet(controller=Controller, link=TCLink, switch=OVSSwitch)
 
     print("Adding controller")
@@ -67,6 +71,7 @@ def create_network():
     return net
 
 def post_start_setup(net):
+    """Konfigurasi IP router, firewall antar-zona, default route, dan posisi awal attacker."""
     r0 = net.get('r0')
     print("\nConfiguring router interfaces")
     r0.cmd('ifconfig r0-eth0 10.0.1.1/24 up')  # Field Zone
@@ -74,10 +79,10 @@ def post_start_setup(net):
     r0.cmd('ifconfig r0-eth2 10.0.3.1/24 up')  # IT Zone
 
     print("Applying inter-zone segmentation on r0")
-    # Default-deny forwarding with explicit allows:
-    # - Field <-> Control allowed
-    # - IT <-> Control allowed
-    # - Field <-> IT blocked
+    # Kebijakan forwarding default-deny dengan allow eksplisit:
+    # - Field <-> Control diizinkan
+    # - IT <-> Control diizinkan
+    # - Field <-> IT diblok
     r0.cmd('iptables -F FORWARD')
     r0.cmd('iptables -P FORWARD DROP')
     r0.cmd('iptables -A FORWARD -m conntrack --ctstate ESTABLISHED,RELATED -j ACCEPT')
@@ -128,6 +133,7 @@ def escalate_attacker_to_field(net):
 
 
 def CPS_topology():
+    """Mode manual: start topologi lalu buka CLI Mininet."""
     net = create_network()
     print("Starting network")
     net.start()

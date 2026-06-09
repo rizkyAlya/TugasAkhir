@@ -1,14 +1,6 @@
 #!/usr/bin/env python3
-r"""
-Combine network summary.csv files from Graphs/Data/Network.
-
-Run from project root:
-    python .\Fix\Graphs\Script\combine_network_summary.py
-
-Outputs:
-- Graphs/Join/network_summary_combined.csv
-- Graphs/Join/network_summary_table.csv
-"""
+# Menggabungkan summary.csv jaringan dari baseline, DoS, dan MITM menjadi format long
+# serta tabel wide agar mudah dipakai untuk plotting dan tabel laporan.
 import argparse
 import csv
 from pathlib import Path
@@ -19,6 +11,7 @@ GRAPHS_DIR = SCRIPT_DIR.parent
 DEFAULT_DATA_DIR = GRAPHS_DIR / "Data" / "Network"
 DEFAULT_OUTPUT_DIR = GRAPHS_DIR / "Join"
 
+# Urutan skenario menentukan urutan kolom pada tabel wide.
 SCENARIOS = [
     ("baseline", Path("baseline") / "summary.csv"),
     ("dos_light", Path("dos") / "light" / "summary.csv"),
@@ -41,10 +34,12 @@ HEADER_LABELS = {
 
 
 def display_header(column):
+    """Ubah nama kolom internal menjadi label display dengan satuan."""
     return HEADER_LABELS.get(column, column)
 
 
 def write_display_rows(path, headers, rows):
+    """Tulis CSV dengan header display tanpa mengubah nama key internal."""
     with path.open("w", newline="", encoding="utf-8") as f:
         writer = csv.DictWriter(f, fieldnames=[display_header(col) for col in headers])
         writer.writeheader()
@@ -53,6 +48,7 @@ def write_display_rows(path, headers, rows):
 
 
 def read_summary(path):
+    """Baca satu summary.csv dan normalisasi kolom yang dibutuhkan."""
     with path.open("r", newline="", encoding="utf-8-sig") as f:
         reader = csv.DictReader(f)
         rows = []
@@ -62,6 +58,7 @@ def read_summary(path):
 
 
 def collect_rows(data_dir):
+    """Kumpulkan semua baris summary dan catat file yang belum ada."""
     combined = []
     missing = []
 
@@ -77,12 +74,14 @@ def collect_rows(data_dir):
 
 
 def write_combined_csv(rows, output_path):
+    """Tulis format long: satu baris per scenario/metric/layer/route."""
     output_path.parent.mkdir(parents=True, exist_ok=True)
     headers = ["scenario", *BASE_COLUMNS, *VALUE_COLUMNS]
     write_display_rows(output_path, headers, rows)
 
 
 def write_wide_table(rows, output_path):
+    """Tulis format wide: baseline/dos/mitm menjadi kolom mean/std_dev."""
     output_path.parent.mkdir(parents=True, exist_ok=True)
     scenario_names = [scenario for scenario, _path in SCENARIOS]
     headers = [*BASE_COLUMNS]
@@ -123,6 +122,7 @@ def write_wide_table(rows, output_path):
 
 
 def parse_args():
+    """Argumen folder input network dan folder output Join."""
     parser = argparse.ArgumentParser(
         description="Gabungkan summary network baseline, DoS light/heavy, dan MITM."
     )
@@ -142,6 +142,7 @@ def parse_args():
 
 
 def main():
+    """Entry point combine network summary."""
     args = parse_args()
     data_dir = args.data_dir.resolve()
     output_dir = args.output_dir.resolve()

@@ -1,3 +1,5 @@
+# Collector metrik jaringan: ping untuk RTT/loss dan iperf untuk throughput,
+# lalu merangkum mean/std_dev per layer komunikasi.
 import re
 import csv
 import datetime
@@ -7,6 +9,7 @@ import shlex
 import statistics
 import yaml
 
+# Parameter default pengukuran jaringan; dapat dioverride dari pemanggil collect_data.
 NUM_RUNS = 3
 IPERF_PORT = 5001
 IPERF_DURATION_S = 5
@@ -20,10 +23,9 @@ DEFAULT_CONFIG_PATH = os.path.join(base_dir, "config.yaml")
 
 def _resolve_links_from_config(config_path):
     """
-    Resolve measurement links using first host for each role from config.yaml:
-    - field link: rtu[0] -> gateway[0]
-    - system link: gateway[0] -> dt[0]
-    Returns list of tuples: (layer, source_host, destination_ip, destination_host)
+    Ambil link pengukuran dari role pertama di config.yaml:
+    field = rtu[0] -> gateway[0], system = gateway[0] -> dt[0].
+    Return tuple: (layer, source_host, destination_ip, destination_host).
     """
     with open(config_path, "r", encoding="utf-8") as f:
         config = yaml.safe_load(f) or {}
@@ -87,11 +89,13 @@ def _extract_throughput_mbps(output: str):
 
 
 def _write_header_if_needed(writer, path, header):
+    """Tulis header hanya saat file baru/kosong agar append per iterasi tetap rapi."""
     if not os.path.exists(path) or os.path.getsize(path) == 0:
         writer.writerow(header)
 
 
 def _group_metric_values(path, value_column, *, throughput=False):
+    """Kelompokkan nilai metrik per layer/source/destination untuk summary."""
     grouped = {}
     if not os.path.exists(path) or os.path.getsize(path) == 0:
         return grouped
@@ -111,6 +115,7 @@ def _group_metric_values(path, value_column, *, throughput=False):
 
 
 def _write_summary_from_metric_csvs(summary_path, rtt_path, loss_path, th_path):
+    """Bangun summary.csv dari CSV RTT, packet loss, dan throughput."""
     groups = [
         ("RTT", _group_metric_values(rtt_path, "latency_ms")),
         ("Packet Loss", _group_metric_values(loss_path, "packet_loss_percent")),
@@ -140,7 +145,7 @@ def collect_data(
     num_runs=NUM_RUNS,
 ):
     """
-    Collect RTT, packet loss, and throughput data.
+    Kumpulkan RTT, packet loss, dan throughput.
 
     Unified (logs_path = logs/<baseline|mitm|dos>/<run_id>/): menyimpan di
     .../network/baseline|mitm|dos/...
@@ -218,7 +223,7 @@ def collect_data(
         loss_header.insert(2, "fase")
         th_header.insert(2, "fase")
 
-    # RTT & Packet Loss
+    # Ping menghasilkan sampel RTT per paket dan ringkasan packet loss per run.
     with open(rtt_path, file_mode, newline="") as rtt_file, \
          open(loss_path, file_mode, newline="") as loss_file:
 
@@ -235,7 +240,7 @@ def collect_data(
 
                 output = net.get(host).cmd(f"ping -c 20 {dest_ip}")
 
-                # RTT parsing
+                # Parsing RTT: satu baris ping sukses menjadi satu sampel latency.
                 for line in output.split("\n"):
                     if "time=" in line:
                         latency = re.search(r'time=(\d+\.?\d*)', line)
@@ -253,7 +258,7 @@ def collect_data(
                                 row_rtt.insert(2, measure_phase)
                             rtt_writer.writerow(row_rtt)
 
-                # Packet loss parsing
+                # Parsing packet loss dari baris ringkasan ping.
                 for line in output.split("\n"):
                     if "packet loss" in line:
                         loss = re.search(r'(\d+)% packet loss', line)
@@ -273,7 +278,7 @@ def collect_data(
 
                 time.sleep(1)
 
-    # Throughput
+    # Throughput diukur dengan iperf; server dinyalakan di host tujuan tiap run.
     with open(th_path, file_mode, newline="") as th_file:
 
         th_writer = csv.writer(th_file)
@@ -290,6 +295,7 @@ def collect_data(
                 error = "parse_failed"
                 output_tail = ""
 
+                # Retry menangani kasus server belum siap atau koneksi sempat gagal.
                 for attempt in range(1, IPERF_MAX_RETRIES + 1):
                     net.get(server_host).cmd("killall -9 iperf >/dev/null 2>&1 || true")
                     net.get(server_host).cmd(f"iperf -s -p {IPERF_PORT} >/dev/null 2>&1 &")

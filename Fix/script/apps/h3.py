@@ -1,3 +1,5 @@
+# h3 adalah gateway: menerima Modbus dari RTU, menerjemahkan V/I/PF menjadi P/Q,
+# menyajikan data ke Digital Twin via OPC UA, dan meneruskan command breaker balik ke RTU.
 import os
 import sys
 import time
@@ -11,7 +13,7 @@ from pymodbus.server import StartTcpServer
 from pymodbus.datastore import ModbusSlaveContext, ModbusServerContext
 from pymodbus.datastore import ModbusSequentialDataBlock
 
-# Konfigurasi server OPC UA
+# Konfigurasi server OPC UA yang dibaca oleh h4.
 server = Server()
 server.set_endpoint("opc.tcp://10.0.2.2:4840/mininet/")
 
@@ -33,6 +35,7 @@ last_breaker = {}
 
 
 def _measurement_trusted(v_pu, i_amp):
+    """Validasi sederhana agar kondisi blackout tidak menimpa P/Q terakhir dengan nol palsu."""
     return v_pu >= V_MIN_PU_OPC and i_amp >= I_MIN_A_OPC
 
 
@@ -66,11 +69,12 @@ V_MIN_PU_OPC = float(os.environ.get("GATEWAY_V_MIN_PU_OPC", "0.05"))
 I_MIN_A_OPC = float(os.environ.get("GATEWAY_I_MIN_A_OPC", "5.0"))
 last_pq_mw = {bus: 0.0 for bus in range(1, NUM_BUS + 1)}
 last_q_mvar = {bus: 0.0 for bus in range(1, NUM_BUS + 1)}
-# Data V/I/PF dari holding register Modbus (RTU dari field).
+# Path logger dipakai untuk menyimpan data/control plane per host.
 BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
 sys.path.append(BASE_DIR)
 from logger.host_csv_logger import breaker_state, log_control_plane, log_data_plane, timestamp
 
+# Datastore Modbus gateway: RTU menulis pengukuran, gateway menulis command balik ke RTU.
 store = ModbusSlaveContext(
     di=ModbusSequentialDataBlock(0, [0] * 100),
     co=ModbusSequentialDataBlock(0, [1] * 100),
@@ -80,10 +84,12 @@ store = ModbusSlaveContext(
 context = ModbusServerContext(slaves=store, single=True)
 
 def start_modbus_server():
+    """Jalankan Modbus TCP server gateway di thread terpisah dari loop OPC UA."""
     print(f"Memulai Modbus Gateway di {MODBUS_LISTEN_IP}:{MODBUS_PORT}")
     StartTcpServer(context=context, identity=None, address=(MODBUS_LISTEN_IP, MODBUS_PORT))
 
 
+# Buat node OPC UA untuk seluruh bus: sensor, feedback breaker, dan command DT.
 for bus in range(1, 6):
     p_nodes[bus] = sensor_folder.add_variable(idx, f"P_bus_{bus}", 0.0)   # MW
     p_nodes[bus].set_writable()
@@ -125,6 +131,7 @@ data_history = []
 last_snapshot_cycle = None
 DATA_HISTORY_MAX = int(os.environ.get("GATEWAY_DATA_HISTORY_MAX", "200"))
 
+# Loop realtime: transfer Modbus -> OPC UA dan OPC UA -> Modbus tiap interval.
 try:
     while True:
         _gateway_measure_iter += 1
@@ -165,6 +172,7 @@ try:
                 p_calc = s_va * math.cos(phi) / 1e6
                 q_calc = s_va * math.sin(phi) / 1e6
 
+                # Jika pengukuran valid, hitung P/Q dari V, I, PF; jika tidak, tahan nilai terakhir.
                 if _measurement_trusted(v_raw, i_raw):
                     p_mw = p_calc
                     q_mvar = q_calc
@@ -218,6 +226,7 @@ try:
                 last_breaker[bus] = cmd_val
 
         try:
+            # Snapshot satu siklus penuh dipaketkan sebagai JSON agar h4 membaca data konsisten per cycle.
             if cycle_id > 0 and cycle_id != last_snapshot_cycle and len(snapshot_p) == NUM_BUS:
                 data_history.append(
                     {

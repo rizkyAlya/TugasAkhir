@@ -1,6 +1,5 @@
-"""
-Field device: ground-truth grid via pandapower, exposed to RTU over Modbus TCP.
-"""
+# h1 bertindak sebagai proses fisik/field: model jaringan listrik pandapower
+# menjadi sumber ground-truth dan diekspos ke RTU melalui Modbus TCP.
 import math
 import os
 import random
@@ -13,6 +12,7 @@ import pandapower as pp
 from pymodbus.datastore import ModbusSequentialDataBlock, ModbusServerContext, ModbusSlaveContext
 from pymodbus.server import StartTcpServer
 
+# Konstanta Modbus: register holding menyimpan V/I/PF, coil menyimpan status breaker.
 MODBUS_LISTEN_IP = "0.0.0.0"
 MODBUS_PORT = 5020
 NUM_BUS = 5
@@ -35,6 +35,7 @@ BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
 sys.path.append(BASE_DIR)
 from logger.host_csv_logger import breaker_state, log_control_plane, log_data_plane, timestamp
 
+# Datastore Modbus lokal; RTU membaca holding register dan menulis coil breaker.
 store = ModbusSlaveContext(
     di=ModbusSequentialDataBlock(0, [0] * 100),
     co=ModbusSequentialDataBlock(0, [0] * 100),
@@ -50,6 +51,7 @@ breaker_status = {bus: 1 for bus in range(1, NUM_BUS + 1)}
 _field_cycle_id = 0
 
 def build_network():
+    """Buat model 5-bus radial sederhana beserta breaker tiap line."""
     net = pp.create_empty_network()
 
     bus1 = pp.create_bus(net, vn_kv=110, name="Slack Bus")
@@ -95,6 +97,7 @@ def build_network():
     return net, bus_nums, loads, switches_by_bus
 
 def bus_current_amp(net, bus_idx):
+    """Hitung arus bus dari P/Q dan tegangan hasil power flow."""
     p_mw = float(net.res_bus.at[bus_idx, "p_mw"])
     q_mvar = float(net.res_bus.at[bus_idx, "q_mvar"])
     vm_pu = float(net.res_bus.at[bus_idx, "vm_pu"])
@@ -106,6 +109,7 @@ def bus_current_amp(net, bus_idx):
     return i_ka * 1000.0
 
 def bus_power_factor(net, bus_idx):
+    """Hitung power factor absolut dari hasil P/Q bus."""
     p_mw = float(net.res_bus.at[bus_idx, "p_mw"])
     q_mvar = float(net.res_bus.at[bus_idx, "q_mvar"])
     s_mva = math.hypot(p_mw, q_mvar)
@@ -114,16 +118,19 @@ def bus_power_factor(net, bus_idx):
     return min(1.0, abs(p_mw) / s_mva)
 
 def apply_breakers_to_network(net, switches_by_bus):
+    """Sinkronkan status coil breaker Modbus ke switch pandapower."""
     for bus, switch_idx in switches_by_bus.items():
         net.switch.at[switch_idx, "closed"] = breaker_status[bus] == 1
 
 def random_load_mw_mvar(rng, p_lo, p_hi, pf_lo, pf_hi):
+    """Buat variasi beban realistis dari rentang P dan power factor."""
     p_mw = rng.uniform(p_lo, p_hi)
     pf = rng.uniform(pf_lo, pf_hi)
     q_mvar = p_mw * math.tan(math.acos(pf))
     return p_mw, q_mvar
 
 def sync_breakers_from_modbus():
+    """Baca perintah breaker dari RTU dan log status kontrol yang diterima field."""
     for bus in range(1, NUM_BUS + 1):
         addr = BREAKER_BASE_ADDR + (bus - 1)
         breaker_status[bus] = int(context[SLAVE_ID].getValues(FX_CO, addr, count=1)[0])
@@ -140,11 +147,13 @@ def sync_breakers_from_modbus():
     )
 
 def next_cycle_id():
+    """Naikkan cycle id 16-bit; angka 0 dihindari agar mudah dibedakan dari belum ada data."""
     global _field_cycle_id
     _field_cycle_id = ((_field_cycle_id + 1) & 0xFFFF) or 1
     return _field_cycle_id
 
 def publish_measurements(net, bus_nums, cycle_id):
+    """Tulis hasil power flow ke register Modbus dan CSV data_plane h1."""
     ts_sent = timestamp()
     context[SLAVE_ID].setValues(FX_HR, DATA_CYCLE_ADDR, [int(cycle_id)])
     for bus in range(1, NUM_BUS + 1):
@@ -185,14 +194,17 @@ def publish_measurements(net, bus_nums, cycle_id):
         )
 
 def init_modbus_coils():
+    """Inisialisasi semua breaker tertutup sebelum simulasi berjalan."""
     for bus in range(1, NUM_BUS + 1):
         context[SLAVE_ID].setValues(FX_CO, BREAKER_BASE_ADDR + (bus - 1), [breaker_status[bus]])
 
 def start_modbus_server():
+    """Jalankan Modbus TCP server untuk dibaca/ditulis RTU."""
     print(f"Modbus TCP server on {MODBUS_LISTEN_IP}:{MODBUS_PORT}")
     StartTcpServer(context=context, identity=None, address=(MODBUS_LISTEN_IP, MODBUS_PORT))
 
 def main_loop(net, bus_nums, loads, switches_by_bus):
+    """Loop realtime field: ubah beban, terapkan breaker, hitung power flow, publish data."""
     rng = random.Random(FIELD_RANDOM_SEED)
     print(f"Field random seed: {FIELD_RANDOM_SEED} interval={CYCLE_INTERVAL_S}s")
 

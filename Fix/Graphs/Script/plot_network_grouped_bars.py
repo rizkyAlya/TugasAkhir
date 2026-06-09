@@ -1,16 +1,6 @@
 #!/usr/bin/env python3
-r"""
-Create grouped bar charts for network summary comparisons.
-
-Run from project root:
-    python .\Fix\Graphs\Script\plot_network_grouped_bars.py
-
-Outputs:
-- Graphs/Graph/dos/dos_rtt_grouped_bar.png
-- Graphs/Graph/dos/dos_throughput_grouped_bar.png
-- Graphs/Graph/mitm/mitm_rtt_grouped_bar.png
-- Graphs/Graph/mitm/mitm_throughput_grouped_bar.png
-"""
+# Membuat grouped bar chart RTT dan throughput untuk membandingkan baseline,
+# DoS light/heavy, dan MITM berdasarkan network_summary_combined.csv.
 import argparse
 import csv
 import math
@@ -28,6 +18,7 @@ GRAPHS_DIR = SCRIPT_DIR.parent
 DEFAULT_INPUT = GRAPHS_DIR / "Join" / "network_summary_combined.csv"
 DEFAULT_OUTPUT_DIR = GRAPHS_DIR / "Graph"
 
+# Konfigurasi metrik yang diplot dan format label sumbunya.
 METRICS = {
     "RTT": {
         "filename": "rtt",
@@ -43,6 +34,7 @@ METRICS = {
     },
 }
 
+# Set perbandingan menentukan skenario mana yang muncul dalam satu gambar.
 COMPARISONS = [
     {
         "name": "dos",
@@ -86,6 +78,7 @@ ROUTE_LABELS = {
 
 
 def get_csv_value(row, column):
+    """Ambil nilai kolom, termasuk CSV yang memakai label dengan satuan."""
     if column in row:
         return row[column]
     prefix = f"{column} ("
@@ -96,6 +89,7 @@ def get_csv_value(row, column):
 
 
 def read_rows(path):
+    """Baca CSV gabungan dan ubah mean/std_dev menjadi float."""
     with path.open("r", newline="", encoding="utf-8-sig") as f:
         reader = csv.DictReader(f)
         rows = []
@@ -118,11 +112,13 @@ def read_rows(path):
 
 
 def route_legend_label(row):
+    """Buat label legend rute dari layer dan host sumber/tujuan."""
     layer = ROUTE_LABELS.get(row["layer"], row["layer"].title())
     return f"{layer} ({row['source']} -> {row['destination']})"
 
 
 def index_rows(rows):
+    """Index baris per scenario+metric+route agar plotting mudah mengambil pasangan data."""
     indexed = {}
     route_order = []
     for row in rows:
@@ -134,6 +130,7 @@ def index_rows(rows):
 
 
 def add_bar_annotations(ax, bars, std_devs, fmt):
+    """Tambahkan label mean dan standar deviasi pada tiap bar."""
     is_log = ax.get_yscale() == "log"
     y_min, y_max = ax.get_ylim()
     offset = max((y_max - y_min) * 0.012, 0.01)
@@ -170,6 +167,7 @@ def add_bar_annotations(ax, bars, std_devs, fmt):
 
 
 def plot_grouped_bar(rows, comparison, metric, output_dir):
+    """Gambar satu grouped bar chart untuk satu metrik dan satu set skenario."""
     metric_cfg = METRICS[metric]
     indexed, route_order = index_rows(rows)
     route_order = [key for key in route_order if key[0] == metric]
@@ -288,6 +286,7 @@ def plot_grouped_bar(rows, comparison, metric, output_dir):
 
 
 def parse_args():
+    """Argumen input CSV gabungan dan output folder graph."""
     parser = argparse.ArgumentParser(
         description="Create grouped bar charts for baseline vs DoS and baseline vs MITM network summaries."
     )
@@ -307,6 +306,7 @@ def parse_args():
 
 
 def main():
+    """Entry point plotting network grouped bar."""
     args = parse_args()
     input_path = args.input.resolve()
     output_dir = args.output_dir.resolve()

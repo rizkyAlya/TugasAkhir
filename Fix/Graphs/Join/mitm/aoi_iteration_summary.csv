@@ -1,0 +1,7 @@
+scenario (-),iteration (-),threshold (s),total_cycle_id (count),received_count (count),fresh_count (count),stale_count (count),missing_count (count),aoi_mean (s),aoi_std_dev (s),aoi_max (s),fresh_pct (%),stale_pct (%),missing_pct (%)
+baseline,iteration_1,3.000,50,50,50,0,0,1.076814,0.093580,1.299241,100.000000,0.000000,0.000000
+baseline,iteration_2,3.000,50,50,50,0,0,1.614402,0.197988,1.985599,100.000000,0.000000,0.000000
+baseline,iteration_3,3.000,50,50,50,0,0,1.051392,0.089890,1.329441,100.000000,0.000000,0.000000
+mitm,iteration_1,3.000,50,50,50,0,0,1.047509,0.079950,1.216876,100.000000,0.000000,0.000000
+mitm,iteration_2,3.000,50,50,50,0,0,1.032063,0.065214,1.164174,100.000000,0.000000,0.000000
+mitm,iteration_3,3.000,50,50,50,0,0,0.837410,0.157427,1.187952,100.000000,0.000000,0.000000

@@ -1,28 +1,7 @@
 #!/usr/bin/env python3
-r"""
-Analyze DT voltage drift and false control actions from Graphs/Data host CSV logs.
-
-Run from project root:
-    python .\Fix\Graphs\Script\analyze_dt_drift_control.py
-
-DoS only:
-    python .\Fix\Graphs\Script\analyze_dt_drift_control.py --scenarios baseline dos_light dos_heavy
-
-MITM only:
-    python .\Fix\Graphs\Script\analyze_dt_drift_control.py --scenarios baseline mitm
-
-Outputs:
-- Graphs/Join/dt_drift_detail.csv
-- Graphs/Join/dt_drift_iteration_summary.csv
-- Graphs/Join/dt_drift_scenario_summary.csv
-- Graphs/Join/false_control_detail.csv
-- Graphs/Join/false_control_iteration_summary.csv
-- Graphs/Join/false_control_scenario_summary.csv
-
-Assumption for false control action:
-    A DT control action is false when H4 breaker_DT differs from the field
-    breaker_actual in H1 for the same origin_cycle and bus.
-"""
+# Analisis drift tegangan DT terhadap field dan aksi kontrol salah dari CSV host.
+# Kontrol dianggap salah bila breaker_DT h4 berbeda dari breaker_actual h1
+# untuk origin_cycle dan bus yang sama.
 import argparse
 import csv
 import statistics
@@ -34,6 +13,7 @@ GRAPHS_DIR = SCRIPT_DIR.parent
 DEFAULT_DATA_DIR = GRAPHS_DIR / "Data"
 DEFAULT_OUTPUT_DIR = GRAPHS_DIR / "Join"
 
+# Folder input host_csv untuk baseline, DoS, dan MITM.
 SCENARIO_PATHS = [
     ("baseline", Path("Baseline") / "host_csv"),
     ("dos_light", Path("DoS") / "host_csv" / "dos_light"),
@@ -154,24 +134,29 @@ HEADER_LABELS = {
 
 
 def display_header(column):
+    """Ubah nama kolom internal menjadi label CSV dengan satuan."""
     return HEADER_LABELS.get(column, column)
 
 
 def fmt_float(value, digits=6):
+    """Format angka float; kosong bila nilai tidak tersedia."""
     if value == "":
         return ""
     return f"{float(value):.{digits}f}"
 
 
 def mean(values):
+    """Rata-rata aman untuk list kosong."""
     return statistics.fmean(values) if values else 0.0
 
 
 def std_dev(values):
+    """Standar deviasi sample; nol bila data kurang dari dua."""
     return statistics.stdev(values) if len(values) > 1 else 0.0
 
 
 def iteration_sort_key(path):
+    """Urutkan folder iteration_N secara numerik."""
     try:
         return int(path.name.split("_", 1)[1])
     except (IndexError, ValueError):
@@ -179,6 +164,7 @@ def iteration_sort_key(path):
 
 
 def selected_cycle_ids(cycle_ids, start_cycle=None, limit_cycles=None):
+    """Pilih cycle_id berdasarkan start dan limit dari argumen CLI."""
     selected = sorted(cycle_ids)
     if start_cycle is not None:
         selected = [cycle_id for cycle_id in selected if cycle_id >= start_cycle]
@@ -188,6 +174,7 @@ def selected_cycle_ids(cycle_ids, start_cycle=None, limit_cycles=None):
 
 
 def read_h1_data(path):
+    """Baca tegangan field dan status breaker aktual dari h1 data_plane."""
     rows = {}
     with path.open("r", newline="", encoding="utf-8-sig") as f:
         reader = csv.DictReader(f)
@@ -207,6 +194,7 @@ def read_h1_data(path):
 
 
 def read_h4_data(path):
+    """Baca tegangan hasil Digital Twin dari h4 data_plane."""
     rows = {}
     with path.open("r", newline="", encoding="utf-8-sig") as f:
         reader = csv.DictReader(f)
@@ -222,6 +210,7 @@ def read_h4_data(path):
 
 
 def read_h4_control(path):
+    """Baca command breaker DT dari h4 control_plane."""
     rows = {}
     with path.open("r", newline="", encoding="utf-8-sig") as f:
         reader = csv.DictReader(f)
@@ -241,6 +230,7 @@ def read_h4_control(path):
 
 
 def analyze_drift(scenario, iteration_dir, h1_rows, h4_rows, start_cycle, limit_cycles):
+    """Hitung selisih tegangan field vs DT untuk satu iterasi."""
     h1_cycle_ids = {cycle_id for cycle_id, _bus in h1_rows}
     cycle_ids = selected_cycle_ids(h1_cycle_ids, start_cycle, limit_cycles)
     detail_rows = []
@@ -295,6 +285,7 @@ def analyze_drift(scenario, iteration_dir, h1_rows, h4_rows, start_cycle, limit_
 
 
 def analyze_control(scenario, iteration_dir, h1_rows, h4_control_rows, start_cycle, limit_cycles):
+    """Bandingkan command DT dengan status breaker field untuk menandai false control."""
     h1_cycle_ids = {cycle_id for cycle_id, _bus in h1_rows}
     cycle_ids = set(selected_cycle_ids(h1_cycle_ids, start_cycle, limit_cycles))
     detail_rows = []
@@ -342,6 +333,7 @@ def analyze_control(scenario, iteration_dir, h1_rows, h4_control_rows, start_cyc
 
 
 def summarize_drift_scenario(scenario, rows):
+    """Ringkas metrik drift tegangan per skenario."""
     items = [row for row in rows if row["scenario"] == scenario]
     if not items:
         return None
@@ -365,6 +357,7 @@ def summarize_drift_scenario(scenario, rows):
 
 
 def summarize_control_scenario(scenario, rows):
+    """Ringkas metrik false control per skenario."""
     items = [row for row in rows if row["scenario"] == scenario]
     if not items:
         return None
@@ -384,6 +377,7 @@ def summarize_control_scenario(scenario, rows):
 
 
 def write_csv(path, columns, rows):
+    """Tulis CSV output dengan header display."""
     path.parent.mkdir(parents=True, exist_ok=True)
     with path.open("w", newline="", encoding="utf-8") as f:
         fieldnames = [display_header(column) for column in columns]
@@ -394,6 +388,7 @@ def write_csv(path, columns, rows):
 
 
 def default_output_dir_for_scenarios(scenarios):
+    """Pilih subfolder output otomatis berdasarkan skenario."""
     selected = set(scenarios)
     has_dos = bool(selected & {"dos_light", "dos_heavy"})
     has_mitm = "mitm" in selected
@@ -405,6 +400,7 @@ def default_output_dir_for_scenarios(scenarios):
 
 
 def parse_args():
+    """Argumen input/output, skenario, dan filter cycle."""
     parser = argparse.ArgumentParser(
         description="Analyze DT voltage drift and false control actions."
     )
@@ -443,6 +439,7 @@ def parse_args():
 
 
 def main():
+    """Entry point analisis drift DT dan false control."""
     args = parse_args()
     data_dir = args.data_dir.resolve()
     output_dir = (

@@ -1,6 +1,5 @@
-"""
-Digital Twin (h4): 5-bus model (sama arsitektur field), sinkron via OPC UA gateway.
-"""
+# h4 adalah Digital Twin: menjalankan model 5-bus yang disinkronkan dari gateway
+# lewat OPC UA, menghitung proteksi arus lebih, lalu mengirim command breaker.
 import math
 import json
 import os
@@ -11,6 +10,7 @@ from datetime import datetime
 import pandapower as pp
 from opcua import Client
 
+# Endpoint OPC UA gateway dan parameter proteksi yang dapat diubah lewat environment.
 GATEWAY_OPC = os.environ.get(
     "GATEWAY_OPC",
     "opc.tcp://10.0.2.2:4840/mininet/",
@@ -46,6 +46,7 @@ def energized_from_slack(brk_fb):
 
 
 def _pp_bus_to_logical(bus_nums):
+    """Balik mapping pandapower bus id -> nomor bus logis 1..5."""
     return {int(bus_nums[k]): k for k in bus_nums}
 
 
@@ -83,6 +84,7 @@ def apply_blackout_model(net, bus_nums, loads, energized):
 
 
 def build_network():
+    """Buat model pandapower DT dengan topologi yang sama seperti field h1."""
     net = pp.create_empty_network()
 
     bus1 = pp.create_bus(net, vn_kv=110, name="Slack Bus")
@@ -128,6 +130,7 @@ def build_network():
 
 
 def apply_topology_from_feedback(net, switches_by_bus, brk_fb):
+    """Gunakan feedback breaker field untuk mengatur switch pandapower DT."""
     for bus, sw_idx in switches_by_bus.items():
         net.switch.at[sw_idx, "closed"] = brk_fb.get(bus, 1) == 1
 
@@ -144,6 +147,7 @@ def apply_pq_to_loads(net, loads, p_by_bus, q_by_bus, energized):
 
 
 def _finite_or_zero(x):
+    """Konversi angka hasil power flow; NaN/inf/invalid diperlakukan sebagai 0."""
     try:
         v = float(x)
     except (TypeError, ValueError):
@@ -152,6 +156,7 @@ def _finite_or_zero(x):
 
 
 def _voltage_snapshot(net, bus_nums, energized):
+    """Ambil tegangan tiap bus, dengan bus blackout dipaksa 0 pu."""
     out = []
     for b in range(1, NUM_BUS + 1):
         vm = _finite_or_zero(net.res_bus.vm_pu.at[bus_nums[b]])
@@ -162,6 +167,7 @@ def _voltage_snapshot(net, bus_nums, energized):
 
 
 def _line_i_ka_safe(net, line_idx):
+    """Ambil arus line dari kedua sisi dan pilih nilai maksimum secara aman."""
     try:
         i_from = float(net.res_line.i_from_ka.at[line_idx])
         i_to = float(net.res_line.i_to_ka.at[line_idx])
@@ -185,6 +191,7 @@ def _log_bus_cycle(
     q_in,
     energized,
 ):
+    """Cetak detail teknis per bus untuk debugging proteksi dan status islanding."""
     idx_pp = bus_nums[bus]
     dead = bus not in energized
     vm_pu = 0.0 if dead else _finite_or_zero(net.res_bus.vm_pu.at[idx_pp])
@@ -251,6 +258,7 @@ def protection_commands(net, switches_by_bus, brk_fb, energized):
 
 
 def connect_opcua():
+    """Hubungkan DT ke gateway OPC UA dengan retry agar tahan terhadap start order."""
     client = Client(GATEWAY_OPC)
     while True:
         try:
@@ -263,6 +271,7 @@ def connect_opcua():
 
 
 def get_opcua_nodes(client):
+    """Resolusi seluruh node OPC UA yang dipakai DT untuk sensor dan command."""
     idx = client.get_namespace_index("mininet-opcua")
     print(f"Namespace index: {idx}", flush=True)
     root = client.get_root_node()
@@ -281,6 +290,7 @@ def get_opcua_nodes(client):
 
 
 def main():
+    """Loop utama DT: ambil snapshot, hitung power flow, publish V_DT dan command."""
     net, bus_nums, loads, switches_by_bus = build_network()
     pp.runpp(net)
 
@@ -318,6 +328,7 @@ def main():
                     snapshot = candidate
                     break
 
+            # Prioritaskan snapshot JSON penuh agar P/Q/breaker berasal dari cycle yang sama.
             if snapshot is not None:
                 cycle_id = int(snapshot["cycle_id"])
                 p_raw = snapshot.get("p", {})
@@ -351,6 +362,7 @@ def main():
                     time.sleep(remain)
                 continue
 
+            # Sinkronkan topologi field, blackout hilir, lalu jalankan power flow DT.
             apply_topology_from_feedback(net, switches_by_bus, brk_fb)
             energized = energized_from_slack(brk_fb)
             dead = sorted(set(range(1, NUM_BUS + 1)) - energized)
@@ -381,6 +393,7 @@ def main():
                 print("Load flow gagal", flush=True)
                 raise
 
+            # Command breaker dibuat setelah arus line diketahui dari hasil power flow.
             cmd = protection_commands(net, switches_by_bus, brk_fb, energized)
             cmd_id = ((cmd_id + 1) & 0xFFFF) or 1
             for bus in range(1, NUM_BUS + 1):

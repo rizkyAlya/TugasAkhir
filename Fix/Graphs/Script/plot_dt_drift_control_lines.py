@@ -1,25 +1,6 @@
 #!/usr/bin/env python3
-r"""
-Create matched-only line graphs for DT drift and false control metrics.
-
-Run from project root:
-    python .\Fix\Graphs\Script\plot_dt_drift_control_lines.py
-
-Inputs:
-- Graphs/Join/dt_drift_detail.csv
-- Graphs/Join/false_control_detail.csv
-
-The x-axis is normalized cycle time:
-    t = cycle_id - first matched cycle_id in each iteration
-
-Outputs:
-- Graphs/Graph/mitm/mitm_dt_drift_line.png
-- Graphs/Graph/mitm/mitm_false_control_count_line.png
-- Graphs/Graph/mitm/mitm_decision_error_rate_line.png
-- Graphs/Graph/dos/baseline_mitm_dos_dt_drift_line.png
-- Graphs/Graph/dos/baseline_mitm_dos_false_control_count_line.png
-- Graphs/Graph/dos/baseline_mitm_dos_decision_error_rate_line.png
-"""
+# Membuat line graph metrik DT drift dan false control dari CSV Join.
+# Sumbu x dinormalisasi per iterasi: t = cycle_id - cycle_id pertama yang matched.
 import argparse
 import csv
 import statistics
@@ -37,6 +18,7 @@ GRAPHS_DIR = SCRIPT_DIR.parent
 DEFAULT_JOIN_DIR = GRAPHS_DIR / "Join"
 DEFAULT_OUTPUT_DIR = GRAPHS_DIR / "Graph"
 
+# Label, warna, dan marker dibuat eksplisit agar grafik antar skrip konsisten.
 SCENARIO_LABELS = {
     "baseline": "Baseline",
     "mitm": "MITM",
@@ -58,6 +40,7 @@ SCENARIO_MARKERS = {
     "dos_heavy": "D",
 }
 
+# Set perbandingan menentukan skenario dan folder output tiap gambar.
 COMPARISONS = [
     {
         "name": "mitm",
@@ -73,6 +56,7 @@ COMPARISONS = [
     },
 ]
 
+# Konfigurasi plot: sumber data, judul, nama file, dan label sumbu.
 PLOTS = [
     {
         "name": "dt_drift",
@@ -111,6 +95,7 @@ HEADER_ALIASES = {
 
 
 def get_csv_value(row, column):
+    """Ambil nilai kolom, termasuk CSV yang memakai label dengan satuan."""
     if column in row:
         return row[column]
     prefixes = [f"{column} ("]
@@ -123,10 +108,12 @@ def get_csv_value(row, column):
 
 
 def mean(values):
+    """Rata-rata aman untuk list kosong."""
     return statistics.fmean(values) if values else 0.0
 
 
 def read_dt_drift_detail(path):
+    """Baca detail drift dan normalisasi cycle menjadi waktu relatif per iterasi."""
     raw = defaultdict(list)
     min_cycle_by_iter = {}
 
@@ -159,6 +146,7 @@ def read_dt_drift_detail(path):
 
 
 def read_false_control_detail(path):
+    """Baca detail false control dan agregasi jumlah/error rate per cycle relatif."""
     raw = defaultdict(list)
     min_cycle_by_iter = {}
 
@@ -200,6 +188,7 @@ def read_false_control_detail(path):
 
 
 def draw_line_plot(rows, comparison, plot_cfg, output_dir):
+    """Gambar satu line plot untuk konfigurasi metrik dan perbandingan tertentu."""
     rows = [row for row in rows if row["scenario"] in comparison["scenarios"]]
     if not rows:
         return None
@@ -288,6 +277,7 @@ def draw_line_plot(rows, comparison, plot_cfg, output_dir):
 
 
 def parse_args():
+    """Argumen folder Join dan folder output Graph."""
     parser = argparse.ArgumentParser(
         description="Create matched-only line graphs by normalized cycle time t."
     )
@@ -307,6 +297,7 @@ def parse_args():
 
 
 def main():
+    """Entry point plotting DT drift dan false control."""
     args = parse_args()
     join_dir = args.join_dir.resolve()
     output_dir = args.output_dir.resolve()

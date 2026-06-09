@@ -1,28 +1,7 @@
 #!/usr/bin/env python3
-r"""
-Analyze current (I) manipulation by matching H2.I_sent and H3.I_received.
-
-Run from project root:
-    python .\Fix\Graphs\Script\analyze_current_manipulation.py
-
-Analyze all scenarios:
-    python .\Fix\Graphs\Script\analyze_current_manipulation.py --scenarios baseline dos_light dos_heavy mitm
-
-Optional threshold override:
-    python .\Fix\Graphs\Script\analyze_current_manipulation.py --abs-threshold-a 40 --pct-threshold 5
-
-Outputs by default:
-- Graphs/Join/mitm/current_manipulation_detail.csv
-- Graphs/Join/mitm/current_manipulation_iteration_summary.csv
-- Graphs/Join/mitm/current_manipulation_scenario_summary.csv
-- Graphs/Join/mitm/current_manipulation_bus_summary.csv
-
-Definition:
-    matched sample = same cycle_id and bus exists in both H2 and H3,
-                     with H2.ts_sent <= H3.ts_received.
-    manipulated = abs(I_received - I_sent) >= abs_threshold_a
-                  and abs(I_received - I_sent) / abs(I_sent) * 100 >= pct_threshold.
-"""
+# Analisis manipulasi arus (I) dengan mencocokkan H2.I_sent dan H3.I_received.
+# Sampel dianggap cocok bila cycle_id/bus sama dan timestamp h3 tidak lebih awal dari h2.
+# Manipulasi ditandai bila selisih memenuhi ambang absolut dan persentase.
 import argparse
 import csv
 import statistics
@@ -35,6 +14,7 @@ GRAPHS_DIR = SCRIPT_DIR.parent
 DEFAULT_DATA_DIR = GRAPHS_DIR / "Data"
 DEFAULT_OUTPUT_DIR = GRAPHS_DIR / "Join"
 
+# Folder host_csv yang dapat dianalisis; default fokus baseline vs MITM.
 SCENARIO_PATHS = [
     ("baseline", Path("Baseline") / "host_csv"),
     ("dos_light", Path("DoS") / "host_csv" / "dos_light"),
@@ -134,24 +114,29 @@ HEADER_LABELS = {
 
 
 def display_header(column):
+    """Ubah nama kolom internal menjadi label CSV dengan satuan."""
     return HEADER_LABELS.get(column, column)
 
 
 def fmt_float(value, digits=6):
+    """Format angka float; kosong bila nilai tidak tersedia."""
     if value == "":
         return ""
     return f"{float(value):.{digits}f}"
 
 
 def mean(values):
+    """Rata-rata aman untuk list kosong."""
     return statistics.fmean(values) if values else 0.0
 
 
 def std_dev(values):
+    """Standar deviasi sample; nol bila data kurang dari dua."""
     return statistics.stdev(values) if len(values) > 1 else 0.0
 
 
 def iteration_sort_key(path):
+    """Urutkan folder iteration_N secara numerik."""
     try:
         return int(path.name.split("_", 1)[1])
     except (IndexError, ValueError):
@@ -159,6 +144,7 @@ def iteration_sort_key(path):
 
 
 def selected_cycle_ids(cycle_ids, start_cycle=None, limit_cycles=None):
+    """Pilih cycle_id berdasarkan start dan limit dari argumen CLI."""
     selected = sorted(cycle_ids)
     if start_cycle is not None:
         selected = [cycle_id for cycle_id in selected if cycle_id >= start_cycle]
@@ -168,6 +154,7 @@ def selected_cycle_ids(cycle_ids, start_cycle=None, limit_cycles=None):
 
 
 def read_h2_current(path):
+    """Baca arus yang dikirim RTU h2 per cycle dan bus."""
     rows = defaultdict(list)
     with path.open("r", newline="", encoding="utf-8-sig") as f:
         reader = csv.DictReader(f)
@@ -187,6 +174,7 @@ def read_h2_current(path):
 
 
 def read_h3_current(path):
+    """Baca arus yang diterima gateway h3 per cycle dan bus."""
     rows = []
     with path.open("r", newline="", encoding="utf-8-sig") as f:
         reader = csv.DictReader(f)
@@ -206,6 +194,7 @@ def read_h3_current(path):
 
 
 def pick_h2_sample(h2_candidates, h3_ts_received):
+    """Ambil sampel h2 terakhir yang masih terjadi sebelum penerimaan h3."""
     before_or_equal = [
         candidate for candidate in h2_candidates if candidate["ts_sent"] <= h3_ts_received
     ]
@@ -222,6 +211,7 @@ def analyze_iteration(
     start_cycle=None,
     limit_cycles=None,
 ):
+    """Cocokkan sampel h2-h3 dan tandai manipulasi untuk satu iterasi."""
     h2_path = iteration_dir / "data_plane" / "h2.csv"
     h3_path = iteration_dir / "data_plane" / "h3.csv"
     if not h2_path.exists() or not h3_path.exists():
@@ -295,6 +285,7 @@ def analyze_iteration(
 
 
 def summarize_scenario(scenario, rows):
+    """Ringkas hasil manipulasi arus per skenario."""
     items = [row for row in rows if row["scenario"] == scenario]
     if not items:
         return None
@@ -318,6 +309,7 @@ def summarize_scenario(scenario, rows):
 
 
 def summarize_bus(rows):
+    """Ringkas hasil manipulasi arus per bus."""
     grouped = defaultdict(list)
     for row in rows:
         grouped[(row["scenario"], row["bus"])].append(row)
@@ -345,6 +337,7 @@ def summarize_bus(rows):
 
 
 def write_csv(path, columns, rows):
+    """Tulis CSV output dengan header display."""
     path.parent.mkdir(parents=True, exist_ok=True)
     with path.open("w", newline="", encoding="utf-8") as f:
         fieldnames = [display_header(column) for column in columns]
@@ -355,6 +348,7 @@ def write_csv(path, columns, rows):
 
 
 def default_output_dir_for_scenarios(scenarios):
+    """Pilih subfolder output otomatis berdasarkan skenario yang dianalisis."""
     selected = set(scenarios)
     has_dos = bool(selected & {"dos_light", "dos_heavy"})
     has_mitm = "mitm" in selected
@@ -366,6 +360,7 @@ def default_output_dir_for_scenarios(scenarios):
 
 
 def parse_args():
+    """Argumen input/output, skenario, threshold, dan filter cycle."""
     parser = argparse.ArgumentParser(
         description="Analyze current manipulation from matched H2/H3 current logs."
     )
@@ -416,6 +411,7 @@ def parse_args():
 
 
 def main():
+    """Entry point analisis manipulasi arus."""
     args = parse_args()
     data_dir = args.data_dir.resolve()
     output_dir = (

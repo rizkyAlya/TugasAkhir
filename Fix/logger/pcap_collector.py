@@ -11,8 +11,8 @@ import time
 from datetime import datetime
 from typing import Any, Dict, List, Optional
 
-# iface: antarmuka Mininet (selaras topology.j2 / attacker.j2).
-# defer=mitm: h5-eth1 hanya saat include_mitm_eth1=True (fase trace MITM).
+# Spesifikasi capture per host; label menjadi nama file .pcap.
+# defer=mitm berarti interface h5-eth1 hanya dicapture saat fase MITM aktif.
 CAPTURE_SPECS: List[Dict[str, str]] = [
     {
         "host": "h1",
@@ -64,6 +64,7 @@ _REMOTE_PCAP_DIR = "/tmp/cyberrange_pcap/out"
 
 
 def _iface_up(host, iface: str) -> bool:
+    """Cek status interface Mininet sebelum tcpdump dimulai."""
     if iface == "any":
         return True
     out = (host.cmd(f"cat /sys/class/net/{iface}/operstate 2>/dev/null") or "").strip()
@@ -71,20 +72,24 @@ def _iface_up(host, iface: str) -> bool:
 
 
 def _host_has_tcpdump(host) -> bool:
+    """Pastikan tcpdump tersedia di namespace host."""
     return bool((host.cmd("command -v tcpdump 2>/dev/null") or "").strip())
 
 
 def _remote_pcap_path(host_name: str, label: str, phase: str, iteration: int) -> str:
+    """Path file pcap sementara di dalam filesystem namespace host."""
     safe = label.replace("/", "_")
     return f"{_REMOTE_PCAP_DIR}/{phase}_iter{iteration:02d}_{host_name}_{safe}.pcap"
 
 
 def _pid_file(host_name: str, label: str, phase: str, iteration: int) -> str:
+    """Path file PID tcpdump agar proses bisa dihentikan tepat per iterasi."""
     safe = label.replace("/", "_")
     return f"{_PID_DIR}/{phase}_iter{iteration:02d}_{host_name}_{safe}.pid"
 
 
 def _copy_from_host_namespace(host, remote_path: str, local_path: str) -> bool:
+    """Salin file dari namespace host melalui /proc/<pid>/root ke filesystem host utama."""
     pid = getattr(host, "pid", None)
     if not pid:
         return False
@@ -101,6 +106,7 @@ def _iter_output_dir(output_dir: str, phase: str, iteration: int) -> str:
 
 
 def write_pcap_manifest(output_dir: str, manifest: List[Dict[str, Any]], **extra) -> None:
+    """Tulis manifest yang mencatat status semua capture dalam satu sesi."""
     payload = {
         "output_dir": output_dir,
         "layout": "<phase>/iterNN/<label>.pcap",
@@ -113,6 +119,7 @@ def write_pcap_manifest(output_dir: str, manifest: List[Dict[str, Any]], **extra
 
 
 def _specs_for_phase(include_mitm_eth1: bool) -> List[Dict[str, str]]:
+    """Pilih daftar capture sesuai fase baseline/MITM/DoS."""
     specs = []
     for spec in CAPTURE_SPECS:
         if spec.get("defer") == "mitm":
@@ -280,4 +287,5 @@ def stop_any_running_captures(net, manifest: List[Dict[str, Any]]) -> None:
 
 
 def pcap_session_dir(base_dir: str, run_id: str) -> str:
+    """Folder PCAP sesi mengikuti run_id orchestrator."""
     return os.path.join(base_dir, "logs", "pcap", run_id)

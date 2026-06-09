@@ -1,3 +1,5 @@
+# h2 adalah RTU/IED: membaca pengukuran dari field h1, memberi noise ringan,
+# meneruskan data ke gateway h3, dan mengirim perintah breaker DT kembali ke field.
 from pymodbus.client import ModbusTcpClient
 from pymodbus.exceptions import ConnectionException
 import os
@@ -6,6 +8,7 @@ import sys
 import time
 from datetime import datetime
 
+# Endpoint Modbus dan peta alamat register/coil harus konsisten dengan h1 dan h3.
 FIELD_IP = "10.0.1.2"
 GATEWAY_IP = "10.0.2.2"
 MODBUS_PORT = 5020
@@ -26,6 +29,7 @@ NUM_BUS = 5
 
 LOOP_INTERVAL_S = float(os.environ.get("RTU_LOOP_INTERVAL_S", "1"))
 
+# Noise dibuat deterministik agar eksperimen dapat diulang.
 RTU_NOISE_SEED = int(os.environ.get("RTU_NOISE_SEED", "7"))
 V_NOISE_SIGMA = float(os.environ.get("RTU_V_NOISE_SIGMA", "0.003"))
 I_NOISE_SIGMA = float(os.environ.get("RTU_I_NOISE_SIGMA", "1.5"))
@@ -40,6 +44,7 @@ gateway_client = ModbusTcpClient(GATEWAY_IP, port=MODBUS_PORT)
 
 
 def _connect_with_retry(client: ModbusTcpClient, label: str, retry_delay_s: float = 1.0) -> None:
+    """Coba koneksi Modbus sampai sukses, karena start order host bisa saling menunggu."""
     while True:
         try:
             ok = client.connect()
@@ -52,6 +57,7 @@ def _connect_with_retry(client: ModbusTcpClient, label: str, retry_delay_s: floa
 
 
 def _is_connected(client: ModbusTcpClient) -> bool:
+    """Normalisasi status koneksi pymodbus yang bisa berbeda antar versi."""
     val = getattr(client, "connected", None)
     if val is None:
         return False
@@ -62,6 +68,7 @@ def _is_connected(client: ModbusTcpClient) -> bool:
 
 
 def ensure_connections() -> None:
+    """Pastikan koneksi ke field dan gateway aktif sebelum siklus RTU berjalan."""
     if not _is_connected(field_client):
         _connect_with_retry(field_client, f"FIELD ({FIELD_IP}:{MODBUS_PORT})")
     if not _is_connected(gateway_client):
@@ -72,12 +79,14 @@ breaker_cmd = {bus: 1 for bus in range(1, NUM_BUS + 1)}
 
 
 def apply_measurement_noise(v_pu, i_amp):
+    """Tambahkan noise sensor kecil pada V dan I tanpa membuat arus negatif."""
     v_noisy = v_pu + _noise_rng.gauss(0.0, V_NOISE_SIGMA)
     i_noisy = max(0.0, i_amp + _noise_rng.gauss(0.0, I_NOISE_SIGMA))
     return v_noisy, i_noisy
 
 
 def read_modbus_bus(bus):
+    """Baca V/I/PF satu bus dari holding register field."""
     addr_v = V_BASE_ADDR + (bus - 1)
     addr_i = I_BASE_ADDR + (bus - 1)
     addr_pf = PF_BASE_ADDR + (bus - 1)
@@ -93,6 +102,7 @@ def read_modbus_bus(bus):
 
 
 def read_data_cycle():
+    """Ambil cycle id terbaru dari field untuk menjaga korelasi antar host."""
     rr = field_client.read_holding_registers(DATA_CYCLE_ADDR, 1, unit=1)
     if rr.isError() or not rr.registers:
         return 0
@@ -109,6 +119,7 @@ def read_breaker_field(bus):
 
 
 def read_breaker_command(bus):
+    """Baca command breaker dari gateway untuk bus tertentu."""
     addr_cmd = BREAKER_BASE_ADDR + (bus - 1)
     rr_cmd = gateway_client.read_coils(addr_cmd, 1, unit=1)
     if rr_cmd.isError() or not rr_cmd.bits:
@@ -117,6 +128,7 @@ def read_breaker_command(bus):
 
 
 def read_command_meta():
+    """Baca metadata command agar latency kontrol bisa dianalisis."""
     rr_cmd = gateway_client.read_holding_registers(CMD_ID_ADDR, 1, unit=1)
     rr_origin = gateway_client.read_holding_registers(ORIGIN_CYCLE_ADDR, 1, unit=1)
     cmd_id = 0 if rr_cmd.isError() or not rr_cmd.registers else int(rr_cmd.registers[0])
@@ -125,6 +137,7 @@ def read_command_meta():
 
 
 def update_breaker_field(bus, status):
+    """Tulis status breaker hasil command DT ke coil field."""
     addr_brk = BREAKER_BASE_ADDR + (bus - 1)
     try:
         field_client.write_coil(addr_brk, bool(status), unit=0)
@@ -133,6 +146,7 @@ def update_breaker_field(bus, status):
 
 
 def update_field_command_meta(cmd_id, origin_cycle):
+    """Teruskan id command dan cycle asal ke field untuk logging kontrol h1."""
     try:
         field_client.write_register(CMD_ID_ADDR, int(cmd_id), unit=0)
         field_client.write_register(ORIGIN_CYCLE_ADDR, int(origin_cycle), unit=0)
@@ -141,6 +155,7 @@ def update_field_command_meta(cmd_id, origin_cycle):
 
 
 def send_to_gateway_modbus(bus, v, i, pf, breaker_fb):
+    """Kirim pengukuran dan feedback breaker RTU ke holding register gateway."""
     addr_v = V_BASE_ADDR + (bus - 1)
     addr_i = I_BASE_ADDR + (bus - 1)
     addr_pf = PF_FB_BASE_ADDR + (bus - 1)
@@ -222,6 +237,7 @@ def upload_measurements(ts):
     return ok
 
 
+# Loop utama RTU berjalan langsung saat file dieksekusi oleh Mininet.
 try:
     ensure_connections()
     print(

@@ -1,0 +1,9 @@
+Aspek,DoS,MITM
+Target,Availability,Integrity
+RTT,System RTT naik dari baseline 2.52 ms menjadi 40.93 ms pada DoS Heavy,System RTT tetap rendah 0.64 ms
+Fresh Data,Turun sampai 86.7% pada DoS Heavy,Tetap 100.0%
+Missing Data,Naik sampai 8.7% pada DoS Heavy,Tetap 0.0%
+Drift DT,Tidak menjadi dampak utama; gangguan terlihat pada delay dan missing data,Manipulasi arus 23.29%; diff mean 55.29 A; max 483.88 A
+Decision Error,Mean 29.12% pada DoS Heavy; maksimum iterasi 44.94%,Mean 47.37%; maksimum per line 65.50%
+False Control Action,161 false-control count pada DoS Heavy,360 false open; 0 false close
+Dampak Operasional,Degradasi sinkronisasi dan kehilangan data,Keputusan kontrol salah akibat data termanipulasi

@@ -1,21 +1,6 @@
 #!/usr/bin/env python3
-r"""
-Analyze Age of Information (AoI) from Baseline, DoS, and MITM host CSV logs.
-
-Run from project root:
-    python .\Fix\Graphs\Script\analyze_aoi.py
-
-Baseline and DoS only, from cycle 14 and first 50 cycle_id values:
-    python .\Fix\Graphs\Script\analyze_aoi.py --scenarios baseline dos_light dos_heavy --start-cycle 14 --limit-cycles 50
-
-Optional threshold override:
-    python .\Fix\Graphs\Script\analyze_aoi.py --threshold 3
-
-Outputs:
-- Graphs/Join/dos/aoi_*.csv for baseline + DoS selections
-- Graphs/Join/mitm/aoi_*.csv for baseline + MITM selections
-- Graphs/Join/aoi_*.csv when DoS and MITM are analyzed together
-"""
+# Analisis Age of Information (AoI) dari CSV host baseline, DoS, dan MITM.
+# Output dipisahkan ke Join/dos, Join/mitm, atau Join sesuai kombinasi skenario.
 import argparse
 import csv
 import statistics
@@ -27,6 +12,7 @@ GRAPHS_DIR = SCRIPT_DIR.parent
 DEFAULT_DATA_DIR = GRAPHS_DIR / "Data"
 DEFAULT_OUTPUT_DIR = GRAPHS_DIR / "Join"
 
+# Peta folder input host_csv per skenario.
 SCENARIO_PATHS = [
     ("baseline", Path("Baseline") / "host_csv"),
     ("dos_light", Path("DoS") / "host_csv" / "dos_light"),
@@ -63,6 +49,7 @@ ITERATION_COLUMNS = [
     "missing_count",
     "aoi_mean_s",
     "aoi_std_dev_s",
+    "aoi_max_s",
     "fresh_pct",
     "stale_pct",
     "missing_pct",
@@ -81,6 +68,7 @@ SCENARIO_COLUMNS = [
     "aoi_mean_s_std_dev",
     "aoi_std_dev_s_mean",
     "aoi_std_dev_s_std_dev",
+    "aoi_max_s_max",
     "fresh_pct_mean",
     "fresh_pct_std_dev",
     "stale_pct_mean",
@@ -105,6 +93,7 @@ HEADER_LABELS = {
     "missing_count": "missing_count (count)",
     "aoi_mean_s": "aoi_mean (s)",
     "aoi_std_dev_s": "aoi_std_dev (s)",
+    "aoi_max_s": "aoi_max (s)",
     "fresh_pct": "fresh_pct (%)",
     "stale_pct": "stale_pct (%)",
     "missing_pct": "missing_pct (%)",
@@ -118,6 +107,7 @@ HEADER_LABELS = {
     "aoi_mean_s_std_dev": "aoi_mean_std_dev (s)",
     "aoi_std_dev_s_mean": "aoi_std_dev_mean (s)",
     "aoi_std_dev_s_std_dev": "aoi_std_dev_std_dev (s)",
+    "aoi_max_s_max": "aoi_max_max (s)",
     "fresh_pct_mean": "fresh_pct_mean (%)",
     "fresh_pct_std_dev": "fresh_pct_std_dev (%)",
     "stale_pct_mean": "stale_pct_mean (%)",
@@ -128,24 +118,29 @@ HEADER_LABELS = {
 
 
 def display_header(column):
+    """Ubah nama kolom internal menjadi label CSV dengan satuan."""
     return HEADER_LABELS.get(column, column)
 
 
 def fmt_float(value, digits=6):
+    """Format angka float; kosong bila nilai tidak tersedia."""
     if value == "":
         return ""
     return f"{float(value):.{digits}f}"
 
 
 def mean(values):
+    """Rata-rata aman untuk list kosong."""
     return statistics.fmean(values) if values else 0.0
 
 
 def std_dev(values):
+    """Standar deviasi sample; nol bila data kurang dari dua."""
     return statistics.stdev(values) if len(values) > 1 else 0.0
 
 
 def read_cycle_timestamps(path, ts_column):
+    """Baca timestamp paling awal per cycle_id dari satu CSV host."""
     timestamps = {}
     with path.open("r", newline="", encoding="utf-8-sig") as f:
         reader = csv.DictReader(f)
@@ -164,6 +159,7 @@ def read_cycle_timestamps(path, ts_column):
 
 
 def read_cycle_timestamp_lists(path, ts_column):
+    """Baca seluruh timestamp per cycle_id untuk mencari penerimaan yang cocok."""
     timestamps = {}
     with path.open("r", newline="", encoding="utf-8-sig") as f:
         reader = csv.DictReader(f)
@@ -185,6 +181,7 @@ def read_cycle_timestamp_lists(path, ts_column):
 
 
 def first_received_at_or_after(received_by_cycle, cycle_id, ts_sent):
+    """Pilih timestamp diterima pertama yang tidak lebih awal dari ts_sent."""
     for ts_received in received_by_cycle.get(cycle_id, []):
         if ts_received >= ts_sent:
             return ts_received
@@ -192,6 +189,7 @@ def first_received_at_or_after(received_by_cycle, cycle_id, ts_sent):
 
 
 def iteration_sort_key(path):
+    """Urutkan folder iteration_N secara numerik."""
     try:
         return int(path.name.split("_", 1)[1])
     except (IndexError, ValueError):
@@ -199,6 +197,7 @@ def iteration_sort_key(path):
 
 
 def selected_cycle_ids(cycle_ids, start_cycle=None, limit_cycles=None):
+    """Pilih rentang cycle_id sesuai argumen start dan limit."""
     selected = sorted(cycle_ids)
     if start_cycle is not None:
         selected = [cycle_id for cycle_id in selected if cycle_id >= start_cycle]
@@ -214,6 +213,7 @@ def analyze_iteration(
     start_cycle=None,
     limit_cycles=None,
 ):
+    """Hitung AoI per cycle dan ringkasan satu iterasi."""
     h1_path = iteration_dir / "data_plane" / "h1.csv"
     h4_path = iteration_dir / "data_plane" / "h4.csv"
     if not h1_path.exists():
@@ -273,6 +273,7 @@ def analyze_iteration(
         "missing_count": counts["Missing"],
         "aoi_mean_s": fmt_float(mean(aoi_values)),
         "aoi_std_dev_s": fmt_float(std_dev(aoi_values)),
+        "aoi_max_s": fmt_float(max(aoi_values) if aoi_values else 0.0),
         "fresh_pct": fmt_float(counts["Fresh"] / total * 100),
         "stale_pct": fmt_float(counts["Stale"] / total * 100),
         "missing_pct": fmt_float(counts["Missing"] / total * 100),
@@ -281,6 +282,7 @@ def analyze_iteration(
 
 
 def summarize_scenario(scenario, iteration_summaries, threshold_s):
+    """Gabungkan ringkasan semua iterasi menjadi ringkasan skenario."""
     rows = [row for row in iteration_summaries if row["scenario"] == scenario]
     if not rows:
         return None
@@ -304,6 +306,7 @@ def summarize_scenario(scenario, iteration_summaries, threshold_s):
         "aoi_mean_s_std_dev": fmt_float(std_dev(values("aoi_mean_s"))),
         "aoi_std_dev_s_mean": fmt_float(mean(values("aoi_std_dev_s"))),
         "aoi_std_dev_s_std_dev": fmt_float(std_dev(values("aoi_std_dev_s"))),
+        "aoi_max_s_max": fmt_float(max(values("aoi_max_s"))),
         "fresh_pct_mean": fmt_float(mean(values("fresh_pct"))),
         "fresh_pct_std_dev": fmt_float(std_dev(values("fresh_pct"))),
         "stale_pct_mean": fmt_float(mean(values("stale_pct"))),
@@ -314,6 +317,7 @@ def summarize_scenario(scenario, iteration_summaries, threshold_s):
 
 
 def write_csv(path, columns, rows):
+    """Tulis CSV dengan header display dan urutan kolom tetap."""
     path.parent.mkdir(parents=True, exist_ok=True)
     with path.open("w", newline="", encoding="utf-8") as f:
         fieldnames = [display_header(column) for column in columns]
@@ -324,12 +328,14 @@ def write_csv(path, columns, rows):
 
 
 def fmt_pm(mean_value, std_value, digits):
+    """Format mean dan standar deviasi untuk tabel final."""
     return f"{float(mean_value):.{digits}f} ± {float(std_value):.{digits}f}"
 
 
 def write_final_csv_table(path, rows):
+    """Tulis tabel final ringkas yang siap dipakai di laporan."""
     path.parent.mkdir(parents=True, exist_ok=True)
-    headers = ["Skenario", "Mean AoI (s)", "Fresh (%)", "Stale (%)", "Missing (%)"]
+    headers = ["Skenario", "Mean AoI (s)", "Max AoI (s)", "Fresh (%)", "Stale (%)", "Missing (%)"]
     with path.open("w", newline="", encoding="utf-8-sig") as f:
         writer = csv.DictWriter(f, fieldnames=headers)
         writer.writeheader()
@@ -342,6 +348,7 @@ def write_final_csv_table(path, rows):
                         row["aoi_mean_s_std_dev"],
                         2,
                     ),
+                    "Max AoI (s)": f"{float(row['aoi_max_s_max']):.2f}",
                     "Fresh (%)": fmt_pm(
                         row["fresh_pct_mean"],
                         row["fresh_pct_std_dev"],
@@ -362,6 +369,7 @@ def write_final_csv_table(path, rows):
 
 
 def parse_args():
+    """Argumen input/output, skenario, threshold, dan filter cycle."""
     parser = argparse.ArgumentParser(
         description="Analyze AoI synchronization from H1/H4 host CSV logs."
     )
@@ -406,6 +414,7 @@ def parse_args():
 
 
 def default_output_dir_for_scenarios(scenarios):
+    """Pilih subfolder output otomatis berdasarkan skenario yang dianalisis."""
     selected = set(scenarios)
     has_dos = bool(selected & {"dos_light", "dos_heavy"})
     has_mitm = "mitm" in selected
@@ -417,6 +426,7 @@ def default_output_dir_for_scenarios(scenarios):
 
 
 def main():
+    """Entry point analisis AoI."""
     args = parse_args()
     data_dir = args.data_dir.resolve()
     output_dir = (

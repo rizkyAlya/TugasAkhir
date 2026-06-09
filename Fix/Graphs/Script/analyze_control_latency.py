@@ -1,23 +1,7 @@
 #!/usr/bin/env python3
-r"""
-Analyze control latency from control-plane host CSV logs.
-
-Run from project root:
-    python .\Fix\Graphs\Script\analyze_control_latency.py
-
-Optional cycle window:
-    python .\Fix\Graphs\Script\analyze_control_latency.py --start-origin-cycle 14 --limit-commands 50
-
-Outputs:
-- Graphs/Join/dos/control_latency_detail.csv
-- Graphs/Join/dos/control_latency_iteration_summary.csv
-- Graphs/Join/dos/control_latency_scenario_summary.csv
-- Graphs/Join/dos/control_latency_final_table.csv
-
-Definition:
-    matched control row = same cmd_id and bus exists in H4 and H1.
-    control_latency = H1.ts_received - H4.ts_sent.
-"""
+# Analisis latency kontrol dari CSV control_plane.
+# Baris cocok bila cmd_id dan bus ada di h4 (DT mengirim) dan h1 (field menerima);
+# latency = h1.ts_received - h4.ts_sent.
 import argparse
 import csv
 import statistics
@@ -29,6 +13,7 @@ GRAPHS_DIR = SCRIPT_DIR.parent
 DEFAULT_DATA_DIR = GRAPHS_DIR / "Data"
 DEFAULT_OUTPUT_DIR = GRAPHS_DIR / "Join" / "dos"
 
+# Input baseline dan DoS dipakai untuk membandingkan dampak serangan pada jalur kontrol.
 SCENARIO_PATHS = [
     ("baseline", Path("Baseline") / "host_csv"),
     ("dos_light", Path("DoS") / "host_csv" / "dos_light"),
@@ -115,28 +100,34 @@ HEADER_LABELS = {
 
 
 def display_header(column):
+    """Ubah nama kolom internal menjadi label CSV dengan satuan."""
     return HEADER_LABELS.get(column, column)
 
 
 def fmt_float(value, digits=6):
+    """Format angka float; kosong bila nilai tidak tersedia."""
     if value == "":
         return ""
     return f"{float(value):.{digits}f}"
 
 
 def fmt_pm(mean_value, std_value, digits=2):
+    """Format mean dan standar deviasi untuk tabel final."""
     return f"{float(mean_value):.{digits}f} ± {float(std_value):.{digits}f}"
 
 
 def mean(values):
+    """Rata-rata aman untuk list kosong."""
     return statistics.fmean(values) if values else 0.0
 
 
 def std_dev(values):
+    """Standar deviasi sample; nol bila data kurang dari dua."""
     return statistics.stdev(values) if len(values) > 1 else 0.0
 
 
 def iteration_sort_key(path):
+    """Urutkan folder iteration_N secara numerik."""
     try:
         return int(path.name.split("_", 1)[1])
     except (IndexError, ValueError):
@@ -144,6 +135,7 @@ def iteration_sort_key(path):
 
 
 def selected_cmd_ids(cmd_rows, start_origin_cycle=None, limit_commands=None):
+    """Pilih command berdasarkan origin_cycle dan batas jumlah command."""
     commands = sorted(
         {
             (row["origin_cycle"], row["cmd_id"])
@@ -157,6 +149,7 @@ def selected_cmd_ids(cmd_rows, start_origin_cycle=None, limit_commands=None):
 
 
 def read_control_rows(path, timestamp_column):
+    """Baca control_plane dan ambil kolom timestamp yang relevan untuk host tersebut."""
     rows = []
     with path.open("r", newline="", encoding="utf-8-sig") as f:
         reader = csv.DictReader(f)
@@ -181,6 +174,7 @@ def analyze_iteration(
     start_origin_cycle=None,
     limit_commands=None,
 ):
+    """Cocokkan command DT di h4 dengan penerimaan di h1 untuk satu iterasi."""
     h4_path = iteration_dir / "control_plane" / "h4.csv"
     h1_path = iteration_dir / "control_plane" / "h1.csv"
     if not h4_path.exists() or not h1_path.exists():
@@ -246,6 +240,7 @@ def analyze_iteration(
 
 
 def summarize_scenario(scenario, rows):
+    """Ringkas detail latency menjadi statistik per skenario."""
     items = [row for row in rows if row["scenario"] == scenario]
     if not items:
         return None
@@ -268,6 +263,7 @@ def summarize_scenario(scenario, rows):
 
 
 def build_final_table(rows):
+    """Buat tabel akhir ringkas untuk baseline, DoS light, dan DoS heavy."""
     out = []
     for row in rows:
         scenario = row["scenario"]
@@ -286,6 +282,7 @@ def build_final_table(rows):
 
 
 def write_csv(path, columns, rows, encoding="utf-8"):
+    """Tulis CSV dengan header display."""
     path.parent.mkdir(parents=True, exist_ok=True)
     with path.open("w", newline="", encoding=encoding) as f:
         fieldnames = [display_header(column) for column in columns]
@@ -296,6 +293,7 @@ def write_csv(path, columns, rows, encoding="utf-8"):
 
 
 def parse_args():
+    """Argumen folder input/output dan filter command."""
     parser = argparse.ArgumentParser(
         description="Analyze control latency from H4.ts_sent to H1.ts_received."
     )
@@ -327,6 +325,7 @@ def parse_args():
 
 
 def main():
+    """Entry point analisis latency kontrol."""
     args = parse_args()
     data_dir = args.data_dir.resolve()
     output_dir = args.output_dir.resolve()
